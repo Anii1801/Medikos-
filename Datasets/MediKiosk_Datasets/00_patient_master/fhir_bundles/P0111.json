@@ -1,0 +1,151 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0111",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-9273-7669-4742"
+     }
+    ],
+    "name": [
+     {
+      "text": "Vijay Chauhan"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0111",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0111"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0126",
+    "subject": {
+     "reference": "Patient/P0111"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "40-year-old male presenting with cough and breathlessness for 2 months. Character: wheezing, worse at night; radiation: n/a; aggravated by dust and cold air; relieved by inhaler. Severity 6/10. Associated: sneezing. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: no known allergies. Family: diabetes. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00191-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0111"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00191-1517",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0111"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sitopaladi churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00192-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0111"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00192-1517",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0111"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sitopaladi churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0308",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4446-5321-6311"
+     }
+    ],
+    "name": [
+     {
+      "text": "Savita Ansari"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0308",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0308"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0283",
+    "subject": {
+     "reference": "Patient/P0308"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "62-year-old female presenting with pain in the abdomen for 5 days. Character: burning pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 3/10. Associated: loose motions, vomiting, bloating. PMH: none. Drugs: none. Allergy: penicillin. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0308",
+    "patient": {
+     "reference": "Patient/P0308"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  }
+ ]
+}

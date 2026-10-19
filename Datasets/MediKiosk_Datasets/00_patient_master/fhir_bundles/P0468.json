@@ -1,0 +1,79 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0468",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4997-1001-4996"
+     }
+    ],
+    "name": [
+     {
+      "text": "Radha Iyer"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0468",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0468"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0020",
+    "subject": {
+     "reference": "Patient/P0468"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "38-year-old female presenting with burning in the chest and stomach after meals for 3 weeks. Character: burning sensation; radiation: up to the throat; aggravated by lying down after meals; relieved by cold milk. Severity 3/10. Associated: nausea, sour belching. PMH: Type 2 diabetes for 10 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  }
+ ]
+}

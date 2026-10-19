@@ -1,0 +1,214 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0005",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4365-8166-6064"
+     }
+    ],
+    "name": [
+     {
+      "text": "Usha Yadav"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0005",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0005"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0199",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "47-year-old female presenting with knee pain for 1 years. Character: dull aching pain; radiation: it does not spread; aggravated by climbing stairs; relieved by oil massage. Severity 3/10. Associated: swelling, difficulty walking. PMH: none. Drugs: none. Allergy: penicillin. Family: diabetes. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0005",
+    "patient": {
+     "reference": "Patient/P0005"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00009-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00010-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00010-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00008-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-06-08",
+    "valueQuantity": {
+     "value": 1.06,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00008-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-06-08",
+    "valueQuantity": {
+     "value": 53.2,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00008-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0005"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-06-08",
+    "valueQuantity": {
+     "value": 8.88,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

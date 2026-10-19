@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0038",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2811-3881-2696"
+     }
+    ],
+    "name": [
+     {
+      "text": "Ravi Patel"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0038",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0038"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0191",
+    "subject": {
+     "reference": "Patient/P0038"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "45-year-old male presenting with cough and breathlessness for 3 weeks. Character: wheezing, worse at night; radiation: n/a; aggravated by night time; relieved by inhaler. Severity 6/10. Associated: chest tightness, sneezing. PMH: Asthma since childhood; Appendectomy in 2007. Drugs: Salbutamol inhaler 100 mcg. Allergy: dust. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0038",
+    "patient": {
+     "reference": "Patient/P0038"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  }
+ ]
+}

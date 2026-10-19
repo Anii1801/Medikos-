@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0407",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2827-7680-5164"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anil Reddy"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0407",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0407"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0035",
+    "subject": {
+     "reference": "Patient/P0407"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "21-year-old male presenting with burning in the chest and stomach after meals for 1 months. Character: burning sensation; radiation: it does not spread; aggravated by spicy and oily food; relieved by antacid. Severity 6/10. Associated: sour belching, nausea. PMH: none. Drugs: none. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00720-2786",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0407"
+    },
+    "medicationCodeableConcept": {
+     "text": "Pantoprazole 40 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

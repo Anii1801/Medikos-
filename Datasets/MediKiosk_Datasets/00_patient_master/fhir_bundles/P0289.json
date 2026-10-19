@@ -1,0 +1,220 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0289",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3574-8857-8455"
+     }
+    ],
+    "name": [
+     {
+      "text": "Nirmala Reddy"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0289",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0289"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0072",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "63-year-old female presenting with knee pain for 4 years. Character: dull aching pain; radiation: to the calf; aggravated by sitting on the floor; relieved by oil massage. Severity 8/10. Associated: difficulty walking, swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00522-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00522-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00523-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00523-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00521-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-05-11",
+    "valueQuantity": {
+     "value": 2.02,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00521-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-05-11",
+    "valueQuantity": {
+     "value": 34.5,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00521-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0289"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-05-11",
+    "valueQuantity": {
+     "value": 12.36,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

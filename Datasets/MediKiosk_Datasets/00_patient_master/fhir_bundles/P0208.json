@@ -1,0 +1,115 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0208",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5844-5790-8714"
+     }
+    ],
+    "name": [
+     {
+      "text": "Pooja Das"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0208",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0208"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0236",
+    "subject": {
+     "reference": "Patient/P0208"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "18-year-old female presenting with cough and breathlessness for 5 months. Character: wheezing, worse at night; radiation: n/a; aggravated by night time; relieved by inhaler. Severity 8/10. Associated: sneezing, chest tightness. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00365-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0208"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00365-1517",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0208"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sitopaladi churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

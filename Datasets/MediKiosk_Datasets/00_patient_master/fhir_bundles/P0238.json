@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0238",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5578-6155-6477"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kiran Singh"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0238",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0238"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0097",
+    "subject": {
+     "reference": "Patient/P0238"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "18-year-old male presenting with itching with skin rash for 6 weeks. Character: dry scaly patches with itching; radiation: on the legs; aggravated by sweating; relieved by coconut oil. Severity 8/10. Associated: oozing. PMH: none. Drugs: none. Allergy: dust. Family: heart disease. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0238",
+    "patient": {
+     "reference": "Patient/P0238"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  }
+ ]
+}

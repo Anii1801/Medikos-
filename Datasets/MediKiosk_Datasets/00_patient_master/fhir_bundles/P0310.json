@@ -1,0 +1,276 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0310",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0644-2909-9080"
+     }
+    ],
+    "name": [
+     {
+      "text": "Fatima Das"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0310",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0310"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0228",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "68-year-old female presenting with headache with dizziness for 2 weeks. Character: throbbing at the back of the head; radiation: to the neck; aggravated by morning time; relieved by rest. Severity 9/10. Associated: palpitations, blurred vision. PMH: Hypertension for 1 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00552-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00552-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00550-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-11-11",
+    "valueQuantity": {
+     "value": 283.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00550-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-11-11",
+    "valueQuantity": {
+     "value": 43.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00550-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-11-11",
+    "valueQuantity": {
+     "value": 13.71,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00550-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-11-11",
+    "valueQuantity": {
+     "value": 0.0,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00551-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-05-17",
+    "valueQuantity": {
+     "value": 2.25,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00551-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-05-17",
+    "valueQuantity": {
+     "value": 72.2,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00551-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0310"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-05-17",
+    "valueQuantity": {
+     "value": 3.01,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

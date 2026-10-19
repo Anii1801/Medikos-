@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0280",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4880-5588-0561"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rani Nair"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0280",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0280"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0022",
+    "subject": {
+     "reference": "Patient/P0280"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "67-year-old female presenting with pain in the abdomen for 2 days. Character: burning pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 5/10. Associated: bloating, vomiting, loose motions. PMH: Type 2 diabetes for 11 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00506-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0280"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

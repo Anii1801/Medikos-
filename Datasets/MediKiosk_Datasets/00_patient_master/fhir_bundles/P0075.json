@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0075",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4179-7284-6617"
+     }
+    ],
+    "name": [
+     {
+      "text": "Usha Reddy"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0075",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0075"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0295",
+    "subject": {
+     "reference": "Patient/P0075"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "28-year-old female presenting with itching with skin rash for 5 weeks. Character: dry scaly patches with itching; radiation: on the legs; aggravated by sweating; relieved by coconut oil. Severity 7/10. Associated: oozing. PMH: none. Drugs: none. Allergy: sulfa drugs. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0075",
+    "patient": {
+     "reference": "Patient/P0075"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  }
+ ]
+}

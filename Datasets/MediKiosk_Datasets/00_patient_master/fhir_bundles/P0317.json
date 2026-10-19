@@ -1,0 +1,133 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0317",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0183-2966-1512"
+     }
+    ],
+    "name": [
+     {
+      "text": "Shanti Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0317",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0317"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0202",
+    "subject": {
+     "reference": "Patient/P0317"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "67-year-old female presenting with fever for 2 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 7/10. Associated: vomiting, skin rash, body ache. PMH: none. Drugs: none. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00564-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0317"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00564-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0317"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00565-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0317"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

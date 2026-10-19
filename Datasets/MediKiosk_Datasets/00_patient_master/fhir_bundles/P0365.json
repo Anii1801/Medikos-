@@ -1,0 +1,160 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0365",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0908-7627-4966"
+     }
+    ],
+    "name": [
+     {
+      "text": "Imran Banerjee"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0365",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0365"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0066",
+    "subject": {
+     "reference": "Patient/P0365"
+    },
+    "code": {
+     "text": "excessive thirst and frequent urination",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E11.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "44-year-old male presenting with excessive thirst and frequent urination for 5 weeks. Character: passing urine many times, also at night; radiation: n/a; aggravated by sweet food; relieved by nothing. Severity 5/10. Associated: tiredness. PMH: Type 2 diabetes for 14 years. Drugs: Metformin 500 mg. Allergy: penicillin. Family: heart disease. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0365",
+    "patient": {
+     "reference": "Patient/P0365"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00656-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0365"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-04-16",
+    "valueQuantity": {
+     "value": 173.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00656-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0365"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-04-16",
+    "valueQuantity": {
+     "value": 81.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00656-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0365"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-04-16",
+    "valueQuantity": {
+     "value": 8.59,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,252 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0150",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4246-8445-7025"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rekha Kumar"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0150",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0150"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0151",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "62-year-old female presenting with headache with dizziness for 5 days. Character: throbbing at the back of the head; radiation: to the neck; aggravated by stress; relieved by rest. Severity 5/10. Associated: blurred vision. PMH: Hypertension for 2 years. Drugs: Amlodipine 5 mg. Allergy: penicillin. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0150",
+    "patient": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00255-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-11-02",
+    "valueQuantity": {
+     "value": 141.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00255-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-11-02",
+    "valueQuantity": {
+     "value": 63.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00255-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-11-02",
+    "valueQuantity": {
+     "value": 55.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00255-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-11-02",
+    "valueQuantity": {
+     "value": 0.01,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00256-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-06-11",
+    "valueQuantity": {
+     "value": 1.67,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00256-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-06-11",
+    "valueQuantity": {
+     "value": 24.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00256-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0150"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-06-11",
+    "valueQuantity": {
+     "value": 3.62,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,266 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0362",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Kamla Kumar"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0362",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0362"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0212",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "excessive thirst and frequent urination",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E11.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "47-year-old female presenting with excessive thirst and frequent urination for 3 weeks. Character: passing urine many times, also at night; radiation: n/a; aggravated by sweet food; relieved by nothing. Severity 3/10. Associated: blurred vision, weight loss, tiredness. PMH: Type 2 diabetes for 5 years; Hypertension for 4 years; Appendectomy in 2015. Drugs: Metformin 500 mg; Amlodipine 5 mg. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00651-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00651-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00651-6635",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "medicationCodeableConcept": {
+     "text": "Gudmar churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00649-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-08-11",
+    "valueQuantity": {
+     "value": 110.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00649-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-08-11",
+    "valueQuantity": {
+     "value": 265.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00649-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-08-11",
+    "valueQuantity": {
+     "value": 5.16,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00650-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-09-20",
+    "valueQuantity": {
+     "value": 0.84,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00650-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-09-20",
+    "valueQuantity": {
+     "value": 51.9,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00650-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0362"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-09-20",
+    "valueQuantity": {
+     "value": 3.56,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

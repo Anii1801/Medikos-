@@ -1,0 +1,86 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0479",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Rajesh Joshi"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0479",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0479"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0030",
+    "subject": {
+     "reference": "Patient/P0479"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "42-year-old male presenting with headache with dizziness for 4 weeks. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by stress; relieved by rest. Severity 6/10. Associated: palpitations, blurred vision. PMH: Type 2 diabetes for 9 years; Hypertension for 4 years. Drugs: Metformin 500 mg; Amlodipine 5 mg. Allergy: peanuts. Family: diabetes. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0479",
+    "patient": {
+     "reference": "Patient/P0479"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  }
+ ]
+}

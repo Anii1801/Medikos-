@@ -1,0 +1,86 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0306",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Usha Verma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0306",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0306"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0270",
+    "subject": {
+     "reference": "Patient/P0306"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "45-year-old female presenting with pain in the abdomen for 5 weeks. Character: cramping pain; radiation: to the back; aggravated by after eating; relieved by lying curled up. Severity 5/10. Associated: loose motions. PMH: none. Drugs: none. Allergy: peanuts. Family: no similar illness. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0306",
+    "patient": {
+     "reference": "Patient/P0306"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  }
+ ]
+}

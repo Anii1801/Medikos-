@@ -1,0 +1,183 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0065",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3338-9742-8328"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anita Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0065",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0065"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0219",
+    "subject": {
+     "reference": "Patient/P0065"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "48-year-old female presenting with chest pain for 8 days. Character: pressure like a heavy weight; radiation: it does not spread; aggravated by walking or climbing stairs; relieved by rest. Severity 7/10. Associated: breathlessness, sweating. PMH: none. Drugs: none. Allergy: sulfa drugs. Family: heart disease. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0065",
+    "patient": {
+     "reference": "Patient/P0065"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00113-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0065"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2026-01-26",
+    "valueQuantity": {
+     "value": 51.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00113-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0065"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2026-01-26",
+    "valueQuantity": {
+     "value": 96.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00113-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0065"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2026-01-26",
+    "valueQuantity": {
+     "value": 23.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00113-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0065"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2026-01-26",
+    "valueQuantity": {
+     "value": 0.07,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

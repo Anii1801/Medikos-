@@ -1,0 +1,148 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0209",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4323-3377-8526"
+     }
+    ],
+    "name": [
+     {
+      "text": "Radha Ansari"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0209",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0209"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0198",
+    "subject": {
+     "reference": "Patient/P0209"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "60-year-old female presenting with chest pain for 5 days. Character: pressure like a heavy weight; radiation: to the jaw; aggravated by walking or climbing stairs; relieved by nothing. Severity 7/10. Associated: sweating. PMH: Type 2 diabetes for 7 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: hypertension. Personal: chews tobacco. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00366-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0209"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-06-10",
+    "valueQuantity": {
+     "value": 82.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00366-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0209"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-06-10",
+    "valueQuantity": {
+     "value": 79.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00366-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0209"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-06-10",
+    "valueQuantity": {
+     "value": 5.46,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

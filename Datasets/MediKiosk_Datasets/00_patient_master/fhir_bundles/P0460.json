@@ -1,0 +1,110 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0460",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Ramesh Pandey"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0460",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0460"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0062",
+    "subject": {
+     "reference": "Patient/P0460"
+    },
+    "code": {
+     "text": "sudden weakness on one side and slurred speech",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I63.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "66-year-old male presenting with sudden weakness on one side and slurred speech for 8 hours. Character: right side weakness; radiation: n/a; aggravated by nothing in particular; relieved by nothing. Severity 10/10. Associated: face drooping. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: chews tobacco. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00817-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0460"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00818-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0460"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

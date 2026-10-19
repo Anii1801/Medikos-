@@ -1,0 +1,324 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0149",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2870-7906-0768"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anita Pandey"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0149",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0149"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0177",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "39-year-old female presenting with headache with dizziness for 5 days. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by stress; relieved by rest. Severity 3/10. Associated: palpitations. PMH: Hypertension for 2 years. Drugs: Amlodipine 5 mg. Allergy: penicillin. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0149",
+    "patient": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00253-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00253-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00254-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00254-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00251-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 51.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00251-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 201.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00251-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 109.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00251-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 0.0,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00252-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-07-04",
+    "valueQuantity": {
+     "value": 1.83,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00252-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-07-04",
+    "valueQuantity": {
+     "value": 47.7,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00252-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0149"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-07-04",
+    "valueQuantity": {
+     "value": 3.47,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

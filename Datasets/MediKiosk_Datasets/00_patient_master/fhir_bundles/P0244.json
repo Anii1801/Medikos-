@@ -1,0 +1,248 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0244",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Deepak Sharma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0244",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0244"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0036",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "excessive thirst and frequent urination",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E11.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "41-year-old male presenting with excessive thirst and frequent urination for 4 months. Character: passing urine many times, also at night; radiation: n/a; aggravated by sweet food; relieved by nothing. Severity 8/10. Associated: tiredness, weight loss, blurred vision. PMH: Type 2 diabetes for 7 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00446-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00446-6635",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "medicationCodeableConcept": {
+     "text": "Gudmar churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00444-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 89.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00444-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 77.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00444-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 8.0,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00445-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 0.79,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00445-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 55.4,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00445-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0244"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-03-12",
+    "valueQuantity": {
+     "value": 9.62,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

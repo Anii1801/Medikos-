@@ -1,0 +1,115 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0337",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4699-3158-1404"
+     }
+    ],
+    "name": [
+     {
+      "text": "Lakshmi Sharma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0337",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0337"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0200",
+    "subject": {
+     "reference": "Patient/P0337"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "58-year-old female presenting with burning in the chest and stomach after meals for 3 months. Character: burning sensation; radiation: up to the throat; aggravated by lying down after meals; relieved by cold milk. Severity 5/10. Associated: sour belching. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00602-2786",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0337"
+    },
+    "medicationCodeableConcept": {
+     "text": "Pantoprazole 40 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00602-8756",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0337"
+    },
+    "medicationCodeableConcept": {
+     "text": "Avipattikar churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

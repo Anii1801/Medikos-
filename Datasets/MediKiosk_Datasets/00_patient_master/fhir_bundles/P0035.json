@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0035",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5791-9866-8519"
+     }
+    ],
+    "name": [
+     {
+      "text": "Gurpreet Sharma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0035",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0035"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0008",
+    "subject": {
+     "reference": "Patient/P0035"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "40-year-old male presenting with cough and breathlessness for 4 weeks. Character: wheezing, worse at night; radiation: n/a; aggravated by dust and cold air; relieved by inhaler. Severity 4/10. Associated: chest tightness. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: dust. Family: heart disease. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0035",
+    "patient": {
+     "reference": "Patient/P0035"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,184 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0253",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0321-4194-6803"
+     }
+    ],
+    "name": [
+     {
+      "text": "Amit Patel"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0253",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0253"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0113",
+    "subject": {
+     "reference": "Patient/P0253"
+    },
+    "code": {
+     "text": "joint pain and morning stiffness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M06.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "53-year-old male presenting with joint pain and morning stiffness for 2 months. Character: pain in small joints of both hands; radiation: n/a; aggravated by cold weather; relieved by warm water bath. Severity 7/10. Associated: low grade fever, tiredness, swelling of joints. PMH: Hypertension for 2 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: no similar illness. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00464-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0253"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00464-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0253"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00463-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0253"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-06-15",
+    "valueQuantity": {
+     "value": 9.26,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00463-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0253"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-06-15",
+    "valueQuantity": {
+     "value": 4.09,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00463-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0253"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-06-15",
+    "valueQuantity": {
+     "value": 14.39,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0164",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4952-6754-6119"
+     }
+    ],
+    "name": [
+     {
+      "text": "Amit Singh"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0164",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0164"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0280",
+    "subject": {
+     "reference": "Patient/P0164"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "45-year-old male presenting with cough and breathlessness for 2 months. Character: wheezing, worse at night; radiation: n/a; aggravated by dust and cold air; relieved by inhaler. Severity 4/10. Associated: chest tightness. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: dust. Family: diabetes. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0164",
+    "patient": {
+     "reference": "Patient/P0164"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00286-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0164"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00286-1517",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0164"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sitopaladi churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

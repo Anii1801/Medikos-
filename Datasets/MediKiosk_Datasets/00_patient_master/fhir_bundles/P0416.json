@@ -1,0 +1,79 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0416",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2256-5946-7713"
+     }
+    ],
+    "name": [
+     {
+      "text": "Meena Yadav"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0416",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0416"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0065",
+    "subject": {
+     "reference": "Patient/P0416"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "39-year-old female presenting with pain in the abdomen for 2 weeks. Character: cramping pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 5/10. Associated: loose motions, bloating, vomiting. PMH: Hypothyroidism for 4 years. Drugs: Levothyroxine 50 mcg. Allergy: no known allergies. Family: no similar illness. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  }
+ ]
+}

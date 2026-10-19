@@ -1,0 +1,212 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0304",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Kavita Khan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0304",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0304"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0042",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "excessive thirst and frequent urination",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E11.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "52-year-old female presenting with excessive thirst and frequent urination for 3 weeks. Character: passing urine many times, also at night; radiation: n/a; aggravated by sweet food; relieved by nothing. Severity 8/10. Associated: blurred vision. PMH: Type 2 diabetes for 9 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: no similar illness. Personal: occasional alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00546-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-01",
+    "valueQuantity": {
+     "value": 76.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00546-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-01",
+    "valueQuantity": {
+     "value": 79.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00546-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-12-01",
+    "valueQuantity": {
+     "value": 5.34,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00547-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-11-06",
+    "valueQuantity": {
+     "value": 0.67,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00547-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-11-06",
+    "valueQuantity": {
+     "value": 40.7,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00547-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0304"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-11-06",
+    "valueQuantity": {
+     "value": 2.64,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

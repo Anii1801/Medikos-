@@ -1,0 +1,314 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0470",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0066-2092-9410"
+     }
+    ],
+    "name": [
+     {
+      "text": "Lakshmi Mishra"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0470",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0470"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0026",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "75-year-old female presenting with headache with dizziness for 5 weeks. Character: throbbing at the back of the head; radiation: to the neck; aggravated by morning time; relieved by rest. Severity 7/10. Associated: palpitations, blurred vision. PMH: Hypertension for 3 years; Hypothyroidism for 3 years. Drugs: Amlodipine 5 mg; Levothyroxine 50 mcg. Allergy: penicillin. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0470",
+    "patient": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00834-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00834-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00834-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00835-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00835-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00835-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00832-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2026-03-17",
+    "valueQuantity": {
+     "value": 384.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00832-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2026-03-17",
+    "valueQuantity": {
+     "value": 154.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00832-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2026-03-17",
+    "valueQuantity": {
+     "value": 8.98,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00832-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2026-03-17",
+    "valueQuantity": {
+     "value": 0.03,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00833-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0470"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2025-02-15",
+    "valueQuantity": {
+     "value": 0.86,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

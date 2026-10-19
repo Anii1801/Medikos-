@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0307",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-6565-9304-4869"
+     }
+    ],
+    "name": [
+     {
+      "text": "Suresh Verma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0307",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0307"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0092",
+    "subject": {
+     "reference": "Patient/P0307"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "16-year-old male presenting with itching with skin rash for 5 months. Character: dry scaly patches with itching; radiation: on both forearms; aggravated by sweating; relieved by coconut oil. Severity 7/10. Associated: oozing, burning sensation. PMH: none. Drugs: none. Allergy: no known allergies. Family: heart disease. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00548-3615",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0307"
+    },
+    "medicationCodeableConcept": {
+     "text": "Cetirizine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

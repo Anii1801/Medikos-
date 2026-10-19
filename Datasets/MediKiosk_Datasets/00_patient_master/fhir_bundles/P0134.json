@@ -1,0 +1,212 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0134",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Geeta Khan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0134",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0134"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0194",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "78-year-old female presenting with knee pain for 4 months. Character: stiffness with cracking sound; radiation: to the calf; aggravated by climbing stairs; relieved by rest. Severity 8/10. Associated: difficulty walking, swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00223-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-11-23",
+    "valueQuantity": {
+     "value": 5.07,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00223-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-11-23",
+    "valueQuantity": {
+     "value": 0.77,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00223-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-11-23",
+    "valueQuantity": {
+     "value": 6.99,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00224-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-06-30",
+    "valueQuantity": {
+     "value": 0.63,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00224-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-06-30",
+    "valueQuantity": {
+     "value": 7.54,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00224-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0134"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-06-30",
+    "valueQuantity": {
+     "value": 11.98,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

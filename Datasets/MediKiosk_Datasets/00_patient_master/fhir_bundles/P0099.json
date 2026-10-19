@@ -1,0 +1,344 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0099",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3367-4381-8545"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anita Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0099",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0099"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0073",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "36-year-old female presenting with headache with dizziness for 2 days. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by morning time; relieved by rest. Severity 6/10. Associated: blurred vision, palpitations. PMH: Type 2 diabetes for 14 years; Hypertension for 8 years; Hypothyroidism for 7 years. Drugs: Metformin 500 mg; Amlodipine 5 mg; Levothyroxine 50 mcg. Allergy: penicillin. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0099",
+    "patient": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00164-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-05-29",
+    "valueQuantity": {
+     "value": 79.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00164-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-05-29",
+    "valueQuantity": {
+     "value": 92.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00164-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-05-29",
+    "valueQuantity": {
+     "value": 4.99,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00165-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-11-04",
+    "valueQuantity": {
+     "value": 434.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00165-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-11-04",
+    "valueQuantity": {
+     "value": 161.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00165-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-11-04",
+    "valueQuantity": {
+     "value": 144.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00165-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-11-04",
+    "valueQuantity": {
+     "value": 0.03,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00166-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-02-18",
+    "valueQuantity": {
+     "value": 1.29,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00166-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-02-18",
+    "valueQuantity": {
+     "value": 7.64,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00166-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-02-18",
+    "valueQuantity": {
+     "value": 4.23,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00167-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0099"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2026-04-30",
+    "valueQuantity": {
+     "value": 5.46,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

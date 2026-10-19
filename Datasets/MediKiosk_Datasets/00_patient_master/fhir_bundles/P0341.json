@@ -1,0 +1,128 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0341",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Anita Khan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0341",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0341"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0133",
+    "subject": {
+     "reference": "Patient/P0341"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "41-year-old female presenting with low back pain for 1 months. Character: dull aching pain; radiation: down the right leg; aggravated by bending forward; relieved by lying down. Severity 7/10. Associated: morning stiffness, numbness in the leg. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00607-1953",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0341"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ibuprofen 400 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00607-136",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0341"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dashmoolarishta 20 ml"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00608-136",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0341"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dashmoolarishta 20 ml"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

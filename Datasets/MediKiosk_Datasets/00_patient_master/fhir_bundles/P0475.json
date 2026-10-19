@@ -1,0 +1,127 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0475",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7555-3998-9770"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kiran Yadav"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0475",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0475"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0182",
+    "subject": {
+     "reference": "Patient/P0475"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "46-year-old male presenting with low back pain for 1 months. Character: dull aching pain; radiation: down the right leg; aggravated by long sitting; relieved by lying down. Severity 7/10. Associated: numbness in the leg. PMH: none. Drugs: none. Allergy: peanuts. Family: no similar illness. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0475",
+    "patient": {
+     "reference": "Patient/P0475"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00845-1953",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0475"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ibuprofen 400 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00845-136",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0475"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dashmoolarishta 20 ml"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

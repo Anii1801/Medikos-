@@ -1,0 +1,297 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0398",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3000-5753-6175"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rani Banerjee"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0398",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0398"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0152",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "64-year-old female presenting with chest pain for 7 days. Character: squeezing pain; radiation: to the left arm; aggravated by walking or climbing stairs; relieved by rest. Severity 9/10. Associated: breathlessness. PMH: Hypertension for 7 years; Coronary artery disease, stent 3 years ago. Drugs: Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg. Allergy: no known allergies. Family: no similar illness. Personal: smokes bidi daily. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00704-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00704-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00704-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00704-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00705-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00705-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00705-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00703-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-08-13",
+    "valueQuantity": {
+     "value": 191.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00703-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-08-13",
+    "valueQuantity": {
+     "value": 148.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00703-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-08-13",
+    "valueQuantity": {
+     "value": 169.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00703-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0398"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-08-13",
+    "valueQuantity": {
+     "value": 0.03,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

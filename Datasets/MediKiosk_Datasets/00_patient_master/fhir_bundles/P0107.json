@@ -1,0 +1,74 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0107",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Pooja Khan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0107",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0107"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0125",
+    "subject": {
+     "reference": "Patient/P0107"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "54-year-old female presenting with cough and breathlessness for 3 weeks. Character: wheezing, worse at night; radiation: n/a; aggravated by night time; relieved by inhaler. Severity 4/10. Associated: chest tightness. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  }
+ ]
+}

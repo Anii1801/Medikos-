@@ -1,0 +1,215 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0297",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Gurpreet Verma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0297",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0297"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0106",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "76-year-old male presenting with knee pain for 2 years. Character: dull aching pain; radiation: to the calf; aggravated by sitting on the floor; relieved by rest. Severity 6/10. Associated: swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00537-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00537-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00538-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00538-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00536-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-02-24",
+    "valueQuantity": {
+     "value": 0.94,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00536-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-02-24",
+    "valueQuantity": {
+     "value": 31.7,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00536-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0297"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-02-24",
+    "valueQuantity": {
+     "value": 6.05,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

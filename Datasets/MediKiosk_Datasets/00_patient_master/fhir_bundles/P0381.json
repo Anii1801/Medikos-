@@ -1,0 +1,127 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0381",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3444-1397-3408"
+     }
+    ],
+    "name": [
+     {
+      "text": "Radha Mishra"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0381",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0381"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0253",
+    "subject": {
+     "reference": "Patient/P0381"
+    },
+    "code": {
+     "text": "difficulty sleeping",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "G47.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "43-year-old female presenting with difficulty sleeping for 4 weeks. Character: trouble falling asleep, wakes at 3 AM; radiation: n/a; aggravated by stress and phone use at night; relieved by oil head massage. Severity 3/10. Associated: anxiety, daytime tiredness. PMH: none. Drugs: none. Allergy: dust. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0381",
+    "patient": {
+     "reference": "Patient/P0381"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00678-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0381"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00679-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0381"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

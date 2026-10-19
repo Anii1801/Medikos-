@@ -1,0 +1,184 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0040",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5612-2875-7506"
+     }
+    ],
+    "name": [
+     {
+      "text": "Sunita Sharma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0040",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0040"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0165",
+    "subject": {
+     "reference": "Patient/P0040"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "66-year-old female presenting with knee pain for 3 months. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by sitting on the floor; relieved by rest. Severity 6/10. Associated: swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00070-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0040"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00070-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0040"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00069-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0040"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-03-29",
+    "valueQuantity": {
+     "value": 17.09,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00069-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0040"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-03-29",
+    "valueQuantity": {
+     "value": 2.99,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00069-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0040"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-03-29",
+    "valueQuantity": {
+     "value": 3.62,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

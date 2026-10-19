@@ -1,0 +1,115 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0194",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3452-7438-4293"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rajesh Kumar"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0194",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0194"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0118",
+    "subject": {
+     "reference": "Patient/P0194"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "49-year-old male presenting with itching with skin rash for 5 weeks. Character: dry scaly patches with itching; radiation: on both forearms; aggravated by sweating; relieved by coconut oil. Severity 4/10. Associated: burning sensation. PMH: none. Drugs: none. Allergy: no known allergies. Family: diabetes. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00341-3615",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0194"
+    },
+    "medicationCodeableConcept": {
+     "text": "Cetirizine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00341-4854",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0194"
+    },
+    "medicationCodeableConcept": {
+     "text": "Neem capsule 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

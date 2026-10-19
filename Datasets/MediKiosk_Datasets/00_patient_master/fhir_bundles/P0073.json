@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0073",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3461-4733-1900"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rajesh Iyer"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0073",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0073"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0167",
+    "subject": {
+     "reference": "Patient/P0073"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "49-year-old male presenting with fever for 1 days. Character: high fever with chills; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 3/10. Associated: headache, body ache, vomiting. PMH: Hypertension for 9 years. Drugs: Amlodipine 5 mg. Allergy: penicillin. Family: hypertension. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0073",
+    "patient": {
+     "reference": "Patient/P0073"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0041",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Radha Singh"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0041",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0041"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0123",
+    "subject": {
+     "reference": "Patient/P0041"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "57-year-old female presenting with low back pain for 1 months. Character: dull aching pain; radiation: down the right leg; aggravated by long sitting; relieved by hot fomentation. Severity 2/10. Associated: numbness in the leg, morning stiffness. PMH: none. Drugs: none. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  }
+ ]
+}

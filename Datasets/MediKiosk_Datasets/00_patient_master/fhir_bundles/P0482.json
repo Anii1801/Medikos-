@@ -1,0 +1,256 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0482",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2816-2098-5646"
+     }
+    ],
+    "name": [
+     {
+      "text": "Geeta Reddy"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0482",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0482"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0290",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "49-year-old female presenting with burning in the chest and stomach after meals for 3 months. Character: burning sensation; radiation: up to the throat; aggravated by lying down after meals; relieved by antacid. Severity 2/10. Associated: sour belching. PMH: Type 2 diabetes for 15 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00854-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00854-2786",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "medicationCodeableConcept": {
+     "text": "Pantoprazole 40 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00854-8756",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "medicationCodeableConcept": {
+     "text": "Avipattikar churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00855-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00855-2786",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "medicationCodeableConcept": {
+     "text": "Pantoprazole 40 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00855-8756",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "medicationCodeableConcept": {
+     "text": "Avipattikar churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00853-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-07-25",
+    "valueQuantity": {
+     "value": 92.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00853-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-07-25",
+    "valueQuantity": {
+     "value": 135.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00853-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0482"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-07-25",
+    "valueQuantity": {
+     "value": 5.44,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

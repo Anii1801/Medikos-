@@ -1,0 +1,127 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0118",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2820-0596-4381"
+     }
+    ],
+    "name": [
+     {
+      "text": "Harish Chauhan"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0118",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0118"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0205",
+    "subject": {
+     "reference": "Patient/P0118"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "38-year-old male presenting with low back pain for 2 weeks. Character: sharp shooting pain; radiation: it does not spread; aggravated by bending forward; relieved by lying down. Severity 9/10. Associated: numbness in the leg, morning stiffness. PMH: Hypertension for 15 years. Drugs: Amlodipine 5 mg. Allergy: sulfa drugs. Family: asthma. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0118",
+    "patient": {
+     "reference": "Patient/P0118"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00203-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0118"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00203-1953",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0118"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ibuprofen 400 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

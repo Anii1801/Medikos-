@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0047",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7121-1676-3709"
+     }
+    ],
+    "name": [
+     {
+      "text": "Amit Nair"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0047",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0047"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0146",
+    "subject": {
+     "reference": "Patient/P0047"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "41-year-old male presenting with pain in the abdomen for 3 weeks. Character: burning pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 8/10. Associated: bloating, vomiting. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00083-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0047"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

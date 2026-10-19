@@ -1,0 +1,1239 @@
+﻿report_id,patient_id,report_date,lab,panel,test,value,unit,ref_low,ref_high,flag,split
+L00001,P0001,2025-04-30,District Hospital Agra,CBC,Hemoglobin,14.47,g/dL,13,17,N,train
+L00001,P0001,2025-04-30,District Hospital Agra,CBC,WBC,10.16,x10^3/uL,4,11,N,train
+L00001,P0001,2025-04-30,District Hospital Agra,CBC,Platelets,402.1,x10^3/uL,150,450,N,train
+L00001,P0001,2025-04-30,District Hospital Agra,CBC,ESR,4.39,mm/hr,0,20,N,train
+L00002,P0002,2025-10-03,AIIA Delhi OPD,Inflammatory,ESR,14.82,mm/hr,0,20,N,valid
+L00002,P0002,2025-10-03,AIIA Delhi OPD,Inflammatory,CRP,0.39,mg/L,0,5,N,valid
+L00002,P0002,2025-10-03,AIIA Delhi OPD,Inflammatory,Uric Acid,5.43,mg/dL,2.6,6,N,valid
+L00003,P0002,2026-03-23,Sunrise Pathology Lab,Renal + liver,Creatinine,1.07,mg/dL,0.6,1.1,N,valid
+L00003,P0002,2026-03-23,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),91.7,U/L,7,56,H,valid
+L00003,P0002,2026-03-23,Sunrise Pathology Lab,Renal + liver,Uric Acid,3.82,mg/dL,2.6,6,N,valid
+L00005,P0003,2026-08-07,Sunrise Pathology Lab,Thyroid,TSH,1.87,uIU/mL,0.4,4,N,train
+L00008,P0005,2025-06-08,Community Health Centre,Renal + liver,Creatinine,1.06,mg/dL,0.6,1.1,N,train
+L00008,P0005,2025-06-08,Community Health Centre,Renal + liver,SGPT (ALT),53.2,U/L,7,56,N,train
+L00008,P0005,2025-06-08,Community Health Centre,Renal + liver,Uric Acid,8.88,mg/dL,2.6,6,H,train
+L00012,P0007,2026-07-16,AIIA Delhi OPD,Inflammatory,ESR,40,mm/hr,0,20,H,train
+L00012,P0007,2026-07-16,AIIA Delhi OPD,Inflammatory,CRP,7.8,mg/L,0,5,H,train
+L00012,P0007,2026-07-16,AIIA Delhi OPD,Inflammatory,Uric Acid,3.28,mg/dL,2.6,6,N,train
+L00014,P0008,2025-12-03,Community Health Centre,Inflammatory,ESR,39.2,mm/hr,0,20,H,train
+L00014,P0008,2025-12-03,Community Health Centre,Inflammatory,CRP,8.61,mg/L,0,5,H,train
+L00014,P0008,2025-12-03,Community Health Centre,Inflammatory,Uric Acid,9.56,mg/dL,3.5,7.2,H,train
+L00018,P0010,2025-12-28,Community Health Centre,Lipid + cardiac,Total Cholesterol,11.38,mg/dL,0,200,N,train
+L00018,P0010,2025-12-28,Community Health Centre,Lipid + cardiac,LDL,166.1,mg/dL,0,100,H,train
+L00018,P0010,2025-12-28,Community Health Centre,Lipid + cardiac,Triglycerides,73.1,mg/dL,0,150,N,train
+L00018,P0010,2025-12-28,Community Health Centre,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00022,P0012,2026-07-05,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,203.5,mg/dL,70,100,H,train
+L00022,P0012,2026-07-05,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,102.4,mg/dL,70,140,N,train
+L00022,P0012,2026-07-05,District Hospital Agra,Diabetes panel,HbA1c,5.52,%,4,5.6,N,train
+L00023,P0012,2025-08-07,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,11.78,mg/dL,0,200,N,train
+L00023,P0012,2025-08-07,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,5.72,mg/dL,0,100,N,train
+L00023,P0012,2025-08-07,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,2.56,mg/dL,0,150,N,train
+L00023,P0012,2025-08-07,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00024,P0012,2026-06-30,AIIA Delhi OPD,Renal + liver,Creatinine,1.65,mg/dL,0.7,1.3,H,train
+L00024,P0012,2026-06-30,AIIA Delhi OPD,Renal + liver,SGPT (ALT),15.65,U/L,7,56,N,train
+L00024,P0012,2026-06-30,AIIA Delhi OPD,Renal + liver,Uric Acid,5.65,mg/dL,3.5,7.2,N,train
+L00029,P0015,2025-02-23,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,84,mg/dL,70,100,N,train
+L00029,P0015,2025-02-23,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,75,mg/dL,70,140,N,train
+L00029,P0015,2025-02-23,Pathcare Diagnostics,Diabetes panel,HbA1c,4.51,%,4,5.6,N,train
+L00030,P0015,2025-12-20,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,161.2,mg/dL,0,200,N,train
+L00030,P0015,2025-12-20,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,211.6,mg/dL,0,100,H,train
+L00030,P0015,2025-12-20,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,4.59,mg/dL,0,150,N,train
+L00030,P0015,2025-12-20,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,train
+L00035,P0018,2025-08-21,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,84.2,mg/dL,70,100,N,train
+L00035,P0018,2025-08-21,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,72,mg/dL,70,140,N,train
+L00035,P0018,2025-08-21,District Hospital Agra,Diabetes panel,HbA1c,4.76,%,4,5.6,N,train
+L00036,P0018,2025-03-13,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,82.2,mg/dL,0,200,N,train
+L00036,P0018,2025-03-13,Pathcare Diagnostics,Lipid + cardiac,LDL,5.54,mg/dL,0,100,N,train
+L00036,P0018,2025-03-13,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,66.6,mg/dL,0,150,N,train
+L00036,P0018,2025-03-13,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.08,ng/mL,0,0.04,H,train
+L00037,P0018,2025-01-18,Sunrise Pathology Lab,Renal + liver,Creatinine,0.7,mg/dL,0.6,1.1,N,train
+L00037,P0018,2025-01-18,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),115.8,U/L,7,56,H,train
+L00037,P0018,2025-01-18,Sunrise Pathology Lab,Renal + liver,Uric Acid,9.26,mg/dL,2.6,6,H,train
+L00038,P0019,2025-01-27,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,81.9,mg/dL,70,100,N,train
+L00038,P0019,2025-01-27,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,115.5,mg/dL,70,140,N,train
+L00038,P0019,2025-01-27,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.81,%,4,5.6,N,train
+L00041,P0022,2025-03-05,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,86.4,mg/dL,70,100,N,test
+L00041,P0022,2025-03-05,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,130.5,mg/dL,70,140,N,test
+L00041,P0022,2025-03-05,District Hospital Agra,Diabetes panel,HbA1c,4.54,%,4,5.6,N,test
+L00043,P0023,2025-10-01,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,126.3,mg/dL,0,200,N,train
+L00043,P0023,2025-10-01,Sunrise Pathology Lab,Lipid + cardiac,LDL,182.7,mg/dL,0,100,H,train
+L00043,P0023,2025-10-01,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,34.5,mg/dL,0,150,N,train
+L00043,P0023,2025-10-01,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00044,P0023,2025-04-06,Pathcare Diagnostics,Renal + liver,Creatinine,2.15,mg/dL,0.7,1.3,H,train
+L00044,P0023,2025-04-06,Pathcare Diagnostics,Renal + liver,SGPT (ALT),37.8,U/L,7,56,N,train
+L00044,P0023,2025-04-06,Pathcare Diagnostics,Renal + liver,Uric Acid,6.36,mg/dL,3.5,7.2,N,train
+L00050,P0026,2025-12-04,AIIA Delhi OPD,Inflammatory,ESR,40.8,mm/hr,0,20,H,train
+L00050,P0026,2025-12-04,AIIA Delhi OPD,Inflammatory,CRP,4.2,mg/L,0,5,N,train
+L00050,P0026,2025-12-04,AIIA Delhi OPD,Inflammatory,Uric Acid,8.83,mg/dL,2.6,6,H,train
+L00057,P0031,2025-07-25,AIIA Delhi OPD,Inflammatory,ESR,26.1,mm/hr,0,20,H,train
+L00057,P0031,2025-07-25,AIIA Delhi OPD,Inflammatory,CRP,1.86,mg/L,0,5,N,train
+L00057,P0031,2025-07-25,AIIA Delhi OPD,Inflammatory,Uric Acid,12.16,mg/dL,3.5,7.2,H,train
+L00058,P0031,2026-02-10,Dr. Lal Labs (dummy),Renal + liver,Creatinine,0.7,mg/dL,0.7,1.3,N,train
+L00058,P0031,2026-02-10,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),33.6,U/L,7,56,N,train
+L00058,P0031,2026-02-10,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.17,mg/dL,3.5,7.2,N,train
+L00061,P0032,2025-11-11,AIIA Delhi OPD,CBC,Hemoglobin,13.49,g/dL,13,17,N,train
+L00061,P0032,2025-11-11,AIIA Delhi OPD,CBC,WBC,8.45,x10^3/uL,4,11,N,train
+L00061,P0032,2025-11-11,AIIA Delhi OPD,CBC,Platelets,180.6,x10^3/uL,150,450,N,train
+L00061,P0032,2025-11-11,AIIA Delhi OPD,CBC,ESR,43,mm/hr,0,20,H,train
+L00062,P0033,2026-02-14,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,315.1,mg/dL,0,200,H,train
+L00062,P0033,2026-02-14,Pathcare Diagnostics,Lipid + cardiac,LDL,134.5,mg/dL,0,100,H,train
+L00062,P0033,2026-02-14,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,116.3,mg/dL,0,150,N,train
+L00062,P0033,2026-02-14,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00066,P0036,2025-05-29,District Hospital Agra,Thyroid,TSH,5.16,uIU/mL,0.4,4,H,train
+L00068,P0037,2025-03-29,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,196,mg/dL,0,200,N,train
+L00068,P0037,2025-03-29,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,24.6,mg/dL,0,100,N,train
+L00068,P0037,2025-03-29,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,28.2,mg/dL,0,150,N,train
+L00068,P0037,2025-03-29,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00069,P0040,2026-03-29,AIIA Delhi OPD,Inflammatory,ESR,17.09,mm/hr,0,20,N,train
+L00069,P0040,2026-03-29,AIIA Delhi OPD,Inflammatory,CRP,2.99,mg/L,0,5,N,train
+L00069,P0040,2026-03-29,AIIA Delhi OPD,Inflammatory,Uric Acid,3.62,mg/dL,2.6,6,N,train
+L00071,P0042,2026-05-16,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,76.9,mg/dL,70,100,N,train
+L00071,P0042,2026-05-16,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,113.8,mg/dL,70,140,N,train
+L00071,P0042,2026-05-16,Sunrise Pathology Lab,Diabetes panel,HbA1c,5.48,%,4,5.6,N,train
+L00072,P0043,2025-08-17,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,91.1,mg/dL,70,100,N,train
+L00072,P0043,2025-08-17,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,130,mg/dL,70,140,N,train
+L00072,P0043,2025-08-17,Sunrise Pathology Lab,Diabetes panel,HbA1c,5.5,%,4,5.6,N,train
+L00075,P0044,2025-11-06,Community Health Centre,Renal + liver,Creatinine,1.07,mg/dL,0.6,1.1,N,valid
+L00075,P0044,2025-11-06,Community Health Centre,Renal + liver,SGPT (ALT),35.5,U/L,7,56,N,valid
+L00075,P0044,2025-11-06,Community Health Centre,Renal + liver,Uric Acid,7.35,mg/dL,2.6,6,H,valid
+L00076,P0044,2025-02-26,Pathcare Diagnostics,Thyroid,TSH,3.89,uIU/mL,0.4,4,N,valid
+L00078,P0045,2025-07-11,Community Health Centre,CBC,Hemoglobin,15,g/dL,13,17,N,train
+L00078,P0045,2025-07-11,Community Health Centre,CBC,WBC,5.55,x10^3/uL,4,11,N,train
+L00078,P0045,2025-07-11,Community Health Centre,CBC,Platelets,125,x10^3/uL,150,450,L,train
+L00078,P0045,2025-07-11,Community Health Centre,CBC,ESR,35.5,mm/hr,0,20,H,train
+L00080,P0046,2025-01-17,Community Health Centre,Inflammatory,ESR,31.8,mm/hr,0,20,H,train
+L00080,P0046,2025-01-17,Community Health Centre,Inflammatory,CRP,2.62,mg/L,0,5,N,train
+L00080,P0046,2025-01-17,Community Health Centre,Inflammatory,Uric Acid,11.09,mg/dL,2.6,6,H,train
+L00086,P0050,2026-01-23,AIIA Delhi OPD,Thyroid,TSH,0.76,uIU/mL,0.4,4,N,valid
+L00091,P0054,2026-05-14,Community Health Centre,Inflammatory,ESR,19.3,mm/hr,0,20,N,valid
+L00091,P0054,2026-05-14,Community Health Centre,Inflammatory,CRP,3.19,mg/L,0,5,N,valid
+L00091,P0054,2026-05-14,Community Health Centre,Inflammatory,Uric Acid,3.54,mg/dL,3.5,7.2,N,valid
+L00092,P0054,2026-07-07,Sunrise Pathology Lab,Renal + liver,Creatinine,0.96,mg/dL,0.7,1.3,N,valid
+L00092,P0054,2026-07-07,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),13.78,U/L,7,56,N,valid
+L00092,P0054,2026-07-07,Sunrise Pathology Lab,Renal + liver,Uric Acid,13.34,mg/dL,3.5,7.2,H,valid
+L00094,P0055,2026-06-13,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,79.3,mg/dL,70,100,N,test
+L00094,P0055,2026-06-13,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,98.3,mg/dL,70,140,N,test
+L00094,P0055,2026-06-13,District Hospital Agra,Diabetes panel,HbA1c,10.61,%,4,5.6,H,test
+L00095,P0055,2025-11-12,District Hospital Agra,Renal + liver,Creatinine,0.76,mg/dL,0.6,1.1,N,test
+L00095,P0055,2025-11-12,District Hospital Agra,Renal + liver,SGPT (ALT),25,U/L,7,56,N,test
+L00095,P0055,2025-11-12,District Hospital Agra,Renal + liver,Uric Acid,2.74,mg/dL,2.6,6,N,test
+L00097,P0056,2026-07-21,AIIA Delhi OPD,CBC,Hemoglobin,14.39,g/dL,13,17,N,train
+L00097,P0056,2026-07-21,AIIA Delhi OPD,CBC,WBC,6.25,x10^3/uL,4,11,N,train
+L00097,P0056,2026-07-21,AIIA Delhi OPD,CBC,Platelets,171.9,x10^3/uL,150,450,N,train
+L00097,P0056,2026-07-21,AIIA Delhi OPD,CBC,ESR,10.98,mm/hr,0,20,N,train
+L00100,P0057,2026-03-04,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,15.52,mg/dL,0,200,N,train
+L00100,P0057,2026-03-04,Sunrise Pathology Lab,Lipid + cardiac,LDL,11.17,mg/dL,0,100,N,train
+L00100,P0057,2026-03-04,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,38.2,mg/dL,0,150,N,train
+L00100,P0057,2026-03-04,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00101,P0058,2026-07-02,District Hospital Agra,Lipid + cardiac,Total Cholesterol,191.4,mg/dL,0,200,N,train
+L00101,P0058,2026-07-02,District Hospital Agra,Lipid + cardiac,LDL,148.9,mg/dL,0,100,H,train
+L00101,P0058,2026-07-02,District Hospital Agra,Lipid + cardiac,Triglycerides,79.2,mg/dL,0,150,N,train
+L00101,P0058,2026-07-02,District Hospital Agra,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00104,P0060,2025-08-03,Community Health Centre,Diabetes panel,Fasting Blood Sugar,91.1,mg/dL,70,100,N,train
+L00104,P0060,2025-08-03,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,95.6,mg/dL,70,140,N,train
+L00104,P0060,2025-08-03,Community Health Centre,Diabetes panel,HbA1c,8.78,%,4,5.6,H,train
+L00105,P0060,2025-07-29,Pathcare Diagnostics,Renal + liver,Creatinine,1.03,mg/dL,0.7,1.3,N,train
+L00105,P0060,2025-07-29,Pathcare Diagnostics,Renal + liver,SGPT (ALT),41.7,U/L,7,56,N,train
+L00105,P0060,2025-07-29,Pathcare Diagnostics,Renal + liver,Uric Acid,4.22,mg/dL,3.5,7.2,N,train
+L00106,P0061,2026-07-26,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,90.5,mg/dL,70,100,N,train
+L00106,P0061,2026-07-26,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,119.2,mg/dL,70,140,N,train
+L00106,P0061,2026-07-26,AIIA Delhi OPD,Diabetes panel,HbA1c,5.55,%,4,5.6,N,train
+L00111,P0064,2025-11-25,Pathcare Diagnostics,Inflammatory,ESR,7.19,mm/hr,0,20,N,train
+L00111,P0064,2025-11-25,Pathcare Diagnostics,Inflammatory,CRP,4.28,mg/L,0,5,N,train
+L00111,P0064,2025-11-25,Pathcare Diagnostics,Inflammatory,Uric Acid,10.11,mg/dL,3.5,7.2,H,train
+L00113,P0065,2026-01-26,Community Health Centre,Lipid + cardiac,Total Cholesterol,51,mg/dL,0,200,N,train
+L00113,P0065,2026-01-26,Community Health Centre,Lipid + cardiac,LDL,96.6,mg/dL,0,100,N,train
+L00113,P0065,2026-01-26,Community Health Centre,Lipid + cardiac,Triglycerides,23.8,mg/dL,0,150,N,train
+L00113,P0065,2026-01-26,Community Health Centre,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,train
+L00115,P0067,2025-09-23,Dr. Lal Labs (dummy),Inflammatory,ESR,8.18,mm/hr,0,20,N,train
+L00115,P0067,2025-09-23,Dr. Lal Labs (dummy),Inflammatory,CRP,10.4,mg/L,0,5,H,train
+L00115,P0067,2025-09-23,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,5.03,mg/dL,2.6,6,N,train
+L00125,P0076,2026-05-22,Dr. Lal Labs (dummy),CBC,Hemoglobin,13.32,g/dL,12,15.5,N,train
+L00125,P0076,2026-05-22,Dr. Lal Labs (dummy),CBC,WBC,4.13,x10^3/uL,4,11,N,train
+L00125,P0076,2026-05-22,Dr. Lal Labs (dummy),CBC,Platelets,95,x10^3/uL,150,450,L,train
+L00125,P0076,2026-05-22,Dr. Lal Labs (dummy),CBC,ESR,22.4,mm/hr,0,20,H,train
+L00126,P0076,2025-07-04,Community Health Centre,Thyroid,TSH,0.62,uIU/mL,0.4,4,N,train
+L00128,P0077,2026-05-08,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,84,mg/dL,70,100,N,train
+L00128,P0077,2026-05-08,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,85.4,mg/dL,70,140,N,train
+L00128,P0077,2026-05-08,Pathcare Diagnostics,Diabetes panel,HbA1c,5.34,%,4,5.6,N,train
+L00131,P0080,2025-08-09,Community Health Centre,Diabetes panel,Fasting Blood Sugar,211.4,mg/dL,70,100,H,train
+L00131,P0080,2025-08-09,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,79.5,mg/dL,70,140,N,train
+L00131,P0080,2025-08-09,Community Health Centre,Diabetes panel,HbA1c,4.31,%,4,5.6,N,train
+L00133,P0081,2026-07-16,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,119.7,mg/dL,70,100,H,valid
+L00133,P0081,2026-07-16,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,272.4,mg/dL,70,140,H,valid
+L00133,P0081,2026-07-16,Pathcare Diagnostics,Diabetes panel,HbA1c,4.27,%,4,5.6,N,valid
+L00134,P0081,2025-02-20,Pathcare Diagnostics,Renal + liver,Creatinine,1.04,mg/dL,0.7,1.3,N,valid
+L00134,P0081,2025-02-20,Pathcare Diagnostics,Renal + liver,SGPT (ALT),26.1,U/L,7,56,N,valid
+L00134,P0081,2025-02-20,Pathcare Diagnostics,Renal + liver,Uric Acid,4.83,mg/dL,3.5,7.2,N,valid
+L00136,P0083,2026-05-07,Pathcare Diagnostics,CBC,Hemoglobin,13.75,g/dL,12,15.5,N,train
+L00136,P0083,2026-05-07,Pathcare Diagnostics,CBC,WBC,18.12,x10^3/uL,4,11,H,train
+L00136,P0083,2026-05-07,Pathcare Diagnostics,CBC,Platelets,330.8,x10^3/uL,150,450,N,train
+L00136,P0083,2026-05-07,Pathcare Diagnostics,CBC,ESR,30.9,mm/hr,0,20,H,train
+L00138,P0084,2025-08-01,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,86.1,mg/dL,70,100,N,train
+L00138,P0084,2025-08-01,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,292.9,mg/dL,70,140,H,train
+L00138,P0084,2025-08-01,Pathcare Diagnostics,Diabetes panel,HbA1c,11.31,%,4,5.6,H,train
+L00139,P0084,2026-01-05,Dr. Lal Labs (dummy),Renal + liver,Creatinine,2.69,mg/dL,0.7,1.3,H,train
+L00139,P0084,2026-01-05,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),49.4,U/L,7,56,N,train
+L00139,P0084,2026-01-05,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.89,mg/dL,3.5,7.2,N,train
+L00140,P0085,2025-07-24,District Hospital Agra,Lipid + cardiac,Total Cholesterol,146,mg/dL,0,200,N,train
+L00140,P0085,2025-07-24,District Hospital Agra,Lipid + cardiac,LDL,123.1,mg/dL,0,100,H,train
+L00140,P0085,2025-07-24,District Hospital Agra,Lipid + cardiac,Triglycerides,311.3,mg/dL,0,150,H,train
+L00140,P0085,2025-07-24,District Hospital Agra,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00141,P0085,2026-05-28,District Hospital Agra,Renal + liver,Creatinine,0.64,mg/dL,0.6,1.1,N,train
+L00141,P0085,2026-05-28,District Hospital Agra,Renal + liver,SGPT (ALT),94.3,U/L,7,56,H,train
+L00141,P0085,2026-05-28,District Hospital Agra,Renal + liver,Uric Acid,5.35,mg/dL,2.6,6,N,train
+L00144,P0088,2025-09-18,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,150,mg/dL,70,100,H,test
+L00144,P0088,2025-09-18,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,307.9,mg/dL,70,140,H,test
+L00144,P0088,2025-09-18,AIIA Delhi OPD,Diabetes panel,HbA1c,10.58,%,4,5.6,H,test
+L00145,P0088,2026-08-24,District Hospital Agra,Renal + liver,Creatinine,0.63,mg/dL,0.6,1.1,N,test
+L00145,P0088,2026-08-24,District Hospital Agra,Renal + liver,SGPT (ALT),11.63,U/L,7,56,N,test
+L00145,P0088,2026-08-24,District Hospital Agra,Renal + liver,Uric Acid,5.32,mg/dL,2.6,6,N,test
+L00150,P0090,2026-04-25,Dr. Lal Labs (dummy),Inflammatory,ESR,13.86,mm/hr,0,20,N,train
+L00150,P0090,2026-04-25,Dr. Lal Labs (dummy),Inflammatory,CRP,3.41,mg/L,0,5,N,train
+L00150,P0090,2026-04-25,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,9.88,mg/dL,2.6,6,H,train
+L00152,P0091,2026-06-29,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,191.9,mg/dL,70,100,H,train
+L00152,P0091,2026-06-29,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,173.8,mg/dL,70,140,H,train
+L00152,P0091,2026-06-29,District Hospital Agra,Diabetes panel,HbA1c,7.49,%,4,5.6,H,train
+L00153,P0091,2026-05-09,Pathcare Diagnostics,Renal + liver,Creatinine,1.08,mg/dL,0.6,1.1,N,train
+L00153,P0091,2026-05-09,Pathcare Diagnostics,Renal + liver,SGPT (ALT),18.33,U/L,7,56,N,train
+L00153,P0091,2026-05-09,Pathcare Diagnostics,Renal + liver,Uric Acid,4.75,mg/dL,2.6,6,N,train
+L00156,P0094,2026-07-07,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,89.9,mg/dL,70,100,N,train
+L00156,P0094,2026-07-07,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,73.9,mg/dL,70,140,N,train
+L00156,P0094,2026-07-07,Pathcare Diagnostics,Diabetes panel,HbA1c,5.18,%,4,5.6,N,train
+L00157,P0094,2025-09-29,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,424.5,mg/dL,0,200,H,train
+L00157,P0094,2025-09-29,AIIA Delhi OPD,Lipid + cardiac,LDL,40.3,mg/dL,0,100,N,train
+L00157,P0094,2025-09-29,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,127.1,mg/dL,0,150,N,train
+L00157,P0094,2025-09-29,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,train
+L00159,P0096,2025-11-20,Pathcare Diagnostics,Inflammatory,ESR,9.72,mm/hr,0,20,N,train
+L00159,P0096,2025-11-20,Pathcare Diagnostics,Inflammatory,CRP,1.18,mg/L,0,5,N,train
+L00159,P0096,2025-11-20,Pathcare Diagnostics,Inflammatory,Uric Acid,8.2,mg/dL,2.6,6,H,train
+L00160,P0096,2026-05-22,Pathcare Diagnostics,Thyroid,TSH,6.03,uIU/mL,0.4,4,H,train
+L00164,P0099,2025-05-29,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,79.5,mg/dL,70,100,N,train
+L00164,P0099,2025-05-29,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,92.2,mg/dL,70,140,N,train
+L00164,P0099,2025-05-29,AIIA Delhi OPD,Diabetes panel,HbA1c,4.99,%,4,5.6,N,train
+L00165,P0099,2025-11-04,Community Health Centre,Lipid + cardiac,Total Cholesterol,434.9,mg/dL,0,200,H,train
+L00165,P0099,2025-11-04,Community Health Centre,Lipid + cardiac,LDL,161.3,mg/dL,0,100,H,train
+L00165,P0099,2025-11-04,Community Health Centre,Lipid + cardiac,Triglycerides,144.2,mg/dL,0,150,N,train
+L00165,P0099,2025-11-04,Community Health Centre,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00166,P0099,2026-02-18,Pathcare Diagnostics,Renal + liver,Creatinine,1.29,mg/dL,0.6,1.1,H,train
+L00166,P0099,2026-02-18,Pathcare Diagnostics,Renal + liver,SGPT (ALT),7.64,U/L,7,56,N,train
+L00166,P0099,2026-02-18,Pathcare Diagnostics,Renal + liver,Uric Acid,4.23,mg/dL,2.6,6,N,train
+L00167,P0099,2026-04-30,Community Health Centre,Thyroid,TSH,5.46,uIU/mL,0.4,4,H,train
+L00168,P0100,2026-01-05,Sunrise Pathology Lab,Inflammatory,ESR,2.13,mm/hr,0,20,N,test
+L00168,P0100,2026-01-05,Sunrise Pathology Lab,Inflammatory,CRP,4.66,mg/L,0,5,N,test
+L00168,P0100,2026-01-05,Sunrise Pathology Lab,Inflammatory,Uric Acid,4.04,mg/dL,2.6,6,N,test
+L00169,P0100,2025-04-23,District Hospital Agra,Renal + liver,Creatinine,1.09,mg/dL,0.6,1.1,N,test
+L00169,P0100,2025-04-23,District Hospital Agra,Renal + liver,SGPT (ALT),21,U/L,7,56,N,test
+L00169,P0100,2025-04-23,District Hospital Agra,Renal + liver,Uric Acid,7.88,mg/dL,2.6,6,H,test
+L00171,P0101,2025-07-08,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,139.9,mg/dL,0,200,N,train
+L00171,P0101,2025-07-08,Pathcare Diagnostics,Lipid + cardiac,LDL,96.6,mg/dL,0,100,N,train
+L00171,P0101,2025-07-08,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,114.4,mg/dL,0,150,N,train
+L00171,P0101,2025-07-08,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00172,P0101,2025-11-24,Pathcare Diagnostics,Renal + liver,Creatinine,0.69,mg/dL,0.6,1.1,N,train
+L00172,P0101,2025-11-24,Pathcare Diagnostics,Renal + liver,SGPT (ALT),10.23,U/L,7,56,N,train
+L00172,P0101,2025-11-24,Pathcare Diagnostics,Renal + liver,Uric Acid,11.63,mg/dL,2.6,6,H,train
+L00175,P0103,2026-01-30,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,209,mg/dL,70,100,H,test
+L00175,P0103,2026-01-30,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,129.6,mg/dL,70,140,N,test
+L00175,P0103,2026-01-30,AIIA Delhi OPD,Diabetes panel,HbA1c,5.36,%,4,5.6,N,test
+L00176,P0103,2026-06-12,AIIA Delhi OPD,Renal + liver,Creatinine,1.34,mg/dL,0.6,1.1,H,test
+L00176,P0103,2026-06-12,AIIA Delhi OPD,Renal + liver,SGPT (ALT),23.3,U/L,7,56,N,test
+L00176,P0103,2026-06-12,AIIA Delhi OPD,Renal + liver,Uric Acid,3.26,mg/dL,2.6,6,N,test
+L00184,P0108,2025-03-12,Dr. Lal Labs (dummy),Inflammatory,ESR,11.78,mm/hr,0,20,N,train
+L00184,P0108,2025-03-12,Dr. Lal Labs (dummy),Inflammatory,CRP,0.69,mg/L,0,5,N,train
+L00184,P0108,2025-03-12,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,8.1,mg/dL,3.5,7.2,H,train
+L00185,P0108,2025-04-13,Dr. Lal Labs (dummy),Renal + liver,Creatinine,0.91,mg/dL,0.7,1.3,N,train
+L00185,P0108,2025-04-13,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),21,U/L,7,56,N,train
+L00185,P0108,2025-04-13,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,14.67,mg/dL,3.5,7.2,H,train
+L00189,P0110,2025-01-16,Sunrise Pathology Lab,CBC,Hemoglobin,15.08,g/dL,12,15.5,N,train
+L00189,P0110,2025-01-16,Sunrise Pathology Lab,CBC,WBC,10.6,x10^3/uL,4,11,N,train
+L00189,P0110,2025-01-16,Sunrise Pathology Lab,CBC,Platelets,217.7,x10^3/uL,150,450,N,train
+L00189,P0110,2025-01-16,Sunrise Pathology Lab,CBC,ESR,6.93,mm/hr,0,20,N,train
+L00194,P0113,2025-04-07,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,86.9,mg/dL,70,100,N,train
+L00194,P0113,2025-04-07,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,171.3,mg/dL,70,140,H,train
+L00194,P0113,2025-04-07,District Hospital Agra,Diabetes panel,HbA1c,6.17,%,4,5.6,H,train
+L00195,P0114,2026-08-06,Dr. Lal Labs (dummy),CBC,Hemoglobin,14.72,g/dL,12,15.5,N,train
+L00195,P0114,2026-08-06,Dr. Lal Labs (dummy),CBC,WBC,17.07,x10^3/uL,4,11,H,train
+L00195,P0114,2026-08-06,Dr. Lal Labs (dummy),CBC,Platelets,173.1,x10^3/uL,150,450,N,train
+L00195,P0114,2026-08-06,Dr. Lal Labs (dummy),CBC,ESR,9.33,mm/hr,0,20,N,train
+L00199,P0116,2025-11-17,Community Health Centre,Lipid + cardiac,Total Cholesterol,152.1,mg/dL,0,200,N,train
+L00199,P0116,2025-11-17,Community Health Centre,Lipid + cardiac,LDL,11.02,mg/dL,0,100,N,train
+L00199,P0116,2025-11-17,Community Health Centre,Lipid + cardiac,Triglycerides,14.55,mg/dL,0,150,N,train
+L00199,P0116,2025-11-17,Community Health Centre,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00200,P0116,2025-08-08,Community Health Centre,Renal + liver,Creatinine,2.34,mg/dL,0.7,1.3,H,train
+L00200,P0116,2025-08-08,Community Health Centre,Renal + liver,SGPT (ALT),13.39,U/L,7,56,N,train
+L00200,P0116,2025-08-08,Community Health Centre,Renal + liver,Uric Acid,4.14,mg/dL,3.5,7.2,N,train
+L00201,P0117,2025-11-24,Community Health Centre,Lipid + cardiac,Total Cholesterol,159.7,mg/dL,0,200,N,train
+L00201,P0117,2025-11-24,Community Health Centre,Lipid + cardiac,LDL,136.6,mg/dL,0,100,H,train
+L00201,P0117,2025-11-24,Community Health Centre,Lipid + cardiac,Triglycerides,91.1,mg/dL,0,150,N,train
+L00201,P0117,2025-11-24,Community Health Centre,Lipid + cardiac,Troponin I,0.06,ng/mL,0,0.04,H,train
+L00202,P0117,2026-07-25,District Hospital Agra,Renal + liver,Creatinine,1.08,mg/dL,0.6,1.1,N,train
+L00202,P0117,2026-07-25,District Hospital Agra,Renal + liver,SGPT (ALT),30.9,U/L,7,56,N,train
+L00202,P0117,2026-07-25,District Hospital Agra,Renal + liver,Uric Acid,4.39,mg/dL,2.6,6,N,train
+L00205,P0120,2026-04-25,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,187.7,mg/dL,0,200,N,train
+L00205,P0120,2026-04-25,Sunrise Pathology Lab,Lipid + cardiac,LDL,142.1,mg/dL,0,100,H,train
+L00205,P0120,2026-04-25,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,129.8,mg/dL,0,150,N,train
+L00205,P0120,2026-04-25,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00206,P0121,2025-04-29,Sunrise Pathology Lab,CBC,Hemoglobin,13.79,g/dL,13,17,N,train
+L00206,P0121,2025-04-29,Sunrise Pathology Lab,CBC,WBC,4.67,x10^3/uL,4,11,N,train
+L00206,P0121,2025-04-29,Sunrise Pathology Lab,CBC,Platelets,292.8,x10^3/uL,150,450,N,train
+L00206,P0121,2025-04-29,Sunrise Pathology Lab,CBC,ESR,12.77,mm/hr,0,20,N,train
+L00209,P0123,2025-12-21,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,75.2,mg/dL,70,100,N,train
+L00209,P0123,2025-12-21,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,197.5,mg/dL,70,140,H,train
+L00209,P0123,2025-12-21,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,5.04,%,4,5.6,N,train
+L00210,P0123,2025-03-28,District Hospital Agra,Renal + liver,Creatinine,0.68,mg/dL,0.6,1.1,N,train
+L00210,P0123,2025-03-28,District Hospital Agra,Renal + liver,SGPT (ALT),28.2,U/L,7,56,N,train
+L00210,P0123,2025-03-28,District Hospital Agra,Renal + liver,Uric Acid,3.03,mg/dL,2.6,6,N,train
+L00211,P0124,2026-04-20,Pathcare Diagnostics,Thyroid,TSH,3.5,uIU/mL,0.4,4,N,train
+L00216,P0128,2025-05-25,AIIA Delhi OPD,CBC,Hemoglobin,16.74,g/dL,13,17,N,train
+L00216,P0128,2025-05-25,AIIA Delhi OPD,CBC,WBC,19.88,x10^3/uL,4,11,H,train
+L00216,P0128,2025-05-25,AIIA Delhi OPD,CBC,Platelets,241.9,x10^3/uL,150,450,N,train
+L00216,P0128,2025-05-25,AIIA Delhi OPD,CBC,ESR,11.5,mm/hr,0,20,N,train
+L00218,P0129,2025-04-15,Pathcare Diagnostics,CBC,Hemoglobin,13.42,g/dL,12,15.5,N,train
+L00218,P0129,2025-04-15,Pathcare Diagnostics,CBC,WBC,4.12,x10^3/uL,4,11,N,train
+L00218,P0129,2025-04-15,Pathcare Diagnostics,CBC,Platelets,439.3,x10^3/uL,150,450,N,train
+L00218,P0129,2025-04-15,Pathcare Diagnostics,CBC,ESR,7.64,mm/hr,0,20,N,train
+L00219,P0131,2025-08-10,Pathcare Diagnostics,Renal + liver,Creatinine,1.9,mg/dL,0.6,1.1,H,test
+L00219,P0131,2025-08-10,Pathcare Diagnostics,Renal + liver,SGPT (ALT),27.3,U/L,7,56,N,test
+L00219,P0131,2025-08-10,Pathcare Diagnostics,Renal + liver,Uric Acid,2.89,mg/dL,2.6,6,N,test
+L00221,P0132,2025-01-05,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,336.6,mg/dL,0,200,H,train
+L00221,P0132,2025-01-05,Pathcare Diagnostics,Lipid + cardiac,LDL,174.5,mg/dL,0,100,H,train
+L00221,P0132,2025-01-05,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,91.2,mg/dL,0,150,N,train
+L00221,P0132,2025-01-05,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.09,ng/mL,0,0.04,H,train
+L00223,P0134,2025-11-23,AIIA Delhi OPD,Inflammatory,ESR,5.07,mm/hr,0,20,N,train
+L00223,P0134,2025-11-23,AIIA Delhi OPD,Inflammatory,CRP,0.77,mg/L,0,5,N,train
+L00223,P0134,2025-11-23,AIIA Delhi OPD,Inflammatory,Uric Acid,6.99,mg/dL,2.6,6,H,train
+L00224,P0134,2026-06-30,Community Health Centre,Renal + liver,Creatinine,0.63,mg/dL,0.6,1.1,N,train
+L00224,P0134,2026-06-30,Community Health Centre,Renal + liver,SGPT (ALT),7.54,U/L,7,56,N,train
+L00224,P0134,2026-06-30,Community Health Centre,Renal + liver,Uric Acid,11.98,mg/dL,2.6,6,H,train
+L00225,P0135,2026-02-14,Community Health Centre,Renal + liver,Creatinine,0.71,mg/dL,0.6,1.1,N,valid
+L00225,P0135,2026-02-14,Community Health Centre,Renal + liver,SGPT (ALT),54.3,U/L,7,56,N,valid
+L00225,P0135,2026-02-14,Community Health Centre,Renal + liver,Uric Acid,4.61,mg/dL,2.6,6,N,valid
+L00228,P0136,2025-01-24,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,87.1,mg/dL,70,100,N,train
+L00228,P0136,2025-01-24,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,112.5,mg/dL,70,140,N,train
+L00228,P0136,2025-01-24,District Hospital Agra,Diabetes panel,HbA1c,4.27,%,4,5.6,N,train
+L00229,P0136,2025-02-17,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,12.09,mg/dL,0,200,N,train
+L00229,P0136,2025-02-17,Sunrise Pathology Lab,Lipid + cardiac,LDL,80.8,mg/dL,0,100,N,train
+L00229,P0136,2025-02-17,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,43.7,mg/dL,0,150,N,train
+L00229,P0136,2025-02-17,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00231,P0137,2025-04-02,Pathcare Diagnostics,Thyroid,TSH,0.63,uIU/mL,0.4,4,N,train
+L00233,P0138,2026-01-03,District Hospital Agra,Lipid + cardiac,Total Cholesterol,77.8,mg/dL,0,200,N,train
+L00233,P0138,2026-01-03,District Hospital Agra,Lipid + cardiac,LDL,17.4,mg/dL,0,100,N,train
+L00233,P0138,2026-01-03,District Hospital Agra,Lipid + cardiac,Triglycerides,24.4,mg/dL,0,150,N,train
+L00233,P0138,2026-01-03,District Hospital Agra,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00234,P0139,2026-04-05,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,90.7,mg/dL,70,100,N,train
+L00234,P0139,2026-04-05,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,182,mg/dL,70,140,H,train
+L00234,P0139,2026-04-05,Pathcare Diagnostics,Diabetes panel,HbA1c,5.04,%,4,5.6,N,train
+L00235,P0140,2025-01-18,District Hospital Agra,Thyroid,TSH,1.7,uIU/mL,0.4,4,N,train
+L00237,P0141,2025-11-28,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,22,mg/dL,0,200,N,train
+L00237,P0141,2025-11-28,AIIA Delhi OPD,Lipid + cardiac,LDL,14.76,mg/dL,0,100,N,train
+L00237,P0141,2025-11-28,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,134.9,mg/dL,0,150,N,train
+L00237,P0141,2025-11-28,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.04,ng/mL,0,0.04,N,train
+L00240,P0142,2026-05-08,Community Health Centre,Inflammatory,ESR,22.4,mm/hr,0,20,H,train
+L00240,P0142,2026-05-08,Community Health Centre,Inflammatory,CRP,8.26,mg/L,0,5,H,train
+L00240,P0142,2026-05-08,Community Health Centre,Inflammatory,Uric Acid,15,mg/dL,3.5,7.2,H,train
+L00241,P0143,2026-04-28,Pathcare Diagnostics,CBC,Hemoglobin,13.38,g/dL,12,15.5,N,train
+L00241,P0143,2026-04-28,Pathcare Diagnostics,CBC,WBC,14.04,x10^3/uL,4,11,H,train
+L00241,P0143,2026-04-28,Pathcare Diagnostics,CBC,Platelets,352.4,x10^3/uL,150,450,N,train
+L00241,P0143,2026-04-28,Pathcare Diagnostics,CBC,ESR,4.99,mm/hr,0,20,N,train
+L00242,P0143,2026-02-01,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,153.9,mg/dL,0,200,N,train
+L00242,P0143,2026-02-01,Sunrise Pathology Lab,Lipid + cardiac,LDL,94.7,mg/dL,0,100,N,train
+L00242,P0143,2026-02-01,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,39.1,mg/dL,0,150,N,train
+L00242,P0143,2026-02-01,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.05,ng/mL,0,0.04,H,train
+L00251,P0149,2025-03-12,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,51.8,mg/dL,0,200,N,train
+L00251,P0149,2025-03-12,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,201.8,mg/dL,0,100,H,train
+L00251,P0149,2025-03-12,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,109,mg/dL,0,150,N,train
+L00251,P0149,2025-03-12,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00252,P0149,2026-07-04,Pathcare Diagnostics,Renal + liver,Creatinine,1.83,mg/dL,0.6,1.1,H,train
+L00252,P0149,2026-07-04,Pathcare Diagnostics,Renal + liver,SGPT (ALT),47.7,U/L,7,56,N,train
+L00252,P0149,2026-07-04,Pathcare Diagnostics,Renal + liver,Uric Acid,3.47,mg/dL,2.6,6,N,train
+L00255,P0150,2025-11-02,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,141.2,mg/dL,0,200,N,test
+L00255,P0150,2025-11-02,AIIA Delhi OPD,Lipid + cardiac,LDL,63.5,mg/dL,0,100,N,test
+L00255,P0150,2025-11-02,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,55.1,mg/dL,0,150,N,test
+L00255,P0150,2025-11-02,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,test
+L00256,P0150,2026-06-11,Community Health Centre,Renal + liver,Creatinine,1.67,mg/dL,0.6,1.1,H,test
+L00256,P0150,2026-06-11,Community Health Centre,Renal + liver,SGPT (ALT),24.8,U/L,7,56,N,test
+L00256,P0150,2026-06-11,Community Health Centre,Renal + liver,Uric Acid,3.62,mg/dL,2.6,6,N,test
+L00259,P0152,2025-09-03,Sunrise Pathology Lab,Renal + liver,Creatinine,1.19,mg/dL,0.7,1.3,N,test
+L00259,P0152,2025-09-03,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),53.3,U/L,7,56,N,test
+L00259,P0152,2025-09-03,Sunrise Pathology Lab,Renal + liver,Uric Acid,5.57,mg/dL,3.5,7.2,N,test
+L00265,P0155,2026-03-10,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,413.6,mg/dL,0,200,H,train
+L00265,P0155,2026-03-10,AIIA Delhi OPD,Lipid + cardiac,LDL,75.9,mg/dL,0,100,N,train
+L00265,P0155,2026-03-10,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,77.1,mg/dL,0,150,N,train
+L00265,P0155,2026-03-10,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.09,ng/mL,0,0.04,H,train
+L00266,P0155,2026-06-24,District Hospital Agra,Renal + liver,Creatinine,0.77,mg/dL,0.6,1.1,N,train
+L00266,P0155,2026-06-24,District Hospital Agra,Renal + liver,SGPT (ALT),35.3,U/L,7,56,N,train
+L00266,P0155,2026-06-24,District Hospital Agra,Renal + liver,Uric Acid,11.66,mg/dL,2.6,6,H,train
+L00268,P0156,2025-09-23,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,75.6,mg/dL,70,100,N,train
+L00268,P0156,2025-09-23,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,139.4,mg/dL,70,140,N,train
+L00268,P0156,2025-09-23,Sunrise Pathology Lab,Diabetes panel,HbA1c,5.06,%,4,5.6,N,train
+L00269,P0156,2026-02-26,Dr. Lal Labs (dummy),Inflammatory,ESR,0.62,mm/hr,0,20,N,train
+L00269,P0156,2026-02-26,Dr. Lal Labs (dummy),Inflammatory,CRP,1.65,mg/L,0,5,N,train
+L00269,P0156,2026-02-26,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,4.52,mg/dL,2.6,6,N,train
+L00270,P0156,2025-04-18,Sunrise Pathology Lab,Renal + liver,Creatinine,0.91,mg/dL,0.6,1.1,N,train
+L00270,P0156,2025-04-18,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),30.1,U/L,7,56,N,train
+L00270,P0156,2025-04-18,Sunrise Pathology Lab,Renal + liver,Uric Acid,10.33,mg/dL,2.6,6,H,train
+L00271,P0156,2026-06-18,Dr. Lal Labs (dummy),Thyroid,TSH,3.68,uIU/mL,0.4,4,N,train
+L00272,P0157,2026-06-02,Community Health Centre,Renal + liver,Creatinine,0.89,mg/dL,0.7,1.3,N,train
+L00272,P0157,2026-06-02,Community Health Centre,Renal + liver,SGPT (ALT),21.9,U/L,7,56,N,train
+L00272,P0157,2026-06-02,Community Health Centre,Renal + liver,Uric Acid,12.76,mg/dL,3.5,7.2,H,train
+L00274,P0158,2025-01-09,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,94.1,mg/dL,70,100,N,train
+L00274,P0158,2025-01-09,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,127.5,mg/dL,70,140,N,train
+L00274,P0158,2025-01-09,District Hospital Agra,Diabetes panel,HbA1c,4.43,%,4,5.6,N,train
+L00276,P0159,2026-07-06,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,79.9,mg/dL,70,100,N,train
+L00276,P0159,2026-07-06,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,99.3,mg/dL,70,140,N,train
+L00276,P0159,2026-07-06,Pathcare Diagnostics,Diabetes panel,HbA1c,5.36,%,4,5.6,N,train
+L00278,P0160,2025-02-13,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,75.6,mg/dL,70,100,N,train
+L00278,P0160,2025-02-13,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,133.5,mg/dL,70,140,N,train
+L00278,P0160,2025-02-13,AIIA Delhi OPD,Diabetes panel,HbA1c,8.41,%,4,5.6,H,train
+L00280,P0162,2025-09-11,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,8.78,mg/dL,0,200,N,valid
+L00280,P0162,2025-09-11,AIIA Delhi OPD,Lipid + cardiac,LDL,97.9,mg/dL,0,100,N,valid
+L00280,P0162,2025-09-11,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,37.5,mg/dL,0,150,N,valid
+L00280,P0162,2025-09-11,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.06,ng/mL,0,0.04,H,valid
+L00283,P0163,2026-06-01,Community Health Centre,Inflammatory,ESR,12.38,mm/hr,0,20,N,train
+L00283,P0163,2026-06-01,Community Health Centre,Inflammatory,CRP,4.64,mg/L,0,5,N,train
+L00283,P0163,2026-06-01,Community Health Centre,Inflammatory,Uric Acid,13.03,mg/dL,2.6,6,H,train
+L00287,P0165,2026-07-31,Community Health Centre,Inflammatory,ESR,14.25,mm/hr,0,20,N,train
+L00287,P0165,2026-07-31,Community Health Centre,Inflammatory,CRP,1.33,mg/L,0,5,N,train
+L00287,P0165,2026-07-31,Community Health Centre,Inflammatory,Uric Acid,5.16,mg/dL,2.6,6,N,train
+L00288,P0165,2025-03-01,Sunrise Pathology Lab,Thyroid,TSH,3.43,uIU/mL,0.4,4,N,train
+L00289,P0166,2026-01-20,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,13.11,mg/dL,0,200,N,train
+L00289,P0166,2026-01-20,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,21.8,mg/dL,0,100,N,train
+L00289,P0166,2026-01-20,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,14.27,mg/dL,0,150,N,train
+L00289,P0166,2026-01-20,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00291,P0167,2025-03-15,District Hospital Agra,Renal + liver,Creatinine,0.79,mg/dL,0.6,1.1,N,valid
+L00291,P0167,2025-03-15,District Hospital Agra,Renal + liver,SGPT (ALT),42.8,U/L,7,56,N,valid
+L00291,P0167,2025-03-15,District Hospital Agra,Renal + liver,Uric Acid,5.38,mg/dL,2.6,6,N,valid
+L00294,P0168,2026-01-10,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,90.9,mg/dL,70,100,N,train
+L00294,P0168,2026-01-10,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,107.5,mg/dL,70,140,N,train
+L00294,P0168,2026-01-10,AIIA Delhi OPD,Diabetes panel,HbA1c,5.1,%,4,5.6,N,train
+L00295,P0168,2025-11-07,Community Health Centre,Renal + liver,Creatinine,1.28,mg/dL,0.7,1.3,N,train
+L00295,P0168,2025-11-07,Community Health Centre,Renal + liver,SGPT (ALT),39.3,U/L,7,56,N,train
+L00295,P0168,2025-11-07,Community Health Centre,Renal + liver,Uric Acid,7.16,mg/dL,3.5,7.2,N,train
+L00298,P0169,2026-07-03,District Hospital Agra,Inflammatory,ESR,16.65,mm/hr,0,20,N,train
+L00298,P0169,2026-07-03,District Hospital Agra,Inflammatory,CRP,2.65,mg/L,0,5,N,train
+L00298,P0169,2026-07-03,District Hospital Agra,Inflammatory,Uric Acid,6.67,mg/dL,3.5,7.2,N,train
+L00299,P0169,2026-03-06,District Hospital Agra,Renal + liver,Creatinine,0.88,mg/dL,0.7,1.3,N,train
+L00299,P0169,2026-03-06,District Hospital Agra,Renal + liver,SGPT (ALT),39.8,U/L,7,56,N,train
+L00299,P0169,2026-03-06,District Hospital Agra,Renal + liver,Uric Acid,14.2,mg/dL,3.5,7.2,H,train
+L00301,P0170,2026-04-12,Sunrise Pathology Lab,Inflammatory,ESR,10.29,mm/hr,0,20,N,test
+L00301,P0170,2026-04-12,Sunrise Pathology Lab,Inflammatory,CRP,4.5,mg/L,0,5,N,test
+L00301,P0170,2026-04-12,Sunrise Pathology Lab,Inflammatory,Uric Acid,9.47,mg/dL,2.6,6,H,test
+L00302,P0170,2026-08-10,Community Health Centre,Renal + liver,Creatinine,0.64,mg/dL,0.6,1.1,N,test
+L00302,P0170,2026-08-10,Community Health Centre,Renal + liver,SGPT (ALT),88.8,U/L,7,56,H,test
+L00302,P0170,2026-08-10,Community Health Centre,Renal + liver,Uric Acid,5.77,mg/dL,2.6,6,N,test
+L00305,P0173,2025-07-20,District Hospital Agra,Inflammatory,ESR,13.54,mm/hr,0,20,N,train
+L00305,P0173,2025-07-20,District Hospital Agra,Inflammatory,CRP,2.29,mg/L,0,5,N,train
+L00305,P0173,2025-07-20,District Hospital Agra,Inflammatory,Uric Acid,5.74,mg/dL,2.6,6,N,train
+L00306,P0173,2026-02-15,District Hospital Agra,Renal + liver,Creatinine,1.67,mg/dL,0.6,1.1,H,train
+L00306,P0173,2026-02-15,District Hospital Agra,Renal + liver,SGPT (ALT),30.1,U/L,7,56,N,train
+L00306,P0173,2026-02-15,District Hospital Agra,Renal + liver,Uric Acid,4.24,mg/dL,2.6,6,N,train
+L00308,P0174,2025-07-20,District Hospital Agra,Lipid + cardiac,Total Cholesterol,92.4,mg/dL,0,200,N,train
+L00308,P0174,2025-07-20,District Hospital Agra,Lipid + cardiac,LDL,162.9,mg/dL,0,100,H,train
+L00308,P0174,2025-07-20,District Hospital Agra,Lipid + cardiac,Triglycerides,124.9,mg/dL,0,150,N,train
+L00308,P0174,2025-07-20,District Hospital Agra,Lipid + cardiac,Troponin I,0.08,ng/mL,0,0.04,H,train
+L00310,P0176,2026-06-28,Community Health Centre,Inflammatory,ESR,3.4,mm/hr,0,20,N,train
+L00310,P0176,2026-06-28,Community Health Centre,Inflammatory,CRP,0.57,mg/L,0,5,N,train
+L00310,P0176,2026-06-28,Community Health Centre,Inflammatory,Uric Acid,5.94,mg/dL,3.5,7.2,N,train
+L00311,P0176,2026-07-14,Community Health Centre,Renal + liver,Creatinine,1.13,mg/dL,0.7,1.3,N,train
+L00311,P0176,2026-07-14,Community Health Centre,Renal + liver,SGPT (ALT),42.4,U/L,7,56,N,train
+L00311,P0176,2026-07-14,Community Health Centre,Renal + liver,Uric Acid,13.07,mg/dL,3.5,7.2,H,train
+L00314,P0180,2025-12-16,Pathcare Diagnostics,CBC,Hemoglobin,15.41,g/dL,12,15.5,N,train
+L00314,P0180,2025-12-16,Pathcare Diagnostics,CBC,WBC,18.61,x10^3/uL,4,11,H,train
+L00314,P0180,2025-12-16,Pathcare Diagnostics,CBC,Platelets,215,x10^3/uL,150,450,N,train
+L00314,P0180,2025-12-16,Pathcare Diagnostics,CBC,ESR,11.53,mm/hr,0,20,N,train
+L00317,P0181,2025-02-14,Pathcare Diagnostics,Inflammatory,ESR,11.51,mm/hr,0,20,N,train
+L00317,P0181,2025-02-14,Pathcare Diagnostics,Inflammatory,CRP,3.32,mg/L,0,5,N,train
+L00317,P0181,2025-02-14,Pathcare Diagnostics,Inflammatory,Uric Acid,4.94,mg/dL,3.5,7.2,N,train
+L00319,P0182,2025-09-14,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,70.8,mg/dL,70,100,N,train
+L00319,P0182,2025-09-14,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,137.8,mg/dL,70,140,N,train
+L00319,P0182,2025-09-14,Sunrise Pathology Lab,Diabetes panel,HbA1c,4.74,%,4,5.6,N,train
+L00320,P0182,2026-01-30,Pathcare Diagnostics,Renal + liver,Creatinine,1.69,mg/dL,0.7,1.3,H,train
+L00320,P0182,2026-01-30,Pathcare Diagnostics,Renal + liver,SGPT (ALT),64.1,U/L,7,56,H,train
+L00320,P0182,2026-01-30,Pathcare Diagnostics,Renal + liver,Uric Acid,7.09,mg/dL,3.5,7.2,N,train
+L00324,P0185,2026-07-19,Pathcare Diagnostics,Renal + liver,Creatinine,0.9,mg/dL,0.6,1.1,N,train
+L00324,P0185,2026-07-19,Pathcare Diagnostics,Renal + liver,SGPT (ALT),37.4,U/L,7,56,N,train
+L00324,P0185,2026-07-19,Pathcare Diagnostics,Renal + liver,Uric Acid,4.16,mg/dL,2.6,6,N,train
+L00326,P0187,2026-01-08,District Hospital Agra,CBC,Hemoglobin,15.33,g/dL,13,17,N,train
+L00326,P0187,2026-01-08,District Hospital Agra,CBC,WBC,9.1,x10^3/uL,4,11,N,train
+L00326,P0187,2026-01-08,District Hospital Agra,CBC,Platelets,315.2,x10^3/uL,150,450,N,train
+L00326,P0187,2026-01-08,District Hospital Agra,CBC,ESR,10.39,mm/hr,0,20,N,train
+L00327,P0188,2026-06-17,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,78.8,mg/dL,70,100,N,test
+L00327,P0188,2026-06-17,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,196.2,mg/dL,70,140,H,test
+L00327,P0188,2026-06-17,Pathcare Diagnostics,Diabetes panel,HbA1c,7.83,%,4,5.6,H,test
+L00329,P0189,2025-01-01,Sunrise Pathology Lab,Renal + liver,Creatinine,2.07,mg/dL,0.6,1.1,H,test
+L00329,P0189,2025-01-01,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),44.5,U/L,7,56,N,test
+L00329,P0189,2025-01-01,Sunrise Pathology Lab,Renal + liver,Uric Acid,3.7,mg/dL,2.6,6,N,test
+L00330,P0189,2025-02-03,District Hospital Agra,Thyroid,TSH,3.34,uIU/mL,0.4,4,N,test
+L00331,P0190,2025-07-03,Community Health Centre,Inflammatory,ESR,1.65,mm/hr,0,20,N,test
+L00331,P0190,2025-07-03,Community Health Centre,Inflammatory,CRP,7.5,mg/L,0,5,H,test
+L00331,P0190,2025-07-03,Community Health Centre,Inflammatory,Uric Acid,3.53,mg/dL,3.5,7.2,N,test
+L00332,P0190,2026-08-15,Sunrise Pathology Lab,Renal + liver,Creatinine,0.98,mg/dL,0.7,1.3,N,test
+L00332,P0190,2026-08-15,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),15.1,U/L,7,56,N,test
+L00332,P0190,2026-08-15,Sunrise Pathology Lab,Renal + liver,Uric Acid,15.01,mg/dL,3.5,7.2,H,test
+L00334,P0191,2026-04-08,Sunrise Pathology Lab,CBC,Hemoglobin,16.21,g/dL,13,17,N,valid
+L00334,P0191,2026-04-08,Sunrise Pathology Lab,CBC,WBC,4.06,x10^3/uL,4,11,N,valid
+L00334,P0191,2026-04-08,Sunrise Pathology Lab,CBC,Platelets,351.7,x10^3/uL,150,450,N,valid
+L00334,P0191,2026-04-08,Sunrise Pathology Lab,CBC,ESR,2,mm/hr,0,20,N,valid
+L00335,P0191,2026-03-07,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,77.4,mg/dL,70,100,N,valid
+L00335,P0191,2026-03-07,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,217.1,mg/dL,70,140,H,valid
+L00335,P0191,2026-03-07,Sunrise Pathology Lab,Diabetes panel,HbA1c,4.84,%,4,5.6,N,valid
+L00337,P0192,2026-02-03,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,168,mg/dL,70,100,H,test
+L00337,P0192,2026-02-03,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,109.2,mg/dL,70,140,N,test
+L00337,P0192,2026-02-03,Sunrise Pathology Lab,Diabetes panel,HbA1c,8.98,%,4,5.6,H,test
+L00338,P0192,2026-04-08,Pathcare Diagnostics,Renal + liver,Creatinine,1.24,mg/dL,0.7,1.3,N,test
+L00338,P0192,2026-04-08,Pathcare Diagnostics,Renal + liver,SGPT (ALT),50.1,U/L,7,56,N,test
+L00338,P0192,2026-04-08,Pathcare Diagnostics,Renal + liver,Uric Acid,5.67,mg/dL,3.5,7.2,N,test
+L00342,P0195,2026-06-20,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,74.1,mg/dL,70,100,N,train
+L00342,P0195,2026-06-20,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,73.8,mg/dL,70,140,N,train
+L00342,P0195,2026-06-20,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,9.38,%,4,5.6,H,train
+L00343,P0195,2025-07-19,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,68.7,mg/dL,0,200,N,train
+L00343,P0195,2025-07-19,AIIA Delhi OPD,Lipid + cardiac,LDL,51.3,mg/dL,0,100,N,train
+L00343,P0195,2025-07-19,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,50.8,mg/dL,0,150,N,train
+L00343,P0195,2025-07-19,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00344,P0195,2025-02-15,Dr. Lal Labs (dummy),Renal + liver,Creatinine,2.07,mg/dL,0.7,1.3,H,train
+L00344,P0195,2025-02-15,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),52.6,U/L,7,56,N,train
+L00344,P0195,2025-02-15,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,5.42,mg/dL,3.5,7.2,N,train
+L00349,P0198,2025-01-26,Community Health Centre,Inflammatory,ESR,13.11,mm/hr,0,20,N,train
+L00349,P0198,2025-01-26,Community Health Centre,Inflammatory,CRP,3.8,mg/L,0,5,N,train
+L00349,P0198,2025-01-26,Community Health Centre,Inflammatory,Uric Acid,6.64,mg/dL,3.5,7.2,N,train
+L00350,P0198,2025-09-15,District Hospital Agra,Renal + liver,Creatinine,1.09,mg/dL,0.7,1.3,N,train
+L00350,P0198,2025-09-15,District Hospital Agra,Renal + liver,SGPT (ALT),40.3,U/L,7,56,N,train
+L00350,P0198,2025-09-15,District Hospital Agra,Renal + liver,Uric Acid,15.71,mg/dL,3.5,7.2,H,train
+L00353,P0200,2026-06-23,Dr. Lal Labs (dummy),Inflammatory,ESR,18.69,mm/hr,0,20,N,train
+L00353,P0200,2026-06-23,Dr. Lal Labs (dummy),Inflammatory,CRP,2.42,mg/L,0,5,N,train
+L00353,P0200,2026-06-23,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,4.64,mg/dL,2.6,6,N,train
+L00354,P0200,2025-06-22,Community Health Centre,Thyroid,TSH,1.82,uIU/mL,0.4,4,N,train
+L00355,P0201,2025-09-28,Pathcare Diagnostics,CBC,Hemoglobin,14.97,g/dL,13,17,N,train
+L00355,P0201,2025-09-28,Pathcare Diagnostics,CBC,WBC,15.85,x10^3/uL,4,11,H,train
+L00355,P0201,2025-09-28,Pathcare Diagnostics,CBC,Platelets,402.7,x10^3/uL,150,450,N,train
+L00355,P0201,2025-09-28,Pathcare Diagnostics,CBC,ESR,36.4,mm/hr,0,20,H,train
+L00357,P0202,2026-08-25,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,55.3,mg/dL,0,200,N,valid
+L00357,P0202,2026-08-25,Sunrise Pathology Lab,Lipid + cardiac,LDL,42.2,mg/dL,0,100,N,valid
+L00357,P0202,2026-08-25,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,125.4,mg/dL,0,150,N,valid
+L00357,P0202,2026-08-25,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,valid
+L00358,P0202,2026-06-05,District Hospital Agra,Renal + liver,Creatinine,1.51,mg/dL,0.6,1.1,H,valid
+L00358,P0202,2026-06-05,District Hospital Agra,Renal + liver,SGPT (ALT),32.4,U/L,7,56,N,valid
+L00358,P0202,2026-06-05,District Hospital Agra,Renal + liver,Uric Acid,3.3,mg/dL,2.6,6,N,valid
+L00361,P0205,2025-08-07,Community Health Centre,Diabetes panel,Fasting Blood Sugar,132.2,mg/dL,70,100,H,train
+L00361,P0205,2025-08-07,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,92.5,mg/dL,70,140,N,train
+L00361,P0205,2025-08-07,Community Health Centre,Diabetes panel,HbA1c,4.66,%,4,5.6,N,train
+L00366,P0209,2026-06-10,Community Health Centre,Diabetes panel,Fasting Blood Sugar,82.8,mg/dL,70,100,N,train
+L00366,P0209,2026-06-10,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,79.8,mg/dL,70,140,N,train
+L00366,P0209,2026-06-10,Community Health Centre,Diabetes panel,HbA1c,5.46,%,4,5.6,N,train
+L00367,P0210,2025-01-24,District Hospital Agra,Inflammatory,ESR,8.71,mm/hr,0,20,N,train
+L00367,P0210,2025-01-24,District Hospital Agra,Inflammatory,CRP,3.82,mg/L,0,5,N,train
+L00367,P0210,2025-01-24,District Hospital Agra,Inflammatory,Uric Acid,4.18,mg/dL,2.6,6,N,train
+L00368,P0210,2025-09-10,AIIA Delhi OPD,Renal + liver,Creatinine,0.79,mg/dL,0.6,1.1,N,train
+L00368,P0210,2025-09-10,AIIA Delhi OPD,Renal + liver,SGPT (ALT),93.3,U/L,7,56,H,train
+L00368,P0210,2025-09-10,AIIA Delhi OPD,Renal + liver,Uric Acid,12.46,mg/dL,2.6,6,H,train
+L00371,P0211,2025-09-24,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,78.1,mg/dL,0,200,N,train
+L00371,P0211,2025-09-24,AIIA Delhi OPD,Lipid + cardiac,LDL,96.7,mg/dL,0,100,N,train
+L00371,P0211,2025-09-24,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,235.3,mg/dL,0,150,H,train
+L00371,P0211,2025-09-24,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00372,P0211,2025-06-30,Community Health Centre,Renal + liver,Creatinine,2.64,mg/dL,0.7,1.3,H,train
+L00372,P0211,2025-06-30,Community Health Centre,Renal + liver,SGPT (ALT),17.46,U/L,7,56,N,train
+L00372,P0211,2025-06-30,Community Health Centre,Renal + liver,Uric Acid,4.62,mg/dL,3.5,7.2,N,train
+L00374,P0212,2026-06-14,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,73.6,mg/dL,70,100,N,train
+L00374,P0212,2026-06-14,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,90.2,mg/dL,70,140,N,train
+L00374,P0212,2026-06-14,Pathcare Diagnostics,Diabetes panel,HbA1c,5.24,%,4,5.6,N,train
+L00375,P0212,2025-02-09,District Hospital Agra,Lipid + cardiac,Total Cholesterol,189.2,mg/dL,0,200,N,train
+L00375,P0212,2025-02-09,District Hospital Agra,Lipid + cardiac,LDL,209,mg/dL,0,100,H,train
+L00375,P0212,2025-02-09,District Hospital Agra,Lipid + cardiac,Triglycerides,111.8,mg/dL,0,150,N,train
+L00375,P0212,2025-02-09,District Hospital Agra,Lipid + cardiac,Troponin I,0.04,ng/mL,0,0.04,N,train
+L00376,P0212,2026-04-18,District Hospital Agra,Renal + liver,Creatinine,1.46,mg/dL,0.6,1.1,H,train
+L00376,P0212,2026-04-18,District Hospital Agra,Renal + liver,SGPT (ALT),32.1,U/L,7,56,N,train
+L00376,P0212,2026-04-18,District Hospital Agra,Renal + liver,Uric Acid,4.82,mg/dL,2.6,6,N,train
+L00379,P0213,2026-03-15,District Hospital Agra,Inflammatory,ESR,38.4,mm/hr,0,20,H,valid
+L00379,P0213,2026-03-15,District Hospital Agra,Inflammatory,CRP,0.11,mg/L,0,5,N,valid
+L00379,P0213,2026-03-15,District Hospital Agra,Inflammatory,Uric Acid,13.97,mg/dL,3.5,7.2,H,valid
+L00384,P0216,2026-08-04,District Hospital Agra,Renal + liver,Creatinine,0.64,mg/dL,0.6,1.1,N,train
+L00384,P0216,2026-08-04,District Hospital Agra,Renal + liver,SGPT (ALT),24.8,U/L,7,56,N,train
+L00384,P0216,2026-08-04,District Hospital Agra,Renal + liver,Uric Acid,2.81,mg/dL,2.6,6,N,train
+L00385,P0216,2025-03-13,Dr. Lal Labs (dummy),Thyroid,TSH,3.85,uIU/mL,0.4,4,N,train
+L00390,P0218,2025-01-18,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,92.1,mg/dL,70,100,N,valid
+L00390,P0218,2025-01-18,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,114.7,mg/dL,70,140,N,valid
+L00390,P0218,2025-01-18,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.49,%,4,5.6,N,valid
+L00393,P0220,2025-02-14,Sunrise Pathology Lab,Renal + liver,Creatinine,0.66,mg/dL,0.6,1.1,N,train
+L00393,P0220,2025-02-14,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),37.2,U/L,7,56,N,train
+L00393,P0220,2025-02-14,Sunrise Pathology Lab,Renal + liver,Uric Acid,11.79,mg/dL,2.6,6,H,train
+L00396,P0222,2026-06-13,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,170.2,mg/dL,70,100,H,train
+L00396,P0222,2026-06-13,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,76.1,mg/dL,70,140,N,train
+L00396,P0222,2026-06-13,AIIA Delhi OPD,Diabetes panel,HbA1c,4.74,%,4,5.6,N,train
+L00398,P0223,2025-12-08,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,89.9,mg/dL,70,100,N,train
+L00398,P0223,2025-12-08,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,89.4,mg/dL,70,140,N,train
+L00398,P0223,2025-12-08,Pathcare Diagnostics,Diabetes panel,HbA1c,4.94,%,4,5.6,N,train
+L00399,P0223,2026-06-16,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,94.7,mg/dL,0,200,N,train
+L00399,P0223,2026-06-16,AIIA Delhi OPD,Lipid + cardiac,LDL,48.1,mg/dL,0,100,N,train
+L00399,P0223,2026-06-16,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,92.5,mg/dL,0,150,N,train
+L00399,P0223,2026-06-16,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.06,ng/mL,0,0.04,H,train
+L00402,P0224,2026-05-26,AIIA Delhi OPD,Inflammatory,ESR,7.12,mm/hr,0,20,N,train
+L00402,P0224,2026-05-26,AIIA Delhi OPD,Inflammatory,CRP,7.03,mg/L,0,5,H,train
+L00402,P0224,2026-05-26,AIIA Delhi OPD,Inflammatory,Uric Acid,13.19,mg/dL,2.6,6,H,train
+L00403,P0224,2026-03-21,Sunrise Pathology Lab,Renal + liver,Creatinine,0.7,mg/dL,0.6,1.1,N,train
+L00403,P0224,2026-03-21,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),7.54,U/L,7,56,N,train
+L00403,P0224,2026-03-21,Sunrise Pathology Lab,Renal + liver,Uric Acid,3.08,mg/dL,2.6,6,N,train
+L00406,P0226,2026-04-19,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,81.3,mg/dL,70,100,N,train
+L00406,P0226,2026-04-19,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,120.8,mg/dL,70,140,N,train
+L00406,P0226,2026-04-19,District Hospital Agra,Diabetes panel,HbA1c,4.95,%,4,5.6,N,train
+L00411,P0229,2026-08-03,Dr. Lal Labs (dummy),CBC,Hemoglobin,16.1,g/dL,13,17,N,train
+L00411,P0229,2026-08-03,Dr. Lal Labs (dummy),CBC,WBC,21,x10^3/uL,4,11,H,train
+L00411,P0229,2026-08-03,Dr. Lal Labs (dummy),CBC,Platelets,421.3,x10^3/uL,150,450,N,train
+L00411,P0229,2026-08-03,Dr. Lal Labs (dummy),CBC,ESR,37.5,mm/hr,0,20,H,train
+L00413,P0230,2026-01-23,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,77.7,mg/dL,70,100,N,train
+L00413,P0230,2026-01-23,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,82.5,mg/dL,70,140,N,train
+L00413,P0230,2026-01-23,Sunrise Pathology Lab,Diabetes panel,HbA1c,8.05,%,4,5.6,H,train
+L00414,P0230,2026-01-21,AIIA Delhi OPD,Renal + liver,Creatinine,0.85,mg/dL,0.6,1.1,N,train
+L00414,P0230,2026-01-21,AIIA Delhi OPD,Renal + liver,SGPT (ALT),18.14,U/L,7,56,N,train
+L00414,P0230,2026-01-21,AIIA Delhi OPD,Renal + liver,Uric Acid,12.84,mg/dL,2.6,6,H,train
+L00416,P0231,2025-08-04,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,184.8,mg/dL,0,200,N,train
+L00416,P0231,2025-08-04,AIIA Delhi OPD,Lipid + cardiac,LDL,93.3,mg/dL,0,100,N,train
+L00416,P0231,2025-08-04,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,126.5,mg/dL,0,150,N,train
+L00416,P0231,2025-08-04,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00418,P0232,2025-11-14,District Hospital Agra,Lipid + cardiac,Total Cholesterol,138.2,mg/dL,0,200,N,train
+L00418,P0232,2025-11-14,District Hospital Agra,Lipid + cardiac,LDL,11.65,mg/dL,0,100,N,train
+L00418,P0232,2025-11-14,District Hospital Agra,Lipid + cardiac,Triglycerides,105.7,mg/dL,0,150,N,train
+L00418,P0232,2025-11-14,District Hospital Agra,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00419,P0232,2026-04-17,District Hospital Agra,Renal + liver,Creatinine,1.7,mg/dL,0.7,1.3,H,train
+L00419,P0232,2026-04-17,District Hospital Agra,Renal + liver,SGPT (ALT),15.71,U/L,7,56,N,train
+L00419,P0232,2026-04-17,District Hospital Agra,Renal + liver,Uric Acid,4.04,mg/dL,3.5,7.2,N,train
+L00421,P0233,2026-07-30,Community Health Centre,Inflammatory,ESR,3.13,mm/hr,0,20,N,train
+L00421,P0233,2026-07-30,Community Health Centre,Inflammatory,CRP,1.09,mg/L,0,5,N,train
+L00421,P0233,2026-07-30,Community Health Centre,Inflammatory,Uric Acid,13.09,mg/dL,2.6,6,H,train
+L00422,P0233,2026-05-05,Pathcare Diagnostics,Renal + liver,Creatinine,0.81,mg/dL,0.6,1.1,N,train
+L00422,P0233,2026-05-05,Pathcare Diagnostics,Renal + liver,SGPT (ALT),26.7,U/L,7,56,N,train
+L00422,P0233,2026-05-05,Pathcare Diagnostics,Renal + liver,Uric Acid,10.29,mg/dL,2.6,6,H,train
+L00424,P0234,2026-03-10,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,85.2,mg/dL,70,100,N,train
+L00424,P0234,2026-03-10,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,224.9,mg/dL,70,140,H,train
+L00424,P0234,2026-03-10,Sunrise Pathology Lab,Diabetes panel,HbA1c,5.24,%,4,5.6,N,train
+L00425,P0234,2026-07-05,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,103,mg/dL,0,200,N,train
+L00425,P0234,2026-07-05,Sunrise Pathology Lab,Lipid + cardiac,LDL,214.6,mg/dL,0,100,H,train
+L00425,P0234,2026-07-05,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,62.1,mg/dL,0,150,N,train
+L00425,P0234,2026-07-05,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00426,P0234,2025-12-15,Pathcare Diagnostics,Renal + liver,Creatinine,1.64,mg/dL,0.6,1.1,H,train
+L00426,P0234,2025-12-15,Pathcare Diagnostics,Renal + liver,SGPT (ALT),38.3,U/L,7,56,N,train
+L00426,P0234,2025-12-15,Pathcare Diagnostics,Renal + liver,Uric Acid,2.81,mg/dL,2.6,6,N,train
+L00429,P0235,2026-05-18,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,93.4,mg/dL,0,200,N,train
+L00429,P0235,2026-05-18,Pathcare Diagnostics,Lipid + cardiac,LDL,59.7,mg/dL,0,100,N,train
+L00429,P0235,2026-05-18,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,19.21,mg/dL,0,150,N,train
+L00429,P0235,2026-05-18,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00433,P0237,2025-09-15,Dr. Lal Labs (dummy),Renal + liver,Creatinine,0.78,mg/dL,0.7,1.3,N,train
+L00433,P0237,2025-09-15,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),16.27,U/L,7,56,N,train
+L00433,P0237,2025-09-15,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,3.7,mg/dL,3.5,7.2,N,train
+L00438,P0240,2025-07-16,Pathcare Diagnostics,CBC,Hemoglobin,14.19,g/dL,13,17,N,train
+L00438,P0240,2025-07-16,Pathcare Diagnostics,CBC,WBC,24.1,x10^3/uL,4,11,H,train
+L00438,P0240,2025-07-16,Pathcare Diagnostics,CBC,Platelets,203.9,x10^3/uL,150,450,N,train
+L00438,P0240,2025-07-16,Pathcare Diagnostics,CBC,ESR,31.5,mm/hr,0,20,H,train
+L00440,P0241,2025-07-22,Community Health Centre,Inflammatory,ESR,16.6,mm/hr,0,20,N,train
+L00440,P0241,2025-07-22,Community Health Centre,Inflammatory,CRP,1.23,mg/L,0,5,N,train
+L00440,P0241,2025-07-22,Community Health Centre,Inflammatory,Uric Acid,5.91,mg/dL,3.5,7.2,N,train
+L00444,P0244,2025-01-05,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,89.9,mg/dL,70,100,N,test
+L00444,P0244,2025-01-05,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,77.7,mg/dL,70,140,N,test
+L00444,P0244,2025-01-05,Sunrise Pathology Lab,Diabetes panel,HbA1c,8,%,4,5.6,H,test
+L00445,P0244,2025-03-12,District Hospital Agra,Renal + liver,Creatinine,0.79,mg/dL,0.7,1.3,N,test
+L00445,P0244,2025-03-12,District Hospital Agra,Renal + liver,SGPT (ALT),55.4,U/L,7,56,N,test
+L00445,P0244,2025-03-12,District Hospital Agra,Renal + liver,Uric Acid,9.62,mg/dL,3.5,7.2,H,test
+L00447,P0245,2025-10-29,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,142.5,mg/dL,0,200,N,train
+L00447,P0245,2025-10-29,Pathcare Diagnostics,Lipid + cardiac,LDL,12.93,mg/dL,0,100,N,train
+L00447,P0245,2025-10-29,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,26.8,mg/dL,0,150,N,train
+L00447,P0245,2025-10-29,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00451,P0247,2025-02-09,Dr. Lal Labs (dummy),Renal + liver,Creatinine,0.82,mg/dL,0.7,1.3,N,train
+L00451,P0247,2025-02-09,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),40.2,U/L,7,56,N,train
+L00451,P0247,2025-02-09,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.71,mg/dL,3.5,7.2,N,train
+L00454,P0249,2025-03-16,Pathcare Diagnostics,CBC,Hemoglobin,15.9,g/dL,13,17,N,train
+L00454,P0249,2025-03-16,Pathcare Diagnostics,CBC,WBC,12.26,x10^3/uL,4,11,H,train
+L00454,P0249,2025-03-16,Pathcare Diagnostics,CBC,Platelets,419.9,x10^3/uL,150,450,N,train
+L00454,P0249,2025-03-16,Pathcare Diagnostics,CBC,ESR,22.9,mm/hr,0,20,H,train
+L00456,P0250,2026-02-12,District Hospital Agra,Inflammatory,ESR,8.82,mm/hr,0,20,N,train
+L00456,P0250,2026-02-12,District Hospital Agra,Inflammatory,CRP,3.91,mg/L,0,5,N,train
+L00456,P0250,2026-02-12,District Hospital Agra,Inflammatory,Uric Acid,7.5,mg/dL,2.6,6,H,train
+L00457,P0250,2025-05-05,Pathcare Diagnostics,Renal + liver,Creatinine,1.9,mg/dL,0.6,1.1,H,train
+L00457,P0250,2025-05-05,Pathcare Diagnostics,Renal + liver,SGPT (ALT),48.8,U/L,7,56,N,train
+L00457,P0250,2025-05-05,Pathcare Diagnostics,Renal + liver,Uric Acid,4.55,mg/dL,2.6,6,N,train
+L00460,P0252,2025-07-01,Dr. Lal Labs (dummy),CBC,Hemoglobin,6.12,g/dL,12,15.5,L,valid
+L00460,P0252,2025-07-01,Dr. Lal Labs (dummy),CBC,WBC,19.22,x10^3/uL,4,11,H,valid
+L00460,P0252,2025-07-01,Dr. Lal Labs (dummy),CBC,Platelets,161.3,x10^3/uL,150,450,N,valid
+L00460,P0252,2025-07-01,Dr. Lal Labs (dummy),CBC,ESR,41.7,mm/hr,0,20,H,valid
+L00463,P0253,2026-06-15,Community Health Centre,Inflammatory,ESR,9.26,mm/hr,0,20,N,test
+L00463,P0253,2026-06-15,Community Health Centre,Inflammatory,CRP,4.09,mg/L,0,5,N,test
+L00463,P0253,2026-06-15,Community Health Centre,Inflammatory,Uric Acid,14.39,mg/dL,3.5,7.2,H,test
+L00467,P0256,2026-04-03,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,81.8,mg/dL,70,100,N,train
+L00467,P0256,2026-04-03,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,124.2,mg/dL,70,140,N,train
+L00467,P0256,2026-04-03,Sunrise Pathology Lab,Diabetes panel,HbA1c,4.81,%,4,5.6,N,train
+L00469,P0259,2025-03-07,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,62.3,mg/dL,0,200,N,train
+L00469,P0259,2025-03-07,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,94,mg/dL,0,100,N,train
+L00469,P0259,2025-03-07,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,53.1,mg/dL,0,150,N,train
+L00469,P0259,2025-03-07,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00470,P0259,2026-03-06,Pathcare Diagnostics,Renal + liver,Creatinine,0.9,mg/dL,0.7,1.3,N,train
+L00470,P0259,2026-03-06,Pathcare Diagnostics,Renal + liver,SGPT (ALT),21.3,U/L,7,56,N,train
+L00470,P0259,2026-03-06,Pathcare Diagnostics,Renal + liver,Uric Acid,5.98,mg/dL,3.5,7.2,N,train
+L00473,P0261,2025-03-13,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,78.5,mg/dL,70,100,N,train
+L00473,P0261,2025-03-13,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,86.7,mg/dL,70,140,N,train
+L00473,P0261,2025-03-13,District Hospital Agra,Diabetes panel,HbA1c,5.39,%,4,5.6,N,train
+L00474,P0261,2026-04-07,Pathcare Diagnostics,Inflammatory,ESR,12.14,mm/hr,0,20,N,train
+L00474,P0261,2026-04-07,Pathcare Diagnostics,Inflammatory,CRP,4.55,mg/L,0,5,N,train
+L00474,P0261,2026-04-07,Pathcare Diagnostics,Inflammatory,Uric Acid,9.14,mg/dL,2.6,6,H,train
+L00475,P0261,2025-08-27,Sunrise Pathology Lab,Renal + liver,Creatinine,0.85,mg/dL,0.6,1.1,N,train
+L00475,P0261,2025-08-27,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),42.4,U/L,7,56,N,train
+L00475,P0261,2025-08-27,Sunrise Pathology Lab,Renal + liver,Uric Acid,4.45,mg/dL,2.6,6,N,train
+L00476,P0262,2026-06-05,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,195.4,mg/dL,70,100,H,train
+L00476,P0262,2026-06-05,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,173.9,mg/dL,70,140,H,train
+L00476,P0262,2026-06-05,Pathcare Diagnostics,Diabetes panel,HbA1c,4.34,%,4,5.6,N,train
+L00479,P0263,2025-12-18,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,85.4,mg/dL,70,100,N,train
+L00479,P0263,2025-12-18,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,95.1,mg/dL,70,140,N,train
+L00479,P0263,2025-12-18,Pathcare Diagnostics,Diabetes panel,HbA1c,4.83,%,4,5.6,N,train
+L00481,P0264,2025-12-05,District Hospital Agra,CBC,Hemoglobin,14.76,g/dL,12,15.5,N,valid
+L00481,P0264,2025-12-05,District Hospital Agra,CBC,WBC,22.7,x10^3/uL,4,11,H,valid
+L00481,P0264,2025-12-05,District Hospital Agra,CBC,Platelets,159.6,x10^3/uL,150,450,N,valid
+L00481,P0264,2025-12-05,District Hospital Agra,CBC,ESR,1.63,mm/hr,0,20,N,valid
+L00484,P0265,2025-02-06,Community Health Centre,Inflammatory,ESR,16.06,mm/hr,0,20,N,valid
+L00484,P0265,2025-02-06,Community Health Centre,Inflammatory,CRP,8.47,mg/L,0,5,H,valid
+L00484,P0265,2025-02-06,Community Health Centre,Inflammatory,Uric Acid,3.71,mg/dL,3.5,7.2,N,valid
+L00487,P0269,2026-05-11,Dr. Lal Labs (dummy),Inflammatory,ESR,13.46,mm/hr,0,20,N,train
+L00487,P0269,2026-05-11,Dr. Lal Labs (dummy),Inflammatory,CRP,4.39,mg/L,0,5,N,train
+L00487,P0269,2026-05-11,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,12.2,mg/dL,2.6,6,H,train
+L00492,P0273,2026-05-02,Community Health Centre,Diabetes panel,Fasting Blood Sugar,70.5,mg/dL,70,100,N,train
+L00492,P0273,2026-05-02,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,217.9,mg/dL,70,140,H,train
+L00492,P0273,2026-05-02,Community Health Centre,Diabetes panel,HbA1c,5.54,%,4,5.6,N,train
+L00493,P0273,2025-09-29,Dr. Lal Labs (dummy),Renal + liver,Creatinine,0.93,mg/dL,0.6,1.1,N,train
+L00493,P0273,2025-09-29,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),33.4,U/L,7,56,N,train
+L00493,P0273,2025-09-29,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,3.64,mg/dL,2.6,6,N,train
+L00495,P0274,2025-12-23,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,79.3,mg/dL,70,100,N,valid
+L00495,P0274,2025-12-23,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,78,mg/dL,70,140,N,valid
+L00495,P0274,2025-12-23,AIIA Delhi OPD,Diabetes panel,HbA1c,4.38,%,4,5.6,N,valid
+L00497,P0276,2025-03-02,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,171.8,mg/dL,0,200,N,train
+L00497,P0276,2025-03-02,Sunrise Pathology Lab,Lipid + cardiac,LDL,41.7,mg/dL,0,100,N,train
+L00497,P0276,2025-03-02,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,50.4,mg/dL,0,150,N,train
+L00497,P0276,2025-03-02,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,train
+L00498,P0276,2025-08-15,AIIA Delhi OPD,Renal + liver,Creatinine,1.62,mg/dL,0.7,1.3,H,train
+L00498,P0276,2025-08-15,AIIA Delhi OPD,Renal + liver,SGPT (ALT),41.7,U/L,7,56,N,train
+L00498,P0276,2025-08-15,AIIA Delhi OPD,Renal + liver,Uric Acid,4.8,mg/dL,3.5,7.2,N,train
+L00503,P0279,2026-01-25,Dr. Lal Labs (dummy),Renal + liver,Creatinine,0.84,mg/dL,0.7,1.3,N,train
+L00503,P0279,2026-01-25,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),15.52,U/L,7,56,N,train
+L00503,P0279,2026-01-25,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.29,mg/dL,3.5,7.2,N,train
+L00509,P0283,2025-03-04,Community Health Centre,Diabetes panel,Fasting Blood Sugar,199,mg/dL,70,100,H,train
+L00509,P0283,2025-03-04,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,215.4,mg/dL,70,140,H,train
+L00509,P0283,2025-03-04,Community Health Centre,Diabetes panel,HbA1c,5.05,%,4,5.6,N,train
+L00510,P0283,2026-01-29,Community Health Centre,Renal + liver,Creatinine,0.96,mg/dL,0.6,1.1,N,train
+L00510,P0283,2026-01-29,Community Health Centre,Renal + liver,SGPT (ALT),10.17,U/L,7,56,N,train
+L00510,P0283,2026-01-29,Community Health Centre,Renal + liver,Uric Acid,4.3,mg/dL,2.6,6,N,train
+L00512,P0284,2025-09-02,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,89,mg/dL,70,100,N,train
+L00512,P0284,2025-09-02,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,134.5,mg/dL,70,140,N,train
+L00512,P0284,2025-09-02,Sunrise Pathology Lab,Diabetes panel,HbA1c,6.78,%,4,5.6,H,train
+L00513,P0284,2025-08-03,AIIA Delhi OPD,Renal + liver,Creatinine,0.9,mg/dL,0.7,1.3,N,train
+L00513,P0284,2025-08-03,AIIA Delhi OPD,Renal + liver,SGPT (ALT),39.9,U/L,7,56,N,train
+L00513,P0284,2025-08-03,AIIA Delhi OPD,Renal + liver,Uric Acid,14.97,mg/dL,3.5,7.2,H,train
+L00516,P0287,2026-04-18,Pathcare Diagnostics,CBC,Hemoglobin,16.64,g/dL,13,17,N,train
+L00516,P0287,2026-04-18,Pathcare Diagnostics,CBC,WBC,12.37,x10^3/uL,4,11,H,train
+L00516,P0287,2026-04-18,Pathcare Diagnostics,CBC,Platelets,109.8,x10^3/uL,150,450,L,train
+L00516,P0287,2026-04-18,Pathcare Diagnostics,CBC,ESR,14.4,mm/hr,0,20,N,train
+L00518,P0288,2026-01-24,District Hospital Agra,Lipid + cardiac,Total Cholesterol,58.3,mg/dL,0,200,N,train
+L00518,P0288,2026-01-24,District Hospital Agra,Lipid + cardiac,LDL,5.24,mg/dL,0,100,N,train
+L00518,P0288,2026-01-24,District Hospital Agra,Lipid + cardiac,Triglycerides,9.29,mg/dL,0,150,N,train
+L00518,P0288,2026-01-24,District Hospital Agra,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,train
+L00521,P0289,2026-05-11,Dr. Lal Labs (dummy),Renal + liver,Creatinine,2.02,mg/dL,0.6,1.1,H,train
+L00521,P0289,2026-05-11,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),34.5,U/L,7,56,N,train
+L00521,P0289,2026-05-11,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,12.36,mg/dL,2.6,6,H,train
+L00529,P0294,2025-12-21,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,344.5,mg/dL,0,200,H,test
+L00529,P0294,2025-12-21,Sunrise Pathology Lab,Lipid + cardiac,LDL,203.6,mg/dL,0,100,H,test
+L00529,P0294,2025-12-21,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,58.2,mg/dL,0,150,N,test
+L00529,P0294,2025-12-21,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,test
+L00531,P0295,2025-05-09,Dr. Lal Labs (dummy),Inflammatory,ESR,5.24,mm/hr,0,20,N,train
+L00531,P0295,2025-05-09,Dr. Lal Labs (dummy),Inflammatory,CRP,4.15,mg/L,0,5,N,train
+L00531,P0295,2025-05-09,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,4.94,mg/dL,2.6,6,N,train
+L00532,P0295,2026-03-22,AIIA Delhi OPD,Renal + liver,Creatinine,0.67,mg/dL,0.6,1.1,N,train
+L00532,P0295,2026-03-22,AIIA Delhi OPD,Renal + liver,SGPT (ALT),51.4,U/L,7,56,N,train
+L00532,P0295,2026-03-22,AIIA Delhi OPD,Renal + liver,Uric Acid,3.19,mg/dL,2.6,6,N,train
+L00533,P0295,2025-03-01,Pathcare Diagnostics,Thyroid,TSH,2.86,uIU/mL,0.4,4,N,train
+L00536,P0297,2025-02-24,Sunrise Pathology Lab,Renal + liver,Creatinine,0.94,mg/dL,0.7,1.3,N,train
+L00536,P0297,2025-02-24,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),31.7,U/L,7,56,N,train
+L00536,P0297,2025-02-24,Sunrise Pathology Lab,Renal + liver,Uric Acid,6.05,mg/dL,3.5,7.2,N,train
+L00543,P0302,2026-04-20,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,74.8,mg/dL,70,100,N,train
+L00543,P0302,2026-04-20,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,138.5,mg/dL,70,140,N,train
+L00543,P0302,2026-04-20,District Hospital Agra,Diabetes panel,HbA1c,4.94,%,4,5.6,N,train
+L00546,P0304,2025-12-01,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,76.8,mg/dL,70,100,N,valid
+L00546,P0304,2025-12-01,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,79.4,mg/dL,70,140,N,valid
+L00546,P0304,2025-12-01,Sunrise Pathology Lab,Diabetes panel,HbA1c,5.34,%,4,5.6,N,valid
+L00547,P0304,2025-11-06,Community Health Centre,Renal + liver,Creatinine,0.67,mg/dL,0.6,1.1,N,valid
+L00547,P0304,2025-11-06,Community Health Centre,Renal + liver,SGPT (ALT),40.7,U/L,7,56,N,valid
+L00547,P0304,2025-11-06,Community Health Centre,Renal + liver,Uric Acid,2.64,mg/dL,2.6,6,N,valid
+L00550,P0310,2025-11-11,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,283.9,mg/dL,0,200,H,valid
+L00550,P0310,2025-11-11,AIIA Delhi OPD,Lipid + cardiac,LDL,43.9,mg/dL,0,100,N,valid
+L00550,P0310,2025-11-11,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,13.71,mg/dL,0,150,N,valid
+L00550,P0310,2025-11-11,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,valid
+L00551,P0310,2026-05-17,Pathcare Diagnostics,Renal + liver,Creatinine,2.25,mg/dL,0.6,1.1,H,valid
+L00551,P0310,2026-05-17,Pathcare Diagnostics,Renal + liver,SGPT (ALT),72.2,U/L,7,56,H,valid
+L00551,P0310,2026-05-17,Pathcare Diagnostics,Renal + liver,Uric Acid,3.01,mg/dL,2.6,6,N,valid
+L00553,P0311,2025-11-22,Community Health Centre,CBC,Hemoglobin,13.97,g/dL,13,17,N,train
+L00553,P0311,2025-11-22,Community Health Centre,CBC,WBC,20.1,x10^3/uL,4,11,H,train
+L00553,P0311,2025-11-22,Community Health Centre,CBC,Platelets,322.7,x10^3/uL,150,450,N,train
+L00553,P0311,2025-11-22,Community Health Centre,CBC,ESR,5.11,mm/hr,0,20,N,train
+L00554,P0311,2026-04-24,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,131.4,mg/dL,70,100,H,train
+L00554,P0311,2026-04-24,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,128.9,mg/dL,70,140,N,train
+L00554,P0311,2026-04-24,AIIA Delhi OPD,Diabetes panel,HbA1c,5.44,%,4,5.6,N,train
+L00556,P0312,2026-06-01,Community Health Centre,Lipid + cardiac,Total Cholesterol,303.4,mg/dL,0,200,H,train
+L00556,P0312,2026-06-01,Community Health Centre,Lipid + cardiac,LDL,41.6,mg/dL,0,100,N,train
+L00556,P0312,2026-06-01,Community Health Centre,Lipid + cardiac,Triglycerides,51.6,mg/dL,0,150,N,train
+L00556,P0312,2026-06-01,Community Health Centre,Lipid + cardiac,Troponin I,0.06,ng/mL,0,0.04,H,train
+L00557,P0313,2026-08-25,Pathcare Diagnostics,Inflammatory,ESR,12.35,mm/hr,0,20,N,train
+L00557,P0313,2026-08-25,Pathcare Diagnostics,Inflammatory,CRP,0.69,mg/L,0,5,N,train
+L00557,P0313,2026-08-25,Pathcare Diagnostics,Inflammatory,Uric Acid,3.61,mg/dL,3.5,7.2,N,train
+L00558,P0313,2026-01-28,Pathcare Diagnostics,Renal + liver,Creatinine,1.28,mg/dL,0.7,1.3,N,train
+L00558,P0313,2026-01-28,Pathcare Diagnostics,Renal + liver,SGPT (ALT),26.5,U/L,7,56,N,train
+L00558,P0313,2026-01-28,Pathcare Diagnostics,Renal + liver,Uric Acid,10.36,mg/dL,3.5,7.2,H,train
+L00559,P0314,2026-01-06,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,87.6,mg/dL,70,100,N,test
+L00559,P0314,2026-01-06,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,255.2,mg/dL,70,140,H,test
+L00559,P0314,2026-01-06,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.59,%,4,5.6,N,test
+L00560,P0314,2025-01-02,AIIA Delhi OPD,Renal + liver,Creatinine,0.74,mg/dL,0.7,1.3,N,test
+L00560,P0314,2025-01-02,AIIA Delhi OPD,Renal + liver,SGPT (ALT),44,U/L,7,56,N,test
+L00560,P0314,2025-01-02,AIIA Delhi OPD,Renal + liver,Uric Acid,5.27,mg/dL,3.5,7.2,N,test
+L00566,P0318,2025-01-04,Pathcare Diagnostics,Inflammatory,ESR,12.31,mm/hr,0,20,N,train
+L00566,P0318,2025-01-04,Pathcare Diagnostics,Inflammatory,CRP,0.11,mg/L,0,5,N,train
+L00566,P0318,2025-01-04,Pathcare Diagnostics,Inflammatory,Uric Acid,8.11,mg/dL,3.5,7.2,H,train
+L00570,P0321,2026-06-27,Community Health Centre,Diabetes panel,Fasting Blood Sugar,75.3,mg/dL,70,100,N,train
+L00570,P0321,2026-06-27,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,91.9,mg/dL,70,140,N,train
+L00570,P0321,2026-06-27,Community Health Centre,Diabetes panel,HbA1c,12.16,%,4,5.6,H,train
+L00571,P0321,2025-08-22,Sunrise Pathology Lab,Renal + liver,Creatinine,0.99,mg/dL,0.7,1.3,N,train
+L00571,P0321,2025-08-22,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),39.3,U/L,7,56,N,train
+L00571,P0321,2025-08-22,Sunrise Pathology Lab,Renal + liver,Uric Acid,4.54,mg/dL,3.5,7.2,N,train
+L00574,P0322,2025-12-11,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,70.1,mg/dL,0,200,N,train
+L00574,P0322,2025-12-11,AIIA Delhi OPD,Lipid + cardiac,LDL,9.51,mg/dL,0,100,N,train
+L00574,P0322,2025-12-11,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,40.9,mg/dL,0,150,N,train
+L00574,P0322,2025-12-11,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00576,P0323,2025-12-03,Community Health Centre,Diabetes panel,Fasting Blood Sugar,164.5,mg/dL,70,100,H,train
+L00576,P0323,2025-12-03,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,114.7,mg/dL,70,140,N,train
+L00576,P0323,2025-12-03,Community Health Centre,Diabetes panel,HbA1c,4.24,%,4,5.6,N,train
+L00577,P0323,2026-07-12,District Hospital Agra,Inflammatory,ESR,17.76,mm/hr,0,20,N,train
+L00577,P0323,2026-07-12,District Hospital Agra,Inflammatory,CRP,3.87,mg/L,0,5,N,train
+L00577,P0323,2026-07-12,District Hospital Agra,Inflammatory,Uric Acid,3.03,mg/dL,2.6,6,N,train
+L00578,P0323,2026-01-15,District Hospital Agra,Renal + liver,Creatinine,0.81,mg/dL,0.6,1.1,N,train
+L00578,P0323,2026-01-15,District Hospital Agra,Renal + liver,SGPT (ALT),25.8,U/L,7,56,N,train
+L00578,P0323,2026-01-15,District Hospital Agra,Renal + liver,Uric Acid,11.38,mg/dL,2.6,6,H,train
+L00581,P0325,2025-08-06,Pathcare Diagnostics,Renal + liver,Creatinine,0.81,mg/dL,0.7,1.3,N,train
+L00581,P0325,2025-08-06,Pathcare Diagnostics,Renal + liver,SGPT (ALT),48.9,U/L,7,56,N,train
+L00581,P0325,2025-08-06,Pathcare Diagnostics,Renal + liver,Uric Acid,6.38,mg/dL,3.5,7.2,N,train
+L00586,P0329,2025-02-10,Community Health Centre,Diabetes panel,Fasting Blood Sugar,186,mg/dL,70,100,H,valid
+L00586,P0329,2025-02-10,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,131.9,mg/dL,70,140,N,valid
+L00586,P0329,2025-02-10,Community Health Centre,Diabetes panel,HbA1c,5.2,%,4,5.6,N,valid
+L00587,P0329,2025-10-08,Pathcare Diagnostics,Renal + liver,Creatinine,1.24,mg/dL,0.7,1.3,N,valid
+L00587,P0329,2025-10-08,Pathcare Diagnostics,Renal + liver,SGPT (ALT),18.24,U/L,7,56,N,valid
+L00587,P0329,2025-10-08,Pathcare Diagnostics,Renal + liver,Uric Acid,4.94,mg/dL,3.5,7.2,N,valid
+L00589,P0330,2025-06-04,Community Health Centre,Diabetes panel,Fasting Blood Sugar,197.5,mg/dL,70,100,H,train
+L00589,P0330,2025-06-04,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,93.7,mg/dL,70,140,N,train
+L00589,P0330,2025-06-04,Community Health Centre,Diabetes panel,HbA1c,4.42,%,4,5.6,N,train
+L00590,P0330,2025-12-31,AIIA Delhi OPD,Renal + liver,Creatinine,1.06,mg/dL,0.7,1.3,N,train
+L00590,P0330,2025-12-31,AIIA Delhi OPD,Renal + liver,SGPT (ALT),30.3,U/L,7,56,N,train
+L00590,P0330,2025-12-31,AIIA Delhi OPD,Renal + liver,Uric Acid,4.06,mg/dL,3.5,7.2,N,train
+L00592,P0331,2025-01-11,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,100.1,mg/dL,0,200,N,test
+L00592,P0331,2025-01-11,Sunrise Pathology Lab,Lipid + cardiac,LDL,123.9,mg/dL,0,100,H,test
+L00592,P0331,2025-01-11,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,230.9,mg/dL,0,150,H,test
+L00592,P0331,2025-01-11,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.06,ng/mL,0,0.04,H,test
+L00593,P0332,2025-05-27,Pathcare Diagnostics,Inflammatory,ESR,10.38,mm/hr,0,20,N,train
+L00593,P0332,2025-05-27,Pathcare Diagnostics,Inflammatory,CRP,4.91,mg/L,0,5,N,train
+L00593,P0332,2025-05-27,Pathcare Diagnostics,Inflammatory,Uric Acid,5.62,mg/dL,2.6,6,N,train
+L00594,P0332,2026-04-08,AIIA Delhi OPD,Renal + liver,Creatinine,0.92,mg/dL,0.6,1.1,N,train
+L00594,P0332,2026-04-08,AIIA Delhi OPD,Renal + liver,SGPT (ALT),32.8,U/L,7,56,N,train
+L00594,P0332,2026-04-08,AIIA Delhi OPD,Renal + liver,Uric Acid,3.71,mg/dL,2.6,6,N,train
+L00595,P0333,2025-05-09,Community Health Centre,Thyroid,TSH,1.13,uIU/mL,0.4,4,N,train
+L00597,P0334,2025-01-19,Dr. Lal Labs (dummy),CBC,Hemoglobin,14.49,g/dL,13,17,N,train
+L00597,P0334,2025-01-19,Dr. Lal Labs (dummy),CBC,WBC,6.97,x10^3/uL,4,11,N,train
+L00597,P0334,2025-01-19,Dr. Lal Labs (dummy),CBC,Platelets,207.8,x10^3/uL,150,450,N,train
+L00597,P0334,2025-01-19,Dr. Lal Labs (dummy),CBC,ESR,28.4,mm/hr,0,20,H,train
+L00599,P0335,2026-07-25,Community Health Centre,Diabetes panel,Fasting Blood Sugar,86.9,mg/dL,70,100,N,train
+L00599,P0335,2026-07-25,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,232.6,mg/dL,70,140,H,train
+L00599,P0335,2026-07-25,Community Health Centre,Diabetes panel,HbA1c,4.5,%,4,5.6,N,train
+L00600,P0335,2025-09-13,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,23.9,mg/dL,0,200,N,train
+L00600,P0335,2025-09-13,AIIA Delhi OPD,Lipid + cardiac,LDL,0.89,mg/dL,0,100,N,train
+L00600,P0335,2025-09-13,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,123.9,mg/dL,0,150,N,train
+L00600,P0335,2025-09-13,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00603,P0339,2025-12-25,Community Health Centre,Diabetes panel,Fasting Blood Sugar,93.3,mg/dL,70,100,N,train
+L00603,P0339,2025-12-25,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,72.9,mg/dL,70,140,N,train
+L00603,P0339,2025-12-25,Community Health Centre,Diabetes panel,HbA1c,5.17,%,4,5.6,N,train
+L00610,P0343,2025-04-25,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,188.3,mg/dL,70,100,H,train
+L00610,P0343,2025-04-25,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,288.9,mg/dL,70,140,H,train
+L00610,P0343,2025-04-25,Pathcare Diagnostics,Diabetes panel,HbA1c,4.41,%,4,5.6,N,train
+L00611,P0343,2026-08-01,Pathcare Diagnostics,Renal + liver,Creatinine,2.78,mg/dL,0.7,1.3,H,train
+L00611,P0343,2026-08-01,Pathcare Diagnostics,Renal + liver,SGPT (ALT),52.1,U/L,7,56,N,train
+L00611,P0343,2026-08-01,Pathcare Diagnostics,Renal + liver,Uric Acid,11.19,mg/dL,3.5,7.2,H,train
+L00613,P0344,2026-03-07,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,99,mg/dL,70,100,N,test
+L00613,P0344,2026-03-07,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,127.9,mg/dL,70,140,N,test
+L00613,P0344,2026-03-07,Sunrise Pathology Lab,Diabetes panel,HbA1c,10.8,%,4,5.6,H,test
+L00619,P0348,2026-02-14,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,91,mg/dL,70,100,N,train
+L00619,P0348,2026-02-14,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,105.3,mg/dL,70,140,N,train
+L00619,P0348,2026-02-14,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,8.62,%,4,5.6,H,train
+L00620,P0348,2025-10-28,District Hospital Agra,Renal + liver,Creatinine,0.61,mg/dL,0.6,1.1,N,train
+L00620,P0348,2025-10-28,District Hospital Agra,Renal + liver,SGPT (ALT),55.5,U/L,7,56,N,train
+L00620,P0348,2025-10-28,District Hospital Agra,Renal + liver,Uric Acid,4.21,mg/dL,2.6,6,N,train
+L00622,P0349,2026-07-22,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,94.3,mg/dL,70,100,N,test
+L00622,P0349,2026-07-22,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,98.4,mg/dL,70,140,N,test
+L00622,P0349,2026-07-22,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.49,%,4,5.6,N,test
+L00625,P0350,2025-02-22,Pathcare Diagnostics,CBC,Hemoglobin,15.15,g/dL,13,17,N,train
+L00625,P0350,2025-02-22,Pathcare Diagnostics,CBC,WBC,10.26,x10^3/uL,4,11,N,train
+L00625,P0350,2025-02-22,Pathcare Diagnostics,CBC,Platelets,168.2,x10^3/uL,150,450,N,train
+L00625,P0350,2025-02-22,Pathcare Diagnostics,CBC,ESR,34.1,mm/hr,0,20,H,train
+L00627,P0351,2026-06-17,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,175,mg/dL,70,100,H,valid
+L00627,P0351,2026-06-17,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,244.7,mg/dL,70,140,H,valid
+L00627,P0351,2026-06-17,Pathcare Diagnostics,Diabetes panel,HbA1c,4.1,%,4,5.6,N,valid
+L00628,P0351,2026-04-05,Sunrise Pathology Lab,Inflammatory,ESR,28.3,mm/hr,0,20,H,valid
+L00628,P0351,2026-04-05,Sunrise Pathology Lab,Inflammatory,CRP,0.83,mg/L,0,5,N,valid
+L00628,P0351,2026-04-05,Sunrise Pathology Lab,Inflammatory,Uric Acid,14.97,mg/dL,3.5,7.2,H,valid
+L00629,P0351,2025-11-29,District Hospital Agra,Renal + liver,Creatinine,0.72,mg/dL,0.7,1.3,N,valid
+L00629,P0351,2025-11-29,District Hospital Agra,Renal + liver,SGPT (ALT),39.4,U/L,7,56,N,valid
+L00629,P0351,2025-11-29,District Hospital Agra,Renal + liver,Uric Acid,13.64,mg/dL,3.5,7.2,H,valid
+L00632,P0352,2026-05-02,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,349.3,mg/dL,0,200,H,train
+L00632,P0352,2026-05-02,Sunrise Pathology Lab,Lipid + cardiac,LDL,137.1,mg/dL,0,100,H,train
+L00632,P0352,2026-05-02,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,70.1,mg/dL,0,150,N,train
+L00632,P0352,2026-05-02,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.08,ng/mL,0,0.04,H,train
+L00635,P0354,2025-09-14,Dr. Lal Labs (dummy),Thyroid,TSH,1.81,uIU/mL,0.4,4,N,train
+L00638,P0357,2026-07-04,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,83.9,mg/dL,70,100,N,train
+L00638,P0357,2026-07-04,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,117.8,mg/dL,70,140,N,train
+L00638,P0357,2026-07-04,AIIA Delhi OPD,Diabetes panel,HbA1c,4.84,%,4,5.6,N,train
+L00640,P0359,2025-08-09,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,72,mg/dL,70,100,N,train
+L00640,P0359,2025-08-09,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,295.6,mg/dL,70,140,H,train
+L00640,P0359,2025-08-09,Pathcare Diagnostics,Diabetes panel,HbA1c,7.52,%,4,5.6,H,train
+L00641,P0359,2025-07-28,Community Health Centre,Renal + liver,Creatinine,1.3,mg/dL,0.7,1.3,N,train
+L00641,P0359,2025-07-28,Community Health Centre,Renal + liver,SGPT (ALT),48.2,U/L,7,56,N,train
+L00641,P0359,2025-07-28,Community Health Centre,Renal + liver,Uric Acid,5.01,mg/dL,3.5,7.2,N,train
+L00643,P0360,2026-05-05,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,79.2,mg/dL,70,100,N,test
+L00643,P0360,2026-05-05,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,70.9,mg/dL,70,140,N,test
+L00643,P0360,2026-05-05,Sunrise Pathology Lab,Diabetes panel,HbA1c,7.69,%,4,5.6,H,test
+L00644,P0360,2025-11-21,Dr. Lal Labs (dummy),Renal + liver,Creatinine,1.03,mg/dL,0.6,1.1,N,test
+L00644,P0360,2025-11-21,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),33.2,U/L,7,56,N,test
+L00644,P0360,2025-11-21,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,3.16,mg/dL,2.6,6,N,test
+L00647,P0361,2026-05-04,Community Health Centre,CBC,Hemoglobin,12.43,g/dL,12,15.5,N,train
+L00647,P0361,2026-05-04,Community Health Centre,CBC,WBC,9.86,x10^3/uL,4,11,N,train
+L00647,P0361,2026-05-04,Community Health Centre,CBC,Platelets,150.8,x10^3/uL,150,450,N,train
+L00647,P0361,2026-05-04,Community Health Centre,CBC,ESR,37.3,mm/hr,0,20,H,train
+L00649,P0362,2025-08-11,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,110.3,mg/dL,70,100,H,train
+L00649,P0362,2025-08-11,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,265,mg/dL,70,140,H,train
+L00649,P0362,2025-08-11,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,5.16,%,4,5.6,N,train
+L00650,P0362,2025-09-20,Pathcare Diagnostics,Renal + liver,Creatinine,0.84,mg/dL,0.6,1.1,N,train
+L00650,P0362,2025-09-20,Pathcare Diagnostics,Renal + liver,SGPT (ALT),51.9,U/L,7,56,N,train
+L00650,P0362,2025-09-20,Pathcare Diagnostics,Renal + liver,Uric Acid,3.56,mg/dL,2.6,6,N,train
+L00652,P0363,2025-06-10,Dr. Lal Labs (dummy),Inflammatory,ESR,2.97,mm/hr,0,20,N,train
+L00652,P0363,2025-06-10,Dr. Lal Labs (dummy),Inflammatory,CRP,4.03,mg/L,0,5,N,train
+L00652,P0363,2025-06-10,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,11.4,mg/dL,2.6,6,H,train
+L00656,P0365,2025-04-16,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,173.8,mg/dL,70,100,H,train
+L00656,P0365,2025-04-16,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,81.8,mg/dL,70,140,N,train
+L00656,P0365,2025-04-16,Pathcare Diagnostics,Diabetes panel,HbA1c,8.59,%,4,5.6,H,train
+L00658,P0367,2025-09-07,Sunrise Pathology Lab,Inflammatory,ESR,18.33,mm/hr,0,20,N,valid
+L00658,P0367,2025-09-07,Sunrise Pathology Lab,Inflammatory,CRP,0.07,mg/L,0,5,N,valid
+L00658,P0367,2025-09-07,Sunrise Pathology Lab,Inflammatory,Uric Acid,2.94,mg/dL,2.6,6,N,valid
+L00659,P0367,2025-11-10,Dr. Lal Labs (dummy),Renal + liver,Creatinine,1,mg/dL,0.6,1.1,N,valid
+L00659,P0367,2025-11-10,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),46.2,U/L,7,56,N,valid
+L00659,P0367,2025-11-10,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,3.81,mg/dL,2.6,6,N,valid
+L00663,P0369,2025-08-05,Pathcare Diagnostics,CBC,Hemoglobin,14.55,g/dL,13,17,N,train
+L00663,P0369,2025-08-05,Pathcare Diagnostics,CBC,WBC,4.56,x10^3/uL,4,11,N,train
+L00663,P0369,2025-08-05,Pathcare Diagnostics,CBC,Platelets,304.9,x10^3/uL,150,450,N,train
+L00663,P0369,2025-08-05,Pathcare Diagnostics,CBC,ESR,2.8,mm/hr,0,20,N,train
+L00668,P0372,2025-08-19,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,75.3,mg/dL,70,100,N,train
+L00668,P0372,2025-08-19,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,192.1,mg/dL,70,140,H,train
+L00668,P0372,2025-08-19,District Hospital Agra,Diabetes panel,HbA1c,5.4,%,4,5.6,N,train
+L00671,P0375,2026-01-09,Dr. Lal Labs (dummy),Inflammatory,ESR,39.7,mm/hr,0,20,H,train
+L00671,P0375,2026-01-09,Dr. Lal Labs (dummy),Inflammatory,CRP,4.57,mg/L,0,5,N,train
+L00671,P0375,2026-01-09,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,12.12,mg/dL,3.5,7.2,H,train
+L00672,P0375,2025-12-14,Sunrise Pathology Lab,Renal + liver,Creatinine,1.29,mg/dL,0.7,1.3,N,train
+L00672,P0375,2025-12-14,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),19.12,U/L,7,56,N,train
+L00672,P0375,2025-12-14,Sunrise Pathology Lab,Renal + liver,Uric Acid,15.27,mg/dL,3.5,7.2,H,train
+L00682,P0383,2025-12-24,AIIA Delhi OPD,Inflammatory,ESR,10.66,mm/hr,0,20,N,train
+L00682,P0383,2025-12-24,AIIA Delhi OPD,Inflammatory,CRP,4.51,mg/L,0,5,N,train
+L00682,P0383,2025-12-24,AIIA Delhi OPD,Inflammatory,Uric Acid,9.82,mg/dL,2.6,6,H,train
+L00683,P0383,2026-02-20,District Hospital Agra,Renal + liver,Creatinine,1.05,mg/dL,0.6,1.1,N,train
+L00683,P0383,2026-02-20,District Hospital Agra,Renal + liver,SGPT (ALT),31.1,U/L,7,56,N,train
+L00683,P0383,2026-02-20,District Hospital Agra,Renal + liver,Uric Acid,5.33,mg/dL,2.6,6,N,train
+L00686,P0385,2026-08-01,Community Health Centre,CBC,Hemoglobin,13.24,g/dL,12,15.5,N,train
+L00686,P0385,2026-08-01,Community Health Centre,CBC,WBC,13.29,x10^3/uL,4,11,H,train
+L00686,P0385,2026-08-01,Community Health Centre,CBC,Platelets,420.9,x10^3/uL,150,450,N,train
+L00686,P0385,2026-08-01,Community Health Centre,CBC,ESR,24.9,mm/hr,0,20,H,train
+L00690,P0389,2026-05-16,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,97.4,mg/dL,70,100,N,train
+L00690,P0389,2026-05-16,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,108.1,mg/dL,70,140,N,train
+L00690,P0389,2026-05-16,Sunrise Pathology Lab,Diabetes panel,HbA1c,8.86,%,4,5.6,H,train
+L00692,P0390,2026-07-17,Community Health Centre,Renal + liver,Creatinine,1.02,mg/dL,0.7,1.3,N,valid
+L00692,P0390,2026-07-17,Community Health Centre,Renal + liver,SGPT (ALT),21.1,U/L,7,56,N,valid
+L00692,P0390,2026-07-17,Community Health Centre,Renal + liver,Uric Acid,6.52,mg/dL,3.5,7.2,N,valid
+L00694,P0392,2025-01-26,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,87.2,mg/dL,70,100,N,train
+L00694,P0392,2025-01-26,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,120.7,mg/dL,70,140,N,train
+L00694,P0392,2025-01-26,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.56,%,4,5.6,N,train
+L00696,P0393,2025-10-18,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,167.4,mg/dL,70,100,H,train
+L00696,P0393,2025-10-18,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,163.7,mg/dL,70,140,H,train
+L00696,P0393,2025-10-18,District Hospital Agra,Diabetes panel,HbA1c,11.13,%,4,5.6,H,train
+L00700,P0395,2025-06-28,AIIA Delhi OPD,Inflammatory,ESR,22.8,mm/hr,0,20,H,train
+L00700,P0395,2025-06-28,AIIA Delhi OPD,Inflammatory,CRP,8.36,mg/L,0,5,H,train
+L00700,P0395,2025-06-28,AIIA Delhi OPD,Inflammatory,Uric Acid,8.84,mg/dL,2.6,6,H,train
+L00703,P0398,2025-08-13,Community Health Centre,Lipid + cardiac,Total Cholesterol,191,mg/dL,0,200,N,train
+L00703,P0398,2025-08-13,Community Health Centre,Lipid + cardiac,LDL,148.2,mg/dL,0,100,H,train
+L00703,P0398,2025-08-13,Community Health Centre,Lipid + cardiac,Triglycerides,169.3,mg/dL,0,150,H,train
+L00703,P0398,2025-08-13,Community Health Centre,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00706,P0399,2025-10-22,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,90.5,mg/dL,70,100,N,train
+L00706,P0399,2025-10-22,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,110.6,mg/dL,70,140,N,train
+L00706,P0399,2025-10-22,AIIA Delhi OPD,Diabetes panel,HbA1c,4.77,%,4,5.6,N,train
+L00707,P0399,2026-05-29,AIIA Delhi OPD,Renal + liver,Creatinine,1.14,mg/dL,0.7,1.3,N,train
+L00707,P0399,2026-05-29,AIIA Delhi OPD,Renal + liver,SGPT (ALT),35.3,U/L,7,56,N,train
+L00707,P0399,2026-05-29,AIIA Delhi OPD,Renal + liver,Uric Acid,4.97,mg/dL,3.5,7.2,N,train
+L00709,P0401,2025-08-26,Sunrise Pathology Lab,Renal + liver,Creatinine,0.89,mg/dL,0.7,1.3,N,train
+L00709,P0401,2025-08-26,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),28.6,U/L,7,56,N,train
+L00709,P0401,2025-08-26,Sunrise Pathology Lab,Renal + liver,Uric Acid,6.59,mg/dL,3.5,7.2,N,train
+L00713,P0404,2025-05-11,AIIA Delhi OPD,Renal + liver,Creatinine,1.85,mg/dL,0.7,1.3,H,train
+L00713,P0404,2025-05-11,AIIA Delhi OPD,Renal + liver,SGPT (ALT),7.98,U/L,7,56,N,train
+L00713,P0404,2025-05-11,AIIA Delhi OPD,Renal + liver,Uric Acid,6.19,mg/dL,3.5,7.2,N,train
+L00716,P0405,2026-02-17,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,142.7,mg/dL,70,100,H,train
+L00716,P0405,2026-02-17,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,197.5,mg/dL,70,140,H,train
+L00716,P0405,2026-02-17,District Hospital Agra,Diabetes panel,HbA1c,8.76,%,4,5.6,H,train
+L00717,P0405,2026-03-22,Sunrise Pathology Lab,Renal + liver,Creatinine,1.09,mg/dL,0.6,1.1,N,train
+L00717,P0405,2026-03-22,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),27.1,U/L,7,56,N,train
+L00717,P0405,2026-03-22,Sunrise Pathology Lab,Renal + liver,Uric Acid,9.28,mg/dL,2.6,6,H,train
+L00718,P0406,2025-12-22,Dr. Lal Labs (dummy),Inflammatory,ESR,10.13,mm/hr,0,20,N,train
+L00718,P0406,2025-12-22,Dr. Lal Labs (dummy),Inflammatory,CRP,2.48,mg/L,0,5,N,train
+L00718,P0406,2025-12-22,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,12.9,mg/dL,3.5,7.2,H,train
+L00721,P0408,2026-06-18,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,188.2,mg/dL,0,200,N,train
+L00721,P0408,2026-06-18,Sunrise Pathology Lab,Lipid + cardiac,LDL,86.5,mg/dL,0,100,N,train
+L00721,P0408,2026-06-18,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,86.6,mg/dL,0,150,N,train
+L00721,P0408,2026-06-18,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00722,P0408,2026-06-29,District Hospital Agra,Renal + liver,Creatinine,1.02,mg/dL,0.6,1.1,N,train
+L00722,P0408,2026-06-29,District Hospital Agra,Renal + liver,SGPT (ALT),28.1,U/L,7,56,N,train
+L00722,P0408,2026-06-29,District Hospital Agra,Renal + liver,Uric Acid,4.52,mg/dL,2.6,6,N,train
+L00724,P0409,2025-01-18,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,288.9,mg/dL,0,200,H,train
+L00724,P0409,2025-01-18,Sunrise Pathology Lab,Lipid + cardiac,LDL,141.4,mg/dL,0,100,H,train
+L00724,P0409,2025-01-18,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,9.69,mg/dL,0,150,N,train
+L00724,P0409,2025-01-18,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00726,P0410,2025-10-04,Dr. Lal Labs (dummy),Thyroid,TSH,2.96,uIU/mL,0.4,4,N,train
+L00729,P0411,2025-03-20,Dr. Lal Labs (dummy),Thyroid,TSH,2.08,uIU/mL,0.4,4,N,train
+L00731,P0412,2026-03-01,AIIA Delhi OPD,Inflammatory,ESR,0.12,mm/hr,0,20,N,train
+L00731,P0412,2026-03-01,AIIA Delhi OPD,Inflammatory,CRP,1.5,mg/L,0,5,N,train
+L00731,P0412,2026-03-01,AIIA Delhi OPD,Inflammatory,Uric Acid,6.03,mg/dL,3.5,7.2,N,train
+L00737,P0417,2025-12-23,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,75.1,mg/dL,70,100,N,train
+L00737,P0417,2025-12-23,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,204.3,mg/dL,70,140,H,train
+L00737,P0417,2025-12-23,AIIA Delhi OPD,Diabetes panel,HbA1c,5.58,%,4,5.6,N,train
+L00738,P0417,2026-07-31,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,70.1,mg/dL,0,200,N,train
+L00738,P0417,2026-07-31,Sunrise Pathology Lab,Lipid + cardiac,LDL,208.2,mg/dL,0,100,H,train
+L00738,P0417,2026-07-31,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,137.9,mg/dL,0,150,N,train
+L00738,P0417,2026-07-31,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00739,P0417,2026-03-12,Pathcare Diagnostics,Renal + liver,Creatinine,0.72,mg/dL,0.7,1.3,N,train
+L00739,P0417,2026-03-12,Pathcare Diagnostics,Renal + liver,SGPT (ALT),34.3,U/L,7,56,N,train
+L00739,P0417,2026-03-12,Pathcare Diagnostics,Renal + liver,Uric Acid,5.4,mg/dL,3.5,7.2,N,train
+L00741,P0418,2025-07-31,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,69,mg/dL,0,200,N,train
+L00741,P0418,2025-07-31,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,173.2,mg/dL,0,100,H,train
+L00741,P0418,2025-07-31,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,30.2,mg/dL,0,150,N,train
+L00741,P0418,2025-07-31,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00743,P0419,2026-03-26,District Hospital Agra,CBC,Hemoglobin,14.24,g/dL,12,15.5,N,train
+L00743,P0419,2026-03-26,District Hospital Agra,CBC,WBC,13.43,x10^3/uL,4,11,H,train
+L00743,P0419,2026-03-26,District Hospital Agra,CBC,Platelets,66.4,x10^3/uL,150,450,L,train
+L00743,P0419,2026-03-26,District Hospital Agra,CBC,ESR,39.2,mm/hr,0,20,H,train
+L00747,P0421,2025-03-04,Dr. Lal Labs (dummy),Inflammatory,ESR,19.35,mm/hr,0,20,N,train
+L00747,P0421,2025-03-04,Dr. Lal Labs (dummy),Inflammatory,CRP,7.05,mg/L,0,5,H,train
+L00747,P0421,2025-03-04,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,5.81,mg/dL,2.6,6,N,train
+L00749,P0422,2026-02-10,Dr. Lal Labs (dummy),Inflammatory,ESR,6.74,mm/hr,0,20,N,train
+L00749,P0422,2026-02-10,Dr. Lal Labs (dummy),Inflammatory,CRP,8.68,mg/L,0,5,H,train
+L00749,P0422,2026-02-10,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,7.09,mg/dL,2.6,6,H,train
+L00750,P0422,2026-03-06,AIIA Delhi OPD,Renal + liver,Creatinine,0.7,mg/dL,0.6,1.1,N,train
+L00750,P0422,2026-03-06,AIIA Delhi OPD,Renal + liver,SGPT (ALT),28.1,U/L,7,56,N,train
+L00750,P0422,2026-03-06,AIIA Delhi OPD,Renal + liver,Uric Acid,4.18,mg/dL,2.6,6,N,train
+L00752,P0423,2025-01-29,District Hospital Agra,Lipid + cardiac,Total Cholesterol,137,mg/dL,0,200,N,train
+L00752,P0423,2025-01-29,District Hospital Agra,Lipid + cardiac,LDL,31.2,mg/dL,0,100,N,train
+L00752,P0423,2025-01-29,District Hospital Agra,Lipid + cardiac,Triglycerides,65.1,mg/dL,0,150,N,train
+L00752,P0423,2025-01-29,District Hospital Agra,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,train
+L00753,P0423,2025-08-25,Pathcare Diagnostics,Thyroid,TSH,3.46,uIU/mL,0.4,4,N,train
+L00756,P0425,2025-07-06,Dr. Lal Labs (dummy),Lipid + cardiac,Total Cholesterol,155.1,mg/dL,0,200,N,train
+L00756,P0425,2025-07-06,Dr. Lal Labs (dummy),Lipid + cardiac,LDL,170.1,mg/dL,0,100,H,train
+L00756,P0425,2025-07-06,Dr. Lal Labs (dummy),Lipid + cardiac,Triglycerides,99.4,mg/dL,0,150,N,train
+L00756,P0425,2025-07-06,Dr. Lal Labs (dummy),Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00757,P0425,2025-11-09,AIIA Delhi OPD,Renal + liver,Creatinine,1.93,mg/dL,0.6,1.1,H,train
+L00757,P0425,2025-11-09,AIIA Delhi OPD,Renal + liver,SGPT (ALT),33.2,U/L,7,56,N,train
+L00757,P0425,2025-11-09,AIIA Delhi OPD,Renal + liver,Uric Acid,5.54,mg/dL,2.6,6,N,train
+L00758,P0426,2025-04-07,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,393.4,mg/dL,0,200,H,train
+L00758,P0426,2025-04-07,Pathcare Diagnostics,Lipid + cardiac,LDL,188.1,mg/dL,0,100,H,train
+L00758,P0426,2025-04-07,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,53.9,mg/dL,0,150,N,train
+L00758,P0426,2025-04-07,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00761,P0427,2025-03-04,District Hospital Agra,CBC,Hemoglobin,16.68,g/dL,13,17,N,train
+L00761,P0427,2025-03-04,District Hospital Agra,CBC,WBC,4.36,x10^3/uL,4,11,N,train
+L00761,P0427,2025-03-04,District Hospital Agra,CBC,Platelets,306.5,x10^3/uL,150,450,N,train
+L00761,P0427,2025-03-04,District Hospital Agra,CBC,ESR,29.9,mm/hr,0,20,H,train
+L00763,P0429,2025-02-21,Community Health Centre,Diabetes panel,Fasting Blood Sugar,80,mg/dL,70,100,N,train
+L00763,P0429,2025-02-21,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,289.7,mg/dL,70,140,H,train
+L00763,P0429,2025-02-21,Community Health Centre,Diabetes panel,HbA1c,6.91,%,4,5.6,H,train
+L00764,P0429,2025-07-08,Pathcare Diagnostics,Renal + liver,Creatinine,0.97,mg/dL,0.6,1.1,N,train
+L00764,P0429,2025-07-08,Pathcare Diagnostics,Renal + liver,SGPT (ALT),48.4,U/L,7,56,N,train
+L00764,P0429,2025-07-08,Pathcare Diagnostics,Renal + liver,Uric Acid,3.8,mg/dL,2.6,6,N,train
+L00768,P0431,2026-01-07,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,113.2,mg/dL,70,100,H,train
+L00768,P0431,2026-01-07,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,135.3,mg/dL,70,140,N,train
+L00768,P0431,2026-01-07,District Hospital Agra,Diabetes panel,HbA1c,4.16,%,4,5.6,N,train
+L00773,P0436,2025-03-26,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,115.3,mg/dL,0,200,N,test
+L00773,P0436,2025-03-26,Pathcare Diagnostics,Lipid + cardiac,LDL,128.5,mg/dL,0,100,H,test
+L00773,P0436,2025-03-26,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,25.8,mg/dL,0,150,N,test
+L00773,P0436,2025-03-26,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.04,ng/mL,0,0.04,N,test
+L00774,P0436,2026-02-11,Dr. Lal Labs (dummy),Renal + liver,Creatinine,1.52,mg/dL,0.7,1.3,H,test
+L00774,P0436,2026-02-11,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),23.6,U/L,7,56,N,test
+L00774,P0436,2026-02-11,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.66,mg/dL,3.5,7.2,N,test
+L00776,P0437,2025-12-23,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,91.4,mg/dL,70,100,N,train
+L00776,P0437,2025-12-23,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,85.4,mg/dL,70,140,N,train
+L00776,P0437,2025-12-23,Pathcare Diagnostics,Diabetes panel,HbA1c,4.46,%,4,5.6,N,train
+L00778,P0438,2025-04-16,Community Health Centre,Diabetes panel,Fasting Blood Sugar,75.8,mg/dL,70,100,N,train
+L00778,P0438,2025-04-16,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,277.2,mg/dL,70,140,H,train
+L00778,P0438,2025-04-16,Community Health Centre,Diabetes panel,HbA1c,5.47,%,4,5.6,N,train
+L00779,P0438,2025-04-21,Sunrise Pathology Lab,Renal + liver,Creatinine,1.08,mg/dL,0.6,1.1,N,train
+L00779,P0438,2025-04-21,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),15.52,U/L,7,56,N,train
+L00779,P0438,2025-04-21,Sunrise Pathology Lab,Renal + liver,Uric Acid,11.65,mg/dL,2.6,6,H,train
+L00782,P0439,2026-08-17,Community Health Centre,Diabetes panel,Fasting Blood Sugar,156.5,mg/dL,70,100,H,train
+L00782,P0439,2026-08-17,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,171.6,mg/dL,70,140,H,train
+L00782,P0439,2026-08-17,Community Health Centre,Diabetes panel,HbA1c,8.49,%,4,5.6,H,train
+L00785,P0442,2026-04-18,AIIA Delhi OPD,CBC,Hemoglobin,14.1,g/dL,13,17,N,valid
+L00785,P0442,2026-04-18,AIIA Delhi OPD,CBC,WBC,7.02,x10^3/uL,4,11,N,valid
+L00785,P0442,2026-04-18,AIIA Delhi OPD,CBC,Platelets,426.5,x10^3/uL,150,450,N,valid
+L00785,P0442,2026-04-18,AIIA Delhi OPD,CBC,ESR,27.8,mm/hr,0,20,H,valid
+L00787,P0444,2025-10-17,Community Health Centre,Diabetes panel,Fasting Blood Sugar,91.7,mg/dL,70,100,N,test
+L00787,P0444,2025-10-17,Community Health Centre,Diabetes panel,Post-prandial Blood Sugar,76.8,mg/dL,70,140,N,test
+L00787,P0444,2025-10-17,Community Health Centre,Diabetes panel,HbA1c,5.6,%,4,5.6,N,test
+L00789,P0445,2025-02-22,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,109.4,mg/dL,0,200,N,train
+L00789,P0445,2025-02-22,Pathcare Diagnostics,Lipid + cardiac,LDL,112.1,mg/dL,0,100,H,train
+L00789,P0445,2025-02-22,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,76.5,mg/dL,0,150,N,train
+L00789,P0445,2025-02-22,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.07,ng/mL,0,0.04,H,train
+L00790,P0445,2026-03-03,Pathcare Diagnostics,Renal + liver,Creatinine,1.04,mg/dL,0.6,1.1,N,train
+L00790,P0445,2026-03-03,Pathcare Diagnostics,Renal + liver,SGPT (ALT),18.49,U/L,7,56,N,train
+L00790,P0445,2026-03-03,Pathcare Diagnostics,Renal + liver,Uric Acid,4.2,mg/dL,2.6,6,N,train
+L00795,P0447,2025-04-02,District Hospital Agra,Renal + liver,Creatinine,0.68,mg/dL,0.6,1.1,N,train
+L00795,P0447,2025-04-02,District Hospital Agra,Renal + liver,SGPT (ALT),7.52,U/L,7,56,N,train
+L00795,P0447,2025-04-02,District Hospital Agra,Renal + liver,Uric Acid,4.12,mg/dL,2.6,6,N,train
+L00796,P0448,2025-02-27,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,155.6,mg/dL,70,100,H,train
+L00796,P0448,2025-02-27,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,139.6,mg/dL,70,140,N,train
+L00796,P0448,2025-02-27,Sunrise Pathology Lab,Diabetes panel,HbA1c,6.43,%,4,5.6,H,train
+L00797,P0448,2026-02-05,Sunrise Pathology Lab,Renal + liver,Creatinine,2.4,mg/dL,0.7,1.3,H,train
+L00797,P0448,2026-02-05,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),23.5,U/L,7,56,N,train
+L00797,P0448,2026-02-05,Sunrise Pathology Lab,Renal + liver,Uric Acid,6.08,mg/dL,3.5,7.2,N,train
+L00799,P0449,2026-01-07,AIIA Delhi OPD,Inflammatory,ESR,6.28,mm/hr,0,20,N,train
+L00799,P0449,2026-01-07,AIIA Delhi OPD,Inflammatory,CRP,0.38,mg/L,0,5,N,train
+L00799,P0449,2026-01-07,AIIA Delhi OPD,Inflammatory,Uric Acid,11.53,mg/dL,3.5,7.2,H,train
+L00802,P0451,2026-03-16,AIIA Delhi OPD,CBC,Hemoglobin,14.21,g/dL,12,15.5,N,train
+L00802,P0451,2026-03-16,AIIA Delhi OPD,CBC,WBC,18.16,x10^3/uL,4,11,H,train
+L00802,P0451,2026-03-16,AIIA Delhi OPD,CBC,Platelets,387.1,x10^3/uL,150,450,N,train
+L00802,P0451,2026-03-16,AIIA Delhi OPD,CBC,ESR,42.5,mm/hr,0,20,H,train
+L00803,P0451,2025-08-05,AIIA Delhi OPD,Thyroid,TSH,1.84,uIU/mL,0.4,4,N,train
+L00809,P0455,2026-01-31,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,203.3,mg/dL,70,100,H,train
+L00809,P0455,2026-01-31,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,92.2,mg/dL,70,140,N,train
+L00809,P0455,2026-01-31,Sunrise Pathology Lab,Diabetes panel,HbA1c,11.93,%,4,5.6,H,train
+L00810,P0455,2025-07-28,AIIA Delhi OPD,Renal + liver,Creatinine,1.25,mg/dL,0.7,1.3,N,train
+L00810,P0455,2025-07-28,AIIA Delhi OPD,Renal + liver,SGPT (ALT),55.6,U/L,7,56,N,train
+L00810,P0455,2025-07-28,AIIA Delhi OPD,Renal + liver,Uric Acid,5.65,mg/dL,3.5,7.2,N,train
+L00812,P0456,2026-02-28,Pathcare Diagnostics,Inflammatory,ESR,26.2,mm/hr,0,20,H,train
+L00812,P0456,2026-02-28,Pathcare Diagnostics,Inflammatory,CRP,3.26,mg/L,0,5,N,train
+L00812,P0456,2026-02-28,Pathcare Diagnostics,Inflammatory,Uric Acid,9.98,mg/dL,3.5,7.2,H,train
+L00816,P0459,2025-05-15,Dr. Lal Labs (dummy),CBC,Hemoglobin,13.4,g/dL,12,15.5,N,test
+L00816,P0459,2025-05-15,Dr. Lal Labs (dummy),CBC,WBC,23.6,x10^3/uL,4,11,H,test
+L00816,P0459,2025-05-15,Dr. Lal Labs (dummy),CBC,Platelets,398,x10^3/uL,150,450,N,test
+L00816,P0459,2025-05-15,Dr. Lal Labs (dummy),CBC,ESR,36.5,mm/hr,0,20,H,test
+L00819,P0461,2025-05-07,District Hospital Agra,Lipid + cardiac,Total Cholesterol,18.31,mg/dL,0,200,N,train
+L00819,P0461,2025-05-07,District Hospital Agra,Lipid + cardiac,LDL,115,mg/dL,0,100,H,train
+L00819,P0461,2025-05-07,District Hospital Agra,Lipid + cardiac,Triglycerides,127.2,mg/dL,0,150,N,train
+L00819,P0461,2025-05-07,District Hospital Agra,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,train
+L00820,P0461,2025-11-13,Sunrise Pathology Lab,Renal + liver,Creatinine,2.16,mg/dL,0.6,1.1,H,train
+L00820,P0461,2025-11-13,Sunrise Pathology Lab,Renal + liver,SGPT (ALT),30.5,U/L,7,56,N,train
+L00820,P0461,2025-11-13,Sunrise Pathology Lab,Renal + liver,Uric Acid,7.21,mg/dL,2.6,6,H,train
+L00822,P0462,2025-02-10,Community Health Centre,CBC,Hemoglobin,14.56,g/dL,13,17,N,train
+L00822,P0462,2025-02-10,Community Health Centre,CBC,WBC,4.65,x10^3/uL,4,11,N,train
+L00822,P0462,2025-02-10,Community Health Centre,CBC,Platelets,323,x10^3/uL,150,450,N,train
+L00822,P0462,2025-02-10,Community Health Centre,CBC,ESR,37.6,mm/hr,0,20,H,train
+L00823,P0462,2026-01-05,AIIA Delhi OPD,Diabetes panel,Fasting Blood Sugar,86.7,mg/dL,70,100,N,train
+L00823,P0462,2026-01-05,AIIA Delhi OPD,Diabetes panel,Post-prandial Blood Sugar,83.4,mg/dL,70,140,N,train
+L00823,P0462,2026-01-05,AIIA Delhi OPD,Diabetes panel,HbA1c,5.4,%,4,5.6,N,train
+L00825,P0464,2025-09-26,AIIA Delhi OPD,CBC,Hemoglobin,15.22,g/dL,13,17,N,train
+L00825,P0464,2025-09-26,AIIA Delhi OPD,CBC,WBC,7.96,x10^3/uL,4,11,N,train
+L00825,P0464,2025-09-26,AIIA Delhi OPD,CBC,Platelets,229.8,x10^3/uL,150,450,N,train
+L00825,P0464,2025-09-26,AIIA Delhi OPD,CBC,ESR,35.3,mm/hr,0,20,H,train
+L00827,P0465,2026-05-22,Dr. Lal Labs (dummy),CBC,Hemoglobin,15.11,g/dL,13,17,N,train
+L00827,P0465,2026-05-22,Dr. Lal Labs (dummy),CBC,WBC,6.46,x10^3/uL,4,11,N,train
+L00827,P0465,2026-05-22,Dr. Lal Labs (dummy),CBC,Platelets,217.5,x10^3/uL,150,450,N,train
+L00827,P0465,2026-05-22,Dr. Lal Labs (dummy),CBC,ESR,37.3,mm/hr,0,20,H,train
+L00829,P0469,2026-01-19,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,75.6,mg/dL,70,100,N,train
+L00829,P0469,2026-01-19,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,81.7,mg/dL,70,140,N,train
+L00829,P0469,2026-01-19,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.86,%,4,5.6,N,train
+L00832,P0470,2026-03-17,AIIA Delhi OPD,Lipid + cardiac,Total Cholesterol,384,mg/dL,0,200,H,train
+L00832,P0470,2026-03-17,AIIA Delhi OPD,Lipid + cardiac,LDL,154.4,mg/dL,0,100,H,train
+L00832,P0470,2026-03-17,AIIA Delhi OPD,Lipid + cardiac,Triglycerides,8.98,mg/dL,0,150,N,train
+L00832,P0470,2026-03-17,AIIA Delhi OPD,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00833,P0470,2025-02-15,Community Health Centre,Thyroid,TSH,0.86,uIU/mL,0.4,4,N,train
+L00836,P0472,2025-05-28,Dr. Lal Labs (dummy),Inflammatory,ESR,1.11,mm/hr,0,20,N,train
+L00836,P0472,2025-05-28,Dr. Lal Labs (dummy),Inflammatory,CRP,0.54,mg/L,0,5,N,train
+L00836,P0472,2025-05-28,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,4.01,mg/dL,2.6,6,N,train
+L00837,P0472,2026-01-18,Pathcare Diagnostics,Renal + liver,Creatinine,0.87,mg/dL,0.6,1.1,N,train
+L00837,P0472,2026-01-18,Pathcare Diagnostics,Renal + liver,SGPT (ALT),55.8,U/L,7,56,N,train
+L00837,P0472,2026-01-18,Pathcare Diagnostics,Renal + liver,Uric Acid,6.76,mg/dL,2.6,6,H,train
+L00841,P0474,2025-05-18,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,85.6,mg/dL,70,100,N,valid
+L00841,P0474,2025-05-18,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,136.3,mg/dL,70,140,N,valid
+L00841,P0474,2025-05-18,District Hospital Agra,Diabetes panel,HbA1c,4.56,%,4,5.6,N,valid
+L00842,P0474,2025-08-06,AIIA Delhi OPD,Renal + liver,Creatinine,0.83,mg/dL,0.6,1.1,N,valid
+L00842,P0474,2025-08-06,AIIA Delhi OPD,Renal + liver,SGPT (ALT),24.9,U/L,7,56,N,valid
+L00842,P0474,2025-08-06,AIIA Delhi OPD,Renal + liver,Uric Acid,4.1,mg/dL,2.6,6,N,valid
+L00848,P0480,2025-07-04,District Hospital Agra,Renal + liver,Creatinine,0.75,mg/dL,0.6,1.1,N,train
+L00848,P0480,2025-07-04,District Hospital Agra,Renal + liver,SGPT (ALT),19.21,U/L,7,56,N,train
+L00848,P0480,2025-07-04,District Hospital Agra,Renal + liver,Uric Acid,2.97,mg/dL,2.6,6,N,train
+L00850,P0481,2026-01-29,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,99.5,mg/dL,70,100,N,valid
+L00850,P0481,2026-01-29,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,254.7,mg/dL,70,140,H,valid
+L00850,P0481,2026-01-29,Pathcare Diagnostics,Diabetes panel,HbA1c,10.92,%,4,5.6,H,valid
+L00851,P0481,2026-04-15,Pathcare Diagnostics,Renal + liver,Creatinine,1.17,mg/dL,0.7,1.3,N,valid
+L00851,P0481,2026-04-15,Pathcare Diagnostics,Renal + liver,SGPT (ALT),55.9,U/L,7,56,N,valid
+L00851,P0481,2026-04-15,Pathcare Diagnostics,Renal + liver,Uric Acid,5.41,mg/dL,3.5,7.2,N,valid
+L00853,P0482,2025-07-25,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,92.2,mg/dL,70,100,N,train
+L00853,P0482,2025-07-25,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,135.4,mg/dL,70,140,N,train
+L00853,P0482,2025-07-25,District Hospital Agra,Diabetes panel,HbA1c,5.44,%,4,5.6,N,train
+L00856,P0483,2026-02-16,District Hospital Agra,CBC,Hemoglobin,15.72,g/dL,13,17,N,valid
+L00856,P0483,2026-02-16,District Hospital Agra,CBC,WBC,14.57,x10^3/uL,4,11,H,valid
+L00856,P0483,2026-02-16,District Hospital Agra,CBC,Platelets,338.9,x10^3/uL,150,450,N,valid
+L00856,P0483,2026-02-16,District Hospital Agra,CBC,ESR,14.94,mm/hr,0,20,N,valid
+L00857,P0484,2025-11-10,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,110.5,mg/dL,70,100,H,train
+L00857,P0484,2025-11-10,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,299,mg/dL,70,140,H,train
+L00857,P0484,2025-11-10,Pathcare Diagnostics,Diabetes panel,HbA1c,11.96,%,4,5.6,H,train
+L00858,P0484,2026-03-31,Dr. Lal Labs (dummy),Renal + liver,Creatinine,1.01,mg/dL,0.6,1.1,N,train
+L00858,P0484,2026-03-31,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),42.8,U/L,7,56,N,train
+L00858,P0484,2026-03-31,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,5.51,mg/dL,2.6,6,N,train
+L00860,P0485,2025-03-07,Pathcare Diagnostics,Diabetes panel,Fasting Blood Sugar,93.4,mg/dL,70,100,N,train
+L00860,P0485,2025-03-07,Pathcare Diagnostics,Diabetes panel,Post-prandial Blood Sugar,119.8,mg/dL,70,140,N,train
+L00860,P0485,2025-03-07,Pathcare Diagnostics,Diabetes panel,HbA1c,4.54,%,4,5.6,N,train
+L00861,P0485,2025-11-05,Sunrise Pathology Lab,Lipid + cardiac,Total Cholesterol,187.1,mg/dL,0,200,N,train
+L00861,P0485,2025-11-05,Sunrise Pathology Lab,Lipid + cardiac,LDL,10.64,mg/dL,0,100,N,train
+L00861,P0485,2025-11-05,Sunrise Pathology Lab,Lipid + cardiac,Triglycerides,143.1,mg/dL,0,150,N,train
+L00861,P0485,2025-11-05,Sunrise Pathology Lab,Lipid + cardiac,Troponin I,0.02,ng/mL,0,0.04,N,train
+L00862,P0485,2025-05-04,Dr. Lal Labs (dummy),Renal + liver,Creatinine,2.81,mg/dL,0.7,1.3,H,train
+L00862,P0485,2025-05-04,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),49.3,U/L,7,56,N,train
+L00862,P0485,2025-05-04,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.66,mg/dL,3.5,7.2,N,train
+L00864,P0486,2025-01-03,District Hospital Agra,Lipid + cardiac,Total Cholesterol,43.5,mg/dL,0,200,N,train
+L00864,P0486,2025-01-03,District Hospital Agra,Lipid + cardiac,LDL,130.4,mg/dL,0,100,H,train
+L00864,P0486,2025-01-03,District Hospital Agra,Lipid + cardiac,Triglycerides,128.1,mg/dL,0,150,N,train
+L00864,P0486,2025-01-03,District Hospital Agra,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00866,P0487,2026-01-04,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,137.8,mg/dL,0,200,N,valid
+L00866,P0487,2026-01-04,Pathcare Diagnostics,Lipid + cardiac,LDL,199.2,mg/dL,0,100,H,valid
+L00866,P0487,2026-01-04,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,206.4,mg/dL,0,150,H,valid
+L00866,P0487,2026-01-04,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.01,ng/mL,0,0.04,N,valid
+L00867,P0487,2026-02-15,Dr. Lal Labs (dummy),Renal + liver,Creatinine,1.23,mg/dL,0.7,1.3,N,valid
+L00867,P0487,2026-02-15,Dr. Lal Labs (dummy),Renal + liver,SGPT (ALT),50.1,U/L,7,56,N,valid
+L00867,P0487,2026-02-15,Dr. Lal Labs (dummy),Renal + liver,Uric Acid,4.62,mg/dL,3.5,7.2,N,valid
+L00879,P0495,2025-03-29,Pathcare Diagnostics,Lipid + cardiac,Total Cholesterol,24.3,mg/dL,0,200,N,train
+L00879,P0495,2025-03-29,Pathcare Diagnostics,Lipid + cardiac,LDL,150.9,mg/dL,0,100,H,train
+L00879,P0495,2025-03-29,Pathcare Diagnostics,Lipid + cardiac,Triglycerides,145.6,mg/dL,0,150,N,train
+L00879,P0495,2025-03-29,Pathcare Diagnostics,Lipid + cardiac,Troponin I,0.03,ng/mL,0,0.04,N,train
+L00880,P0495,2025-02-22,AIIA Delhi OPD,Renal + liver,Creatinine,2.36,mg/dL,0.7,1.3,H,train
+L00880,P0495,2025-02-22,AIIA Delhi OPD,Renal + liver,SGPT (ALT),34.8,U/L,7,56,N,train
+L00880,P0495,2025-02-22,AIIA Delhi OPD,Renal + liver,Uric Acid,6.53,mg/dL,3.5,7.2,N,train
+L00883,P0496,2026-05-23,District Hospital Agra,Diabetes panel,Fasting Blood Sugar,185,mg/dL,70,100,H,train
+L00883,P0496,2026-05-23,District Hospital Agra,Diabetes panel,Post-prandial Blood Sugar,244.3,mg/dL,70,140,H,train
+L00883,P0496,2026-05-23,District Hospital Agra,Diabetes panel,HbA1c,12.01,%,4,5.6,H,train
+L00884,P0496,2025-01-07,District Hospital Agra,Renal + liver,Creatinine,0.83,mg/dL,0.7,1.3,N,train
+L00884,P0496,2025-01-07,District Hospital Agra,Renal + liver,SGPT (ALT),48.5,U/L,7,56,N,train
+L00884,P0496,2025-01-07,District Hospital Agra,Renal + liver,Uric Acid,10.72,mg/dL,3.5,7.2,H,train
+L00885,P0497,2025-04-29,Sunrise Pathology Lab,Diabetes panel,Fasting Blood Sugar,80.6,mg/dL,70,100,N,test
+L00885,P0497,2025-04-29,Sunrise Pathology Lab,Diabetes panel,Post-prandial Blood Sugar,97.7,mg/dL,70,140,N,test
+L00885,P0497,2025-04-29,Sunrise Pathology Lab,Diabetes panel,HbA1c,4.6,%,4,5.6,N,test
+L00886,P0497,2025-07-16,Community Health Centre,Lipid + cardiac,Total Cholesterol,7.52,mg/dL,0,200,N,test
+L00886,P0497,2025-07-16,Community Health Centre,Lipid + cardiac,LDL,192.4,mg/dL,0,100,H,test
+L00886,P0497,2025-07-16,Community Health Centre,Lipid + cardiac,Triglycerides,64.6,mg/dL,0,150,N,test
+L00886,P0497,2025-07-16,Community Health Centre,Lipid + cardiac,Troponin I,0,ng/mL,0,0.04,N,test
+L00887,P0497,2025-10-23,Community Health Centre,Renal + liver,Creatinine,1.52,mg/dL,0.6,1.1,H,test
+L00887,P0497,2025-10-23,Community Health Centre,Renal + liver,SGPT (ALT),55.3,U/L,7,56,N,test
+L00887,P0497,2025-10-23,Community Health Centre,Renal + liver,Uric Acid,4.27,mg/dL,2.6,6,N,test
+L00888,P0499,2025-05-09,Dr. Lal Labs (dummy),Inflammatory,ESR,36.1,mm/hr,0,20,H,train
+L00888,P0499,2025-05-09,Dr. Lal Labs (dummy),Inflammatory,CRP,0.98,mg/L,0,5,N,train
+L00888,P0499,2025-05-09,Dr. Lal Labs (dummy),Inflammatory,Uric Acid,9.63,mg/dL,2.6,6,H,train
+L00890,P0500,2025-07-14,Dr. Lal Labs (dummy),Diabetes panel,Fasting Blood Sugar,134.6,mg/dL,70,100,H,test
+L00890,P0500,2025-07-14,Dr. Lal Labs (dummy),Diabetes panel,Post-prandial Blood Sugar,90.3,mg/dL,70,140,N,test
+L00890,P0500,2025-07-14,Dr. Lal Labs (dummy),Diabetes panel,HbA1c,4.89,%,4,5.6,N,test
+L00891,P0500,2025-10-08,Pathcare Diagnostics,Renal + liver,Creatinine,0.92,mg/dL,0.6,1.1,N,test
+L00891,P0500,2025-10-08,Pathcare Diagnostics,Renal + liver,SGPT (ALT),9.41,U/L,7,56,N,test
+L00891,P0500,2025-10-08,Pathcare Diagnostics,Renal + liver,Uric Acid,3.1,mg/dL,2.6,6,N,test

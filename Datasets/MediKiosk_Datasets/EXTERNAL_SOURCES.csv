@@ -1,0 +1,17 @@
+﻿module,dataset,link,status
+OCR/handwriting,Doctor's Handwritten Prescription BD,https://www.kaggle.com/datasets/mamun1113/doctors-handwritten-prescription-bd-dataset,manifest in 02_ocr_handwriting; source images not included in this project ZIP
+OCR/handwriting,Noisy Medical Document Images (OCR),https://www.kaggle.com/datasets/devp1866/noisy-medical-document-images-ocr,manifest in 02_ocr_handwriting; source images not included in this project ZIP
+OCR/handwriting,HP_DocPres (IEEE DataPort),DOI 10.21227/5zbc-8g23,not downloaded
+Summary,MTSamples,https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions,included (03_patient_summary)
+Summary/dialogue,ACI-Bench,https://github.com/wyim/aci-bench,included (03_patient_summary)
+Dialogue,MediTOD,https://github.com/dair-iitd/MediTOD,3-dialogue sample included; full set needs UMLS licence
+Dialogue,MedDialog,https://github.com/UCSD-AI4H/Medical-Dialogue-System,not downloaded
+Triage,Symptom2Disease,https://www.kaggle.com/datasets/niyarrbarman/symptom2disease,included (05_triage_redflag)
+Triage,Disease Prediction Using ML,https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning,included (deduplicated)
+Triage,"Disease Symptom Description (severity, precautions)",https://www.kaggle.com/datasets/itachi9604/disease-symptom-description-dataset,included
+Triage,Symptoms to Diseases (data.csv),https://www.kaggle.com/datasets/abhishekgodara/symptoms-to-diseases,"5,000-row sample included"
+AYUSH,Prakriti200,DOI 10.21227/k748-f379 (IEEE DataPort),not downloaded
+AYUSH,Prakriti North & Western India,https://data.mendeley.com/datasets/dyx5cgxdrf/1,not downloaded
+ASR,IndicVoices / Kathbath / Svarah / Shrutilipi,https://huggingface.co/ai4bharat,not downloaded
+FHIR,Synthea (incl. Coherent),https://synthea.mitre.org/downloads,not downloaded
+General,MedQA / MIMIC-III (credentialed),https://github.com/jind11/MedQA ; https://physionet.org/content/mimiciii/1.4/,not downloaded

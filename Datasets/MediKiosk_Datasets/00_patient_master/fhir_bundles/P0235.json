@@ -1,0 +1,225 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0235",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2239-6787-2459"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kiran Verma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0235",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0235"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0023",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "61-year-old male presenting with pain in the abdomen for 6 days. Character: cramping pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 9/10. Associated: bloating, loose motions, vomiting. PMH: Coronary artery disease, stent 2 years ago. Drugs: Aspirin 75 mg; Atorvastatin 20 mg. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00430-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00430-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00430-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00429-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2026-05-18",
+    "valueQuantity": {
+     "value": 93.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00429-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2026-05-18",
+    "valueQuantity": {
+     "value": 59.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00429-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2026-05-18",
+    "valueQuantity": {
+     "value": 19.21,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00429-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0235"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2026-05-18",
+    "valueQuantity": {
+     "value": 0.03,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

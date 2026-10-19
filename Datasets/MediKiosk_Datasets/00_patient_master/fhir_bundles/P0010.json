@@ -1,0 +1,207 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0010",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-9207-9377-8820"
+     }
+    ],
+    "name": [
+     {
+      "text": "Sunil Mishra"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0010",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0010"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0134",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "41-year-old male presenting with headache with dizziness for 2 weeks. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by morning time; relieved by rest. Severity 5/10. Associated: blurred vision, palpitations. PMH: Hypertension for 14 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00019-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00019-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00018-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-12-28",
+    "valueQuantity": {
+     "value": 11.38,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00018-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-12-28",
+    "valueQuantity": {
+     "value": 166.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00018-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-12-28",
+    "valueQuantity": {
+     "value": 73.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00018-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0010"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-12-28",
+    "valueQuantity": {
+     "value": 0.02,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

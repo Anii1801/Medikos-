@@ -1,0 +1,358 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0012",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Manoj Kumar"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0012",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0012"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0135",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "39-year-old male presenting with headache with dizziness for 2 days. Character: throbbing at the back of the head; radiation: to the neck; aggravated by morning time; relieved by rest. Severity 4/10. Associated: blurred vision, palpitations. PMH: Type 2 diabetes for 2 years; Hypertension for 5 years. Drugs: Metformin 500 mg; Amlodipine 5 mg. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00025-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00025-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00025-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00022-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-07-05",
+    "valueQuantity": {
+     "value": 203.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00022-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-07-05",
+    "valueQuantity": {
+     "value": 102.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00022-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-07-05",
+    "valueQuantity": {
+     "value": 5.52,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00023-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-08-07",
+    "valueQuantity": {
+     "value": 11.78,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00023-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-08-07",
+    "valueQuantity": {
+     "value": 5.72,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00023-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-08-07",
+    "valueQuantity": {
+     "value": 2.56,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00023-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-08-07",
+    "valueQuantity": {
+     "value": 0.0,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00024-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-06-30",
+    "valueQuantity": {
+     "value": 1.65,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00024-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-06-30",
+    "valueQuantity": {
+     "value": 15.65,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00024-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0012"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-06-30",
+    "valueQuantity": {
+     "value": 5.65,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

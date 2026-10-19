@@ -1,0 +1,289 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0015",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Savita Chauhan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0015",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0015"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0244",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "57-year-old female presenting with chest pain for 7 hours. Character: pressure like a heavy weight; radiation: to the jaw; aggravated by walking or climbing stairs; relieved by nothing. Severity 7/10. Associated: breathlessness, nausea. PMH: Type 2 diabetes for 3 years; Coronary artery disease, stent 6 years ago; Appendectomy in 2021. Drugs: Metformin 500 mg; Aspirin 75 mg; Atorvastatin 20 mg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00031-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00031-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00031-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00029-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-02-23",
+    "valueQuantity": {
+     "value": 84.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00029-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-02-23",
+    "valueQuantity": {
+     "value": 75.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00029-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-02-23",
+    "valueQuantity": {
+     "value": 4.51,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00030-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-12-20",
+    "valueQuantity": {
+     "value": 161.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00030-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-12-20",
+    "valueQuantity": {
+     "value": 211.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00030-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-12-20",
+    "valueQuantity": {
+     "value": 4.59,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00030-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0015"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-12-20",
+    "valueQuantity": {
+     "value": 0.07,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

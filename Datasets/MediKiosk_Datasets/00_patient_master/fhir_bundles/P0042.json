@@ -1,0 +1,148 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0042",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1663-3765-6310"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rekha Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0042",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0042"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0101",
+    "subject": {
+     "reference": "Patient/P0042"
+    },
+    "code": {
+     "text": "constipation",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K59.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "66-year-old female presenting with constipation for 1 months. Character: hard stool, passing once in 3 days; radiation: n/a; aggravated by less water intake; relieved by warm water. Severity 8/10. Associated: loss of appetite. PMH: Type 2 diabetes for 10 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00071-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0042"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-05-16",
+    "valueQuantity": {
+     "value": 76.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00071-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0042"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-05-16",
+    "valueQuantity": {
+     "value": 113.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00071-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0042"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-05-16",
+    "valueQuantity": {
+     "value": 5.48,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

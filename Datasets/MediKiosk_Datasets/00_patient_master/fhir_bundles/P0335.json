@@ -1,0 +1,240 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0335",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8057-6147-2623"
+     }
+    ],
+    "name": [
+     {
+      "text": "Deepak Reddy"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0335",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0335"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0297",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "58-year-old male presenting with burning in the chest and stomach after meals for 1 weeks. Character: burning sensation; radiation: up to the throat; aggravated by lying down after meals; relieved by cold milk. Severity 8/10. Associated: sour belching. PMH: Type 2 diabetes for 9 years; Coronary artery disease, stent 8 years ago. Drugs: Metformin 500 mg; Aspirin 75 mg; Atorvastatin 20 mg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00599-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-07-25",
+    "valueQuantity": {
+     "value": 86.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00599-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-07-25",
+    "valueQuantity": {
+     "value": 232.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00599-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-07-25",
+    "valueQuantity": {
+     "value": 4.5,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00600-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-09-13",
+    "valueQuantity": {
+     "value": 23.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00600-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-09-13",
+    "valueQuantity": {
+     "value": 0.89,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00600-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-09-13",
+    "valueQuantity": {
+     "value": 123.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00600-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0335"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-09-13",
+    "valueQuantity": {
+     "value": 0.01,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

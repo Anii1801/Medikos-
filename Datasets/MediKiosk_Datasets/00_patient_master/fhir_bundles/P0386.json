@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0386",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0867-6908-3858"
+     }
+    ],
+    "name": [
+     {
+      "text": "Mohan Gupta"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0386",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0386"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0213",
+    "subject": {
+     "reference": "Patient/P0386"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "25-year-old male presenting with low back pain for 6 months. Character: dull aching pain; radiation: down the right leg; aggravated by bending forward; relieved by hot fomentation. Severity 5/10. Associated: numbness in the leg. PMH: none. Drugs: none. Allergy: dust. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0386",
+    "patient": {
+     "reference": "Patient/P0386"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  }
+ ]
+}

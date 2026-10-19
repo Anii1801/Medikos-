@@ -1,0 +1,292 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0469",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-6801-7944-8793"
+     }
+    ],
+    "name": [
+     {
+      "text": "Pooja Reddy"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0469",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0469"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0041",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "54-year-old female presenting with cough and breathlessness for 5 months. Character: wheezing, worse at night; radiation: n/a; aggravated by dust and cold air; relieved by inhaler. Severity 4/10. Associated: sneezing. PMH: Type 2 diabetes for 2 years; Hypertension for 9 years; Asthma since childhood. Drugs: Metformin 500 mg; Amlodipine 5 mg; Salbutamol inhaler 100 mcg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00830-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00830-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00830-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00830-1517",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sitopaladi churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00831-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00831-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00831-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00831-1517",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sitopaladi churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00829-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-01-19",
+    "valueQuantity": {
+     "value": 75.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00829-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-01-19",
+    "valueQuantity": {
+     "value": 81.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00829-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0469"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-01-19",
+    "valueQuantity": {
+     "value": 4.86,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

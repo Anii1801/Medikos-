@@ -1,0 +1,133 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0014",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3597-2051-3005"
+     }
+    ],
+    "name": [
+     {
+      "text": "Mohan Pandey"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0014",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0014"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0288",
+    "subject": {
+     "reference": "Patient/P0014"
+    },
+    "code": {
+     "text": "sudden weakness on one side and slurred speech",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I63.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "53-year-old male presenting with sudden weakness on one side and slurred speech for 4 hours. Character: left side weakness; radiation: n/a; aggravated by nothing in particular; relieved by nothing. Severity 8/10. Associated: difficulty speaking, severe headache, face drooping. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: no known allergies. Family: asthma. Personal: smokes bidi daily. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00027-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0014"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00028-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0014"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00028-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0014"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

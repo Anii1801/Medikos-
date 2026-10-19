@@ -1,0 +1,92 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0490",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Anil Pandey"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0490",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0490"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0046",
+    "subject": {
+     "reference": "Patient/P0490"
+    },
+    "code": {
+     "text": "excessive thirst and frequent urination",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "E11.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "55-year-old male presenting with excessive thirst and frequent urination for 4 weeks. Character: passing urine many times, also at night; radiation: n/a; aggravated by sweet food; relieved by nothing. Severity 7/10. Associated: tiredness. PMH: Type 2 diabetes for 8 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00873-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0490"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

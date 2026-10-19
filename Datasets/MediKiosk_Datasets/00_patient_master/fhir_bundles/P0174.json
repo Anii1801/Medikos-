@@ -1,0 +1,183 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0174",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5851-2380-6656"
+     }
+    ],
+    "name": [
+     {
+      "text": "Sunil Kumar"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0174",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0174"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0015",
+    "subject": {
+     "reference": "Patient/P0174"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "60-year-old male presenting with chest pain for 1 hours. Character: pressure like a heavy weight; radiation: it does not spread; aggravated by walking or climbing stairs; relieved by nothing. Severity 10/10. Associated: nausea, sweating. PMH: Coronary artery disease, stent 2 years ago. Drugs: Aspirin 75 mg; Atorvastatin 20 mg. Allergy: dust. Family: heart disease. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0174",
+    "patient": {
+     "reference": "Patient/P0174"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00308-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0174"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-07-20",
+    "valueQuantity": {
+     "value": 92.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00308-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0174"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-07-20",
+    "valueQuantity": {
+     "value": 162.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00308-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0174"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-07-20",
+    "valueQuantity": {
+     "value": 124.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00308-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0174"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-07-20",
+    "valueQuantity": {
+     "value": 0.08,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

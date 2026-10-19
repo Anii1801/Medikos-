@@ -1,0 +1,109 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0154",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7109-5119-5081"
+     }
+    ],
+    "name": [
+     {
+      "text": "Fatima Singh"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0154",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0154"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0267",
+    "subject": {
+     "reference": "Patient/P0154"
+    },
+    "code": {
+     "text": "cough and breathlessness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "J45.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "30-year-old female presenting with cough and breathlessness for 4 weeks. Character: wheezing, worse at night; radiation: n/a; aggravated by dust and cold air; relieved by inhaler. Severity 7/10. Associated: sneezing, chest tightness. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: peanuts. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0154",
+    "patient": {
+     "reference": "Patient/P0154"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00264-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0154"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

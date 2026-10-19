@@ -1,0 +1,79 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0388",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1304-0401-0473"
+     }
+    ],
+    "name": [
+     {
+      "text": "Amit Iyer"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0388",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0388"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0054",
+    "subject": {
+     "reference": "Patient/P0388"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "11-year-old male presenting with fever for 2 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 2/10. Associated: headache, skin rash. PMH: Appendectomy in 2013. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  }
+ ]
+}

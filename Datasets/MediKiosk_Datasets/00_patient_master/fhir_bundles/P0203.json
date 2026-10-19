@@ -1,0 +1,115 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0203",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0570-1446-2595"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kamla Verma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0203",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0203"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0245",
+    "subject": {
+     "reference": "Patient/P0203"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "52-year-old female presenting with low back pain for 2 months. Character: dull aching pain; radiation: down the right leg; aggravated by bending forward; relieved by lying down. Severity 9/10. Associated: numbness in the leg. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00359-1953",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0203"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ibuprofen 400 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00359-136",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0203"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dashmoolarishta 20 ml"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

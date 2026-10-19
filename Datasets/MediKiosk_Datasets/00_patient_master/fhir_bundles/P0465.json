@@ -1,0 +1,166 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0465",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Deepak Gupta"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0465",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0465"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0240",
+    "subject": {
+     "reference": "Patient/P0465"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "19-year-old male presenting with fever for 5 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 8/10. Associated: body ache. PMH: none. Drugs: none. Allergy: no known allergies. Family: heart disease. Personal: smokes bidi daily. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00827-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0465"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-05-22",
+    "valueQuantity": {
+     "value": 15.11,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00827-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0465"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-05-22",
+    "valueQuantity": {
+     "value": 6.46,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00827-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0465"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-05-22",
+    "valueQuantity": {
+     "value": 217.5,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00827-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0465"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-05-22",
+    "valueQuantity": {
+     "value": 37.3,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

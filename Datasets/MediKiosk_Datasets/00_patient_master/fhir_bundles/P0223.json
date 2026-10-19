@@ -1,0 +1,319 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0223",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Gurpreet Verma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0223",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0223"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0233",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "62-year-old male presenting with chest pain for 6 hours. Character: squeezing pain; radiation: to the jaw; aggravated by walking or climbing stairs; relieved by rest. Severity 10/10. Associated: nausea, sweating. PMH: Type 2 diabetes for 10 years. Drugs: Metformin 500 mg. Allergy: penicillin. Family: hypertension. Personal: smokes bidi daily. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0223",
+    "patient": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00400-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00400-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00401-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00401-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00398-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-08",
+    "valueQuantity": {
+     "value": 89.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00398-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-08",
+    "valueQuantity": {
+     "value": 89.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00398-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-12-08",
+    "valueQuantity": {
+     "value": 4.94,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00399-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2026-06-16",
+    "valueQuantity": {
+     "value": 94.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00399-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2026-06-16",
+    "valueQuantity": {
+     "value": 48.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00399-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2026-06-16",
+    "valueQuantity": {
+     "value": 92.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00399-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0223"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2026-06-16",
+    "valueQuantity": {
+     "value": 0.06,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

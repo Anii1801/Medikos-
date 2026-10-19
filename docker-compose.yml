@@ -1,0 +1,7 @@
+services:
+  medikiosk:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    volumes: ["mk-data:/data"]
+volumes: { mk-data: {} }

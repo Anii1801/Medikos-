@@ -1,0 +1,184 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0361",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Anita Verma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0361",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0361"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0175",
+    "subject": {
+     "reference": "Patient/P0361"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "36-year-old female presenting with fever for 3 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 2/10. Associated: skin rash. PMH: none. Drugs: none. Allergy: no known allergies. Family: diabetes. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00648-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0361"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00647-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0361"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-05-04",
+    "valueQuantity": {
+     "value": 12.43,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00647-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0361"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-05-04",
+    "valueQuantity": {
+     "value": 9.86,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00647-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0361"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-05-04",
+    "valueQuantity": {
+     "value": 150.8,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00647-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0361"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-05-04",
+    "valueQuantity": {
+     "value": 37.3,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

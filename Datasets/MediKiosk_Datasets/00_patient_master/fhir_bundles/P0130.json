@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0130",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5986-0753-9813"
+     }
+    ],
+    "name": [
+     {
+      "text": "Usha Kumar"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0130",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0130"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0085",
+    "subject": {
+     "reference": "Patient/P0130"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "57-year-old female presenting with burning in the chest and stomach after meals for 3 months. Character: burning sensation; radiation: it does not spread; aggravated by lying down after meals; relieved by antacid. Severity 9/10. Associated: sour belching. PMH: Hypertension for 1 years. Drugs: Amlodipine 5 mg. Allergy: sulfa drugs. Family: heart disease. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0130",
+    "patient": {
+     "reference": "Patient/P0130"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  }
+ ]
+}

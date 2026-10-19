@@ -1,0 +1,286 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0323",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2423-5834-6029"
+     }
+    ],
+    "name": [
+     {
+      "text": "Lakshmi Singh"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0323",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0323"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0103",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "77-year-old female presenting with knee pain for 4 years. Character: dull aching pain; radiation: it does not spread; aggravated by sitting on the floor; relieved by rest. Severity 8/10. Associated: swelling, difficulty walking. PMH: Type 2 diabetes for 5 years. Drugs: Metformin 500 mg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00576-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-03",
+    "valueQuantity": {
+     "value": 164.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00576-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-03",
+    "valueQuantity": {
+     "value": 114.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00576-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-12-03",
+    "valueQuantity": {
+     "value": 4.24,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00577-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-07-12",
+    "valueQuantity": {
+     "value": 17.76,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00577-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-07-12",
+    "valueQuantity": {
+     "value": 3.87,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00577-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-07-12",
+    "valueQuantity": {
+     "value": 3.03,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00578-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-01-15",
+    "valueQuantity": {
+     "value": 0.81,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00578-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-01-15",
+    "valueQuantity": {
+     "value": 25.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00578-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0323"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-01-15",
+    "valueQuantity": {
+     "value": 11.38,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

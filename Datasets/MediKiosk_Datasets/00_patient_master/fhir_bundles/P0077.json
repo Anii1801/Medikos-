@@ -1,0 +1,238 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0077",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7821-5554-6368"
+     }
+    ],
+    "name": [
+     {
+      "text": "Priya Sharma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0077",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0077"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0184",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "35-year-old female presenting with itching with skin rash for 5 weeks. Character: dry scaly patches with itching; radiation: on the legs; aggravated by night time; relieved by coconut oil. Severity 2/10. Associated: burning sensation. PMH: Type 2 diabetes for 4 years; Hypothyroidism for 7 years. Drugs: Metformin 500 mg; Levothyroxine 50 mcg. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00129-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00129-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00129-3615",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "medicationCodeableConcept": {
+     "text": "Cetirizine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00129-4854",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "medicationCodeableConcept": {
+     "text": "Neem capsule 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00129-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00128-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-05-08",
+    "valueQuantity": {
+     "value": 84.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00128-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-05-08",
+    "valueQuantity": {
+     "value": 85.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00128-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0077"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-05-08",
+    "valueQuantity": {
+     "value": 5.34,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

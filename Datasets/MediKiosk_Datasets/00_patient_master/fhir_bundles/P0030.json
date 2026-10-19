@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0030",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-9158-9938-7893"
+     }
+    ],
+    "name": [
+     {
+      "text": "Amit Ansari"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0030",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0030"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0206",
+    "subject": {
+     "reference": "Patient/P0030"
+    },
+    "code": {
+     "text": "difficulty sleeping",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "G47.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "35-year-old male presenting with difficulty sleeping for 3 months. Character: trouble falling asleep, wakes at 3 AM; radiation: n/a; aggravated by stress and phone use at night; relieved by oil head massage. Severity 2/10. Associated: daytime tiredness, anxiety. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00056-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0030"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

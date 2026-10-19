@@ -1,0 +1,196 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0274",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2191-1435-6797"
+     }
+    ],
+    "name": [
+     {
+      "text": "Shanti Banerjee"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0274",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0274"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0173",
+    "subject": {
+     "reference": "Patient/P0274"
+    },
+    "code": {
+     "text": "difficulty sleeping",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "G47.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "70-year-old female presenting with difficulty sleeping for 5 months. Character: trouble falling asleep, wakes at 3 AM; radiation: n/a; aggravated by stress and phone use at night; relieved by oil head massage. Severity 6/10. Associated: anxiety, daytime tiredness. PMH: Type 2 diabetes for 2 years. Drugs: Metformin 500 mg. Allergy: dust. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0274",
+    "patient": {
+     "reference": "Patient/P0274"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00496-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0274"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00496-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0274"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00495-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0274"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-23",
+    "valueQuantity": {
+     "value": 79.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00495-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0274"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-12-23",
+    "valueQuantity": {
+     "value": 78.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00495-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0274"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-12-23",
+    "valueQuantity": {
+     "value": 4.38,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

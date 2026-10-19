@@ -1,0 +1,9 @@
+﻿rule_id,condition,keywords,triage,action
+R01,Chest pain + (left arm/jaw radiation OR sweating OR breathlessness),chest pain|सीने में दर्द,EMERGENCY,Possible ACS - ECG within 10 minutes
+R02,Sudden one-sided weakness OR slurred speech OR facial droop,weakness one side|slurred|face drooping|लड़खड़ाहट,EMERGENCY,Possible stroke - FAST pathway
+R03,Breathlessness at rest OR unable to speak full sentences,breathless at rest|साँस नहीं आ रही,EMERGENCY,Respiratory distress
+R04,Vomiting blood OR black tarry stools,hematemesis|melena|खून की उल्टी,EMERGENCY,GI bleed
+R05,Severity >= 8/10 for any complaint,severity>=8,URGENT,Prioritise in queue
+R06,Fever > 3 days + rash OR bleeding gums,fever+rash,URGENT,Dengue screen
+R07,Pregnancy + bleeding OR severe abdominal pain,pregnancy+bleeding,EMERGENCY,Obstetric emergency
+R08,Thoughts of self-harm,self-harm,EMERGENCY,Immediate staff + counsellor

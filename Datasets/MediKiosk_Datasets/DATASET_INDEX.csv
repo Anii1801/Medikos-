@@ -1,0 +1,36 @@
+﻿module,file,rows,columns,description
+01_history_interview,interview_turns.csv,7863,9,Turn-by-turn AI/patient history-taking dialogue (Hindi+English) with slot labels
+01_history_interview,structured_histories.csv,300,25,"Gold structured history per interview (HPI, PMH, drug, allergy, family, personal, red flag, triage)"
+01_history_interview,slot_inventory.csv,28,3,"Slots used in interviews: AI turns carry the question slot, PATIENT turns the answer slot"
+01_history_interview,interviews.jsonl,300,,Nested interview: all turns + gold structured history (one JSON per line)
+01_history_interview,meditod_sample_dialogs.csv,359,7,"MediTOD (IIT Delhi) - only 3 sample dialogues (115, 317, 407); full canonicalised set needs UMLS licence"
+02_ocr_handwriting,synthetic_documents_ocr_pairs.csv,892,13,"Ground-truth vs simulated-OCR text for lab reports and prescriptions (text-level simulation, not real OCR)"
+02_ocr_handwriting,prescription_entities.csv,1011,13,"Drug, dose schedule, duration per prescription line (entity-extraction ground truth)"
+02_ocr_handwriting,lab_result_entities.csv,1238,12,"Lab test, value, unit, reference range, flag per report (entity-extraction ground truth)"
+02_ocr_handwriting,ocr_noise_summary.csv,6,5,Mean CER/WER of simulated OCR by handwritten flag and scan quality
+02_ocr_handwriting,noisy_docs_manifest.csv,1000,11,"Kaggle Noisy Medical Document Images: 500 bills + 500 discharge summaries; JSON ground truth + image path (images NOT copied, 304 MB)"
+02_ocr_handwriting,handwriting_words_manifest.csv,4680,6,"Kaggle Prescription BD: 4,680 handwritten medicine-name word images, train/valid/test as published (images NOT copied)"
+02_ocr_handwriting,handwriting_label_map.csv,78,3,Medicine brand -> generic mapping with image counts
+03_patient_summary,history_to_summary_synthetic.csv,300,9,"Dialogue / structured history -> English clinician summary + Hindi patient confirmation (synthetic, templated)"
+03_patient_summary,aci_bench_dialogue_note_pairs.csv,207,12,ACI-Bench (Nature Sci Data 2023): 207 doctor-patient dialogue -> clinical note pairs with metadata
+03_patient_summary,mtsamples_notes_clean.csv,4966,7,"MTSamples medical transcription notes (CC0), nulls dropped, whitespace trimmed"
+04_asr_voice,asr_noisy_test_set.csv,900,9,"Chief-complaint reference text vs simulated ASR text under 3 noise profiles (text-level simulation, no audio)"
+04_asr_voice,asr_noise_summary.csv,6,5,Mean WER/CER by language and noise profile
+04_asr_voice,external_audio_sources.csv,4,4,Real audio corpora to fine-tune/evaluate ASR (not downloaded)
+05_triage_redflag,red_flag_rules.csv,8,5,Rule set for EMERGENCY / URGENT triage (illustrative; needs clinical validation)
+05_triage_redflag,red_flag_labeled_cases.csv,300,12,"Interview-level red-flag and triage labels (300 synthetic cases; 19 EMERGENCY, 57 URGENT)"
+05_triage_redflag,symptom_binary_train_dedup.csv,304,133,"132 binary symptoms -> prognosis (41 diseases), duplicates removed"
+05_triage_redflag,symptom_binary_test.csv,42,133,Official Testing.csv (42 rows)
+05_triage_redflag,symptom2disease_text.csv,1153,3,"Free-text symptom descriptions -> disease (24 classes), stratified split; 47 duplicate texts removed"
+05_triage_redflag,symptom_severity_weights.csv,133,2,Severity weight (1-7) per symptom
+05_triage_redflag,disease_knowledge.csv,41,6,Disease description + up to 4 precautions (patient-education text; not clinical guidance)
+05_triage_redflag,symptom_binary_large_SAMPLE_5000.csv,5000,378,"Random 5,000-row sample of data.csv (246,945 rows x 377 symptoms; full file not copied, 182 MB)"
+06_ayush_prakriti,dashavidha_pariksha_with_context.csv,356,26,"Dashavidha Pariksha (Prakriti, Vikriti, Sara, Samhanana, Pramana, Satmya, Sattva, Agni, Koshtha...) + demographics + chief complaint"
+06_ayush_prakriti,ayush_value_distribution.csv,22,3,"Value counts for Prakriti, Vikriti, Agni, Koshtha"
+07_drug_safety,drug_interaction_reference.csv,9,5,Small illustrative interaction table (9 pairs)
+07_drug_safety,drug_interaction_alerts.csv,84,7,Interaction pairs found in each patient's prescriptions
+07_drug_safety,patient_drug_lists.csv,377,5,Unique generic drugs per patient and systems (Allopathy/Ayurveda) - input for interaction checks
+00_patient_master,patient_master.csv,500,29,"One row per patient: demographics, consent, language, counts of linked records, triage, Prakriti, patient-level split"
+00_patient_master,patient_timeline.csv,1392,6,"Chronological events per patient: visits, prescriptions, lab reports (for the doctor timeline view)"
+00_patient_master,patient_master.jsonl,500,,Nested record per patient joining every module (one JSON per line) - for dashboard / end-to-end demo
+00_patient_master,fhir_bundles/*.json,300,,"Synthetic FHIR R4-style Bundles (Patient, Consent, Condition, Allergy, MedicationStatement, Observation); NOT validated against ABDM profiles"

@@ -1,0 +1,184 @@
+{
+  "framework_version": "1.0",
+  "generated_at_utc": "2026-10-14T07:45:36Z",
+  "metadata": {
+    "seed": 42,
+    "paired_comparisons": true,
+    "confidence_interval": "paired bootstrap 95%; permutation p-values when paired vectors exist",
+    "literature_window": "2022-01-01 through 2026-10-14",
+    "clinical_validation": false
+  },
+  "experiments": [
+    {
+      "experiment_id": "redflag_rules_vs_model",
+      "status": "measured_software_audit",
+      "dataset": "C:\\Users\\Aniruddha Singh\\medikiosk\\Datasets\\MediKiosk_Datasets\\05_triage_redflag\\red_flag_labeled_cases.csv",
+      "dataset_disclaimer": "bundled synthetic/demo; not clinical validation",
+      "sample_size": 300,
+      "results": {
+        "rules": {
+          "n": 300,
+          "counts": {
+            "tp": 19,
+            "tn": 211,
+            "fp": 70,
+            "fn": 0
+          },
+          "sensitivity_recall": 1.0,
+          "specificity": 0.7508896797153025,
+          "precision": 0.21348314606741572,
+          "f1": 0.3518518518518518,
+          "false_negative_cases": 0,
+          "false_positive_burden": 70
+        },
+        "model_observed_only": {
+          "n": 300,
+          "counts": {
+            "tp": 0,
+            "tn": 281,
+            "fp": 0,
+            "fn": 19
+          },
+          "sensitivity_recall": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "f1": 0.0,
+          "false_negative_cases": 19,
+          "false_positive_burden": 0
+        },
+        "safety_preserving_combination": {
+          "n": 300,
+          "counts": {
+            "tp": 19,
+            "tn": 211,
+            "fp": 70,
+            "fn": 0
+          },
+          "sensitivity_recall": 1.0,
+          "specificity": 0.7508896797153025,
+          "precision": 0.21348314606741572,
+          "f1": 0.3518518518518518,
+          "false_negative_cases": 0,
+          "false_positive_burden": 70
+        },
+        "override_policy": "model cannot suppress a triggered deterministic rule"
+      },
+      "confidence_intervals": "not computed for aggregate audit",
+      "model_status": "pending: no provenance/licence-verified trained classifier configured"
+    },
+    {
+      "experiment_id": "history_fixed_vs_adaptive",
+      "status": "pending",
+      "baseline": "fixed-question order",
+      "proposed": "HistoryTakingAgent adaptive policy",
+      "metrics": [
+        "history_completeness",
+        "slot_coverage",
+        "omissions",
+        "duplicate_rate",
+        "turns",
+        "red_flag_recall",
+        "inference_latency"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    },
+    {
+      "experiment_id": "extraction_generic_vs_clinical",
+      "status": "pending",
+      "baseline": "generic extraction",
+      "proposed": "configured clinical NLP baseline",
+      "metrics": [
+        "precision",
+        "recall",
+        "f1",
+        "negation_accuracy",
+        "uncertainty_accuracy",
+        "inference_latency"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    },
+    {
+      "experiment_id": "summary_oneshot_vs_grounded",
+      "status": "pending",
+      "baseline": "one-shot generation",
+      "proposed": "extraction-first grounded generation",
+      "metrics": [
+        "omission_rate",
+        "hallucination_rate",
+        "factuality",
+        "source_link_coverage",
+        "ROUGE",
+        "BERTScore",
+        "inference_latency"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    },
+    {
+      "experiment_id": "ocr_baseline_vs_document_pipeline",
+      "status": "pending",
+      "baseline": "raw OCR",
+      "proposed": "proposed document pipeline",
+      "metrics": [
+        "cer",
+        "wer",
+        "field_accuracy",
+        "inference_latency"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    },
+    {
+      "experiment_id": "finetune_vs_peft",
+      "status": "pending",
+      "baseline": "full fine-tuning",
+      "proposed": "LoRA/PEFT",
+      "metrics": [
+        "task_metric",
+        "model_size",
+        "trainable_parameters",
+        "training_time",
+        "peak_memory",
+        "inference_latency"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    },
+    {
+      "experiment_id": "manual_vs_ai_documentation",
+      "status": "pending",
+      "baseline": "manual documentation",
+      "proposed": "AI draft plus clinician review",
+      "metrics": [
+        "documentation_time",
+        "correction_time",
+        "omissions",
+        "hallucination_rate"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    },
+    {
+      "experiment_id": "english_vs_hindi_hinglish",
+      "status": "pending",
+      "baseline": "English",
+      "proposed": "Hindi/Hinglish separately",
+      "metrics": [
+        "WER",
+        "entity_accuracy",
+        "latency"
+      ],
+      "reason": "requires paired held-out annotations and/or a verified model/checkpoint",
+      "sample_size": 0,
+      "confidence_intervals": "not applicable"
+    }
+  ]
+}

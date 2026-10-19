@@ -1,0 +1,207 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0486",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3260-9162-9991"
+     }
+    ],
+    "name": [
+     {
+      "text": "Priya Yadav"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0486",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0486"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0249",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "48-year-old female presenting with headache with dizziness for 5 weeks. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by morning time; relieved by rest. Severity 5/10. Associated: blurred vision, palpitations. PMH: Hypertension for 3 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: heart disease. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00865-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00865-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00864-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-01-03",
+    "valueQuantity": {
+     "value": 43.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00864-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-01-03",
+    "valueQuantity": {
+     "value": 130.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00864-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-01-03",
+    "valueQuantity": {
+     "value": 128.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00864-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0486"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-01-03",
+    "valueQuantity": {
+     "value": 0.03,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

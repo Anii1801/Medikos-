@@ -1,0 +1,164 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0384",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Arjun Iyer"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0384",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0384"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0009",
+    "subject": {
+     "reference": "Patient/P0384"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "56-year-old male presenting with burning in the chest and stomach after meals for 5 months. Character: burning sensation; radiation: it does not spread; aggravated by spicy and oily food; relieved by cold milk. Severity 3/10. Associated: sour belching. PMH: Hypertension for 6 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: diabetes. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00684-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0384"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00684-8756",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0384"
+    },
+    "medicationCodeableConcept": {
+     "text": "Avipattikar churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00685-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0384"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00685-2786",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0384"
+    },
+    "medicationCodeableConcept": {
+     "text": "Pantoprazole 40 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00685-8756",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0384"
+    },
+    "medicationCodeableConcept": {
+     "text": "Avipattikar churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

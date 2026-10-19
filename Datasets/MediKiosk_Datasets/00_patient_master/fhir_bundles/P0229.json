@@ -1,0 +1,207 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0229",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0442-7233-4390"
+     }
+    ],
+    "name": [
+     {
+      "text": "Ramesh Ansari"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0229",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0229"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0155",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "46-year-old male presenting with fever for 2 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 5/10. Associated: skin rash, vomiting, body ache. PMH: Hypertension for 5 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00412-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00412-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00411-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-08-03",
+    "valueQuantity": {
+     "value": 16.1,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00411-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-08-03",
+    "valueQuantity": {
+     "value": 21.0,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00411-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-08-03",
+    "valueQuantity": {
+     "value": 421.3,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00411-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0229"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-08-03",
+    "valueQuantity": {
+     "value": 37.5,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

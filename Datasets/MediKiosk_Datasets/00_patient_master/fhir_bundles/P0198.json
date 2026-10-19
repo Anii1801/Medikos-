@@ -1,0 +1,302 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0198",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Amit Mishra"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0198",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0198"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0161",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "74-year-old male presenting with knee pain for 4 years. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by sitting on the floor; relieved by oil massage. Severity 6/10. Associated: swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00351-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00351-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00351-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00352-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00352-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00349-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-01-26",
+    "valueQuantity": {
+     "value": 13.11,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00349-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-01-26",
+    "valueQuantity": {
+     "value": 3.8,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00349-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-01-26",
+    "valueQuantity": {
+     "value": 6.64,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00350-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-09-15",
+    "valueQuantity": {
+     "value": 1.09,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00350-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-09-15",
+    "valueQuantity": {
+     "value": 40.3,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00350-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0198"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-09-15",
+    "valueQuantity": {
+     "value": 15.71,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,294 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0461",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5754-7875-7357"
+     }
+    ],
+    "name": [
+     {
+      "text": "Shanti Joshi"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0461",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0461"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0127",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "55-year-old female presenting with headache with dizziness for 5 days. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by morning time; relieved by rest. Severity 3/10. Associated: palpitations, blurred vision. PMH: Hypertension for 11 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00821-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00821-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00821-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00819-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-05-07",
+    "valueQuantity": {
+     "value": 18.31,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00819-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-05-07",
+    "valueQuantity": {
+     "value": 115.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00819-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-05-07",
+    "valueQuantity": {
+     "value": 127.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00819-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-05-07",
+    "valueQuantity": {
+     "value": 0.01,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00820-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-11-13",
+    "valueQuantity": {
+     "value": 2.16,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00820-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-11-13",
+    "valueQuantity": {
+     "value": 30.5,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00820-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0461"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-11-13",
+    "valueQuantity": {
+     "value": 7.21,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

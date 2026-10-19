@@ -1,0 +1,156 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0050",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1903-5420-7073"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kamla Verma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0050",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0050"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0104",
+    "subject": {
+     "reference": "Patient/P0050"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "62-year-old female presenting with low back pain for 2 months. Character: sharp shooting pain; radiation: down the left leg; aggravated by long sitting; relieved by lying down. Severity 3/10. Associated: numbness in the leg, morning stiffness. PMH: Hypertension for 8 years; Hypothyroidism for 7 years. Drugs: Amlodipine 5 mg; Levothyroxine 50 mcg. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00087-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0050"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00087-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0050"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00087-136",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0050"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dashmoolarishta 20 ml"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00086-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0050"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2026-01-23",
+    "valueQuantity": {
+     "value": 0.76,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

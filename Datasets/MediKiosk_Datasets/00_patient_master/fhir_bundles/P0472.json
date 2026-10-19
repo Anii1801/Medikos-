@@ -1,0 +1,283 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0472",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-6031-2423-4324"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anita Yadav"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0472",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0472"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0048",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "45-year-old female presenting with knee pain for 1 years. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by climbing stairs; relieved by oil massage. Severity 9/10. Associated: difficulty walking, swelling. PMH: none. Drugs: none. Allergy: dust. Family: asthma. Personal: smokes bidi daily. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0472",
+    "patient": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00838-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00838-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00838-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00836-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-05-28",
+    "valueQuantity": {
+     "value": 1.11,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00836-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-05-28",
+    "valueQuantity": {
+     "value": 0.54,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00836-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-05-28",
+    "valueQuantity": {
+     "value": 4.01,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00837-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-01-18",
+    "valueQuantity": {
+     "value": 0.87,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00837-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-01-18",
+    "valueQuantity": {
+     "value": 55.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00837-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0472"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-01-18",
+    "valueQuantity": {
+     "value": 6.76,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

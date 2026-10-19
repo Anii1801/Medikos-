@@ -1,0 +1,192 @@
+{
+  "generated_utc": "2026-10-18T12:38:32Z",
+  "dataset": "Datasets\\MediKiosk_Datasets\\05_triage_redflag\\red_flag_labeled_cases.csv",
+  "dataset_nature": "synthetic/demo; NOT clinical validation",
+  "positives": {
+    "all": 19
+  },
+  "leakage_control": "red_flag_reason not provided to engine",
+  "results": {
+    "emergency_level": {
+      "all": {
+        "counts": {
+          "tp": 19,
+          "tn": 258,
+          "fp": 23,
+          "fn": 0
+        },
+        "n": 300,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.832,
+          1.0
+        ],
+        "specificity": 0.918,
+        "specificity_95ci": [
+          0.88,
+          0.945
+        ],
+        "precision": 0.452,
+        "false_negatives": 0,
+        "false_positives": 23
+      },
+      "train": {
+        "counts": {
+          "tp": 15,
+          "tn": 209,
+          "fp": 16,
+          "fn": 0
+        },
+        "n": 240,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.796,
+          1.0
+        ],
+        "specificity": 0.929,
+        "specificity_95ci": [
+          0.888,
+          0.956
+        ],
+        "precision": 0.484,
+        "false_negatives": 0,
+        "false_positives": 16
+      },
+      "valid": {
+        "counts": {
+          "tp": 1,
+          "tn": 27,
+          "fp": 2,
+          "fn": 0
+        },
+        "n": 30,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.207,
+          1.0
+        ],
+        "specificity": 0.931,
+        "specificity_95ci": [
+          0.78,
+          0.981
+        ],
+        "precision": 0.333,
+        "false_negatives": 0,
+        "false_positives": 2
+      },
+      "test": {
+        "counts": {
+          "tp": 3,
+          "tn": 22,
+          "fp": 5,
+          "fn": 0
+        },
+        "n": 30,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.438,
+          1.0
+        ],
+        "specificity": 0.815,
+        "specificity_95ci": [
+          0.633,
+          0.918
+        ],
+        "precision": 0.375,
+        "false_negatives": 0,
+        "false_positives": 5
+      }
+    },
+    "any_finding": {
+      "all": {
+        "counts": {
+          "tp": 19,
+          "tn": 189,
+          "fp": 92,
+          "fn": 0
+        },
+        "n": 300,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.832,
+          1.0
+        ],
+        "specificity": 0.673,
+        "specificity_95ci": [
+          0.616,
+          0.725
+        ],
+        "precision": 0.171,
+        "false_negatives": 0,
+        "false_positives": 92
+      },
+      "train": {
+        "counts": {
+          "tp": 15,
+          "tn": 153,
+          "fp": 72,
+          "fn": 0
+        },
+        "n": 240,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.796,
+          1.0
+        ],
+        "specificity": 0.68,
+        "specificity_95ci": [
+          0.616,
+          0.737
+        ],
+        "precision": 0.172,
+        "false_negatives": 0,
+        "false_positives": 72
+      },
+      "valid": {
+        "counts": {
+          "tp": 1,
+          "tn": 20,
+          "fp": 9,
+          "fn": 0
+        },
+        "n": 30,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.207,
+          1.0
+        ],
+        "specificity": 0.69,
+        "specificity_95ci": [
+          0.508,
+          0.827
+        ],
+        "precision": 0.1,
+        "false_negatives": 0,
+        "false_positives": 9
+      },
+      "test": {
+        "counts": {
+          "tp": 3,
+          "tn": 16,
+          "fp": 11,
+          "fn": 0
+        },
+        "n": 30,
+        "sensitivity": 1.0,
+        "sensitivity_95ci": [
+          0.438,
+          1.0
+        ],
+        "specificity": 0.593,
+        "specificity_95ci": [
+          0.407,
+          0.755
+        ],
+        "precision": 0.214,
+        "false_negatives": 0,
+        "false_positives": 11
+      }
+    }
+  },
+  "emergency_level_false_negative_cases": []
+}

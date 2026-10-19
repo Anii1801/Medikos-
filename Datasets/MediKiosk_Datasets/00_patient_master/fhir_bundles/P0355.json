@@ -1,0 +1,127 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0355",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1793-5533-2699"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rani Joshi"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0355",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0355"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0201",
+    "subject": {
+     "reference": "Patient/P0355"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "42-year-old female presenting with headache with dizziness for 5 weeks. Character: throbbing at the back of the head; radiation: to the neck; aggravated by stress; relieved by rest. Severity 4/10. Associated: palpitations, blurred vision. PMH: Hypertension for 10 years; Asthma since childhood. Drugs: Amlodipine 5 mg; Salbutamol inhaler 100 mcg. Allergy: dust. Family: asthma. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0355",
+    "patient": {
+     "reference": "Patient/P0355"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00637-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0355"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00637-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0355"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

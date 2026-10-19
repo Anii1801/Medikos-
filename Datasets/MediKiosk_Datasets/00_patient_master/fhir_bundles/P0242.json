@@ -1,0 +1,115 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0242",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-9007-5858-3669"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rekha Mishra"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0242",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0242"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0215",
+    "subject": {
+     "reference": "Patient/P0242"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "32-year-old female presenting with itching with skin rash for 1 months. Character: dry scaly patches with itching; radiation: on both forearms; aggravated by night time; relieved by coconut oil. Severity 6/10. Associated: burning sensation, oozing. PMH: Hypothyroidism for 8 years. Drugs: Levothyroxine 50 mcg. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00442-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0242"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00442-4854",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0242"
+    },
+    "medicationCodeableConcept": {
+     "text": "Neem capsule 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0372",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3694-3499-1331"
+     }
+    ],
+    "name": [
+     {
+      "text": "Pooja Reddy"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0372",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0372"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0121",
+    "subject": {
+     "reference": "Patient/P0372"
+    },
+    "code": {
+     "text": "sudden weakness on one side and slurred speech",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I63.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "80-year-old female presenting with sudden weakness on one side and slurred speech for 5 hours. Character: left side weakness; radiation: n/a; aggravated by nothing in particular; relieved by nothing. Severity 8/10. Associated: severe headache, difficulty speaking. PMH: Type 2 diabetes for 13 years; Hypertension for 2 years. Drugs: Metformin 500 mg; Amlodipine 5 mg. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00668-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0372"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-08-19",
+    "valueQuantity": {
+     "value": 75.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00668-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0372"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-08-19",
+    "valueQuantity": {
+     "value": 192.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00668-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0372"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-08-19",
+    "valueQuantity": {
+     "value": 5.4,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

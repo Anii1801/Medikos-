@@ -1,0 +1,214 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0007",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7799-5370-4975"
+     }
+    ],
+    "name": [
+     {
+      "text": "Sunita Iyer"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0007",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0007"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0075",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "code": {
+     "text": "joint pain and morning stiffness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M06.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "62-year-old female presenting with joint pain and morning stiffness for 1 months. Character: pain in small joints of both hands; radiation: n/a; aggravated by cold weather; relieved by warm water bath. Severity 5/10. Associated: tiredness, low grade fever, swelling of joints. PMH: none. Drugs: none. Allergy: dust. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0007",
+    "patient": {
+     "reference": "Patient/P0007"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00013-1626",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "medicationCodeableConcept": {
+     "text": "Simhanada guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00013-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00013-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00012-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-07-16",
+    "valueQuantity": {
+     "value": 40.0,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00012-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-07-16",
+    "valueQuantity": {
+     "value": 7.8,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00012-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0007"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-07-16",
+    "valueQuantity": {
+     "value": 3.28,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

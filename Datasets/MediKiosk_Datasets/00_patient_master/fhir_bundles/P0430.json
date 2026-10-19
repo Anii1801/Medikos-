@@ -1,0 +1,127 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0430",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5905-9950-4477"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rajesh Ansari"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0430",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0430"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0017",
+    "subject": {
+     "reference": "Patient/P0430"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "62-year-old male presenting with itching with skin rash for 2 months. Character: dry scaly patches with itching; radiation: on both forearms; aggravated by sweating; relieved by coconut oil. Severity 5/10. Associated: burning sensation, oozing. PMH: Hypertension for 10 years. Drugs: Amlodipine 5 mg. Allergy: dust. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0430",
+    "patient": {
+     "reference": "Patient/P0430"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00767-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0430"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00767-3615",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0430"
+    },
+    "medicationCodeableConcept": {
+     "text": "Cetirizine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

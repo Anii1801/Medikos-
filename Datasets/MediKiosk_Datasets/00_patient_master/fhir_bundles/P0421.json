@@ -1,0 +1,173 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0421",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Priya Kumar"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0421",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0421"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0208",
+    "subject": {
+     "reference": "Patient/P0421"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "79-year-old female presenting with knee pain for 2 years. Character: stiffness with cracking sound; radiation: to the calf; aggravated by sitting on the floor; relieved by rest. Severity 2/10. Associated: swelling, difficulty walking. PMH: none. Drugs: none. Allergy: dust. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0421",
+    "patient": {
+     "reference": "Patient/P0421"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00748-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0421"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00747-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0421"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-03-04",
+    "valueQuantity": {
+     "value": 19.35,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00747-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0421"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-03-04",
+    "valueQuantity": {
+     "value": 7.05,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00747-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0421"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-03-04",
+    "valueQuantity": {
+     "value": 5.81,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

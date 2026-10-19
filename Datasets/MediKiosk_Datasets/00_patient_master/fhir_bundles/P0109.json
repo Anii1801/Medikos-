@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0109",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8134-2604-6126"
+     }
+    ],
+    "name": [
+     {
+      "text": "Meena Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0109",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0109"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0210",
+    "subject": {
+     "reference": "Patient/P0109"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "21-year-old female presenting with burning in the chest and stomach after meals for 5 weeks. Character: burning sensation; radiation: up to the throat; aggravated by spicy and oily food; relieved by cold milk. Severity 8/10. Associated: sour belching. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00188-8756",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0109"
+    },
+    "medicationCodeableConcept": {
+     "text": "Avipattikar churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

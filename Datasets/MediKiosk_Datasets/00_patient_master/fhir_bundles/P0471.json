@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0471",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-6334-7393-4794"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rekha Chauhan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0471",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0471"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0294",
+    "subject": {
+     "reference": "Patient/P0471"
+    },
+    "code": {
+     "text": "low back pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M54.5"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "70-year-old female presenting with low back pain for 4 weeks. Character: sharp shooting pain; radiation: it does not spread; aggravated by long sitting; relieved by hot fomentation. Severity 8/10. Associated: morning stiffness, numbness in the leg. PMH: Hypertension for 5 years. Drugs: Amlodipine 5 mg. Allergy: penicillin. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0471",
+    "patient": {
+     "reference": "Patient/P0471"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  }
+ ]
+}

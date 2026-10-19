@@ -1,0 +1,219 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0264",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2621-7397-3667"
+     }
+    ],
+    "name": [
+     {
+      "text": "Rani Joshi"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0264",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0264"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0107",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "28-year-old female presenting with fever for 5 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 3/10. Associated: headache, skin rash. PMH: none. Drugs: none. Allergy: peanuts. Family: asthma. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0264",
+    "patient": {
+     "reference": "Patient/P0264"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00482-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00483-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00481-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2025-12-05",
+    "valueQuantity": {
+     "value": 14.76,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00481-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2025-12-05",
+    "valueQuantity": {
+     "value": 22.7,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00481-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2025-12-05",
+    "valueQuantity": {
+     "value": 159.6,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00481-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0264"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-12-05",
+    "valueQuantity": {
+     "value": 1.63,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

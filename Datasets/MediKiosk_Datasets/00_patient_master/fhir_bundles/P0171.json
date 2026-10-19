@@ -1,0 +1,74 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0171",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Mohan Khan"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0171",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0171"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0003",
+    "subject": {
+     "reference": "Patient/P0171"
+    },
+    "code": {
+     "text": "constipation",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K59.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "38-year-old male presenting with constipation for 5 months. Character: hard stool, passing once in 3 days; radiation: n/a; aggravated by less water intake; relieved by warm water. Severity 3/10. Associated: bloating. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  }
+ ]
+}

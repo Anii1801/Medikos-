@@ -1,0 +1,325 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0031",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0156-7808-8536"
+     }
+    ],
+    "name": [
+     {
+      "text": "Manoj Joshi"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0031",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0031"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0053",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "55-year-old male presenting with knee pain for 2 years. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by climbing stairs; relieved by rest. Severity 4/10. Associated: swelling. PMH: Hypertension for 3 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: asthma. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00059-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00059-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00059-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00060-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00060-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00060-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00057-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-07-25",
+    "valueQuantity": {
+     "value": 26.1,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00057-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-07-25",
+    "valueQuantity": {
+     "value": 1.86,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00057-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-07-25",
+    "valueQuantity": {
+     "value": 12.16,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00058-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-02-10",
+    "valueQuantity": {
+     "value": 0.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00058-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-02-10",
+    "valueQuantity": {
+     "value": 33.6,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00058-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0031"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-02-10",
+    "valueQuantity": {
+     "value": 4.17,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

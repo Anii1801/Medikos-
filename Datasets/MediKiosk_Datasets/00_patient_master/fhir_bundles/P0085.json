@@ -1,0 +1,240 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0085",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1085-9012-8258"
+     }
+    ],
+    "name": [
+     {
+      "text": "Geeta Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0085",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0085"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0163",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "39-year-old female presenting with headache with dizziness for 1 days. Character: throbbing at the back of the head; radiation: to the neck; aggravated by stress; relieved by rest. Severity 7/10. Associated: palpitations. PMH: Hypertension for 3 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: hypertension. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00140-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-07-24",
+    "valueQuantity": {
+     "value": 146.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00140-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-07-24",
+    "valueQuantity": {
+     "value": 123.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00140-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-07-24",
+    "valueQuantity": {
+     "value": 311.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00140-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-07-24",
+    "valueQuantity": {
+     "value": 0.01,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00141-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-05-28",
+    "valueQuantity": {
+     "value": 0.64,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00141-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-05-28",
+    "valueQuantity": {
+     "value": 94.3,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00141-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0085"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-05-28",
+    "valueQuantity": {
+     "value": 5.35,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

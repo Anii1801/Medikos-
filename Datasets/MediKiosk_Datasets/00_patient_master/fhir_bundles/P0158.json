@@ -1,0 +1,173 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0158",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Imran Das"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0158",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0158"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0164",
+    "subject": {
+     "reference": "Patient/P0158"
+    },
+    "code": {
+     "text": "difficulty sleeping",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "G47.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "39-year-old male presenting with difficulty sleeping for 4 weeks. Character: trouble falling asleep, wakes at 3 AM; radiation: n/a; aggravated by stress and phone use at night; relieved by oil head massage. Severity 9/10. Associated: daytime tiredness. PMH: Type 2 diabetes for 15 years. Drugs: Metformin 500 mg. Allergy: peanuts. Family: heart disease. Personal: smokes bidi daily. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0158",
+    "patient": {
+     "reference": "Patient/P0158"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00275-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0158"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00274-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0158"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-01-09",
+    "valueQuantity": {
+     "value": 94.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00274-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0158"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-01-09",
+    "valueQuantity": {
+     "value": 127.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00274-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0158"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-01-09",
+    "valueQuantity": {
+     "value": 4.43,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

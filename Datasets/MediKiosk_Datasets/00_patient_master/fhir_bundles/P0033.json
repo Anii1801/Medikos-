@@ -1,0 +1,189 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0033",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0435-1722-6419"
+     }
+    ],
+    "name": [
+     {
+      "text": "Arjun Gupta"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0033",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0033"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0231",
+    "subject": {
+     "reference": "Patient/P0033"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "42-year-old male presenting with chest pain for 3 hours. Character: pressure like a heavy weight; radiation: it does not spread; aggravated by walking or climbing stairs; relieved by nothing. Severity 8/10. Associated: breathlessness, sweating. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00063-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0033"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00062-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0033"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2026-02-14",
+    "valueQuantity": {
+     "value": 315.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00062-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0033"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2026-02-14",
+    "valueQuantity": {
+     "value": 134.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00062-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0033"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2026-02-14",
+    "valueQuantity": {
+     "value": 116.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00062-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0033"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2026-02-14",
+    "valueQuantity": {
+     "value": 0.02,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0095",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1239-5027-7658"
+     }
+    ],
+    "name": [
+     {
+      "text": "Amit Chauhan"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0095",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0095"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0298",
+    "subject": {
+     "reference": "Patient/P0095"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "32-year-old male presenting with pain in the abdomen for 5 days. Character: cramping pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 5/10. Associated: vomiting. PMH: none. Drugs: none. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00158-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0095"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0185",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1044-7230-8113"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anita Iyer"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0185",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0185"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0028",
+    "subject": {
+     "reference": "Patient/P0185"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "54-year-old female presenting with knee pain for 3 months. Character: stiffness with cracking sound; radiation: to the calf; aggravated by climbing stairs; relieved by rest. Severity 2/10. Associated: swelling. PMH: none. Drugs: none. Allergy: sulfa drugs. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0185",
+    "patient": {
+     "reference": "Patient/P0185"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00324-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0185"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-07-19",
+    "valueQuantity": {
+     "value": 0.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00324-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0185"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-07-19",
+    "valueQuantity": {
+     "value": 37.4,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00324-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0185"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-07-19",
+    "valueQuantity": {
+     "value": 4.16,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

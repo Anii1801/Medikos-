@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0377",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7515-1745-9304"
+     }
+    ],
+    "name": [
+     {
+      "text": "Suresh Iyer"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0377",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0377"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0077",
+    "subject": {
+     "reference": "Patient/P0377"
+    },
+    "code": {
+     "text": "difficulty sleeping",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "G47.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "54-year-old male presenting with difficulty sleeping for 6 weeks. Character: trouble falling asleep, wakes at 3 AM; radiation: n/a; aggravated by stress and phone use at night; relieved by oil head massage. Severity 2/10. Associated: daytime tiredness. PMH: none. Drugs: none. Allergy: penicillin. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0377",
+    "patient": {
+     "reference": "Patient/P0377"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,279 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0216",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7282-0216-4422"
+     }
+    ],
+    "name": [
+     {
+      "text": "Nirmala Verma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0216",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0216"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0011",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "75-year-old female presenting with knee pain for 6 years. Character: dull aching pain; radiation: to the calf; aggravated by climbing stairs; relieved by rest. Severity 8/10. Associated: difficulty walking, swelling. PMH: Hypothyroidism for 6 years. Drugs: Levothyroxine 50 mcg. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00386-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00386-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00386-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00387-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00387-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00387-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00384-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-08-04",
+    "valueQuantity": {
+     "value": 0.64,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00384-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-08-04",
+    "valueQuantity": {
+     "value": 24.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00384-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-08-04",
+    "valueQuantity": {
+     "value": 2.81,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00385-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0216"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2025-03-13",
+    "valueQuantity": {
+     "value": 3.85,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

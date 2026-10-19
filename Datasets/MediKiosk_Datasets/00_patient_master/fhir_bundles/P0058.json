@@ -1,0 +1,202 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0058",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Vijay Ansari"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0058",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0058"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0158",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "69-year-old male presenting with chest pain for 5 hours. Character: pressure like a heavy weight; radiation: to the left arm; aggravated by walking or climbing stairs; relieved by rest. Severity 7/10. Associated: sweating, breathlessness. PMH: Coronary artery disease, stent 7 years ago. Drugs: Aspirin 75 mg; Atorvastatin 20 mg. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00102-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00102-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00101-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2026-07-02",
+    "valueQuantity": {
+     "value": 191.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00101-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2026-07-02",
+    "valueQuantity": {
+     "value": 148.9,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00101-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2026-07-02",
+    "valueQuantity": {
+     "value": 79.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00101-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0058"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2026-07-02",
+    "valueQuantity": {
+     "value": 0.01,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

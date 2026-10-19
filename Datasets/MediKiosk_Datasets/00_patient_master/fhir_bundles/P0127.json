@@ -1,0 +1,104 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0127",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Rajesh Mishra"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0127",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0127"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0128",
+    "subject": {
+     "reference": "Patient/P0127"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "63-year-old male presenting with pain in the abdomen for 4 days. Character: cramping pain; radiation: to the back; aggravated by after eating; relieved by lying curled up. Severity 5/10. Associated: vomiting, loose motions, bloating. PMH: Hypertension for 8 years. Drugs: Amlodipine 5 mg. Allergy: sulfa drugs. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0127",
+    "patient": {
+     "reference": "Patient/P0127"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00215-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0127"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

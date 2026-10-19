@@ -1,0 +1,255 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0056",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3301-3318-8851"
+     }
+    ],
+    "name": [
+     {
+      "text": "Gurpreet Yadav"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0056",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0056"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0063",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "44-year-old male presenting with fever for 4 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 7/10. Associated: skin rash, body ache, headache. PMH: Hypertension for 12 years; Appendectomy in 1997. Drugs: Amlodipine 5 mg. Allergy: penicillin. Family: heart disease. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0056",
+    "patient": {
+     "reference": "Patient/P0056"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00098-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00098-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00099-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00099-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00097-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-07-21",
+    "valueQuantity": {
+     "value": 14.39,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00097-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-07-21",
+    "valueQuantity": {
+     "value": 6.25,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00097-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-07-21",
+    "valueQuantity": {
+     "value": 171.9,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00097-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0056"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-07-21",
+    "valueQuantity": {
+     "value": 10.98,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

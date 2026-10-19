@@ -1,0 +1,156 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0411",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3258-6373-9543"
+     }
+    ],
+    "name": [
+     {
+      "text": "Pooja Ansari"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0411",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0411"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0108",
+    "subject": {
+     "reference": "Patient/P0411"
+    },
+    "code": {
+     "text": "constipation",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K59.0"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "68-year-old female presenting with constipation for 5 weeks. Character: hard stool, passing once in 3 days; radiation: n/a; aggravated by less water intake; relieved by warm water. Severity 7/10. Associated: bloating, loss of appetite. PMH: Hypertension for 3 years; Hypothyroidism for 1 years. Drugs: Amlodipine 5 mg; Levothyroxine 50 mcg. Allergy: no known allergies. Family: hypertension. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00730-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0411"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00730-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0411"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00730-4185",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0411"
+    },
+    "medicationCodeableConcept": {
+     "text": "Triphala churna 5 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00729-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0411"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2025-03-20",
+    "valueQuantity": {
+     "value": 2.08,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

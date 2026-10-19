@@ -1,0 +1,901 @@
+﻿interview_id,language,noise_profile,reference_text,simulated_asr_text,patient_id,split,wer,cer
+I0001,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0091,train,0.0,0.0
+I0001,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना अ है।,P0091,train,0.1111,0.0417
+I0001,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे प्यास लगना और बार-बार आना,P0091,train,0.3333,0.375
+I0002,hi,quiet_room,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0368,train,0.0,0.0
+I0002,hi,opd_corridor,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0368,train,0.0,0.0
+I0002,hi,crowded_waiting_hall,मुझे कब्ज़ है।,कब्ज़ है।,P0368,train,0.3333,0.3571
+I0003,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0171,train,0.0,0.0
+I0003,hi,opd_corridor,कब्ज़ है।,कब्ज़,P0171,train,0.5,0.4444
+I0003,hi,crowded_waiting_hall,कब्ज़ है।,है। अ,P0171,train,1.0,0.8889
+I0004,hi,quiet_room,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0499,train,0.0,0.0
+I0004,hi,opd_corridor,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0499,train,0.0,0.0
+I0004,hi,crowded_waiting_hall,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0499,train,0.0,0.0
+I0005,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0025,train,0.0,0.0
+I0005,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में अ जलन है।,P0025,train,0.1111,0.0571
+I0005,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और में अ जलन है।,P0025,train,0.2222,0.1429
+I0006,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0116,train,0.0,0.0
+I0006,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द चक्कर आना है।,P0116,train,0.1667,0.1034
+I0006,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना अ है।,P0116,train,0.1667,0.069
+I0007,en,quiet_room,constipation,constipation,P0079,train,0.0,0.0
+I0007,en,opd_corridor,constipation,constipation,P0079,train,0.0,0.0
+I0007,en,crowded_waiting_hall,constipation,constipation,P0079,train,0.0,0.0
+I0008,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0035,valid,0.0,0.0
+I0008,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0035,valid,0.0,0.0
+I0008,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,मुझे खांसी है।,P0035,valid,0.5,0.5
+I0009,en,quiet_room,burning in the chest and stomach after meals,burning in the chest and stomach after meals,P0384,train,0.0,0.0
+I0009,en,opd_corridor,burning in the chest and stomach after meals,burning in the and stomach after meals,P0384,train,0.125,0.1364
+I0009,en,crowded_waiting_hall,burning in the chest and stomach after meals,burning in the chest and um stomach after,P0384,train,0.25,0.2045
+I0010,hi,quiet_room,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0207,train,0.0,0.0
+I0010,hi,opd_corridor,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0207,train,0.0,0.0
+I0010,hi,crowded_waiting_hall,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0207,train,0.0,0.0
+I0011,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0216,train,0.0,0.0
+I0011,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0216,train,0.0,0.0
+I0011,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0216,train,0.0,0.0
+I0012,hi,quiet_room,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0364,test,0.0,0.0
+I0012,hi,opd_corridor,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0364,test,0.0,0.0
+I0012,hi,crowded_waiting_hall,मुझे कब्ज़ है।,मुझे कब्ज़,P0364,test,0.3333,0.2857
+I0013,hi,quiet_room,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0397,train,0.0,0.0
+I0013,hi,opd_corridor,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में और सुबह अकड़न है।,P0397,train,0.1429,0.1515
+I0013,hi,crowded_waiting_hall,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द सुबह अकड़न है।,P0397,train,0.1429,0.0909
+I0014,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0379,train,0.0,0.0
+I0014,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0379,train,0.0,0.0
+I0014,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस,P0379,train,0.4,0.4348
+I0015,hi,quiet_room,सीने में दर्द है।,सीने में दर्द है।,P0174,train,0.0,0.0
+I0015,hi,opd_corridor,सीने में दर्द है।,सीने में दर्द है।,P0174,train,0.0,0.0
+I0015,hi,crowded_waiting_hall,सीने में दर्द है।,सीने में दर्द है।,P0174,train,0.0,0.0
+I0016,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0404,train,0.0,0.0
+I0016,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0404,train,0.0,0.0
+I0016,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0404,train,0.0,0.0
+I0017,hi,quiet_room,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0430,train,0.0,0.0
+I0017,hi,opd_corridor,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0430,train,0.0,0.0
+I0017,hi,crowded_waiting_hall,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली त्वचा पर है।,P0430,train,0.2857,0.2581
+I0018,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0283,train,0.0,0.0
+I0018,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार अ प्यास लगना और पेशाब आना है।,P0283,train,0.25,0.2326
+I0018,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार लगना बार-बार पेशाब आना है।,P0283,train,0.25,0.2093
+I0019,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0327,train,0.0,0.0
+I0019,hi,opd_corridor,पेट दर्द है।,पेट दर्द है।,P0327,train,0.0,0.0
+I0019,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द है।,P0327,train,0.0,0.0
+I0020,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0468,train,0.0,0.0
+I0020,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0468,train,0.0,0.0
+I0020,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के सीने और पेट अ में जलन है।,P0468,train,0.2222,0.1714
+I0021,hi,quiet_room,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0097,train,0.0,0.0
+I0021,hi,opd_corridor,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0097,train,0.0,0.0
+I0021,hi,crowded_waiting_hall,मुझे कमर दर्द है।,मुझे दर्द है। अ,P0097,train,0.5,0.3529
+I0022,hi,quiet_room,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0280,train,0.0,0.0
+I0022,hi,opd_corridor,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0280,train,0.0,0.0
+I0022,hi,crowded_waiting_hall,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0280,train,0.0,0.0
+I0023,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0235,train,0.0,0.0
+I0023,hi,opd_corridor,पेट दर्द है।,पेट दर्द है।,P0235,train,0.0,0.0
+I0023,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द है।,P0235,train,0.0,0.0
+I0024,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0290,train,0.0,0.0
+I0024,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0290,train,0.0,0.0
+I0024,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी अ और साँस फूलना है।,P0290,train,0.2,0.087
+I0025,en,quiet_room,burning in the chest and stomach after meals,burning in the chest and stomach after meals,P0391,train,0.0,0.0
+I0025,en,opd_corridor,burning in the chest and stomach after meals,burning in chess and stomach after meals,P0391,train,0.25,0.1136
+I0025,en,crowded_waiting_hall,burning in the chest and stomach after meals,the stomp after meals,P0391,train,0.625,0.5455
+I0026,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0470,train,0.0,0.0
+I0026,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0470,train,0.0,0.0
+I0026,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0470,train,0.2,0.1667
+I0027,hi,quiet_room,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0456,train,0.0,0.0
+I0027,hi,opd_corridor,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में अ दर्द और सुबह है।,P0456,train,0.2857,0.2424
+I0027,hi,crowded_waiting_hall,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न,P0456,train,0.1429,0.1212
+I0028,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0185,train,0.0,0.0
+I0028,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0185,train,0.0,0.0
+I0028,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में है।,P0185,train,0.25,0.2632
+I0029,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0332,train,0.0,0.0
+I0029,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द,P0332,train,0.25,0.2105
+I0029,hi,crowded_waiting_hall,घुटनों में दर्द है।,में,P0332,train,0.75,0.8421
+I0030,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0479,train,0.0,0.0
+I0030,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0479,train,0.0,0.0
+I0030,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना अ है।,P0479,train,0.2,0.0833
+I0031,hi,quiet_room,बुखार है।,बुखार है।,P0114,train,0.0,0.0
+I0031,hi,opd_corridor,बुखार है।,बुखार है।,P0114,train,0.0,0.0
+I0031,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0114,train,0.0,0.0
+I0032,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0129,train,0.0,0.0
+I0032,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है।,P0129,train,0.0,0.0
+I0032,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे बुखार है।,P0129,train,0.0,0.0
+I0033,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0268,train,0.0,0.0
+I0033,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0268,train,0.0,0.0
+I0033,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0268,train,0.0,0.0
+I0034,en,quiet_room,I have excessive thirst and frequent urination,I have excessive thirst and frequent urination,P0405,train,0.0,0.0
+I0034,en,opd_corridor,I have excessive thirst and frequent urination,I excessive thirst and frequent urination,P0405,train,0.1429,0.1087
+I0034,en,crowded_waiting_hall,I have excessive thirst and frequent urination,I have excessive thirst and frequent urination,P0405,train,0.0,0.0
+I0035,hi,quiet_room,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0407,train,0.0,0.0
+I0035,hi,opd_corridor,मुझे खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में है।,P0407,train,0.2,0.225
+I0035,hi,crowded_waiting_hall,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के अ बाद सीने और पेट में है।,P0407,train,0.2,0.15
+I0036,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0244,test,0.0,0.0
+I0036,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब है।,P0244,test,0.125,0.093
+I0036,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और आना,P0244,test,0.375,0.4186
+I0037,en,quiet_room,I have headache with dizziness,I have headache with dizziness,P0232,train,0.0,0.0
+I0037,en,opd_corridor,I have headache with dizziness,I have headache with dizziness,P0232,train,0.0,0.0
+I0037,en,crowded_waiting_hall,I have headache with dizziness,I have headache with,P0232,train,0.2,0.3333
+I0038,hi,quiet_room,बुखार है।,बुखार है।,P0350,train,0.0,0.0
+I0038,hi,opd_corridor,बुखार है।,बुखार है।,P0350,train,0.0,0.0
+I0038,hi,crowded_waiting_hall,बुखार है।,बुखार,P0350,train,0.5,0.4444
+I0039,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0449,train,0.0,0.0
+I0039,hi,opd_corridor,मुझे घुटनों में दर्द है।,मुझे घुटनों अ में दर्द है।,P0449,train,0.2,0.0833
+I0039,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0449,train,0.0,0.0
+I0040,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0066,train,0.0,0.0
+I0040,hi,opd_corridor,पेट दर्द है।,पेट दर्द है।,P0066,train,0.0,0.0
+I0040,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द है।,P0066,train,0.0,0.0
+I0041,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0469,train,0.0,0.0
+I0041,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0469,train,0.0,0.0
+I0041,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0469,train,0.0,0.0
+I0042,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0304,valid,0.0,0.0
+I0042,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास और बार-बार पेशाब अ आना है।,P0304,valid,0.25,0.1628
+I0042,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब है।,P0304,valid,0.125,0.093
+I0043,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0096,train,0.0,0.0
+I0043,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0096,train,0.0,0.0
+I0043,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में है। अ,P0096,train,0.5,0.3684
+I0044,en,quiet_room,I have pain in the abdomen,I have pain in the abdomen,P0299,train,0.0,0.0
+I0044,en,opd_corridor,I have pain in the abdomen,I have pain in the abdomen,P0299,train,0.0,0.0
+I0044,en,crowded_waiting_hall,I have pain in the abdomen,I um have um in the abdomen um,P0299,train,0.5,0.3846
+I0045,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0347,train,0.0,0.0
+I0045,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद और पेट में जलन है।,P0347,train,0.1111,0.1429
+I0045,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने पेट में अ जलन है।,P0347,train,0.2222,0.1429
+I0046,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0490,train,0.0,0.0
+I0046,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0490,train,0.0,0.0
+I0046,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार लगना और पेशाब है।,P0490,train,0.375,0.4186
+I0047,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0202,valid,0.0,0.0
+I0047,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द चक्कर आना है।,P0202,valid,0.2,0.125
+I0047,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और आना है।,P0202,valid,0.2,0.25
+I0048,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0472,train,0.0,0.0
+I0048,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0472,train,0.0,0.0
+I0048,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0472,train,0.0,0.0
+I0049,en,quiet_room,headache with dizziness,headache with dizziness,P0220,train,0.0,0.0
+I0049,en,opd_corridor,headache with dizziness,headache with dizziness,P0220,train,0.0,0.0
+I0049,en,crowded_waiting_hall,headache with dizziness,headache dizziness um,P0220,train,0.6667,0.3478
+I0050,hi,quiet_room,बुखार है।,बुखार है।,P0462,train,0.0,0.0
+I0050,hi,opd_corridor,बुखार है।,बुखार है।,P0462,train,0.0,0.0
+I0050,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0462,train,0.0,0.0
+I0051,en,quiet_room,headache with dizziness,headache with dizziness,P0104,train,0.0,0.0
+I0051,en,opd_corridor,headache with dizziness,headache with dizziness um,P0104,train,0.3333,0.1304
+I0051,en,crowded_waiting_hall,headache with dizziness,headache dizziness,P0104,train,0.3333,0.2174
+I0052,hi,quiet_room,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0222,train,0.0,0.0
+I0052,hi,opd_corridor,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0222,train,0.0,0.0
+I0052,hi,crowded_waiting_hall,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0222,train,0.0,0.0
+I0053,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0031,train,0.0,0.0
+I0053,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0031,train,0.0,0.0
+I0053,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0031,train,0.0,0.0
+I0054,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0388,valid,0.0,0.0
+I0054,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है।,P0388,valid,0.0,0.0
+I0054,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे बुखार है।,P0388,valid,0.0,0.0
+I0055,hi,quiet_room,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह अकड़न है।,P0338,train,0.0,0.0
+I0055,hi,opd_corridor,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह अकड़न है।,P0338,train,0.0,0.0
+I0055,hi,crowded_waiting_hall,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह अकड़न है।,P0338,train,0.0,0.0
+I0056,en,quiet_room,cough and breathlessness,cough and breathlessness,P0017,train,0.0,0.0
+I0056,en,opd_corridor,cough and breathlessness,and breathlessness,P0017,train,0.3333,0.25
+I0056,en,crowded_waiting_hall,cough and breathlessness,cough breathlessness,P0017,train,0.3333,0.1667
+I0057,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0188,test,0.0,0.0
+I0057,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार अ प्यास लगना और बार-बार पेशाब आना है।,P0188,test,0.1111,0.0417
+I0057,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार आना,P0188,test,0.2222,0.2083
+I0058,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0183,train,0.0,0.0
+I0058,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,के बाद और पेट में जलन है।,P0183,train,0.2222,0.2857
+I0058,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और में जलन है।,P0183,train,0.1111,0.1143
+I0059,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0447,train,0.0,0.0
+I0059,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और अ चक्कर आना है।,P0447,train,0.2,0.0833
+I0059,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0447,train,0.2,0.1667
+I0060,en,quiet_room,cough and breathlessness,cough and breathlessness,P0349,test,0.0,0.0
+I0060,en,opd_corridor,cough and breathlessness,cough and breathlessness,P0349,test,0.0,0.0
+I0060,en,crowded_waiting_hall,cough and breathlessness,cough and breathlessness,P0349,test,0.0,0.0
+I0061,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0141,train,0.0,0.0
+I0061,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0141,train,0.0,0.0
+I0061,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के सीने और में जलन है।,P0141,train,0.2222,0.2286
+I0062,hi,quiet_room,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0460,test,0.0,0.0
+I0062,hi,opd_corridor,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ अ कमज़ोरी और बोलने अ में लड़खड़ाहट है।,P0460,test,0.2222,0.0833
+I0062,hi,crowded_waiting_hall,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक कमज़ोरी और बोलने में है।,P0460,test,0.2222,0.3125
+I0063,hi,quiet_room,बुखार है।,बुखार है।,P0056,train,0.0,0.0
+I0063,hi,opd_corridor,बुखार है।,है।,P0056,train,0.5,0.6667
+I0063,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0056,train,0.0,0.0
+I0064,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0225,train,0.0,0.0
+I0064,hi,opd_corridor,नींद न आना है।,नींद न आना है। अ,P0225,train,0.25,0.1429
+I0064,hi,crowded_waiting_hall,नींद न आना है।,नींद अ न है।,P0225,train,0.5,0.2143
+I0065,hi,quiet_room,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0416,train,0.0,0.0
+I0065,hi,opd_corridor,मुझे पेट दर्द है।,मुझे दर्द है।,P0416,train,0.25,0.2353
+I0065,hi,crowded_waiting_hall,मुझे पेट दर्द है।,मुझे अ पेट है।,P0416,train,0.5,0.4118
+I0066,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0365,train,0.0,0.0
+I0066,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और पेशाब आना है।,P0365,train,0.125,0.186
+I0066,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0365,train,0.0,0.0
+I0067,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0247,train,0.0,0.0
+I0067,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0247,train,0.1667,0.1724
+I0067,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0247,train,0.0,0.0
+I0068,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0293,train,0.0,0.0
+I0068,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0293,train,0.0,0.0
+I0068,hi,crowded_waiting_hall,कब्ज़ है।,है।,P0293,train,0.5,0.6667
+I0069,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0277,test,0.0,0.0
+I0069,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा अ पर दाने,P0277,test,0.3333,0.2308
+I0069,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने,P0277,test,0.1667,0.1538
+I0070,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0370,train,0.0,0.0
+I0070,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन,P0370,train,0.1111,0.1143
+I0070,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,के बाद और पेट में है।,P0370,train,0.3333,0.4
+I0071,hi,quiet_room,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0326,train,0.0,0.0
+I0071,hi,opd_corridor,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0326,train,0.0,0.0
+I0071,hi,crowded_waiting_hall,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में है।,P0326,train,0.1,0.1
+I0072,en,quiet_room,knee pain,knee pain,P0289,train,0.0,0.0
+I0072,en,opd_corridor,knee pain,knee pain,P0289,train,0.0,0.0
+I0072,en,crowded_waiting_hall,knee pain,knee,P0289,train,0.5,0.5556
+I0073,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0099,train,0.0,0.0
+I0073,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द चक्कर आना है।,P0099,train,0.1667,0.1034
+I0073,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0099,train,0.0,0.0
+I0074,hi,quiet_room,बुखार है।,बुखार है।,P0476,train,0.0,0.0
+I0074,hi,opd_corridor,बुखार है।,है।,P0476,train,0.5,0.6667
+I0074,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0476,train,0.0,0.0
+I0075,hi,quiet_room,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0007,train,0.0,0.0
+I0075,hi,opd_corridor,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द सुबह अकड़न है।,P0007,train,0.1429,0.0909
+I0075,hi,crowded_waiting_hall,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों दर्द और सुबह अकड़न अ है।,P0007,train,0.2857,0.1818
+I0076,hi,quiet_room,बुखार है।,बुखार है।,P0240,train,0.0,0.0
+I0076,hi,opd_corridor,बुखार है।,बुखार है।,P0240,train,0.0,0.0
+I0076,hi,crowded_waiting_hall,बुखार है।,बुखार है। अ,P0240,train,0.5,0.2222
+I0077,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0377,train,0.0,0.0
+I0077,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0377,train,0.0,0.0
+I0077,hi,crowded_waiting_hall,नींद न आना है।,नींद न आना है। अ,P0377,train,0.25,0.1429
+I0078,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0351,valid,0.0,0.0
+I0078,hi,opd_corridor,मुझे घुटनों में दर्द है।,मुझे घुटनों में है।,P0351,valid,0.2,0.2083
+I0078,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे में,P0351,valid,0.6,0.6667
+I0079,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0396,train,0.0,0.0
+I0079,hi,opd_corridor,पेट दर्द है।,पेट दर्द अ है।,P0396,train,0.3333,0.1667
+I0079,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द है।,P0396,train,0.0,0.0
+I0080,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0064,train,0.0,0.0
+I0080,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0064,train,0.0,0.0
+I0080,hi,crowded_waiting_hall,घुटनों में दर्द है।,में दर्द है।,P0064,train,0.25,0.3684
+I0081,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0485,train,0.0,0.0
+I0081,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और आना है।,P0485,train,0.1667,0.2069
+I0081,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे अ सिरदर्द चक्कर आना है।,P0485,train,0.3333,0.1724
+I0082,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0497,test,0.0,0.0
+I0082,hi,opd_corridor,सिरदर्द और चक्कर आना है।,और चक्कर आना है। अ,P0497,test,0.4,0.4167
+I0082,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0497,test,0.0,0.0
+I0083,en,quiet_room,itching with skin rash,itching with skin rash,P0125,train,0.0,0.0
+I0083,en,opd_corridor,itching with skin rash,with skin rash,P0125,train,0.25,0.3636
+I0083,en,crowded_waiting_hall,itching with skin rash,with skin rash,P0125,train,0.25,0.3636
+I0084,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0324,train,0.0,0.0
+I0084,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0324,train,0.0,0.0
+I0084,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,के बाद सीने और पेट जलन है।,P0324,train,0.2222,0.2571
+I0085,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0130,train,0.0,0.0
+I0085,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और में जलन है।,P0130,train,0.1111,0.1143
+I0085,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,के बाद सीने पेट में जलन अ है।,P0130,train,0.3333,0.2857
+I0086,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0105,train,0.0,0.0
+I0086,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0105,train,0.0,0.0
+I0086,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,और साँस फूलना है। अ,P0105,train,0.4,0.3478
+I0087,hi,quiet_room,बुखार है।,बुखार है।,P0039,train,0.0,0.0
+I0087,hi,opd_corridor,बुखार है।,बुखार है।,P0039,train,0.0,0.0
+I0087,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0039,train,0.0,0.0
+I0088,en,quiet_room,fever,fever,P0036,train,0.0,0.0
+I0088,en,opd_corridor,fever,fever,P0036,train,0.0,0.0
+I0088,en,crowded_waiting_hall,fever,fiber,P0036,train,1.0,0.4
+I0089,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0072,test,0.0,0.0
+I0089,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0072,test,0.0,0.0
+I0089,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0072,test,0.0,0.0
+I0090,hi,quiet_room,बुखार है।,बुखार है।,P0180,train,0.0,0.0
+I0090,hi,opd_corridor,बुखार है।,बुखार है।,P0180,train,0.0,0.0
+I0090,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0180,train,0.0,0.0
+I0091,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0189,test,0.0,0.0
+I0091,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और अ चक्कर आना है।,P0189,test,0.1667,0.069
+I0091,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0189,test,0.0,0.0
+I0092,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0307,valid,0.0,0.0
+I0092,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने अ है।,P0307,valid,0.1667,0.0769
+I0092,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0307,valid,0.0,0.0
+I0093,en,quiet_room,I have low back pain,I have low back pain,P0340,valid,0.0,0.0
+I0093,en,opd_corridor,I have low back pain,I have low back pain,P0340,valid,0.0,0.0
+I0093,en,crowded_waiting_hall,I have low back pain,I have low back pane,P0340,valid,0.2,0.1
+I0094,hi,quiet_room,बुखार है।,बुखार है।,P0110,train,0.0,0.0
+I0094,hi,opd_corridor,बुखार है।,बुखार है।,P0110,train,0.0,0.0
+I0094,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0110,train,0.0,0.0
+I0095,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0191,valid,0.0,0.0
+I0095,hi,opd_corridor,मुझे बुखार है।,मुझे अ बुखार है।,P0191,valid,0.3333,0.1429
+I0095,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे बुखार,P0191,valid,0.3333,0.2857
+I0096,en,quiet_room,knee pain,knee pain,P0210,train,0.0,0.0
+I0096,en,opd_corridor,knee pain,knee pane,P0210,train,0.5,0.2222
+I0096,en,crowded_waiting_hall,knee pain,knee pain,P0210,train,0.0,0.0
+I0097,en,quiet_room,itching with skin rash,itching with skin rash,P0238,train,0.0,0.0
+I0097,en,opd_corridor,itching with skin rash,itching with skin rash,P0238,train,0.0,0.0
+I0097,en,crowded_waiting_hall,itching with skin rash,itching with skin rash,P0238,train,0.0,0.0
+I0098,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0492,train,0.0,0.0
+I0098,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने,P0492,train,0.1667,0.1538
+I0098,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,और त्वचा दाने,P0492,train,0.5,0.5
+I0099,hi,quiet_room,मुझे अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,मुझे अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0463,train,0.0,0.0
+I0099,hi,opd_corridor,मुझे अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,मुझे अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0463,train,0.0,0.0
+I0099,hi,crowded_waiting_hall,मुझे अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,मुझे अचानक एक तरफ़ कमज़ोरी बोलने में है।,P0463,train,0.2,0.2453
+I0100,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0429,train,0.0,0.0
+I0100,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार लगना और बार-बार पेशाब आना है।,P0429,train,0.125,0.1395
+I0100,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार और अ बार-बार पेशाब आना है।,P0429,train,0.375,0.2791
+I0101,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0042,train,0.0,0.0
+I0101,hi,opd_corridor,कब्ज़ है।,है।,P0042,train,0.5,0.6667
+I0101,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ अ है।,P0042,train,0.5,0.2222
+I0102,hi,quiet_room,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0132,train,0.0,0.0
+I0102,hi,opd_corridor,मुझे सीने में दर्द है।,मुझे सीने में है।,P0132,train,0.2,0.2273
+I0102,hi,crowded_waiting_hall,मुझे सीने में दर्द है।,सीने में दर्द अ है।,P0132,train,0.4,0.3182
+I0103,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0323,train,0.0,0.0
+I0103,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0323,train,0.0,0.0
+I0103,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0323,train,0.0,0.0
+I0104,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0050,valid,0.0,0.0
+I0104,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0050,valid,0.0,0.0
+I0104,hi,crowded_waiting_hall,कमर दर्द है।,कमर अ दर्द है।,P0050,valid,0.3333,0.1667
+I0105,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0484,train,0.0,0.0
+I0105,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार और पेशाब अ आना है।,P0484,train,0.5,0.4884
+I0105,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना बार-बार अ पेशाब है।,P0484,train,0.375,0.2093
+I0106,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0297,train,0.0,0.0
+I0106,hi,opd_corridor,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0297,train,0.0,0.0
+I0106,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0297,train,0.0,0.0
+I0107,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0264,valid,0.0,0.0
+I0107,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है।,P0264,valid,0.0,0.0
+I0107,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे है।,P0264,valid,0.3333,0.4286
+I0108,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0411,train,0.0,0.0
+I0108,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0411,train,0.0,0.0
+I0108,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0411,train,0.0,0.0
+I0109,en,quiet_room,constipation,constipation,P0319,train,0.0,0.0
+I0109,en,opd_corridor,constipation,constipation,P0319,train,0.0,0.0
+I0109,en,crowded_waiting_hall,constipation,constipation,P0319,train,0.0,0.0
+I0110,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0443,train,0.0,0.0
+I0110,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0443,train,0.0,0.0
+I0110,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0443,train,0.0,0.0
+I0111,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0195,train,0.0,0.0
+I0111,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब है।,P0195,train,0.125,0.093
+I0111,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास अ लगना और बार-बार अ पेशाब आना है।,P0195,train,0.25,0.093
+I0112,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0048,train,0.0,0.0
+I0112,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0048,train,0.0,0.0
+I0112,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0048,train,0.0,0.0
+I0113,hi,quiet_room,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह अकड़न है।,P0253,test,0.0,0.0
+I0113,hi,opd_corridor,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह अकड़न है।,P0253,test,0.0,0.0
+I0113,hi,crowded_waiting_hall,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे अ में दर्द और सुबह अकड़न है।,P0253,test,0.125,0.1579
+I0114,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0295,train,0.0,0.0
+I0114,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0295,train,0.0,0.0
+I0114,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में,P0295,train,0.5,0.4737
+I0115,en,quiet_room,itching with skin rash,itching with skin rash,P0453,train,0.0,0.0
+I0115,en,opd_corridor,itching with skin rash,itching with skin rash,P0453,train,0.0,0.0
+I0115,en,crowded_waiting_hall,itching with skin rash,itching with skin um,P0453,train,0.25,0.1818
+I0116,en,quiet_room,fever,fever,P0451,train,0.0,0.0
+I0116,en,opd_corridor,fever,fever,P0451,train,0.0,0.0
+I0116,en,crowded_waiting_hall,fever,fever um,P0451,train,1.0,0.6
+I0117,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0088,test,0.0,0.0
+I0117,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0088,test,0.0,0.0
+I0117,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे प्यास और बार-बार पेशाब है।,P0088,test,0.3333,0.3542
+I0118,hi,quiet_room,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0194,train,0.0,0.0
+I0118,hi,opd_corridor,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0194,train,0.0,0.0
+I0118,hi,crowded_waiting_hall,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा दाने,P0194,train,0.2857,0.2258
+I0119,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0474,valid,0.0,0.0
+I0119,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना बार-बार पेशाब आना है।,P0474,valid,0.125,0.0698
+I0119,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना बार-बार पेशाब आना है।,P0474,valid,0.125,0.0698
+I0120,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0112,train,0.0,0.0
+I0120,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0112,train,0.0,0.0
+I0120,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0112,train,0.0,0.0
+I0121,hi,quiet_room,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0372,train,0.0,0.0
+I0121,hi,opd_corridor,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में है।,P0372,train,0.1111,0.2083
+I0121,hi,crowded_waiting_hall,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट,P0372,train,0.1111,0.0833
+I0122,en,quiet_room,I have knee pain,I have knee pain,P0206,valid,0.0,0.0
+I0122,en,opd_corridor,I have knee pain,I have knee pain,P0206,valid,0.0,0.0
+I0122,en,crowded_waiting_hall,I have knee pain,I have knee pain,P0206,valid,0.0,0.0
+I0123,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0041,train,0.0,0.0
+I0123,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0041,train,0.0,0.0
+I0123,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द अ,P0041,train,0.3333,0.25
+I0124,en,quiet_room,I have cough and breathlessness,I have cough and breathlessness,P0126,train,0.0,0.0
+I0124,en,opd_corridor,I have cough and breathlessness,I have cough and breathlessness,P0126,train,0.0,0.0
+I0124,en,crowded_waiting_hall,I have cough and breathlessness,have cough breathlessness,P0126,train,0.4,0.1935
+I0125,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0107,test,0.0,0.0
+I0125,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0107,test,0.0,0.0
+I0125,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी साँस फूलना है।,P0107,test,0.2,0.1304
+I0126,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0111,train,0.0,0.0
+I0126,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे खांसी साँस फूलना अ है।,P0111,train,0.3333,0.1786
+I0126,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,मुझे और साँस फूलना है।,P0111,train,0.1667,0.2143
+I0127,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0461,train,0.0,0.0
+I0127,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0461,train,0.3333,0.3103
+I0127,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और आना है।,P0461,train,0.1667,0.2069
+I0128,hi,quiet_room,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0127,train,0.0,0.0
+I0128,hi,opd_corridor,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0127,train,0.0,0.0
+I0128,hi,crowded_waiting_hall,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0127,train,0.0,0.0
+I0129,hi,quiet_room,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0186,train,0.0,0.0
+I0129,hi,opd_corridor,मुझे कमर दर्द है।,कमर दर्द है।,P0186,train,0.25,0.2941
+I0129,hi,crowded_waiting_hall,मुझे कमर दर्द है।,मुझे कमर दर्द,P0186,train,0.25,0.2353
+I0130,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0020,train,0.0,0.0
+I0130,hi,opd_corridor,खुजली और त्वचा पर दाने है।,और त्वचा पर दाने है।,P0020,train,0.1667,0.2308
+I0130,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,और त्वचा दाने,P0020,train,0.5,0.5
+I0131,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0481,valid,0.0,0.0
+I0131,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास और बार-बार अ पेशाब आना है।,P0481,valid,0.25,0.1628
+I0131,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0481,valid,0.0,0.0
+I0132,hi,quiet_room,बुखार है।,बुखार है।,P0083,train,0.0,0.0
+I0132,hi,opd_corridor,बुखार है।,बुखार है।,P0083,train,0.0,0.0
+I0132,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0083,train,0.0,0.0
+I0133,hi,quiet_room,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0341,train,0.0,0.0
+I0133,hi,opd_corridor,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0341,train,0.0,0.0
+I0133,hi,crowded_waiting_hall,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0341,train,0.0,0.0
+I0134,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0010,train,0.0,0.0
+I0134,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और आना है।,P0010,train,0.2,0.25
+I0134,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और आना है।,P0010,train,0.2,0.25
+I0135,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0012,train,0.0,0.0
+I0135,hi,opd_corridor,सिरदर्द और चक्कर आना है।,और चक्कर आना है।,P0012,train,0.2,0.3333
+I0135,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0012,train,0.0,0.0
+I0136,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0217,train,0.0,0.0
+I0136,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0217,train,0.0,0.0
+I0136,hi,crowded_waiting_hall,कमर दर्द है।,कमर है।,P0217,train,0.3333,0.4167
+I0137,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0121,train,0.0,0.0
+I0137,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है।,P0121,train,0.0,0.0
+I0137,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे बुखार है।,P0121,train,0.0,0.0
+I0138,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0466,train,0.0,0.0
+I0138,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0466,train,0.0,0.0
+I0138,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0466,train,0.0,0.0
+I0139,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0166,train,0.0,0.0
+I0139,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0166,train,0.0,0.0
+I0139,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0166,train,0.0,0.0
+I0140,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0278,train,0.0,0.0
+I0140,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0278,train,0.0,0.0
+I0140,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द चक्कर आना अ है।,P0278,train,0.4,0.2083
+I0141,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0436,test,0.0,0.0
+I0141,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0436,test,0.0,0.0
+I0141,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना अ है।,P0436,test,0.1667,0.069
+I0142,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0438,train,0.0,0.0
+I0142,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0438,train,0.0,0.0
+I0142,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में है।,P0438,train,0.25,0.2632
+I0143,hi,quiet_room,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह अकड़न है।,P0346,valid,0.0,0.0
+I0143,hi,opd_corridor,मुझे जोड़ों में दर्द और सुबह अकड़न है।,मुझे जोड़ों में दर्द और सुबह है।,P0346,valid,0.125,0.1579
+I0143,hi,crowded_waiting_hall,मुझे जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0346,valid,0.125,0.1316
+I0144,hi,quiet_room,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0016,train,0.0,0.0
+I0144,hi,opd_corridor,मुझे पेट दर्द है।,मुझे पेट,P0016,train,0.5,0.5294
+I0144,hi,crowded_waiting_hall,मुझे पेट दर्द है।,पेट दर्द है।,P0016,train,0.25,0.2941
+I0145,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0394,train,0.0,0.0
+I0145,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और फूलना है।,P0394,train,0.2,0.2174
+I0145,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस है।,P0394,train,0.2,0.2609
+I0146,en,quiet_room,pain in the abdomen,pain in the abdomen,P0047,train,0.0,0.0
+I0146,en,opd_corridor,pain in the abdomen,pain in abdomen,P0047,train,0.25,0.2105
+I0146,en,crowded_waiting_hall,pain in the abdomen,the abdomen,P0047,train,0.5,0.4211
+I0147,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0348,train,0.0,0.0
+I0147,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना अ और बार-बार पेशाब आना है।,P0348,train,0.1111,0.0417
+I0147,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे प्यास लगना और बार-बार पेशाब आना,P0348,train,0.2222,0.25
+I0148,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0027,train,0.0,0.0
+I0148,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास और बार-बार पेशाब आना है।,P0027,train,0.125,0.1163
+I0148,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार अ प्यास लगना और बार-बार पेशाब आना है।,P0027,train,0.125,0.0465
+I0149,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0495,train,0.0,0.0
+I0149,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0495,train,0.0,0.0
+I0149,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0495,train,0.0,0.0
+I0150,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0500,test,0.0,0.0
+I0150,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0500,test,0.0,0.0
+I0150,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,प्यास और बार-बार पेशाब आना है।,P0500,test,0.25,0.3023
+I0151,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0150,test,0.0,0.0
+I0151,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर है।,P0150,test,0.2,0.1667
+I0151,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0150,test,0.2,0.1667
+I0152,en,quiet_room,chest pain,chest pain,P0398,train,0.0,0.0
+I0152,en,opd_corridor,chest pain,chest pain,P0398,train,0.0,0.0
+I0152,en,crowded_waiting_hall,chest pain,chest pane,P0398,train,0.5,0.2
+I0153,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0480,train,0.0,0.0
+I0153,hi,opd_corridor,घुटनों में दर्द है।,घुटनों दर्द है।,P0480,train,0.25,0.2105
+I0153,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में है।,P0480,train,0.25,0.2632
+I0154,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0358,train,0.0,0.0
+I0154,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,के बाद सीने और पेट में है।,P0358,train,0.2222,0.2571
+I0154,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में अ जलन है।,P0358,train,0.1111,0.0571
+I0155,hi,quiet_room,बुखार है।,बुखार है।,P0229,train,0.0,0.0
+I0155,hi,opd_corridor,बुखार है।,बुखार,P0229,train,0.5,0.4444
+I0155,hi,crowded_waiting_hall,बुखार है।,बुखार,P0229,train,0.5,0.4444
+I0156,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0103,test,0.0,0.0
+I0156,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,प्यास लगना और बार-बार पेशाब आना है।,P0103,test,0.125,0.186
+I0156,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना बार-बार पेशाब है।,P0103,test,0.25,0.1628
+I0157,en,quiet_room,headache with dizziness,headache with dizziness,P0417,train,0.0,0.0
+I0157,en,opd_corridor,headache with dizziness,headache with dizziness,P0417,train,0.0,0.0
+I0157,en,crowded_waiting_hall,headache with dizziness,headache dizziness,P0417,train,0.3333,0.2174
+I0158,en,quiet_room,chest pain,chest pain,P0058,train,0.0,0.0
+I0158,en,opd_corridor,chest pain,chest pain,P0058,train,0.0,0.0
+I0158,en,crowded_waiting_hall,chest pain,chest pain,P0058,train,0.0,0.0
+I0159,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0252,valid,0.0,0.0
+I0159,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है। अ,P0252,valid,0.3333,0.1429
+I0159,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे बुखार है।,P0252,valid,0.0,0.0
+I0160,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0011,train,0.0,0.0
+I0160,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस अ फूलना है।,P0011,train,0.1667,0.0714
+I0160,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस है।,P0011,train,0.1667,0.2143
+I0161,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0198,train,0.0,0.0
+I0161,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द,P0198,train,0.25,0.2105
+I0161,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0198,train,0.0,0.0
+I0162,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0071,train,0.0,0.0
+I0162,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0071,train,0.0,0.0
+I0162,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस अ है।,P0071,train,0.2,0.2174
+I0163,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0085,train,0.0,0.0
+I0163,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0085,train,0.0,0.0
+I0163,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द चक्कर आना है।,P0085,train,0.2,0.125
+I0164,hi,quiet_room,मुझे नींद न आना है।,मुझे नींद न आना है।,P0158,train,0.0,0.0
+I0164,hi,opd_corridor,मुझे नींद न आना है।,मुझे नींद न आना है।,P0158,train,0.0,0.0
+I0164,hi,crowded_waiting_hall,मुझे नींद न आना है।,न आना,P0158,train,0.6,0.7368
+I0165,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0040,train,0.0,0.0
+I0165,hi,opd_corridor,मुझे घुटनों में दर्द है।,मुझे घुटनों दर्द है।,P0040,train,0.2,0.1667
+I0165,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे घुटनों दर्द है।,P0040,train,0.2,0.1667
+I0166,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0344,test,0.0,0.0
+I0166,hi,opd_corridor,खांसी और साँस फूलना है।,और साँस फूलना है।,P0344,test,0.2,0.2609
+I0166,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0344,test,0.0,0.0
+I0167,hi,quiet_room,बुखार है।,बुखार है।,P0073,train,0.0,0.0
+I0167,hi,opd_corridor,बुखार है।,बुखार है।,P0073,train,0.0,0.0
+I0167,hi,crowded_waiting_hall,बुखार है।,है।,P0073,train,0.5,0.6667
+I0168,hi,quiet_room,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0256,train,0.0,0.0
+I0168,hi,opd_corridor,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट जलन है।,P0256,train,0.1,0.1
+I0168,hi,crowded_waiting_hall,मुझे खाने के बाद सीने और पेट में जलन है।,खाने के सीने अ और में जलन,P0256,train,0.5,0.45
+I0169,en,quiet_room,cough and breathlessness,cough and breathlessness,P0089,valid,0.0,0.0
+I0169,en,opd_corridor,cough and breathlessness,cough and breathlessness,P0089,valid,0.0,0.0
+I0169,en,crowded_waiting_hall,cough and breathlessness,cough and breathlessness,P0089,valid,0.0,0.0
+I0170,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0446,test,0.0,0.0
+I0170,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0446,test,0.0,0.0
+I0170,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0446,test,0.0,0.0
+I0171,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0360,test,0.0,0.0
+I0171,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0360,test,0.0,0.0
+I0171,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,लगना और बार-बार पेशाब,P0360,test,0.5,0.5116
+I0172,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0301,train,0.0,0.0
+I0172,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0301,train,0.0,0.0
+I0172,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ अ है।,P0301,train,0.5,0.2222
+I0173,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0274,valid,0.0,0.0
+I0173,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0274,valid,0.0,0.0
+I0173,hi,crowded_waiting_hall,नींद न आना है।,नींद न आना है।,P0274,valid,0.0,0.0
+I0174,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0246,train,0.0,0.0
+I0174,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0246,train,0.0,0.0
+I0174,hi,crowded_waiting_hall,नींद न आना है।,नींद न आना अ है। अ,P0246,train,0.5,0.2857
+I0175,hi,quiet_room,बुखार है।,बुखार है।,P0361,train,0.0,0.0
+I0175,hi,opd_corridor,बुखार है।,बुखार है।,P0361,train,0.0,0.0
+I0175,hi,crowded_waiting_hall,बुखार है।,है।,P0361,train,0.5,0.6667
+I0176,hi,quiet_room,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0489,valid,0.0,0.0
+I0176,hi,opd_corridor,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0489,valid,0.0,0.0
+I0176,hi,crowded_waiting_hall,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के अ बाद सीने और में जलन है।,P0489,valid,0.2,0.15
+I0177,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0149,train,0.0,0.0
+I0177,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0149,train,0.0,0.0
+I0177,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और आना है।,P0149,train,0.2,0.25
+I0178,en,quiet_room,I have headache with dizziness,I have headache with dizziness,P0276,train,0.0,0.0
+I0178,en,opd_corridor,I have headache with dizziness,I have headache with dizziness um,P0276,train,0.2,0.1
+I0178,en,crowded_waiting_hall,I have headache with dizziness,I have headache with um dizziness,P0276,train,0.2,0.1
+I0179,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0496,train,0.0,0.0
+I0179,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब अ आना है।,P0496,train,0.1111,0.0417
+I0179,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना पेशाब आना है।,P0496,train,0.2222,0.2292
+I0180,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0450,train,0.0,0.0
+I0180,hi,opd_corridor,कमर दर्द है।,दर्द है।,P0450,train,0.3333,0.3333
+I0180,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0450,train,0.0,0.0
+I0181,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0491,train,0.0,0.0
+I0181,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0491,train,0.0,0.0
+I0181,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के अ बाद और पेट में है।,P0491,train,0.3333,0.3143
+I0182,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0475,train,0.0,0.0
+I0182,hi,opd_corridor,कमर दर्द है।,कमर अ दर्द है।,P0475,train,0.3333,0.1667
+I0182,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0475,train,0.0,0.0
+I0183,en,quiet_room,joint pain and morning stiffness,joint pain and morning stiffness,P0069,train,0.0,0.0
+I0183,en,opd_corridor,joint pain and morning stiffness,joint and morning stiffness,P0069,train,0.2,0.1562
+I0183,en,crowded_waiting_hall,joint pain and morning stiffness,joint pain morning stiffness,P0069,train,0.2,0.125
+I0184,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0077,train,0.0,0.0
+I0184,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0077,train,0.0,0.0
+I0184,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0077,train,0.0,0.0
+I0185,hi,quiet_room,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0094,train,0.0,0.0
+I0185,hi,opd_corridor,मुझे सीने में दर्द है।,मुझे सीने में दर्द,P0094,train,0.2,0.1818
+I0185,hi,crowded_waiting_hall,मुझे सीने में दर्द है।,मुझे में दर्द है।,P0094,train,0.2,0.2273
+I0186,hi,quiet_room,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0371,train,0.0,0.0
+I0186,hi,opd_corridor,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0371,train,0.0,0.0
+I0186,hi,crowded_waiting_hall,मुझे कब्ज़ है।,मुझे कब्ज़ है।,P0371,train,0.0,0.0
+I0187,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0101,train,0.0,0.0
+I0187,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0101,train,0.0,0.0
+I0187,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0101,train,0.2,0.1667
+I0188,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0211,train,0.0,0.0
+I0188,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0211,train,0.0,0.0
+I0188,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0211,train,0.0,0.0
+I0189,hi,quiet_room,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0300,train,0.0,0.0
+I0189,hi,opd_corridor,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और पर दाने है।,P0300,train,0.1429,0.1935
+I0189,hi,crowded_waiting_hall,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और अ त्वचा पर दाने अ है।,P0300,train,0.2857,0.129
+I0190,hi,quiet_room,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0382,train,0.0,0.0
+I0190,hi,opd_corridor,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन,P0382,train,0.1,0.1
+I0190,hi,crowded_waiting_hall,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट जलन है।,P0382,train,0.1,0.1
+I0191,en,quiet_room,cough and breathlessness,cough and breathlessness,P0038,train,0.0,0.0
+I0191,en,opd_corridor,cough and breathlessness,cough and breathlessness,P0038,train,0.0,0.0
+I0191,en,crowded_waiting_hall,cough and breathlessness,cough and breathlessness,P0038,train,0.0,0.0
+I0192,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0078,train,0.0,0.0
+I0192,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है। अ,P0078,train,0.2,0.087
+I0192,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस फूलना अ,P0078,train,0.2,0.1304
+I0193,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0147,train,0.0,0.0
+I0193,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0147,train,0.0,0.0
+I0193,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0147,train,0.0,0.0
+I0194,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0134,train,0.0,0.0
+I0194,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0134,train,0.0,0.0
+I0194,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0134,train,0.0,0.0
+I0195,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0459,test,0.0,0.0
+I0195,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है।,P0459,test,0.0,0.0
+I0195,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे अ बुखार अ है।,P0459,test,0.6667,0.2857
+I0196,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0376,train,0.0,0.0
+I0196,hi,opd_corridor,पेट दर्द है।,पेट दर्द है।,P0376,train,0.0,0.0
+I0196,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द है।,P0376,train,0.0,0.0
+I0197,hi,quiet_room,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0008,train,0.0,0.0
+I0197,hi,opd_corridor,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0008,train,0.0,0.0
+I0197,hi,crowded_waiting_hall,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों दर्द और अ सुबह अकड़न है।,P0008,train,0.2857,0.1818
+I0198,hi,quiet_room,सीने में दर्द है।,सीने में दर्द है।,P0209,train,0.0,0.0
+I0198,hi,opd_corridor,सीने में दर्द है।,सीने में दर्द है। अ,P0209,train,0.25,0.1176
+I0198,hi,crowded_waiting_hall,सीने में दर्द है।,सीने में दर्द है।,P0209,train,0.0,0.0
+I0199,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0005,train,0.0,0.0
+I0199,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0005,train,0.0,0.0
+I0199,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों दर्द है।,P0005,train,0.25,0.2105
+I0200,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0337,train,0.0,0.0
+I0200,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,के बाद सीने और में जलन है।,P0337,train,0.2222,0.2571
+I0200,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0337,train,0.0,0.0
+I0201,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0355,train,0.0,0.0
+I0201,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर है।,P0355,train,0.2,0.1667
+I0201,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना अ है।,P0355,train,0.2,0.0833
+I0202,hi,quiet_room,बुखार है।,बुखार है।,P0317,train,0.0,0.0
+I0202,hi,opd_corridor,बुखार है।,बुखार है।,P0317,train,0.0,0.0
+I0202,hi,crowded_waiting_hall,बुखार है।,बुखार अ है।,P0317,train,0.5,0.2222
+I0203,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0028,train,0.0,0.0
+I0203,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0028,train,0.0,0.0
+I0203,hi,crowded_waiting_hall,कमर दर्द है।,दर्द है।,P0028,train,0.3333,0.3333
+I0204,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0218,valid,0.0,0.0
+I0204,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0218,valid,0.0,0.0
+I0204,hi,crowded_waiting_hall,नींद न आना है।,नींद न आना है।,P0218,valid,0.0,0.0
+I0205,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0118,train,0.0,0.0
+I0205,hi,opd_corridor,कमर दर्द है।,कमर दर्द,P0118,train,0.3333,0.3333
+I0205,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द,P0118,train,0.3333,0.3333
+I0206,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0030,train,0.0,0.0
+I0206,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0030,train,0.0,0.0
+I0206,hi,crowded_waiting_hall,नींद न आना है।,नींद आना अ,P0030,train,0.5,0.3571
+I0207,en,quiet_room,knee pain,knee pain,P0100,test,0.0,0.0
+I0207,en,opd_corridor,knee pain,knee pain,P0100,test,0.0,0.0
+I0207,en,crowded_waiting_hall,knee pain,pain,P0100,test,0.5,0.5556
+I0208,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0421,train,0.0,0.0
+I0208,hi,opd_corridor,घुटनों में दर्द है।,में दर्द है।,P0421,train,0.25,0.3684
+I0208,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में अ दर्द अ है।,P0421,train,0.5,0.2105
+I0209,hi,quiet_room,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अकड़न है।,P0181,train,0.0,0.0
+I0209,hi,opd_corridor,जोड़ों में दर्द और सुबह अकड़न है।,में दर्द और सुबह अकड़न है।,P0181,train,0.1429,0.2121
+I0209,hi,crowded_waiting_hall,जोड़ों में दर्द और सुबह अकड़न है।,जोड़ों में दर्द और सुबह अ अकड़न है।,P0181,train,0.1429,0.0606
+I0210,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0109,train,0.0,0.0
+I0210,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0109,train,0.0,0.0
+I0210,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने बाद सीने और पेट में अ है। अ,P0109,train,0.3333,0.2286
+I0211,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0086,train,0.0,0.0
+I0211,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है। अ,P0086,train,0.1667,0.0769
+I0211,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली अ त्वचा अ पर अ है।,P0086,train,0.5,0.3077
+I0212,en,quiet_room,excessive thirst and frequent urination,excessive thirst and frequent urination,P0362,train,0.0,0.0
+I0212,en,opd_corridor,excessive thirst and frequent urination,excessive thirst and frequent urination,P0362,train,0.0,0.0
+I0212,en,crowded_waiting_hall,excessive thirst and frequent urination,excessive thirst um and frequent urination,P0362,train,0.2,0.0769
+I0213,en,quiet_room,low back pain,low back pain,P0386,test,0.0,0.0
+I0213,en,opd_corridor,low back pain,back pain,P0386,test,0.3333,0.3077
+I0213,en,crowded_waiting_hall,low back pain,low back pain,P0386,test,0.0,0.0
+I0214,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0357,train,0.0,0.0
+I0214,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और फूलना है।,P0357,train,0.2,0.2174
+I0214,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0357,train,0.0,0.0
+I0215,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0242,valid,0.0,0.0
+I0215,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0242,valid,0.0,0.0
+I0215,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और अ त्वचा पर दाने है।,P0242,valid,0.1667,0.0769
+I0216,hi,quiet_room,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0303,train,0.0,0.0
+I0216,hi,opd_corridor,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0303,train,0.0,0.0
+I0216,hi,crowded_waiting_hall,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,एक कमज़ोरी अ और बोलने में है।,P0303,train,0.4444,0.4792
+I0217,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0291,train,0.0,0.0
+I0217,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0291,train,0.0,0.0
+I0217,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने अ के बाद अ सीने और पेट में जलन है।,P0291,train,0.2222,0.1143
+I0218,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0009,train,0.0,0.0
+I0218,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और अ त्वचा पर अ दाने है।,P0009,train,0.3333,0.1538
+I0218,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और त्वचा अ पर दाने है।,P0009,train,0.1667,0.0769
+I0219,hi,quiet_room,सीने में दर्द है।,सीने में दर्द है।,P0065,train,0.0,0.0
+I0219,hi,opd_corridor,सीने में दर्द है।,सीने में दर्द अ है।,P0065,train,0.25,0.1176
+I0219,hi,crowded_waiting_hall,सीने में दर्द है।,सीने में दर्द है।,P0065,train,0.0,0.0
+I0220,en,quiet_room,excessive thirst and frequent urination,excessive thirst and frequent urination,P0113,train,0.0,0.0
+I0220,en,opd_corridor,excessive thirst and frequent urination,excessive um thirst and frequent urination,P0113,train,0.2,0.0769
+I0220,en,crowded_waiting_hall,excessive thirst and frequent urination,excessive um thirst frequent,P0113,train,0.6,0.4359
+I0221,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0169,train,0.0,0.0
+I0221,hi,opd_corridor,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0169,train,0.0,0.0
+I0221,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे घुटनों में अ दर्द है।,P0169,train,0.2,0.0833
+I0222,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0173,train,0.0,0.0
+I0222,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द अ है।,P0173,train,0.25,0.1053
+I0222,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में अ दर्द है।,P0173,train,0.25,0.1053
+I0223,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0139,train,0.0,0.0
+I0223,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास अ लगना और बार-बार अ पेशाब आना है।,P0139,train,0.3333,0.1875
+I0223,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार अ और बार-बार पेशाब आना है।,P0139,train,0.2222,0.2083
+I0224,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0488,train,0.0,0.0
+I0224,hi,opd_corridor,पेट दर्द है।,दर्द है।,P0488,train,0.3333,0.3333
+I0224,hi,crowded_waiting_hall,पेट दर्द है।,पेट अ है।,P0488,train,0.3333,0.3333
+I0225,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0115,train,0.0,0.0
+I0225,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0115,train,0.0,0.0
+I0225,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और में जलन है।,P0115,train,0.1111,0.1143
+I0226,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0123,train,0.0,0.0
+I0226,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0123,train,0.0,0.0
+I0226,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0123,train,0.0,0.0
+I0227,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0022,test,0.0,0.0
+I0227,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0022,test,0.0,0.0
+I0227,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,मुझे और साँस है।,P0022,test,0.3333,0.4286
+I0228,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0310,valid,0.0,0.0
+I0228,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0310,valid,0.0,0.0
+I0228,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0310,valid,0.0,0.0
+I0229,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0356,train,0.0,0.0
+I0229,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0356,train,0.0,0.0
+I0229,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द,P0356,train,0.3333,0.3333
+I0230,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0273,train,0.0,0.0
+I0230,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0273,train,0.0,0.0
+I0230,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास और बार-बार पेशाब आना है।,P0273,train,0.125,0.1163
+I0231,hi,quiet_room,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0033,train,0.0,0.0
+I0231,hi,opd_corridor,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0033,train,0.0,0.0
+I0231,hi,crowded_waiting_hall,मुझे सीने में दर्द है।,मुझे सीने में है।,P0033,train,0.2,0.2273
+I0232,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0237,train,0.0,0.0
+I0232,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द अ और चक्कर अ आना है।,P0237,train,0.4,0.1667
+I0232,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,और चक्कर आना है।,P0237,train,0.2,0.3333
+I0233,en,quiet_room,I have chest pain,I have chest pain,P0223,train,0.0,0.0
+I0233,en,opd_corridor,I have chest pain,I have chest pain,P0223,train,0.0,0.0
+I0233,en,crowded_waiting_hall,I have chest pain,chest,P0223,train,0.75,0.7059
+I0234,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0018,train,0.0,0.0
+I0234,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0018,train,0.0,0.0
+I0234,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0018,train,0.0,0.0
+I0235,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0454,train,0.0,0.0
+I0235,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0454,train,0.0,0.0
+I0235,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,बाद और पेट में अ जलन है।,P0454,train,0.4444,0.4286
+I0236,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0208,train,0.0,0.0
+I0236,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0208,train,0.0,0.0
+I0236,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,साँस फूलना है।,P0208,train,0.5,0.5
+I0237,en,quiet_room,I have fever,I have fever,P0187,train,0.0,0.0
+I0237,en,opd_corridor,I have fever,I have fiber,P0187,train,0.3333,0.1667
+I0237,en,crowded_waiting_hall,I have fever,I have fever,P0187,train,0.0,0.0
+I0238,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0329,valid,0.0,0.0
+I0238,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0329,valid,0.0,0.0
+I0238,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0329,valid,0.2,0.1667
+I0239,en,quiet_room,I have excessive thirst and frequent urination,I have excessive thirst and frequent urination,P0135,valid,0.0,0.0
+I0239,en,opd_corridor,I have excessive thirst and frequent urination,I have excessive and frequent,P0135,valid,0.2857,0.3696
+I0239,en,crowded_waiting_hall,I have excessive thirst and frequent urination,I have thirst and frequent urination,P0135,valid,0.1429,0.2174
+I0240,hi,quiet_room,बुखार है।,बुखार है।,P0465,train,0.0,0.0
+I0240,hi,opd_corridor,बुखार है।,बुखार है।,P0465,train,0.0,0.0
+I0240,hi,crowded_waiting_hall,बुखार है।,बुखार है।,P0465,train,0.0,0.0
+I0241,en,quiet_room,I have headache with dizziness,I have headache with dizziness,P0117,train,0.0,0.0
+I0241,en,opd_corridor,I have headache with dizziness,I have headache with dizziness,P0117,train,0.0,0.0
+I0241,en,crowded_waiting_hall,I have headache with dizziness,I headache with dizziness,P0117,train,0.2,0.1667
+I0242,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0250,train,0.0,0.0
+I0242,hi,opd_corridor,घुटनों में दर्द है।,घुटनों दर्द,P0250,train,0.5,0.4211
+I0242,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द अ है।,P0250,train,0.25,0.1053
+I0243,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0400,train,0.0,0.0
+I0243,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और फूलना है।,P0400,train,0.2,0.2174
+I0243,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,और साँस,P0400,train,0.6,0.6957
+I0244,hi,quiet_room,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0015,train,0.0,0.0
+I0244,hi,opd_corridor,मुझे सीने में दर्द है।,मुझे में दर्द है।,P0015,train,0.2,0.2273
+I0244,hi,crowded_waiting_hall,मुझे सीने में दर्द है।,मुझे सीने में है। अ,P0015,train,0.4,0.3182
+I0245,hi,quiet_room,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0203,train,0.0,0.0
+I0245,hi,opd_corridor,मुझे कमर दर्द है।,मुझे कमर दर्द,P0203,train,0.25,0.2353
+I0245,hi,crowded_waiting_hall,मुझे कमर दर्द है।,कमर दर्द है।,P0203,train,0.25,0.2941
+I0246,hi,quiet_room,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0259,train,0.0,0.0
+I0246,hi,opd_corridor,मुझे सिरदर्द और चक्कर आना है।,मुझे सिरदर्द और चक्कर आना है।,P0259,train,0.0,0.0
+I0246,hi,crowded_waiting_hall,मुझे सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना अ है।,P0259,train,0.3333,0.2414
+I0247,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0248,train,0.0,0.0
+I0247,hi,opd_corridor,कमर दर्द है।,दर्द है।,P0248,train,0.3333,0.3333
+I0247,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0248,train,0.0,0.0
+I0248,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0224,train,0.0,0.0
+I0248,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0224,train,0.0,0.0
+I0248,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में है।,P0224,train,0.25,0.2632
+I0249,hi,quiet_room,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0486,train,0.0,0.0
+I0249,hi,opd_corridor,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना है।,P0486,train,0.0,0.0
+I0249,hi,crowded_waiting_hall,सिरदर्द और चक्कर आना है।,सिरदर्द और चक्कर आना,P0486,train,0.2,0.1667
+I0250,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0343,train,0.0,0.0
+I0250,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और पेशाब आना है।,P0343,train,0.125,0.186
+I0250,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार अ प्यास लगना और बार-बार पेशाब आना,P0343,train,0.25,0.1395
+I0251,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0393,train,0.0,0.0
+I0251,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,लगना और बार-बार पेशाब आना है।,P0393,train,0.25,0.3256
+I0251,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना अ और बार-बार पेशाब आना,P0393,train,0.25,0.1395
+I0252,hi,quiet_room,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0498,train,0.0,0.0
+I0252,hi,opd_corridor,मुझे खुजली और त्वचा पर दाने है।,मुझे और त्वचा अ पर दाने है।,P0498,train,0.2857,0.2581
+I0252,hi,crowded_waiting_hall,मुझे खुजली और त्वचा पर दाने है।,खुजली अ और त्वचा पर दाने है।,P0498,train,0.2857,0.2258
+I0253,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0381,train,0.0,0.0
+I0253,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0381,train,0.0,0.0
+I0253,hi,crowded_waiting_hall,नींद न आना है।,नींद न है।,P0381,train,0.25,0.2857
+I0254,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0102,train,0.0,0.0
+I0254,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0102,train,0.0,0.0
+I0254,hi,crowded_waiting_hall,कमर दर्द है।,कमर है।,P0102,train,0.3333,0.4167
+I0255,hi,quiet_room,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0426,train,0.0,0.0
+I0255,hi,opd_corridor,मुझे सीने में दर्द है।,मुझे सीने दर्द है।,P0426,train,0.2,0.1818
+I0255,hi,crowded_waiting_hall,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0426,train,0.0,0.0
+I0256,en,quiet_room,fever,fever,P0316,valid,0.0,0.0
+I0256,en,opd_corridor,fever,fever,P0316,valid,0.0,0.0
+I0256,en,crowded_waiting_hall,fever,fiber,P0316,valid,1.0,0.4
+I0257,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0275,train,0.0,0.0
+I0257,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और में जलन है।,P0275,train,0.1111,0.1143
+I0257,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने अ के बाद सीने अ में जलन है।,P0275,train,0.3333,0.2286
+I0258,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0192,test,0.0,0.0
+I0258,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और पेशाब आना है।,P0192,test,0.125,0.186
+I0258,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार अ प्यास लगना और पेशाब अ,P0192,test,0.5,0.3953
+I0259,hi,quiet_room,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0284,train,0.0,0.0
+I0259,hi,opd_corridor,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब अ आना है।,P0284,train,0.125,0.0465
+I0259,hi,crowded_waiting_hall,बार-बार प्यास लगना और बार-बार पेशाब आना है।,बार-बार प्यास लगना और बार-बार पेशाब है।,P0284,train,0.125,0.093
+I0260,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0260,valid,0.0,0.0
+I0260,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0260,valid,0.0,0.0
+I0260,hi,crowded_waiting_hall,कमर दर्द है।,कमर अ दर्द है।,P0260,valid,0.3333,0.1667
+I0261,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0412,train,0.0,0.0
+I0261,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द है।,P0412,train,0.0,0.0
+I0261,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0412,train,0.0,0.0
+I0262,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0054,valid,0.0,0.0
+I0262,hi,opd_corridor,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0054,valid,0.0,0.0
+I0262,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0054,valid,0.0,0.0
+I0263,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0124,train,0.0,0.0
+I0263,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0124,train,0.0,0.0
+I0263,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0124,train,0.0,0.0
+I0264,hi,quiet_room,कब्ज़ है।,कब्ज़ है।,P0175,test,0.0,0.0
+I0264,hi,opd_corridor,कब्ज़ है।,कब्ज़ है।,P0175,test,0.0,0.0
+I0264,hi,crowded_waiting_hall,कब्ज़ है।,कब्ज़ है।,P0175,test,0.0,0.0
+I0265,hi,quiet_room,बुखार है।,बुखार है।,P0366,train,0.0,0.0
+I0265,hi,opd_corridor,बुखार है।,बुखार है।,P0366,train,0.0,0.0
+I0265,hi,crowded_waiting_hall,बुखार है।,बुखार,P0366,train,0.5,0.4444
+I0266,en,quiet_room,I have low back pain,I have low back pain,P0019,train,0.0,0.0
+I0266,en,opd_corridor,I have low back pain,I have low back pain,P0019,train,0.0,0.0
+I0266,en,crowded_waiting_hall,I have low back pain,I pain,P0019,train,0.6,0.7
+I0267,en,quiet_room,cough and breathlessness,cough and breathlessness,P0154,train,0.0,0.0
+I0267,en,opd_corridor,cough and breathlessness,cough and breathlessness,P0154,train,0.0,0.0
+I0267,en,crowded_waiting_hall,cough and breathlessness,and um breathlessness,P0154,train,0.6667,0.3333
+I0268,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0392,train,0.0,0.0
+I0268,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0392,train,0.0,0.0
+I0268,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0392,train,0.0,0.0
+I0269,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0390,valid,0.0,0.0
+I0269,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0390,valid,0.0,0.0
+I0269,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0390,valid,0.0,0.0
+I0270,hi,quiet_room,मुझे पेट दर्द है।,मुझे पेट दर्द है।,P0306,train,0.0,0.0
+I0270,hi,opd_corridor,मुझे पेट दर्द है।,मुझे पेट दर्द,P0306,train,0.25,0.2353
+I0270,hi,crowded_waiting_hall,मुझे पेट दर्द है।,पेट अ है।,P0306,train,0.5,0.5294
+I0271,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0414,test,0.0,0.0
+I0271,hi,opd_corridor,खुजली और त्वचा पर दाने है।,और त्वचा पर दाने है।,P0414,test,0.1667,0.2308
+I0271,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली अ और त्वचा पर दाने,P0414,test,0.3333,0.2308
+I0272,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0279,train,0.0,0.0
+I0272,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0279,train,0.0,0.0
+I0272,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार अ प्यास और बार-बार पेशाब आना है।,P0279,train,0.2222,0.1458
+I0273,hi,quiet_room,नींद न आना है।,नींद न आना है।,P0205,train,0.0,0.0
+I0273,hi,opd_corridor,नींद न आना है।,नींद न आना है।,P0205,train,0.0,0.0
+I0273,hi,crowded_waiting_hall,नींद न आना है।,नींद न आना है।,P0205,train,0.0,0.0
+I0274,hi,quiet_room,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0493,valid,0.0,0.0
+I0274,hi,opd_corridor,मुझे कमर दर्द है।,मुझे कमर दर्द है।,P0493,valid,0.0,0.0
+I0274,hi,crowded_waiting_hall,मुझे कमर दर्द है।,मुझे कमर दर्द,P0493,valid,0.25,0.2353
+I0275,hi,quiet_room,सीने में दर्द है।,सीने में दर्द है।,P0288,train,0.0,0.0
+I0275,hi,opd_corridor,सीने में दर्द है।,सीने दर्द है। अ,P0288,train,0.5,0.3529
+I0275,hi,crowded_waiting_hall,सीने में दर्द है।,सीने में दर्द,P0288,train,0.25,0.2353
+I0276,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0315,train,0.0,0.0
+I0276,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0315,train,0.0,0.0
+I0276,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0315,train,0.0,0.0
+I0277,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0345,test,0.0,0.0
+I0277,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0345,test,0.0,0.0
+I0277,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0345,test,0.0,0.0
+I0278,hi,quiet_room,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा पर दाने है।,P0266,train,0.0,0.0
+I0278,hi,opd_corridor,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली और त्वचा दाने है।,P0266,train,0.1429,0.0968
+I0278,hi,crowded_waiting_hall,मुझे खुजली और त्वचा पर दाने है।,मुझे खुजली पर दाने है।,P0266,train,0.2857,0.2903
+I0279,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0004,train,0.0,0.0
+I0279,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0004,train,0.0,0.0
+I0279,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द,P0004,train,0.3333,0.3333
+I0280,hi,quiet_room,मुझे खांसी और साँस फूलना है।,मुझे खांसी और साँस फूलना है।,P0164,train,0.0,0.0
+I0280,hi,opd_corridor,मुझे खांसी और साँस फूलना है।,मुझे और साँस फूलना है।,P0164,train,0.1667,0.2143
+I0280,hi,crowded_waiting_hall,मुझे खांसी और साँस फूलना है।,मुझे खांसी और अ साँस फूलना है।,P0164,train,0.1667,0.0714
+I0281,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0318,train,0.0,0.0
+I0281,hi,opd_corridor,घुटनों में दर्द है।,घुटनों में दर्द,P0318,train,0.25,0.2105
+I0281,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में है।,P0318,train,0.25,0.2632
+I0282,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0441,train,0.0,0.0
+I0282,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0441,train,0.0,0.0
+I0282,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द अ है।,P0441,train,0.3333,0.1667
+I0283,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0308,train,0.0,0.0
+I0283,hi,opd_corridor,पेट दर्द है।,पेट दर्द है।,P0308,train,0.0,0.0
+I0283,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द है।,P0308,train,0.0,0.0
+I0284,hi,quiet_room,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0159,train,0.0,0.0
+I0284,hi,opd_corridor,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0159,train,0.0,0.0
+I0284,hi,crowded_waiting_hall,खांसी और साँस फूलना है।,खांसी और साँस फूलना है।,P0159,train,0.0,0.0
+I0285,hi,quiet_room,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,P0080,train,0.0,0.0
+I0285,hi,opd_corridor,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,मुझे बार-बार प्यास लगना अ और बार-बार पेशाब आना,P0080,train,0.2222,0.125
+I0285,hi,crowded_waiting_hall,मुझे बार-बार प्यास लगना और बार-बार पेशाब आना है।,प्यास अ लगना अ और बार-बार अ पेशाब आना है।,P0080,train,0.5556,0.3958
+I0286,en,quiet_room,I have burning in the chest and stomach after meals,I have burning in the chest and stomach after meals,P0243,train,0.0,0.0
+I0286,en,opd_corridor,I have burning in the chest and stomach after meals,I have burning in the um chest and stomach after meals,P0243,train,0.1,0.0588
+I0286,en,crowded_waiting_hall,I have burning in the chest and stomach after meals,I have burning in the chest stomp after meals,P0243,train,0.2,0.1373
+I0287,hi,quiet_room,मुझे सीने में दर्द है।,मुझे सीने में दर्द है।,P0051,test,0.0,0.0
+I0287,hi,opd_corridor,मुझे सीने में दर्द है।,मुझे सीने में है।,P0051,test,0.2,0.2273
+I0287,hi,crowded_waiting_hall,मुझे सीने में दर्द है।,मुझे सीने में अ दर्द है। अ,P0051,test,0.4,0.1818
+I0288,en,quiet_room,I have sudden weakness on one side and slurred speech,I have sudden weakness on one side and slurred speech,P0014,valid,0.0,0.0
+I0288,en,opd_corridor,I have sudden weakness on one side and slurred speech,I have sudden weakness on one side and slurred speech,P0014,valid,0.0,0.0
+I0288,en,crowded_waiting_hall,I have sudden weakness on one side and slurred speech,have one um and slurred speech,P0014,valid,0.5,0.4717
+I0289,hi,quiet_room,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0444,test,0.0,0.0
+I0289,hi,opd_corridor,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,P0444,test,0.0,0.0
+I0289,hi,crowded_waiting_hall,अचानक एक तरफ़ कमज़ोरी और बोलने में लड़खड़ाहट है।,अचानक कमज़ोरी अ और में अ लड़खड़ाहट है।,P0444,test,0.5556,0.3542
+I0290,hi,quiet_room,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0482,train,0.0,0.0
+I0290,hi,opd_corridor,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने के बाद सीने और पेट में जलन है।,P0482,train,0.0,0.0
+I0290,hi,crowded_waiting_hall,मुझे खाने के बाद सीने और पेट में जलन है।,मुझे खाने बाद सीने और पेट जलन है। अ,P0482,train,0.3,0.225
+I0291,hi,quiet_room,मुझे बुखार है।,मुझे बुखार है।,P0442,valid,0.0,0.0
+I0291,hi,opd_corridor,मुझे बुखार है।,मुझे बुखार है।,P0442,valid,0.0,0.0
+I0291,hi,crowded_waiting_hall,मुझे बुखार है।,मुझे बुखार है।,P0442,valid,0.0,0.0
+I0292,hi,quiet_room,मुझे घुटनों में दर्द है।,मुझे घुटनों में दर्द है।,P0157,train,0.0,0.0
+I0292,hi,opd_corridor,मुझे घुटनों में दर्द है।,घुटनों में दर्द है।,P0157,train,0.2,0.2083
+I0292,hi,crowded_waiting_hall,मुझे घुटनों में दर्द है।,मुझे घुटनों अ है।,P0157,train,0.4,0.3333
+I0293,hi,quiet_room,घुटनों में दर्द है।,घुटनों में दर्द है।,P0170,test,0.0,0.0
+I0293,hi,opd_corridor,घुटनों में दर्द है।,में दर्द है।,P0170,test,0.25,0.3684
+I0293,hi,crowded_waiting_hall,घुटनों में दर्द है।,घुटनों में दर्द है।,P0170,test,0.0,0.0
+I0294,hi,quiet_room,कमर दर्द है।,कमर दर्द है।,P0471,train,0.0,0.0
+I0294,hi,opd_corridor,कमर दर्द है।,कमर दर्द है।,P0471,train,0.0,0.0
+I0294,hi,crowded_waiting_hall,कमर दर्द है।,कमर दर्द है।,P0471,train,0.0,0.0
+I0295,hi,quiet_room,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0075,train,0.0,0.0
+I0295,hi,opd_corridor,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0075,train,0.0,0.0
+I0295,hi,crowded_waiting_hall,खुजली और त्वचा पर दाने है।,खुजली और त्वचा पर दाने है।,P0075,train,0.0,0.0
+I0296,en,quiet_room,knee pain,knee pain,P0422,train,0.0,0.0
+I0296,en,opd_corridor,knee pain,knee pain,P0422,train,0.0,0.0
+I0296,en,crowded_waiting_hall,knee pain,knee um pain,P0422,train,0.5,0.3333
+I0297,hi,quiet_room,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है।,P0335,train,0.0,0.0
+I0297,hi,opd_corridor,खाने के बाद सीने और पेट में जलन है।,खाने बाद सीने और पेट में जलन है।,P0335,train,0.1111,0.0857
+I0297,hi,crowded_waiting_hall,खाने के बाद सीने और पेट में जलन है।,खाने के बाद सीने और पेट में जलन है। अ,P0335,train,0.1111,0.0571
+I0298,en,quiet_room,pain in the abdomen,pain in the abdomen,P0095,train,0.0,0.0
+I0298,en,opd_corridor,pain in the abdomen,pain in the abdomen,P0095,train,0.0,0.0
+I0298,en,crowded_waiting_hall,pain in the abdomen,pain in the abdomen um,P0095,train,0.25,0.1579
+I0299,en,quiet_room,headache with dizziness,headache with dizziness,P0172,train,0.0,0.0
+I0299,en,opd_corridor,headache with dizziness,headache with um dizziness,P0172,train,0.3333,0.1304
+I0299,en,crowded_waiting_hall,headache with dizziness,headache dizziness,P0172,train,0.3333,0.2174
+I0300,hi,quiet_room,पेट दर्द है।,पेट दर्द है।,P0440,train,0.0,0.0
+I0300,hi,opd_corridor,पेट दर्द है।,पेट है।,P0440,train,0.3333,0.4167
+I0300,hi,crowded_waiting_hall,पेट दर्द है।,पेट दर्द,P0440,train,0.3333,0.3333

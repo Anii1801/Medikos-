@@ -1,0 +1,140 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0086",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Kavita Nair"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0086",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0086"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0211",
+    "subject": {
+     "reference": "Patient/P0086"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "60-year-old female presenting with itching with skin rash for 1 weeks. Character: dry scaly patches with itching; radiation: on the legs; aggravated by night time; relieved by coconut oil. Severity 6/10. Associated: oozing, burning sensation. PMH: none. Drugs: none. Allergy: penicillin. Family: heart disease. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0086",
+    "patient": {
+     "reference": "Patient/P0086"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00142-3615",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0086"
+    },
+    "medicationCodeableConcept": {
+     "text": "Cetirizine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00142-4854",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0086"
+    },
+    "medicationCodeableConcept": {
+     "text": "Neem capsule 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00142-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0086"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0129",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Anita Nair"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0129",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0129"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0032",
+    "subject": {
+     "reference": "Patient/P0129"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "39-year-old female presenting with fever for 3 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 9/10. Associated: headache. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00218-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0129"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2025-04-15",
+    "valueQuantity": {
+     "value": 13.42,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00218-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0129"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2025-04-15",
+    "valueQuantity": {
+     "value": 4.12,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00218-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0129"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2025-04-15",
+    "valueQuantity": {
+     "value": 439.3,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00218-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0129"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-04-15",
+    "valueQuantity": {
+     "value": 7.64,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,229 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0332",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1055-2568-5339"
+     }
+    ],
+    "name": [
+     {
+      "text": "Geeta Pandey"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0332",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0332"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0029",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "65-year-old female presenting with knee pain for 6 years. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by climbing stairs; relieved by oil massage. Severity 5/10. Associated: difficulty walking. PMH: none. Drugs: none. Allergy: dust. Family: asthma. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0332",
+    "patient": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00593-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-05-27",
+    "valueQuantity": {
+     "value": 10.38,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00593-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-05-27",
+    "valueQuantity": {
+     "value": 4.91,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00593-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-05-27",
+    "valueQuantity": {
+     "value": 5.62,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00594-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-04-08",
+    "valueQuantity": {
+     "value": 0.92,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00594-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-04-08",
+    "valueQuantity": {
+     "value": 32.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00594-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0332"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-04-08",
+    "valueQuantity": {
+     "value": 3.71,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0396",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7854-8190-7544"
+     }
+    ],
+    "name": [
+     {
+      "text": "Imran Nair"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0396",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0396"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0079",
+    "subject": {
+     "reference": "Patient/P0396"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "28-year-old male presenting with pain in the abdomen for 5 weeks. Character: cramping pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 3/10. Associated: bloating, loose motions, vomiting. PMH: none. Drugs: none. Allergy: penicillin. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0396",
+    "patient": {
+     "reference": "Patient/P0396"
+    },
+    "code": {
+     "text": "penicillin"
+    }
+   }
+  }
+ ]
+}

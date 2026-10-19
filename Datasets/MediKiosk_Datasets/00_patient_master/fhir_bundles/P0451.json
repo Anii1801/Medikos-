@@ -1,0 +1,278 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0451",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7153-5059-7903"
+     }
+    ],
+    "name": [
+     {
+      "text": "Usha Joshi"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0451",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0451"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0116",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "18-year-old female presenting with fever for 2 days. Character: high fever with chills; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 4/10. Associated: body ache. PMH: Hypothyroidism for 10 years. Drugs: Levothyroxine 50 mcg. Allergy: sulfa drugs. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0451",
+    "patient": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00804-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00804-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00805-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00805-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00802-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-03-16",
+    "valueQuantity": {
+     "value": 14.21,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00802-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-03-16",
+    "valueQuantity": {
+     "value": 18.16,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00802-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-03-16",
+    "valueQuantity": {
+     "value": 387.1,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00802-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-03-16",
+    "valueQuantity": {
+     "value": 42.5,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00803-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0451"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2025-08-05",
+    "valueQuantity": {
+     "value": 1.84,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

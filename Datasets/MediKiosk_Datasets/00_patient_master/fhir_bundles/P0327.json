@@ -1,0 +1,164 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0327",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Sunita Pandey"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0327",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0327"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0019",
+    "subject": {
+     "reference": "Patient/P0327"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "59-year-old female presenting with pain in the abdomen for 4 weeks. Character: cramping pain; radiation: it does not spread; aggravated by after eating; relieved by lying curled up. Severity 7/10. Associated: vomiting, loose motions. PMH: Hypertension for 3 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: asthma. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00584-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0327"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00584-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0327"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00584-969",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0327"
+    },
+    "medicationCodeableConcept": {
+     "text": "Ashwagandha churna 3 g"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00585-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0327"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00585-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0327"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

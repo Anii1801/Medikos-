@@ -1,0 +1,115 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0303",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8413-3348-7383"
+     }
+    ],
+    "name": [
+     {
+      "text": "Fatima Mishra"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0303",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0303"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0216",
+    "subject": {
+     "reference": "Patient/P0303"
+    },
+    "code": {
+     "text": "sudden weakness on one side and slurred speech",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I63.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "52-year-old female presenting with sudden weakness on one side and slurred speech for 10 hours. Character: left side weakness; radiation: n/a; aggravated by nothing in particular; relieved by nothing. Severity 10/10. Associated: face drooping, difficulty speaking, severe headache. PMH: Hypertension for 3 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00545-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0303"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00545-6225",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0303"
+    },
+    "medicationCodeableConcept": {
+     "text": "Aspirin 75 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-1-0 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

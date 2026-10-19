@@ -1,0 +1,133 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0446",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5597-6320-5257"
+     }
+    ],
+    "name": [
+     {
+      "text": "Manoj Das"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0446",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0446"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0170",
+    "subject": {
+     "reference": "Patient/P0446"
+    },
+    "code": {
+     "text": "itching with skin rash",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "L30.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "21-year-old male presenting with itching with skin rash for 2 weeks. Character: dry scaly patches with itching; radiation: on the legs; aggravated by sweating; relieved by coconut oil. Severity 9/10. Associated: oozing. PMH: Appendectomy in 2022. Drugs: none. Allergy: no known allergies. Family: heart disease. Personal: occasional alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00793-3615",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0446"
+    },
+    "medicationCodeableConcept": {
+     "text": "Cetirizine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00793-4854",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0446"
+    },
+    "medicationCodeableConcept": {
+     "text": "Neem capsule 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00794-4854",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0446"
+    },
+    "medicationCodeableConcept": {
+     "text": "Neem capsule 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  }
+ ]
+}

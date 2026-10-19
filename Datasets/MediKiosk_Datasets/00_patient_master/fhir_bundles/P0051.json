@@ -1,0 +1,92 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0051",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Rajesh Pandey"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0051",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0051"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0287",
+    "subject": {
+     "reference": "Patient/P0051"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "53-year-old male presenting with chest pain for 8 hours. Character: pressure like a heavy weight; radiation: to the left arm; aggravated by walking or climbing stairs; relieved by rest. Severity 8/10. Associated: sweating, breathlessness, nausea. PMH: none. Drugs: none. Allergy: no known allergies. Family: asthma. Personal: occasional alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00088-4889",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0051"
+    },
+    "medicationCodeableConcept": {
+     "text": "Atorvastatin 20 mg"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

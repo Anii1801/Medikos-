@@ -1,0 +1,85 @@
+﻿patient_id,drug_a,drug_b,severity,note,evidence,split
+P0010,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0012,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0023,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0031,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0044,guggulu,levothyroxine,Mild,Guggulu may alter thyroid function; flag for review,Limited,valid
+P0054,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,valid
+P0064,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0088,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test
+P0096,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0096,guggulu,levothyroxine,Mild,Guggulu may alter thyroid function; flag for review,Limited,train
+P0100,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,test
+P0104,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0108,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0131,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,test
+P0135,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,valid
+P0136,aspirin,ibuprofen,Moderate,NSAID may blunt antiplatelet effect of aspirin; GI bleed risk,Established,train
+P0137,ashwagandha,levothyroxine,Moderate,Ashwagandha may raise thyroid hormone levels; monitor TFT,Limited,train
+P0140,ashwagandha,levothyroxine,Moderate,Ashwagandha may raise thyroid hormone levels; monitor TFT,Limited,train
+P0149,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0152,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,test
+P0155,aspirin,diclofenac,Moderate,Additive GI bleeding risk,Established,train
+P0167,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,valid
+P0172,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0188,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test
+P0192,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test
+P0195,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0211,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0212,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0216,guggulu,levothyroxine,Mild,Guggulu may alter thyroid function; flag for review,Limited,train
+P0220,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0230,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0232,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0234,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0237,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0241,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0244,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test
+P0245,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0253,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,test
+P0259,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0262,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0273,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0278,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0279,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0283,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0284,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0295,guggulu,levothyroxine,Mild,Guggulu may alter thyroid function; flag for review,Limited,train
+P0310,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,valid
+P0314,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test
+P0321,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0322,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0325,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0329,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,valid
+P0330,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0343,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0351,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,valid
+P0354,ashwagandha,levothyroxine,Moderate,Ashwagandha may raise thyroid hormone levels; monitor TFT,Limited,train
+P0359,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0360,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test
+P0362,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0389,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0393,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0401,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0404,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0406,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0408,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0417,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0418,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0429,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0436,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,test
+P0438,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0445,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0448,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0451,ashwagandha,levothyroxine,Moderate,Ashwagandha may raise thyroid hormone levels; monitor TFT,Limited,train
+P0461,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0470,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0474,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,valid
+P0480,amlodipine,diclofenac,Mild,NSAIDs may reduce antihypertensive effect,Established,train
+P0481,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,valid
+P0484,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,train
+P0485,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0486,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0487,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,valid
+P0495,amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited,train
+P0500,gudmar,metformin,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited,test

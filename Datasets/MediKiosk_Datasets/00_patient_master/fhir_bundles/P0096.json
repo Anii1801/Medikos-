@@ -1,0 +1,243 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0096",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-3468-3225-5517"
+     }
+    ],
+    "name": [
+     {
+      "text": "Radha Reddy"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0096",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0096"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0043",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "80-year-old female presenting with knee pain for 3 years. Character: stiffness with cracking sound; radiation: to the calf; aggravated by sitting on the floor; relieved by oil massage. Severity 7/10. Associated: swelling, difficulty walking. PMH: Hypertension for 14 years; Hypothyroidism for 7 years. Drugs: Amlodipine 5 mg; Levothyroxine 50 mcg. Allergy: no known allergies. Family: heart disease. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00161-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00161-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00161-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00161-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00159-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-11-20",
+    "valueQuantity": {
+     "value": 9.72,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00159-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-11-20",
+    "valueQuantity": {
+     "value": 1.18,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00159-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-11-20",
+    "valueQuantity": {
+     "value": 8.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00160-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0096"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2026-05-22",
+    "valueQuantity": {
+     "value": 6.03,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

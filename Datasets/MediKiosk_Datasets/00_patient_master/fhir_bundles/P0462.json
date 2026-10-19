@@ -1,0 +1,294 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0462",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1809-1641-9561"
+     }
+    ],
+    "name": [
+     {
+      "text": "Sunil Khan"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0462",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0462"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0050",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "46-year-old male presenting with fever for 4 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 5/10. Associated: headache, body ache, skin rash. PMH: Type 2 diabetes for 12 years; Hypertension for 9 years. Drugs: Metformin 500 mg; Amlodipine 5 mg. Allergy: no known allergies. Family: diabetes. Personal: occasional alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00824-2728",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "medicationCodeableConcept": {
+     "text": "Metformin 500 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00824-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00824-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00822-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2025-02-10",
+    "valueQuantity": {
+     "value": 14.56,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00822-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2025-02-10",
+    "valueQuantity": {
+     "value": 4.65,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00822-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2025-02-10",
+    "valueQuantity": {
+     "value": 323.0,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00822-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-02-10",
+    "valueQuantity": {
+     "value": 37.6,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00823-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2026-01-05",
+    "valueQuantity": {
+     "value": 86.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00823-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2026-01-05",
+    "valueQuantity": {
+     "value": 83.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00823-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0462"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2026-01-05",
+    "valueQuantity": {
+     "value": 5.4,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

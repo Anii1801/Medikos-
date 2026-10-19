@@ -1,0 +1,196 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0008",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7402-3088-7927"
+     }
+    ],
+    "name": [
+     {
+      "text": "Harish Verma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0008",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0008"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0197",
+    "subject": {
+     "reference": "Patient/P0008"
+    },
+    "code": {
+     "text": "joint pain and morning stiffness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M06.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "34-year-old male presenting with joint pain and morning stiffness for 5 months. Character: pain in small joints of both hands; radiation: n/a; aggravated by cold weather; relieved by warm water bath. Severity 6/10. Associated: low grade fever, tiredness, swelling of joints. PMH: none. Drugs: none. Allergy: dust. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0008",
+    "patient": {
+     "reference": "Patient/P0008"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00015-1626",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0008"
+    },
+    "medicationCodeableConcept": {
+     "text": "Simhanada guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00015-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0008"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00014-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0008"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-12-03",
+    "valueQuantity": {
+     "value": 39.2,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00014-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0008"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-12-03",
+    "valueQuantity": {
+     "value": 8.61,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00014-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0008"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-12-03",
+    "valueQuantity": {
+     "value": 9.56,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

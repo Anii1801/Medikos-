@@ -1,0 +1,7 @@
+﻿language,noise_profile,n,mean_wer,mean_cer
+en,crowded_waiting_hall,45,0.3263,0.2348
+en,opd_corridor,45,0.0927,0.0645
+en,quiet_room,45,0.0,0.0
+hi,crowded_waiting_hall,255,0.2041,0.1755
+hi,opd_corridor,255,0.1014,0.0915
+hi,quiet_room,255,0.0,0.0

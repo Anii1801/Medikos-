@@ -1,0 +1,201 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0350",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1372-9838-3777"
+     }
+    ],
+    "name": [
+     {
+      "text": "Harish Patel"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0350",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0350"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0038",
+    "subject": {
+     "reference": "Patient/P0350"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "50-year-old male presenting with fever for 1 days. Character: high fever with chills; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 7/10. Associated: vomiting. PMH: none. Drugs: none. Allergy: peanuts. Family: hypertension. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0350",
+    "patient": {
+     "reference": "Patient/P0350"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00626-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0350"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00625-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0350"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2025-02-22",
+    "valueQuantity": {
+     "value": 15.15,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00625-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0350"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2025-02-22",
+    "valueQuantity": {
+     "value": 10.26,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00625-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0350"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2025-02-22",
+    "valueQuantity": {
+     "value": 168.2,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00625-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0350"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-02-22",
+    "valueQuantity": {
+     "value": 34.1,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

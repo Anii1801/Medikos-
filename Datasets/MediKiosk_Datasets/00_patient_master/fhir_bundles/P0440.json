@@ -1,0 +1,109 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0440",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8418-7225-1537"
+     }
+    ],
+    "name": [
+     {
+      "text": "Lakshmi Iyer"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0440",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0440"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0300",
+    "subject": {
+     "reference": "Patient/P0440"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "15-year-old female presenting with pain in the abdomen for 5 weeks. Character: burning pain; radiation: to the back; aggravated by after eating; relieved by lying curled up. Severity 6/10. Associated: loose motions, bloating, vomiting. PMH: Appendectomy in 2001. Drugs: none. Allergy: dust. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0440",
+    "patient": {
+     "reference": "Patient/P0440"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00783-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0440"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

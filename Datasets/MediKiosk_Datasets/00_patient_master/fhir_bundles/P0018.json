@@ -1,0 +1,321 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0018",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8457-0483-2942"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kamla Patel"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0018",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0018"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0234",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "80-year-old female presenting with knee pain for 6 years. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by sitting on the floor; relieved by rest. Severity 3/10. Associated: difficulty walking. PMH: Type 2 diabetes for 5 years; Hypertension for 7 years; Coronary artery disease, stent 8 years ago. Drugs: Metformin 500 mg; Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg. Allergy: peanuts. Family: diabetes. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0018",
+    "patient": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00035-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-08-21",
+    "valueQuantity": {
+     "value": 84.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00035-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-08-21",
+    "valueQuantity": {
+     "value": 72.0,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00035-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-08-21",
+    "valueQuantity": {
+     "value": 4.76,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00036-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-03-13",
+    "valueQuantity": {
+     "value": 82.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00036-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-03-13",
+    "valueQuantity": {
+     "value": 5.54,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00036-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-03-13",
+    "valueQuantity": {
+     "value": 66.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00036-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-03-13",
+    "valueQuantity": {
+     "value": 0.08,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00037-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-01-18",
+    "valueQuantity": {
+     "value": 0.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00037-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-01-18",
+    "valueQuantity": {
+     "value": 115.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00037-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0018"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-01-18",
+    "valueQuantity": {
+     "value": 9.26,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

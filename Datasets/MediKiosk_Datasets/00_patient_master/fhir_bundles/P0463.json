@@ -1,0 +1,79 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0463",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1789-5517-9248"
+     }
+    ],
+    "name": [
+     {
+      "text": "Anita Gupta"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0463",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0463"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0099",
+    "subject": {
+     "reference": "Patient/P0463"
+    },
+    "code": {
+     "text": "sudden weakness on one side and slurred speech",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I63.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "60-year-old female presenting with sudden weakness on one side and slurred speech for 12 hours. Character: left side weakness; radiation: n/a; aggravated by nothing in particular; relieved by nothing. Severity 9/10. Associated: severe headache. PMH: Hypertension for 14 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  }
+ ]
+}

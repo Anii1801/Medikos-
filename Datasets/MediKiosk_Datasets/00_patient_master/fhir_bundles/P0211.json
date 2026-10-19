@@ -1,0 +1,283 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0211",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Kiran Banerjee"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0211",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0211"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0188",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "75-year-old male presenting with headache with dizziness for 4 weeks. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by morning time; relieved by rest. Severity 3/10. Associated: palpitations. PMH: Hypertension for 4 years. Drugs: Amlodipine 5 mg. Allergy: peanuts. Family: heart disease. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0211",
+    "patient": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00373-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00373-7570",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "medicationCodeableConcept": {
+     "text": "Sarpagandha vati 1 tab"
+    },
+    "dosage": [
+     {
+      "text": "0-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00371-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-09-24",
+    "valueQuantity": {
+     "value": 78.1,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00371-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-09-24",
+    "valueQuantity": {
+     "value": 96.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00371-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-09-24",
+    "valueQuantity": {
+     "value": 235.3,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00371-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-09-24",
+    "valueQuantity": {
+     "value": 0.02,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00372-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-06-30",
+    "valueQuantity": {
+     "value": 2.64,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00372-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-06-30",
+    "valueQuantity": {
+     "value": 17.46,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00372-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0211"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-06-30",
+    "valueQuantity": {
+     "value": 4.62,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

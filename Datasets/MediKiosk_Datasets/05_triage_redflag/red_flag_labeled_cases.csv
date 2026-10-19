@@ -1,0 +1,301 @@
+﻿interview_id,patient_id,split,age,sex,chief_complaint,duration,severity_1_10,associated_symptoms,red_flag,red_flag_reason,triage_priority
+I0001,P0091,train,52,F,excessive thirst and frequent urination,4 months,6,blurred vision; weight loss,False,,ROUTINE
+I0002,P0368,train,34,F,constipation,3 months,2,loss of appetite; bloating,False,,ROUTINE
+I0003,P0171,train,38,M,constipation,5 months,3,bloating,False,,ROUTINE
+I0004,P0499,train,30,F,joint pain and morning stiffness,5 years,7,low grade fever; tiredness,False,,ROUTINE
+I0005,P0025,train,34,F,burning in the chest and stomach after meals,2 weeks,5,sour belching,False,,ROUTINE
+I0006,P0116,train,53,M,headache with dizziness,4 weeks,6,palpitations; blurred vision,False,,ROUTINE
+I0007,P0079,train,71,M,constipation,3 months,5,bloating; loss of appetite,False,,ROUTINE
+I0008,P0035,valid,40,M,cough and breathlessness,4 weeks,4,chest tightness,False,,ROUTINE
+I0009,P0384,train,56,M,burning in the chest and stomach after meals,5 months,3,sour belching,False,,ROUTINE
+I0010,P0207,train,63,M,pain in the abdomen,4 days,3,vomiting; loose motions; bloating,False,,ROUTINE
+I0011,P0216,train,75,F,knee pain,6 years,8,difficulty walking; swelling,False,,URGENT
+I0012,P0364,test,63,M,constipation,6 weeks,6,bloating; loss of appetite,False,,ROUTINE
+I0013,P0397,train,33,M,joint pain and morning stiffness,3 years,4,tiredness; low grade fever,False,,ROUTINE
+I0014,P0379,train,42,M,cough and breathlessness,5 months,3,chest tightness,False,,ROUTINE
+I0015,P0174,train,60,M,chest pain,1 hours,10,nausea; sweating,True,possible acute coronary syndrome,EMERGENCY
+I0016,P0404,train,48,M,headache with dizziness,1 weeks,4,palpitations; blurred vision,False,,ROUTINE
+I0017,P0430,train,62,M,itching with skin rash,2 months,5,burning sensation; oozing,False,,ROUTINE
+I0018,P0283,train,74,F,excessive thirst and frequent urination,5 weeks,6,blurred vision; tiredness; weight loss,False,,ROUTINE
+I0019,P0327,train,59,F,pain in the abdomen,4 weeks,7,vomiting; loose motions,False,,ROUTINE
+I0020,P0468,train,38,F,burning in the chest and stomach after meals,3 weeks,3,nausea; sour belching,False,,ROUTINE
+I0021,P0097,train,46,F,low back pain,6 months,5,morning stiffness; numbness in the leg,False,,ROUTINE
+I0022,P0280,train,67,F,pain in the abdomen,2 days,5,bloating; vomiting; loose motions,False,,ROUTINE
+I0023,P0235,train,61,M,pain in the abdomen,6 days,9,bloating; loose motions; vomiting,False,,URGENT
+I0024,P0290,train,29,F,cough and breathlessness,4 months,3,chest tightness; sneezing,False,,ROUTINE
+I0025,P0391,train,49,M,burning in the chest and stomach after meals,5 months,8,nausea,False,,URGENT
+I0026,P0470,train,75,F,headache with dizziness,5 weeks,7,palpitations; blurred vision,False,,ROUTINE
+I0027,P0456,train,57,M,joint pain and morning stiffness,4 years,2,tiredness; swelling of joints,False,,ROUTINE
+I0028,P0185,train,54,F,knee pain,3 months,2,swelling,False,,ROUTINE
+I0029,P0332,train,65,F,knee pain,6 years,5,difficulty walking,False,,ROUTINE
+I0030,P0479,train,42,M,headache with dizziness,4 weeks,6,palpitations; blurred vision,False,,ROUTINE
+I0031,P0114,train,35,F,fever,2 days,7,body ache,False,,ROUTINE
+I0032,P0129,train,39,F,fever,3 days,9,headache,False,,URGENT
+I0033,P0268,train,37,F,constipation,6 weeks,7,bloating; loss of appetite,False,,ROUTINE
+I0034,P0405,train,71,F,excessive thirst and frequent urination,4 months,2,blurred vision,False,,ROUTINE
+I0035,P0407,train,21,M,burning in the chest and stomach after meals,1 months,6,sour belching; nausea,False,,ROUTINE
+I0036,P0244,test,41,M,excessive thirst and frequent urination,4 months,8,tiredness; weight loss; blurred vision,False,,URGENT
+I0037,P0232,train,67,M,headache with dizziness,5 days,2,palpitations,False,,ROUTINE
+I0038,P0350,train,50,M,fever,1 days,7,vomiting,False,,ROUTINE
+I0039,P0449,train,66,M,knee pain,2 months,5,swelling,False,,ROUTINE
+I0040,P0066,train,58,M,pain in the abdomen,2 weeks,5,loose motions; bloating,False,,ROUTINE
+I0041,P0469,train,54,F,cough and breathlessness,5 months,4,sneezing,False,,ROUTINE
+I0042,P0304,valid,52,F,excessive thirst and frequent urination,3 weeks,8,blurred vision,False,,URGENT
+I0043,P0096,train,80,F,knee pain,3 years,7,swelling; difficulty walking,False,,ROUTINE
+I0044,P0299,train,52,F,pain in the abdomen,1 days,9,vomiting,False,,URGENT
+I0045,P0347,train,65,F,burning in the chest and stomach after meals,5 months,6,sour belching,False,,ROUTINE
+I0046,P0490,train,55,M,excessive thirst and frequent urination,4 weeks,7,tiredness,False,,ROUTINE
+I0047,P0202,valid,52,F,headache with dizziness,2 days,7,palpitations,False,,ROUTINE
+I0048,P0472,train,45,F,knee pain,1 years,9,difficulty walking; swelling,False,,URGENT
+I0049,P0220,train,41,F,headache with dizziness,2 weeks,7,palpitations,False,,ROUTINE
+I0050,P0462,train,46,M,fever,4 days,5,headache; body ache; skin rash,False,,ROUTINE
+I0051,P0104,train,41,F,headache with dizziness,1 weeks,5,blurred vision; palpitations,False,,ROUTINE
+I0052,P0222,train,69,F,constipation,6 weeks,5,bloating,False,,ROUTINE
+I0053,P0031,train,55,M,knee pain,2 years,4,swelling,False,,ROUTINE
+I0054,P0388,valid,11,M,fever,2 days,2,headache; skin rash,False,,ROUTINE
+I0055,P0338,train,25,F,joint pain and morning stiffness,4 years,7,swelling of joints,False,,ROUTINE
+I0056,P0017,train,26,M,cough and breathlessness,3 years,2,chest tightness; sneezing,False,,ROUTINE
+I0057,P0188,test,36,M,excessive thirst and frequent urination,4 months,8,weight loss,False,,URGENT
+I0058,P0183,train,35,M,burning in the chest and stomach after meals,2 weeks,5,sour belching; nausea,False,,ROUTINE
+I0059,P0447,train,74,F,headache with dizziness,2 days,3,palpitations,False,,ROUTINE
+I0060,P0349,test,53,M,cough and breathlessness,2 weeks,5,chest tightness; sneezing,False,,ROUTINE
+I0061,P0141,train,52,M,burning in the chest and stomach after meals,2 months,8,nausea; sour belching,False,,URGENT
+I0062,P0460,test,66,M,sudden weakness on one side and slurred speech,8 hours,10,face drooping,True,possible stroke (FAST positive),EMERGENCY
+I0063,P0056,train,44,M,fever,4 days,7,skin rash; body ache; headache,False,,ROUTINE
+I0064,P0225,train,39,M,difficulty sleeping,6 weeks,3,daytime tiredness,False,,ROUTINE
+I0065,P0416,train,39,F,pain in the abdomen,2 weeks,5,loose motions; bloating; vomiting,False,,ROUTINE
+I0066,P0365,train,44,M,excessive thirst and frequent urination,5 weeks,5,tiredness,False,,ROUTINE
+I0067,P0247,train,67,M,headache with dizziness,4 weeks,8,palpitations; blurred vision,False,,URGENT
+I0068,P0293,train,30,M,constipation,3 months,2,loss of appetite; bloating,False,,ROUTINE
+I0069,P0277,test,60,F,itching with skin rash,1 weeks,5,burning sensation,False,,ROUTINE
+I0070,P0370,train,35,F,burning in the chest and stomach after meals,1 weeks,5,sour belching,False,,ROUTINE
+I0071,P0326,train,40,F,burning in the chest and stomach after meals,2 months,8,nausea,False,,URGENT
+I0072,P0289,train,63,F,knee pain,4 years,8,difficulty walking; swelling,False,,URGENT
+I0073,P0099,train,36,F,headache with dizziness,2 days,6,blurred vision; palpitations,False,,ROUTINE
+I0074,P0476,train,42,M,fever,6 days,4,headache; body ache; skin rash,False,,ROUTINE
+I0075,P0007,train,62,F,joint pain and morning stiffness,1 months,5,tiredness; low grade fever; swelling of joints,False,,ROUTINE
+I0076,P0240,train,48,M,fever,1 days,6,body ache; skin rash,False,,ROUTINE
+I0077,P0377,train,54,M,difficulty sleeping,6 weeks,2,daytime tiredness,False,,ROUTINE
+I0078,P0351,valid,74,M,knee pain,2 months,5,swelling; difficulty walking,False,,ROUTINE
+I0079,P0396,train,28,M,pain in the abdomen,5 weeks,3,bloating; loose motions; vomiting,False,,ROUTINE
+I0080,P0064,train,50,M,knee pain,1 years,9,swelling,False,,URGENT
+I0081,P0485,train,46,M,headache with dizziness,2 days,2,palpitations,False,,ROUTINE
+I0082,P0497,test,70,F,headache with dizziness,1 weeks,7,blurred vision,False,,ROUTINE
+I0083,P0125,train,47,M,itching with skin rash,1 weeks,7,burning sensation,False,,ROUTINE
+I0084,P0324,train,38,M,burning in the chest and stomach after meals,3 weeks,4,nausea,False,,ROUTINE
+I0085,P0130,train,57,F,burning in the chest and stomach after meals,3 months,9,sour belching,False,,URGENT
+I0086,P0105,train,46,M,cough and breathlessness,2 months,5,sneezing; chest tightness,False,,ROUTINE
+I0087,P0039,train,16,M,fever,5 days,8,body ache; vomiting; skin rash,False,,URGENT
+I0088,P0036,train,26,F,fever,3 days,6,body ache; headache; skin rash,False,,ROUTINE
+I0089,P0072,test,68,F,constipation,5 weeks,5,loss of appetite; bloating,False,,ROUTINE
+I0090,P0180,train,66,F,fever,1 days,2,headache,False,,ROUTINE
+I0091,P0189,test,37,F,headache with dizziness,2 days,3,blurred vision; palpitations,False,,ROUTINE
+I0092,P0307,valid,16,M,itching with skin rash,5 months,7,oozing; burning sensation,False,,ROUTINE
+I0093,P0340,valid,52,F,low back pain,2 weeks,5,numbness in the leg,False,,ROUTINE
+I0094,P0110,train,44,F,fever,3 days,3,vomiting; headache,False,,ROUTINE
+I0095,P0191,valid,55,M,fever,6 days,5,vomiting,False,,ROUTINE
+I0096,P0210,train,75,F,knee pain,2 years,4,swelling,False,,ROUTINE
+I0097,P0238,train,18,M,itching with skin rash,6 weeks,8,oozing,False,,URGENT
+I0098,P0492,train,23,F,itching with skin rash,6 weeks,6,burning sensation; oozing,False,,ROUTINE
+I0099,P0463,train,60,F,sudden weakness on one side and slurred speech,12 hours,9,severe headache,True,possible stroke (FAST positive),EMERGENCY
+I0100,P0429,train,42,F,excessive thirst and frequent urination,5 months,8,tiredness,False,,URGENT
+I0101,P0042,train,66,F,constipation,1 months,8,loss of appetite,False,,URGENT
+I0102,P0132,train,61,M,chest pain,5 hours,9,sweating; breathlessness,True,possible acute coronary syndrome,EMERGENCY
+I0103,P0323,train,77,F,knee pain,4 years,8,swelling; difficulty walking,False,,URGENT
+I0104,P0050,valid,62,F,low back pain,2 months,3,numbness in the leg; morning stiffness,False,,ROUTINE
+I0105,P0484,train,41,F,excessive thirst and frequent urination,3 weeks,3,blurred vision; tiredness,False,,ROUTINE
+I0106,P0297,train,76,M,knee pain,2 years,6,swelling,False,,ROUTINE
+I0107,P0264,valid,28,F,fever,5 days,3,headache; skin rash,False,,ROUTINE
+I0108,P0411,train,68,F,constipation,5 weeks,7,bloating; loss of appetite,False,,ROUTINE
+I0109,P0319,train,73,M,constipation,2 weeks,9,bloating; loss of appetite,False,,URGENT
+I0110,P0443,train,28,M,cough and breathlessness,6 years,7,chest tightness; sneezing,False,,ROUTINE
+I0111,P0195,train,74,M,excessive thirst and frequent urination,3 weeks,7,tiredness,False,,ROUTINE
+I0112,P0048,train,36,F,constipation,4 weeks,5,bloating,False,,ROUTINE
+I0113,P0253,test,53,M,joint pain and morning stiffness,2 months,7,low grade fever; tiredness; swelling of joints,False,,ROUTINE
+I0114,P0295,train,75,F,knee pain,1 months,6,difficulty walking; swelling,False,,ROUTINE
+I0115,P0453,train,17,F,itching with skin rash,3 weeks,4,burning sensation,False,,ROUTINE
+I0116,P0451,train,18,F,fever,2 days,4,body ache,False,,ROUTINE
+I0117,P0088,test,66,F,excessive thirst and frequent urination,3 weeks,9,weight loss; tiredness,False,,URGENT
+I0118,P0194,train,49,M,itching with skin rash,5 weeks,4,burning sensation,False,,ROUTINE
+I0119,P0474,valid,53,F,excessive thirst and frequent urination,6 months,8,weight loss; blurred vision,False,,URGENT
+I0120,P0112,train,27,F,low back pain,5 weeks,7,numbness in the leg; morning stiffness,False,,ROUTINE
+I0121,P0372,train,80,F,sudden weakness on one side and slurred speech,5 hours,8,severe headache; difficulty speaking,True,possible stroke (FAST positive),EMERGENCY
+I0122,P0206,valid,67,M,knee pain,3 months,6,difficulty walking,False,,ROUTINE
+I0123,P0041,train,57,F,low back pain,1 months,2,numbness in the leg; morning stiffness,False,,ROUTINE
+I0124,P0126,train,63,F,cough and breathlessness,3 years,3,chest tightness,False,,ROUTINE
+I0125,P0107,test,54,F,cough and breathlessness,3 weeks,4,chest tightness,False,,ROUTINE
+I0126,P0111,train,40,M,cough and breathlessness,2 months,6,sneezing,False,,ROUTINE
+I0127,P0461,train,55,F,headache with dizziness,5 days,3,palpitations; blurred vision,False,,ROUTINE
+I0128,P0127,train,63,M,pain in the abdomen,4 days,5,vomiting; loose motions; bloating,False,,ROUTINE
+I0129,P0186,train,56,M,low back pain,6 weeks,3,numbness in the leg,False,,ROUTINE
+I0130,P0020,train,32,M,itching with skin rash,1 months,3,oozing; burning sensation,False,,ROUTINE
+I0131,P0481,valid,72,M,excessive thirst and frequent urination,1 weeks,2,weight loss; blurred vision,False,,ROUTINE
+I0132,P0083,train,42,F,fever,6 days,7,skin rash; vomiting; headache,False,,ROUTINE
+I0133,P0341,train,41,F,low back pain,1 months,7,morning stiffness; numbness in the leg,False,,ROUTINE
+I0134,P0010,train,41,M,headache with dizziness,2 weeks,5,blurred vision; palpitations,False,,ROUTINE
+I0135,P0012,train,39,M,headache with dizziness,2 days,4,blurred vision; palpitations,False,,ROUTINE
+I0136,P0217,train,25,M,low back pain,2 weeks,2,morning stiffness; numbness in the leg,False,,ROUTINE
+I0137,P0121,train,54,M,fever,1 days,3,headache,False,,ROUTINE
+I0138,P0466,train,49,F,low back pain,6 weeks,4,numbness in the leg; morning stiffness,False,,ROUTINE
+I0139,P0166,train,72,F,constipation,5 months,3,bloating,False,,ROUTINE
+I0140,P0278,train,73,M,headache with dizziness,5 days,4,palpitations,False,,ROUTINE
+I0141,P0436,test,57,M,headache with dizziness,1 days,5,blurred vision; palpitations,False,,ROUTINE
+I0142,P0438,train,75,F,knee pain,1 years,4,difficulty walking,False,,ROUTINE
+I0143,P0346,valid,65,M,joint pain and morning stiffness,1 months,6,swelling of joints; tiredness; low grade fever,False,,ROUTINE
+I0144,P0016,train,29,F,pain in the abdomen,5 weeks,3,vomiting; loose motions,False,,ROUTINE
+I0145,P0394,train,51,F,cough and breathlessness,2 weeks,3,chest tightness,False,,ROUTINE
+I0146,P0047,train,41,M,pain in the abdomen,3 weeks,8,bloating; vomiting,False,,URGENT
+I0147,P0348,train,48,F,excessive thirst and frequent urination,1 months,9,tiredness,False,,URGENT
+I0148,P0027,train,67,M,excessive thirst and frequent urination,6 weeks,2,weight loss; tiredness; blurred vision,False,,ROUTINE
+I0149,P0495,train,69,M,headache with dizziness,2 days,6,blurred vision,False,,ROUTINE
+I0150,P0500,test,45,F,excessive thirst and frequent urination,3 weeks,5,tiredness; weight loss; blurred vision,False,,ROUTINE
+I0151,P0150,test,62,F,headache with dizziness,5 days,5,blurred vision,False,,ROUTINE
+I0152,P0398,train,64,F,chest pain,7 days,9,breathlessness,True,possible acute coronary syndrome,EMERGENCY
+I0153,P0480,train,66,F,knee pain,3 years,6,difficulty walking,False,,ROUTINE
+I0154,P0358,train,26,M,burning in the chest and stomach after meals,3 weeks,6,nausea,False,,ROUTINE
+I0155,P0229,train,46,M,fever,2 days,5,skin rash; vomiting; body ache,False,,ROUTINE
+I0156,P0103,test,37,F,excessive thirst and frequent urination,1 months,2,blurred vision; tiredness; weight loss,False,,ROUTINE
+I0157,P0417,train,49,M,headache with dizziness,3 days,6,palpitations,False,,ROUTINE
+I0158,P0058,train,69,M,chest pain,5 hours,7,sweating; breathlessness,True,possible acute coronary syndrome,EMERGENCY
+I0159,P0252,valid,38,F,fever,5 days,3,vomiting; headache,False,,ROUTINE
+I0160,P0011,train,46,F,cough and breathlessness,5 years,2,chest tightness,False,,ROUTINE
+I0161,P0198,train,74,M,knee pain,4 years,6,swelling,False,,ROUTINE
+I0162,P0071,train,58,F,cough and breathlessness,2 months,9,sneezing,False,,URGENT
+I0163,P0085,train,39,F,headache with dizziness,1 days,7,palpitations,False,,ROUTINE
+I0164,P0158,train,39,M,difficulty sleeping,4 weeks,9,daytime tiredness,False,,URGENT
+I0165,P0040,train,66,F,knee pain,3 months,6,swelling,False,,ROUTINE
+I0166,P0344,test,66,F,cough and breathlessness,6 weeks,7,chest tightness; sneezing,False,,ROUTINE
+I0167,P0073,train,49,M,fever,1 days,3,headache; body ache; vomiting,False,,ROUTINE
+I0168,P0256,train,47,M,burning in the chest and stomach after meals,3 months,2,sour belching; nausea,False,,ROUTINE
+I0169,P0089,valid,51,F,cough and breathlessness,3 years,2,chest tightness; sneezing,False,,ROUTINE
+I0170,P0446,test,21,M,itching with skin rash,2 weeks,9,oozing,False,,URGENT
+I0171,P0360,test,73,F,excessive thirst and frequent urination,6 months,8,tiredness,False,,URGENT
+I0172,P0301,train,70,F,constipation,2 months,4,bloating,False,,ROUTINE
+I0173,P0274,valid,70,F,difficulty sleeping,5 months,6,anxiety; daytime tiredness,False,,ROUTINE
+I0174,P0246,train,37,M,difficulty sleeping,3 weeks,8,daytime tiredness; anxiety,False,,URGENT
+I0175,P0361,train,36,F,fever,3 days,2,skin rash,False,,ROUTINE
+I0176,P0489,valid,64,M,burning in the chest and stomach after meals,5 weeks,7,nausea,False,,ROUTINE
+I0177,P0149,train,39,F,headache with dizziness,5 days,3,palpitations,False,,ROUTINE
+I0178,P0276,train,44,M,headache with dizziness,4 weeks,4,blurred vision,False,,ROUTINE
+I0179,P0496,train,48,M,excessive thirst and frequent urination,5 weeks,2,tiredness; weight loss,False,,ROUTINE
+I0180,P0450,train,44,M,low back pain,3 months,8,morning stiffness,False,,URGENT
+I0181,P0491,train,53,M,burning in the chest and stomach after meals,3 weeks,9,nausea,False,,URGENT
+I0182,P0475,train,46,M,low back pain,1 months,7,numbness in the leg,False,,ROUTINE
+I0183,P0069,train,63,F,joint pain and morning stiffness,5 years,7,tiredness; low grade fever; swelling of joints,False,,ROUTINE
+I0184,P0077,train,35,F,itching with skin rash,5 weeks,2,burning sensation,False,,ROUTINE
+I0185,P0094,train,71,F,chest pain,9 days,9,breathlessness; nausea,True,possible acute coronary syndrome,EMERGENCY
+I0186,P0371,train,41,M,constipation,4 weeks,6,bloating,False,,ROUTINE
+I0187,P0101,train,66,F,headache with dizziness,6 days,3,blurred vision,False,,ROUTINE
+I0188,P0211,train,75,M,headache with dizziness,4 weeks,3,palpitations,False,,ROUTINE
+I0189,P0300,train,16,M,itching with skin rash,6 months,6,oozing,False,,ROUTINE
+I0190,P0382,train,48,F,burning in the chest and stomach after meals,6 months,2,sour belching; nausea,False,,ROUTINE
+I0191,P0038,train,45,M,cough and breathlessness,3 weeks,6,chest tightness; sneezing,False,,ROUTINE
+I0192,P0078,train,41,M,cough and breathlessness,4 months,6,sneezing; chest tightness,False,,ROUTINE
+I0193,P0147,train,22,F,constipation,6 months,9,bloating; loss of appetite,False,,URGENT
+I0194,P0134,train,78,F,knee pain,4 months,8,difficulty walking; swelling,False,,URGENT
+I0195,P0459,test,64,F,fever,1 days,8,body ache; vomiting; skin rash,False,,URGENT
+I0196,P0376,train,69,F,pain in the abdomen,2 weeks,3,bloating; vomiting; loose motions,False,,ROUTINE
+I0197,P0008,train,34,M,joint pain and morning stiffness,5 months,6,low grade fever; tiredness; swelling of joints,False,,ROUTINE
+I0198,P0209,train,60,F,chest pain,5 days,7,sweating,True,possible acute coronary syndrome,EMERGENCY
+I0199,P0005,train,47,F,knee pain,1 years,3,swelling; difficulty walking,False,,ROUTINE
+I0200,P0337,train,58,F,burning in the chest and stomach after meals,3 months,5,sour belching,False,,ROUTINE
+I0201,P0355,train,42,F,headache with dizziness,5 weeks,4,palpitations; blurred vision,False,,ROUTINE
+I0202,P0317,train,67,F,fever,2 days,7,vomiting; skin rash; body ache,False,,ROUTINE
+I0203,P0028,train,28,M,low back pain,2 months,9,numbness in the leg,False,,URGENT
+I0204,P0218,valid,64,F,difficulty sleeping,2 weeks,6,daytime tiredness; anxiety,False,,ROUTINE
+I0205,P0118,train,38,M,low back pain,2 weeks,9,numbness in the leg; morning stiffness,False,,URGENT
+I0206,P0030,train,35,M,difficulty sleeping,3 months,2,daytime tiredness; anxiety,False,,ROUTINE
+I0207,P0100,test,66,F,knee pain,4 years,6,difficulty walking; swelling,False,,ROUTINE
+I0208,P0421,train,79,F,knee pain,2 years,2,swelling; difficulty walking,False,,ROUTINE
+I0209,P0181,train,38,M,joint pain and morning stiffness,2 months,6,tiredness; swelling of joints,False,,ROUTINE
+I0210,P0109,train,21,F,burning in the chest and stomach after meals,5 weeks,8,sour belching,False,,URGENT
+I0211,P0086,train,60,F,itching with skin rash,1 weeks,6,oozing; burning sensation,False,,ROUTINE
+I0212,P0362,train,47,F,excessive thirst and frequent urination,3 weeks,3,blurred vision; weight loss; tiredness,False,,ROUTINE
+I0213,P0386,test,25,M,low back pain,6 months,5,numbness in the leg,False,,ROUTINE
+I0214,P0357,train,42,M,cough and breathlessness,3 months,3,sneezing; chest tightness,False,,ROUTINE
+I0215,P0242,valid,32,F,itching with skin rash,1 months,6,burning sensation; oozing,False,,ROUTINE
+I0216,P0303,train,52,F,sudden weakness on one side and slurred speech,10 hours,10,face drooping; difficulty speaking; severe headache,True,possible stroke (FAST positive),EMERGENCY
+I0217,P0291,train,23,F,burning in the chest and stomach after meals,4 weeks,4,sour belching,False,,ROUTINE
+I0218,P0009,train,18,M,itching with skin rash,6 months,8,burning sensation; oozing,False,,URGENT
+I0219,P0065,train,48,F,chest pain,8 days,7,breathlessness; sweating,True,possible acute coronary syndrome,EMERGENCY
+I0220,P0113,train,35,M,excessive thirst and frequent urination,4 weeks,2,weight loss,False,,ROUTINE
+I0221,P0169,train,75,M,knee pain,6 years,8,swelling,False,,URGENT
+I0222,P0173,train,47,F,knee pain,5 years,9,difficulty walking,False,,URGENT
+I0223,P0139,train,57,F,excessive thirst and frequent urination,4 weeks,3,weight loss,False,,ROUTINE
+I0224,P0488,train,26,M,pain in the abdomen,3 weeks,3,loose motions; bloating,False,,ROUTINE
+I0225,P0115,train,41,F,burning in the chest and stomach after meals,1 weeks,8,nausea; sour belching,False,,URGENT
+I0226,P0123,train,38,F,headache with dizziness,3 weeks,8,palpitations,False,,URGENT
+I0227,P0022,test,50,F,cough and breathlessness,4 years,3,chest tightness,False,,ROUTINE
+I0228,P0310,valid,68,F,headache with dizziness,2 weeks,9,palpitations; blurred vision,False,,URGENT
+I0229,P0356,train,63,M,low back pain,4 weeks,2,morning stiffness; numbness in the leg,False,,ROUTINE
+I0230,P0273,train,51,F,excessive thirst and frequent urination,5 weeks,3,tiredness,False,,ROUTINE
+I0231,P0033,train,42,M,chest pain,3 hours,8,breathlessness; sweating,True,possible acute coronary syndrome,EMERGENCY
+I0232,P0237,train,45,M,headache with dizziness,5 days,6,blurred vision; palpitations,False,,ROUTINE
+I0233,P0223,train,62,M,chest pain,6 hours,10,nausea; sweating,True,possible acute coronary syndrome,EMERGENCY
+I0234,P0018,train,80,F,knee pain,6 years,3,difficulty walking,False,,ROUTINE
+I0235,P0454,train,27,F,burning in the chest and stomach after meals,6 months,8,nausea; sour belching,False,,URGENT
+I0236,P0208,train,18,F,cough and breathlessness,5 months,8,sneezing; chest tightness,False,,URGENT
+I0237,P0187,train,6,M,fever,5 days,8,skin rash,False,,URGENT
+I0238,P0329,valid,71,M,headache with dizziness,6 weeks,6,palpitations,False,,ROUTINE
+I0239,P0135,valid,44,F,excessive thirst and frequent urination,3 months,4,weight loss,False,,ROUTINE
+I0240,P0465,train,19,M,fever,5 days,8,body ache,False,,URGENT
+I0241,P0117,train,67,F,headache with dizziness,2 weeks,8,palpitations; blurred vision,False,,URGENT
+I0242,P0250,train,46,F,knee pain,1 years,7,difficulty walking; swelling,False,,ROUTINE
+I0243,P0400,train,68,F,cough and breathlessness,6 years,5,chest tightness; sneezing,False,,ROUTINE
+I0244,P0015,train,57,F,chest pain,7 hours,7,breathlessness; nausea,True,possible acute coronary syndrome,EMERGENCY
+I0245,P0203,train,52,F,low back pain,2 months,9,numbness in the leg,False,,URGENT
+I0246,P0259,train,61,M,headache with dizziness,4 weeks,3,palpitations,False,,ROUTINE
+I0247,P0248,train,39,M,low back pain,2 months,7,morning stiffness; numbness in the leg,False,,ROUTINE
+I0248,P0224,train,75,F,knee pain,1 years,4,swelling,False,,ROUTINE
+I0249,P0486,train,48,F,headache with dizziness,5 weeks,5,blurred vision; palpitations,False,,ROUTINE
+I0250,P0343,train,38,M,excessive thirst and frequent urination,4 months,4,blurred vision; weight loss,False,,ROUTINE
+I0251,P0393,train,38,M,excessive thirst and frequent urination,1 months,3,weight loss; tiredness,False,,ROUTINE
+I0252,P0498,train,12,M,itching with skin rash,5 months,6,oozing; burning sensation,False,,ROUTINE
+I0253,P0381,train,43,F,difficulty sleeping,4 weeks,3,anxiety; daytime tiredness,False,,ROUTINE
+I0254,P0102,train,53,F,low back pain,2 months,7,numbness in the leg; morning stiffness,False,,ROUTINE
+I0255,P0426,train,54,F,chest pain,2 hours,9,sweating,True,possible acute coronary syndrome,EMERGENCY
+I0256,P0316,valid,62,M,fever,6 days,3,skin rash; body ache,False,,ROUTINE
+I0257,P0275,train,58,M,burning in the chest and stomach after meals,5 months,5,nausea,False,,ROUTINE
+I0258,P0192,test,50,M,excessive thirst and frequent urination,2 months,7,tiredness; blurred vision; weight loss,False,,ROUTINE
+I0259,P0284,train,35,M,excessive thirst and frequent urination,4 weeks,6,weight loss; tiredness,False,,ROUTINE
+I0260,P0260,valid,46,M,low back pain,3 months,5,numbness in the leg; morning stiffness,False,,ROUTINE
+I0261,P0412,train,79,M,knee pain,3 years,2,difficulty walking,False,,ROUTINE
+I0262,P0054,valid,49,M,knee pain,3 years,3,swelling; difficulty walking,False,,ROUTINE
+I0263,P0124,train,32,F,low back pain,4 months,4,numbness in the leg,False,,ROUTINE
+I0264,P0175,test,23,M,constipation,3 weeks,4,bloating,False,,ROUTINE
+I0265,P0366,train,63,F,fever,2 days,3,headache; skin rash,False,,ROUTINE
+I0266,P0019,train,70,M,low back pain,3 months,3,numbness in the leg,False,,ROUTINE
+I0267,P0154,train,30,F,cough and breathlessness,4 weeks,7,sneezing; chest tightness,False,,ROUTINE
+I0268,P0392,train,62,M,low back pain,2 weeks,4,morning stiffness,False,,ROUTINE
+I0269,P0390,valid,60,M,excessive thirst and frequent urination,1 months,4,blurred vision; weight loss,False,,ROUTINE
+I0270,P0306,train,45,F,pain in the abdomen,5 weeks,5,loose motions,False,,ROUTINE
+I0271,P0414,test,25,F,itching with skin rash,2 weeks,6,oozing; burning sensation,False,,ROUTINE
+I0272,P0279,train,66,M,excessive thirst and frequent urination,5 weeks,3,tiredness,False,,ROUTINE
+I0273,P0205,train,42,F,difficulty sleeping,1 months,7,anxiety,False,,ROUTINE
+I0274,P0493,valid,39,M,low back pain,1 months,4,morning stiffness,False,,ROUTINE
+I0275,P0288,train,44,F,chest pain,8 hours,9,breathlessness; nausea; sweating,True,possible acute coronary syndrome,EMERGENCY
+I0276,P0315,train,35,F,low back pain,3 weeks,8,numbness in the leg,False,,URGENT
+I0277,P0345,test,11,F,cough and breathlessness,5 weeks,2,chest tightness,False,,ROUTINE
+I0278,P0266,train,45,F,itching with skin rash,6 months,8,oozing; burning sensation,False,,URGENT
+I0279,P0004,train,70,F,low back pain,6 weeks,7,morning stiffness,False,,ROUTINE
+I0280,P0164,train,45,M,cough and breathlessness,2 months,4,chest tightness,False,,ROUTINE
+I0281,P0318,train,54,M,knee pain,2 months,7,difficulty walking,False,,ROUTINE
+I0282,P0441,train,63,F,low back pain,6 months,9,numbness in the leg,False,,URGENT
+I0283,P0308,train,62,F,pain in the abdomen,5 days,3,loose motions; vomiting; bloating,False,,ROUTINE
+I0284,P0159,train,67,M,cough and breathlessness,5 weeks,7,chest tightness; sneezing,False,,ROUTINE
+I0285,P0080,train,64,F,excessive thirst and frequent urination,2 months,4,tiredness,False,,ROUTINE
+I0286,P0243,train,21,M,burning in the chest and stomach after meals,3 weeks,4,nausea,False,,ROUTINE
+I0287,P0051,test,53,M,chest pain,8 hours,8,sweating; breathlessness; nausea,True,possible acute coronary syndrome,EMERGENCY
+I0288,P0014,valid,53,M,sudden weakness on one side and slurred speech,4 hours,8,difficulty speaking; severe headache; face drooping,True,possible stroke (FAST positive),EMERGENCY
+I0289,P0444,test,75,F,sudden weakness on one side and slurred speech,7 hours,7,severe headache; face drooping,True,possible stroke (FAST positive),EMERGENCY
+I0290,P0482,train,49,F,burning in the chest and stomach after meals,3 months,2,sour belching,False,,ROUTINE
+I0291,P0442,valid,39,M,fever,6 days,8,skin rash,False,,URGENT
+I0292,P0157,train,73,M,knee pain,4 months,7,swelling; difficulty walking,False,,ROUTINE
+I0293,P0170,test,78,F,knee pain,6 years,4,difficulty walking,False,,ROUTINE
+I0294,P0471,train,70,F,low back pain,4 weeks,8,morning stiffness; numbness in the leg,False,,URGENT
+I0295,P0075,train,28,F,itching with skin rash,5 weeks,7,oozing,False,,ROUTINE
+I0296,P0422,train,46,F,knee pain,5 months,3,difficulty walking; swelling,False,,ROUTINE
+I0297,P0335,train,58,M,burning in the chest and stomach after meals,1 weeks,8,sour belching,False,,URGENT
+I0298,P0095,train,32,M,pain in the abdomen,5 days,5,vomiting,False,,ROUTINE
+I0299,P0172,train,75,M,headache with dizziness,4 weeks,8,palpitations,False,,URGENT
+I0300,P0440,train,15,F,pain in the abdomen,5 weeks,6,loose motions; bloating; vomiting,False,,ROUTINE

@@ -1,0 +1,321 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0497",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-9970-6954-5854"
+     }
+    ],
+    "name": [
+     {
+      "text": "Meena Iyer"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0497",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0497"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0082",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "70-year-old female presenting with headache with dizziness for 1 weeks. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by stress; relieved by rest. Severity 7/10. Associated: blurred vision. PMH: Type 2 diabetes for 6 years; Hypertension for 1 years. Drugs: Metformin 500 mg; Amlodipine 5 mg. Allergy: dust. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0497",
+    "patient": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00885-Fasting_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Fasting Blood Sugar"
+    },
+    "effectiveDateTime": "2025-04-29",
+    "valueQuantity": {
+     "value": 80.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00885-Post-prandial_Blood_Sugar",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Post-prandial Blood Sugar"
+    },
+    "effectiveDateTime": "2025-04-29",
+    "valueQuantity": {
+     "value": 97.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00885-HbA1c",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "HbA1c"
+    },
+    "effectiveDateTime": "2025-04-29",
+    "valueQuantity": {
+     "value": 4.6,
+     "unit": "%"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00886-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-07-16",
+    "valueQuantity": {
+     "value": 7.52,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00886-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-07-16",
+    "valueQuantity": {
+     "value": 192.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00886-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-07-16",
+    "valueQuantity": {
+     "value": 64.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00886-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-07-16",
+    "valueQuantity": {
+     "value": 0.0,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00887-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-10-23",
+    "valueQuantity": {
+     "value": 1.52,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00887-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-10-23",
+    "valueQuantity": {
+     "value": 55.3,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00887-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0497"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-10-23",
+    "valueQuantity": {
+     "value": 4.27,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

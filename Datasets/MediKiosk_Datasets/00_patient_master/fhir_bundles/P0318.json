@@ -1,0 +1,148 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0318",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-5088-4671-5179"
+     }
+    ],
+    "name": [
+     {
+      "text": "Mohan Yadav"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0318",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0318"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0281",
+    "subject": {
+     "reference": "Patient/P0318"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "54-year-old male presenting with knee pain for 2 months. Character: dull aching pain; radiation: to the calf; aggravated by climbing stairs; relieved by rest. Severity 7/10. Associated: difficulty walking. PMH: none. Drugs: none. Allergy: no known allergies. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00566-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0318"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-01-04",
+    "valueQuantity": {
+     "value": 12.31,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00566-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0318"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-01-04",
+    "valueQuantity": {
+     "value": 0.11,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00566-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0318"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-01-04",
+    "valueQuantity": {
+     "value": 8.11,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

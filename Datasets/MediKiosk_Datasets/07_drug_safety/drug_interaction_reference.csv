@@ -1,0 +1,10 @@
+﻿drug_a,drug_b,severity,note,evidence
+aspirin,ibuprofen,Moderate,NSAID may blunt antiplatelet effect of aspirin; GI bleed risk,Established
+aspirin,diclofenac,Moderate,Additive GI bleeding risk,Established
+metformin,alcohol,Moderate,Risk of lactic acidosis with heavy alcohol intake,Established
+levothyroxine,ashwagandha,Moderate,Ashwagandha may raise thyroid hormone levels; monitor TFT,Limited
+levothyroxine,guggulu,Mild,Guggulu may alter thyroid function; flag for review,Limited
+amlodipine,sarpagandha,Moderate,Additive blood-pressure lowering; risk of hypotension,Limited
+metformin,gudmar,Moderate,Additive hypoglycaemic effect; monitor glucose,Limited
+diclofenac,amlodipine,Mild,NSAIDs may reduce antihypertensive effect,Established
+ibuprofen,diclofenac,Major,Duplicate NSAID therapy,Established

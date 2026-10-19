@@ -1,0 +1,109 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0346",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7317-2077-9016"
+     }
+    ],
+    "name": [
+     {
+      "text": "Arjun Banerjee"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0346",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0346"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0143",
+    "subject": {
+     "reference": "Patient/P0346"
+    },
+    "code": {
+     "text": "joint pain and morning stiffness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M06.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "65-year-old male presenting with joint pain and morning stiffness for 1 months. Character: pain in small joints of both hands; radiation: n/a; aggravated by cold weather; relieved by warm water bath. Severity 6/10. Associated: swelling of joints, tiredness, low grade fever. PMH: none. Drugs: none. Allergy: peanuts. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0346",
+    "patient": {
+     "reference": "Patient/P0346"
+    },
+    "code": {
+     "text": "peanuts"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00617-1626",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0346"
+    },
+    "medicationCodeableConcept": {
+     "text": "Simhanada guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  }
+ ]
+}

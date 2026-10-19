@@ -1,0 +1,79 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0299",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8992-5844-9421"
+     }
+    ],
+    "name": [
+     {
+      "text": "Pooja Singh"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0299",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0299"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0044",
+    "subject": {
+     "reference": "Patient/P0299"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "52-year-old female presenting with pain in the abdomen for 1 days. Character: burning pain; radiation: to the back; aggravated by after eating; relieved by lying curled up. Severity 9/10. Associated: vomiting. PMH: none. Drugs: none. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0132",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Mohan Reddy"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0132",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0132"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0102",
+    "subject": {
+     "reference": "Patient/P0132"
+    },
+    "code": {
+     "text": "chest pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R07.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "61-year-old male presenting with chest pain for 5 hours. Character: squeezing pain; radiation: it does not spread; aggravated by walking or climbing stairs; relieved by rest. Severity 9/10. Associated: sweating, breathlessness. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: EMERGENCY."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00221-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0132"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 336.6,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00221-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0132"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 174.5,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00221-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0132"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 91.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00221-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0132"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-01-05",
+    "valueQuantity": {
+     "value": 0.09,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

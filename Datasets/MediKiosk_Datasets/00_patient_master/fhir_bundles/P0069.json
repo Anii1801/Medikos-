@@ -1,0 +1,128 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0069",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Radha Das"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0069",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0069"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0183",
+    "subject": {
+     "reference": "Patient/P0069"
+    },
+    "code": {
+     "text": "joint pain and morning stiffness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M06.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "63-year-old female presenting with joint pain and morning stiffness for 5 years. Character: pain in small joints of both hands; radiation: n/a; aggravated by cold weather; relieved by warm water bath. Severity 7/10. Associated: tiredness, low grade fever, swelling of joints. PMH: Asthma since childhood. Drugs: Salbutamol inhaler 100 mcg. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00120-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0069"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00120-1626",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0069"
+    },
+    "medicationCodeableConcept": {
+     "text": "Simhanada guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00120-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0069"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  }
+ ]
+}

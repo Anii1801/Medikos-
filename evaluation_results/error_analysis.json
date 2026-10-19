@@ -1,0 +1,16 @@
+{
+  "status": "pending",
+  "reason": "No permissioned paired system outputs with source annotations are bundled.",
+  "required_categories": [
+    "omission",
+    "unsupported_claim",
+    "negation",
+    "number_or_duration",
+    "code_switch",
+    "poor_ocr",
+    "model_outage",
+    "false_negative",
+    "false_positive"
+  ],
+  "method": "stratify held-out paired outputs by language, task, entity type and error category; retain row identifiers and source evidence"
+}

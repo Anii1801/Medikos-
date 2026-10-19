@@ -1,0 +1,1393 @@
+﻿patient_id,event_date,event_type,facility,summary,split
+P0001,2025-04-30,lab_report,District Hospital Agra,CBC: 0 abnormal of 4 tests,train
+P0001,2026-03-06,visit,General Medicine,Follow-up at General Medicine,train
+P0002,2025-03-01,prescription,Pathcare Diagnostics,Diclofenac 50 mg; Yogaraj guggulu 2 tab,valid
+P0002,2025-10-03,lab_report,AIIA Delhi OPD,Inflammatory: 0 abnormal of 3 tests,valid
+P0002,2026-03-23,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,valid
+P0002,2026-08-10,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0003,2025-11-01,prescription,District Hospital Agra,Levothyroxine 50 mcg; Dashmoolarishta 20 ml; Triphala churna 5 g,train
+P0003,2026-04-27,visit,Panchakarma,First visit at Panchakarma,train
+P0003,2026-08-07,lab_report,Sunrise Pathology Lab,Thyroid: 0 abnormal of 1 tests,train
+P0004,2025-07-30,prescription,District Hospital Agra,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0004,2026-07-26,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0005,2025-06-08,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,train
+P0005,2025-12-07,prescription,AIIA Delhi OPD,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0005,2026-01-24,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0005,2026-08-24,prescription,District Hospital Agra,Diclofenac 50 mg,train
+P0006,2026-02-04,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0006,2026-05-21,prescription,AIIA Delhi OPD,Metformin 500 mg,train
+P0007,2025-04-17,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab; Diclofenac 50 mg; Ashwagandha churna 3 g,train
+P0007,2026-06-08,visit,Panchakarma,First visit at Panchakarma,train
+P0007,2026-07-16,lab_report,AIIA Delhi OPD,Inflammatory: 2 abnormal of 3 tests,train
+P0008,2025-09-22,prescription,AIIA Delhi OPD,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0008,2025-12-03,lab_report,Community Health Centre,Inflammatory: 3 abnormal of 3 tests,train
+P0008,2026-07-21,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0009,2025-01-22,prescription,Pathcare Diagnostics,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0009,2025-06-24,prescription,AIIA Delhi OPD,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0009,2026-07-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0010,2025-12-28,lab_report,Community Health Centre,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0010,2026-02-24,visit,General Medicine,Follow-up at General Medicine,train
+P0010,2026-05-29,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0011,2025-01-08,prescription,Community Health Centre,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0011,2025-08-16,prescription,District Hospital Agra,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0011,2026-02-11,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0012,2025-08-07,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 0 abnormal of 4 tests,train
+P0012,2025-12-15,prescription,Sunrise Pathology Lab,Metformin 500 mg; Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0012,2026-06-02,visit,General Medicine,Follow-up at General Medicine,train
+P0012,2026-06-30,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0012,2026-07-05,lab_report,District Hospital Agra,Diabetes panel: 1 abnormal of 3 tests,train
+P0013,2025-12-24,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0013,2026-05-24,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0014,2025-05-08,prescription,District Hospital Agra,Salbutamol inhaler 100 mcg; Aspirin 75 mg,valid
+P0014,2025-06-21,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,valid
+P0014,2026-02-28,visit,General Medicine,Follow-up at General Medicine,valid
+P0015,2025-02-23,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0015,2025-12-20,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 2 abnormal of 4 tests,train
+P0015,2026-03-21,prescription,Sunrise Pathology Lab,Metformin 500 mg; Aspirin 75 mg; Atorvastatin 20 mg,train
+P0015,2026-04-03,visit,General Medicine,Follow-up at General Medicine,train
+P0016,2025-11-11,prescription,Community Health Centre,Dicyclomine 10 mg,train
+P0016,2026-04-06,visit,General Medicine,First visit at General Medicine,train
+P0017,2025-09-07,prescription,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Triphala churna 5 g,train
+P0017,2025-09-13,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Triphala churna 5 g,train
+P0017,2026-07-07,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0018,2025-01-18,lab_report,Sunrise Pathology Lab,Renal + liver: 2 abnormal of 3 tests,train
+P0018,2025-03-13,lab_report,Pathcare Diagnostics,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0018,2025-08-21,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0018,2026-05-12,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0019,2025-01-27,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 0 abnormal of 3 tests,train
+P0019,2026-04-27,visit,Panchakarma,First visit at Panchakarma,train
+P0019,2026-07-10,prescription,District Hospital Agra,Metformin 500 mg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0020,2025-05-22,prescription,District Hospital Agra,Cetirizine 10 mg,train
+P0020,2026-03-31,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0021,2026-03-17,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0022,2025-03-05,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,test
+P0022,2025-09-29,prescription,District Hospital Agra,Metformin 500 mg; Salbutamol inhaler 100 mcg,test
+P0022,2026-01-03,visit,General Medicine,First visit at General Medicine,test
+P0023,2025-04-06,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0023,2025-10-01,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0023,2026-01-06,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sarpagandha vati 1 tab; Ashwagandha churna 3 g,train
+P0023,2026-05-18,visit,General Medicine,Follow-up at General Medicine,train
+P0023,2026-07-04,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sarpagandha vati 1 tab,train
+P0024,2025-04-19,prescription,Dr. Lal Labs (dummy),Triphala churna 5 g,train
+P0024,2026-07-07,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0025,2025-01-17,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0025,2025-07-18,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0025,2026-07-28,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0026,2025-10-01,prescription,AIIA Delhi OPD,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0026,2025-12-04,lab_report,AIIA Delhi OPD,Inflammatory: 2 abnormal of 3 tests,train
+P0026,2026-03-03,visit,Panchakarma,First visit at Panchakarma,train
+P0026,2026-08-17,prescription,Sunrise Pathology Lab,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0027,2026-02-16,prescription,Dr. Lal Labs (dummy),Metformin 500 mg,train
+P0027,2026-07-24,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0028,2026-04-04,visit,Panchakarma,Follow-up at Panchakarma,train
+P0029,2025-12-09,prescription,Pathcare Diagnostics,Levothyroxine 50 mcg; Cetirizine 10 mg; Neem capsule 500 mg,train
+P0029,2025-12-21,prescription,Dr. Lal Labs (dummy),Levothyroxine 50 mcg; Cetirizine 10 mg; Neem capsule 500 mg,train
+P0029,2026-08-02,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0030,2025-01-24,prescription,AIIA Delhi OPD,Ashwagandha churna 3 g,train
+P0030,2026-01-21,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0031,2025-07-25,lab_report,AIIA Delhi OPD,Inflammatory: 2 abnormal of 3 tests,train
+P0031,2026-02-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0031,2026-02-10,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,train
+P0031,2026-02-16,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0031,2026-08-21,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0032,2025-11-11,lab_report,AIIA Delhi OPD,CBC: 1 abnormal of 4 tests,train
+P0032,2026-03-17,visit,General Medicine,First visit at General Medicine,train
+P0033,2025-12-27,prescription,Pathcare Diagnostics,Atorvastatin 20 mg,train
+P0033,2026-01-19,visit,General Medicine,Follow-up at General Medicine,train
+P0033,2026-02-14,lab_report,Pathcare Diagnostics,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0034,2025-08-26,prescription,District Hospital Agra,Triphala churna 5 g,train
+P0034,2026-03-04,prescription,AIIA Delhi OPD,Triphala churna 5 g,train
+P0034,2026-05-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0035,2026-05-31,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0036,2025-05-29,lab_report,District Hospital Agra,Thyroid: 1 abnormal of 1 tests,train
+P0036,2026-01-29,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Levothyroxine 50 mcg; Paracetamol 650 mg,train
+P0036,2026-08-14,visit,General Medicine,First visit at General Medicine,train
+P0037,2025-03-29,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 0 abnormal of 4 tests,train
+P0037,2026-07-06,visit,General Medicine,First visit at General Medicine,train
+P0038,2026-06-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0039,2026-06-11,visit,General Medicine,Follow-up at General Medicine,train
+P0040,2025-10-21,prescription,Pathcare Diagnostics,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0040,2026-02-10,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0040,2026-03-29,lab_report,AIIA Delhi OPD,Inflammatory: 0 abnormal of 3 tests,train
+P0041,2026-04-23,visit,Panchakarma,Follow-up at Panchakarma,train
+P0042,2026-05-16,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,train
+P0042,2026-06-07,visit,Panchakarma,Follow-up at Panchakarma,train
+P0043,2025-08-17,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,train
+P0043,2025-12-06,prescription,AIIA Delhi OPD,Metformin 500 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0043,2026-06-28,prescription,Pathcare Diagnostics,Metformin 500 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0043,2026-08-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0044,2025-02-26,lab_report,Pathcare Diagnostics,Thyroid: 0 abnormal of 1 tests,valid
+P0044,2025-03-18,prescription,Pathcare Diagnostics,Levothyroxine 50 mcg; Yogaraj guggulu 2 tab,valid
+P0044,2025-11-06,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,valid
+P0044,2026-07-28,visit,Panchakarma,First visit at Panchakarma,valid
+P0045,2025-07-11,lab_report,Community Health Centre,CBC: 2 abnormal of 4 tests,train
+P0045,2026-01-28,visit,General Medicine,Follow-up at General Medicine,train
+P0045,2026-03-15,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0046,2025-01-17,lab_report,Community Health Centre,Inflammatory: 2 abnormal of 3 tests,train
+P0046,2025-02-17,prescription,AIIA Delhi OPD,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0046,2026-01-26,visit,Panchakarma,First visit at Panchakarma,train
+P0046,2026-06-01,prescription,District Hospital Agra,Simhanada guggulu 2 tab; Diclofenac 50 mg; Ashwagandha churna 3 g,train
+P0047,2025-09-25,prescription,Community Health Centre,Dicyclomine 10 mg,train
+P0047,2026-05-28,visit,General Medicine,First visit at General Medicine,train
+P0048,2025-11-07,prescription,AIIA Delhi OPD,Triphala churna 5 g,train
+P0048,2026-03-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0049,2025-12-26,prescription,Pathcare Diagnostics,Dicyclomine 10 mg,test
+P0049,2026-07-13,visit,General Medicine,Follow-up at General Medicine,test
+P0050,2025-05-20,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Levothyroxine 50 mcg; Dashmoolarishta 20 ml,valid
+P0050,2026-01-23,lab_report,AIIA Delhi OPD,Thyroid: 0 abnormal of 1 tests,valid
+P0050,2026-03-07,visit,Panchakarma,Follow-up at Panchakarma,valid
+P0051,2025-12-03,prescription,Pathcare Diagnostics,Atorvastatin 20 mg,test
+P0051,2026-08-12,visit,General Medicine,First visit at General Medicine,test
+P0052,2026-01-18,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0053,2025-03-02,prescription,Dr. Lal Labs (dummy),Avipattikar churna 5 g,valid
+P0053,2025-12-27,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg; Avipattikar churna 5 g,valid
+P0053,2026-04-03,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0054,2026-04-10,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0054,2026-05-14,lab_report,Community Health Centre,Inflammatory: 0 abnormal of 3 tests,valid
+P0054,2026-06-13,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,valid
+P0054,2026-07-07,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,valid
+P0055,2025-03-22,prescription,AIIA Delhi OPD,Gudmar churna 3 g,test
+P0055,2025-11-12,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,test
+P0055,2026-06-13,lab_report,District Hospital Agra,Diabetes panel: 1 abnormal of 3 tests,test
+P0055,2026-07-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0056,2025-08-12,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Paracetamol 650 mg,train
+P0056,2026-02-08,prescription,Community Health Centre,Amlodipine 5 mg; Ashwagandha churna 3 g,train
+P0056,2026-03-23,visit,General Medicine,Follow-up at General Medicine,train
+P0056,2026-07-21,lab_report,AIIA Delhi OPD,CBC: 0 abnormal of 4 tests,train
+P0057,2026-03-04,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0057,2026-07-21,visit,General Medicine,First visit at General Medicine,train
+P0058,2026-01-07,prescription,Pathcare Diagnostics,Aspirin 75 mg; Atorvastatin 20 mg,train
+P0058,2026-04-11,visit,General Medicine,Follow-up at General Medicine,train
+P0058,2026-07-02,lab_report,District Hospital Agra,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0059,2026-01-16,prescription,Community Health Centre,Cetirizine 10 mg; Neem capsule 500 mg,test
+P0059,2026-07-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0060,2025-07-29,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0060,2025-08-03,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0060,2026-07-27,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0061,2025-10-16,prescription,District Hospital Agra,Metformin 500 mg; Triphala churna 5 g,train
+P0061,2025-11-18,prescription,Dr. Lal Labs (dummy),Metformin 500 mg,train
+P0061,2026-05-13,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0061,2026-07-26,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,train
+P0062,2025-09-12,prescription,Dr. Lal Labs (dummy),Triphala churna 5 g,train
+P0062,2026-01-28,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0063,2025-12-28,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g; Ashwagandha churna 3 g,train
+P0063,2026-03-03,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0064,2025-11-11,prescription,District Hospital Agra,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0064,2025-11-25,lab_report,Pathcare Diagnostics,Inflammatory: 1 abnormal of 3 tests,train
+P0064,2026-08-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0065,2026-01-26,lab_report,Community Health Centre,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0065,2026-02-02,visit,General Medicine,First visit at General Medicine,train
+P0066,2025-10-30,prescription,AIIA Delhi OPD,Dicyclomine 10 mg,train
+P0066,2026-02-28,visit,General Medicine,Follow-up at General Medicine,train
+P0067,2025-09-23,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0067,2025-12-31,prescription,District Hospital Agra,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0067,2026-02-08,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0067,2026-05-31,prescription,AIIA Delhi OPD,Diclofenac 50 mg,train
+P0068,2025-06-08,prescription,AIIA Delhi OPD,Pantoprazole 40 mg,train
+P0068,2026-01-07,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0068,2026-04-21,prescription,Pathcare Diagnostics,Avipattikar churna 5 g,train
+P0069,2026-03-03,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg; Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0069,2026-08-16,visit,Panchakarma,Follow-up at Panchakarma,train
+P0070,2025-03-27,prescription,District Hospital Agra,Amlodipine 5 mg; Triphala churna 5 g,train
+P0070,2026-02-24,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0071,2026-05-10,prescription,Community Health Centre,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0071,2026-07-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0072,2025-02-23,prescription,Community Health Centre,Metformin 500 mg; Amlodipine 5 mg; Triphala churna 5 g,test
+P0072,2026-01-07,visit,Panchakarma,First visit at Panchakarma,test
+P0073,2026-04-14,visit,General Medicine,First visit at General Medicine,train
+P0074,2025-08-22,prescription,Community Health Centre,Triphala churna 5 g,train
+P0074,2026-03-20,visit,General Medicine,First visit at General Medicine,train
+P0075,2026-04-30,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0076,2025-07-04,lab_report,Community Health Centre,Thyroid: 0 abnormal of 1 tests,train
+P0076,2025-10-14,prescription,AIIA Delhi OPD,Levothyroxine 50 mcg; Paracetamol 650 mg,train
+P0076,2026-05-22,lab_report,Dr. Lal Labs (dummy),CBC: 2 abnormal of 4 tests,train
+P0076,2026-07-13,visit,General Medicine,Follow-up at General Medicine,train
+P0077,2025-05-01,prescription,District Hospital Agra,Metformin 500 mg; Levothyroxine 50 mcg; Cetirizine 10 mg; Neem capsule 500 mg; Triphala churna 5 g,train
+P0077,2026-03-19,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0077,2026-05-08,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0078,2026-02-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0079,2026-03-10,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0079,2026-04-02,prescription,Community Health Centre,Triphala churna 5 g,train
+P0080,2025-08-09,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0080,2026-04-01,prescription,Community Health Centre,Metformin 500 mg,train
+P0080,2026-08-09,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0081,2025-02-20,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,valid
+P0081,2026-06-13,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0081,2026-07-16,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,valid
+P0082,2025-04-26,prescription,AIIA Delhi OPD,Triphala churna 5 g,train
+P0082,2026-08-08,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0083,2025-11-02,prescription,Dr. Lal Labs (dummy),Paracetamol 650 mg,train
+P0083,2026-01-29,visit,General Medicine,Follow-up at General Medicine,train
+P0083,2026-05-07,lab_report,Pathcare Diagnostics,CBC: 2 abnormal of 4 tests,train
+P0084,2025-08-01,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,train
+P0084,2026-01-05,lab_report,Dr. Lal Labs (dummy),Renal + liver: 1 abnormal of 3 tests,train
+P0084,2026-03-09,visit,General Medicine,Follow-up at General Medicine,train
+P0085,2025-07-24,lab_report,District Hospital Agra,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0085,2026-03-05,visit,General Medicine,First visit at General Medicine,train
+P0085,2026-05-28,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0086,2026-03-10,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0086,2026-05-14,prescription,Community Health Centre,Cetirizine 10 mg; Neem capsule 500 mg; Ashwagandha churna 3 g,train
+P0087,2026-01-21,visit,General Medicine,Follow-up at General Medicine,train
+P0087,2026-02-01,prescription,Community Health Centre,Dicyclomine 10 mg,train
+P0088,2025-07-13,prescription,AIIA Delhi OPD,Metformin 500 mg; Amlodipine 5 mg; Gudmar churna 3 g,test
+P0088,2025-09-18,lab_report,AIIA Delhi OPD,Diabetes panel: 3 abnormal of 3 tests,test
+P0088,2026-01-12,prescription,District Hospital Agra,Metformin 500 mg; Amlodipine 5 mg,test
+P0088,2026-07-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0088,2026-08-24,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,test
+P0089,2025-02-04,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,valid
+P0089,2026-01-23,prescription,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,valid
+P0089,2026-02-18,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0090,2025-05-12,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0090,2026-01-04,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0090,2026-04-25,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0091,2026-05-09,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0091,2026-06-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0091,2026-06-29,lab_report,District Hospital Agra,Diabetes panel: 3 abnormal of 3 tests,train
+P0092,2026-04-11,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0093,2025-07-14,prescription,Dr. Lal Labs (dummy),Cetirizine 10 mg; Neem capsule 500 mg; Ashwagandha churna 3 g,train
+P0093,2025-08-24,prescription,Sunrise Pathology Lab,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0093,2026-05-16,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0094,2025-09-29,lab_report,AIIA Delhi OPD,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0094,2026-02-01,visit,General Medicine,Follow-up at General Medicine,train
+P0094,2026-07-07,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0095,2026-03-11,visit,General Medicine,First visit at General Medicine,train
+P0095,2026-05-05,prescription,District Hospital Agra,Dicyclomine 10 mg,train
+P0096,2025-11-20,lab_report,Pathcare Diagnostics,Inflammatory: 1 abnormal of 3 tests,train
+P0096,2025-12-23,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Levothyroxine 50 mcg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0096,2026-03-16,visit,Panchakarma,First visit at Panchakarma,train
+P0096,2026-05-22,lab_report,Pathcare Diagnostics,Thyroid: 1 abnormal of 1 tests,train
+P0097,2025-08-23,prescription,Pathcare Diagnostics,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0097,2026-07-21,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0098,2025-04-19,prescription,Sunrise Pathology Lab,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0098,2026-05-29,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0099,2025-05-29,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,train
+P0099,2025-11-04,lab_report,Community Health Centre,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0099,2026-02-08,visit,General Medicine,First visit at General Medicine,train
+P0099,2026-02-18,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0099,2026-04-30,lab_report,Community Health Centre,Thyroid: 1 abnormal of 1 tests,train
+P0100,2025-04-23,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,test
+P0100,2025-12-08,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,test
+P0100,2026-01-05,lab_report,Sunrise Pathology Lab,Inflammatory: 0 abnormal of 3 tests,test
+P0100,2026-07-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0101,2025-07-08,lab_report,Pathcare Diagnostics,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0101,2025-11-24,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0101,2025-12-07,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg,train
+P0101,2026-01-03,visit,General Medicine,First visit at General Medicine,train
+P0102,2025-09-16,prescription,District Hospital Agra,Ibuprofen 400 mg,train
+P0102,2026-06-26,visit,Panchakarma,First visit at Panchakarma,train
+P0103,2026-01-12,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0103,2026-01-30,lab_report,AIIA Delhi OPD,Diabetes panel: 1 abnormal of 3 tests,test
+P0103,2026-06-09,prescription,Dr. Lal Labs (dummy),Gudmar churna 3 g,test
+P0103,2026-06-12,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,test
+P0103,2026-07-27,prescription,Pathcare Diagnostics,Gudmar churna 3 g,test
+P0104,2025-12-15,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0104,2026-03-30,visit,General Medicine,First visit at General Medicine,train
+P0104,2026-07-14,prescription,District Hospital Agra,Amlodipine 5 mg; Triphala churna 5 g,train
+P0105,2025-04-22,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0105,2026-04-12,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0105,2026-05-31,prescription,Community Health Centre,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0106,2026-02-20,prescription,District Hospital Agra,Salbutamol inhaler 100 mcg,valid
+P0106,2026-06-30,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0107,2026-06-21,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0108,2025-03-12,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0108,2025-04-13,lab_report,Dr. Lal Labs (dummy),Renal + liver: 1 abnormal of 3 tests,train
+P0108,2025-08-07,prescription,Community Health Centre,Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0108,2025-09-20,prescription,Community Health Centre,Amlodipine 5 mg; Yogaraj guggulu 2 tab; Ashwagandha churna 3 g,train
+P0108,2026-06-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0109,2025-12-02,prescription,Sunrise Pathology Lab,Avipattikar churna 5 g,train
+P0109,2026-03-25,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0110,2025-01-16,lab_report,Sunrise Pathology Lab,CBC: 0 abnormal of 4 tests,train
+P0110,2025-07-19,prescription,Dr. Lal Labs (dummy),Paracetamol 650 mg,train
+P0110,2026-04-07,visit,General Medicine,Follow-up at General Medicine,train
+P0111,2025-02-08,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0111,2025-10-29,prescription,District Hospital Agra,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0111,2026-06-14,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0112,2025-11-08,prescription,District Hospital Agra,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0112,2026-08-10,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0113,2025-04-07,lab_report,District Hospital Agra,Diabetes panel: 2 abnormal of 3 tests,train
+P0113,2026-07-30,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0114,2026-02-02,prescription,Pathcare Diagnostics,Paracetamol 650 mg; Ashwagandha churna 3 g,train
+P0114,2026-07-06,visit,General Medicine,First visit at General Medicine,train
+P0114,2026-08-06,lab_report,Dr. Lal Labs (dummy),CBC: 1 abnormal of 4 tests,train
+P0115,2025-01-22,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0115,2025-12-27,prescription,Pathcare Diagnostics,Avipattikar churna 5 g,train
+P0115,2026-01-12,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0116,2025-08-08,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,train
+P0116,2025-11-17,lab_report,Community Health Centre,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0116,2026-02-17,visit,General Medicine,First visit at General Medicine,train
+P0117,2025-11-24,lab_report,Community Health Centre,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0117,2026-01-09,visit,General Medicine,First visit at General Medicine,train
+P0117,2026-07-25,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0118,2026-04-13,visit,Panchakarma,First visit at Panchakarma,train
+P0118,2026-07-11,prescription,District Hospital Agra,Amlodipine 5 mg; Ibuprofen 400 mg,train
+P0119,2025-06-14,prescription,Community Health Centre,Paracetamol 650 mg; Triphala churna 5 g,train
+P0119,2026-08-23,visit,Panchakarma,Follow-up at Panchakarma,train
+P0120,2026-01-26,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0120,2026-04-25,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0121,2025-04-29,lab_report,Sunrise Pathology Lab,CBC: 0 abnormal of 4 tests,train
+P0121,2026-01-16,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0121,2026-03-17,visit,General Medicine,First visit at General Medicine,train
+P0122,2025-09-24,prescription,AIIA Delhi OPD,Triphala churna 5 g,test
+P0122,2026-06-29,visit,General Medicine,Follow-up at General Medicine,test
+P0123,2025-03-28,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0123,2025-12-21,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 1 abnormal of 3 tests,train
+P0123,2026-02-17,visit,General Medicine,First visit at General Medicine,train
+P0124,2025-05-04,prescription,District Hospital Agra,Levothyroxine 50 mcg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0124,2026-04-20,lab_report,Pathcare Diagnostics,Thyroid: 0 abnormal of 1 tests,train
+P0124,2026-05-16,prescription,District Hospital Agra,Levothyroxine 50 mcg,train
+P0124,2026-06-11,visit,Panchakarma,Follow-up at Panchakarma,train
+P0125,2025-03-25,prescription,Community Health Centre,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0125,2026-01-17,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0126,2026-02-07,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0127,2026-01-14,prescription,Pathcare Diagnostics,Amlodipine 5 mg,train
+P0127,2026-04-26,visit,General Medicine,First visit at General Medicine,train
+P0128,2025-05-25,lab_report,AIIA Delhi OPD,CBC: 1 abnormal of 4 tests,train
+P0128,2025-09-11,prescription,AIIA Delhi OPD,Paracetamol 650 mg,train
+P0128,2026-07-04,visit,General Medicine,First visit at General Medicine,train
+P0129,2025-04-15,lab_report,Pathcare Diagnostics,CBC: 0 abnormal of 4 tests,train
+P0129,2026-06-29,visit,General Medicine,Follow-up at General Medicine,train
+P0130,2026-04-05,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0131,2025-02-01,prescription,District Hospital Agra,Amlodipine 5 mg; Sarpagandha vati 1 tab,test
+P0131,2025-08-10,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,test
+P0131,2026-07-06,visit,General Medicine,First visit at General Medicine,test
+P0132,2025-01-05,lab_report,Pathcare Diagnostics,Lipid + cardiac: 3 abnormal of 4 tests,train
+P0132,2026-03-28,visit,General Medicine,Follow-up at General Medicine,train
+P0133,2026-04-11,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0133,2026-04-12,prescription,Community Health Centre,Triphala churna 5 g,train
+P0134,2025-11-23,lab_report,AIIA Delhi OPD,Inflammatory: 1 abnormal of 3 tests,train
+P0134,2026-02-10,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0134,2026-06-30,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,train
+P0135,2025-06-24,prescription,Pathcare Diagnostics,Metformin 500 mg; Gudmar churna 3 g,valid
+P0135,2025-12-12,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,valid
+P0135,2026-02-14,lab_report,Community Health Centre,Renal + liver: 0 abnormal of 3 tests,valid
+P0135,2026-02-18,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0136,2025-01-24,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0136,2025-02-17,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0136,2026-03-13,visit,Panchakarma,Follow-up at Panchakarma,train
+P0136,2026-08-06,prescription,Community Health Centre,Metformin 500 mg; Aspirin 75 mg; Atorvastatin 20 mg; Ibuprofen 400 mg; Dashmoolarishta 20 ml; Triphala churna 5 g,train
+P0137,2025-03-29,prescription,District Hospital Agra,Levothyroxine 50 mcg; Ashwagandha churna 3 g,train
+P0137,2025-04-02,lab_report,Pathcare Diagnostics,Thyroid: 0 abnormal of 1 tests,train
+P0137,2026-02-16,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0138,2026-01-03,lab_report,District Hospital Agra,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0138,2026-04-29,visit,General Medicine,First visit at General Medicine,train
+P0139,2026-01-12,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0139,2026-04-05,lab_report,Pathcare Diagnostics,Diabetes panel: 1 abnormal of 3 tests,train
+P0140,2025-01-18,lab_report,District Hospital Agra,Thyroid: 0 abnormal of 1 tests,train
+P0140,2025-09-07,prescription,Community Health Centre,Levothyroxine 50 mcg; Pantoprazole 40 mg; Avipattikar churna 5 g; Ashwagandha churna 3 g,train
+P0140,2026-04-12,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0141,2025-04-28,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0141,2025-11-28,lab_report,AIIA Delhi OPD,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0141,2026-02-09,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0141,2026-07-08,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0142,2026-05-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0142,2026-05-08,lab_report,Community Health Centre,Inflammatory: 3 abnormal of 3 tests,train
+P0143,2026-02-01,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0143,2026-04-28,lab_report,Pathcare Diagnostics,CBC: 1 abnormal of 4 tests,train
+P0143,2026-08-15,visit,General Medicine,Follow-up at General Medicine,train
+P0144,2026-01-04,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Ashwagandha churna 3 g,train
+P0144,2026-02-26,prescription,Dr. Lal Labs (dummy),Salbutamol inhaler 100 mcg,train
+P0144,2026-03-11,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0145,2026-05-07,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0145,2026-07-15,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0146,2025-01-03,prescription,District Hospital Agra,Amlodipine 5 mg,train
+P0146,2026-02-03,visit,General Medicine,First visit at General Medicine,train
+P0146,2026-04-06,prescription,Community Health Centre,Amlodipine 5 mg; Aspirin 75 mg,train
+P0147,2025-09-09,prescription,District Hospital Agra,Triphala churna 5 g,train
+P0147,2026-08-24,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0148,2025-11-16,prescription,Sunrise Pathology Lab,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0148,2026-05-05,prescription,District Hospital Agra,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0148,2026-08-13,visit,Panchakarma,First visit at Panchakarma,train
+P0149,2025-03-12,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 1 abnormal of 4 tests,train
+P0149,2025-06-29,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0149,2026-03-21,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0149,2026-07-04,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0149,2026-07-13,visit,General Medicine,Follow-up at General Medicine,train
+P0150,2025-11-02,lab_report,AIIA Delhi OPD,Lipid + cardiac: 0 abnormal of 4 tests,test
+P0150,2026-06-11,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,test
+P0150,2026-06-20,visit,General Medicine,First visit at General Medicine,test
+P0151,2025-02-07,prescription,Dr. Lal Labs (dummy),Cetirizine 10 mg; Neem capsule 500 mg; Ashwagandha churna 3 g,train
+P0151,2026-06-29,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0151,2026-08-21,prescription,Sunrise Pathology Lab,Neem capsule 500 mg,train
+P0152,2025-09-03,lab_report,Sunrise Pathology Lab,Renal + liver: 0 abnormal of 3 tests,test
+P0152,2026-01-13,visit,General Medicine,Follow-up at General Medicine,test
+P0152,2026-07-16,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab; Ashwagandha churna 3 g,test
+P0152,2026-08-09,prescription,Pathcare Diagnostics,Amlodipine 5 mg,test
+P0153,2025-05-01,prescription,AIIA Delhi OPD,Ashwagandha churna 3 g,train
+P0153,2025-11-01,prescription,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,train
+P0153,2026-07-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0154,2026-04-20,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0154,2026-06-05,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,train
+P0155,2025-09-29,prescription,District Hospital Agra,Aspirin 75 mg; Atorvastatin 20 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab; Triphala churna 5 g,train
+P0155,2026-02-19,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0155,2026-03-10,lab_report,AIIA Delhi OPD,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0155,2026-06-24,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0156,2025-04-18,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,train
+P0156,2025-09-23,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,train
+P0156,2026-01-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0156,2026-02-26,lab_report,Dr. Lal Labs (dummy),Inflammatory: 0 abnormal of 3 tests,train
+P0156,2026-06-18,lab_report,Dr. Lal Labs (dummy),Thyroid: 0 abnormal of 1 tests,train
+P0157,2025-03-03,prescription,Community Health Centre,Yogaraj guggulu 2 tab,train
+P0157,2026-06-02,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,train
+P0157,2026-07-10,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0158,2025-01-09,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0158,2025-11-11,prescription,Pathcare Diagnostics,Metformin 500 mg,train
+P0158,2026-08-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0159,2026-05-05,prescription,Pathcare Diagnostics,Metformin 500 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0159,2026-07-06,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0159,2026-08-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0160,2025-02-13,lab_report,AIIA Delhi OPD,Diabetes panel: 1 abnormal of 3 tests,train
+P0160,2026-02-14,visit,Panchakarma,Follow-up at Panchakarma,train
+P0161,2025-03-04,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Ashwagandha churna 3 g,test
+P0161,2026-05-06,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0162,2025-04-26,prescription,AIIA Delhi OPD,Atorvastatin 20 mg,valid
+P0162,2025-09-08,prescription,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,valid
+P0162,2025-09-11,lab_report,AIIA Delhi OPD,Lipid + cardiac: 1 abnormal of 4 tests,valid
+P0162,2026-08-24,visit,General Medicine,Follow-up at General Medicine,valid
+P0163,2025-11-10,prescription,Sunrise Pathology Lab,Diclofenac 50 mg; Yogaraj guggulu 2 tab; Triphala churna 5 g,train
+P0163,2026-05-13,visit,Panchakarma,Follow-up at Panchakarma,train
+P0163,2026-06-01,lab_report,Community Health Centre,Inflammatory: 1 abnormal of 3 tests,train
+P0163,2026-08-18,prescription,Community Health Centre,Yogaraj guggulu 2 tab,train
+P0164,2025-02-15,prescription,Community Health Centre,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0164,2026-07-31,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0165,2025-03-01,lab_report,Sunrise Pathology Lab,Thyroid: 0 abnormal of 1 tests,train
+P0165,2026-06-09,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0165,2026-07-31,lab_report,Community Health Centre,Inflammatory: 0 abnormal of 3 tests,train
+P0166,2026-01-20,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 0 abnormal of 4 tests,train
+P0166,2026-03-09,prescription,District Hospital Agra,Aspirin 75 mg; Atorvastatin 20 mg,train
+P0166,2026-08-13,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0167,2025-01-10,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,valid
+P0167,2025-03-15,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,valid
+P0167,2025-12-21,prescription,District Hospital Agra,Metformin 500 mg; Gudmar churna 3 g,valid
+P0167,2026-02-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0168,2025-08-04,prescription,Pathcare Diagnostics,Metformin 500 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0168,2025-11-07,lab_report,Community Health Centre,Renal + liver: 0 abnormal of 3 tests,train
+P0168,2026-01-10,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,train
+P0168,2026-03-04,prescription,AIIA Delhi OPD,Metformin 500 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0168,2026-05-09,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0169,2025-10-21,prescription,Community Health Centre,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0169,2026-03-06,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0169,2026-06-22,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0169,2026-07-03,lab_report,District Hospital Agra,Inflammatory: 0 abnormal of 3 tests,train
+P0170,2025-06-11,prescription,District Hospital Agra,Amlodipine 5 mg; Yogaraj guggulu 2 tab; Triphala churna 5 g,test
+P0170,2026-04-12,lab_report,Sunrise Pathology Lab,Inflammatory: 1 abnormal of 3 tests,test
+P0170,2026-08-08,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0170,2026-08-10,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,test
+P0171,2026-05-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0172,2025-02-10,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0172,2026-04-05,visit,General Medicine,First visit at General Medicine,train
+P0173,2025-07-20,lab_report,District Hospital Agra,Inflammatory: 0 abnormal of 3 tests,train
+P0173,2025-09-11,prescription,AIIA Delhi OPD,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0173,2026-02-15,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0173,2026-07-19,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0174,2025-07-20,lab_report,District Hospital Agra,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0174,2026-02-25,visit,General Medicine,Follow-up at General Medicine,train
+P0175,2026-03-30,prescription,Dr. Lal Labs (dummy),Triphala churna 5 g,test
+P0175,2026-07-22,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0176,2026-02-15,visit,Panchakarma,Follow-up at Panchakarma,train
+P0176,2026-06-28,lab_report,Community Health Centre,Inflammatory: 0 abnormal of 3 tests,train
+P0176,2026-07-14,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,train
+P0177,2025-08-04,prescription,Sunrise Pathology Lab,Metformin 500 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0177,2026-08-04,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0178,2025-04-22,prescription,District Hospital Agra,Triphala churna 5 g,train
+P0178,2026-04-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0179,2026-03-23,visit,General Medicine,First visit at General Medicine,train
+P0180,2025-12-16,lab_report,Pathcare Diagnostics,CBC: 1 abnormal of 4 tests,train
+P0180,2025-12-23,prescription,District Hospital Agra,Amlodipine 5 mg; Paracetamol 650 mg,train
+P0180,2026-01-25,visit,General Medicine,First visit at General Medicine,train
+P0180,2026-08-18,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Paracetamol 650 mg; Triphala churna 5 g,train
+P0181,2025-02-14,lab_report,Pathcare Diagnostics,Inflammatory: 0 abnormal of 3 tests,train
+P0181,2025-04-01,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab,train
+P0181,2026-01-12,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0182,2025-09-14,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,train
+P0182,2025-12-25,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg; Gudmar churna 3 g,train
+P0182,2026-01-30,lab_report,Pathcare Diagnostics,Renal + liver: 2 abnormal of 3 tests,train
+P0182,2026-05-31,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0183,2026-03-28,prescription,AIIA Delhi OPD,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0183,2026-03-31,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0184,2026-02-01,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0184,2026-07-28,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg,train
+P0185,2026-06-03,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0185,2026-07-19,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0186,2025-03-18,prescription,District Hospital Agra,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0186,2026-03-11,visit,Panchakarma,First visit at Panchakarma,train
+P0187,2026-01-08,lab_report,District Hospital Agra,CBC: 0 abnormal of 4 tests,train
+P0187,2026-04-02,visit,General Medicine,First visit at General Medicine,train
+P0188,2026-01-10,prescription,AIIA Delhi OPD,Metformin 500 mg; Gudmar churna 3 g,test
+P0188,2026-05-08,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0188,2026-06-17,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,test
+P0189,2025-01-01,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,test
+P0189,2025-02-03,lab_report,District Hospital Agra,Thyroid: 0 abnormal of 1 tests,test
+P0189,2026-07-21,visit,General Medicine,First visit at General Medicine,test
+P0190,2025-01-25,prescription,Pathcare Diagnostics,Yogaraj guggulu 2 tab,test
+P0190,2025-07-03,lab_report,Community Health Centre,Inflammatory: 1 abnormal of 3 tests,test
+P0190,2026-03-07,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0190,2026-08-15,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,test
+P0191,2025-11-08,prescription,Community Health Centre,Metformin 500 mg; Amlodipine 5 mg; Paracetamol 650 mg,valid
+P0191,2026-03-07,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,valid
+P0191,2026-04-08,lab_report,Sunrise Pathology Lab,CBC: 0 abnormal of 4 tests,valid
+P0191,2026-05-22,visit,General Medicine,First visit at General Medicine,valid
+P0192,2025-02-07,prescription,Community Health Centre,Metformin 500 mg,test
+P0192,2026-02-03,lab_report,Sunrise Pathology Lab,Diabetes panel: 2 abnormal of 3 tests,test
+P0192,2026-04-08,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,test
+P0192,2026-04-24,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,test
+P0192,2026-06-16,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0193,2026-05-13,visit,Panchakarma,Follow-up at Panchakarma,train
+P0194,2026-01-09,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0194,2026-06-12,prescription,Pathcare Diagnostics,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0195,2025-02-15,lab_report,Dr. Lal Labs (dummy),Renal + liver: 1 abnormal of 3 tests,train
+P0195,2025-07-19,lab_report,AIIA Delhi OPD,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0195,2025-07-21,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Gudmar churna 3 g,train
+P0195,2026-02-28,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0195,2026-06-20,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 1 abnormal of 3 tests,train
+P0195,2026-07-31,prescription,Pathcare Diagnostics,Metformin 500 mg; Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Gudmar churna 3 g,train
+P0196,2026-03-29,visit,General Medicine,First visit at General Medicine,train
+P0197,2025-04-03,prescription,AIIA Delhi OPD,Atorvastatin 20 mg,train
+P0197,2026-01-27,prescription,Dr. Lal Labs (dummy),Atorvastatin 20 mg; Triphala churna 5 g,train
+P0197,2026-02-08,visit,General Medicine,Follow-up at General Medicine,train
+P0198,2025-01-26,lab_report,Community Health Centre,Inflammatory: 0 abnormal of 3 tests,train
+P0198,2025-09-15,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0198,2025-12-10,prescription,District Hospital Agra,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0198,2026-02-19,visit,Panchakarma,First visit at Panchakarma,train
+P0198,2026-02-26,prescription,Pathcare Diagnostics,Diclofenac 50 mg; Yogaraj guggulu 2 tab; Triphala churna 5 g,train
+P0199,2026-07-30,visit,General Medicine,Follow-up at General Medicine,train
+P0200,2025-06-22,lab_report,Community Health Centre,Thyroid: 0 abnormal of 1 tests,train
+P0200,2026-01-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0200,2026-06-23,lab_report,Dr. Lal Labs (dummy),Inflammatory: 0 abnormal of 3 tests,train
+P0201,2025-09-28,lab_report,Pathcare Diagnostics,CBC: 2 abnormal of 4 tests,train
+P0201,2025-12-21,prescription,Community Health Centre,Paracetamol 650 mg,train
+P0201,2026-05-28,visit,General Medicine,First visit at General Medicine,train
+P0202,2026-03-14,visit,General Medicine,Follow-up at General Medicine,valid
+P0202,2026-06-05,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,valid
+P0202,2026-08-25,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,valid
+P0203,2025-07-20,prescription,District Hospital Agra,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0203,2026-01-17,visit,Panchakarma,First visit at Panchakarma,train
+P0204,2026-04-26,prescription,Community Health Centre,Ibuprofen 400 mg,train
+P0204,2026-07-04,visit,Panchakarma,Follow-up at Panchakarma,train
+P0205,2025-08-07,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0205,2026-03-23,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Ashwagandha churna 3 g,train
+P0205,2026-08-20,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0206,2026-06-24,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0207,2025-01-30,prescription,Community Health Centre,Amlodipine 5 mg; Dicyclomine 10 mg,train
+P0207,2025-06-13,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Dicyclomine 10 mg,train
+P0207,2026-03-24,visit,General Medicine,Follow-up at General Medicine,train
+P0208,2025-11-05,prescription,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0208,2026-07-26,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0209,2026-03-10,visit,General Medicine,Follow-up at General Medicine,train
+P0209,2026-06-10,lab_report,Community Health Centre,Diabetes panel: 0 abnormal of 3 tests,train
+P0210,2025-01-24,lab_report,District Hospital Agra,Inflammatory: 0 abnormal of 3 tests,train
+P0210,2025-09-10,lab_report,AIIA Delhi OPD,Renal + liver: 2 abnormal of 3 tests,train
+P0210,2026-02-14,prescription,AIIA Delhi OPD,Yogaraj guggulu 2 tab,train
+P0210,2026-06-19,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0210,2026-06-25,prescription,AIIA Delhi OPD,Diclofenac 50 mg; Yogaraj guggulu 2 tab; Ashwagandha churna 3 g,train
+P0211,2025-04-11,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0211,2025-06-30,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,train
+P0211,2025-09-24,lab_report,AIIA Delhi OPD,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0211,2026-01-15,visit,Panchakarma,First visit at Panchakarma,train
+P0212,2025-02-09,lab_report,District Hospital Agra,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0212,2025-07-27,prescription,District Hospital Agra,Metformin 500 mg; Amlodipine 5 mg; Levothyroxine 50 mcg; Sarpagandha vati 1 tab,train
+P0212,2026-04-18,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0212,2026-06-14,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0212,2026-06-22,visit,General Medicine,First visit at General Medicine,train
+P0212,2026-07-21,prescription,Pathcare Diagnostics,Metformin 500 mg; Amlodipine 5 mg; Levothyroxine 50 mcg; Sarpagandha vati 1 tab,train
+P0213,2025-03-08,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab; Diclofenac 50 mg,valid
+P0213,2026-03-15,lab_report,District Hospital Agra,Inflammatory: 2 abnormal of 3 tests,valid
+P0213,2026-06-15,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0213,2026-08-19,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab; Diclofenac 50 mg,valid
+P0214,2025-02-28,prescription,District Hospital Agra,Ashwagandha churna 3 g,train
+P0214,2026-05-05,prescription,Sunrise Pathology Lab,Ashwagandha churna 3 g; Triphala churna 5 g,train
+P0214,2026-06-13,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0215,2026-02-20,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0216,2025-03-13,lab_report,Dr. Lal Labs (dummy),Thyroid: 0 abnormal of 1 tests,train
+P0216,2025-10-17,prescription,AIIA Delhi OPD,Levothyroxine 50 mcg; Diclofenac 50 mg; Triphala churna 5 g,train
+P0216,2026-04-10,prescription,Dr. Lal Labs (dummy),Levothyroxine 50 mcg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0216,2026-06-22,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0216,2026-08-04,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0217,2025-06-16,prescription,AIIA Delhi OPD,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0217,2026-06-05,visit,Panchakarma,Follow-up at Panchakarma,train
+P0217,2026-08-08,prescription,AIIA Delhi OPD,Ibuprofen 400 mg; Dashmoolarishta 20 ml; Triphala churna 5 g,train
+P0218,2025-01-18,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 0 abnormal of 3 tests,valid
+P0218,2025-11-10,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Ashwagandha churna 3 g,valid
+P0218,2026-07-15,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0219,2026-02-13,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0219,2026-04-29,prescription,Community Health Centre,Salbutamol inhaler 100 mcg,train
+P0220,2025-02-14,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,train
+P0220,2025-09-19,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0220,2026-03-22,visit,General Medicine,Follow-up at General Medicine,train
+P0221,2025-05-05,prescription,AIIA Delhi OPD,Dicyclomine 10 mg,train
+P0221,2026-03-14,visit,General Medicine,First visit at General Medicine,train
+P0222,2026-01-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0222,2026-05-11,prescription,Community Health Centre,Metformin 500 mg; Triphala churna 5 g,train
+P0222,2026-06-13,lab_report,AIIA Delhi OPD,Diabetes panel: 1 abnormal of 3 tests,train
+P0223,2025-12-08,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0223,2025-12-18,prescription,Community Health Centre,Metformin 500 mg; Atorvastatin 20 mg,train
+P0223,2026-04-04,prescription,District Hospital Agra,Metformin 500 mg; Atorvastatin 20 mg,train
+P0223,2026-06-06,visit,General Medicine,First visit at General Medicine,train
+P0223,2026-06-16,lab_report,AIIA Delhi OPD,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0224,2025-10-04,prescription,Dr. Lal Labs (dummy),Diclofenac 50 mg; Ashwagandha churna 3 g,train
+P0224,2026-03-21,lab_report,Sunrise Pathology Lab,Renal + liver: 0 abnormal of 3 tests,train
+P0224,2026-05-26,lab_report,AIIA Delhi OPD,Inflammatory: 2 abnormal of 3 tests,train
+P0224,2026-07-05,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0225,2026-04-10,prescription,Sunrise Pathology Lab,Ashwagandha churna 3 g,train
+P0225,2026-06-13,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0226,2025-05-29,prescription,Sunrise Pathology Lab,Metformin 500 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0226,2025-10-29,prescription,Pathcare Diagnostics,Metformin 500 mg; Salbutamol inhaler 100 mcg,train
+P0226,2026-04-19,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0226,2026-08-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0227,2026-03-12,prescription,Community Health Centre,Salbutamol inhaler 100 mcg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0227,2026-04-14,visit,Panchakarma,Follow-up at Panchakarma,train
+P0228,2025-09-17,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Aspirin 75 mg,train
+P0228,2026-02-02,visit,General Medicine,First visit at General Medicine,train
+P0229,2026-04-04,prescription,Community Health Centre,Amlodipine 5 mg; Paracetamol 650 mg,train
+P0229,2026-05-20,visit,General Medicine,First visit at General Medicine,train
+P0229,2026-08-03,lab_report,Dr. Lal Labs (dummy),CBC: 2 abnormal of 4 tests,train
+P0230,2025-05-01,prescription,AIIA Delhi OPD,Metformin 500 mg; Gudmar churna 3 g,train
+P0230,2026-01-21,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0230,2026-01-23,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,train
+P0230,2026-04-25,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0231,2025-08-04,lab_report,AIIA Delhi OPD,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0231,2025-09-30,prescription,District Hospital Agra,Amlodipine 5 mg,train
+P0231,2026-04-02,visit,General Medicine,Follow-up at General Medicine,train
+P0232,2025-11-14,lab_report,District Hospital Agra,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0232,2026-01-22,visit,General Medicine,First visit at General Medicine,train
+P0232,2026-04-17,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0232,2026-04-29,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0233,2026-04-28,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0233,2026-05-05,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0233,2026-07-25,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Yogaraj guggulu 2 tab,train
+P0233,2026-07-30,lab_report,Community Health Centre,Inflammatory: 1 abnormal of 3 tests,train
+P0234,2025-03-21,prescription,Pathcare Diagnostics,Metformin 500 mg; Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg,train
+P0234,2025-12-15,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0234,2026-03-10,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,train
+P0234,2026-07-05,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0234,2026-07-16,prescription,District Hospital Agra,Metformin 500 mg; Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Sarpagandha vati 1 tab,train
+P0234,2026-07-26,visit,General Medicine,Follow-up at General Medicine,train
+P0235,2026-05-18,lab_report,Pathcare Diagnostics,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0235,2026-07-14,visit,General Medicine,Follow-up at General Medicine,train
+P0235,2026-07-27,prescription,Pathcare Diagnostics,Aspirin 75 mg; Atorvastatin 20 mg; Dicyclomine 10 mg,train
+P0236,2025-03-04,prescription,Sunrise Pathology Lab,Cetirizine 10 mg; Neem capsule 500 mg; Ashwagandha churna 3 g,test
+P0236,2025-12-03,prescription,Community Health Centre,Cetirizine 10 mg; Neem capsule 500 mg,test
+P0236,2026-03-26,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0237,2025-07-09,prescription,District Hospital Agra,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sarpagandha vati 1 tab,train
+P0237,2025-07-15,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sarpagandha vati 1 tab,train
+P0237,2025-09-15,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,train
+P0237,2026-06-30,visit,General Medicine,Follow-up at General Medicine,train
+P0238,2026-07-27,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0239,2025-08-02,prescription,Dr. Lal Labs (dummy),Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0239,2025-08-11,prescription,Sunrise Pathology Lab,Dashmoolarishta 20 ml,train
+P0239,2026-04-17,visit,Panchakarma,Follow-up at Panchakarma,train
+P0240,2025-07-16,lab_report,Pathcare Diagnostics,CBC: 2 abnormal of 4 tests,train
+P0240,2026-02-24,visit,General Medicine,Follow-up at General Medicine,train
+P0240,2026-03-14,prescription,Community Health Centre,Paracetamol 650 mg,train
+P0241,2025-07-22,lab_report,Community Health Centre,Inflammatory: 0 abnormal of 3 tests,train
+P0241,2026-03-09,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab; Ashwagandha churna 3 g,train
+P0241,2026-05-21,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0242,2026-01-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0242,2026-07-29,prescription,AIIA Delhi OPD,Levothyroxine 50 mcg; Neem capsule 500 mg,valid
+P0243,2026-06-14,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0243,2026-08-12,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0244,2025-01-05,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,test
+P0244,2025-03-12,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,test
+P0244,2025-04-08,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,test
+P0244,2026-07-20,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0245,2025-10-29,lab_report,Pathcare Diagnostics,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0245,2026-01-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0245,2026-04-22,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0245,2026-06-25,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab; Ashwagandha churna 3 g,train
+P0246,2025-09-27,prescription,Sunrise Pathology Lab,Ashwagandha churna 3 g,train
+P0246,2026-06-12,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0247,2025-02-09,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,train
+P0247,2026-07-27,visit,General Medicine,First visit at General Medicine,train
+P0248,2025-05-14,prescription,District Hospital Agra,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0248,2025-11-27,prescription,District Hospital Agra,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0248,2026-08-05,visit,Panchakarma,Follow-up at Panchakarma,train
+P0249,2025-03-16,lab_report,Pathcare Diagnostics,CBC: 2 abnormal of 4 tests,train
+P0249,2025-07-17,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0249,2026-04-09,visit,Panchakarma,First visit at Panchakarma,train
+P0250,2025-05-03,prescription,Sunrise Pathology Lab,Diclofenac 50 mg,train
+P0250,2025-05-05,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0250,2026-02-12,lab_report,District Hospital Agra,Inflammatory: 1 abnormal of 3 tests,train
+P0250,2026-05-29,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0251,2025-10-16,prescription,Community Health Centre,Ibuprofen 400 mg,train
+P0251,2026-07-14,visit,Panchakarma,Follow-up at Panchakarma,train
+P0252,2025-03-02,prescription,AIIA Delhi OPD,Paracetamol 650 mg,valid
+P0252,2025-07-01,lab_report,Dr. Lal Labs (dummy),CBC: 3 abnormal of 4 tests,valid
+P0252,2026-03-24,prescription,District Hospital Agra,Paracetamol 650 mg,valid
+P0252,2026-07-11,visit,General Medicine,Follow-up at General Medicine,valid
+P0253,2025-11-15,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Diclofenac 50 mg,test
+P0253,2026-06-15,lab_report,Community Health Centre,Inflammatory: 1 abnormal of 3 tests,test
+P0253,2026-07-10,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0254,2026-03-29,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0255,2025-02-13,prescription,AIIA Delhi OPD,Paracetamol 650 mg,train
+P0255,2025-07-18,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0255,2026-04-16,visit,General Medicine,Follow-up at General Medicine,train
+P0256,2026-04-03,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,train
+P0256,2026-05-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0257,2025-04-11,prescription,Community Health Centre,Aspirin 75 mg,train
+P0257,2026-02-11,visit,General Medicine,First visit at General Medicine,train
+P0258,2026-02-24,visit,General Medicine,Follow-up at General Medicine,test
+P0259,2025-03-07,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 0 abnormal of 4 tests,train
+P0259,2026-01-05,prescription,Community Health Centre,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0259,2026-03-06,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0259,2026-03-10,visit,General Medicine,Follow-up at General Medicine,train
+P0259,2026-05-13,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0260,2026-03-05,visit,Panchakarma,Follow-up at Panchakarma,valid
+P0261,2025-03-13,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0261,2025-08-27,lab_report,Sunrise Pathology Lab,Renal + liver: 0 abnormal of 3 tests,train
+P0261,2026-04-07,lab_report,Pathcare Diagnostics,Inflammatory: 1 abnormal of 3 tests,train
+P0261,2026-08-07,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0262,2026-04-13,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0262,2026-06-04,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,train
+P0262,2026-06-05,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,train
+P0262,2026-06-20,prescription,Pathcare Diagnostics,Metformin 500 mg,train
+P0263,2025-12-18,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0263,2026-02-01,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0263,2026-08-14,prescription,AIIA Delhi OPD,Metformin 500 mg; Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Ashwagandha churna 3 g,train
+P0264,2025-11-01,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,valid
+P0264,2025-12-05,lab_report,District Hospital Agra,CBC: 1 abnormal of 4 tests,valid
+P0264,2026-04-08,prescription,Community Health Centre,Paracetamol 650 mg,valid
+P0264,2026-06-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0265,2025-02-06,lab_report,Community Health Centre,Inflammatory: 1 abnormal of 3 tests,valid
+P0265,2026-02-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0266,2026-02-03,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Cetirizine 10 mg; Neem capsule 500 mg,train
+P0266,2026-03-28,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0267,2025-01-24,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0267,2026-02-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0268,2026-04-07,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0269,2025-06-05,prescription,Sunrise Pathology Lab,Diclofenac 50 mg,train
+P0269,2026-03-08,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0269,2026-05-11,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0270,2026-06-14,visit,General Medicine,Follow-up at General Medicine,valid
+P0271,2026-01-16,prescription,Sunrise Pathology Lab,Triphala churna 5 g; Ashwagandha churna 3 g,test
+P0271,2026-03-18,prescription,Community Health Centre,Triphala churna 5 g,test
+P0271,2026-08-01,visit,General Medicine,Follow-up at General Medicine,test
+P0272,2026-02-02,prescription,Pathcare Diagnostics,Metformin 500 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0272,2026-04-10,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0273,2025-09-03,prescription,Community Health Centre,Metformin 500 mg; Gudmar churna 3 g,train
+P0273,2025-09-29,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,train
+P0273,2026-05-02,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0273,2026-06-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0274,2025-12-23,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,valid
+P0274,2026-06-05,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0274,2026-08-17,prescription,AIIA Delhi OPD,Metformin 500 mg; Ashwagandha churna 3 g,valid
+P0275,2026-04-14,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0276,2025-03-02,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0276,2025-08-15,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0276,2026-04-09,visit,General Medicine,Follow-up at General Medicine,train
+P0276,2026-08-04,prescription,Pathcare Diagnostics,Amlodipine 5 mg,train
+P0277,2025-03-07,prescription,Community Health Centre,Amlodipine 5 mg; Cetirizine 10 mg; Neem capsule 500 mg; Triphala churna 5 g,test
+P0277,2026-06-22,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Cetirizine 10 mg; Neem capsule 500 mg,test
+P0277,2026-08-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0278,2026-01-30,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Sarpagandha vati 1 tab,train
+P0278,2026-06-18,visit,General Medicine,Follow-up at General Medicine,train
+P0279,2025-02-05,prescription,Community Health Centre,Metformin 500 mg; Gudmar churna 3 g,train
+P0279,2025-06-28,prescription,District Hospital Agra,Metformin 500 mg; Gudmar churna 3 g,train
+P0279,2026-01-25,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,train
+P0279,2026-02-08,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0280,2026-02-24,prescription,AIIA Delhi OPD,Metformin 500 mg,train
+P0280,2026-06-04,visit,General Medicine,First visit at General Medicine,train
+P0281,2026-02-12,prescription,Community Health Centre,Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Triphala churna 5 g,train
+P0281,2026-06-03,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0282,2026-05-31,prescription,AIIA Delhi OPD,Atorvastatin 20 mg,train
+P0282,2026-06-06,visit,General Medicine,First visit at General Medicine,train
+P0283,2025-03-04,lab_report,Community Health Centre,Diabetes panel: 2 abnormal of 3 tests,train
+P0283,2025-03-27,prescription,Community Health Centre,Metformin 500 mg; Gudmar churna 3 g; Ashwagandha churna 3 g,train
+P0283,2026-01-29,lab_report,Community Health Centre,Renal + liver: 0 abnormal of 3 tests,train
+P0283,2026-07-04,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0284,2025-08-03,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0284,2025-09-02,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,train
+P0284,2025-11-08,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Amlodipine 5 mg; Gudmar churna 3 g,train
+P0284,2026-06-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0285,2025-03-07,prescription,Community Health Centre,Amlodipine 5 mg,train
+P0285,2026-02-18,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0286,2026-02-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0287,2026-04-18,lab_report,Pathcare Diagnostics,CBC: 2 abnormal of 4 tests,train
+P0287,2026-05-04,prescription,Community Health Centre,Paracetamol 650 mg,train
+P0287,2026-06-14,visit,General Medicine,Follow-up at General Medicine,train
+P0288,2025-07-22,prescription,Pathcare Diagnostics,Atorvastatin 20 mg,train
+P0288,2025-08-13,prescription,District Hospital Agra,Atorvastatin 20 mg,train
+P0288,2026-01-24,lab_report,District Hospital Agra,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0288,2026-07-06,visit,General Medicine,First visit at General Medicine,train
+P0289,2025-02-08,prescription,District Hospital Agra,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0289,2025-04-08,prescription,Dr. Lal Labs (dummy),Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0289,2026-05-11,lab_report,Dr. Lal Labs (dummy),Renal + liver: 2 abnormal of 3 tests,train
+P0289,2026-08-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0290,2025-11-09,prescription,Dr. Lal Labs (dummy),Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0290,2026-01-23,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,train
+P0290,2026-06-25,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0291,2025-10-13,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0291,2026-06-06,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0292,2026-03-17,prescription,AIIA Delhi OPD,Paracetamol 650 mg,train
+P0292,2026-04-18,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,train
+P0292,2026-04-19,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0293,2026-01-24,visit,General Medicine,Follow-up at General Medicine,train
+P0294,2025-10-29,prescription,Sunrise Pathology Lab,Aspirin 75 mg; Atorvastatin 20 mg,test
+P0294,2025-12-21,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 3 abnormal of 4 tests,test
+P0294,2026-02-11,visit,General Medicine,Follow-up at General Medicine,test
+P0295,2025-03-01,lab_report,Pathcare Diagnostics,Thyroid: 0 abnormal of 1 tests,train
+P0295,2025-05-09,lab_report,Dr. Lal Labs (dummy),Inflammatory: 0 abnormal of 3 tests,train
+P0295,2025-05-11,prescription,Pathcare Diagnostics,Levothyroxine 50 mcg; Yogaraj guggulu 2 tab,train
+P0295,2026-01-26,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0295,2026-03-22,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,train
+P0296,2026-03-11,prescription,Pathcare Diagnostics,Aspirin 75 mg; Atorvastatin 20 mg,valid
+P0296,2026-03-30,visit,General Medicine,First visit at General Medicine,valid
+P0297,2025-02-24,lab_report,Sunrise Pathology Lab,Renal + liver: 0 abnormal of 3 tests,train
+P0297,2025-12-22,prescription,AIIA Delhi OPD,Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0297,2026-04-01,prescription,Dr. Lal Labs (dummy),Diclofenac 50 mg; Triphala churna 5 g,train
+P0297,2026-06-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0298,2025-02-04,prescription,Dr. Lal Labs (dummy),Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0298,2026-06-22,visit,Panchakarma,Follow-up at Panchakarma,train
+P0299,2026-04-17,visit,General Medicine,Follow-up at General Medicine,train
+P0300,2025-03-27,prescription,Dr. Lal Labs (dummy),Neem capsule 500 mg,train
+P0300,2026-06-01,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0301,2025-07-16,prescription,Community Health Centre,Triphala churna 5 g,train
+P0301,2025-11-21,prescription,Pathcare Diagnostics,Triphala churna 5 g,train
+P0301,2026-06-26,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0302,2026-04-20,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0302,2026-05-29,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0302,2026-08-01,prescription,District Hospital Agra,Metformin 500 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0303,2025-09-03,prescription,Community Health Centre,Amlodipine 5 mg; Aspirin 75 mg,train
+P0303,2026-07-04,visit,General Medicine,First visit at General Medicine,train
+P0304,2025-11-06,lab_report,Community Health Centre,Renal + liver: 0 abnormal of 3 tests,valid
+P0304,2025-12-01,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,valid
+P0304,2026-08-22,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0305,2026-01-28,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0306,2026-07-15,visit,General Medicine,First visit at General Medicine,train
+P0307,2025-11-12,prescription,District Hospital Agra,Cetirizine 10 mg,valid
+P0307,2026-06-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0308,2026-08-08,visit,General Medicine,First visit at General Medicine,train
+P0309,2025-01-08,prescription,Community Health Centre,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,test
+P0309,2026-01-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0310,2025-06-08,prescription,Community Health Centre,Amlodipine 5 mg; Sarpagandha vati 1 tab,valid
+P0310,2025-11-11,lab_report,AIIA Delhi OPD,Lipid + cardiac: 1 abnormal of 4 tests,valid
+P0310,2026-04-11,visit,General Medicine,First visit at General Medicine,valid
+P0310,2026-05-17,lab_report,Pathcare Diagnostics,Renal + liver: 2 abnormal of 3 tests,valid
+P0311,2025-11-22,lab_report,Community Health Centre,CBC: 1 abnormal of 4 tests,train
+P0311,2026-04-22,visit,General Medicine,Follow-up at General Medicine,train
+P0311,2026-04-24,lab_report,AIIA Delhi OPD,Diabetes panel: 1 abnormal of 3 tests,train
+P0311,2026-05-12,prescription,Community Health Centre,Metformin 500 mg; Amlodipine 5 mg; Paracetamol 650 mg,train
+P0312,2026-05-02,visit,General Medicine,Follow-up at General Medicine,train
+P0312,2026-06-01,lab_report,Community Health Centre,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0313,2026-01-28,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0313,2026-06-09,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0313,2026-08-25,lab_report,Pathcare Diagnostics,Inflammatory: 0 abnormal of 3 tests,train
+P0314,2025-01-02,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,test
+P0314,2025-01-23,prescription,Sunrise Pathology Lab,Metformin 500 mg; Gudmar churna 3 g,test
+P0314,2026-01-06,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 1 abnormal of 3 tests,test
+P0314,2026-05-26,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0315,2026-04-05,visit,Panchakarma,Follow-up at Panchakarma,train
+P0315,2026-08-02,prescription,Community Health Centre,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0316,2025-03-23,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,valid
+P0316,2026-04-30,visit,General Medicine,Follow-up at General Medicine,valid
+P0317,2026-05-06,prescription,Dr. Lal Labs (dummy),Paracetamol 650 mg,train
+P0317,2026-06-10,prescription,Dr. Lal Labs (dummy),Paracetamol 650 mg; Triphala churna 5 g,train
+P0317,2026-07-16,visit,General Medicine,Follow-up at General Medicine,train
+P0318,2025-01-04,lab_report,Pathcare Diagnostics,Inflammatory: 1 abnormal of 3 tests,train
+P0318,2026-08-21,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0319,2025-02-21,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Triphala churna 5 g,train
+P0319,2026-01-12,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0319,2026-01-14,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Triphala churna 5 g,train
+P0320,2026-05-27,prescription,Community Health Centre,Paracetamol 650 mg,valid
+P0320,2026-06-08,visit,General Medicine,First visit at General Medicine,valid
+P0321,2025-05-12,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,train
+P0321,2025-08-22,lab_report,Sunrise Pathology Lab,Renal + liver: 0 abnormal of 3 tests,train
+P0321,2026-03-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0321,2026-06-27,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0321,2026-08-11,prescription,Community Health Centre,Metformin 500 mg; Gudmar churna 3 g,train
+P0322,2025-03-01,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0322,2025-12-11,lab_report,AIIA Delhi OPD,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0322,2026-03-23,visit,General Medicine,First visit at General Medicine,train
+P0323,2025-12-03,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0323,2026-01-15,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0323,2026-07-12,lab_report,District Hospital Agra,Inflammatory: 0 abnormal of 3 tests,train
+P0323,2026-07-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0324,2025-04-19,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0324,2025-04-22,prescription,Community Health Centre,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0324,2026-01-13,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0325,2025-05-08,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0325,2025-08-06,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0325,2026-06-22,visit,General Medicine,Follow-up at General Medicine,train
+P0326,2025-12-06,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Pantoprazole 40 mg,train
+P0326,2026-02-25,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0327,2025-08-09,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Dicyclomine 10 mg,train
+P0327,2026-04-29,visit,General Medicine,First visit at General Medicine,train
+P0327,2026-05-24,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Dicyclomine 10 mg; Ashwagandha churna 3 g,train
+P0328,2026-04-24,visit,Panchakarma,Follow-up at Panchakarma,train
+P0329,2025-02-10,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,valid
+P0329,2025-10-08,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,valid
+P0329,2026-05-07,prescription,Community Health Centre,Metformin 500 mg; Amlodipine 5 mg; Sarpagandha vati 1 tab,valid
+P0329,2026-06-06,visit,General Medicine,First visit at General Medicine,valid
+P0330,2025-06-04,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0330,2025-12-31,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,train
+P0330,2026-01-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0330,2026-06-14,prescription,AIIA Delhi OPD,Metformin 500 mg; Gudmar churna 3 g,train
+P0331,2025-01-11,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 3 abnormal of 4 tests,test
+P0331,2026-01-24,visit,General Medicine,First visit at General Medicine,test
+P0332,2025-05-27,lab_report,Pathcare Diagnostics,Inflammatory: 0 abnormal of 3 tests,train
+P0332,2026-04-08,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,train
+P0332,2026-06-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0333,2025-05-09,lab_report,Community Health Centre,Thyroid: 0 abnormal of 1 tests,train
+P0333,2026-04-28,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0333,2026-05-14,prescription,District Hospital Agra,Levothyroxine 50 mcg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0334,2025-01-19,lab_report,Dr. Lal Labs (dummy),CBC: 1 abnormal of 4 tests,train
+P0334,2025-07-25,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,train
+P0334,2026-07-22,visit,General Medicine,First visit at General Medicine,train
+P0335,2025-09-13,lab_report,AIIA Delhi OPD,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0335,2026-01-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0335,2026-07-25,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0336,2025-04-11,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg,train
+P0336,2026-06-06,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0337,2026-02-13,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0337,2026-03-14,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0338,2026-04-01,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0339,2025-09-12,prescription,Community Health Centre,Metformin 500 mg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0339,2025-12-25,lab_report,Community Health Centre,Diabetes panel: 0 abnormal of 3 tests,train
+P0339,2026-06-25,visit,Panchakarma,Follow-up at Panchakarma,train
+P0340,2025-05-12,prescription,Sunrise Pathology Lab,Dashmoolarishta 20 ml,valid
+P0340,2026-01-31,visit,General Medicine,First visit at General Medicine,valid
+P0340,2026-02-07,prescription,Community Health Centre,Ibuprofen 400 mg; Dashmoolarishta 20 ml,valid
+P0341,2026-05-06,visit,Panchakarma,First visit at Panchakarma,train
+P0341,2026-05-11,prescription,AIIA Delhi OPD,Dashmoolarishta 20 ml,train
+P0341,2026-08-24,prescription,Pathcare Diagnostics,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0342,2026-01-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0342,2026-03-26,prescription,AIIA Delhi OPD,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0343,2025-03-29,prescription,AIIA Delhi OPD,Metformin 500 mg; Gudmar churna 3 g,train
+P0343,2025-04-25,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,train
+P0343,2026-06-24,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0343,2026-08-01,lab_report,Pathcare Diagnostics,Renal + liver: 2 abnormal of 3 tests,train
+P0344,2025-07-08,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Salbutamol inhaler 100 mcg; Triphala churna 5 g,test
+P0344,2026-03-07,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,test
+P0344,2026-04-29,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0344,2026-07-20,prescription,Community Health Centre,Metformin 500 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,test
+P0345,2025-07-03,prescription,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,test
+P0345,2026-04-04,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0346,2025-01-06,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab,valid
+P0346,2026-07-11,visit,Panchakarma,Follow-up at Panchakarma,valid
+P0347,2025-07-16,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg,train
+P0347,2026-08-08,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0348,2025-10-28,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0348,2025-12-18,prescription,Pathcare Diagnostics,Gudmar churna 3 g,train
+P0348,2026-02-14,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 1 abnormal of 3 tests,train
+P0348,2026-07-23,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0349,2025-11-16,prescription,AIIA Delhi OPD,Metformin 500 mg; Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,test
+P0349,2026-03-09,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0349,2026-05-21,prescription,Sunrise Pathology Lab,Metformin 500 mg; Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Ashwagandha churna 3 g,test
+P0349,2026-07-22,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 0 abnormal of 3 tests,test
+P0350,2025-02-22,lab_report,Pathcare Diagnostics,CBC: 1 abnormal of 4 tests,train
+P0350,2025-03-27,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,train
+P0350,2026-04-13,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0351,2025-09-30,prescription,Community Health Centre,Metformin 500 mg; Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,valid
+P0351,2025-11-29,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,valid
+P0351,2026-01-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0351,2026-04-05,lab_report,Sunrise Pathology Lab,Inflammatory: 2 abnormal of 3 tests,valid
+P0351,2026-06-05,prescription,Sunrise Pathology Lab,Metformin 500 mg; Amlodipine 5 mg; Yogaraj guggulu 2 tab,valid
+P0351,2026-06-17,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,valid
+P0352,2025-03-09,prescription,District Hospital Agra,Atorvastatin 20 mg,train
+P0352,2026-02-22,visit,General Medicine,Follow-up at General Medicine,train
+P0352,2026-05-02,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 3 abnormal of 4 tests,train
+P0353,2026-01-24,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0353,2026-08-19,prescription,Community Health Centre,Triphala churna 5 g,train
+P0354,2025-09-14,lab_report,Dr. Lal Labs (dummy),Thyroid: 0 abnormal of 1 tests,train
+P0354,2026-04-20,visit,General Medicine,First visit at General Medicine,train
+P0354,2026-05-01,prescription,AIIA Delhi OPD,Levothyroxine 50 mcg; Ashwagandha churna 3 g,train
+P0355,2025-03-07,prescription,District Hospital Agra,Amlodipine 5 mg; Salbutamol inhaler 100 mcg,train
+P0355,2026-03-19,visit,General Medicine,First visit at General Medicine,train
+P0356,2026-07-25,visit,General Medicine,First visit at General Medicine,train
+P0357,2026-05-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0357,2026-07-04,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,train
+P0358,2025-04-14,prescription,AIIA Delhi OPD,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0358,2026-01-09,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0359,2025-07-28,lab_report,Community Health Centre,Renal + liver: 0 abnormal of 3 tests,train
+P0359,2025-08-09,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,train
+P0359,2026-02-08,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0359,2026-03-17,prescription,District Hospital Agra,Metformin 500 mg; Amlodipine 5 mg; Gudmar churna 3 g,train
+P0360,2025-01-13,prescription,Pathcare Diagnostics,Metformin 500 mg; Gudmar churna 3 g,test
+P0360,2025-11-21,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,test
+P0360,2026-05-05,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,test
+P0360,2026-05-22,prescription,Pathcare Diagnostics,Metformin 500 mg,test
+P0360,2026-08-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0361,2026-05-04,lab_report,Community Health Centre,CBC: 1 abnormal of 4 tests,train
+P0361,2026-05-27,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0361,2026-06-03,prescription,Community Health Centre,Paracetamol 650 mg,train
+P0362,2025-06-09,prescription,Pathcare Diagnostics,Metformin 500 mg; Amlodipine 5 mg; Gudmar churna 3 g,train
+P0362,2025-08-11,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 2 abnormal of 3 tests,train
+P0362,2025-09-20,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0362,2026-07-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0363,2025-06-10,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0363,2025-08-27,prescription,District Hospital Agra,Amlodipine 5 mg; Yogaraj guggulu 2 tab,train
+P0363,2026-06-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0364,2025-02-24,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Triphala churna 5 g,test
+P0364,2026-02-08,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Ashwagandha churna 3 g,test
+P0364,2026-07-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0365,2025-04-16,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,train
+P0365,2026-01-08,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0366,2026-02-07,visit,General Medicine,Follow-up at General Medicine,train
+P0366,2026-07-13,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Amlodipine 5 mg; Paracetamol 650 mg; Ashwagandha churna 3 g,train
+P0367,2025-09-07,lab_report,Sunrise Pathology Lab,Inflammatory: 0 abnormal of 3 tests,valid
+P0367,2025-11-10,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,valid
+P0367,2026-02-21,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0367,2026-04-08,prescription,Pathcare Diagnostics,Diclofenac 50 mg; Yogaraj guggulu 2 tab,valid
+P0367,2026-05-17,prescription,Community Health Centre,Diclofenac 50 mg; Yogaraj guggulu 2 tab,valid
+P0368,2025-10-27,prescription,Sunrise Pathology Lab,Triphala churna 5 g,train
+P0368,2026-01-22,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0369,2025-08-05,lab_report,Pathcare Diagnostics,CBC: 0 abnormal of 4 tests,train
+P0369,2026-04-05,visit,General Medicine,Follow-up at General Medicine,train
+P0369,2026-06-16,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0369,2026-06-29,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,train
+P0370,2025-03-26,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg; Avipattikar churna 5 g; Ashwagandha churna 3 g,train
+P0370,2026-06-15,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0371,2025-04-13,prescription,Sunrise Pathology Lab,Triphala churna 5 g,train
+P0371,2026-06-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0372,2025-08-19,lab_report,District Hospital Agra,Diabetes panel: 1 abnormal of 3 tests,train
+P0372,2026-03-11,visit,General Medicine,Follow-up at General Medicine,train
+P0373,2026-02-10,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0373,2026-04-16,prescription,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g; Ashwagandha churna 3 g,test
+P0374,2025-04-04,prescription,Dr. Lal Labs (dummy),Simhanada guggulu 2 tab,train
+P0374,2026-03-24,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0375,2025-02-24,prescription,Dr. Lal Labs (dummy),Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0375,2025-12-14,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,train
+P0375,2026-01-09,lab_report,Dr. Lal Labs (dummy),Inflammatory: 2 abnormal of 3 tests,train
+P0375,2026-01-12,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0376,2025-10-28,prescription,Community Health Centre,Dicyclomine 10 mg; Triphala churna 5 g,train
+P0376,2026-04-24,visit,General Medicine,First visit at General Medicine,train
+P0377,2026-02-14,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0378,2025-01-08,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0378,2026-01-03,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0379,2025-11-30,prescription,District Hospital Agra,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0379,2026-08-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0380,2025-08-13,prescription,Pathcare Diagnostics,Metformin 500 mg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0380,2026-02-23,visit,Panchakarma,First visit at Panchakarma,train
+P0381,2026-02-10,prescription,Pathcare Diagnostics,Ashwagandha churna 3 g,train
+P0381,2026-02-28,visit,General Medicine,Follow-up at General Medicine,train
+P0381,2026-08-24,prescription,Pathcare Diagnostics,Ashwagandha churna 3 g,train
+P0382,2025-05-29,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg,train
+P0382,2026-04-07,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0382,2026-07-01,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0383,2025-12-24,lab_report,AIIA Delhi OPD,Inflammatory: 1 abnormal of 3 tests,train
+P0383,2026-02-20,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0383,2026-06-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0384,2025-04-09,prescription,Community Health Centre,Amlodipine 5 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0384,2026-07-08,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Avipattikar churna 5 g,train
+P0384,2026-07-11,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0385,2025-04-07,prescription,Sunrise Pathology Lab,Paracetamol 650 mg,train
+P0385,2026-07-13,visit,General Medicine,Follow-up at General Medicine,train
+P0385,2026-08-01,lab_report,Community Health Centre,CBC: 2 abnormal of 4 tests,train
+P0386,2026-01-02,visit,Panchakarma,Follow-up at Panchakarma,test
+P0387,2025-02-17,prescription,Pathcare Diagnostics,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0387,2026-03-06,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0387,2026-06-24,prescription,AIIA Delhi OPD,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0388,2026-05-21,visit,General Medicine,Follow-up at General Medicine,valid
+P0389,2026-05-16,lab_report,Sunrise Pathology Lab,Diabetes panel: 1 abnormal of 3 tests,train
+P0389,2026-05-22,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0389,2026-07-02,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,train
+P0390,2026-02-08,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0390,2026-07-17,lab_report,Community Health Centre,Renal + liver: 0 abnormal of 3 tests,valid
+P0391,2025-07-22,prescription,District Hospital Agra,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0391,2026-01-11,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0392,2025-01-26,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 0 abnormal of 3 tests,train
+P0392,2025-07-20,prescription,District Hospital Agra,Metformin 500 mg; Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0392,2026-06-15,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0393,2025-03-16,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g; Triphala churna 5 g,train
+P0393,2025-10-18,lab_report,District Hospital Agra,Diabetes panel: 3 abnormal of 3 tests,train
+P0393,2026-07-23,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0394,2025-03-31,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0394,2026-02-18,prescription,AIIA Delhi OPD,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0394,2026-04-17,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0395,2025-04-21,prescription,Pathcare Diagnostics,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0395,2025-06-28,lab_report,AIIA Delhi OPD,Inflammatory: 3 abnormal of 3 tests,train
+P0395,2025-10-11,prescription,Sunrise Pathology Lab,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0395,2026-04-17,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0396,2026-02-09,visit,General Medicine,First visit at General Medicine,train
+P0397,2026-03-02,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0398,2025-03-09,prescription,Community Health Centre,Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg,train
+P0398,2025-08-13,lab_report,Community Health Centre,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0398,2026-02-20,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Aspirin 75 mg; Atorvastatin 20 mg; Triphala churna 5 g,train
+P0398,2026-07-25,visit,General Medicine,Follow-up at General Medicine,train
+P0399,2025-10-22,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,train
+P0399,2026-05-29,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,train
+P0399,2026-07-18,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0400,2026-04-05,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg; Triphala churna 5 g,train
+P0400,2026-06-24,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0401,2025-05-23,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0401,2025-08-26,lab_report,Sunrise Pathology Lab,Renal + liver: 0 abnormal of 3 tests,train
+P0401,2026-05-02,visit,General Medicine,First visit at General Medicine,train
+P0402,2026-04-18,visit,Panchakarma,First visit at Panchakarma,valid
+P0403,2025-09-30,prescription,Pathcare Diagnostics,Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0403,2026-01-25,prescription,Pathcare Diagnostics,Ibuprofen 400 mg,train
+P0403,2026-07-11,visit,Panchakarma,First visit at Panchakarma,train
+P0404,2025-03-12,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0404,2025-05-11,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0404,2026-04-10,visit,General Medicine,Follow-up at General Medicine,train
+P0404,2026-08-07,prescription,District Hospital Agra,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0405,2026-02-17,lab_report,District Hospital Agra,Diabetes panel: 3 abnormal of 3 tests,train
+P0405,2026-03-22,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,train
+P0405,2026-03-29,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0406,2025-02-24,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0406,2025-12-22,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0406,2026-06-23,visit,Panchakarma,First visit at Panchakarma,train
+P0407,2025-03-22,prescription,AIIA Delhi OPD,Pantoprazole 40 mg,train
+P0407,2026-01-22,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0408,2026-01-19,prescription,Community Health Centre,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0408,2026-05-01,visit,General Medicine,First visit at General Medicine,train
+P0408,2026-06-18,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0408,2026-06-29,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0409,2025-01-18,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0409,2025-05-08,prescription,Pathcare Diagnostics,Atorvastatin 20 mg,train
+P0409,2026-05-24,visit,General Medicine,First visit at General Medicine,train
+P0410,2025-04-30,prescription,Sunrise Pathology Lab,Levothyroxine 50 mcg; Paracetamol 650 mg,train
+P0410,2025-10-04,lab_report,Dr. Lal Labs (dummy),Thyroid: 0 abnormal of 1 tests,train
+P0410,2025-10-16,prescription,Sunrise Pathology Lab,Levothyroxine 50 mcg,train
+P0410,2026-05-15,visit,Panchakarma,Follow-up at Panchakarma,train
+P0411,2025-03-20,lab_report,Dr. Lal Labs (dummy),Thyroid: 0 abnormal of 1 tests,train
+P0411,2025-09-04,prescription,Community Health Centre,Amlodipine 5 mg; Levothyroxine 50 mcg; Triphala churna 5 g,train
+P0411,2026-05-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0412,2026-03-01,lab_report,AIIA Delhi OPD,Inflammatory: 0 abnormal of 3 tests,train
+P0412,2026-05-19,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0413,2026-04-13,prescription,Sunrise Pathology Lab,Dicyclomine 10 mg,train
+P0413,2026-06-15,visit,General Medicine,First visit at General Medicine,train
+P0414,2026-02-25,prescription,Dr. Lal Labs (dummy),Cetirizine 10 mg,test
+P0414,2026-05-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0414,2026-07-07,prescription,Sunrise Pathology Lab,Cetirizine 10 mg; Neem capsule 500 mg,test
+P0415,2026-01-26,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Triphala churna 5 g,train
+P0415,2026-05-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0415,2026-05-27,prescription,Community Health Centre,Amlodipine 5 mg; Triphala churna 5 g,train
+P0416,2026-07-31,visit,General Medicine,First visit at General Medicine,train
+P0417,2025-12-23,lab_report,AIIA Delhi OPD,Diabetes panel: 1 abnormal of 3 tests,train
+P0417,2026-03-02,visit,General Medicine,First visit at General Medicine,train
+P0417,2026-03-12,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0417,2026-07-23,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0417,2026-07-31,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0418,2025-07-31,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 1 abnormal of 4 tests,train
+P0418,2025-08-19,prescription,District Hospital Agra,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0418,2026-07-23,visit,General Medicine,First visit at General Medicine,train
+P0419,2026-03-26,lab_report,District Hospital Agra,CBC: 3 abnormal of 4 tests,train
+P0419,2026-03-31,prescription,AIIA Delhi OPD,Paracetamol 650 mg; Triphala churna 5 g,train
+P0419,2026-05-25,visit,General Medicine,First visit at General Medicine,train
+P0419,2026-06-25,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0420,2025-06-29,prescription,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,valid
+P0420,2026-06-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0421,2025-03-04,lab_report,Dr. Lal Labs (dummy),Inflammatory: 1 abnormal of 3 tests,train
+P0421,2025-11-11,prescription,District Hospital Agra,Yogaraj guggulu 2 tab,train
+P0421,2026-07-13,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0422,2025-04-12,prescription,AIIA Delhi OPD,Yogaraj guggulu 2 tab,train
+P0422,2026-02-10,lab_report,Dr. Lal Labs (dummy),Inflammatory: 2 abnormal of 3 tests,train
+P0422,2026-03-06,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,train
+P0422,2026-07-14,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0423,2025-01-29,lab_report,District Hospital Agra,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0423,2025-08-25,lab_report,Pathcare Diagnostics,Thyroid: 0 abnormal of 1 tests,train
+P0423,2026-03-09,visit,General Medicine,First visit at General Medicine,train
+P0423,2026-06-25,prescription,Dr. Lal Labs (dummy),Levothyroxine 50 mcg,train
+P0424,2025-12-16,prescription,Pathcare Diagnostics,Triphala churna 5 g,train
+P0424,2026-04-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0425,2025-07-06,lab_report,Dr. Lal Labs (dummy),Lipid + cardiac: 1 abnormal of 4 tests,train
+P0425,2025-11-09,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0425,2026-06-11,visit,General Medicine,Follow-up at General Medicine,train
+P0426,2025-02-02,prescription,AIIA Delhi OPD,Levothyroxine 50 mcg,train
+P0426,2025-04-07,lab_report,Pathcare Diagnostics,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0426,2025-06-28,prescription,Pathcare Diagnostics,Levothyroxine 50 mcg; Atorvastatin 20 mg,train
+P0426,2026-04-29,visit,General Medicine,First visit at General Medicine,train
+P0427,2025-03-04,lab_report,District Hospital Agra,CBC: 1 abnormal of 4 tests,train
+P0427,2025-06-12,prescription,Dr. Lal Labs (dummy),Paracetamol 650 mg,train
+P0427,2026-07-28,visit,General Medicine,Follow-up at General Medicine,train
+P0428,2026-04-17,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0429,2025-02-21,lab_report,Community Health Centre,Diabetes panel: 2 abnormal of 3 tests,train
+P0429,2025-06-16,prescription,District Hospital Agra,Metformin 500 mg; Gudmar churna 3 g,train
+P0429,2025-07-08,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0429,2026-04-01,prescription,Pathcare Diagnostics,Metformin 500 mg; Gudmar churna 3 g,train
+P0429,2026-08-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0430,2025-03-01,prescription,Dr. Lal Labs (dummy),Amlodipine 5 mg; Cetirizine 10 mg,train
+P0430,2026-04-04,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0431,2025-02-05,prescription,Sunrise Pathology Lab,Metformin 500 mg; Amlodipine 5 mg,train
+P0431,2026-01-07,lab_report,District Hospital Agra,Diabetes panel: 1 abnormal of 3 tests,train
+P0431,2026-06-14,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0432,2026-04-03,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0433,2025-09-01,prescription,Sunrise Pathology Lab,Ashwagandha churna 3 g,train
+P0433,2026-06-05,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0434,2025-04-27,prescription,Pathcare Diagnostics,Paracetamol 650 mg,train
+P0434,2026-05-03,visit,General Medicine,First visit at General Medicine,train
+P0435,2026-01-01,prescription,Pathcare Diagnostics,Ashwagandha churna 3 g,train
+P0435,2026-04-08,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0436,2025-03-26,lab_report,Pathcare Diagnostics,Lipid + cardiac: 1 abnormal of 4 tests,test
+P0436,2025-05-30,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Sarpagandha vati 1 tab,test
+P0436,2026-02-11,lab_report,Dr. Lal Labs (dummy),Renal + liver: 1 abnormal of 3 tests,test
+P0436,2026-05-11,visit,General Medicine,Follow-up at General Medicine,test
+P0437,2025-09-18,prescription,Dr. Lal Labs (dummy),Metformin 500 mg,train
+P0437,2025-12-23,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0437,2026-06-07,visit,General Medicine,First visit at General Medicine,train
+P0438,2025-01-24,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Amlodipine 5 mg; Diclofenac 50 mg; Yogaraj guggulu 2 tab,train
+P0438,2025-04-16,lab_report,Community Health Centre,Diabetes panel: 1 abnormal of 3 tests,train
+P0438,2025-04-21,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,train
+P0438,2025-11-18,prescription,Pathcare Diagnostics,Metformin 500 mg; Amlodipine 5 mg; Yogaraj guggulu 2 tab,train
+P0438,2026-05-25,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0439,2026-03-16,visit,General Medicine,Follow-up at General Medicine,train
+P0439,2026-08-17,lab_report,Community Health Centre,Diabetes panel: 3 abnormal of 3 tests,train
+P0440,2026-03-24,prescription,Pathcare Diagnostics,Dicyclomine 10 mg,train
+P0440,2026-06-08,visit,General Medicine,Follow-up at General Medicine,train
+P0441,2026-01-20,visit,Panchakarma,Follow-up at Panchakarma,train
+P0441,2026-02-27,prescription,Sunrise Pathology Lab,Ibuprofen 400 mg; Dashmoolarishta 20 ml; Triphala churna 5 g,train
+P0442,2026-04-18,lab_report,AIIA Delhi OPD,CBC: 1 abnormal of 4 tests,valid
+P0442,2026-07-07,visit,Panchakarma,Follow-up at Panchakarma,valid
+P0443,2025-12-14,prescription,District Hospital Agra,Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0443,2026-05-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0444,2025-09-19,prescription,Community Health Centre,Metformin 500 mg,test
+P0444,2025-10-17,lab_report,Community Health Centre,Diabetes panel: 0 abnormal of 3 tests,test
+P0444,2026-01-18,visit,General Medicine,Follow-up at General Medicine,test
+P0445,2025-02-22,lab_report,Pathcare Diagnostics,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0445,2025-03-28,prescription,District Hospital Agra,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0445,2026-02-21,visit,General Medicine,Follow-up at General Medicine,train
+P0445,2026-03-03,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,train
+P0445,2026-06-26,prescription,District Hospital Agra,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0446,2025-07-17,prescription,Sunrise Pathology Lab,Neem capsule 500 mg,test
+P0446,2025-09-05,prescription,Pathcare Diagnostics,Cetirizine 10 mg; Neem capsule 500 mg,test
+P0446,2026-06-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,test
+P0447,2025-04-02,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0447,2026-06-19,visit,General Medicine,First visit at General Medicine,train
+P0448,2025-01-11,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Gudmar churna 3 g,train
+P0448,2025-02-27,lab_report,Sunrise Pathology Lab,Diabetes panel: 2 abnormal of 3 tests,train
+P0448,2026-02-05,lab_report,Sunrise Pathology Lab,Renal + liver: 1 abnormal of 3 tests,train
+P0448,2026-04-06,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0449,2026-01-07,lab_report,AIIA Delhi OPD,Inflammatory: 1 abnormal of 3 tests,train
+P0449,2026-06-11,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0450,2025-08-20,prescription,Pathcare Diagnostics,Ibuprofen 400 mg; Dashmoolarishta 20 ml; Ashwagandha churna 3 g,train
+P0450,2025-12-09,prescription,AIIA Delhi OPD,Ibuprofen 400 mg,train
+P0450,2026-05-12,visit,Panchakarma,First visit at Panchakarma,train
+P0451,2025-08-05,lab_report,AIIA Delhi OPD,Thyroid: 0 abnormal of 1 tests,train
+P0451,2025-10-25,prescription,Community Health Centre,Levothyroxine 50 mcg; Paracetamol 650 mg,train
+P0451,2026-02-23,visit,General Medicine,Follow-up at General Medicine,train
+P0451,2026-03-16,lab_report,AIIA Delhi OPD,CBC: 2 abnormal of 4 tests,train
+P0451,2026-04-23,prescription,AIIA Delhi OPD,Levothyroxine 50 mcg; Ashwagandha churna 3 g,train
+P0452,2025-01-03,prescription,District Hospital Agra,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0452,2026-01-04,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0453,2026-04-16,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0453,2026-08-25,prescription,Community Health Centre,Neem capsule 500 mg,train
+P0454,2026-01-03,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0454,2026-08-14,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0455,2025-05-17,prescription,Community Health Centre,Metformin 500 mg,train
+P0455,2025-07-28,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,train
+P0455,2026-01-31,lab_report,Sunrise Pathology Lab,Diabetes panel: 2 abnormal of 3 tests,train
+P0455,2026-05-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0456,2026-02-28,lab_report,Pathcare Diagnostics,Inflammatory: 2 abnormal of 3 tests,train
+P0456,2026-06-21,visit,Panchakarma,Follow-up at Panchakarma,train
+P0457,2025-10-10,prescription,Dr. Lal Labs (dummy),Pantoprazole 40 mg; Avipattikar churna 5 g,test
+P0457,2026-03-03,visit,Kayachikitsa,First visit at Kayachikitsa,test
+P0457,2026-07-27,prescription,Dr. Lal Labs (dummy),Avipattikar churna 5 g,test
+P0458,2026-05-11,visit,Panchakarma,Follow-up at Panchakarma,valid
+P0458,2026-07-03,prescription,Community Health Centre,Ibuprofen 400 mg; Dashmoolarishta 20 ml,valid
+P0459,2025-05-15,lab_report,Dr. Lal Labs (dummy),CBC: 2 abnormal of 4 tests,test
+P0459,2026-07-06,visit,General Medicine,Follow-up at General Medicine,test
+P0460,2025-12-17,prescription,Dr. Lal Labs (dummy),Aspirin 75 mg,test
+P0460,2026-02-09,prescription,Community Health Centre,Aspirin 75 mg,test
+P0460,2026-05-22,visit,General Medicine,Follow-up at General Medicine,test
+P0461,2025-05-07,lab_report,District Hospital Agra,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0461,2025-09-19,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab; Ashwagandha churna 3 g,train
+P0461,2025-11-13,lab_report,Sunrise Pathology Lab,Renal + liver: 2 abnormal of 3 tests,train
+P0461,2026-01-24,visit,Panchakarma,Follow-up at Panchakarma,train
+P0462,2025-02-10,lab_report,Community Health Centre,CBC: 1 abnormal of 4 tests,train
+P0462,2026-01-05,lab_report,AIIA Delhi OPD,Diabetes panel: 0 abnormal of 3 tests,train
+P0462,2026-03-16,prescription,Pathcare Diagnostics,Metformin 500 mg; Amlodipine 5 mg; Paracetamol 650 mg,train
+P0462,2026-05-04,visit,General Medicine,First visit at General Medicine,train
+P0463,2026-04-19,visit,General Medicine,First visit at General Medicine,train
+P0464,2025-01-21,prescription,District Hospital Agra,Paracetamol 650 mg,train
+P0464,2025-09-26,lab_report,AIIA Delhi OPD,CBC: 1 abnormal of 4 tests,train
+P0464,2026-07-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0465,2026-02-05,visit,General Medicine,Follow-up at General Medicine,train
+P0465,2026-05-22,lab_report,Dr. Lal Labs (dummy),CBC: 1 abnormal of 4 tests,train
+P0466,2026-03-23,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0467,2025-09-20,prescription,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,test
+P0467,2026-05-02,visit,General Medicine,First visit at General Medicine,test
+P0468,2026-03-08,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0469,2025-03-12,prescription,Sunrise Pathology Lab,Metformin 500 mg; Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0469,2025-04-11,prescription,Community Health Centre,Metformin 500 mg; Amlodipine 5 mg; Salbutamol inhaler 100 mcg; Sitopaladi churna 3 g,train
+P0469,2026-01-19,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 0 abnormal of 3 tests,train
+P0469,2026-06-21,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0470,2025-02-15,lab_report,Community Health Centre,Thyroid: 0 abnormal of 1 tests,train
+P0470,2025-08-18,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Levothyroxine 50 mcg; Sarpagandha vati 1 tab,train
+P0470,2026-03-17,lab_report,AIIA Delhi OPD,Lipid + cardiac: 2 abnormal of 4 tests,train
+P0470,2026-03-18,visit,Panchakarma,First visit at Panchakarma,train
+P0470,2026-07-15,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Levothyroxine 50 mcg; Sarpagandha vati 1 tab,train
+P0471,2026-07-12,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0472,2025-05-28,lab_report,Dr. Lal Labs (dummy),Inflammatory: 0 abnormal of 3 tests,train
+P0472,2026-01-18,lab_report,Pathcare Diagnostics,Renal + liver: 1 abnormal of 3 tests,train
+P0472,2026-02-07,prescription,AIIA Delhi OPD,Diclofenac 50 mg; Yogaraj guggulu 2 tab; Triphala churna 5 g,train
+P0472,2026-02-20,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0473,2025-04-18,prescription,AIIA Delhi OPD,Triphala churna 5 g,train
+P0473,2026-01-18,prescription,Sunrise Pathology Lab,Triphala churna 5 g,train
+P0473,2026-07-21,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0474,2025-05-18,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,valid
+P0474,2025-08-06,lab_report,AIIA Delhi OPD,Renal + liver: 0 abnormal of 3 tests,valid
+P0474,2025-08-21,prescription,Community Health Centre,Metformin 500 mg; Gudmar churna 3 g,valid
+P0474,2026-02-08,prescription,Pathcare Diagnostics,Metformin 500 mg; Gudmar churna 3 g,valid
+P0474,2026-05-30,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0475,2025-07-30,prescription,Dr. Lal Labs (dummy),Ibuprofen 400 mg; Dashmoolarishta 20 ml,train
+P0475,2026-06-24,visit,Panchakarma,Follow-up at Panchakarma,train
+P0476,2025-03-24,prescription,Community Health Centre,Paracetamol 650 mg,train
+P0476,2026-07-15,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0477,2026-05-31,visit,Panchakarma,Follow-up at Panchakarma,train
+P0478,2026-01-24,visit,Panchakarma,Follow-up at Panchakarma,train
+P0478,2026-05-12,prescription,AIIA Delhi OPD,Ibuprofen 400 mg; Dashmoolarishta 20 ml; Triphala churna 5 g,train
+P0479,2026-02-19,visit,General Medicine,First visit at General Medicine,train
+P0480,2025-07-04,lab_report,District Hospital Agra,Renal + liver: 0 abnormal of 3 tests,train
+P0480,2026-04-05,prescription,Community Health Centre,Amlodipine 5 mg; Diclofenac 50 mg,train
+P0480,2026-05-18,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0481,2025-10-31,prescription,AIIA Delhi OPD,Metformin 500 mg; Amlodipine 5 mg; Gudmar churna 3 g,valid
+P0481,2026-01-29,lab_report,Pathcare Diagnostics,Diabetes panel: 2 abnormal of 3 tests,valid
+P0481,2026-04-15,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,valid
+P0481,2026-04-27,visit,Kayachikitsa,First visit at Kayachikitsa,valid
+P0482,2025-07-25,lab_report,District Hospital Agra,Diabetes panel: 0 abnormal of 3 tests,train
+P0482,2025-10-11,prescription,AIIA Delhi OPD,Metformin 500 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0482,2025-10-29,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0482,2026-05-14,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0483,2026-02-16,lab_report,District Hospital Agra,CBC: 1 abnormal of 4 tests,valid
+P0483,2026-03-01,visit,General Medicine,Follow-up at General Medicine,valid
+P0484,2025-04-19,prescription,Community Health Centre,Metformin 500 mg; Gudmar churna 3 g,train
+P0484,2025-11-10,lab_report,Pathcare Diagnostics,Diabetes panel: 3 abnormal of 3 tests,train
+P0484,2026-03-31,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,train
+P0484,2026-05-07,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0485,2025-03-07,lab_report,Pathcare Diagnostics,Diabetes panel: 0 abnormal of 3 tests,train
+P0485,2025-05-04,lab_report,Dr. Lal Labs (dummy),Renal + liver: 1 abnormal of 3 tests,train
+P0485,2025-11-05,lab_report,Sunrise Pathology Lab,Lipid + cardiac: 0 abnormal of 4 tests,train
+P0485,2026-03-31,visit,General Medicine,Follow-up at General Medicine,train
+P0485,2026-08-12,prescription,Dr. Lal Labs (dummy),Metformin 500 mg; Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0486,2025-01-03,lab_report,District Hospital Agra,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0486,2025-12-25,prescription,District Hospital Agra,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0486,2026-05-10,visit,General Medicine,Follow-up at General Medicine,train
+P0487,2025-07-29,prescription,AIIA Delhi OPD,Amlodipine 5 mg; Sarpagandha vati 1 tab; Triphala churna 5 g,valid
+P0487,2025-12-18,prescription,Pathcare Diagnostics,Amlodipine 5 mg,valid
+P0487,2026-01-04,lab_report,Pathcare Diagnostics,Lipid + cardiac: 2 abnormal of 4 tests,valid
+P0487,2026-02-15,lab_report,Dr. Lal Labs (dummy),Renal + liver: 0 abnormal of 3 tests,valid
+P0487,2026-04-12,visit,General Medicine,Follow-up at General Medicine,valid
+P0488,2025-03-03,prescription,Sunrise Pathology Lab,Dicyclomine 10 mg; Ashwagandha churna 3 g,train
+P0488,2026-06-15,visit,General Medicine,First visit at General Medicine,train
+P0489,2025-09-03,prescription,Pathcare Diagnostics,Amlodipine 5 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,valid
+P0489,2026-05-05,visit,Kayachikitsa,Follow-up at Kayachikitsa,valid
+P0489,2026-07-22,prescription,District Hospital Agra,Amlodipine 5 mg; Pantoprazole 40 mg; Avipattikar churna 5 g,valid
+P0490,2025-05-03,prescription,Pathcare Diagnostics,Metformin 500 mg,train
+P0490,2026-04-11,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0491,2025-12-23,prescription,AIIA Delhi OPD,Pantoprazole 40 mg; Avipattikar churna 5 g,train
+P0491,2026-03-18,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0491,2026-07-10,prescription,Sunrise Pathology Lab,Pantoprazole 40 mg; Triphala churna 5 g,train
+P0492,2025-08-26,prescription,District Hospital Agra,Cetirizine 10 mg; Neem capsule 500 mg,train
+P0492,2026-06-02,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0493,2025-02-25,prescription,Sunrise Pathology Lab,Ibuprofen 400 mg; Dashmoolarishta 20 ml,valid
+P0493,2025-10-18,prescription,Community Health Centre,Ibuprofen 400 mg; Dashmoolarishta 20 ml,valid
+P0493,2026-04-29,visit,Panchakarma,First visit at Panchakarma,valid
+P0494,2026-06-13,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0495,2025-02-22,lab_report,AIIA Delhi OPD,Renal + liver: 1 abnormal of 3 tests,train
+P0495,2025-03-29,lab_report,Pathcare Diagnostics,Lipid + cardiac: 1 abnormal of 4 tests,train
+P0495,2025-10-19,prescription,AIIA Delhi OPD,Amlodipine 5 mg,train
+P0495,2025-12-12,prescription,Sunrise Pathology Lab,Amlodipine 5 mg; Sarpagandha vati 1 tab,train
+P0495,2026-03-10,visit,General Medicine,First visit at General Medicine,train
+P0496,2025-01-07,lab_report,District Hospital Agra,Renal + liver: 1 abnormal of 3 tests,train
+P0496,2026-03-16,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0496,2026-05-23,lab_report,District Hospital Agra,Diabetes panel: 3 abnormal of 3 tests,train
+P0497,2025-04-29,lab_report,Sunrise Pathology Lab,Diabetes panel: 0 abnormal of 3 tests,test
+P0497,2025-07-16,lab_report,Community Health Centre,Lipid + cardiac: 1 abnormal of 4 tests,test
+P0497,2025-10-23,lab_report,Community Health Centre,Renal + liver: 1 abnormal of 3 tests,test
+P0497,2026-03-24,visit,General Medicine,Follow-up at General Medicine,test
+P0498,2026-08-08,visit,Kayachikitsa,First visit at Kayachikitsa,train
+P0499,2025-03-13,prescription,AIIA Delhi OPD,Simhanada guggulu 2 tab; Diclofenac 50 mg,train
+P0499,2025-05-09,lab_report,Dr. Lal Labs (dummy),Inflammatory: 2 abnormal of 3 tests,train
+P0499,2026-04-11,visit,Kayachikitsa,Follow-up at Kayachikitsa,train
+P0500,2025-07-14,lab_report,Dr. Lal Labs (dummy),Diabetes panel: 1 abnormal of 3 tests,test
+P0500,2025-10-08,lab_report,Pathcare Diagnostics,Renal + liver: 0 abnormal of 3 tests,test
+P0500,2026-04-14,prescription,Sunrise Pathology Lab,Metformin 500 mg; Gudmar churna 3 g; Ashwagandha churna 3 g,test
+P0500,2026-08-07,visit,Kayachikitsa,First visit at Kayachikitsa,test

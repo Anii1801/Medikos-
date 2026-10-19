@@ -1,0 +1,271 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0295",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Meena Nair"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0295",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0295"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0114",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "75-year-old female presenting with knee pain for 1 months. Character: dull aching pain; radiation: to the calf; aggravated by climbing stairs; relieved by oil massage. Severity 6/10. Associated: difficulty walking, swelling. PMH: Hypothyroidism for 9 years. Drugs: Levothyroxine 50 mcg. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00534-3208",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "medicationCodeableConcept": {
+     "text": "Levothyroxine 50 mcg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00534-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00531-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-05-09",
+    "valueQuantity": {
+     "value": 5.24,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00531-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-05-09",
+    "valueQuantity": {
+     "value": 4.15,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00531-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-05-09",
+    "valueQuantity": {
+     "value": 4.94,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00532-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-03-22",
+    "valueQuantity": {
+     "value": 0.67,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00532-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-03-22",
+    "valueQuantity": {
+     "value": 51.4,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00532-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-03-22",
+    "valueQuantity": {
+     "value": 3.19,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00533-TSH",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0295"
+    },
+    "code": {
+     "text": "TSH"
+    },
+    "effectiveDateTime": "2025-03-01",
+    "valueQuantity": {
+     "value": 2.86,
+     "unit": "uIU/mL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

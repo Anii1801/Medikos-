@@ -1,0 +1,189 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0083",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7509-4397-8543"
+     }
+    ],
+    "name": [
+     {
+      "text": "Geeta Sharma"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0083",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0083"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0132",
+    "subject": {
+     "reference": "Patient/P0083"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "42-year-old female presenting with fever for 6 days. Character: high fever with chills; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 7/10. Associated: skin rash, vomiting, headache. PMH: none. Drugs: none. Allergy: no known allergies. Family: asthma. Personal: smokes bidi daily. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00137-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0083"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00136-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0083"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-05-07",
+    "valueQuantity": {
+     "value": 13.75,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00136-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0083"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-05-07",
+    "valueQuantity": {
+     "value": 18.12,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00136-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0083"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-05-07",
+    "valueQuantity": {
+     "value": 330.8,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00136-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0083"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-05-07",
+    "valueQuantity": {
+     "value": 30.9,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,270 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0276",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2146-9703-4833"
+     }
+    ],
+    "name": [
+     {
+      "text": "Sunil Khan"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0276",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0276"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0178",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "headache with dizziness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "I10"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "44-year-old male presenting with headache with dizziness for 4 weeks. Character: throbbing at the back of the head; radiation: it does not spread; aggravated by stress; relieved by rest. Severity 4/10. Associated: blurred vision. PMH: Hypertension for 11 years. Drugs: Amlodipine 5 mg. Allergy: sulfa drugs. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0276",
+    "patient": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "sulfa drugs"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00499-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00497-Total_Cholesterol",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "Total Cholesterol"
+    },
+    "effectiveDateTime": "2025-03-02",
+    "valueQuantity": {
+     "value": 171.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00497-LDL",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "LDL"
+    },
+    "effectiveDateTime": "2025-03-02",
+    "valueQuantity": {
+     "value": 41.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00497-Triglycerides",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "Triglycerides"
+    },
+    "effectiveDateTime": "2025-03-02",
+    "valueQuantity": {
+     "value": 50.4,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00497-Troponin_I",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "Troponin I"
+    },
+    "effectiveDateTime": "2025-03-02",
+    "valueQuantity": {
+     "value": 0.07,
+     "unit": "ng/mL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00498-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2025-08-15",
+    "valueQuantity": {
+     "value": 1.62,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00498-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2025-08-15",
+    "valueQuantity": {
+     "value": 41.7,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00498-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0276"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-08-15",
+    "valueQuantity": {
+     "value": 4.8,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+  "version": "2026-10-14",
+  "hardware_policy": {
+    "cpu_smoke": "required for every task",
+    "gpu_training": "not claimed or enabled by default; record actual device and memory when implemented"
+  },
+  "tasks": {
+    "history_taking": {
+      "dataset_ids": ["local_history_interview", "meditod"],
+      "baseline": "deterministic ontology policy",
+      "candidate_model": "configured LLM adapter only after identity/licence/access verification",
+      "parameter_efficient_tuning": "LoRA/QLoRA pending compatible licensed weights and GPU budget",
+      "metrics": ["duplicate_question_rate", "slot_coverage", "turns_to_completion", "red_flag_recall"]
+    },
+    "clinical_extraction": {
+      "dataset_ids": ["local_ocr_entities"],
+      "baseline": "regex extraction",
+      "candidate_model": "token classification only after BIO conversion is explicitly mapped",
+      "parameter_efficient_tuning": "not justified for current local data",
+      "metrics": ["entity_precision", "entity_recall", "entity_f1"]
+    },
+    "red_flag": {
+      "dataset_ids": ["local_red_flag_cases"],
+      "baseline": "RedFlagEngine deterministic rules",
+      "candidate_model": "classifier adapter; no verified training corpus configured",
+      "parameter_efficient_tuning": "not applicable to current tabular baseline",
+      "metrics": ["sensitivity", "specificity", "precision", "false_negative_rate", "false_positive_burden", "subgroup_metrics"]
+    },
+    "ocr": {
+      "dataset_ids": ["local_ocr_pairs", "tabassum_handwritten_terms"],
+      "baseline": "Tesseract for available images/text",
+      "candidate_model": "handwriting OCR only after corpus identity/licence and images are available",
+      "parameter_efficient_tuning": "pending",
+      "metrics": ["cer", "wer", "term_accuracy", "latency"]
+    },
+    "asr": {
+      "dataset_ids": ["local_asr_text", "ai4bharat_multilingual"],
+      "baseline": "browser Web Speech API/text-level reference",
+      "candidate_model": "per-resource Indic ASR model after licence verification",
+      "parameter_efficient_tuning": "pending audio and compatible checkpoints",
+      "metrics": ["wer", "cer", "slot_accuracy", "language_subgroup_metrics"]
+    },
+    "summarization": {
+      "dataset_ids": ["local_summary_pairs", "medicalsum_related", "mts_dialog"],
+      "baseline": "deterministic summary builder",
+      "candidate_model": "fact-constrained seq2seq/LLM only after licence and de-identification review",
+      "parameter_efficient_tuning": "LoRA/QLoRA only if model licence, tokenizer, and GPU budget permit",
+      "metrics": ["unsupported_claim_rate", "factuality_review", "section_completeness", "rouge_as_secondary"]
+    }
+  }
+}

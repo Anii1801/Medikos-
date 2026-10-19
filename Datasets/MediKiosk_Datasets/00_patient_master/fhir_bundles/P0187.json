@@ -1,0 +1,171 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0187",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-1181-1325-2351"
+     }
+    ],
+    "name": [
+     {
+      "text": "Harish Sharma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0187",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0187"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0237",
+    "subject": {
+     "reference": "Patient/P0187"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "6-year-old male presenting with fever for 5 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 8/10. Associated: skin rash. PMH: none. Drugs: none. Allergy: no known allergies. Family: hypertension. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00326-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0187"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2026-01-08",
+    "valueQuantity": {
+     "value": 15.33,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00326-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0187"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2026-01-08",
+    "valueQuantity": {
+     "value": 9.1,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00326-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0187"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2026-01-08",
+    "valueQuantity": {
+     "value": 315.2,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00326-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0187"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-01-08",
+    "valueQuantity": {
+     "value": 10.39,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,214 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0252",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Rekha Chauhan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0252",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0252"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0159",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "code": {
+     "text": "fever",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R50.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "38-year-old female presenting with fever for 5 days. Character: evening rise of temperature; radiation: n/a; aggravated by nothing specific; relieved by paracetamol. Severity 3/10. Associated: vomiting, headache. PMH: none. Drugs: none. Allergy: dust. Family: diabetes. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0252",
+    "patient": {
+     "reference": "Patient/P0252"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00461-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00462-1924",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "medicationCodeableConcept": {
+     "text": "Paracetamol 650 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00460-Hemoglobin",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "code": {
+     "text": "Hemoglobin"
+    },
+    "effectiveDateTime": "2025-07-01",
+    "valueQuantity": {
+     "value": 6.12,
+     "unit": "g/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Low"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00460-WBC",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "code": {
+     "text": "WBC"
+    },
+    "effectiveDateTime": "2025-07-01",
+    "valueQuantity": {
+     "value": 19.22,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00460-Platelets",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "code": {
+     "text": "Platelets"
+    },
+    "effectiveDateTime": "2025-07-01",
+    "valueQuantity": {
+     "value": 161.3,
+     "unit": "x10^3/uL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00460-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0252"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-07-01",
+    "valueQuantity": {
+     "value": 41.7,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,232 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0064",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-7059-8069-1615"
+     }
+    ],
+    "name": [
+     {
+      "text": "Ravi Yadav"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0064",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0064"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0080",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "50-year-old male presenting with knee pain for 1 years. Character: stiffness with cracking sound; radiation: it does not spread; aggravated by climbing stairs; relieved by oil massage. Severity 9/10. Associated: swelling. PMH: Hypertension for 4 years; Asthma since childhood; Appendectomy in 2000. Drugs: Amlodipine 5 mg; Salbutamol inhaler 100 mcg. Allergy: dust. Family: hypertension. Personal: occasional alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0064",
+    "patient": {
+     "reference": "Patient/P0064"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00112-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00112-978",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "medicationCodeableConcept": {
+     "text": "Salbutamol inhaler 100 mcg"
+    },
+    "dosage": [
+     {
+      "text": "SOS for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00112-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00112-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00111-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-11-25",
+    "valueQuantity": {
+     "value": 7.19,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00111-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-11-25",
+    "valueQuantity": {
+     "value": 4.28,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00111-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0064"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-11-25",
+    "valueQuantity": {
+     "value": 10.11,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

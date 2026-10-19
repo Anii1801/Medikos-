@@ -1,0 +1,271 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0054",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-9146-5697-2255"
+     }
+    ],
+    "name": [
+     {
+      "text": "Mohan Ansari"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0054",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0054"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0262",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "49-year-old male presenting with knee pain for 3 years. Character: dull aching pain; radiation: it does not spread; aggravated by sitting on the floor; relieved by oil massage. Severity 3/10. Associated: swelling, difficulty walking. PMH: Hypertension for 9 years. Drugs: Amlodipine 5 mg. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00093-5018",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "medicationCodeableConcept": {
+     "text": "Amlodipine 5 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-0 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00093-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00093-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 14 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00091-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-05-14",
+    "valueQuantity": {
+     "value": 19.3,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00091-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-05-14",
+    "valueQuantity": {
+     "value": 3.19,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00091-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-05-14",
+    "valueQuantity": {
+     "value": 3.54,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00092-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-07-07",
+    "valueQuantity": {
+     "value": 0.96,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00092-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-07-07",
+    "valueQuantity": {
+     "value": 13.78,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00092-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0054"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-07-07",
+    "valueQuantity": {
+     "value": 13.34,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

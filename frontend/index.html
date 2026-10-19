@@ -1,0 +1,827 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MediKiosk – Patient</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── Greeting / Welcome hero ── */
+.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--teal) 100%);border-radius:var(--r-lg);padding:28px 22px;color:#fff;margin-bottom:16px}
+.hero h1{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:800;line-height:1.15;margin-bottom:6px;color:#fff}
+.hero p{opacity:.9;font-size:.93rem;line-height:1.5}
+.hero .lang-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:700;cursor:pointer;margin-top:12px;color:#fff}
+/* ── Auth form ── */
+.auth-divider{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:.82rem;margin:12px 0}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;border-top:1px solid var(--border)}
+/* ── Step header ── */
+.step-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.step-hdr h2{margin:0}
+/* ── Consent checkboxes ── */
+.consent-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px;cursor:pointer;transition:border-color .18s}
+.consent-item:has(input:checked){border-color:var(--primary);background:var(--primary-light)}
+.consent-item input[type=checkbox]{margin-top:2px;accent-color:var(--primary);width:18px;height:18px;flex-shrink:0}
+.consent-item span{font-size:.92rem;line-height:1.5}
+/* ── Summary sections ── */
+.sum-sec{background:var(--surface2);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
+.sum-sec h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:6px}
+.sum-sec p{font-size:.92rem;white-space:pre-wrap;margin:0}
+/* ── Token finish ── */
+.token-card{text-align:center;padding:32px 20px}
+.token-num{font-family:'Fraunces',serif;font-size:5rem;font-weight:800;color:var(--primary);line-height:1;display:block;margin:12px 0}
+/* ── Record history item ── */
+.rec-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+.rec-item:last-child{border-bottom:none}
+.rec-icon{width:40px;height:40px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.rec-icon.em{background:var(--danger-light)}
+.rec-icon.ur{background:var(--warning-light)}
+.rec-icon.ro{background:var(--success-light)}
+/* ── Document upload area ── */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--r);padding:24px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
+.upload-zone:hover{border-color:var(--primary);background:var(--primary-light)}
+.upload-zone input{display:none}
+/* ── Voice mic button ── */
+.mic-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal-light);color:var(--teal);border:2px solid var(--teal);border-radius:99px;padding:10px 22px;font:inherit;font-weight:700;cursor:pointer;transition:all .18s}
+.mic-btn:hover{background:var(--teal);color:#fff}
+.mic-btn.listening{background:var(--teal);color:#fff;animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,137,123,.4)}50%{box-shadow:0 0 0 8px rgba(0,137,123,0)}}
+</style>
+</head><body class="patient-app">
+
+<!-- TOAST -->
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<!-- APPBAR -->
+<header class="appbar">
+  <div class="appbar-brand">
+    <div class="avatar brand-mark" style="width:36px;height:36px;font-size:.85rem">MK</div>
+    <span class="appbar-logo">MediKiosk</span>
+  </div>
+  <div class="appbar-actions">
+    <button class="icon-btn" id="big" aria-label="Larger text" title="A+">A+</button>
+    <button class="icon-btn" id="hc" aria-label="High contrast" title="High contrast">◐</button>
+    <button class="icon-btn" id="spk" aria-label="Audio prompts" title="Audio">Audio</button>
+    <button class="icon-btn" id="lang" title="Switch language">हि</button>
+    <a class="btn btn-outline btn-sm" href="doctor.html">Doctor Portal</a>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="page" id="app"></main>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" id="bnav">
+  <button class="nav-item active" id="bn-home" onclick="bnav('home')">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    Home
+  </button>
+  <button class="nav-item" id="bn-hist" onclick="bnav('hist')">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+    History
+  </button>
+  <button class="nav-item" id="bn-docs" onclick="bnav('docs')">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.86.18-1a3 3 0 0 0-3-3 3 3 0 0 0-2.36 1.15L12 3.84l-.64-.69A3 3 0 0 0 9 2 3 3 0 0 0 6 5c0 .14.11.56.18 1H4a2 2 0 0 0-2 2v11c0 1.11.89 2 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm6 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm5 15H4V8h16v11z"/></svg>
+    Scan
+  </button>
+  <button class="nav-item" id="bn-info" onclick="bnav('info')">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    About
+  </button>
+</nav>
+
+<script src="common.js"></script>
+<script>
+// ─── Translations ───────────────────────────────────────────────────────────
+const T = {
+  en: {
+    welcome: "Let's understand how you're feeling.", sub: "A guided health interview to organize your history for clinical review.",
+    quick: "Quick start (no account)", login: "Log in", reg: "Register",
+    user: "Username", pw: "Password", name: "Your name", age: "Age", abha: "ABHA ID (optional)",
+    ayush: "Ayurveda OPD — extended Dashavidha Pariksha history",
+    consentH: "Your consent", c1: "I consent to my health info being recorded for my doctor.",
+    c2: "I consent to sharing with the hospital system & my ABHA record. (Withdrawable anytime)",
+    start: "Start interview", next: "Next", back: "Back", speak: "Speak", listen: "Listening…",
+    type: "Type or speak your answer",
+    docsH: "Upload old reports", docsS: "Photo or PDF of prescriptions, lab reports, discharge summaries.",
+    addDoc: "Choose file", or: "or type the report text manually", add: "Add text",
+    date: "Report date (YYYY-MM-DD)", sumH: "Summary for your doctor",
+    sumS: "Review before sending. Your doctor will also review.",     send: "Send to doctor",
+    done: "Submitted!", dash: "My health records", out: "Log out",
+    erase: "Delete all my data", nodocs: "No documents yet",
+    flag: "URGENT — staff alerted", tokenL: "Your token number", wait: "Wait for your turn. Emergency cases seen first.",
+    readMsg: "Reading document…", manual: "Could not read image. Please type the content below.",
+    healthSummary: "Your health overview", recentVisits: "Recent visits", noRecords: "No visits yet",
+    quickActions: "Your next step",
+    newH: "Begin health interview",
+  },
+  hi: {
+    welcome: "आइए समझते हैं कि आप कैसा महसूस कर रहे हैं।", sub: "क्लिनिकल समीक्षा के लिए आपका स्वास्थ्य इतिहास व्यवस्थित करने वाली निर्देशित बातचीत।",
+    quick: "तुरंत शुरू (बिना खाता)", login: "लॉग इन", reg: "खाता बनाएँ",
+    user: "यूज़रनेम", pw: "पासवर्ड", name: "आपका नाम", age: "उम्र", abha: "आभा आईडी (वैकल्पिक)",
+    ayush: "आयुर्वेद ओपीडी — दशविध परीक्षा",
+    consentH: "आपकी सहमति", c1: "मैं स्वास्थ्य जानकारी डॉक्टर के लिए दर्ज करने की सहमति देता/देती हूँ।",
+    c2: "मैं अस्पताल व आभा रिकॉर्ड से साझा करने की सहमति देता/देती हूँ।",
+    start: "शुरू करें", next: "आगे", back: "पीछे", speak: "बोलिए", listen: "सुन रहा है…",
+    newH: "स्वास्थ्य बातचीत शुरू करें",
+    type: "लिखिए या बोलिए",
+    docsH: "पुरानी रिपोर्ट जोड़ें", docsS: "पर्चे, जांच रिपोर्ट या डिस्चार्ज समरी की फोटो/PDF।",
+    addDoc: "फ़ाइल चुनें", or: "या रिपोर्ट का पाठ टाइप करें", add: "जोड़ें",
+    date: "तारीख (YYYY-MM-DD)", sumH: "डॉक्टर के लिए सारांश",
+    sumS: "भेजने से पहले जाँच लें।", send: "डॉक्टर को भेजें",
+    done: "हो गया!", dash: "मेरे स्वास्थ्य रिकॉर्ड", out: "लॉग आउट",
+    erase: "मेरा डेटा मिटाएँ", nodocs: "कोई दस्तावेज़ नहीं",
+    flag: "आपातकाल — स्टाफ को सूचित किया", tokenL: "आपका टोकन नंबर", wait: "अपनी बारी का इंतज़ार करें।",
+    readMsg: "दस्तावेज़ पढ़ रहे हैं…", manual: "तस्वीर नहीं पढ़ सकी। कृपया नीचे टाइप करें।",
+    healthSummary: "स्वास्थ्य सारांश", recentVisits: "हालिया दौरे", noRecords: "कोई रिकॉर्ड नहीं",
+    quickActions: "अगला कदम",
+  }
+};
+
+let lang = "en", voice = true, ans = {}, stack = [], ayush = false, me = null, _rec = null, cur = null, voiceTranscriptId = null, voiceTranscriptPromise = Promise.resolve(), interviewSessionId = null, speechVoices = [];
+const t = k => T[lang][k] || k;
+
+function showToast(msg, ms = 2800) {
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.remove("show"), ms);
+}
+
+function refreshSpeechVoices() {
+  if (window.speechSynthesis) speechVoices = speechSynthesis.getVoices();
+}
+
+function say(x, retrying = false) {
+  if (!voice || !window.speechSynthesis) return;
+  try {
+    refreshSpeechVoices();
+    if (!speechVoices.length && !retrying) {
+      setTimeout(() => say(x, true), 150);
+      return;
+    }
+    const requested = lang === "hi" ? "hi-IN" : "en-IN";
+    const prefix = lang === "hi" ? "hi" : "en";
+    const selected = speechVoices.find(v => v.lang.toLowerCase() === requested.toLowerCase())
+      || speechVoices.find(v => v.lang.toLowerCase().startsWith(prefix));
+    if (lang === "hi" && !selected) {
+      showToast("Hindi audio is not installed in this browser. You can continue by reading or typing.");
+      return;
+    }
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(x);
+    u.lang = selected ? selected.lang : requested;
+    if (selected) u.voice = selected;
+    speechSynthesis.speak(u);
+  } catch(e) {
+    showToast("Audio is unavailable. You can continue by reading or typing.");
+  }
+}
+
+if (window.speechSynthesis) {
+  refreshSpeechVoices();
+  speechSynthesis.onvoiceschanged = refreshSpeechVoices;
+}
+
+const R = h => { document.getElementById("app").innerHTML = h; };
+
+// ─── Accessibility toggles ────────────────────────────────────────────────
+document.getElementById("big").onclick = () => {
+  document.documentElement.toggleAttribute("data-big");
+  showToast(document.documentElement.hasAttribute("data-big") ? "Large text on" : "Large text off");
+};
+document.getElementById("hc").onclick = () => {
+  document.documentElement.toggleAttribute("data-hc");
+  showToast("High contrast toggled");
+};
+document.getElementById("spk").onclick = () => {
+  voice = !voice;
+  document.getElementById("spk").textContent = voice ? "Audio" : "Muted";
+  if (!voice) speechSynthesis?.cancel();
+  showToast(voice ? "Audio on" : "Audio off");
+};
+document.getElementById("lang").onclick = () => {
+  lang = lang === "en" ? "hi" : "en";
+  document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
+  document.documentElement.lang = lang;
+  route();
+};
+
+function bnav(tab) {
+  ["home","hist","docs","info"].forEach(id => {
+    const el = document.getElementById("bn-" + id);
+    if (el) el.classList.toggle("active", id === tab);
+  });
+  if (tab === "home") route();
+  else if (tab === "hist") dashHistory();
+  else if (tab === "docs") { if (TOKEN) docs(); else auth("Please log in first"); }
+  else if (tab === "info") aboutPage();
+}
+
+// ─── Routing ─────────────────────────────────────────────────────────────
+async function route() {
+  setActive("bn-home");
+  if (TOKEN) {
+    try { me = await api("/me"); return me.role === "guest" ? setup() : homeDash(); }
+    catch(e) { setToken(""); }
+  }
+  auth();
+}
+
+// ─── Home Dashboard ───────────────────────────────────────────────────────
+async function homeDash() {
+  let rs = [];
+  try { rs = await api("/records"); } catch(e) {}
+  const total = rs.length;
+  const emergency = rs.filter(r => r.priority === 1).length;
+  const recent3 = rs.slice(0, 3);
+  const initials = (me.name || me.username || "?").split(" ").map(w => w[0]).join("").toUpperCase().slice(0, 2);
+  const PL = ["", "Emergency", "Urgent", "Routine"];
+  const cls = ["", "danger", "warning", "success"];
+
+  R(`
+  <!-- Hero / Greeting -->
+  <div class="hero mt">
+    <div class="row" style="justify-content:space-between;align-items:flex-start">
+      <div>
+        <h1>${t("welcome")}</h1>
+        <p>${t("sub")}</p>
+      </div>
+      <div class="avatar">${esc(initials)}</div>
+    </div>
+    <button class="lang-pill" id="lp">${lang === "en" ? "हिंदी में देखें" : "View in English"}</button>
+  </div>
+
+  <!-- Health Summary Cards -->
+  <p class="label mb" style="margin-top:4px">${t("healthSummary")}</p>
+  <div class="health-grid">
+    <div class="health-card">
+      <span class="health-card-label">Visits</span>
+      <span class="health-card-value">${total}</span>
+    </div>
+    <div class="health-card teal">
+      <span class="health-card-label">Latest</span>
+      <span class="health-card-value" style="font-size:1.1rem">${rs[0] ? new Date(rs[0].created * 1000).toLocaleDateString("en-IN", {day:"numeric",month:"short"}) : "—"}</span>
+    </div>
+    ${emergency ? `<div class="health-card danger"><span class="health-card-label">Alerts</span><span class="health-card-value">${emergency}</span></div>` : ""}
+  </div>
+
+  <!-- Quick actions -->
+  <p class="label mt">${t("quickActions")}</p>
+  <div class="row mt-sm mb">
+    <button class="btn btn-lg btn-block" id="st" style="flex:1">${t("newH")}</button>
+  </div>
+  <div class="row mb">
+    <button class="btn btn-outline" id="upq">${t("docsH")}</button>
+    <button class="btn btn-outline btn-danger" id="lo">${t("out")}</button>
+    <button class="btn btn-outline" id="er" style="border-color:var(--danger);color:var(--danger)">${t("erase")}</button>
+  </div>
+
+  <!-- Recent visits -->
+  <p class="label mt">${t("recentVisits")}</p>
+  <div class="card mt-sm">
+    ${recent3.length ? recent3.map(r => `
+      <div class="rec-item">
+        <div class="rec-icon ${["","em","ur","ro"][r.priority]}">${["","Emergency","Urgent","Routine"][r.priority]}</div>
+        <div style="flex:1">
+          <div class="row" style="justify-content:space-between">
+            <span style="font-weight:700">Token #${r.token_no}</span>
+            <span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span>
+          </div>
+          <div class="mut">${new Date(r.created * 1000).toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})} · ${r.status}</div>
+          ${r.flags && r.flags.length ? `<div class="mut" style="color:var(--danger)">${r.flags.map(f => esc(f.code)).join(", ")}</div>` : ""}
+        </div>
+      </div>
+    `).join("") : `<p class="mut center" style="padding:20px 0">${t("noRecords")}</p>`}
+  </div>
+  <p class="mut center caption">Draft for physician review. Not a diagnosis.</p>
+  `);
+  
+  document.getElementById("lp")?.addEventListener("click", () => {
+    lang = lang === "en" ? "hi" : "en";
+    document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
+    route();
+  });
+  document.getElementById("st").onclick = setup;
+  document.getElementById("lo").onclick = () => { setToken(""); me = null; auth(); };
+  document.getElementById("er").onclick = async () => {
+    if (confirm(lang === "hi" ? "सारा डेटा स्थायी रूप से मिटाएँ?" : "Delete all your data permanently?")) {
+      await api("/me/data", { method: "DELETE" }); setToken(""); auth();
+    }
+  };
+  document.getElementById("upq")?.addEventListener("click", () => docs());
+}
+
+async function dashHistory() {
+  if (!TOKEN) { auth(); return; }
+  try { me = await api("/me"); } catch(e) { auth(); return; }
+  let rs = [];
+  try { rs = await api("/records"); } catch(e) {}
+  const PL = ["", "Emergency", "Urgent", "Routine"];
+  setActive("bn-hist");
+  R(`
+  <div class="mt">
+    <h2>${t("dash")}</h2>
+    <p class="subtitle">${esc(me.name || me.username)}</p>
+  </div>
+  <div class="card mt">
+    ${rs.length ? `
+    <table>
+      <thead><tr><th>#</th><th>Date</th><th>Priority</th><th>Status</th><th>ABDM</th></tr></thead>
+      <tbody>${rs.map(r => `<tr>
+        <td><b>${r.token_no}</b></td>
+        <td>${new Date(r.created*1000).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"2-digit"})}</td>
+        <td><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></td>
+        <td>${r.status}</td>
+        <td class="mut">${esc(r.abdm_ref || "—")}</td>
+      </tr>`).join("")}</tbody>
+    </table>` : `<p class="mut center" style="padding:24px">${t("noRecords")}</p>`}
+  </div>
+  <button class="btn btn-block mt" id="st">${t("newH")} →</button>
+  `);
+  document.getElementById("st").onclick = setup;
+}
+
+function aboutPage() {
+  setActive("bn-info");
+  R(`
+  <div class="mt">
+    <h2>About MediKiosk</h2>
+    <p class="subtitle">Smart India Hackathon · Problem Statement 4 · Ministry of Ayush / AIIA</p>
+  </div>
+  <div class="card mt">
+    <h3>Problem Statement</h3>
+    <p style="margin-top:8px;font-size:.9rem">Patients in India's Ayurveda OPDs spend long waiting periods while doctors manually collect history. MediKiosk digitises this process through guided voice/touch interviews in Hindi &amp; English, automatically generating structured physician summaries.</p>
+  </div>
+  <div class="card">
+    <h3>Research Gap Addressed</h3>
+    <p style="margin-top:8px;font-size:.9rem">Prior clinical NLP systems (Rajpurkar 2017, Esteva 2019) lacked:<br>
+    • Real-time red-flag detection at intake<br>
+    • AYUSH Dashavidha Pariksha integration<br>
+    • OCR pipeline for Indian clinical documents<br>
+    • Transparent EDA &amp; data-cleaning audit trail</p>
+  </div>
+  <div class="card">
+    <h3>Clinical support components</h3>
+    <div class="timeline mt-sm">
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-title">Adaptive medical history</div>
+        <div class="timeline-body">Ontology-constrained, stateful question selection. MediTOD (EMNLP 2024) is a relevant published benchmark candidate; the current policy is not a trained model.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot teal"></div>
+        <div class="timeline-title">Clinical documentation</div>
+        <div class="timeline-body">Structured, source-aware summaries with a separate validation step inspired by public clinical documentation research, including Abridge's published engineering approach.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot warn"></div>
+        <div class="timeline-title">Multilingual model candidate</div>
+        <div class="timeline-body">NLP4Health (ACL Anthology, 2025) reports mT5-base with LoRA for multilingual dialogue summarization and QA. It is a candidate for evaluation, not currently trained or enabled in this app.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-title">Safety and limitations</div>
+        <div class="timeline-body">Red-flag rules are a provisional decision-support layer requiring clinical validation. Synthetic datasets are for software testing, not evidence of clinical performance.</div>
+      </div>
+    </div>
+    <p class="mut caption mt-sm">Research: <a href="https://aclanthology.org/2024.emnlp-main.936/" target="_blank" rel="noopener">MediTOD (2024)</a> · <a href="https://aclanthology.org/2025.nlpai4health-main.10/" target="_blank" rel="noopener">NLP4Health (2025)</a> · <a href="https://tech.abridge.com/blog/real-time-error-detection-and-correction" target="_blank" rel="noopener">Abridge Editors (2026)</a></p>
+  </div>
+  <div class="card">
+    <h3>Tech Stack</h3>
+    <p class="mut" style="font-size:.85rem;margin-top:6px">FastAPI · SQLite · Tesseract OCR · SciSpacy · scikit-learn · FHIR R4 · Web Speech API · Vanilla JS</p>
+  </div>
+  <p class="mut caption center mt" style="padding-bottom:16px">v1.0 — For SIH evaluation only. Not clinically validated.</p>
+  `);
+}
+
+function setActive(id) {
+  ["bn-home","bn-hist","bn-docs","bn-info"].forEach(i => {
+    const el = document.getElementById(i);
+    if (el) el.classList.toggle("active", i === id);
+  });
+}
+
+// ─── Auth ─────────────────────────────────────────────────────────────────
+function auth(msg = "") {
+  setActive("bn-home");
+  R(`
+  <div class="hero mt">
+    <h1>${t("welcome")}</h1>
+    <p>${t("sub")}</p>
+  </div>
+
+  <div class="card">
+    <div class="patient-start-card">
+      <div class="patient-start-title"><span class="patient-line-icon">01</span><span>Start your health interview</span></div>
+      <p class="patient-start-copy">Answer a few guided questions, at your own pace.</p>
+      <div class="patient-feature">Speak or type your answers</div>
+      <div class="patient-feature">Add relevant medical documents</div>
+      <button class="btn btn-lg btn-block btn-teal" id="q">Begin health interview</button>
+    </div>
+    <div class="auth-divider">or</div>
+    <div class="col">
+      <label class="input-label">${t("user")}</label>
+      <input type="text" id="u" placeholder="${t("user")}" autocomplete="username">
+      <label class="input-label">${t("pw")}</label>
+      <input type="password" id="p" placeholder="${t("pw")}" autocomplete="current-password">
+      <label class="input-label">${t("name")} (for ${t("reg")})</label>
+      <input type="text" id="n" placeholder="${t("name")}">
+    </div>
+    <div class="row mt-sm">
+      <button class="btn btn-outline" style="flex:1" id="li">${t("login")}</button>
+      <button class="btn" style="flex:1" id="rg">${t("reg")}</button>
+    </div>
+    ${msg ? `<p style="color:var(--danger);margin-top:10px;font-size:.9rem">${esc(msg)}</p>` : ""}
+  </div>
+  <p class="mut caption center">Draft for physician review. Not a diagnosis.</p>
+  `);
+  document.getElementById("q").onclick = async () => {
+    try { const r = await api("/auth/guest", { method: "POST" }); setToken(r.token); route(); }
+    catch(e) { auth(e.message); }
+  };
+  const go = async (path, body) => {
+    try { const r = await api(path, { json: body }); setToken(r.token); route(); }
+    catch(e) { auth(e.message); }
+  };
+  document.getElementById("li").onclick = () => go("/auth/login", { username: $("#u").value, password: $("#p").value });
+  document.getElementById("rg").onclick = () => go("/auth/register", { username: $("#u").value, password: $("#p").value, name: $("#n").value });
+  // Enter key support
+  ["u","p"].forEach(id => document.getElementById(id)?.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("li").click(); }));
+}
+
+// ─── Setup / Consent ─────────────────────────────────────────────────────
+function setup() {
+  const g = me?.role === "guest";
+  setActive("bn-home");
+  R(`
+  <div class="step-hdr mt">
+    <div class="step-number">1</div>
+    <div><h2>${t("consentH")}</h2><p class="subtitle">Required before we begin</p></div>
+  </div>
+  <div class="card">
+    ${g ? `
+    <div class="col mb">
+      <label class="input-label">${t("name")}</label>
+      <input type="text" id="nm" placeholder="${t("name")}" value="${esc(me?.name || "")}">
+      <div class="row">
+        <div style="flex:1">
+          <label class="input-label">${t("age")}</label>
+          <input type="text" id="ag" placeholder="${t("age")}" value="${esc(me?.age || "")}">
+        </div>
+        <div style="flex:2">
+          <label class="input-label">${t("abha")}</label>
+          <input type="text" id="ab" placeholder="${t("abha")}" value="${esc(me?.abha || "")}">
+        </div>
+      </div>
+    </div>` : `
+    <div class="mb">
+      <label class="input-label">${t("abha")}</label>
+      <input type="text" id="ab" placeholder="${t("abha")}" value="${esc(me?.abha || "")}">
+    </div>`}
+
+    <label class="consent-item">
+      <input type="checkbox" id="ay">
+      <span>🌿 ${t("ayush")}</span>
+    </label>
+    <label class="consent-item">
+      <input type="checkbox" id="c1">
+      <span>${t("c1")}</span>
+    </label>
+    <label class="consent-item">
+      <input type="checkbox" id="c2">
+      <span>🔗 ${t("c2")}</span>
+    </label>
+    <p id="cerr" style="color:var(--danger);font-size:.88rem;margin-top:8px"></p>
+    <button class="btn btn-lg btn-block mt" id="go">${t("start")} →</button>
+  </div>
+  `);
+  document.getElementById("go").onclick = async () => {
+    if (!document.getElementById("c1").checked || !document.getElementById("c2").checked) {
+      document.getElementById("cerr").textContent = "Please check both consent boxes to continue."; return;
+    }
+    try {
+      await api("/me", { method: "PUT", json: {
+        name: g ? document.getElementById("nm").value : me.name,
+        age: g ? document.getElementById("ag").value : me.age,
+        abha: document.getElementById("ab").value
+      }});
+      await api("/consent", { json: { purpose: "history_capture" }});
+      await api("/consent", { json: { purpose: "abdm_share" }});
+      me = await api("/me"); ayush = document.getElementById("ay").checked; ans = {}; stack = []; interviewSessionId = null; await startInterviewSession();
+    } catch(e) { document.getElementById("cerr").textContent = e.message; }
+  };
+}
+
+// ─── Interview ────────────────────────────────────────────────────────────
+let lastN = null;
+async function startInterviewSession() {
+  setActive("bn-home");
+  try {
+    const n = await api("/interview/sessions", { method: "POST", json: { budget: 30, ayush }});
+    interviewSessionId = n.session_id; lastN = n;
+    if (n.complete) return docs();
+    draw(n);
+  } catch (e) {
+    showToast("Adaptive interview could not start: " + e.message);
+    interviewSessionId = null;
+    const n = await api("/interview/next", { json: { answers: ans, ayush }});
+    lastN = n; if (n.complete) return docs(); draw(n);
+  }
+}
+async function rebuildInterviewSession() {
+  const created = await api("/interview/sessions", { method: "POST", json: { budget: 30, ayush }});
+  interviewSessionId = created.session_id;
+  let response = created;
+  for (const [field, value] of Object.entries(ans)) {
+    if (field === "_ay") continue;
+    response = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId) + "/answers", { method: "POST", json: { field, value }});
+  }
+  lastN = response;
+  if (response.complete) return docs();
+  draw(response);
+}
+async function ask() {
+  setActive("bn-home");
+  if (!interviewSessionId) return startInterviewSession();
+  try { const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId)); lastN = n; if (n.complete) return docs(); draw(n); }
+  catch (e) { showToast("Could not load interview: " + e.message); }
+}
+
+function draw(n) {
+  cur = n.question;
+  const q = cur, l = lang === "en" ? "en" : "hi";
+  const pct = Math.round(n.answered / n.total * 100);
+  const flagsBanner = n.red_flags.length ? `
+    <div class="alert alert-emergency">
+      <span class="alert-icon">Urgent</span>
+      <div><b>${t("flag")}</b><br>${n.red_flags.map(f => esc(f.msg)).join("<br>")}</div>
+    </div>` : "";
+
+  const body = q.type === "text"
+    ? `<textarea id="tx" placeholder="${t("type")}" style="min-height:100px">${esc(ans[q.id] || "")}</textarea>
+       <button class="mic-btn" id="mic">${t("speak")}</button>
+       <span class="mut" id="heard" style="display:block;margin-top:8px"></span>`
+    : `<div class="opts">${q.options.map(o => {
+        const sel = q.type === "multi" ? (ans[q.id] || []).includes(o.v) : ans[q.id] === o.v;
+        return `<button class="opt${sel ? " sel" : ""}" data-v="${esc(o.v)}">${esc(o[l])}</button>`;
+      }).join("")}</div>
+      <button class="mic-btn" id="mic">${t("speak")}</button>
+      <span class="mut" id="heard" style="display:block;margin-top:8px"></span>`;
+
+  R(`
+  ${flagsBanner}
+  <div class="card mt">
+    <div class="row" style="justify-content:space-between;margin-bottom:6px">
+      <span class="caption">${esc(q.section)}</span>
+      <span class="caption">${n.answered}/${n.total}</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    <h2 style="margin:14px 0 4px">${esc(q[l])}</h2>
+    ${body}
+    <div class="row mt" style="justify-content:space-between">
+      <button class="btn btn-outline" id="bk">← ${t("back")}</button>
+      <button class="btn" id="nx">${t("next")} →</button>
+    </div>
+  </div>`);
+  say(q[l]);
+
+  document.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    const v = b.dataset.v;
+    if (q.type === "multi") {
+      let a = (ans[q.id] || []).filter(x => x !== "None");
+      if (v === "None") a = ["None"];
+      else a = a.includes(v) ? a.filter(x => x !== v) : [...a, v];
+      ans[q.id] = a; draw(lastN);
+    } else { ans[q.id] = v; adv(); }
+  });
+  document.getElementById("mic").onclick = () => listenVoice(q);
+  document.getElementById("bk").onclick = async () => { const p = stack.pop(); if (p) { delete ans[p]; try { await rebuildInterviewSession(); } catch(e) { showToast("Could not return to previous question: " + e.message); } } else { interviewSessionId = null; setup(); } };
+  document.getElementById("nx").onclick = () => {
+    if (q.type === "text") ans[q.id] = document.getElementById("tx").value.trim();
+    else if (q.type === "multi" && !(ans[q.id] || []).length) ans[q.id] = ["None"];
+    else if (!ans[q.id]) { showToast("Please select or answer before continuing."); return; }
+    const corrected = q.type === "text" ? ans[q.id] : null;
+    const transcriptId = voiceTranscriptId;
+    voiceTranscriptId = null;
+    (async () => {
+      if (transcriptId && corrected) {
+        try { await api("/asr/transcripts/" + transcriptId, { method: "PUT", json: { corrected_transcript: corrected }}); }
+        catch (e) { showToast("Transcript could not be saved; your answer remains on this screen."); }
+      }
+      adv();
+    })();
+  };
+}
+
+async function adv() {
+  if (!cur) return;
+  stack.push(cur.id);
+  if (!interviewSessionId) return ask();
+  const value = ans[cur.id];
+  try {
+    await voiceTranscriptPromise;
+    const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId) + "/answers", { method: "POST", json: { field: cur.id, value: value === undefined ? "" : value }});
+    lastN = n;
+    if (n.complete) return docs();
+    draw(n);
+  } catch (e) {
+    stack.pop(); showToast("Could not save this answer: " + e.message);
+  }
+}
+
+function listenVoice(q, allowRetry = true) {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { showToast("Speech recognition is not available in this browser. Please type or tap an answer."); return; }
+  if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
+  const r = new SR(); _rec = r;
+  r.lang = lang === "hi" ? "hi-IN" : "en-IN";
+  r.continuous = false; r.interimResults = true; r.maxAlternatives = 3;
+  const btn = document.getElementById("mic");
+  const heard = document.getElementById("heard");
+  if (btn) { btn.classList.add("listening"); btn.disabled = true; btn.textContent = "Listening…"; }
+  if (heard) heard.textContent = "Listening… please speak clearly.";
+  let finalTranscript = "";
+  let recognitionError = false;
+  const finish = () => {
+    if (btn) { btn.classList.remove("listening"); btn.disabled = false; btn.textContent = t("speak"); }
+    if (_rec === r) _rec = null;
+  };
+  r.onresult = e => {
+    let interim = "";
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const text = (e.results[i][0]?.transcript || "").trim();
+      if (e.results[i].isFinal) finalTranscript += (finalTranscript ? " " : "") + text;
+      else interim += (interim ? " " : "") + text;
+    }
+    const spoken = (finalTranscript || interim).trim();
+    if (heard && spoken) heard.textContent = "Heard: “" + spoken + "” — check it before continuing.";
+    if (q.type === "text" && spoken) { const tx = document.getElementById("tx"); if (tx) tx.value = spoken; }
+  };
+  r.onerror = e => {
+    recognitionError = true;
+    finish();
+    if (e.error === "network" && allowRetry) {
+      if (heard) heard.textContent = "Speech service temporarily unavailable. Retrying…";
+      setTimeout(() => listenVoice(q, false), 350);
+      return;
+    }
+    const messages = { "not-allowed": "Microphone permission was denied. Allow microphone access in browser settings.", "service-not-allowed": "The browser speech service is blocked. Try HTTPS/localhost or type your answer.", "no-speech": "No speech was detected. Try again closer to the microphone.", "audio-capture": "No microphone was found or it is busy.", "network": "The browser speech service is unavailable. Please type your answer or try again in Chrome/Edge on localhost or HTTPS." };
+    if (heard) heard.textContent = messages[e.error] || ("Speech recognition failed: " + (e.error || "unknown error") + ". Please retry or type.");
+  };
+  r.onend = async () => {
+    finish();
+    const transcript = finalTranscript.trim();
+    if (!transcript) { if (heard && !recognitionError) heard.textContent = "No transcript captured. Try again or type your answer."; return; }
+    if (q.type === "text") {
+      const tx = document.getElementById("tx"); if (tx) tx.value = transcript;
+      // Preserve the transcript for optional audit and wait for persistence before advancing.
+    } else {
+      const norm = transcript.toLocaleLowerCase();
+      const opts = q.options || [];
+      const exact = opts.find(o => [o.en, o.hi, o.v].some(x => x && norm === String(x).toLocaleLowerCase()));
+      const partial = exact || opts.find(o => [o.en, o.hi, o.v].some(x => x && norm.includes(String(x).toLocaleLowerCase())));
+      if (partial) {
+        if (q.type === "multi") ans[q.id] = [...new Set([...(ans[q.id] || []).filter(x => x !== "None"), partial.v])];
+        else ans[q.id] = partial.v;
+        draw(lastN);
+        const h = document.getElementById("heard"); if (h) h.textContent = `Heard: “${transcript}”. Selected “${partial[lang === "hi" ? "hi" : "en"] || partial.v}”. Please verify, then press Next.`;
+      } else if (heard) heard.textContent = `Heard: “${transcript}”. I could not confidently match an option. Please tap the correct option or try again.`;
+    }
+    voiceTranscriptPromise = api("/asr/transcripts", { json: { transcript, language: lang === "hi" ? "hi" : "en", language_detected: lang === "hi" ? "hi" : "en" }})
+      .then(saved => { voiceTranscriptId = saved.transcript_id; return saved; })
+      .catch(() => { voiceTranscriptId = null; return null; });
+    await voiceTranscriptPromise;
+  };
+  try { r.start(); } catch (e) { finish(); if (heard) heard.textContent = "Could not start microphone: " + e.message; }
+}
+
+// ─── Documents ────────────────────────────────────────────────────────────
+async function docs() {
+  setActive("bn-docs");
+  const ds = await api("/documents");
+  R(`
+  <div class="step-hdr mt">
+    <div class="step-number">2</div>
+    <div><h2>${t("docsH")}</h2><p class="subtitle">${t("docsS")}</p></div>
+  </div>
+
+  <div class="card">
+    <label class="upload-zone">
+      <input type="file" id="f" accept="image/*,application/pdf" capture="environment">
+      <div>📷</div>
+      <p style="font-weight:700;margin-top:8px">${t("addDoc")}</p>
+      <p class="mut">JPG, PNG or PDF · max 8 MB</p>
+    </label>
+    <div class="row mt-sm">
+      <input type="text" id="dd" placeholder="${t("date")}" style="flex:1;margin:0">
+      <button class="btn btn-outline" id="up">${t("addDoc")}</button>
+    </div>
+    <p id="upst" class="mut" style="margin-top:6px"></p>
+
+    <div class="auth-divider">${t("or")}</div>
+    <textarea id="tt" placeholder="Tab Metformin 500 mg BD · Hb 9.1 g/dL …"></textarea>
+    <button class="btn btn-outline btn-block" id="ta">${t("add")}</button>
+  </div>
+
+  ${ds.length ? `
+  <p class="label mt">Uploaded reports</p>
+  <div class="card mt-sm">
+    <div class="timeline">
+    ${ds.map(d => {
+      const ent = d.entities;
+      const flagDot = ent.labs.some(l => l.flag !== "normal") ? "danger" : "";
+      return `<div class="timeline-item">
+        <div class="timeline-dot ${flagDot}"></div>
+        <div class="timeline-date">${esc(d.date || "undated")} · ${esc(d.doc_type.replace("_"," "))}</div>
+        <div class="timeline-title">${esc(d.filename)} <span class="chip chip-neutral">${esc(d.engine)}</span></div>
+        ${ent.medications.map(m => `<div class="timeline-body">💊 ${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
+        ${ent.labs.map(l => `<div class="timeline-body">${esc(l.test)}: ${l.value} ${l.unit} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${l.flag}</span></div>`).join("")}
+        <button class="btn btn-sm" style="margin-top:6px;background:var(--danger-light);color:var(--danger);border-color:var(--danger)" data-d="${d.id}">Remove</button>
+      </div>`;
+    }).join("")}
+    </div>
+  </div>` : `<p class="mut center mt" style="padding:16px">${t("nodocs")}</p>`}
+
+  <div class="row mt" style="justify-content:space-between">
+    <button class="btn btn-outline" id="bk">← ${t("back")}</button>
+    <button class="btn" id="nx">${t("next")} →</button>
+  </div>
+  `);
+  say(t("docsH"));
+
+  // Upload file
+  document.getElementById("f").onchange = e => { document.getElementById("upst").textContent = e.target.files[0]?.name || ""; };
+  document.getElementById("up").onclick = async () => {
+    const f = document.getElementById("f").files[0]; if (!f) { showToast("Please choose a file first."); return; }
+    document.getElementById("upst").textContent = t("readMsg");
+    try {
+      const fd = new FormData(); fd.append("file", f); fd.append("date", document.getElementById("dd").value);
+      const r = await api("/documents", { body: fd });
+      if (r.needs_manual_note) showToast(t("manual"), 4000);
+      showToast("Document added"); docs();
+    } catch(e) { document.getElementById("upst").textContent = e.message; }
+  };
+  // Text input
+  document.getElementById("ta").onclick = async () => {
+    const x = document.getElementById("tt").value.trim(); if (!x) return;
+    await api("/documents/text", { json: { text: x, date: document.getElementById("dd").value }});
+    showToast("Added"); docs();
+  };
+  // Delete
+  document.querySelectorAll("[data-d]").forEach(b => b.onclick = async () => {
+    await api("/documents/" + b.dataset.d, { method: "DELETE" }); docs();
+  });
+  document.getElementById("bk").onclick = () => { const p = stack.pop(); if (p) delete ans[p]; ask(); };
+  document.getElementById("nx").onclick = summaryPage;
+}
+
+// ─── Summary ──────────────────────────────────────────────────────────────
+let SEC = [];
+async function summaryPage() {
+  setActive("bn-home");
+  const s = await api("/summary", { json: { answers: ans, ayush, lang }});
+  SEC = s.sections;
+  R(`
+  <div class="step-hdr mt">
+    <div class="step-number">3</div>
+    <div><h2>${t("sumH")}</h2><p class="subtitle">${t("sumS")}</p></div>
+  </div>
+
+  ${renderClinicalReport(s.clinical_report, { mode: "patient" })}
+  <p class="mut caption mt">${esc(s.patient_message)}</p>
+
+  <div class="row" style="justify-content:space-between">
+    <button class="btn btn-outline" id="bk">← ${t("back")}</button>
+    <button class="btn btn-teal btn-lg" id="ok">📤 ${t("send")}</button>
+  </div>
+  <p id="err" class="mut" style="color:var(--danger);margin-top:8px"></p>
+  `);
+  say(s.patient_message);
+  document.getElementById("bk").onclick = docs;
+  document.getElementById("ok").onclick = async () => {
+    try { const r = await api("/submit", { json: { answers: ans, ayush, lang }}); finish(r); }
+    catch(e) { document.getElementById("err").textContent = e.message; }
+  };
+}
+
+function finish(r) {
+  const PL = ["", "Emergency", "Urgent", "Routine"];
+  R(`
+  <div class="card token-card mt">
+    <div class="avatar" style="width:64px;height:64px;font-size:1.2rem;margin:0 auto 16px">Done</div>
+    <h1>${t("done")}</h1>
+    <p class="subtitle">${t("tokenL")}</p>
+    <span class="token-num">${r.token_no}</span>
+    <p><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></p>
+    <p class="subtitle mt">${esc(r.patient_message)}</p>
+    <p class="mut caption mt">ABDM: ${esc(r.abdm.ref)} (${r.abdm.mode})</p>
+    <p class="mut caption">${t("wait")}</p>
+    <button class="btn btn-lg btn-block mt" id="nw">OK</button>
+  </div>
+  `);
+  say(r.patient_message);
+  document.getElementById("nw").onclick = async () => {
+    if (me?.role === "guest") { setToken(""); auth(); }
+    else { me = await api("/me"); homeDash(); }
+  };
+}
+
+// ─── Bootstrap ────────────────────────────────────────────────────────────
+route();
+</script>
+</body></html>

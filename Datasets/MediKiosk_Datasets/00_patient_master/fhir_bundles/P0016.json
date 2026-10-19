@@ -1,0 +1,109 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0016",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-0087-5807-8572"
+     }
+    ],
+    "name": [
+     {
+      "text": "Kavita Chauhan"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0016",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0016"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0144",
+    "subject": {
+     "reference": "Patient/P0016"
+    },
+    "code": {
+     "text": "pain in the abdomen",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "R10.4"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "29-year-old female presenting with pain in the abdomen for 5 weeks. Character: burning pain; radiation: to the back; aggravated by after eating; relieved by lying curled up. Severity 3/10. Associated: vomiting, loose motions. PMH: none. Drugs: none. Allergy: dust. Family: heart disease. Personal: chews tobacco. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0016",
+    "patient": {
+     "reference": "Patient/P0016"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00032-2597",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0016"
+    },
+    "medicationCodeableConcept": {
+     "text": "Dicyclomine 10 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-1-1 SOS for 7 days"
+     }
+    ]
+   }
+  }
+ ]
+}

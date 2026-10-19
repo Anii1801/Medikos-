@@ -1,0 +1,5 @@
+﻿name,link,note,status
+IndicVoices,https://huggingface.co/datasets/ai4bharat/IndicVoices,"22 Indian languages, spontaneous speech; gated - accept terms",not downloaded
+Kathbath,https://huggingface.co/datasets/ai4bharat/kathbath,"12 Indian languages read speech (~1,684 h)",not downloaded
+Svarah,https://huggingface.co/datasets/ai4bharat/Svarah,Indian-accented English (9.6 h),not downloaded
+Shrutilipi,https://huggingface.co/datasets/ai4bharat/Shrutilipi,Indic broadcast speech,not downloaded

@@ -1,0 +1,91 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0275",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-2380-9800-0787"
+     }
+    ],
+    "name": [
+     {
+      "text": "Suresh Verma"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0275",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0275"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0257",
+    "subject": {
+     "reference": "Patient/P0275"
+    },
+    "code": {
+     "text": "burning in the chest and stomach after meals",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "K21.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "58-year-old male presenting with burning in the chest and stomach after meals for 5 months. Character: burning sensation; radiation: up to the throat; aggravated by lying down after meals; relieved by antacid. Severity 5/10. Associated: nausea. PMH: Hypertension for 9 years. Drugs: Amlodipine 5 mg. Allergy: dust. Family: no similar illness. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "id": "alg-P0275",
+    "patient": {
+     "reference": "Patient/P0275"
+    },
+    "code": {
+     "text": "dust"
+    }
+   }
+  }
+ ]
+}

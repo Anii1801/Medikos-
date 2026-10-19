@@ -1,0 +1,248 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0169",
+    "identifier": [],
+    "name": [
+     {
+      "text": "Harish Reddy"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0169",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0169"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0221",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "75-year-old male presenting with knee pain for 6 years. Character: dull aching pain; radiation: it does not spread; aggravated by climbing stairs; relieved by rest. Severity 8/10. Associated: swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: diabetes. Personal: non-smoker, no alcohol. Triage: URGENT."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00300-4984",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "medicationCodeableConcept": {
+     "text": "Diclofenac 50 mg"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00300-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 5 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00298-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-07-03",
+    "valueQuantity": {
+     "value": 16.65,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00298-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-07-03",
+    "valueQuantity": {
+     "value": 2.65,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00298-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-07-03",
+    "valueQuantity": {
+     "value": 6.67,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00299-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-03-06",
+    "valueQuantity": {
+     "value": 0.88,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00299-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-03-06",
+    "valueQuantity": {
+     "value": 39.8,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00299-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0169"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-03-06",
+    "valueQuantity": {
+     "value": 14.2,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  }
+ ]
+}

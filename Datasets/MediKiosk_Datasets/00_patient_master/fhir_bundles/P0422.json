@@ -1,0 +1,235 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0422",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-8149-6743-7961"
+     }
+    ],
+    "name": [
+     {
+      "text": "Meena Ansari"
+     }
+    ],
+    "gender": "female",
+    "communication": [
+     {
+      "language": {
+       "text": "English"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0422",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0422"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0296",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "knee pain",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M17.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "46-year-old female presenting with knee pain for 5 months. Character: stiffness with cracking sound; radiation: to the calf; aggravated by climbing stairs; relieved by rest. Severity 3/10. Associated: difficulty walking, swelling. PMH: none. Drugs: none. Allergy: no known allergies. Family: heart disease. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00751-562",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "medicationCodeableConcept": {
+     "text": "Yogaraj guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 7 days"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00749-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2026-02-10",
+    "valueQuantity": {
+     "value": 6.74,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00749-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2026-02-10",
+    "valueQuantity": {
+     "value": 8.68,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00749-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-02-10",
+    "valueQuantity": {
+     "value": 7.09,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "High"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00750-Creatinine",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "Creatinine"
+    },
+    "effectiveDateTime": "2026-03-06",
+    "valueQuantity": {
+     "value": 0.7,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00750-SGPT_(ALT)",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "SGPT (ALT)"
+    },
+    "effectiveDateTime": "2026-03-06",
+    "valueQuantity": {
+     "value": 28.1,
+     "unit": "U/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00750-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0422"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2026-03-06",
+    "valueQuantity": {
+     "value": 4.18,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}

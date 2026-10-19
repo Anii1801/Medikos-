@@ -1,0 +1,1012 @@
+﻿rx_id,patient_id,rx_date,facility,drug,generic_key,system,dose_schedule,duration,handwritten,language,split,is_exact_duplicate
+R00004,P0002,2025-03-01,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,English,valid,False
+R00004,P0002,2025-03-01,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,valid,False
+R00006,P0003,2025-11-01,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,False,English,train,False
+R00006,P0003,2025-11-01,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,English,train,False
+R00006,P0003,2025-11-01,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,English,train,False
+R00007,P0004,2025-07-30,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,False,Hindi+English,train,False
+R00007,P0004,2025-07-30,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,False,Hindi+English,train,False
+R00009,P0005,2026-08-24,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,Hindi+English,train,False
+R00010,P0005,2025-12-07,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,train,False
+R00010,P0005,2025-12-07,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,English,train,False
+R00011,P0006,2026-05-21,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00013,P0007,2025-04-17,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00013,P0007,2025-04-17,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00013,P0007,2025-04-17,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00015,P0008,2025-09-22,AIIA Delhi OPD,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,False,English,train,False
+R00015,P0008,2025-09-22,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,False,English,train,False
+R00016,P0009,2025-01-22,Pathcare Diagnostics,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,True,English,train,False
+R00016,P0009,2025-01-22,Pathcare Diagnostics,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,True,English,train,False
+R00017,P0009,2025-06-24,AIIA Delhi OPD,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,1 month,True,English,train,False
+R00017,P0009,2025-06-24,AIIA Delhi OPD,Neem capsule 500 mg,neem,Ayurveda,1-0-1,1 month,True,English,train,False
+R00019,P0010,2026-05-29,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00019,P0010,2026-05-29,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00020,P0011,2025-08-16,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00020,P0011,2025-08-16,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,False,English,train,False
+R00020,P0011,2025-08-16,District Hospital Agra,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,False,English,train,False
+R00021,P0011,2025-01-08,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00021,P0011,2025-01-08,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,English,train,False
+R00021,P0011,2025-01-08,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,True,English,train,False
+R00025,P0012,2025-12-15,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00025,P0012,2025-12-15,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00025,P0012,2025-12-15,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00026,P0013,2025-12-24,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,English,train,False
+R00026,P0013,2025-12-24,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,English,train,False
+R00027,P0014,2025-06-21,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,valid,False
+R00028,P0014,2025-05-08,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,Hindi+English,valid,False
+R00028,P0014,2025-05-08,District Hospital Agra,Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,True,Hindi+English,valid,False
+R00031,P0015,2026-03-21,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00031,P0015,2026-03-21,Sunrise Pathology Lab,Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,True,English,train,False
+R00031,P0015,2026-03-21,Sunrise Pathology Lab,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,train,False
+R00031,P0015,2026-03-21,Sunrise Pathology Lab,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,train,True
+R00032,P0016,2025-11-11,Community Health Centre,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,7 days,True,English,train,False
+R00033,P0017,2025-09-07,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,train,False
+R00033,P0017,2025-09-07,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,True,English,train,False
+R00033,P0017,2025-09-07,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,English,train,False
+R00034,P0017,2025-09-13,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,train,False
+R00034,P0017,2025-09-13,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,True,English,train,False
+R00034,P0017,2025-09-13,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,False
+R00039,P0019,2026-07-10,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,train,False
+R00039,P0019,2026-07-10,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,True,English,train,False
+R00039,P0019,2026-07-10,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,True,English,train,False
+R00040,P0020,2025-05-22,District Hospital Agra,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,False,Hindi+English,train,False
+R00042,P0022,2025-09-29,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,test,False
+R00042,P0022,2025-09-29,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,English,test,False
+R00045,P0023,2026-01-06,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00045,P0023,2026-01-06,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,Hindi+English,train,False
+R00045,P0023,2026-01-06,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00045,P0023,2026-01-06,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00046,P0023,2026-07-04,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00046,P0023,2026-07-04,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,False,Hindi+English,train,False
+R00046,P0023,2026-07-04,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00047,P0024,2025-04-19,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00048,P0025,2025-07-18,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,False,English,train,False
+R00048,P0025,2025-07-18,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,False,English,train,False
+R00049,P0025,2025-01-17,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,English,train,False
+R00049,P0025,2025-01-17,Sunrise Pathology Lab,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,English,train,False
+R00051,P0026,2025-10-01,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,English,train,False
+R00051,P0026,2025-10-01,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,train,False
+R00052,P0026,2026-08-17,Sunrise Pathology Lab,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,Hindi+English,train,False
+R00052,P0026,2026-08-17,Sunrise Pathology Lab,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,Hindi+English,train,False
+R00053,P0027,2026-02-16,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,English,train,False
+R00054,P0029,2025-12-09,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,True,English,train,False
+R00054,P0029,2025-12-09,Pathcare Diagnostics,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,True,English,train,False
+R00054,P0029,2025-12-09,Pathcare Diagnostics,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,True,English,train,False
+R00055,P0029,2025-12-21,Dr. Lal Labs (dummy),Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,False,English,train,False
+R00055,P0029,2025-12-21,Dr. Lal Labs (dummy),Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,5 days,False,English,train,False
+R00055,P0029,2025-12-21,Dr. Lal Labs (dummy),Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,False,English,train,False
+R00056,P0030,2025-01-24,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00056,P0030,2025-01-24,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,True
+R00059,P0031,2026-08-21,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00059,P0031,2026-08-21,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,English,train,False
+R00059,P0031,2026-08-21,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,False,English,train,False
+R00060,P0031,2026-02-16,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00060,P0031,2026-02-16,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,train,False
+R00060,P0031,2026-02-16,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,English,train,False
+R00063,P0033,2025-12-27,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,1 month,True,Hindi+English,train,False
+R00064,P0034,2026-03-04,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,English,train,False
+R00064,P0034,2026-03-04,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,English,train,True
+R00065,P0034,2025-08-26,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,train,False
+R00067,P0036,2026-01-29,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,train,False
+R00067,P0036,2026-01-29,Dr. Lal Labs (dummy),Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,False,Hindi+English,train,False
+R00067,P0036,2026-01-29,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,False,Hindi+English,train,False
+R00070,P0040,2025-10-21,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,English,train,False
+R00070,P0040,2025-10-21,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,False,English,train,False
+R00073,P0043,2025-12-06,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,Hindi+English,train,False
+R00073,P0043,2025-12-06,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,Hindi+English,train,False
+R00073,P0043,2025-12-06,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,True,Hindi+English,train,False
+R00074,P0043,2026-06-28,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,Hindi+English,train,False
+R00074,P0043,2026-06-28,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,Hindi+English,train,False
+R00074,P0043,2026-06-28,Pathcare Diagnostics,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,True,Hindi+English,train,False
+R00077,P0044,2025-03-18,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,True,English,valid,False
+R00077,P0044,2025-03-18,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,valid,False
+R00079,P0045,2026-03-15,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,Hindi+English,train,False
+R00081,P0046,2025-02-17,AIIA Delhi OPD,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,False,English,train,False
+R00081,P0046,2025-02-17,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,English,train,False
+R00082,P0046,2026-06-01,District Hospital Agra,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00082,P0046,2026-06-01,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00082,P0046,2026-06-01,District Hospital Agra,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00083,P0047,2025-09-25,Community Health Centre,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,5 days,True,English,train,False
+R00084,P0048,2025-11-07,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,English,train,False
+R00085,P0049,2025-12-26,Pathcare Diagnostics,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,7 days,True,Hindi+English,test,False
+R00087,P0050,2025-05-20,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,Hindi+English,valid,False
+R00087,P0050,2025-05-20,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,False,Hindi+English,valid,False
+R00087,P0050,2025-05-20,AIIA Delhi OPD,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,Hindi+English,valid,False
+R00088,P0051,2025-12-03,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,1 month,True,Hindi+English,test,False
+R00089,P0053,2025-12-27,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,Hindi+English,valid,False
+R00089,P0053,2025-12-27,Sunrise Pathology Lab,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,Hindi+English,valid,False
+R00090,P0053,2025-03-02,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,English,valid,False
+R00093,P0054,2026-06-13,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,Hindi+English,valid,False
+R00093,P0054,2026-06-13,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,Hindi+English,valid,False
+R00093,P0054,2026-06-13,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,Hindi+English,valid,False
+R00096,P0055,2025-03-22,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,English,test,False
+R00098,P0056,2025-08-12,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00098,P0056,2025-08-12,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,False,English,train,False
+R00099,P0056,2026-02-08,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,Hindi+English,train,False
+R00099,P0056,2026-02-08,Community Health Centre,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00102,P0058,2026-01-07,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,True,English,train,False
+R00102,P0058,2026-01-07,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,train,False
+R00102,P0058,2026-01-07,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,train,True
+R00103,P0059,2026-01-16,Community Health Centre,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,5 days,True,English,test,False
+R00103,P0059,2026-01-16,Community Health Centre,Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,True,English,test,False
+R00107,P0061,2025-11-18,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,Hindi+English,train,False
+R00108,P0061,2025-10-16,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,Hindi+English,train,False
+R00108,P0061,2025-10-16,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,Hindi+English,train,False
+R00109,P0062,2025-09-12,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00110,P0063,2025-12-28,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,False,English,train,False
+R00110,P0063,2025-12-28,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,False,English,train,False
+R00110,P0063,2025-12-28,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,False,English,train,False
+R00112,P0064,2025-11-11,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00112,P0064,2025-11-11,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,train,False
+R00112,P0064,2025-11-11,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,English,train,False
+R00112,P0064,2025-11-11,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,train,False
+R00114,P0066,2025-10-30,AIIA Delhi OPD,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00116,P0067,2025-12-31,District Hospital Agra,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,False,Hindi+English,train,False
+R00116,P0067,2025-12-31,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00117,P0067,2026-05-31,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00118,P0068,2025-06-08,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,English,train,False
+R00119,P0068,2026-04-21,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,False,Hindi+English,train,False
+R00120,P0069,2026-03-03,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,train,False
+R00120,P0069,2026-03-03,AIIA Delhi OPD,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,train,False
+R00120,P0069,2026-03-03,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,English,train,False
+R00121,P0070,2025-03-27,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00121,P0070,2025-03-27,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,English,train,False
+R00122,P0071,2026-05-10,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,False,English,train,False
+R00122,P0071,2026-05-10,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,1 month,False,English,train,False
+R00123,P0072,2025-02-23,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,Hindi+English,test,False
+R00123,P0072,2025-02-23,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,test,False
+R00123,P0072,2025-02-23,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,Hindi+English,test,False
+R00124,P0074,2025-08-22,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00127,P0076,2025-10-14,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,True,English,train,False
+R00127,P0076,2025-10-14,AIIA Delhi OPD,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,True,English,train,False
+R00129,P0077,2025-05-01,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00129,P0077,2025-05-01,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,True,English,train,False
+R00129,P0077,2025-05-01,District Hospital Agra,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,5 days,True,English,train,False
+R00129,P0077,2025-05-01,District Hospital Agra,Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,True,English,train,False
+R00129,P0077,2025-05-01,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,False
+R00130,P0079,2026-04-02,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,False
+R00132,P0080,2026-04-01,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,English,train,False
+R00135,P0082,2025-04-26,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,False
+R00137,P0083,2025-11-02,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00142,P0086,2026-05-14,Community Health Centre,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,True,Hindi+English,train,False
+R00142,P0086,2026-05-14,Community Health Centre,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,True,Hindi+English,train,False
+R00142,P0086,2026-05-14,Community Health Centre,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00143,P0087,2026-02-01,Community Health Centre,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,1 month,True,Hindi+English,train,False
+R00146,P0088,2025-07-13,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,Hindi+English,test,False
+R00146,P0088,2025-07-13,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,test,False
+R00146,P0088,2025-07-13,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,False,Hindi+English,test,False
+R00147,P0088,2026-01-12,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,Hindi+English,test,False
+R00147,P0088,2026-01-12,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,test,False
+R00148,P0089,2026-01-23,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,False,English,valid,False
+R00148,P0089,2026-01-23,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,1 month,False,English,valid,False
+R00149,P0089,2025-02-04,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,Hindi+English,valid,False
+R00149,P0089,2025-02-04,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,Hindi+English,valid,False
+R00151,P0090,2025-05-12,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00151,P0090,2025-05-12,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,English,train,False
+R00154,P0093,2025-07-14,Dr. Lal Labs (dummy),Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,5 days,True,English,train,False
+R00154,P0093,2025-07-14,Dr. Lal Labs (dummy),Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,True,English,train,False
+R00154,P0093,2025-07-14,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00155,P0093,2025-08-24,Sunrise Pathology Lab,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,False,English,train,False
+R00155,P0093,2025-08-24,Sunrise Pathology Lab,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,False,English,train,False
+R00158,P0095,2026-05-05,District Hospital Agra,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,1 month,False,Hindi+English,train,False
+R00161,P0096,2025-12-23,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00161,P0096,2025-12-23,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00161,P0096,2025-12-23,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,False,Hindi+English,train,False
+R00161,P0096,2025-12-23,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,False,Hindi+English,train,False
+R00162,P0097,2025-08-23,Pathcare Diagnostics,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,True,English,train,False
+R00162,P0097,2025-08-23,Pathcare Diagnostics,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,True,English,train,False
+R00163,P0098,2025-04-19,Sunrise Pathology Lab,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,False,Hindi+English,train,False
+R00163,P0098,2025-04-19,Sunrise Pathology Lab,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,False,Hindi+English,train,False
+R00170,P0100,2025-12-08,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,test,False
+R00170,P0100,2025-12-08,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,English,test,False
+R00170,P0100,2025-12-08,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,test,False
+R00173,P0101,2025-12-07,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00174,P0102,2025-09-16,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,English,train,False
+R00177,P0103,2026-07-27,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,False,Hindi+English,test,False
+R00178,P0103,2026-06-09,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,Hindi+English,test,False
+R00179,P0104,2025-12-15,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00179,P0104,2025-12-15,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,English,train,False
+R00180,P0104,2026-07-14,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00180,P0104,2026-07-14,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,English,train,False
+R00181,P0105,2026-05-31,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,train,False
+R00181,P0105,2026-05-31,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,True,English,train,False
+R00182,P0105,2025-04-22,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,English,train,False
+R00182,P0105,2025-04-22,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,English,train,False
+R00183,P0106,2026-02-20,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,True,Hindi+English,valid,False
+R00186,P0108,2025-09-20,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00186,P0108,2025-09-20,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00186,P0108,2025-09-20,Community Health Centre,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00187,P0108,2025-08-07,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00187,P0108,2025-08-07,Community Health Centre,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00187,P0108,2025-08-07,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00188,P0109,2025-12-02,Sunrise Pathology Lab,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,False,English,train,False
+R00190,P0110,2025-07-19,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,English,train,False
+R00191,P0111,2025-02-08,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,Hindi+English,train,False
+R00191,P0111,2025-02-08,Pathcare Diagnostics,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,Hindi+English,train,False
+R00192,P0111,2025-10-29,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,False,English,train,False
+R00192,P0111,2025-10-29,District Hospital Agra,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,False,English,train,False
+R00193,P0112,2025-11-08,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,True,Hindi+English,train,False
+R00193,P0112,2025-11-08,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,True,Hindi+English,train,False
+R00196,P0114,2026-02-02,Pathcare Diagnostics,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,True,Hindi+English,train,False
+R00196,P0114,2026-02-02,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00197,P0115,2025-01-22,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,English,train,False
+R00197,P0115,2025-01-22,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,English,train,False
+R00198,P0115,2025-12-27,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00203,P0118,2026-07-11,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,train,False
+R00203,P0118,2026-07-11,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,English,train,False
+R00204,P0119,2025-06-14,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,False,English,train,False
+R00204,P0119,2025-06-14,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,English,train,False
+R00207,P0121,2026-01-16,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00208,P0122,2025-09-24,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,English,test,False
+R00212,P0124,2025-05-04,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,True,English,train,False
+R00212,P0124,2025-05-04,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,14 days,True,English,train,False
+R00212,P0124,2025-05-04,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,14 days,True,English,train,False
+R00213,P0124,2026-05-16,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00214,P0125,2025-03-25,Community Health Centre,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,5 days,True,English,train,False
+R00214,P0125,2025-03-25,Community Health Centre,Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,True,English,train,False
+R00215,P0127,2026-01-14,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00217,P0128,2025-09-11,AIIA Delhi OPD,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,True,Hindi+English,train,False
+R00220,P0131,2025-02-01,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,test,False
+R00220,P0131,2025-02-01,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,True,English,test,False
+R00222,P0133,2026-04-12,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,English,train,False
+R00226,P0135,2025-12-12,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,valid,False
+R00226,P0135,2025-12-12,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,valid,False
+R00227,P0135,2025-06-24,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,valid,False
+R00227,P0135,2025-06-24,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,English,valid,False
+R00230,P0136,2026-08-06,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00230,P0136,2026-08-06,Community Health Centre,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,False,Hindi+English,train,False
+R00230,P0136,2026-08-06,Community Health Centre,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,False,Hindi+English,train,False
+R00230,P0136,2026-08-06,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00230,P0136,2026-08-06,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,Hindi+English,train,False
+R00230,P0136,2026-08-06,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00232,P0137,2025-03-29,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,False,English,train,False
+R00232,P0137,2025-03-29,District Hospital Agra,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,False,English,train,False
+R00236,P0140,2025-09-07,Community Health Centre,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,False,Hindi+English,train,False
+R00236,P0140,2025-09-07,Community Health Centre,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,False,Hindi+English,train,False
+R00236,P0140,2025-09-07,Community Health Centre,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00236,P0140,2025-09-07,Community Health Centre,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00238,P0141,2025-04-28,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00238,P0141,2025-04-28,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,True,English,train,False
+R00238,P0141,2025-04-28,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,1 month,True,English,train,False
+R00238,P0141,2025-04-28,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,English,train,False
+R00238,P0141,2025-04-28,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,English,train,False
+R00239,P0141,2026-07-08,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00239,P0141,2026-07-08,AIIA Delhi OPD,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,True,Hindi+English,train,False
+R00239,P0141,2026-07-08,AIIA Delhi OPD,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,True,Hindi+English,train,False
+R00239,P0141,2026-07-08,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00239,P0141,2026-07-08,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00243,P0144,2026-02-26,Dr. Lal Labs (dummy),Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,Hindi+English,train,False
+R00244,P0144,2026-01-04,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,train,False
+R00244,P0144,2026-01-04,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,True,English,train,False
+R00244,P0144,2026-01-04,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00245,P0145,2026-07-15,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,False,English,train,False
+R00245,P0145,2026-07-15,Sunrise Pathology Lab,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,False,English,train,False
+R00246,P0146,2026-04-06,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00246,P0146,2026-04-06,Community Health Centre,Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,False,Hindi+English,train,False
+R00247,P0146,2025-01-03,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00248,P0147,2025-09-09,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,English,train,False
+R00249,P0148,2025-11-16,Sunrise Pathology Lab,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,English,train,False
+R00249,P0148,2025-11-16,Sunrise Pathology Lab,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,English,train,False
+R00250,P0148,2026-05-05,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00250,P0148,2026-05-05,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00253,P0149,2025-06-29,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00253,P0149,2025-06-29,AIIA Delhi OPD,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00254,P0149,2026-03-21,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,Hindi+English,train,False
+R00254,P0149,2026-03-21,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00257,P0151,2025-02-07,Dr. Lal Labs (dummy),Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,False,English,train,False
+R00257,P0151,2025-02-07,Dr. Lal Labs (dummy),Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,False,English,train,False
+R00257,P0151,2025-02-07,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,False,English,train,False
+R00258,P0151,2026-08-21,Sunrise Pathology Lab,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,True,Hindi+English,train,False
+R00260,P0152,2026-08-09,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,test,False
+R00261,P0152,2026-07-16,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,test,False
+R00261,P0152,2026-07-16,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,English,test,False
+R00261,P0152,2026-07-16,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,English,test,False
+R00262,P0153,2025-11-01,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00263,P0153,2025-05-01,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00264,P0154,2026-06-05,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,Hindi+English,train,False
+R00267,P0155,2025-09-29,District Hospital Agra,Aspirin 75 mg,aspirin,Allopathy,0-1-0,14 days,False,English,train,False
+R00267,P0155,2025-09-29,District Hospital Agra,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,14 days,False,English,train,False
+R00267,P0155,2025-09-29,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,English,train,False
+R00267,P0155,2025-09-29,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,English,train,False
+R00267,P0155,2025-09-29,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,train,False
+R00273,P0157,2025-03-03,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,English,train,False
+R00275,P0158,2025-11-11,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00277,P0159,2026-05-05,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00277,P0159,2026-05-05,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,True,Hindi+English,train,False
+R00277,P0159,2026-05-05,Pathcare Diagnostics,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00279,P0161,2025-03-04,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,test,False
+R00279,P0161,2025-03-04,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,test,False
+R00279,P0161,2025-03-04,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,True,English,test,False
+R00279,P0161,2025-03-04,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,True,English,test,False
+R00281,P0162,2025-09-08,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,English,valid,False
+R00282,P0162,2025-04-26,AIIA Delhi OPD,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,valid,False
+R00284,P0163,2025-11-10,Sunrise Pathology Lab,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,Hindi+English,train,False
+R00284,P0163,2025-11-10,Sunrise Pathology Lab,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,Hindi+English,train,False
+R00284,P0163,2025-11-10,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00285,P0163,2026-08-18,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,English,train,False
+R00286,P0164,2025-02-15,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,English,train,False
+R00286,P0164,2025-02-15,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,True,English,train,False
+R00290,P0166,2026-03-09,District Hospital Agra,Aspirin 75 mg,aspirin,Allopathy,0-1-0,14 days,True,English,train,False
+R00290,P0166,2026-03-09,District Hospital Agra,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,14 days,True,English,train,False
+R00292,P0167,2025-01-10,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,Hindi+English,valid,False
+R00292,P0167,2025-01-10,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,False,Hindi+English,valid,False
+R00293,P0167,2025-12-21,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,valid,False
+R00293,P0167,2025-12-21,District Hospital Agra,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,False,Hindi+English,valid,False
+R00296,P0168,2026-03-04,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00296,P0168,2026-03-04,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00296,P0168,2026-03-04,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00297,P0168,2025-08-04,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,train,False
+R00297,P0168,2025-08-04,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00297,P0168,2025-08-04,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00300,P0169,2025-10-21,Community Health Centre,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,English,train,False
+R00300,P0169,2025-10-21,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,train,False
+R00303,P0170,2025-06-11,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,test,False
+R00303,P0170,2025-06-11,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,test,False
+R00303,P0170,2025-06-11,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,English,test,False
+R00304,P0172,2025-02-10,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00304,P0172,2025-02-10,Pathcare Diagnostics,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00307,P0173,2025-09-11,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,train,False
+R00307,P0173,2025-09-11,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,English,train,False
+R00309,P0175,2026-03-30,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,Hindi+English,test,False
+R00312,P0177,2025-08-04,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,train,False
+R00312,P0177,2025-08-04,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,True,English,train,False
+R00312,P0177,2025-08-04,Sunrise Pathology Lab,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,True,English,train,False
+R00313,P0178,2025-04-22,District Hospital Agra,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,English,train,False
+R00315,P0180,2025-12-23,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00315,P0180,2025-12-23,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,True,English,train,False
+R00316,P0180,2026-08-18,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00316,P0180,2026-08-18,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00316,P0180,2026-08-18,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,English,train,False
+R00318,P0181,2025-04-01,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00321,P0182,2025-12-25,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,English,train,False
+R00321,P0182,2025-12-25,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,English,train,False
+R00322,P0183,2026-03-28,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,English,train,False
+R00322,P0183,2026-03-28,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,English,train,False
+R00323,P0184,2026-07-28,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00325,P0186,2025-03-18,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,False,English,train,False
+R00325,P0186,2025-03-18,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,False,English,train,False
+R00328,P0188,2026-01-10,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,test,False
+R00328,P0188,2026-01-10,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,test,False
+R00333,P0190,2025-01-25,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,Hindi+English,test,False
+R00336,P0191,2025-11-08,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,valid,False
+R00336,P0191,2025-11-08,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,valid,False
+R00336,P0191,2025-11-08,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,True,English,valid,False
+R00339,P0192,2026-04-24,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,English,test,False
+R00339,P0192,2026-04-24,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,False,English,test,False
+R00340,P0192,2025-02-07,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,test,False
+R00341,P0194,2026-06-12,Pathcare Diagnostics,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,False,English,train,False
+R00341,P0194,2026-06-12,Pathcare Diagnostics,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,False,English,train,False
+R00345,P0195,2025-07-21,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00345,P0195,2025-07-21,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00345,P0195,2025-07-21,Dr. Lal Labs (dummy),Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,True,English,train,False
+R00345,P0195,2025-07-21,Dr. Lal Labs (dummy),Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,train,False
+R00345,P0195,2025-07-21,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,train,False
+R00346,P0195,2026-07-31,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00346,P0195,2026-07-31,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,Hindi+English,train,False
+R00346,P0195,2026-07-31,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,False,Hindi+English,train,False
+R00346,P0195,2026-07-31,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,False,Hindi+English,train,False
+R00346,P0195,2026-07-31,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,False,Hindi+English,train,False
+R00347,P0197,2026-01-27,Dr. Lal Labs (dummy),Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,False,Hindi+English,train,False
+R00347,P0197,2026-01-27,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,Hindi+English,train,False
+R00348,P0197,2025-04-03,AIIA Delhi OPD,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,True,English,train,False
+R00351,P0198,2026-02-26,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,False,English,train,False
+R00351,P0198,2026-02-26,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,False,English,train,False
+R00351,P0198,2026-02-26,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,English,train,False
+R00352,P0198,2025-12-10,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00352,P0198,2025-12-10,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00356,P0201,2025-12-21,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,False,English,train,False
+R00359,P0203,2025-07-20,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00359,P0203,2025-07-20,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,Hindi+English,train,False
+R00360,P0204,2026-04-26,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,14 days,True,English,train,False
+R00362,P0205,2026-03-23,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00362,P0205,2026-03-23,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00363,P0207,2025-06-13,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00363,P0207,2025-06-13,AIIA Delhi OPD,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,7 days,False,English,train,False
+R00364,P0207,2025-01-30,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00364,P0207,2025-01-30,Community Health Centre,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,7 days,False,English,train,False
+R00365,P0208,2025-11-05,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,True,Hindi+English,train,False
+R00365,P0208,2025-11-05,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00369,P0210,2026-06-25,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,English,train,False
+R00369,P0210,2026-06-25,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,English,train,False
+R00369,P0210,2026-06-25,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,English,train,False
+R00370,P0210,2026-02-14,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,False,English,train,False
+R00373,P0211,2025-04-11,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00373,P0211,2025-04-11,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00377,P0212,2026-07-21,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00377,P0212,2026-07-21,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00377,P0212,2026-07-21,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00377,P0212,2026-07-21,Pathcare Diagnostics,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00378,P0212,2025-07-27,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00378,P0212,2025-07-27,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00378,P0212,2025-07-27,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,True,English,train,False
+R00378,P0212,2025-07-27,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,True,English,train,False
+R00380,P0213,2025-03-08,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,English,valid,False
+R00380,P0213,2025-03-08,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,valid,False
+R00381,P0213,2026-08-19,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,valid,False
+R00381,P0213,2026-08-19,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,English,valid,False
+R00382,P0214,2026-05-05,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,English,train,False
+R00382,P0214,2026-05-05,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,train,False
+R00383,P0214,2025-02-28,District Hospital Agra,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00383,P0214,2025-02-28,District Hospital Agra,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,True
+R00386,P0216,2026-04-10,Dr. Lal Labs (dummy),Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,False,English,train,False
+R00386,P0216,2026-04-10,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,False,English,train,False
+R00386,P0216,2026-04-10,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,False,English,train,False
+R00387,P0216,2025-10-17,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00387,P0216,2025-10-17,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00387,P0216,2025-10-17,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00388,P0217,2025-06-16,AIIA Delhi OPD,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,True,English,train,False
+R00388,P0217,2025-06-16,AIIA Delhi OPD,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,True,English,train,False
+R00389,P0217,2026-08-08,AIIA Delhi OPD,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,English,train,False
+R00389,P0217,2026-08-08,AIIA Delhi OPD,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,English,train,False
+R00389,P0217,2026-08-08,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,English,train,False
+R00391,P0218,2025-11-10,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,valid,False
+R00391,P0218,2025-11-10,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,False,English,valid,False
+R00392,P0219,2026-04-29,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,English,train,False
+R00394,P0220,2025-09-19,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,Hindi+English,train,False
+R00394,P0220,2025-09-19,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00395,P0221,2025-05-05,AIIA Delhi OPD,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00397,P0222,2026-05-11,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,train,False
+R00397,P0222,2026-05-11,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,English,train,False
+R00400,P0223,2025-12-18,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00400,P0223,2025-12-18,Community Health Centre,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,14 days,False,Hindi+English,train,False
+R00401,P0223,2026-04-04,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,train,False
+R00401,P0223,2026-04-04,District Hospital Agra,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,True,English,train,False
+R00404,P0224,2025-10-04,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,train,False
+R00404,P0224,2025-10-04,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00405,P0225,2026-04-10,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00407,P0226,2025-10-29,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00407,P0226,2025-10-29,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,Hindi+English,train,False
+R00408,P0226,2025-05-29,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,Hindi+English,train,False
+R00408,P0226,2025-05-29,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,Hindi+English,train,False
+R00408,P0226,2025-05-29,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,True,Hindi+English,train,False
+R00409,P0227,2026-03-12,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,train,False
+R00409,P0227,2026-03-12,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,True,English,train,False
+R00409,P0227,2026-03-12,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,True,English,train,False
+R00410,P0228,2025-09-17,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,train,False
+R00410,P0228,2025-09-17,AIIA Delhi OPD,Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,False,English,train,False
+R00412,P0229,2026-04-04,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00412,P0229,2026-04-04,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,False,English,train,False
+R00415,P0230,2025-05-01,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00415,P0230,2025-05-01,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,English,train,False
+R00417,P0231,2025-09-30,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00420,P0232,2026-04-29,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,Hindi+English,train,False
+R00420,P0232,2026-04-29,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00423,P0233,2026-07-25,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00423,P0233,2026-07-25,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00427,P0234,2025-03-21,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,English,train,False
+R00427,P0234,2025-03-21,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00427,P0234,2025-03-21,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,False,English,train,False
+R00427,P0234,2025-03-21,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,False,English,train,False
+R00428,P0234,2026-07-16,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,English,train,False
+R00428,P0234,2026-07-16,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00428,P0234,2026-07-16,District Hospital Agra,Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,False,English,train,False
+R00428,P0234,2026-07-16,District Hospital Agra,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,False,English,train,False
+R00428,P0234,2026-07-16,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,English,train,False
+R00430,P0235,2026-07-27,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,5 days,False,Hindi+English,train,False
+R00430,P0235,2026-07-27,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,False,Hindi+English,train,False
+R00430,P0235,2026-07-27,Pathcare Diagnostics,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,5 days,False,Hindi+English,train,False
+R00431,P0236,2025-12-03,Community Health Centre,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,1 month,False,English,test,False
+R00431,P0236,2025-12-03,Community Health Centre,Neem capsule 500 mg,neem,Ayurveda,1-0-1,1 month,False,English,test,False
+R00432,P0236,2025-03-04,Sunrise Pathology Lab,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,5 days,True,Hindi+English,test,False
+R00432,P0236,2025-03-04,Sunrise Pathology Lab,Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,True,Hindi+English,test,False
+R00432,P0236,2025-03-04,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,test,False
+R00434,P0237,2025-07-15,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00434,P0237,2025-07-15,Dr. Lal Labs (dummy),Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,train,False
+R00434,P0237,2025-07-15,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00435,P0237,2025-07-09,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00435,P0237,2025-07-09,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,English,train,False
+R00435,P0237,2025-07-09,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,English,train,False
+R00436,P0239,2025-08-11,Sunrise Pathology Lab,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,False,English,train,False
+R00437,P0239,2025-08-02,Dr. Lal Labs (dummy),Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,English,train,False
+R00437,P0239,2025-08-02,Dr. Lal Labs (dummy),Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,English,train,False
+R00439,P0240,2026-03-14,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,False,English,train,False
+R00441,P0241,2026-03-09,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00441,P0241,2026-03-09,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00441,P0241,2026-03-09,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00441,P0241,2026-03-09,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00442,P0242,2026-07-29,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,True,English,valid,False
+R00442,P0242,2026-07-29,AIIA Delhi OPD,Neem capsule 500 mg,neem,Ayurveda,1-0-1,1 month,True,English,valid,False
+R00443,P0243,2026-08-12,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,English,train,False
+R00443,P0243,2026-08-12,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,English,train,False
+R00446,P0244,2025-04-08,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,English,test,False
+R00446,P0244,2025-04-08,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,False,English,test,False
+R00448,P0245,2026-04-22,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00448,P0245,2026-04-22,Pathcare Diagnostics,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00449,P0245,2026-06-25,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00449,P0245,2026-06-25,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00449,P0245,2026-06-25,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00450,P0246,2025-09-27,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00452,P0248,2025-05-14,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,train,False
+R00452,P0248,2025-05-14,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,False,English,train,False
+R00452,P0248,2025-05-14,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,English,train,False
+R00452,P0248,2025-05-14,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,English,train,False
+R00453,P0248,2025-11-27,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00453,P0248,2025-11-27,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,Hindi+English,train,False
+R00453,P0248,2025-11-27,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00453,P0248,2025-11-27,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,Hindi+English,train,False
+R00455,P0249,2025-07-17,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,True,Hindi+English,train,False
+R00458,P0250,2025-05-03,Sunrise Pathology Lab,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00459,P0251,2025-10-16,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,14 days,False,English,train,False
+R00461,P0252,2026-03-24,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,False,English,valid,False
+R00462,P0252,2025-03-02,AIIA Delhi OPD,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,True,Hindi+English,valid,False
+R00464,P0253,2025-11-15,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,Hindi+English,test,False
+R00464,P0253,2025-11-15,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,Hindi+English,test,False
+R00465,P0255,2025-07-18,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,Hindi+English,train,False
+R00466,P0255,2025-02-13,AIIA Delhi OPD,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,False,English,train,False
+R00468,P0257,2025-04-11,Community Health Centre,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,False,Hindi+English,train,False
+R00471,P0259,2026-05-13,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00471,P0259,2026-05-13,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,English,train,False
+R00472,P0259,2026-01-05,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00472,P0259,2026-01-05,Community Health Centre,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00477,P0262,2026-06-20,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00478,P0262,2026-06-04,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,Hindi+English,train,False
+R00478,P0262,2026-06-04,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,Hindi+English,train,False
+R00480,P0263,2026-08-14,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,English,train,False
+R00480,P0263,2026-08-14,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00480,P0263,2026-08-14,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,English,train,False
+R00480,P0263,2026-08-14,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,False,English,train,False
+R00480,P0263,2026-08-14,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,English,train,False
+R00482,P0264,2025-11-01,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,True,Hindi+English,valid,False
+R00483,P0264,2026-04-08,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,False,Hindi+English,valid,False
+R00485,P0266,2026-02-03,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00485,P0266,2026-02-03,AIIA Delhi OPD,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,False,English,train,False
+R00485,P0266,2026-02-03,AIIA Delhi OPD,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,False,English,train,False
+R00486,P0267,2025-01-24,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,train,False
+R00486,P0267,2025-01-24,Pathcare Diagnostics,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,True,English,train,False
+R00488,P0269,2025-06-05,Sunrise Pathology Lab,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,train,False
+R00489,P0271,2026-01-16,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,test,False
+R00489,P0271,2026-01-16,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,English,test,False
+R00490,P0271,2026-03-18,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,English,test,False
+R00491,P0272,2026-02-02,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,English,train,False
+R00491,P0272,2026-02-02,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,English,train,False
+R00491,P0272,2026-02-02,Pathcare Diagnostics,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,English,train,False
+R00494,P0273,2025-09-03,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00494,P0273,2025-09-03,Community Health Centre,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,train,False
+R00496,P0274,2026-08-17,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,valid,False
+R00496,P0274,2026-08-17,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,valid,False
+R00499,P0276,2026-08-04,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00500,P0277,2025-03-07,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,test,False
+R00500,P0277,2025-03-07,Community Health Centre,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,True,English,test,False
+R00500,P0277,2025-03-07,Community Health Centre,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,True,English,test,False
+R00500,P0277,2025-03-07,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,English,test,False
+R00501,P0277,2026-06-22,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,test,False
+R00501,P0277,2026-06-22,AIIA Delhi OPD,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,True,Hindi+English,test,False
+R00501,P0277,2026-06-22,AIIA Delhi OPD,Neem capsule 500 mg,neem,Ayurveda,1-0-1,7 days,True,Hindi+English,test,False
+R00502,P0278,2026-01-30,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00502,P0278,2026-01-30,Sunrise Pathology Lab,Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,False,Hindi+English,train,False
+R00502,P0278,2026-01-30,Sunrise Pathology Lab,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,1 month,False,Hindi+English,train,False
+R00502,P0278,2026-01-30,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00504,P0279,2025-02-05,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,train,False
+R00504,P0279,2025-02-05,Community Health Centre,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,False,English,train,False
+R00505,P0279,2025-06-28,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00505,P0279,2025-06-28,District Hospital Agra,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00506,P0280,2026-02-24,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00507,P0281,2026-02-12,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00507,P0281,2026-02-12,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,Hindi+English,train,False
+R00507,P0281,2026-02-12,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,True,Hindi+English,train,False
+R00507,P0281,2026-02-12,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00508,P0282,2026-05-31,AIIA Delhi OPD,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,False,Hindi+English,train,False
+R00511,P0283,2025-03-27,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00511,P0283,2025-03-27,Community Health Centre,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,train,False
+R00511,P0283,2025-03-27,Community Health Centre,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00514,P0284,2025-11-08,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,train,False
+R00514,P0284,2025-11-08,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00514,P0284,2025-11-08,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,English,train,False
+R00515,P0285,2025-03-07,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00517,P0287,2026-05-04,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00519,P0288,2025-07-22,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,False,English,train,False
+R00520,P0288,2025-08-13,District Hospital Agra,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,14 days,True,English,train,False
+R00522,P0289,2025-02-08,District Hospital Agra,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00522,P0289,2025-02-08,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00523,P0289,2025-04-08,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,English,train,False
+R00523,P0289,2025-04-08,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00524,P0290,2025-11-09,Dr. Lal Labs (dummy),Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,Hindi+English,train,False
+R00524,P0290,2025-11-09,Dr. Lal Labs (dummy),Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00525,P0290,2026-01-23,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,Hindi+English,train,False
+R00526,P0291,2025-10-13,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,False,English,train,False
+R00526,P0291,2025-10-13,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,False,English,train,False
+R00527,P0292,2026-03-17,AIIA Delhi OPD,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,False,Hindi+English,train,False
+R00528,P0292,2026-04-18,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,True,English,train,False
+R00530,P0294,2025-10-29,Sunrise Pathology Lab,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,True,English,test,False
+R00530,P0294,2025-10-29,Sunrise Pathology Lab,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,True,English,test,False
+R00530,P0294,2025-10-29,Sunrise Pathology Lab,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,True,English,test,True
+R00534,P0295,2025-05-11,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,True,English,train,False
+R00534,P0295,2025-05-11,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00535,P0296,2026-03-11,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,True,English,valid,False
+R00535,P0296,2026-03-11,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,1 month,True,English,valid,False
+R00535,P0296,2026-03-11,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,1 month,True,English,valid,True
+R00537,P0297,2026-04-01,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00537,P0297,2026-04-01,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00538,P0297,2025-12-22,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00538,P0297,2025-12-22,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00539,P0298,2025-02-04,Dr. Lal Labs (dummy),Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00539,P0298,2025-02-04,Dr. Lal Labs (dummy),Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,Hindi+English,train,False
+R00540,P0300,2025-03-27,Dr. Lal Labs (dummy),Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00541,P0301,2025-07-16,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,English,train,False
+R00542,P0301,2025-11-21,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,English,train,False
+R00544,P0302,2026-08-01,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00544,P0302,2026-08-01,District Hospital Agra,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,English,train,False
+R00544,P0302,2026-08-01,District Hospital Agra,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,English,train,False
+R00545,P0303,2025-09-03,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,train,False
+R00545,P0303,2025-09-03,Community Health Centre,Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,False,English,train,False
+R00548,P0307,2025-11-12,District Hospital Agra,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,True,English,valid,False
+R00549,P0309,2025-01-08,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,English,test,False
+R00549,P0309,2025-01-08,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,True,English,test,False
+R00552,P0310,2025-06-08,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,valid,False
+R00552,P0310,2025-06-08,Community Health Centre,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,False,English,valid,False
+R00555,P0311,2026-05-12,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,train,False
+R00555,P0311,2026-05-12,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00555,P0311,2026-05-12,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,False,English,train,False
+R00561,P0314,2025-01-23,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,test,False
+R00561,P0314,2025-01-23,Sunrise Pathology Lab,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,English,test,False
+R00562,P0315,2026-08-02,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,True,English,train,False
+R00562,P0315,2026-08-02,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,True,English,train,False
+R00563,P0316,2025-03-23,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,False,English,valid,False
+R00564,P0317,2026-06-10,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00564,P0317,2026-06-10,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,English,train,False
+R00565,P0317,2026-05-06,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,True,English,train,False
+R00567,P0319,2026-01-14,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00567,P0319,2026-01-14,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,train,False
+R00568,P0319,2025-02-21,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00568,P0319,2025-02-21,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,English,train,False
+R00569,P0320,2026-05-27,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,False,Hindi+English,valid,False
+R00572,P0321,2026-08-11,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00572,P0321,2026-08-11,Community Health Centre,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,English,train,False
+R00573,P0321,2025-05-12,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,train,False
+R00573,P0321,2025-05-12,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,English,train,False
+R00575,P0322,2025-03-01,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00575,P0322,2025-03-01,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00579,P0324,2025-04-22,Community Health Centre,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,English,train,False
+R00579,P0324,2025-04-22,Community Health Centre,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,English,train,False
+R00580,P0324,2025-04-19,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00580,P0324,2025-04-19,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00582,P0325,2025-05-08,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00582,P0325,2025-05-08,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00583,P0326,2025-12-06,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00583,P0326,2025-12-06,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,False,English,train,False
+R00584,P0327,2026-05-24,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00584,P0327,2026-05-24,Dr. Lal Labs (dummy),Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,14 days,True,English,train,False
+R00584,P0327,2026-05-24,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00585,P0327,2025-08-09,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00585,P0327,2025-08-09,Pathcare Diagnostics,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,5 days,True,Hindi+English,train,False
+R00588,P0329,2026-05-07,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,English,valid,False
+R00588,P0329,2026-05-07,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,valid,False
+R00588,P0329,2026-05-07,Community Health Centre,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,English,valid,False
+R00591,P0330,2026-06-14,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00591,P0330,2026-06-14,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00596,P0333,2026-05-14,District Hospital Agra,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,False,English,train,False
+R00596,P0333,2026-05-14,District Hospital Agra,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,False,English,train,False
+R00596,P0333,2026-05-14,District Hospital Agra,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,False,English,train,False
+R00598,P0334,2025-07-25,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,True,Hindi+English,train,False
+R00601,P0336,2025-04-11,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00602,P0337,2026-02-13,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,English,train,False
+R00602,P0337,2026-02-13,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,English,train,False
+R00604,P0339,2025-09-12,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,English,train,False
+R00604,P0339,2025-09-12,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,False,English,train,False
+R00604,P0339,2025-09-12,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,False,English,train,False
+R00605,P0340,2025-05-12,Sunrise Pathology Lab,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,Hindi+English,valid,False
+R00606,P0340,2026-02-07,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,English,valid,False
+R00606,P0340,2026-02-07,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,English,valid,False
+R00607,P0341,2026-08-24,Pathcare Diagnostics,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,14 days,True,English,train,False
+R00607,P0341,2026-08-24,Pathcare Diagnostics,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,14 days,True,English,train,False
+R00608,P0341,2026-05-11,AIIA Delhi OPD,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,English,train,False
+R00609,P0342,2026-03-26,AIIA Delhi OPD,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,True,English,train,False
+R00609,P0342,2026-03-26,AIIA Delhi OPD,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,True,English,train,False
+R00612,P0343,2025-03-29,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,Hindi+English,train,False
+R00612,P0343,2025-03-29,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,False,Hindi+English,train,False
+R00614,P0344,2025-07-08,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,test,False
+R00614,P0344,2025-07-08,Dr. Lal Labs (dummy),Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,True,English,test,False
+R00614,P0344,2025-07-08,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,True,English,test,False
+R00615,P0344,2026-07-20,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,Hindi+English,test,False
+R00615,P0344,2026-07-20,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,Hindi+English,test,False
+R00615,P0344,2026-07-20,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,True,Hindi+English,test,False
+R00616,P0345,2025-07-03,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,English,test,False
+R00616,P0345,2025-07-03,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,English,test,False
+R00617,P0346,2025-01-06,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,False,Hindi+English,valid,False
+R00618,P0347,2025-07-16,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,English,train,False
+R00621,P0348,2025-12-18,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,English,train,False
+R00623,P0349,2026-05-21,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,test,False
+R00623,P0349,2026-05-21,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,test,False
+R00623,P0349,2026-05-21,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,False,English,test,False
+R00623,P0349,2026-05-21,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,False,English,test,False
+R00624,P0349,2025-11-16,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,test,False
+R00624,P0349,2025-11-16,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,test,False
+R00624,P0349,2025-11-16,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,True,Hindi+English,test,False
+R00624,P0349,2025-11-16,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,True,Hindi+English,test,False
+R00626,P0350,2025-03-27,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,English,train,False
+R00630,P0351,2025-09-30,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,False,English,valid,False
+R00630,P0351,2025-09-30,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,valid,False
+R00630,P0351,2025-09-30,Community Health Centre,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,False,English,valid,False
+R00630,P0351,2025-09-30,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,False,English,valid,False
+R00631,P0351,2026-06-05,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,valid,False
+R00631,P0351,2026-06-05,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,valid,False
+R00631,P0351,2026-06-05,Sunrise Pathology Lab,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,valid,False
+R00633,P0352,2025-03-09,District Hospital Agra,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,Hindi+English,train,False
+R00634,P0353,2026-08-19,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00636,P0354,2026-05-01,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,True,English,train,False
+R00636,P0354,2026-05-01,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,English,train,False
+R00637,P0355,2025-03-07,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00637,P0355,2025-03-07,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,False,English,train,False
+R00639,P0358,2025-04-14,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,True,English,train,False
+R00639,P0358,2025-04-14,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,True,English,train,False
+R00642,P0359,2026-03-17,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,False,English,train,False
+R00642,P0359,2026-03-17,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,train,False
+R00642,P0359,2026-03-17,District Hospital Agra,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,False,English,train,False
+R00645,P0360,2025-01-13,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,test,False
+R00645,P0360,2025-01-13,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,English,test,False
+R00646,P0360,2026-05-22,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,English,test,False
+R00648,P0361,2026-06-03,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,False,Hindi+English,train,False
+R00651,P0362,2025-06-09,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,train,False
+R00651,P0362,2025-06-09,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00651,P0362,2025-06-09,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,False,English,train,False
+R00653,P0363,2025-08-27,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00653,P0363,2025-08-27,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,Hindi+English,train,False
+R00654,P0364,2026-02-08,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,test,False
+R00654,P0364,2026-02-08,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,False,Hindi+English,test,False
+R00655,P0364,2025-02-24,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,test,False
+R00655,P0364,2025-02-24,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,English,test,False
+R00657,P0366,2026-07-13,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,False,English,train,False
+R00657,P0366,2026-07-13,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,English,train,False
+R00657,P0366,2026-07-13,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,English,train,False
+R00657,P0366,2026-07-13,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,False,English,train,False
+R00660,P0367,2026-05-17,Community Health Centre,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,True,English,valid,False
+R00660,P0367,2026-05-17,Community Health Centre,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,True,English,valid,False
+R00661,P0367,2026-04-08,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,English,valid,False
+R00661,P0367,2026-04-08,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,False,English,valid,False
+R00662,P0368,2025-10-27,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,Hindi+English,train,False
+R00664,P0369,2026-06-29,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,True,English,train,False
+R00665,P0369,2026-06-16,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,False,Hindi+English,train,False
+R00666,P0370,2025-03-26,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,English,train,False
+R00666,P0370,2025-03-26,Sunrise Pathology Lab,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,English,train,False
+R00666,P0370,2025-03-26,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00667,P0371,2025-04-13,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,English,train,False
+R00667,P0371,2025-04-13,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,English,train,True
+R00669,P0373,2026-04-16,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,Hindi+English,test,False
+R00669,P0373,2026-04-16,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,Hindi+English,test,False
+R00669,P0373,2026-04-16,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,False,Hindi+English,test,False
+R00670,P0374,2025-04-04,Dr. Lal Labs (dummy),Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00673,P0375,2025-02-24,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,English,train,False
+R00673,P0375,2025-02-24,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,English,train,False
+R00674,P0376,2025-10-28,Community Health Centre,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,5 days,True,Hindi+English,train,False
+R00674,P0376,2025-10-28,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00675,P0378,2025-01-08,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,False,English,train,False
+R00675,P0378,2025-01-08,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,False,English,train,False
+R00676,P0379,2025-11-30,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,1 month,True,English,train,False
+R00676,P0379,2025-11-30,District Hospital Agra,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,1 month,True,English,train,False
+R00677,P0380,2025-08-13,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,False,Hindi+English,train,False
+R00677,P0380,2025-08-13,Pathcare Diagnostics,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,Hindi+English,train,False
+R00677,P0380,2025-08-13,Pathcare Diagnostics,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,Hindi+English,train,False
+R00678,P0381,2026-02-10,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00679,P0381,2026-08-24,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00680,P0382,2026-04-07,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,False,English,train,False
+R00680,P0382,2026-04-07,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,False,English,train,False
+R00681,P0382,2025-05-29,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,True,English,train,False
+R00684,P0384,2026-07-08,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00684,P0384,2026-07-08,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00685,P0384,2025-04-09,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00685,P0384,2025-04-09,Community Health Centre,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,English,train,False
+R00685,P0384,2025-04-09,Community Health Centre,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,English,train,False
+R00687,P0385,2025-04-07,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,Hindi+English,train,False
+R00688,P0387,2026-06-24,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,English,train,False
+R00688,P0387,2026-06-24,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,English,train,False
+R00689,P0387,2025-02-17,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,False,English,train,False
+R00689,P0387,2025-02-17,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,False,English,train,False
+R00691,P0389,2026-07-02,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00691,P0389,2026-07-02,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00693,P0391,2025-07-22,District Hospital Agra,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,True,Hindi+English,train,False
+R00693,P0391,2025-07-22,District Hospital Agra,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00695,P0392,2025-07-20,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,False,English,train,False
+R00695,P0392,2025-07-20,District Hospital Agra,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,False,English,train,False
+R00695,P0392,2025-07-20,District Hospital Agra,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,English,train,False
+R00697,P0393,2025-03-16,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,train,False
+R00697,P0393,2025-03-16,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,14 days,True,English,train,False
+R00697,P0393,2025-03-16,Dr. Lal Labs (dummy),Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,English,train,False
+R00698,P0394,2025-03-31,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,English,train,False
+R00698,P0394,2025-03-31,Pathcare Diagnostics,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,English,train,False
+R00699,P0394,2026-02-18,AIIA Delhi OPD,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,English,train,False
+R00699,P0394,2026-02-18,AIIA Delhi OPD,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,5 days,False,English,train,False
+R00701,P0395,2025-04-21,Pathcare Diagnostics,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00701,P0395,2025-04-21,Pathcare Diagnostics,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00702,P0395,2025-10-11,Sunrise Pathology Lab,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,False,English,train,False
+R00702,P0395,2025-10-11,Sunrise Pathology Lab,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,False,English,train,False
+R00704,P0398,2026-02-20,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00704,P0398,2026-02-20,Pathcare Diagnostics,Aspirin 75 mg,aspirin,Allopathy,0-1-0,14 days,False,English,train,False
+R00704,P0398,2026-02-20,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,14 days,False,English,train,False
+R00704,P0398,2026-02-20,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,train,False
+R00705,P0398,2025-03-09,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00705,P0398,2025-03-09,Community Health Centre,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,True,Hindi+English,train,False
+R00705,P0398,2025-03-09,Community Health Centre,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,7 days,True,Hindi+English,train,False
+R00708,P0400,2026-04-05,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,train,False
+R00708,P0400,2026-04-05,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,English,train,False
+R00710,P0401,2025-05-23,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00710,P0401,2025-05-23,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,False,English,train,False
+R00711,P0403,2025-09-30,Pathcare Diagnostics,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,14 days,True,English,train,False
+R00711,P0403,2025-09-30,Pathcare Diagnostics,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,14 days,True,English,train,False
+R00712,P0403,2026-01-25,Pathcare Diagnostics,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,False,English,train,False
+R00714,P0404,2025-03-12,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00714,P0404,2025-03-12,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00715,P0404,2026-08-07,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00715,P0404,2026-08-07,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,English,train,False
+R00719,P0406,2025-02-24,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,Hindi+English,train,False
+R00719,P0406,2025-02-24,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,Hindi+English,train,False
+R00719,P0406,2025-02-24,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,Hindi+English,train,False
+R00720,P0407,2025-03-22,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,English,train,False
+R00723,P0408,2026-01-19,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00723,P0408,2026-01-19,Community Health Centre,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00725,P0409,2025-05-08,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,5 days,True,English,train,False
+R00727,P0410,2025-04-30,Sunrise Pathology Lab,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,False,English,train,False
+R00727,P0410,2025-04-30,Sunrise Pathology Lab,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,False,English,train,False
+R00728,P0410,2025-10-16,Sunrise Pathology Lab,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,False,English,train,False
+R00730,P0411,2025-09-04,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,train,False
+R00730,P0411,2025-09-04,Community Health Centre,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,5 days,False,Hindi+English,train,False
+R00730,P0411,2025-09-04,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,False,Hindi+English,train,False
+R00732,P0413,2026-04-13,Sunrise Pathology Lab,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,14 days,True,Hindi+English,train,False
+R00733,P0414,2026-02-25,Dr. Lal Labs (dummy),Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,True,English,test,False
+R00734,P0414,2026-07-07,Sunrise Pathology Lab,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,1 month,False,English,test,False
+R00734,P0414,2026-07-07,Sunrise Pathology Lab,Neem capsule 500 mg,neem,Ayurveda,1-0-1,1 month,False,English,test,False
+R00735,P0415,2026-01-26,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,Hindi+English,train,False
+R00735,P0415,2026-01-26,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00736,P0415,2026-05-27,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00736,P0415,2026-05-27,Community Health Centre,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,English,train,False
+R00740,P0417,2026-07-23,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,False,Hindi+English,train,False
+R00740,P0417,2026-07-23,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,False,Hindi+English,train,False
+R00740,P0417,2026-07-23,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00742,P0418,2025-08-19,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00742,P0418,2025-08-19,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00744,P0419,2026-03-31,AIIA Delhi OPD,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,False,Hindi+English,train,False
+R00744,P0419,2026-03-31,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,Hindi+English,train,False
+R00745,P0419,2026-06-25,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,7 days,True,Hindi+English,train,False
+R00746,P0420,2025-06-29,Pathcare Diagnostics,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,5 days,False,Hindi+English,valid,False
+R00748,P0421,2025-11-11,District Hospital Agra,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00751,P0422,2025-04-12,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,7 days,True,English,train,False
+R00754,P0423,2026-06-25,Dr. Lal Labs (dummy),Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,False,Hindi+English,train,False
+R00755,P0424,2025-12-16,Pathcare Diagnostics,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,True,English,train,False
+R00759,P0426,2025-06-28,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,False,English,train,False
+R00759,P0426,2025-06-28,Pathcare Diagnostics,Atorvastatin 20 mg,atorvastatin,Allopathy,0-0-1,14 days,False,English,train,False
+R00760,P0426,2025-02-02,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,False,English,train,False
+R00762,P0427,2025-06-12,Dr. Lal Labs (dummy),Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,14 days,True,Hindi+English,train,False
+R00765,P0429,2026-04-01,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00765,P0429,2026-04-01,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,English,train,False
+R00766,P0429,2025-06-16,District Hospital Agra,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,Hindi+English,train,False
+R00766,P0429,2025-06-16,District Hospital Agra,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,True,Hindi+English,train,False
+R00767,P0430,2025-03-01,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,Hindi+English,train,False
+R00767,P0430,2025-03-01,Dr. Lal Labs (dummy),Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,7 days,True,Hindi+English,train,False
+R00769,P0431,2025-02-05,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,English,train,False
+R00769,P0431,2025-02-05,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00770,P0433,2025-09-01,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,Hindi+English,train,False
+R00771,P0434,2025-04-27,Pathcare Diagnostics,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,True,Hindi+English,train,False
+R00772,P0435,2026-01-01,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,7 days,True,English,train,False
+R00775,P0436,2025-05-30,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,test,False
+R00775,P0436,2025-05-30,Pathcare Diagnostics,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,English,test,False
+R00777,P0437,2025-09-18,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,Hindi+English,train,False
+R00780,P0438,2025-11-18,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00780,P0438,2025-11-18,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00780,P0438,2025-11-18,Pathcare Diagnostics,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,train,False
+R00781,P0438,2025-01-24,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,English,train,False
+R00781,P0438,2025-01-24,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00781,P0438,2025-01-24,Dr. Lal Labs (dummy),Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,1 month,True,English,train,False
+R00781,P0438,2025-01-24,Dr. Lal Labs (dummy),Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,1 month,True,English,train,False
+R00783,P0440,2026-03-24,Pathcare Diagnostics,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,5 days,True,English,train,False
+R00784,P0441,2026-02-27,Sunrise Pathology Lab,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,1 month,False,Hindi+English,train,False
+R00784,P0441,2026-02-27,Sunrise Pathology Lab,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,1 month,False,Hindi+English,train,False
+R00784,P0441,2026-02-27,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,1 month,False,Hindi+English,train,False
+R00786,P0443,2025-12-14,District Hospital Agra,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,7 days,True,English,train,False
+R00786,P0443,2025-12-14,District Hospital Agra,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,7 days,True,English,train,False
+R00788,P0444,2025-09-19,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,test,False
+R00791,P0445,2026-06-26,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00791,P0445,2026-06-26,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,False,English,train,False
+R00792,P0445,2025-03-28,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,English,train,False
+R00792,P0445,2025-03-28,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,1 month,True,English,train,False
+R00793,P0446,2025-09-05,Pathcare Diagnostics,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,False,English,test,False
+R00793,P0446,2025-09-05,Pathcare Diagnostics,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,False,English,test,False
+R00794,P0446,2025-07-17,Sunrise Pathology Lab,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,True,Hindi+English,test,False
+R00798,P0448,2025-01-11,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00798,P0448,2025-01-11,Dr. Lal Labs (dummy),Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,train,False
+R00800,P0450,2025-12-09,AIIA Delhi OPD,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,English,train,False
+R00801,P0450,2025-08-20,Pathcare Diagnostics,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,English,train,False
+R00801,P0450,2025-08-20,Pathcare Diagnostics,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,English,train,False
+R00801,P0450,2025-08-20,Pathcare Diagnostics,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,5 days,True,English,train,False
+R00804,P0451,2026-04-23,AIIA Delhi OPD,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,True,Hindi+English,train,False
+R00804,P0451,2026-04-23,AIIA Delhi OPD,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,Hindi+English,train,False
+R00805,P0451,2025-10-25,Community Health Centre,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,1 month,False,English,train,False
+R00805,P0451,2025-10-25,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,English,train,False
+R00806,P0452,2025-01-03,District Hospital Agra,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,14 days,True,English,train,False
+R00806,P0452,2025-01-03,District Hospital Agra,Neem capsule 500 mg,neem,Ayurveda,1-0-1,14 days,True,English,train,False
+R00807,P0453,2026-08-25,Community Health Centre,Neem capsule 500 mg,neem,Ayurveda,1-0-1,5 days,True,English,train,False
+R00808,P0454,2026-08-14,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00808,P0454,2026-08-14,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00811,P0455,2025-05-17,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00813,P0457,2026-07-27,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,False,English,test,False
+R00814,P0457,2025-10-10,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,Hindi+English,test,False
+R00814,P0457,2025-10-10,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,Hindi+English,test,False
+R00815,P0458,2026-07-03,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,False,English,valid,False
+R00815,P0458,2026-07-03,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,English,valid,False
+R00817,P0460,2026-02-09,Community Health Centre,Aspirin 75 mg,aspirin,Allopathy,0-1-0,7 days,True,English,test,False
+R00818,P0460,2025-12-17,Dr. Lal Labs (dummy),Aspirin 75 mg,aspirin,Allopathy,0-1-0,1 month,True,English,test,False
+R00821,P0461,2025-09-19,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00821,P0461,2025-09-19,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00821,P0461,2025-09-19,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00824,P0462,2026-03-16,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,train,False
+R00824,P0462,2026-03-16,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,train,False
+R00824,P0462,2026-03-16,Pathcare Diagnostics,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,True,English,train,False
+R00826,P0464,2025-01-21,District Hospital Agra,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,1 month,False,English,train,False
+R00828,P0467,2025-09-20,Dr. Lal Labs (dummy),Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,14 days,False,English,test,False
+R00830,P0469,2025-03-12,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,False,Hindi+English,train,False
+R00830,P0469,2025-03-12,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00830,P0469,2025-03-12,Sunrise Pathology Lab,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,False,Hindi+English,train,False
+R00830,P0469,2025-03-12,Sunrise Pathology Lab,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,False,Hindi+English,train,False
+R00831,P0469,2025-04-11,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,14 days,True,Hindi+English,train,False
+R00831,P0469,2025-04-11,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,Hindi+English,train,False
+R00831,P0469,2025-04-11,Community Health Centre,Salbutamol inhaler 100 mcg,salbutamol,Allopathy,SOS,14 days,True,Hindi+English,train,False
+R00831,P0469,2025-04-11,Community Health Centre,Sitopaladi churna 3 g,sitopaladi,Ayurveda,1-0-1,14 days,True,Hindi+English,train,False
+R00834,P0470,2025-08-18,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,True,English,train,False
+R00834,P0470,2025-08-18,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,14 days,True,English,train,False
+R00834,P0470,2025-08-18,Pathcare Diagnostics,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,14 days,True,English,train,False
+R00835,P0470,2026-07-15,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,train,False
+R00835,P0470,2026-07-15,Pathcare Diagnostics,Levothyroxine 50 mcg,levothyroxine,Allopathy,1-0-0,7 days,False,English,train,False
+R00835,P0470,2026-07-15,Pathcare Diagnostics,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,False,English,train,False
+R00838,P0472,2026-02-07,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,5 days,True,English,train,False
+R00838,P0472,2026-02-07,AIIA Delhi OPD,Yogaraj guggulu 2 tab,guggulu,Ayurveda,1-0-1,5 days,True,English,train,False
+R00838,P0472,2026-02-07,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,False
+R00839,P0473,2025-04-18,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,False
+R00839,P0473,2025-04-18,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,English,train,True
+R00840,P0473,2026-01-18,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,True,Hindi+English,train,False
+R00843,P0474,2025-08-21,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,valid,False
+R00843,P0474,2025-08-21,Community Health Centre,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,7 days,True,English,valid,False
+R00844,P0474,2026-02-08,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,True,Hindi+English,valid,False
+R00844,P0474,2026-02-08,Pathcare Diagnostics,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,True,Hindi+English,valid,False
+R00845,P0475,2025-07-30,Dr. Lal Labs (dummy),Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,14 days,True,English,train,False
+R00845,P0475,2025-07-30,Dr. Lal Labs (dummy),Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,14 days,True,English,train,False
+R00846,P0476,2025-03-24,Community Health Centre,Paracetamol 650 mg,paracetamol,Allopathy,1-1-1 SOS,5 days,False,English,train,False
+R00847,P0478,2026-05-12,AIIA Delhi OPD,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00847,P0478,2026-05-12,AIIA Delhi OPD,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,Hindi+English,train,False
+R00847,P0478,2026-05-12,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00849,P0480,2026-04-05,Community Health Centre,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,True,English,train,False
+R00849,P0480,2026-04-05,Community Health Centre,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,7 days,True,English,train,False
+R00852,P0481,2025-10-31,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,English,valid,False
+R00852,P0481,2025-10-31,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,valid,False
+R00852,P0481,2025-10-31,AIIA Delhi OPD,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,True,English,valid,False
+R00854,P0482,2025-10-11,AIIA Delhi OPD,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00854,P0482,2025-10-11,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,5 days,True,Hindi+English,train,False
+R00854,P0482,2025-10-11,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,5 days,True,Hindi+English,train,False
+R00855,P0482,2025-10-29,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,7 days,True,English,train,False
+R00855,P0482,2025-10-29,Dr. Lal Labs (dummy),Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,7 days,True,English,train,False
+R00855,P0482,2025-10-29,Dr. Lal Labs (dummy),Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,7 days,True,English,train,False
+R00859,P0484,2025-04-19,Community Health Centre,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,Hindi+English,train,False
+R00859,P0484,2025-04-19,Community Health Centre,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,5 days,False,Hindi+English,train,False
+R00863,P0485,2026-08-12,Dr. Lal Labs (dummy),Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,False,Hindi+English,train,False
+R00863,P0485,2026-08-12,Dr. Lal Labs (dummy),Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,Hindi+English,train,False
+R00863,P0485,2026-08-12,Dr. Lal Labs (dummy),Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,Hindi+English,train,False
+R00865,P0486,2025-12-25,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00865,P0486,2025-12-25,District Hospital Agra,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,English,train,False
+R00868,P0487,2025-12-18,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,True,English,valid,False
+R00869,P0487,2025-07-29,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,7 days,False,English,valid,False
+R00869,P0487,2025-07-29,AIIA Delhi OPD,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,7 days,False,English,valid,False
+R00869,P0487,2025-07-29,AIIA Delhi OPD,Triphala churna 5 g,triphala,Ayurveda,0-0-1,7 days,False,English,valid,False
+R00870,P0488,2025-03-03,Sunrise Pathology Lab,Dicyclomine 10 mg,dicyclomine,Allopathy,1-1-1 SOS,1 month,True,English,train,False
+R00870,P0488,2025-03-03,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,True,English,train,False
+R00871,P0489,2026-07-22,District Hospital Agra,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,valid,False
+R00871,P0489,2026-07-22,District Hospital Agra,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,False,English,valid,False
+R00871,P0489,2026-07-22,District Hospital Agra,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,14 days,False,English,valid,False
+R00872,P0489,2025-09-03,Pathcare Diagnostics,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,1 month,True,Hindi+English,valid,False
+R00872,P0489,2025-09-03,Pathcare Diagnostics,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,Hindi+English,valid,False
+R00872,P0489,2025-09-03,Pathcare Diagnostics,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,Hindi+English,valid,False
+R00873,P0490,2025-05-03,Pathcare Diagnostics,Metformin 500 mg,metformin,Allopathy,1-0-1,5 days,True,Hindi+English,train,False
+R00874,P0491,2026-07-10,Sunrise Pathology Lab,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,14 days,False,Hindi+English,train,False
+R00874,P0491,2026-07-10,Sunrise Pathology Lab,Triphala churna 5 g,triphala,Ayurveda,0-0-1,14 days,False,Hindi+English,train,False
+R00875,P0491,2025-12-23,AIIA Delhi OPD,Pantoprazole 40 mg,pantoprazole,Allopathy,1-0-0,1 month,True,English,train,False
+R00875,P0491,2025-12-23,AIIA Delhi OPD,Avipattikar churna 5 g,avipattikar,Ayurveda,0-0-1,1 month,True,English,train,False
+R00876,P0492,2025-08-26,District Hospital Agra,Cetirizine 10 mg,cetirizine,Allopathy,0-0-1,1 month,True,English,train,False
+R00876,P0492,2025-08-26,District Hospital Agra,Neem capsule 500 mg,neem,Ayurveda,1-0-1,1 month,True,English,train,False
+R00877,P0493,2025-10-18,Community Health Centre,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,5 days,True,English,valid,False
+R00877,P0493,2025-10-18,Community Health Centre,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,5 days,True,English,valid,False
+R00878,P0493,2025-02-25,Sunrise Pathology Lab,Ibuprofen 400 mg,ibuprofen,Allopathy,1-0-1,7 days,False,English,valid,False
+R00878,P0493,2025-02-25,Sunrise Pathology Lab,Dashmoolarishta 20 ml,dashmoola,Ayurveda,1-0-1,7 days,False,English,valid,False
+R00881,P0495,2025-10-19,AIIA Delhi OPD,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,14 days,False,English,train,False
+R00882,P0495,2025-12-12,Sunrise Pathology Lab,Amlodipine 5 mg,amlodipine,Allopathy,1-0-0,5 days,False,English,train,False
+R00882,P0495,2025-12-12,Sunrise Pathology Lab,Sarpagandha vati 1 tab,sarpagandha,Ayurveda,0-0-1,5 days,False,English,train,False
+R00889,P0499,2025-03-13,AIIA Delhi OPD,Simhanada guggulu 2 tab,guggulu,Ayurveda,1-0-1,14 days,False,English,train,False
+R00889,P0499,2025-03-13,AIIA Delhi OPD,Diclofenac 50 mg,diclofenac,Allopathy,1-0-1,14 days,False,English,train,False
+R00892,P0500,2026-04-14,Sunrise Pathology Lab,Metformin 500 mg,metformin,Allopathy,1-0-1,1 month,False,English,test,False
+R00892,P0500,2026-04-14,Sunrise Pathology Lab,Gudmar churna 3 g,gudmar,Ayurveda,1-0-1,1 month,False,English,test,False
+R00892,P0500,2026-04-14,Sunrise Pathology Lab,Ashwagandha churna 3 g,ashwagandha,Ayurveda,0-0-1,1 month,False,English,test,False

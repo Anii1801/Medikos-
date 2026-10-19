@@ -1,0 +1,166 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "code": "SYNTHETIC"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "resource": {
+    "resourceType": "Patient",
+    "id": "P0181",
+    "identifier": [
+     {
+      "system": "https://healthid.ndhm.gov.in",
+      "value": "99-4632-5146-5567"
+     }
+    ],
+    "name": [
+     {
+      "text": "Vijay Das"
+     }
+    ],
+    "gender": "male",
+    "communication": [
+     {
+      "language": {
+       "text": "Hindi"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Consent",
+    "id": "consent-P0181",
+    "status": "active",
+    "patient": {
+     "reference": "Patient/P0181"
+    },
+    "provision": {
+     "type": "permit",
+     "purpose": [
+      {
+       "display": "share with hospital"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Condition",
+    "id": "cond-I0209",
+    "subject": {
+     "reference": "Patient/P0181"
+    },
+    "code": {
+     "text": "joint pain and morning stiffness",
+     "coding": [
+      {
+       "system": "http://hl7.org/fhir/sid/icd-10",
+       "code": "M06.9"
+      }
+     ]
+    },
+    "note": [
+     {
+      "text": "38-year-old male presenting with joint pain and morning stiffness for 2 months. Character: pain in small joints of both hands; radiation: n/a; aggravated by cold weather; relieved by warm water bath. Severity 6/10. Associated: tiredness, swelling of joints. PMH: Appendectomy in 2007. Drugs: none. Allergy: no known allergies. Family: asthma. Personal: non-smoker, no alcohol. Triage: ROUTINE."
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "id": "R00318-1626",
+    "status": "completed",
+    "subject": {
+     "reference": "Patient/P0181"
+    },
+    "medicationCodeableConcept": {
+     "text": "Simhanada guggulu 2 tab"
+    },
+    "dosage": [
+     {
+      "text": "1-0-1 for 1 month"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00317-ESR",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0181"
+    },
+    "code": {
+     "text": "ESR"
+    },
+    "effectiveDateTime": "2025-02-14",
+    "valueQuantity": {
+     "value": 11.51,
+     "unit": "mm/hr"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00317-CRP",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0181"
+    },
+    "code": {
+     "text": "CRP"
+    },
+    "effectiveDateTime": "2025-02-14",
+    "valueQuantity": {
+     "value": 3.32,
+     "unit": "mg/L"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  },
+  {
+   "resource": {
+    "resourceType": "Observation",
+    "id": "L00317-Uric_Acid",
+    "status": "final",
+    "subject": {
+     "reference": "Patient/P0181"
+    },
+    "code": {
+     "text": "Uric Acid"
+    },
+    "effectiveDateTime": "2025-02-14",
+    "valueQuantity": {
+     "value": 4.94,
+     "unit": "mg/dL"
+    },
+    "interpretation": [
+     {
+      "text": "Normal"
+     }
+    ]
+   }
+  }
+ ]
+}
