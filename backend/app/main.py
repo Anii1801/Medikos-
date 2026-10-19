@@ -1,6 +1,7 @@
 import os, json, time, secrets, uuid
 from typing import Optional
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form, Header
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
@@ -10,6 +11,14 @@ from .redflag_engine import RedFlagEngine, RedFlagResult, rules_manifest
 from .eda_api import router as eda_router
 
 app = FastAPI(title="MediKiosk API", version="1.0")
+allowed_origins = [origin.strip() for origin in os.environ.get("MEDIKIOSK_CORS_ORIGINS", "*").split(",") if origin.strip()]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(eda_router)  # /api/eda/* — analytics, EDA, ML endpoints
 db.init()
 MAX_UPLOAD = 8 * 1024 * 1024

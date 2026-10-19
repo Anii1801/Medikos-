@@ -1,11 +1,12 @@
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const API_BASE = (window.MEDIKIOSK_API_BASE || "https://medikos.onrender.com").replace(/\/+$/, "");
 let TOKEN = sessionStorage.getItem("mk_token") || "";
 async function api(path, opt = {}) {
   const h = { ...(opt.headers || {}) };
   if (TOKEN) h.Authorization = "Bearer " + TOKEN;
   if (opt.json) { h["Content-Type"] = "application/json"; opt.body = JSON.stringify(opt.json); }
-  const r = await fetch("/api" + path, { method: opt.method || (opt.body ? "POST" : "GET"), headers: h, body: opt.body });
+  const r = await fetch(API_BASE + "/api" + path, { method: opt.method || (opt.body ? "POST" : "GET"), headers: h, body: opt.body });
   const d = await r.json().catch(() => ({}));
   if (!r.ok) throw new Error(d.detail || r.statusText);
   return d;
