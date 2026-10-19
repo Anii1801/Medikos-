@@ -56,6 +56,7 @@
     <span class="appbar-logo">MediKiosk</span>
   </div>
   <div class="appbar-actions">
+    <button class="icon-btn patient-menu" id="patient-menu" aria-label="Open dashboard menu" title="Dashboard menu">Menu</button>
     <button class="icon-btn" id="big" aria-label="Larger text" title="A+">A+</button>
     <button class="icon-btn" id="hc" aria-label="High contrast" title="High contrast">◐</button>
     <button class="icon-btn" id="spk" aria-label="Audio prompts" title="Audio">Audio</button>
@@ -63,6 +64,8 @@
     <a class="btn btn-outline btn-sm" href="doctor.html">Doctor Portal</a>
   </div>
 </header>
+
+<div class="patient-nav-scrim" id="patient-nav-scrim"></div>
 
 <!-- MAIN CONTENT -->
 <main class="page" id="app"></main>
@@ -135,10 +138,10 @@ const T = {
   }
 };
 
-let lang = "en", voice = true, ans = {}, stack = [], ayush = false, me = null, _rec = null, cur = null, voiceTranscriptId = null, voiceTranscriptPromise = Promise.resolve(), interviewSessionId = null, speechVoices = [];
+let lang = "en", voice = true, ans = {}, stack = [], ayush = false, me = null, _rec = null, cur = null, voiceTranscriptId = null, voiceTranscriptPromise = Promise.resolve(), interviewSessionId = null, speechVoices = [], spokenQuestionKey = null;
 const t = k => T[lang][k] || k;
 
-function showToast(msg, ms = 2800) {
+function showToast(msg, ms = 3500) {
   const el = document.getElementById("toast");
   el.textContent = msg;
   el.classList.add("show");
@@ -198,6 +201,18 @@ document.getElementById("spk").onclick = () => {
   if (!voice) speechSynthesis?.cancel();
   showToast(voice ? "Audio on" : "Audio off");
 };
+function togglePatientNav(open) {
+  const nav = document.getElementById("bnav");
+  const scrim = document.getElementById("patient-nav-scrim");
+  if (!nav || !scrim) return;
+  nav.classList.toggle("drawer-open", open);
+  scrim.classList.toggle("visible", open);
+  document.getElementById("patient-menu")?.setAttribute("aria-expanded", String(open));
+}
+document.getElementById("patient-menu").onclick = () => {
+  togglePatientNav(!document.getElementById("bnav").classList.contains("drawer-open"));
+};
+document.getElementById("patient-nav-scrim").onclick = () => togglePatientNav(false);
 document.getElementById("lang").onclick = () => {
   lang = lang === "en" ? "hi" : "en";
   document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
@@ -206,6 +221,7 @@ document.getElementById("lang").onclick = () => {
 };
 
 function bnav(tab) {
+  togglePatientNav(false);
   ["home","hist","docs","info"].forEach(id => {
     const el = document.getElementById("bn-" + id);
     if (el) el.classList.toggle("active", id === tab);
@@ -578,7 +594,11 @@ function draw(n) {
       <button class="btn" id="nx">${t("next")} →</button>
     </div>
   </div>`);
-  say(q[l]);
+  const questionKey = q.id + ":" + lang;
+  if (spokenQuestionKey !== questionKey) {
+    spokenQuestionKey = questionKey;
+    say(q[l]);
+  }
 
   document.querySelectorAll(".opt").forEach(b => b.onclick = () => {
     const v = b.dataset.v;
