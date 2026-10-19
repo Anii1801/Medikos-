@@ -78,9 +78,9 @@
 
 /* ── Large text ──────────────────────────────── */
 :root[data-big] { font-size: 20px; }
-:root[data-text-size="smallest"] { font-size: 75%; }
-:root[data-text-size="medium"] { font-size: 90%; }
-:root[data-text-size="large"] { font-size: 110%; }
+:root[data-text-size="smallest"] { font-size: 95%; }
+:root[data-text-size="medium"] { font-size: 115%; }
+:root[data-text-size="large"] { font-size: 135%; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -92,6 +92,14 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+body.patient-app {
+  margin: 12px;
+  min-height: calc(100vh - 24px);
+  border: 1px solid #B8CBD3;
+  border-radius: 28px;
+  overflow-x: hidden;
 }
 
 /* ══════════════ LAYOUT ══════════════ */
@@ -1364,6 +1372,17 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 }
 .patient-dashboard-trigger svg { width: 100%; height: 100%; }
 
+.patient-app .patient-dashboard-trigger {
+  position: fixed;
+  left: 20px;
+  top: 30px;
+  z-index: 401;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(16,40,61,.16);
+}
+
 @media (min-width: 761px) {
   .patient-app .page {
     margin-left: 268px;
@@ -1461,6 +1480,12 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 }
 
 @media (max-width: 760px) {
+  body.patient-app {
+    margin: 8px;
+    min-height: calc(100vh - 16px);
+    border-radius: 20px;
+  }
+
   .patient-app .appbar {
     height: 64px;
     margin: 8px 8px 0;
@@ -1470,6 +1495,7 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 
   .patient-app .appbar-brand {
     min-width: 0;
+    margin-left: 48px;
     gap: 7px;
   }
   .patient-app .appbar-brand .avatar {
@@ -1518,7 +1544,12 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
     min-width: 34px;
     padding: 0 6px;
   }
-  .patient-dashboard-trigger { display: block; }
+  .patient-app .patient-dashboard-trigger {
+    left: 16px;
+    top: 18px;
+    width: 38px;
+    height: 38px;
+  }
 
   .patient-app .page {
     padding: 20px 12px 38px;
@@ -1574,6 +1605,49 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 :root[data-theme="dark"] .patient-app {
   background: #0B1722;
   color: #E8F1F4;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0B1722;
+  --surface: #142735;
+  --surface2: #10222F;
+  --border: #315263;
+  --ink: #E8F1F4;
+  --ink-mid: #A9C0C9;
+  --ink-soft: #7895A0;
+  --primary-light: #173B43;
+  --teal-light: #173B43;
+  --danger-light: #3A1D24;
+  --warning-light: #3A2E1B;
+  --success-light: #193A2C;
+}
+
+:root[data-theme="light"] {
+  --bg: #F5FAF9;
+  --surface: #FFFFFF;
+  --surface2: #F7FBFA;
+  --border: #DCE7E5;
+  --ink: #173D43;
+  --ink-mid: #4F686C;
+  --ink-soft: #71878A;
+}
+
+:root[data-theme="dark"] body.patient-app {
+  background: #071521;
+  border-color: #29495B;
+}
+
+:root[data-theme="dark"] body.patient-app .page {
+  background: #0B1722;
+}
+
+:root[data-theme="dark"] .patient-app input,
+:root[data-theme="dark"] .patient-app textarea,
+:root[data-theme="dark"] .patient-app select,
+:root[data-theme="dark"] .patient-app .upload-zone {
+  background: #10222F;
+  color: #E8F1F4;
+  border-color: #315263;
 }
 
 :root[data-theme="dark"] .patient-app .appbar {
