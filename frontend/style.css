@@ -1358,6 +1358,54 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
   border-color: #137B74 !important;
 }
 
+/* Patient taskbar: one consistent left drawer across desktop, tablet, and phone. */
+.patient-app .bottom-nav {
+  position: fixed;
+  top: 78px;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  width: 268px;
+  height: auto;
+  transform: translateX(-105%);
+  border: 1px solid #DCE5EA;
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 18px 12px;
+  transition: transform .2s ease;
+  z-index: 300;
+}
+
+.patient-app .bottom-nav.drawer-open {
+  transform: translateX(0);
+}
+
+.patient-app .nav-item {
+  flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 13px 14px;
+  font-size: .85rem;
+  text-transform: none;
+}
+
+.patient-app .nav-item.active {
+  background: #123B5B !important;
+  color: #FFFFFF !important;
+}
+
+.patient-nav-scrim.visible {
+  display: block;
+  position: fixed;
+  inset: 78px 0 0;
+  z-index: 299;
+  background: rgba(7, 28, 61, .35);
+}
+
 @media (max-width: 760px) {
   .patient-app .appbar {
     height: 64px;
@@ -1420,35 +1468,8 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
   }
   .patient-app .bottom-nav {
     top: 64px;
-    bottom: 0;
-    left: 0;
-    right: auto;
     width: min(248px, 82vw);
-    height: auto;
-    transform: translateX(-105%);
-    border-radius: 0 14px 14px 0;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
     padding: 14px 10px;
-    transition: transform .2s ease;
-    z-index: 300;
   }
-  .patient-app .bottom-nav.drawer-open { transform: translateX(0); }
-  .patient-app .nav-item {
-    flex: 0 0 auto;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 12px;
-    padding: 13px 14px;
-    font-size: .85rem;
-    text-transform: none;
-  }
-  .patient-nav-scrim.visible {
-    display: block;
-    position: fixed;
-    inset: 64px 0 0;
-    z-index: 299;
-    background: rgba(7, 28, 61, .35);
-  }
+  .patient-nav-scrim.visible { inset: 64px 0 0; }
 }
