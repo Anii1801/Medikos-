@@ -1417,14 +1417,17 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
   }
 
   .patient-app .page {
-    margin-left: 0;
-    max-width: 820px;
-    transition: margin-left .2s ease, max-width .2s ease;
+    width: min(820px, calc(100% - 32px));
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    transition: margin-left .2s ease, width .2s ease;
   }
 
   body.patient-nav-open > .page {
-    margin-left: 268px;
-    max-width: calc(100% - 268px);
+    width: min(820px, calc(100% - 300px));
+    margin-left: max(284px, calc(284px + (100% - 300px - 820px) / 2));
+    margin-right: 16px;
   }
 
   .patient-app .patient-nav-scrim { display: none !important; }
