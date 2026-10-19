@@ -1342,7 +1342,8 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
   color: #FFFFFF !important;
 }
 
-.patient-menu { display: none; }
+.patient-brand-trigger { cursor: pointer; }
+.patient-brand-trigger:focus-visible { border-radius: 8px; }
 .patient-nav-scrim { display: none; }
 
 .patient-app .opt {
@@ -1382,10 +1383,8 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .patient-menu { display: flex !important; }
-  .patient-app .appbar-actions .patient-menu { order: -1; }
-  .patient-app .appbar-actions .icon-btn:nth-child(2),
-  .patient-app .appbar-actions .icon-btn:nth-child(3) { display: none; }
+  .patient-app .appbar-actions #big,
+  .patient-app .appbar-actions #hc { display: none; }
 
   .patient-app .page {
     padding: 20px 12px 38px;

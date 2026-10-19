@@ -51,12 +51,11 @@
 
 <!-- APPBAR -->
 <header class="appbar">
-  <div class="appbar-brand">
+  <div class="appbar-brand patient-brand-trigger" id="patient-brand-trigger" role="button" tabindex="0" aria-label="Open dashboard navigation">
     <div class="avatar brand-mark" style="width:36px;height:36px;font-size:.85rem">MK</div>
     <span class="appbar-logo">MediKiosk</span>
   </div>
   <div class="appbar-actions">
-    <button class="icon-btn patient-menu" id="patient-menu" aria-label="Open dashboard menu" title="Dashboard menu">Menu</button>
     <button class="icon-btn" id="big" aria-label="Larger text" title="A+">A+</button>
     <button class="icon-btn" id="hc" aria-label="High contrast" title="High contrast">◐</button>
     <button class="icon-btn" id="spk" aria-label="Audio prompts" title="Audio">Audio</button>
@@ -207,10 +206,15 @@ function togglePatientNav(open) {
   if (!nav || !scrim) return;
   nav.classList.toggle("drawer-open", open);
   scrim.classList.toggle("visible", open);
-  document.getElementById("patient-menu")?.setAttribute("aria-expanded", String(open));
+  patientBrandTrigger?.setAttribute("aria-expanded", String(open));
 }
-document.getElementById("patient-menu").onclick = () => {
-  togglePatientNav(!document.getElementById("bnav").classList.contains("drawer-open"));
+const patientBrandTrigger = document.getElementById("patient-brand-trigger");
+patientBrandTrigger.onclick = () => togglePatientNav(!document.getElementById("bnav").classList.contains("drawer-open"));
+patientBrandTrigger.onkeydown = e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    patientBrandTrigger.click();
+  }
 };
 document.getElementById("patient-nav-scrim").onclick = () => togglePatientNav(false);
 document.getElementById("lang").onclick = () => {
