@@ -60,11 +60,6 @@
     <span class="appbar-logo">MediKiosk</span>
   </div>
   <div class="appbar-actions">
-    <button class="patient-dashboard-trigger" id="patient-dashboard-trigger" aria-label="Open dashboard navigation" title="Open dashboard navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
     <button class="icon-btn" id="text-size" aria-label="Adjust text size" title="Adjust text size">A</button>
     <button class="icon-btn" id="theme" aria-label="Switch to dark theme" title="Switch theme">◐</button>
     <button class="icon-btn" id="spk" aria-label="Audio prompts" title="Audio">Audio</button>
@@ -191,7 +186,17 @@ if (window.speechSynthesis) {
   speechSynthesis.onvoiceschanged = refreshSpeechVoices;
 }
 
-const R = h => { document.getElementById("app").innerHTML = h; };
+const R = h => {
+  document.getElementById("app").innerHTML = h;
+  requestAnimationFrame(() => {
+    const target = document.querySelector("#app > .hero");
+    if (target) {
+      document.documentElement.style.setProperty("--patient-nav-top", `${Math.round(target.getBoundingClientRect().top)}px`);
+    } else {
+      document.documentElement.style.removeProperty("--patient-nav-top");
+    }
+  });
+};
 
 // ─── Accessibility and appearance controls ───────────────────────────────
 const textSizeButton = document.getElementById("text-size");
@@ -239,11 +244,9 @@ function togglePatientNav(open) {
   if (!nav || !scrim) return;
   nav.classList.toggle("drawer-open", open);
   scrim.classList.toggle("visible", open);
+  document.body.classList.toggle("patient-nav-open", open);
   patientBrandTrigger?.setAttribute("aria-expanded", String(open));
 }
-document.getElementById("patient-dashboard-trigger").onclick = () => {
-  togglePatientNav(!document.getElementById("bnav").classList.contains("drawer-open"));
-};
 const patientBrandTrigger = document.getElementById("patient-brand-trigger");
 patientBrandTrigger.onclick = () => togglePatientNav(!document.getElementById("bnav").classList.contains("drawer-open"));
 patientBrandTrigger.onkeydown = e => {
@@ -348,7 +351,6 @@ async function homeDash() {
       </div>
     `).join("") : `<p class="mut center" style="padding:20px 0">${t("noRecords")}</p>`}
   </div>
-  <p class="mut center caption">Draft for physician review. Not a diagnosis.</p>
   `);
   
   document.getElementById("lp")?.addEventListener("click", () => {
@@ -484,7 +486,6 @@ function auth(msg = "") {
     </div>
     ${msg ? `<p style="color:var(--danger);margin-top:10px;font-size:.9rem">${esc(msg)}</p>` : ""}
   </div>
-  <p class="mut caption center">Draft for physician review. Not a diagnosis.</p>
   `);
   document.getElementById("q").onclick = async () => {
     try { const r = await api("/auth/guest", { method: "POST" }); setToken(r.token); route(); }
