@@ -65,11 +65,10 @@
         <path d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
-    <button class="icon-btn" id="big" aria-label="Larger text" title="A+">A+</button>
-    <button class="icon-btn" id="hc" aria-label="High contrast" title="High contrast">◐</button>
+    <button class="icon-btn" id="text-size" aria-label="Adjust text size" title="Adjust text size">A</button>
+    <button class="icon-btn" id="theme" aria-label="Switch to dark theme" title="Switch theme">◐</button>
     <button class="icon-btn" id="spk" aria-label="Audio prompts" title="Audio">Audio</button>
     <button class="icon-btn" id="lang" title="Switch language">हि</button>
-    <a class="btn btn-outline btn-sm" href="doctor.html">Doctor Portal</a>
   </div>
 </header>
 
@@ -194,14 +193,39 @@ if (window.speechSynthesis) {
 
 const R = h => { document.getElementById("app").innerHTML = h; };
 
-// ─── Accessibility toggles ────────────────────────────────────────────────
-document.getElementById("big").onclick = () => {
-  document.documentElement.toggleAttribute("data-big");
-  showToast(document.documentElement.hasAttribute("data-big") ? "Large text on" : "Large text off");
+// ─── Accessibility and appearance controls ───────────────────────────────
+const textSizeButton = document.getElementById("text-size");
+const textSizes = ["smallest", "medium", "large"];
+let textSizeIndex = Number(localStorage.getItem("mk_text_size_index") || 0);
+if (!Number.isInteger(textSizeIndex) || textSizeIndex < 0 || textSizeIndex >= textSizes.length) textSizeIndex = 0;
+function applyTextSize() {
+  const size = textSizes[textSizeIndex];
+  document.documentElement.dataset.textSize = size;
+  const labels = { smallest: "A−", medium: "A", large: "A+" };
+  textSizeButton.textContent = labels[size];
+  textSizeButton.setAttribute("aria-label", `Text size: ${size}`);
+  textSizeButton.title = `Text size: ${size}`;
+}
+textSizeButton.onclick = () => {
+  textSizeIndex = (textSizeIndex + 1) % textSizes.length;
+  localStorage.setItem("mk_text_size_index", String(textSizeIndex));
+  applyTextSize();
 };
-document.getElementById("hc").onclick = () => {
-  document.documentElement.toggleAttribute("data-hc");
-  showToast("High contrast toggled");
+applyTextSize();
+
+const themeButton = document.getElementById("theme");
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  const dark = theme === "dark";
+  themeButton.textContent = dark ? "☼" : "◐";
+  themeButton.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+  themeButton.title = dark ? "Light theme" : "Dark theme";
+}
+applyTheme(localStorage.getItem("mk_theme") || "light");
+themeButton.onclick = () => {
+  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  localStorage.setItem("mk_theme", next);
+  applyTheme(next);
 };
 document.getElementById("spk").onclick = () => {
   voice = !voice;

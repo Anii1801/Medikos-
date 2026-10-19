@@ -78,6 +78,9 @@
 
 /* ── Large text ──────────────────────────────── */
 :root[data-big] { font-size: 20px; }
+:root[data-text-size="smallest"] { font-size: 75%; }
+:root[data-text-size="medium"] { font-size: 90%; }
+:root[data-text-size="large"] { font-size: 110%; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -971,13 +974,15 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 }
 
 .patient-app .appbar {
-  max-width: 720px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 12px 18px 0 286px;
   height: 78px;
   padding: 0 16px;
-  background: #F4FAF9;
-  box-shadow: none;
-  border-bottom: 1px solid #D9E8E5;
+  background: #10283D;
+  color: #FFFFFF;
+  border: 1px solid #1B4058;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(16,40,61,.18);
 }
 
 .patient-app .appbar-brand .avatar {
@@ -987,12 +992,12 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
   box-shadow: none;
 }
 
-.patient-app .appbar-logo { color: #21464D; font-size: 1.05rem; }
+.patient-app .appbar-logo { color: #FFFFFF; font-size: 1.05rem; }
 .patient-app .appbar-brand::after {
   content: "AI-assisted patient intake";
   position: absolute;
   margin: 32px 0 0 54px;
-  color: #668085;
+  color: #B6CBD2;
   font-size: .72rem;
 }
 
@@ -1347,7 +1352,7 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 .patient-nav-scrim { display: none; }
 .hospital-mark svg { width: 22px; height: 22px; }
 .patient-dashboard-trigger {
-  display: none;
+  display: block;
   width: 38px;
   height: 38px;
   padding: 8px;
@@ -1360,13 +1365,6 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 .patient-dashboard-trigger svg { width: 100%; height: 100%; }
 
 @media (min-width: 761px) {
-  .patient-app .appbar {
-    margin-left: 268px;
-    max-width: none;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
   .patient-app .page {
     margin-left: 268px;
     max-width: 820px;
@@ -1417,7 +1415,7 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 /* Patient taskbar: one consistent left drawer across desktop, tablet, and phone. */
 .patient-app .bottom-nav {
   position: fixed;
-  top: 78px;
+  top: 90px;
   bottom: 0;
   left: 0;
   right: auto;
@@ -1465,7 +1463,9 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
 @media (max-width: 760px) {
   .patient-app .appbar {
     height: 64px;
+    margin: 8px 8px 0;
     padding: 0 10px;
+    border-radius: 15px;
   }
 
   .patient-app .appbar-brand {
@@ -1512,8 +1512,12 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .patient-app .appbar-actions #big,
-  .patient-app .appbar-actions #hc { display: none; }
+  .patient-app .appbar-actions #text-size,
+  .patient-app .appbar-actions #theme {
+    display: inline-flex;
+    min-width: 34px;
+    padding: 0 6px;
+  }
   .patient-dashboard-trigger { display: block; }
 
   .patient-app .page {
@@ -1549,9 +1553,66 @@ h1, h2, h3, .appbar-logo, .title-xl, .big, .health-card-value, .kpi-box .val {
     overflow: hidden;
   }
   .patient-app .bottom-nav {
-    top: 64px;
+    top: 80px;
     width: min(248px, 82vw);
     padding: 14px 10px;
   }
-  .patient-nav-scrim.visible { inset: 64px 0 0; }
+  .patient-nav-scrim.visible { inset: 80px 0 0; }
+}
+
+/* Dashboard shell styling follows the reference layout without changing its content. */
+.patient-app .bottom-nav {
+  background: #F8FBFC !important;
+  border-color: #D7E3E8 !important;
+  box-shadow: 8px 0 24px rgba(16,40,61,.08);
+}
+
+.patient-app .bottom-nav.drawer-open {
+  transform: translateX(0);
+}
+
+:root[data-theme="dark"] .patient-app {
+  background: #0B1722;
+  color: #E8F1F4;
+}
+
+:root[data-theme="dark"] .patient-app .appbar {
+  background: #071521;
+  border-color: #29495B;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+
+:root[data-theme="dark"] .patient-app .appbar-logo,
+:root[data-theme="dark"] .patient-app .hero h1,
+:root[data-theme="dark"] .patient-app .patient-start-title {
+  color: #E8F1F4;
+}
+
+:root[data-theme="dark"] .patient-app .appbar-brand::after,
+:root[data-theme="dark"] .patient-app .hero p {
+  color: #A9C0C9;
+}
+
+:root[data-theme="dark"] .patient-app .card,
+:root[data-theme="dark"] .patient-app .bottom-nav,
+:root[data-theme="dark"] .patient-app .opt,
+:root[data-theme="dark"] .patient-app .consent-item {
+  background: #142735 !important;
+  border-color: #315263 !important;
+  color: #E8F1F4 !important;
+}
+
+:root[data-theme="dark"] .patient-app .nav-item {
+  color: #A9C0C9 !important;
+}
+
+:root[data-theme="dark"] .patient-app .nav-item.active {
+  background: #137F78 !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .patient-app .patient-dashboard-trigger {
+  background: #142735;
+  border-color: #315263;
+  color: #BCE9E4;
 }

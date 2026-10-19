@@ -3,7 +3,7 @@ from typing import Optional
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, FileResponse
 from pydantic import BaseModel
 from . import asr, db, ontology, ocr, summary, fhir, llm, datasets, clinical_report
 from .history_agent import HistoryTakingAgent, QuestionResponse
@@ -442,4 +442,8 @@ def health():
 
 FRONT = os.path.join(os.path.dirname(__file__), "..", "..", "frontend")
 if os.path.isdir(FRONT):
+    @app.get("/doctor", include_in_schema=False)
+    def doctor_page():
+        return FileResponse(os.path.join(FRONT, "doctor.html"))
+
     app.mount("/", StaticFiles(directory=FRONT, html=True), name="ui")
