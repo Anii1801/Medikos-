@@ -1,142 +1,96 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MediKiosk – Patient</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css">
-<style>
-/* ── Greeting / Welcome hero ── */
-.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--teal) 100%);border-radius:var(--r-lg);padding:28px 22px;color:#fff;margin-bottom:16px}
-.hero h1{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:800;line-height:1.15;margin-bottom:6px;color:#fff}
-.hero p{opacity:.9;font-size:.93rem;line-height:1.5}
-.hero .lang-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:700;cursor:pointer;margin-top:12px;color:#fff}
-/* ── Auth form ── */
-.auth-divider{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:.82rem;margin:12px 0}
-.auth-divider::before,.auth-divider::after{content:'';flex:1;border-top:1px solid var(--border)}
-/* ── Step header ── */
-.step-hdr{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.step-hdr h2{margin:0}
-/* ── Consent checkboxes ── */
-.consent-item{display:flex;align-items:flex-start;gap:12px;background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px;cursor:pointer;transition:border-color .18s}
-.consent-item:has(input:checked){border-color:var(--primary);background:var(--primary-light)}
-.consent-item input[type=checkbox]{margin-top:2px;accent-color:var(--primary);width:18px;height:18px;flex-shrink:0}
-.consent-item span{font-size:.92rem;line-height:1.5}
-/* ── Summary sections ── */
-.sum-sec{background:var(--surface2);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
-.sum-sec h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:6px}
-.sum-sec p{font-size:.92rem;white-space:pre-wrap;margin:0}
-/* ── Token finish ── */
-.token-card{text-align:center;padding:32px 20px}
-.token-num{font-family:'Fraunces',serif;font-size:5rem;font-weight:800;color:var(--primary);line-height:1;display:block;margin:12px 0}
-/* ── Record history item ── */
-.rec-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
-.rec-item:last-child{border-bottom:none}
-.rec-icon{width:40px;height:40px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.rec-icon.em{background:var(--danger-light)}
-.rec-icon.ur{background:var(--warning-light)}
-.rec-icon.ro{background:var(--success-light)}
-/* ── Document upload area ── */
-.upload-zone{border:2px dashed var(--border);border-radius:var(--r);padding:24px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
-.upload-zone:hover{border-color:var(--primary);background:var(--primary-light)}
-.upload-zone input{display:none}
-/* ── Voice mic button ── */
-.mic-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal-light);color:var(--teal);border:2px solid var(--teal);border-radius:99px;padding:10px 22px;font:inherit;font-weight:700;cursor:pointer;transition:all .18s}
-.mic-btn:hover{background:var(--teal);color:#fff}
-.mic-btn.listening{background:var(--teal);color:#fff;animation:pulse 1s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,137,123,.4)}50%{box-shadow:0 0 0 8px rgba(0,137,123,0)}}
-</style>
-</head><body class="patient-app">
-
-<!-- TOAST -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MediKiosk – Patient</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="patient-app">
+<a class="skip-link" href="#app">Skip to content</a>
 <div id="toast" class="toast" aria-live="polite"></div>
 
-<!-- APPBAR -->
 <header class="appbar">
-  <div class="appbar-brand patient-brand-trigger" id="patient-brand-trigger" role="button" tabindex="0" aria-label="Open dashboard navigation">
-    <div class="avatar brand-mark hospital-mark" style="width:36px;height:36px" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M4 21V6.5L12 3l8 3.5V21M8 21v-5h8v5M9 9h6M12 6v6"/>
+  <a class="brand" href="index.html" id="brand-home" aria-label="MediKiosk home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor"/>
+        <path d="M5 17h5.2l2.3-6.2 3.4 12.4L18.6 17H27" fill="none" stroke="#F4F7F5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-    </div>
-    <span class="appbar-logo">MediKiosk</span>
-  </div>
+    </span>
+    <span class="brand-copy">
+      <span class="brand-name">MediKiosk</span>
+      <span class="brand-tagline">Your health, organized.</span>
+    </span>
+  </a>
+  <nav class="site-nav" id="site-nav" aria-label="Patient">
+    <a class="nav-link active" id="bn-home" href="index.html">Home</a>
+    <a class="nav-link" id="bn-hist" href="interview.html">Medical History</a>
+    <a class="nav-link" id="bn-docs" href="reports.html">Medical Reports</a>
+    <a class="nav-link" id="bn-info" href="index.html#about">About</a>
+  </nav>
   <div class="appbar-actions">
-    <button class="icon-btn" id="text-size" aria-label="Adjust text size" title="Adjust text size">A</button>
-    <button class="icon-btn" id="theme" aria-label="Switch to dark theme" title="Switch theme">◐</button>
-    <button class="icon-btn" id="spk" aria-label="Audio prompts" title="Audio">Audio</button>
-    <button class="icon-btn" id="lang" title="Switch language">हि</button>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">Menu</button>
+    <button class="icon-btn" id="text-size" type="button" aria-label="Adjust text size" title="Adjust text size">A</button>
+    <button class="icon-btn mk-header-icon" id="theme" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button>
+    <button class="icon-btn" id="spk" type="button" aria-label="Audio prompts" title="Audio">Audio</button>
+    <button class="icon-btn" id="lang" type="button" title="Switch language">हि</button>
+    <button class="btn btn-outline btn-sm" id="hdr-auth" type="button">Sign in</button>
   </div>
 </header>
 
-<div class="patient-nav-scrim" id="patient-nav-scrim"></div>
-
-<!-- MAIN CONTENT -->
 <main class="page" id="app"></main>
-
-<!-- BOTTOM NAV -->
-<nav class="bottom-nav" id="bnav">
-  <button class="nav-item active" id="bn-home" onclick="bnav('home')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-    Home
-  </button>
-  <button class="nav-item" id="bn-hist" onclick="bnav('hist')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
-    History
-  </button>
-  <button class="nav-item" id="bn-docs" onclick="bnav('docs')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.86.18-1a3 3 0 0 0-3-3 3 3 0 0 0-2.36 1.15L12 3.84l-.64-.69A3 3 0 0 0 9 2 3 3 0 0 0 6 5c0 .14.11.56.18 1H4a2 2 0 0 0-2 2v11c0 1.11.89 2 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm6 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm5 15H4V8h16v11z"/></svg>
-    Scan
-  </button>
-  <button class="nav-item" id="bn-info" onclick="bnav('info')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-    About
-  </button>
-</nav>
 
 <script src="common.js"></script>
 <script>
-// ─── Translations ───────────────────────────────────────────────────────────
 const T = {
   en: {
-    welcome: "Let's understand how you're feeling.", sub: "A guided health interview to organize your history for clinical review.",
-    quick: "Quick start (no account)", login: "Log in", reg: "Register",
+    welcome: "Your health, in one place.", sub: "Complete your medical history and organize your reports before your consultation.",
+    quick: "Continue as guest", login: "Log in", reg: "Register",
     user: "Username", pw: "Password", name: "Your name", age: "Age", abha: "ABHA ID (optional)",
     ayush: "Ayurveda OPD — extended Dashavidha Pariksha history",
-    consentH: "Your consent", c1: "I consent to my health info being recorded for my doctor.",
+    consentH: "Privacy and consent", c1: "I consent to my health info being recorded for my doctor.",
     c2: "I consent to sharing with the hospital system & my ABHA record. (Withdrawable anytime)",
-    start: "Start interview", next: "Next", back: "Back", speak: "Speak", listen: "Listening…",
+    start: "Start Interview", cont: "Continue Interview", next: "Continue", back: "Back", speak: "Speak", listen: "Listening…",
     type: "Type or speak your answer",
-    docsH: "Upload old reports", docsS: "Photo or PDF of prescriptions, lab reports, discharge summaries.",
-    addDoc: "Choose file", or: "or type the report text manually", add: "Add text",
-    date: "Report date (YYYY-MM-DD)", sumH: "Summary for your doctor",
-    sumS: "Review before sending. Your doctor will also review.",     send: "Send to doctor",
-    done: "Submitted!", dash: "My health records", out: "Log out",
-    erase: "Delete all my data", nodocs: "No documents yet",
-    flag: "URGENT — staff alerted", tokenL: "Your token number", wait: "Wait for your turn. Emergency cases seen first.",
-    readMsg: "Reading document…", manual: "Could not read image. Please type the content below.",
-    healthSummary: "Your health overview", recentVisits: "Recent visits", noRecords: "No visits yet",
-    quickActions: "Your next step",
-    newH: "Begin health interview",
+    docsH: "Upload medical reports", docsS: "Upload prescriptions, laboratory reports, and other medical documents.",
+    addDoc: "Browse files", or: "or type the report text manually", add: "Add text",
+    date: "Report date (YYYY-MM-DD)", sumH: "My health summary",
+    sumS: "Review your recorded history and the latest generated draft. Your clinician will also review it.",
+    send: "Send to doctor",
+    done: "Submitted", dash: "Health timeline", out: "Log out",
+    erase: "Delete all my data", nodocs: "No documents uploaded yet.",
+    flag: "Urgent finding — staff should be alerted", tokenL: "Your token number", wait: "Wait for your turn. Emergency cases are seen first.",
+    readMsg: "Uploading and extracting text…", manual: "Could not read this file. Type the content below, or try another document.",
+    healthSummary: "Recorded encounters", recentVisits: "Recent encounters", noRecords: "No encounters recorded yet.",
+    quickActions: "Prepare for your visit",
+    newH: "Start Interview",
+    notSure: "Not sure", preferNot: "Prefer not to answer"
   },
   hi: {
-    welcome: "आइए समझते हैं कि आप कैसा महसूस कर रहे हैं।", sub: "क्लिनिकल समीक्षा के लिए आपका स्वास्थ्य इतिहास व्यवस्थित करने वाली निर्देशित बातचीत।",
-    quick: "तुरंत शुरू (बिना खाता)", login: "लॉग इन", reg: "खाता बनाएँ",
+    welcome: "आपका स्वास्थ्य, एक जगह।", sub: "परामर्श से पहले अपना स्वास्थ्य इतिहास पूरा करें और रिपोर्ट व्यवस्थित करें।",
+    quick: "अतिथि के रूप में जारी रखें", login: "लॉग इन", reg: "खाता बनाएँ",
     user: "यूज़रनेम", pw: "पासवर्ड", name: "आपका नाम", age: "उम्र", abha: "आभा आईडी (वैकल्पिक)",
     ayush: "आयुर्वेद ओपीडी — दशविध परीक्षा",
-    consentH: "आपकी सहमति", c1: "मैं स्वास्थ्य जानकारी डॉक्टर के लिए दर्ज करने की सहमति देता/देती हूँ।",
+    consentH: "गोपनीयता और सहमति", c1: "मैं स्वास्थ्य जानकारी डॉक्टर के लिए दर्ज करने की सहमति देता/देती हूँ।",
     c2: "मैं अस्पताल व आभा रिकॉर्ड से साझा करने की सहमति देता/देती हूँ।",
-    start: "शुरू करें", next: "आगे", back: "पीछे", speak: "बोलिए", listen: "सुन रहा है…",
-    newH: "स्वास्थ्य बातचीत शुरू करें",
+    start: "साक्षात्कार शुरू करें", cont: "साक्षात्कार जारी रखें", next: "आगे", back: "पीछे", speak: "बोलिए", listen: "सुन रहा है…",
+    newH: "साक्षात्कार शुरू करें",
     type: "लिखिए या बोलिए",
-    docsH: "पुरानी रिपोर्ट जोड़ें", docsS: "पर्चे, जांच रिपोर्ट या डिस्चार्ज समरी की फोटो/PDF।",
+    docsH: "मेडिकल रिपोर्ट जोड़ें", docsS: "पर्चे, जांच रिपोर्ट या अन्य दस्तावेज़ अपलोड करें।",
     addDoc: "फ़ाइल चुनें", or: "या रिपोर्ट का पाठ टाइप करें", add: "जोड़ें",
-    date: "तारीख (YYYY-MM-DD)", sumH: "डॉक्टर के लिए सारांश",
+    date: "तारीख (YYYY-MM-DD)", sumH: "स्वास्थ्य सारांश",
     sumS: "भेजने से पहले जाँच लें।", send: "डॉक्टर को भेजें",
-    done: "हो गया!", dash: "मेरे स्वास्थ्य रिकॉर्ड", out: "लॉग आउट",
+    done: "भेज दिया गया", dash: "स्वास्थ्य समयरेखा", out: "लॉग आउट",
     erase: "मेरा डेटा मिटाएँ", nodocs: "कोई दस्तावेज़ नहीं",
     flag: "आपातकाल — स्टाफ को सूचित किया", tokenL: "आपका टोकन नंबर", wait: "अपनी बारी का इंतज़ार करें।",
-    readMsg: "दस्तावेज़ पढ़ रहे हैं…", manual: "तस्वीर नहीं पढ़ सकी। कृपया नीचे टाइप करें।",
-    healthSummary: "स्वास्थ्य सारांश", recentVisits: "हालिया दौरे", noRecords: "कोई रिकॉर्ड नहीं",
-    quickActions: "अगला कदम",
+    readMsg: "अपलोड हो रहा है, पाठ निकाला जा रहा है…", manual: "फ़ाइल नहीं पढ़ सकी। कृपया नीचे टाइप करें।",
+    healthSummary: "दर्ज मुलाकातें", recentVisits: "हालिया मुलाकातें", noRecords: "कोई रिकॉर्ड नहीं",
+    quickActions: "मुलाकात की तैयारी",
+    notSure: "निश्चित नहीं", preferNot: "उत्तर नहीं देना चाहते"
   }
 };
 
@@ -151,10 +105,34 @@ function showToast(msg, ms = 3500) {
   el._t = setTimeout(() => el.classList.remove("show"), ms);
 }
 
+function persistInterview() {
+  try {
+    sessionStorage.setItem("mk_iv", JSON.stringify({ interviewSessionId, ans, stack, ayush }));
+  } catch (_) {}
+}
+function restoreInterview() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem("mk_iv") || "null");
+    if (!saved) return false;
+    interviewSessionId = saved.interviewSessionId || null;
+    ans = saved.ans || {};
+    stack = saved.stack || [];
+    ayush = !!saved.ayush;
+    return !!interviewSessionId;
+  } catch (_) { return false; }
+}
+function clearInterview() {
+  interviewSessionId = null; ans = {}; stack = [];
+  sessionStorage.removeItem("mk_iv");
+}
+function hasInterviewProgress() {
+  restoreInterview();
+  return !!interviewSessionId && Object.keys(ans).some(k => k !== "_ay");
+}
+
 function refreshSpeechVoices() {
   if (window.speechSynthesis) speechVoices = speechSynthesis.getVoices();
 }
-
 function say(x, retrying = false) {
   if (!voice || !window.speechSynthesis) return;
   try {
@@ -176,29 +154,17 @@ function say(x, retrying = false) {
     u.lang = selected ? selected.lang : requested;
     if (selected) u.voice = selected;
     speechSynthesis.speak(u);
-  } catch(e) {
+  } catch (e) {
     showToast("Audio is unavailable. You can continue by reading or typing.");
   }
 }
-
 if (window.speechSynthesis) {
   refreshSpeechVoices();
   speechSynthesis.onvoiceschanged = refreshSpeechVoices;
 }
 
-const R = h => {
-  document.getElementById("app").innerHTML = h;
-  requestAnimationFrame(() => {
-    const target = document.querySelector("#app > .hero");
-    if (target) {
-      document.documentElement.style.setProperty("--patient-nav-top", `${Math.round(target.getBoundingClientRect().top)}px`);
-    } else {
-      document.documentElement.style.removeProperty("--patient-nav-top");
-    }
-  });
-};
+const R = h => { document.getElementById("app").innerHTML = h; };
 
-// ─── Accessibility and appearance controls ───────────────────────────────
 const textSizeButton = document.getElementById("text-size");
 const textSizes = ["smallest", "medium", "large"];
 let textSizeIndex = Number(localStorage.getItem("mk_text_size_index") || 0);
@@ -238,24 +204,6 @@ document.getElementById("spk").onclick = () => {
   if (!voice) speechSynthesis?.cancel();
   showToast(voice ? "Audio on" : "Audio off");
 };
-function togglePatientNav(open) {
-  const nav = document.getElementById("bnav");
-  const scrim = document.getElementById("patient-nav-scrim");
-  if (!nav || !scrim) return;
-  nav.classList.toggle("drawer-open", open);
-  scrim.classList.toggle("visible", open);
-  document.body.classList.toggle("patient-nav-open", open);
-  patientBrandTrigger?.setAttribute("aria-expanded", String(open));
-}
-const patientBrandTrigger = document.getElementById("patient-brand-trigger");
-patientBrandTrigger.onclick = () => togglePatientNav(!document.getElementById("bnav").classList.contains("drawer-open"));
-patientBrandTrigger.onkeydown = e => {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-    patientBrandTrigger.click();
-  }
-};
-document.getElementById("patient-nav-scrim").onclick = () => togglePatientNav(false);
 document.getElementById("lang").onclick = () => {
   lang = lang === "en" ? "hi" : "en";
   document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
@@ -263,189 +211,14 @@ document.getElementById("lang").onclick = () => {
   route();
 };
 
-function bnav(tab) {
-  togglePatientNav(false);
-  ["home","hist","docs","info"].forEach(id => {
-    const el = document.getElementById("bn-" + id);
-    if (el) el.classList.toggle("active", id === tab);
-  });
-  if (tab === "home") route();
-  else if (tab === "hist") dashHistory();
-  else if (tab === "docs") { if (TOKEN) docs(); else auth("Please log in first"); }
-  else if (tab === "info") aboutPage();
-}
-
-// ─── Routing ─────────────────────────────────────────────────────────────
-async function route() {
-  setActive("bn-home");
-  if (TOKEN) {
-    try { me = await api("/me"); return me.role === "guest" ? setup() : homeDash(); }
-    catch(e) { setToken(""); }
-  }
-  auth();
-}
-
-// ─── Home Dashboard ───────────────────────────────────────────────────────
-async function homeDash() {
-  let rs = [];
-  try { rs = await api("/records"); } catch(e) {}
-  const total = rs.length;
-  const emergency = rs.filter(r => r.priority === 1).length;
-  const recent3 = rs.slice(0, 3);
-  const initials = (me.name || me.username || "?").split(" ").map(w => w[0]).join("").toUpperCase().slice(0, 2);
-  const PL = ["", "Emergency", "Urgent", "Routine"];
-  const cls = ["", "danger", "warning", "success"];
-
-  R(`
-  <!-- Hero / Greeting -->
-  <div class="hero mt">
-    <div class="row" style="justify-content:space-between;align-items:flex-start">
-      <div>
-        <h1>${t("welcome")}</h1>
-        <p>${t("sub")}</p>
-      </div>
-      <div class="avatar">${esc(initials)}</div>
-    </div>
-    <button class="lang-pill" id="lp">${lang === "en" ? "हिंदी में देखें" : "View in English"}</button>
-  </div>
-
-  <!-- Health Summary Cards -->
-  <p class="label mb" style="margin-top:4px">${t("healthSummary")}</p>
-  <div class="health-grid">
-    <div class="health-card">
-      <span class="health-card-label">Visits</span>
-      <span class="health-card-value">${total}</span>
-    </div>
-    <div class="health-card teal">
-      <span class="health-card-label">Latest</span>
-      <span class="health-card-value" style="font-size:1.1rem">${rs[0] ? new Date(rs[0].created * 1000).toLocaleDateString("en-IN", {day:"numeric",month:"short"}) : "—"}</span>
-    </div>
-    ${emergency ? `<div class="health-card danger"><span class="health-card-label">Alerts</span><span class="health-card-value">${emergency}</span></div>` : ""}
-  </div>
-
-  <!-- Quick actions -->
-  <p class="label mt">${t("quickActions")}</p>
-  <div class="row mt-sm mb">
-    <button class="btn btn-lg btn-block" id="st" style="flex:1">${t("newH")}</button>
-  </div>
-  <div class="row mb">
-    <button class="btn btn-outline" id="upq">${t("docsH")}</button>
-    <button class="btn btn-outline btn-danger" id="lo">${t("out")}</button>
-    <button class="btn btn-outline" id="er" style="border-color:var(--danger);color:var(--danger)">${t("erase")}</button>
-  </div>
-
-  <!-- Recent visits -->
-  <p class="label mt">${t("recentVisits")}</p>
-  <div class="card mt-sm">
-    ${recent3.length ? recent3.map(r => `
-      <div class="rec-item">
-        <div class="rec-icon ${["","em","ur","ro"][r.priority]}">${["","Emergency","Urgent","Routine"][r.priority]}</div>
-        <div style="flex:1">
-          <div class="row" style="justify-content:space-between">
-            <span style="font-weight:700">Token #${r.token_no}</span>
-            <span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span>
-          </div>
-          <div class="mut">${new Date(r.created * 1000).toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"})} · ${r.status}</div>
-          ${r.flags && r.flags.length ? `<div class="mut" style="color:var(--danger)">${r.flags.map(f => esc(f.code)).join(", ")}</div>` : ""}
-        </div>
-      </div>
-    `).join("") : `<p class="mut center" style="padding:20px 0">${t("noRecords")}</p>`}
-  </div>
-  `);
-  
-  document.getElementById("lp")?.addEventListener("click", () => {
-    lang = lang === "en" ? "hi" : "en";
-    document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
-    route();
-  });
-  document.getElementById("st").onclick = setup;
-  document.getElementById("lo").onclick = () => { setToken(""); me = null; auth(); };
-  document.getElementById("er").onclick = async () => {
-    if (confirm(lang === "hi" ? "सारा डेटा स्थायी रूप से मिटाएँ?" : "Delete all your data permanently?")) {
-      await api("/me/data", { method: "DELETE" }); setToken(""); auth();
-    }
-  };
-  document.getElementById("upq")?.addEventListener("click", () => docs());
-}
-
-async function dashHistory() {
-  if (!TOKEN) { auth(); return; }
-  try { me = await api("/me"); } catch(e) { auth(); return; }
-  let rs = [];
-  try { rs = await api("/records"); } catch(e) {}
-  const PL = ["", "Emergency", "Urgent", "Routine"];
-  setActive("bn-hist");
-  R(`
-  <div class="mt">
-    <h2>${t("dash")}</h2>
-    <p class="subtitle">${esc(me.name || me.username)}</p>
-  </div>
-  <div class="card mt">
-    ${rs.length ? `
-    <table>
-      <thead><tr><th>#</th><th>Date</th><th>Priority</th><th>Status</th><th>ABDM</th></tr></thead>
-      <tbody>${rs.map(r => `<tr>
-        <td><b>${r.token_no}</b></td>
-        <td>${new Date(r.created*1000).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"2-digit"})}</td>
-        <td><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></td>
-        <td>${r.status}</td>
-        <td class="mut">${esc(r.abdm_ref || "—")}</td>
-      </tr>`).join("")}</tbody>
-    </table>` : `<p class="mut center" style="padding:24px">${t("noRecords")}</p>`}
-  </div>
-  <button class="btn btn-block mt" id="st">${t("newH")} →</button>
-  `);
-  document.getElementById("st").onclick = setup;
-}
-
-function aboutPage() {
-  setActive("bn-info");
-  R(`
-  <div class="mt">
-    <h2>About MediKiosk</h2>
-    <p class="subtitle">Smart India Hackathon · Problem Statement 4 · Ministry of Ayush / AIIA</p>
-  </div>
-  <div class="card mt">
-    <h3>Problem Statement</h3>
-    <p style="margin-top:8px;font-size:.9rem">Patients in India's Ayurveda OPDs spend long waiting periods while doctors manually collect history. MediKiosk digitises this process through guided voice/touch interviews in Hindi &amp; English, automatically generating structured physician summaries.</p>
-  </div>
-  <div class="card">
-    <h3>Research Gap Addressed</h3>
-    <p style="margin-top:8px;font-size:.9rem">Prior clinical NLP systems (Rajpurkar 2017, Esteva 2019) lacked:<br>
-    • Real-time red-flag detection at intake<br>
-    • AYUSH Dashavidha Pariksha integration<br>
-    • OCR pipeline for Indian clinical documents<br>
-    • Transparent EDA &amp; data-cleaning audit trail</p>
-  </div>
-  <div class="card">
-    <h3>Clinical support components</h3>
-    <div class="timeline mt-sm">
-      <div class="timeline-item"><div class="timeline-dot"></div>
-        <div class="timeline-title">Adaptive medical history</div>
-        <div class="timeline-body">Ontology-constrained, stateful question selection. MediTOD (EMNLP 2024) is a relevant published benchmark candidate; the current policy is not a trained model.</div>
-      </div>
-      <div class="timeline-item"><div class="timeline-dot teal"></div>
-        <div class="timeline-title">Clinical documentation</div>
-        <div class="timeline-body">Structured, source-aware summaries with a separate validation step inspired by public clinical documentation research, including Abridge's published engineering approach.</div>
-      </div>
-      <div class="timeline-item"><div class="timeline-dot warn"></div>
-        <div class="timeline-title">Multilingual model candidate</div>
-        <div class="timeline-body">NLP4Health (ACL Anthology, 2025) reports mT5-base with LoRA for multilingual dialogue summarization and QA. It is a candidate for evaluation, not currently trained or enabled in this app.</div>
-      </div>
-      <div class="timeline-item"><div class="timeline-dot"></div>
-        <div class="timeline-title">Safety and limitations</div>
-        <div class="timeline-body">Red-flag rules are a provisional decision-support layer requiring clinical validation. Synthetic datasets are for software testing, not evidence of clinical performance.</div>
-      </div>
-    </div>
-    <p class="mut caption mt-sm">Research: <a href="https://aclanthology.org/2024.emnlp-main.936/" target="_blank" rel="noopener">MediTOD (2024)</a> · <a href="https://aclanthology.org/2025.nlpai4health-main.10/" target="_blank" rel="noopener">NLP4Health (2025)</a> · <a href="https://tech.abridge.com/blog/real-time-error-detection-and-correction" target="_blank" rel="noopener">Abridge Editors (2026)</a></p>
-  </div>
-  <div class="card">
-    <h3>Tech Stack</h3>
-    <p class="mut" style="font-size:.85rem;margin-top:6px">FastAPI · SQLite · Tesseract OCR · SciSpacy · scikit-learn · FHIR R4 · Web Speech API · Vanilla JS</p>
-  </div>
-  <p class="mut caption center mt" style="padding-bottom:16px">v1.0 — For SIH evaluation only. Not clinically validated.</p>
-  `);
-}
+const siteNav = document.getElementById("site-nav");
+const menuToggle = document.getElementById("menu-toggle");
+menuToggle.onclick = () => {
+  const open = !siteNav.classList.contains("open");
+  siteNav.classList.toggle("open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+};
 
 function setActive(id) {
   ["bn-home","bn-hist","bn-docs","bn-info"].forEach(i => {
@@ -453,104 +226,373 @@ function setActive(id) {
     if (el) el.classList.toggle("active", i === id);
   });
 }
+function closeMenu() {
+  siteNav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+}
+function bnav(tab) {
+  closeMenu();
+  if (tab === "home") route();
+  else if (tab === "hist") dashHistory();
+  else if (tab === "docs") { if (TOKEN) docs(); else auth("Please sign in to upload reports."); }
+  else if (tab === "info") aboutPage();
+}
 
-// ─── Auth ─────────────────────────────────────────────────────────────────
+function updateHeaderAuth() {
+  const btn = document.getElementById("hdr-auth");
+  if (!btn) return;
+  if (TOKEN && me && me.role !== "guest") {
+    btn.setAttribute("aria-label", `Profile for ${me.name || me.username || "user"}`);
+    btn.textContent = "Dashboard";
+    btn.onclick = () => location.href = "dashboard.html";
+  } else if (TOKEN) {
+    btn.setAttribute("aria-label", "Guest profile");
+    btn.textContent = "Continue";
+    btn.onclick = () => location.href = "dashboard.html";
+  } else {
+    btn.setAttribute("aria-label", "Sign in");
+    btn.textContent = "Sign in";
+    btn.onclick = () => location.href = "login.html";
+  }
+}
+
+async function route() {
+  setActive("bn-home");
+  restoreInterview();
+  if (TOKEN) {
+    try {
+      me = await api("/me"); updateHeaderAuth();
+      if (sessionStorage.getItem("mk_start_interview")) {
+        sessionStorage.removeItem("mk_start_interview");
+        return hasInterviewProgress() ? ask() : setup();
+      }
+      return me.role === "guest" && !hasInterviewProgress() ? setup() : homeDash();
+    }
+    catch (e) { setToken(""); }
+  }
+  updateHeaderAuth();
+  landingPage();
+}
+
+function interviewCta() {
+  return hasInterviewProgress() ? t("cont") : t("start");
+}
+
+function landingPage() {
+  R(`
+  <section class="mk-home" aria-labelledby="hero-title">
+    <p class="eyebrow">YOUR HEALTH, ORGANIZED</p>
+    <h1 id="hero-title">${t("welcome")}</h1>
+    <p class="mk-intro">${t("sub")}</p>
+    <div class="hero-actions mk-landing-actions">
+      <button class="btn btn-lg" id="st">Start Interview</button>
+      <button class="btn btn-outline btn-lg" id="upq">Upload Medical Reports</button>
+    </div>
+    <article class="mk-feature-card">
+      <div class="mk-feature-icon">${ICONS.history}</div>
+      <div class="mk-feature-copy">
+        <h2>Medical History</h2>
+        <p>Answer a few questions about your symptoms, health history, and medications.</p>
+      </div>
+      <div class="mk-progress" aria-live="polite">
+        <span class="mk-progress-label">Not started</span>
+      </div>
+      <button class="btn mk-feature-action" id="card-hist">Start Interview <span aria-hidden="true">→</span></button>
+    </article>
+    <div class="mk-support-grid">
+      <article class="mk-support-card" id="card-docs" role="button" tabindex="0">
+        <div class="mk-support-icon">${ICONS.reports}</div>
+        <h2>Medical Reports</h2>
+        <p>Upload prescriptions, laboratory reports, and other documents.</p>
+      </article>
+      <article class="mk-support-card" id="card-time" role="button" tabindex="0">
+        <div class="mk-support-icon">${ICONS.timeline}</div>
+        <h2>Health Timeline</h2>
+        <p>Review your recorded history.</p>
+      </article>
+    </div>
+    <section class="mk-summary-preview" aria-labelledby="summary-preview-title">
+      <div>
+        <p class="eyebrow">MY HEALTH SUMMARY</p>
+        <h2 id="summary-preview-title">Your recorded history, organized.</h2>
+        <p>Sign in or start an interview to create and review your health summary.</p>
+      </div>
+      <button class="btn btn-outline" id="card-sum">View Summary</button>
+    </section>
+  </section>
+  <footer class="mk-footer">
+    <span>MediKiosk · Your health, organized.</span>
+    <span><button class="text-btn" id="footer-signin">Sign in</button><button class="text-btn" id="footer-help">Help &amp; privacy</button></span>
+  </footer>
+  `);
+
+  const start = () => location.href = "interview.html";
+  document.getElementById("st").onclick = start;
+  document.getElementById("card-hist").onclick = start;
+  document.getElementById("upq").onclick = () => location.href = "reports.html";
+  document.getElementById("card-docs").onclick = () => location.href = "reports.html";
+  document.getElementById("card-time").onclick = () => location.href = "timeline.html";
+  document.getElementById("card-sum").onclick = () => location.href = "summary.html";
+  document.getElementById("footer-signin").onclick = () => location.href = "login.html";
+  document.getElementById("footer-help").onclick = () => location.href = "index.html#about";
+  ["card-docs", "card-time"].forEach(id => document.getElementById(id).onkeydown = e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); document.getElementById(id).click(); }
+  });
+}
+
+async function homeDash() {
+  let rs = [];
+  try { rs = await api("/records"); } catch (e) {}
+  const cta = interviewCta();
+  const canSummary = Object.keys(ans).some(k => k !== "_ay");
+  const greetingName = me.name ? `, ${esc(me.name.split(" ")[0])}` : "";
+
+  R(`
+  <section class="mk-home" aria-labelledby="hero-title">
+    <p class="mk-greeting">Good morning${greetingName} <span aria-hidden="true">👋</span></p>
+    <h1 id="hero-title">${t("welcome")}</h1>
+    <p class="mk-intro">${t("sub")}</p>
+    <div class="hero-actions mk-landing-actions">
+      <button class="btn btn-lg" id="hero-start">Start Interview</button>
+      <button class="btn btn-outline btn-lg" id="upq">Upload Medical Reports</button>
+    </div>
+    <article class="mk-feature-card">
+      <div class="mk-feature-icon">${ICONS.history}</div>
+      <div class="mk-feature-copy">
+        <h2>Medical history</h2>
+        <p>Answer a few questions about your health.</p>
+      </div>
+      <div class="mk-progress" aria-live="polite">
+        <span class="mk-progress-label">${hasInterviewProgress() ? "In progress" : "Not started"}</span>
+      </div>
+      <button class="btn mk-feature-action" id="st">${cta}<span aria-hidden="true">→</span></button>
+    </article>
+    <div class="mk-support-grid">
+      <article class="mk-support-card" id="card-docs" role="button" tabindex="0">
+        <div class="mk-support-icon">${ICONS.reports}</div>
+        <h2>Medical reports</h2>
+        <p>Upload and organize documents.</p>
+      </article>
+      <article class="mk-support-card" id="card-time" role="button" tabindex="0">
+        <div class="mk-support-icon">${ICONS.timeline}</div>
+        <h2>Health timeline</h2>
+        <p>Review your recorded history.</p>
+      </article>
+    </div>
+    <div class="mk-home-secondary">
+      <button class="text-btn" id="card-sum">View health summary</button>
+      <button class="text-btn" id="card-cons">Manage consent</button>
+      <button class="text-btn" id="lp">${lang === "en" ? "हिंदी में देखें" : "View in English"}</button>
+    </div>
+  `);
+
+  document.getElementById("lp")?.addEventListener("click", () => {
+    lang = lang === "en" ? "hi" : "en";
+    document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
+    route();
+  });
+  const startIv = () => hasInterviewProgress() ? ask() : setup();
+  document.getElementById("st").onclick = startIv;
+  document.getElementById("hero-start").onclick = startIv;
+  document.getElementById("upq").onclick = () => docs();
+  document.getElementById("card-docs").onclick = () => docs();
+  document.getElementById("card-time").onclick = dashHistory;
+  ["card-docs", "card-time"].forEach(id => document.getElementById(id).onkeydown = e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); document.getElementById(id).click(); }
+  });
+  document.getElementById("card-sum").onclick = () => {
+    if (canSummary) summaryPage();
+    else showToast("A draft summary is available after you complete a history interview in this session.");
+  };
+  document.getElementById("card-cons").onclick = consentPage;
+}
+
+async function dashHistory() {
+  if (!TOKEN) { auth(); return; }
+  try { me = await api("/me"); } catch (e) { auth(); return; }
+  let rs = [];
+  try { rs = await api("/records"); } catch (e) {}
+  const PL = ["", "Emergency", "Urgent", "Routine"];
+  setActive("bn-hist");
+  R(`
+  <div class="mt">
+    <p class="eyebrow">Records</p>
+    <h1>${t("dash")}</h1>
+    <p class="subtitle">${esc(me.name || me.username)}</p>
+  </div>
+  <div class="card mt">
+    ${rs.length ? `
+    <div class="table-wrap"><table class="stack-table">
+      <thead><tr><th>Token</th><th>Date</th><th>Priority</th><th>Status</th><th>ABDM</th></tr></thead>
+      <tbody>${rs.map(r => `<tr>
+        <td data-label="Token"><b>${r.token_no}</b></td>
+        <td data-label="Date">${new Date(r.created*1000).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"2-digit"})}</td>
+        <td data-label="Priority"><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></td>
+        <td data-label="Status">${esc(r.status)}</td>
+        <td data-label="ABDM" class="mut">${esc(r.abdm_ref || "—")}</td>
+      </tr>`).join("")}</tbody>
+    </table></div>` : `<p class="mut center" style="padding:24px">${t("noRecords")}</p>`}
+  </div>
+  <button class="btn btn-block mt" id="st">${interviewCta()}</button>
+  `);
+  document.getElementById("st").onclick = () => hasInterviewProgress() ? ask() : setup();
+}
+
+function aboutPage() {
+  setActive("bn-info");
+  R(`
+  <div class="mt">
+    <p class="eyebrow">MediKiosk</p>
+    <h1>About and help</h1>
+    <p class="subtitle">Your health, organized. Smart India Hackathon · Problem Statement 4 · Ministry of Ayush / AIIA</p>
+  </div>
+  <div class="card mt">
+    <h2>How this kiosk helps</h2>
+    <p class="mt-sm">Patients complete a guided history and can upload reports before seeing a clinician. The clinician receives a structured draft for review. This software does not diagnose or replace clinical judgement.</p>
+  </div>
+  <div class="card">
+    <h2>Privacy</h2>
+    <p class="mt-sm">History capture and ABDM sharing require explicit consent. Guest sessions are wiped after submission. Image bytes are not stored. You may request deletion of your data.</p>
+    <button class="btn mt" id="go-consent">Manage Consent</button>
+  </div>
+  <div class="card">
+    <h2>Clinical support components</h2>
+    <div class="timeline mt-sm">
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-title">Adaptive medical history</div>
+        <div class="timeline-body">Ontology-constrained, stateful question selection. MediTOD (EMNLP 2024) is a relevant published benchmark candidate; the current policy is not a trained model.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-title">Clinical documentation</div>
+        <div class="timeline-body">Structured, source-aware summaries with a separate validation step.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot warn"></div>
+        <div class="timeline-title">Safety and limitations</div>
+        <div class="timeline-body">Red-flag rules are a provisional decision-support layer requiring clinical validation. Synthetic datasets are for software testing, not evidence of clinical performance.</div>
+      </div>
+    </div>
+    <p class="mut caption mt-sm">Research: <a href="https://aclanthology.org/2024.emnlp-main.936/" target="_blank" rel="noopener">MediTOD (2024)</a> · <a href="https://aclanthology.org/2025.nlpai4health-main.10/" target="_blank" rel="noopener">NLP4Health (2025)</a> · <a href="https://tech.abridge.com/blog/real-time-error-detection-and-correction" target="_blank" rel="noopener">Abridge Editors (2026)</a></p>
+  </div>
+  <p class="mut caption center mt">Not clinically validated. For evaluation and software testing.</p>
+  `);
+  document.getElementById("go-consent").onclick = () => TOKEN ? consentPage() : auth("Please sign in to manage consent.");
+}
+
+async function consentPage() {
+  if (!TOKEN) { auth("Please sign in to manage consent."); return; }
+  setActive("bn-info");
+  let cs = {};
+  try { cs = await api("/consent"); } catch (e) { showToast(e.message); }
+  R(`
+  <div class="mt">
+    <p class="eyebrow">Privacy</p>
+    <h1>${t("consentH")}</h1>
+    <p class="subtitle">Consent is recorded before a history is sent to a clinician. You can update it here.</p>
+  </div>
+  <div class="card">
+    <label class="consent-item"><input type="checkbox" id="c1" ${cs.history_capture ? "checked" : ""}><span>${t("c1")}</span></label>
+    <label class="consent-item"><input type="checkbox" id="c2" ${cs.abdm_share ? "checked" : ""}><span>${t("c2")}</span></label>
+    <p id="cerr" class="field-error"></p>
+    <button class="btn mt" id="save-c">Save consent</button>
+  </div>
+  <button class="btn btn-outline mt" id="bk">Home</button>
+  `);
+  document.getElementById("save-c").onclick = async () => {
+    try {
+      await api("/consent", { json: { purpose: "history_capture", granted: document.getElementById("c1").checked }});
+      await api("/consent", { json: { purpose: "abdm_share", granted: document.getElementById("c2").checked }});
+      showToast("Consent updated.");
+    } catch (e) { document.getElementById("cerr").textContent = e.message; }
+  };
+  document.getElementById("bk").onclick = route;
+}
+
 function auth(msg = "") {
   setActive("bn-home");
+  updateHeaderAuth();
   R(`
-  <div class="hero mt">
-    <h1>${t("welcome")}</h1>
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Your health, organized</p>
+    <h1 id="hero-title">${t("welcome")}</h1>
     <p>${t("sub")}</p>
-  </div>
-
-  <div class="card">
-    <div class="patient-start-card">
-      <div class="patient-start-title"><span class="patient-line-icon">01</span><span>Start your health interview</span></div>
-      <p class="patient-start-copy">Answer a few guided questions, at your own pace.</p>
-      <div class="patient-feature">Speak or type your answers</div>
-      <div class="patient-feature">Add relevant medical documents</div>
-      <button class="btn btn-lg btn-block btn-teal" id="q">Begin health interview</button>
+    <div class="hero-actions">
+      <button class="btn btn-lg" id="q">${t("start")}</button>
+      <button class="btn btn-outline btn-lg" id="upq">${t("docsH")}</button>
     </div>
-    <div class="auth-divider">or</div>
-    <div class="col">
-      <label class="input-label">${t("user")}</label>
-      <input type="text" id="u" placeholder="${t("user")}" autocomplete="username">
-      <label class="input-label">${t("pw")}</label>
-      <input type="password" id="p" placeholder="${t("pw")}" autocomplete="current-password">
-      <label class="input-label">${t("name")} (for ${t("reg")})</label>
-      <input type="text" id="n" placeholder="${t("name")}">
+  </section>
+  <div class="card auth-panel">
+    <h2>Sign in or register</h2>
+    <p class="subtitle">An account keeps your timeline and documents. You can also start as a guest.</p>
+    <div class="col mt">
+      <label class="input-label" for="u">${t("user")}</label>
+      <input type="text" id="u" autocomplete="username">
+      <label class="input-label" for="p">${t("pw")}</label>
+      <input type="password" id="p" autocomplete="current-password">
+      <label class="input-label" for="n">${t("name")} (for ${t("reg")})</label>
+      <input type="text" id="n">
     </div>
     <div class="row mt-sm">
       <button class="btn btn-outline" style="flex:1" id="li">${t("login")}</button>
       <button class="btn" style="flex:1" id="rg">${t("reg")}</button>
     </div>
-    ${msg ? `<p style="color:var(--danger);margin-top:10px;font-size:.9rem">${esc(msg)}</p>` : ""}
+    ${msg ? `<p class="field-error">${esc(msg)}</p>` : ""}
   </div>
   `);
   document.getElementById("q").onclick = async () => {
     try { const r = await api("/auth/guest", { method: "POST" }); setToken(r.token); route(); }
-    catch(e) { auth(e.message); }
+    catch (e) { auth(e.message); }
   };
+  document.getElementById("upq").onclick = () => auth("Please sign in or start as a guest before uploading reports.");
   const go = async (path, body) => {
     try { const r = await api(path, { json: body }); setToken(r.token); route(); }
-    catch(e) { auth(e.message); }
+    catch (e) { auth(e.message); }
   };
   document.getElementById("li").onclick = () => go("/auth/login", { username: $("#u").value, password: $("#p").value });
   document.getElementById("rg").onclick = () => go("/auth/register", { username: $("#u").value, password: $("#p").value, name: $("#n").value });
-  // Enter key support
   ["u","p"].forEach(id => document.getElementById(id)?.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("li").click(); }));
 }
 
-// ─── Setup / Consent ─────────────────────────────────────────────────────
 function setup() {
   const g = me?.role === "guest";
   setActive("bn-home");
   R(`
   <div class="step-hdr mt">
     <div class="step-number">1</div>
-    <div><h2>${t("consentH")}</h2><p class="subtitle">Required before we begin</p></div>
+    <div><h1>${t("consentH")}</h1><p class="subtitle">Required before the interview begins</p></div>
   </div>
   <div class="card">
     ${g ? `
     <div class="col mb">
-      <label class="input-label">${t("name")}</label>
-      <input type="text" id="nm" placeholder="${t("name")}" value="${esc(me?.name || "")}">
+      <label class="input-label" for="nm">${t("name")}</label>
+      <input type="text" id="nm" value="${esc(me?.name || "")}">
       <div class="row">
         <div style="flex:1">
-          <label class="input-label">${t("age")}</label>
-          <input type="text" id="ag" placeholder="${t("age")}" value="${esc(me?.age || "")}">
+          <label class="input-label" for="ag">${t("age")}</label>
+          <input type="text" id="ag" value="${esc(me?.age || "")}">
         </div>
         <div style="flex:2">
-          <label class="input-label">${t("abha")}</label>
-          <input type="text" id="ab" placeholder="${t("abha")}" value="${esc(me?.abha || "")}">
+          <label class="input-label" for="ab">${t("abha")}</label>
+          <input type="text" id="ab" value="${esc(me?.abha || "")}">
         </div>
       </div>
     </div>` : `
     <div class="mb">
-      <label class="input-label">${t("abha")}</label>
-      <input type="text" id="ab" placeholder="${t("abha")}" value="${esc(me?.abha || "")}">
+      <label class="input-label" for="ab">${t("abha")}</label>
+      <input type="text" id="ab" value="${esc(me?.abha || "")}">
     </div>`}
-
-    <label class="consent-item">
-      <input type="checkbox" id="ay">
-      <span>${t("ayush")}</span>
-    </label>
-    <label class="consent-item">
-      <input type="checkbox" id="c1">
-      <span>${t("c1")}</span>
-    </label>
-    <label class="consent-item">
-      <input type="checkbox" id="c2">
-      <span>${t("c2")}</span>
-    </label>
-    <p id="cerr" style="color:var(--danger);font-size:.88rem;margin-top:8px"></p>
-    <button class="btn btn-lg btn-block mt" id="go">${t("start")} →</button>
+    <label class="consent-item"><input type="checkbox" id="ay"><span>${t("ayush")}</span></label>
+    <label class="consent-item"><input type="checkbox" id="c1"><span>${t("c1")}</span></label>
+    <label class="consent-item"><input type="checkbox" id="c2"><span>${t("c2")}</span></label>
+    <p id="cerr" class="field-error"></p>
+    <div class="sticky-actions"><button class="btn btn-lg btn-block mt" id="go">${t("start")}</button></div>
   </div>
   `);
   document.getElementById("go").onclick = async () => {
     if (!document.getElementById("c1").checked || !document.getElementById("c2").checked) {
-      document.getElementById("cerr").textContent = "Please check both consent boxes to continue."; return;
+      document.getElementById("cerr").textContent = "Please confirm both consent items to continue."; return;
     }
+    const btn = document.getElementById("go");
+    btn.disabled = true;
     try {
       await api("/me", { method: "PUT", json: {
         name: g ? document.getElementById("nm").value : me.name,
@@ -559,18 +601,19 @@ function setup() {
       }});
       await api("/consent", { json: { purpose: "history_capture" }});
       await api("/consent", { json: { purpose: "abdm_share" }});
-      me = await api("/me"); ayush = document.getElementById("ay").checked; ans = {}; stack = []; interviewSessionId = null; await startInterviewSession();
-    } catch(e) { document.getElementById("cerr").textContent = e.message; }
+      me = await api("/me"); ayush = document.getElementById("ay").checked; ans = {}; stack = []; interviewSessionId = null;
+      persistInterview();
+      await startInterviewSession();
+    } catch (e) { document.getElementById("cerr").textContent = e.message; btn.disabled = false; }
   };
 }
 
-// ─── Interview ────────────────────────────────────────────────────────────
 let lastN = null;
 async function startInterviewSession() {
   setActive("bn-home");
   try {
     const n = await api("/interview/sessions", { method: "POST", json: { budget: 30, ayush }});
-    interviewSessionId = n.session_id; lastN = n;
+    interviewSessionId = n.session_id; lastN = n; persistInterview();
     if (n.complete) return docs();
     draw(n);
   } catch (e) {
@@ -580,7 +623,7 @@ async function startInterviewSession() {
     lastN = n; if (n.complete) return docs(); draw(n);
   }
 }
-async function rebuildInterviewSession() {
+async function rebuildInterviewSession(drawIt = true) {
   const created = await api("/interview/sessions", { method: "POST", json: { budget: 30, ayush }});
   interviewSessionId = created.session_id;
   let response = created;
@@ -589,35 +632,43 @@ async function rebuildInterviewSession() {
     response = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId) + "/answers", { method: "POST", json: { field, value }});
   }
   lastN = response;
+  persistInterview();
   if (response.complete) return docs();
-  draw(response);
+  if (drawIt) draw(response);
 }
 async function ask() {
   setActive("bn-home");
+  restoreInterview();
   if (!interviewSessionId) return startInterviewSession();
   try { const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId)); lastN = n; if (n.complete) return docs(); draw(n); }
-  catch (e) { showToast("Could not load interview: " + e.message); }
+  catch (e) { showToast("Could not load interview: " + e.message); startInterviewSession(); }
 }
 
 function draw(n) {
   cur = n.question;
   const q = cur, l = lang === "en" ? "en" : "hi";
-  const pct = Math.round(n.answered / n.total * 100);
+  const showProgress = Number(n.total) > 0;
+  const pct = showProgress ? Math.round(n.answered / n.total * 100) : 0;
   const flagsBanner = n.red_flags.length ? `
-    <div class="alert alert-emergency">
+    <div class="alert alert-emergency" role="alert">
       <span class="alert-icon">Urgent</span>
       <div><b>${t("flag")}</b><br>${n.red_flags.map(f => esc(f.msg)).join("<br>")}</div>
     </div>` : "";
 
   const body = q.type === "text"
-    ? `<textarea id="tx" placeholder="${t("type")}" style="min-height:100px">${esc(ans[q.id] || "")}</textarea>
-       <button class="mic-btn" id="mic">${t("speak")}</button>
+    ? `<label class="input-label" for="tx">${t("type")}</label>
+       <textarea id="tx">${esc(ans[q.id] || "")}</textarea>
+       <div class="skip-row">
+         <button type="button" class="btn btn-text" data-skip="Not sure">${t("notSure")}</button>
+         <button type="button" class="btn btn-text" data-skip="Prefer not to answer">${t("preferNot")}</button>
+       </div>
+       <button class="mic-btn" id="mic" type="button">${t("speak")}</button>
        <span class="mut" id="heard" style="display:block;margin-top:8px"></span>`
-    : `<div class="opts">${q.options.map(o => {
+    : `<div class="opts" role="group" aria-label="${esc(q[l])}">${q.options.map(o => {
         const sel = q.type === "multi" ? (ans[q.id] || []).includes(o.v) : ans[q.id] === o.v;
-        return `<button class="opt${sel ? " sel" : ""}" data-v="${esc(o.v)}">${esc(o[l])}</button>`;
+        return `<button class="opt${sel ? " sel" : ""}" data-v="${esc(o.v)}" aria-pressed="${sel}" type="button">${esc(o[l])}</button>`;
       }).join("")}</div>
-      <button class="mic-btn" id="mic">${t("speak")}</button>
+      <button class="mic-btn" id="mic" type="button">${t("speak")}</button>
       <span class="mut" id="heard" style="display:block;margin-top:8px"></span>`;
 
   R(`
@@ -625,14 +676,14 @@ function draw(n) {
   <div class="card mt">
     <div class="row" style="justify-content:space-between;margin-bottom:6px">
       <span class="caption">${esc(q.section)}</span>
-      <span class="caption">${n.answered}/${n.total}</span>
+      ${showProgress ? `<span class="caption">${n.answered}/${n.total}</span>` : ""}
     </div>
-    <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-    <h2 style="margin:14px 0 4px">${esc(q[l])}</h2>
+    ${showProgress ? `<div class="progress-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:${pct}%"></div></div>` : ""}
+    <h1 style="margin:14px 0 8px;font-size:1.35rem">${esc(q[l])}</h1>
     ${body}
-    <div class="row mt" style="justify-content:space-between">
-      <button class="btn btn-outline" id="bk">← ${t("back")}</button>
-      <button class="btn" id="nx">${t("next")} →</button>
+    <div class="row sticky-actions mt" style="justify-content:space-between">
+      <button class="btn btn-outline" id="bk" type="button">${t("back")}</button>
+      <button class="btn" id="nx" type="button">${t("next")}</button>
     </div>
   </div>`);
   const questionKey = q.id + ":" + lang;
@@ -647,15 +698,36 @@ function draw(n) {
       let a = (ans[q.id] || []).filter(x => x !== "None");
       if (v === "None") a = ["None"];
       else a = a.includes(v) ? a.filter(x => x !== v) : [...a, v];
-      ans[q.id] = a; draw(lastN);
-    } else { ans[q.id] = v; adv(); }
+      ans[q.id] = a; persistInterview(); draw(lastN);
+    } else { ans[q.id] = v; persistInterview(); adv(); }
+  });
+  document.querySelectorAll("[data-skip]").forEach(b => b.onclick = () => {
+    const tx = document.getElementById("tx");
+    if (tx) tx.value = b.dataset.skip;
   });
   document.getElementById("mic").onclick = () => listenVoice(q);
-  document.getElementById("bk").onclick = async () => { const p = stack.pop(); if (p) { delete ans[p]; try { await rebuildInterviewSession(); } catch(e) { showToast("Could not return to previous question: " + e.message); } } else { interviewSessionId = null; setup(); } };
+  document.getElementById("bk").onclick = async () => {
+    const p = stack.pop();
+    if (p) {
+      persistInterview();
+      const kept = ans[p];
+      delete ans[p];
+      try {
+        await rebuildInterviewSession(false);
+        if (kept !== undefined) ans[p] = kept;
+        persistInterview();
+        if (lastN) draw(lastN);
+      } catch (e) {
+        if (kept !== undefined) ans[p] = kept;
+        showToast("Could not return to previous question: " + e.message);
+      }
+    } else { interviewSessionId = null; persistInterview(); setup(); }
+  };
   document.getElementById("nx").onclick = () => {
     if (q.type === "text") ans[q.id] = document.getElementById("tx").value.trim();
     else if (q.type === "multi" && !(ans[q.id] || []).length) ans[q.id] = ["None"];
     else if (!ans[q.id]) { showToast("Please select or answer before continuing."); return; }
+    persistInterview();
     const corrected = q.type === "text" ? ans[q.id] : null;
     const transcriptId = voiceTranscriptId;
     voiceTranscriptId = null;
@@ -672,16 +744,18 @@ function draw(n) {
 async function adv() {
   if (!cur) return;
   stack.push(cur.id);
+  persistInterview();
   if (!interviewSessionId) return ask();
   const value = ans[cur.id];
   try {
     await voiceTranscriptPromise;
     const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId) + "/answers", { method: "POST", json: { field: cur.id, value: value === undefined ? "" : value }});
     lastN = n;
+    persistInterview();
     if (n.complete) return docs();
     draw(n);
   } catch (e) {
-    stack.pop(); showToast("Could not save this answer: " + e.message);
+    stack.pop(); persistInterview(); showToast("Could not save this answer: " + e.message);
   }
 }
 
@@ -730,7 +804,6 @@ function listenVoice(q, allowRetry = true) {
     if (!transcript) { if (heard && !recognitionError) heard.textContent = "No transcript captured. Try again or type your answer."; return; }
     if (q.type === "text") {
       const tx = document.getElementById("tx"); if (tx) tx.value = transcript;
-      // Preserve the transcript for optional audit and wait for persistence before advancing.
     } else {
       const norm = transcript.toLocaleLowerCase();
       const opts = q.options || [];
@@ -739,8 +812,9 @@ function listenVoice(q, allowRetry = true) {
       if (partial) {
         if (q.type === "multi") ans[q.id] = [...new Set([...(ans[q.id] || []).filter(x => x !== "None"), partial.v])];
         else ans[q.id] = partial.v;
+        persistInterview();
         draw(lastN);
-        const h = document.getElementById("heard"); if (h) h.textContent = `Heard: “${transcript}”. Selected “${partial[lang === "hi" ? "hi" : "en"] || partial.v}”. Please verify, then press Next.`;
+        const h = document.getElementById("heard"); if (h) h.textContent = `Heard: “${transcript}”. Selected “${partial[lang === "hi" ? "hi" : "en"] || partial.v}”. Please verify, then press Continue.`;
       } else if (heard) heard.textContent = `Heard: “${transcript}”. I could not confidently match an option. Please tap the correct option or try again.`;
     }
     voiceTranscriptPromise = api("/asr/transcripts", { json: { transcript, language: lang === "hi" ? "hi" : "en", language_detected: lang === "hi" ? "hi" : "en" }})
@@ -751,87 +825,106 @@ function listenVoice(q, allowRetry = true) {
   try { r.start(); } catch (e) { finish(); if (heard) heard.textContent = "Could not start microphone: " + e.message; }
 }
 
-// ─── Documents ────────────────────────────────────────────────────────────
+function docStatus(d) {
+  const ent = d.entities || {};
+  if (!d.text) return { label: "Unreadable — type the contents", cls: "err" };
+  if ((ent.review_flags || []).length) return { label: "Needs review", cls: "warn" };
+  return { label: "Completed", cls: "ok" };
+}
+
 async function docs() {
   setActive("bn-docs");
   const ds = await api("/documents");
   R(`
   <div class="step-hdr mt">
     <div class="step-number">2</div>
-    <div><h2>${t("docsH")}</h2><p class="subtitle">${t("docsS")}</p></div>
+    <div><h1>${t("docsH")}</h1><p class="subtitle">${t("docsS")}</p></div>
   </div>
-
   <div class="card">
-    <label class="upload-zone">
+    <label class="upload-zone" id="drop">
       <input type="file" id="f" accept="image/*,application/pdf" capture="environment">
-      <div>📷</div>
-      <p style="font-weight:700;margin-top:8px">${t("addDoc")}</p>
-      <p class="mut">JPG, PNG or PDF · max 8 MB</p>
+      <div class="action-icon" style="margin:0 auto">${ICONS.upload}</div>
+      <p style="font-weight:650;margin-top:10px">${t("addDoc")}</p>
+      <p class="mut">JPG, PNG or PDF · maximum 8 MB, matching server validation.</p>
     </label>
     <div class="row mt-sm">
-      <input type="text" id="dd" placeholder="${t("date")}" style="flex:1;margin:0">
-      <button class="btn btn-outline" id="up">${t("addDoc")}</button>
+      <div style="flex:1">
+        <label class="input-label" for="dd">${t("date")}</label>
+        <input type="text" id="dd" placeholder="YYYY-MM-DD">
+      </div>
+      <button class="btn" id="up" type="button">${t("addDoc")}</button>
     </div>
-    <p id="upst" class="mut" style="margin-top:6px"></p>
-
+    <p id="upst" class="mut" aria-live="polite"></p>
     <div class="auth-divider">${t("or")}</div>
+    <label class="input-label" for="tt">${t("or")}</label>
     <textarea id="tt" placeholder="Tab Metformin 500 mg BD · Hb 9.1 g/dL …"></textarea>
-    <button class="btn btn-outline btn-block" id="ta">${t("add")}</button>
+    <button class="btn btn-outline btn-block" id="ta" type="button">${t("add")}</button>
   </div>
-
   ${ds.length ? `
   <p class="label mt">Uploaded reports</p>
-  <div class="card mt-sm">
-    <div class="timeline">
+  <div class="doc-list">
     ${ds.map(d => {
-      const ent = d.entities;
-      const flagDot = ent.labs.some(l => l.flag !== "normal") ? "danger" : "";
-      return `<div class="timeline-item">
-        <div class="timeline-dot ${flagDot}"></div>
-        <div class="timeline-date">${esc(d.date || "undated")} · ${esc(d.doc_type.replace("_"," "))}</div>
-        <div class="timeline-title">${esc(d.filename)} <span class="chip chip-neutral">${esc(d.engine)}</span></div>
-        ${ent.medications.map(m => `<div class="timeline-body">💊 ${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
-        ${ent.labs.map(l => `<div class="timeline-body">${esc(l.test)}: ${l.value} ${l.unit} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${l.flag}</span></div>`).join("")}
-        <button class="btn btn-sm" style="margin-top:6px;background:var(--danger-light);color:var(--danger);border-color:var(--danger)" data-d="${d.id}">Remove</button>
-      </div>`;
+      const ent = d.entities || { labs: [], medications: [] };
+      const st = docStatus(d);
+      return `<article class="doc-item">
+        <div>
+          <div style="font-weight:650;overflow-wrap:anywhere">${esc(d.filename)}</div>
+          <div class="mut">${esc(d.date || "undated")} · ${esc(String(d.doc_type || "").replace("_"," "))} · ${esc(d.engine)}</div>
+          <div class="mut"><span class="status-dot ${st.cls}"></span>${st.label}</div>
+          ${(ent.medications || []).map(m => `<div class="timeline-body">${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
+          ${(ent.labs || []).map(l => `<div class="timeline-body">${esc(l.test)}: ${l.value} ${l.unit} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${esc(l.flag)}</span></div>`).join("")}
+        </div>
+        <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">Remove</button>
+      </article>`;
     }).join("")}
-    </div>
-  </div>` : `<p class="mut center mt" style="padding:16px">${t("nodocs")}</p>`}
-
-  <div class="row mt" style="justify-content:space-between">
-    <button class="btn btn-outline" id="bk">← ${t("back")}</button>
-    <button class="btn" id="nx">${t("next")} →</button>
+  </div>` : `<p class="empty-state mt">${t("nodocs")}</p>`}
+  <div class="row sticky-actions mt" style="justify-content:space-between">
+    <button class="btn btn-outline" id="bk" type="button">${t("back")}</button>
+    <button class="btn" id="nx" type="button">${t("next")}</button>
   </div>
   `);
   say(t("docsH"));
 
-  // Upload file
-  document.getElementById("f").onchange = e => { document.getElementById("upst").textContent = e.target.files[0]?.name || ""; };
+  const drop = document.getElementById("drop");
+  const fileInput = document.getElementById("f");
+  const upst = document.getElementById("upst");
+  fileInput.onchange = e => { upst.textContent = e.target.files[0]?.name || ""; };
+  ["dragenter","dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("is-dragover"); }));
+  ["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("is-dragover"); }));
+  drop.addEventListener("drop", e => {
+    const f = e.dataTransfer.files[0];
+    if (!f) return;
+    const dt = new DataTransfer(); dt.items.add(f); fileInput.files = dt.files;
+    upst.textContent = f.name;
+  });
+
   document.getElementById("up").onclick = async () => {
-    const f = document.getElementById("f").files[0]; if (!f) { showToast("Please choose a file first."); return; }
-    document.getElementById("upst").textContent = t("readMsg");
+    const f = fileInput.files[0]; if (!f) { showToast("Please choose a file first."); return; }
+    if (f.size > 8 * 1024 * 1024) { upst.textContent = "File too large (max 8 MB)."; return; }
+    const btn = document.getElementById("up");
+    btn.disabled = true;
+    upst.textContent = t("readMsg");
     try {
       const fd = new FormData(); fd.append("file", f); fd.append("date", document.getElementById("dd").value);
       const r = await api("/documents", { body: fd });
       if (r.needs_manual_note) showToast(t("manual"), 4000);
-      showToast("Document added"); docs();
-    } catch(e) { document.getElementById("upst").textContent = e.message; }
+      else showToast("Document processed.");
+      docs();
+    } catch (e) { upst.textContent = e.message; btn.disabled = false; }
   };
-  // Text input
   document.getElementById("ta").onclick = async () => {
     const x = document.getElementById("tt").value.trim(); if (!x) return;
     await api("/documents/text", { json: { text: x, date: document.getElementById("dd").value }});
     showToast("Added"); docs();
   };
-  // Delete
   document.querySelectorAll("[data-d]").forEach(b => b.onclick = async () => {
+    if (!confirm("Remove this document?")) return;
     await api("/documents/" + b.dataset.d, { method: "DELETE" }); docs();
   });
-  document.getElementById("bk").onclick = () => { const p = stack.pop(); if (p) delete ans[p]; ask(); };
+  document.getElementById("bk").onclick = () => { const p = stack.pop(); persistInterview(); ask(); };
   document.getElementById("nx").onclick = summaryPage;
 }
 
-// ─── Summary ──────────────────────────────────────────────────────────────
 let SEC = [];
 async function summaryPage() {
   setActive("bn-home");
@@ -840,23 +933,23 @@ async function summaryPage() {
   R(`
   <div class="step-hdr mt">
     <div class="step-number">3</div>
-    <div><h2>${t("sumH")}</h2><p class="subtitle">${t("sumS")}</p></div>
+    <div><h1>${t("sumH")}</h1><p class="subtitle">${t("sumS")}</p></div>
   </div>
-
   ${renderClinicalReport(s.clinical_report, { mode: "patient" })}
   <p class="mut caption mt">${esc(s.patient_message)}</p>
-
-  <div class="row" style="justify-content:space-between">
-    <button class="btn btn-outline" id="bk">← ${t("back")}</button>
-    <button class="btn btn-teal btn-lg" id="ok">📤 ${t("send")}</button>
+  <div class="row sticky-actions" style="justify-content:space-between">
+    <button class="btn btn-outline" id="bk" type="button">${t("back")}</button>
+    <button class="btn btn-lg" id="ok" type="button">${t("send")}</button>
   </div>
-  <p id="err" class="mut" style="color:var(--danger);margin-top:8px"></p>
+  <p id="err" class="field-error"></p>
   `);
   say(s.patient_message);
   document.getElementById("bk").onclick = docs;
   document.getElementById("ok").onclick = async () => {
-    try { const r = await api("/submit", { json: { answers: ans, ayush, lang }}); finish(r); }
-    catch(e) { document.getElementById("err").textContent = e.message; }
+    const btn = document.getElementById("ok");
+    btn.disabled = true;
+    try { const r = await api("/submit", { json: { answers: ans, ayush, lang }}); clearInterview(); finish(r); }
+    catch (e) { document.getElementById("err").textContent = e.message; btn.disabled = false; }
   };
 }
 
@@ -864,7 +957,6 @@ function finish(r) {
   const PL = ["", "Emergency", "Urgent", "Routine"];
   R(`
   <div class="card token-card mt">
-    <div class="avatar" style="width:64px;height:64px;font-size:1.2rem;margin:0 auto 16px">Done</div>
     <h1>${t("done")}</h1>
     <p class="subtitle">${t("tokenL")}</p>
     <span class="token-num">${r.token_no}</span>
@@ -872,17 +964,18 @@ function finish(r) {
     <p class="subtitle mt">${esc(r.patient_message)}</p>
     <p class="mut caption mt">ABDM: ${esc(r.abdm.ref)} (${r.abdm.mode})</p>
     <p class="mut caption">${t("wait")}</p>
-    <button class="btn btn-lg btn-block mt" id="nw">OK</button>
+    <button class="btn btn-lg btn-block mt" id="nw">Return home</button>
   </div>
   `);
   say(r.patient_message);
   document.getElementById("nw").onclick = async () => {
-    if (me?.role === "guest") { setToken(""); auth(); }
+    if (me?.role === "guest") { setToken(""); me = null; updateHeaderAuth(); auth(); }
     else { me = await api("/me"); homeDash(); }
   };
 }
 
-// ─── Bootstrap ────────────────────────────────────────────────────────────
+restoreInterview();
 route();
 </script>
-</body></html>
+</body>
+</html>

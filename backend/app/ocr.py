@@ -173,6 +173,35 @@ def _status(segment: str) -> str:
     return "reported"
 
 
+def _normalise_unit(unit: str | None, fallback: str) -> str:
+    value = (unit or "").strip().replace("µ", "u").replace("μ", "u")
+    value = re.sub(r"\s+", "", value)
+    value = value.replace("X10^3", "x10^3").replace("x10^3", "x10^3")
+    aliases = {"g/dl": "g/dL", "mg/dl": "mg/dL", "mmhg": "mmHg", "mm/hr": "mm/hr",
+               "uiu/ml": "uIU/mL", "iu/l": "IU/L", "u/l": "U/L", "x10^3/ul": "x10^3/uL",
+               "/ul": "/uL"}
+    return aliases.get(value.lower(), value) or fallback
+
+
+def _explicit_reference(segment: str) -> tuple[float, float] | None:
+    """Read a laboratory-supplied interval; never infer it from a lone value."""
+    match = re.search(
+        r"(?:ref(?:erence)?(?:\s+range|\s*\.?\s*range)?|normal(?:\s+range)?|range)"
+        r"\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*(?:-|–|—|to)\s*(\d+(?:[.,]\d+)?)",
+        segment,
+        re.I,
+    )
+    if not match:
+        return None
+    return float(match.group(1).replace(",", "")), float(match.group(2).replace(",", ""))
+
+
+def _interpret(value: float, low: float | None, high: float | None) -> str:
+    if low is None or high is None:
+        return "unable_to_interpret"
+    return "below" if value < low else "above" if value > high else "within"
+
+
 def extract(text: str, provenance: dict[str, Any] | None = None) -> dict:
     t = text or ""
     low = t.lower()
@@ -192,14 +221,26 @@ def extract(text: str, provenance: dict[str, Any] | None = None) -> dict:
             break
     labs = []
     for name, (rx, unit, lo, hi) in LABS.items():
-        m = re.search(rf"(?:{rx})[^\n\d]{{0,25}}(\d+(?:[.,]\d+)?)(?:\s*/\s*(\d+))?", low)
+        m = re.search(
+            rf"(?:{rx})[^\n\d]{{0,25}}([<>]?\s*\d+(?:[.,]\d+)?(?:[eE][+-]?\d+)?)"
+            rf"(?:\s*/\s*(\d+))?"
+            rf"(?:\s*(mg/dL|g/dL|uIU/mL|IU/L|U/L|mmHg|mm/hr|%|x10\^?3/uL|/uL))?",
+            low,
+        )
         if not m: continue
-        try: val = float(m.group(1).replace(",", ""))
+        try: val = float(m.group(1).replace(",", "").replace("<", "").replace(">", "").strip())
         except ValueError: continue
-        flag = "low" if val < lo else "high" if val > hi else "normal"
+        context = t[max(0, m.start() - 20):min(len(t), m.end() + 80)]
+        explicit_ref = _explicit_reference(context)
+        effective_low, effective_high = explicit_ref or (lo, hi)
+        explicit_critical = bool(re.search(r"\bcritical(?:ly)?\b", context, re.I))
+        flag = "critical" if explicit_critical else "low" if val < effective_low else "high" if val > effective_high else "normal"
         if name == "Systolic BP" and m.group(2) is None and val < 60: continue
         status = _status(t[max(0, m.start()-25):m.end()])
-        item = {"test": name, "value": val, "unit": unit, "ref": f"{lo}–{hi}", "flag": flag,
+        item = {"test": name, "value": val, "unit": _normalise_unit(m.group(3), unit),
+                "ref": f"{effective_low:g}–{effective_high:g}", "flag": flag,
+                "interpretation": _interpret(val, effective_low, effective_high),
+                "reference_source": "document" if explicit_ref else "configured_baseline",
                 "status": status, "confidence": 0.8,
                 "source": _fact_source(t, m.start(), m.end(), provenance).model_dump()}
         labs.append(item)

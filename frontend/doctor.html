@@ -1,74 +1,54 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MediKiosk – Physician Console</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css">
-<style>
-/* ── Doctor-console specific ── */
-.queue-card{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;background:var(--surface);box-shadow:var(--shadow);transition:box-shadow .2s,border-color .2s;cursor:pointer}
-.queue-card:hover{box-shadow:var(--shadow-md);border-color:var(--primary)}
-.queue-card.em{border-left:4px solid var(--danger)}
-.queue-card.ur{border-left:4px solid var(--warning)}
-.queue-card.ro{border-left:4px solid var(--success)}
-.patient-initials{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem;color:#fff;flex-shrink:0}
-.em .patient-initials{background:var(--danger)}
-.ur .patient-initials{background:var(--warning)}
-.ro .patient-initials{background:var(--teal)}
-.sec-edit{background:var(--surface2);border-radius:var(--r);padding:14px;margin-bottom:10px}
-.sec-edit h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:8px}
-.sec-edit textarea{margin:0;font-size:.92rem;min-height:80px}
-.eda-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:12px 0}
-.kpi-box{background:var(--primary-light);border-radius:var(--r);padding:12px;text-align:center}
-.kpi-box .val{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:800;color:var(--primary)}
-.kpi-box .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-mid);margin-top:2px}
-.kpi-box.teal{background:var(--teal-light)} .kpi-box.teal .val{color:var(--teal)}
-.kpi-box.danger{background:var(--danger-light)} .kpi-box.danger .val{color:var(--danger)}
-.kpi-box.warn{background:var(--warning-light)} .kpi-box.warn .val{color:var(--warning)}
-.bar-chart{display:flex;gap:4px;align-items:flex-end;height:80px;margin-top:8px}
-.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
-.bar-fill{width:100%;background:var(--primary);border-radius:4px 4px 0 0;min-height:4px;transition:height .4s}
-.bar-lbl{font-size:.6rem;color:var(--ink-soft);text-align:center;word-break:break-all}
-</style>
-</head><body class="doctor-app">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MediKiosk – Clinical workspace</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doctor-app">
+<a class="skip-link" href="#app">Skip to content</a>
 
-<aside class="doctor-sidebar" aria-label="Physician navigation">
-  <div class="doctor-sidebar-brand"><span class="sidebar-mark">DO</span><span>DigitalOwl</span></div>
-  <button class="sidebar-link active" onclick="switchTab('q')">Overview</button>
-  <button class="sidebar-link" onclick="switchTab('q')">Case Notes <span class="sidebar-badge">New</span></button>
-  <button class="sidebar-link" onclick="switchTab('q')">Timeline</button>
-  <button class="sidebar-link" onclick="switchTab('q')">Patient Queue</button>
-  <button class="sidebar-link" onclick="switchTab('q')">Documents</button>
-  <button class="sidebar-link" onclick="switchTab('eda')">Analytics</button>
-  <button class="sidebar-link" onclick="switchTab('help')">Help</button>
+<aside class="doctor-sidebar" aria-label="Clinical navigation">
+  <div class="doctor-sidebar-brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor"/>
+        <path d="M5 17h5.2l2.3-6.2 3.4 12.4L18.6 17H27" fill="none" stroke="#F4F7F5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span>MediKiosk</span>
+  </div>
+  <button class="sidebar-link active" data-tab="overview" type="button">Overview</button>
+  <button class="sidebar-link" data-tab="q" type="button">Review Queue <span class="sidebar-badge">Live</span></button>
+  <button class="sidebar-link" data-tab="patients" type="button">Patients</button>
+  <button class="sidebar-link" data-tab="encounters" type="button">Encounters</button>
+  <button class="sidebar-link" data-tab="documents" type="button">Medical Documents</button>
+  <button class="sidebar-link" data-tab="summaries" type="button">Clinical Summaries</button>
+  <button class="sidebar-link" data-tab="eda" type="button">Audit</button>
+  <button class="sidebar-link" data-tab="settings" type="button">Settings</button>
+  <button class="sidebar-link" data-tab="help" type="button">Guide</button>
 </aside>
 
-<!-- APPBAR -->
 <header class="appbar">
   <div class="appbar-brand">
-    <div class="avatar" style="width:36px;height:36px;font-size:.9rem">DO</div>
-    <span class="appbar-logo">Physician Console</span>
+    <span class="appbar-logo">Clinical workspace</span>
   </div>
   <div class="appbar-actions">
-    <button class="icon-btn" id="big" title="Larger text">A+</button>
-    <button class="icon-btn" id="hc" title="High contrast">◐</button>
-    <a class="btn btn-outline btn-sm" href="index.html">Patient Portal</a>
+    <button class="icon-btn" id="big" type="button" title="Larger text" aria-label="Larger text">A+</button>
+    <button class="icon-btn" id="hc" type="button" title="High contrast" aria-label="High contrast">◐</button>
+    <a class="btn btn-outline btn-sm" href="index.html">Patient portal</a>
   </div>
 </header>
 
-<!-- BOTTOM NAV -->
-<nav class="bottom-nav">
-  <button class="nav-item active" id="bn-q" onclick="switchTab('q')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h7v2H4z"/></svg>
-    Queue
-  </button>
-  <button class="nav-item" id="bn-eda" onclick="switchTab('eda')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
-    Analytics
-  </button>
-  <button class="nav-item" id="bn-help" onclick="switchTab('help')">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-    Help
-  </button>
+<nav class="bottom-nav" aria-label="Clinical sections">
+  <button class="nav-item active" id="bn-overview" type="button">Overview</button>
+  <button class="nav-item" id="bn-q" type="button">Queue</button>
+  <button class="nav-item" id="bn-eda" type="button">Audit</button>
+  <button class="nav-item" id="bn-help" type="button">Guide</button>
 </nav>
 
 <main class="page" id="app"></main>
@@ -81,54 +61,111 @@ const PL = ["", "Emergency", "Urgent", "Routine"];
 const CHIP = ["", "chip-emergency", "chip-urgent", "chip-routine"];
 const ICON = ["", "Emergency", "Urgent", "Routine"];
 const QCLS = ["", "em", "ur", "ro"];
-let timer, currentTab = "q";
+let timer, currentTab = "overview", lastRecords = [];
 
-function switchTab(tab) {
+function setNav(tab) {
   currentTab = tab;
-  ["q","eda","help"].forEach(t => {
+  document.querySelectorAll(".sidebar-link").forEach(el => el.classList.toggle("active", el.dataset.tab === tab));
+  ["overview","q","eda","help"].forEach(t => {
     const el = document.getElementById("bn-" + t);
-    if (el) el.classList.toggle("active", t === tab);
+    if (el) el.classList.toggle("active", t === tab || (tab !== "overview" && tab !== "q" && tab !== "eda" && tab !== "help" && t === "q" && ["patients","encounters","documents","summaries"].includes(tab)));
   });
-  if (tab === "q") TOKEN ? queue() : login();
-  else if (tab === "eda") TOKEN ? edaPage() : login();
-  else helpPage();
 }
 
-// ─── Login ────────────────────────────────────────────────────────────────
+function switchTab(tab) {
+  setNav(tab);
+  if (tab === "help") return helpPage();
+  if (!TOKEN) return login();
+  if (tab === "overview") return overview();
+  if (tab === "q") return queue();
+  if (tab === "patients") return patientsPage();
+  if (tab === "encounters") return encountersPage();
+  if (tab === "documents") return documentsHub();
+  if (tab === "summaries") return summariesPage();
+  if (tab === "eda") return edaPage();
+  if (tab === "settings") return settingsPage();
+}
+
+document.querySelectorAll(".sidebar-link").forEach(btn => btn.onclick = () => switchTab(btn.dataset.tab));
+document.getElementById("bn-overview").onclick = () => switchTab("overview");
+document.getElementById("bn-q").onclick = () => switchTab("q");
+document.getElementById("bn-eda").onclick = () => switchTab("eda");
+document.getElementById("bn-help").onclick = () => switchTab("help");
+
 function login(msg = "") {
   clearInterval(timer);
   R(`
   <div class="card mt" style="max-width:400px;margin:40px auto">
-    <div style="text-align:center;margin-bottom:20px">
-      <div class="avatar" style="width:60px;height:60px;font-size:1.2rem;margin:0 auto">PC</div>
-      <h2 style="margin-top:12px">Doctor Login</h2>
-      <p class="subtitle">Secure access to patient queue</p>
+    <div class="center mb">
+      <span class="brand-mark" style="margin:0 auto;color:var(--primary)">${mkLogo({ compact: true })}</span>
+      <h1 style="margin-top:12px;font-size:1.4rem">Clinician sign in</h1>
+      <p class="subtitle">Secure access to the review queue</p>
     </div>
-    <label class="input-label">Username</label>
+    <label class="input-label" for="u">Username</label>
     <input type="text" id="u" autocomplete="username">
-    <label class="input-label">Password</label>
+    <label class="input-label" for="p">Password</label>
     <input type="password" id="p" autocomplete="current-password">
-    <button class="btn btn-lg btn-block mt" id="go">Log in →</button>
-    ${msg ? `<p style="color:var(--danger);margin-top:10px;font-size:.88rem">${esc(msg)}</p>` : ""}
+    <button class="btn btn-lg btn-block mt" id="go">Log in</button>
+    ${msg ? `<p class="field-error">${esc(msg)}</p>` : ""}
     <p class="mut caption mt center">Use the credentials configured by your system administrator.</p>
   </div>`);
   document.getElementById("p").addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("go").click(); });
   document.getElementById("go").onclick = async () => {
+    const btn = document.getElementById("go");
+    btn.disabled = true;
     try {
       const r = await api("/auth/login", { json: { username: document.getElementById("u").value, password: document.getElementById("p").value }});
       if (r.role !== "doctor") { login("Not a doctor account"); return; }
-      setToken(r.token); queue();
-    } catch(e) { login(e.message); }
+      setToken(r.token); overview();
+    } catch (e) { login(e.message); }
   };
 }
 
-// ─── Queue ────────────────────────────────────────────────────────────────
+async function loadRecords() {
+  lastRecords = await api("/doctor/records");
+  return lastRecords;
+}
+
+function awaiting(rs) {
+  return rs.filter(r => r.status === "submitted" || r.status === "amended");
+}
+
+async function overview() {
+  clearInterval(timer);
+  setNav("overview");
+  let rs;
+  try { rs = await loadRecords(); }
+  catch (e) { login(); return; }
+  const wait = awaiting(rs);
+  const em = rs.filter(r => r.priority === 1);
+  const recent = [...rs].sort((a, b) => b.created - a.created).slice(0, 5);
+  R(`
+  <div class="mt">
+    <p class="eyebrow">Overview</p>
+    <h1>Clinical operations</h1>
+    <p class="subtitle">Counts below come from the live encounter queue. Empty values mean no matching records.</p>
+  </div>
+  <div class="eda-kpi">
+    <div class="kpi-box"><div class="val">${wait.length}</div><div class="lbl">Awaiting review</div></div>
+    <div class="kpi-box warn"><div class="val">${rs.filter(r => r.status === "submitted").length}</div><div class="lbl">Draft summaries</div></div>
+    <div class="kpi-box danger"><div class="val">${em.length}</div><div class="lbl">Emergency priority</div></div>
+    <div class="kpi-box teal"><div class="val">${rs.length}</div><div class="lbl">Encounters loaded</div></div>
+  </div>
+  <div class="card">
+    <h2>Recently updated encounters</h2>
+    ${recent.length ? recent.map(qCard).join("") : `<p class="empty-state mt">No encounters yet.</p>`}
+  </div>
+  <p class="mut caption">Document processing status is shown inside each encounter. There is no separate document job queue in the API.</p>
+  `);
+  document.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openRecord(b.dataset.id));
+}
+
 async function queue() {
   clearInterval(timer);
+  setNav("q");
   let rs;
-  try { rs = await api("/doctor/records"); }
-  catch(e) { login(); return; }
-
+  try { rs = await loadRecords(); }
+  catch (e) { login(); return; }
   const em = rs.filter(r => r.priority === 1);
   const ur = rs.filter(r => r.priority === 2);
   const ro = rs.filter(r => r.priority === 3);
@@ -137,49 +174,150 @@ async function queue() {
   <div class="mt">
     <div class="row" style="justify-content:space-between;align-items:flex-start">
       <div>
-        <h2>Patient Queue</h2>
-        <p class="subtitle">Auto-refreshes · Emergency first</p>
+        <p class="eyebrow">Review</p>
+        <h1>Review queue</h1>
+        <p class="subtitle">Emergency first · refreshes every 15 seconds while this list is open</p>
       </div>
-      <button class="btn btn-outline btn-sm" id="lo">Log out</button>
+      <button class="btn btn-outline btn-sm" id="lo" type="button">Log out</button>
     </div>
   </div>
-
-  <!-- Queue KPIs -->
   <div class="eda-kpi">
     <div class="kpi-box danger"><div class="val">${em.length}</div><div class="lbl">Emergency</div></div>
     <div class="kpi-box warn"><div class="val">${ur.length}</div><div class="lbl">Urgent</div></div>
     <div class="kpi-box teal"><div class="val">${ro.length}</div><div class="lbl">Routine</div></div>
   </div>
-
-  ${!rs.length ? `<div class="card center" style="padding:40px"><p class="subtitle">No patients yet</p><p class="mut">Queue updates automatically</p></div>` : ""}
-  
-  ${em.length ? `<p class="label" style="color:var(--danger);margin-bottom:8px">Emergency</p>${em.map(qCard).join("")}` : ""}
-  ${ur.length ? `<p class="label" style="color:var(--warning);margin:12px 0 8px">Urgent</p>${ur.map(qCard).join("")}` : ""}
-  ${ro.length ? `<p class="label" style="margin:12px 0 8px">Routine</p>${ro.map(qCard).join("")}` : ""}
+  <div class="card queue-tools">
+    <label style="flex:1;min-width:210px;display:block"><span class="input-label">Search patient or token</span>
+      <input id="queue-search" type="search" placeholder="Name or token number" autocomplete="off"></label>
+    <label style="min-width:150px;display:block"><span class="input-label">Priority</span>
+      <select id="queue-priority"><option value="all">All priorities</option><option value="1">Emergency</option><option value="2">Urgent</option><option value="3">Routine</option></select></label>
+  </div>
+  <div id="queue-list"></div>
   `);
 
   document.getElementById("lo").onclick = () => { setToken(""); login(); };
-  document.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openRecord(b.dataset.id));
-  timer = setInterval(() => { if (!document.querySelector(".sec-edit")) queue(); }, 15000);
+  const list = document.getElementById("queue-list");
+  const renderQueue = () => {
+    const query = document.getElementById("queue-search").value.trim().toLowerCase();
+    const priority = document.getElementById("queue-priority").value;
+    const filtered = rs.filter(r => {
+      const matchesPriority = priority === "all" || String(r.priority) === priority;
+      const haystack = `${r.patient || ""} ${r.token_no || ""}`.toLowerCase();
+      return matchesPriority && (!query || haystack.includes(query));
+    });
+    list.innerHTML = filtered.length
+      ? filtered.map(qCard).join("")
+      : `<div class="empty-state"><p class="subtitle">${rs.length ? "No matching patients" : "No patients yet"}</p><p class="mut">${rs.length ? "Try a different search or priority." : "Queue updates automatically."}</p></div>`;
+    list.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openRecord(b.dataset.id));
+  };
+  document.getElementById("queue-search").oninput = renderQueue;
+  document.getElementById("queue-priority").onchange = renderQueue;
+  renderQueue();
+  timer = setInterval(() => { if (!document.querySelector(".sec-edit") && !document.getElementById("ai-summary")) queue(); }, 15000);
 }
 
 function qCard(r) {
   const initials = (r.patient || "?").split(" ").map(w => w[0]).join("").toUpperCase().slice(0,2) || "?";
+  const when = r.created ? new Date(r.created * 1000).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "—";
   return `<div class="queue-card ${QCLS[r.priority]}" data-id="${r.id}">
     <div class="patient-initials">${initials}</div>
-    <div style="flex:1;min-width:0">
-      <div class="row" style="justify-content:space-between;flex-wrap:nowrap">
-        <span style="font-weight:700">${esc(r.patient || "Anonymous")}</span>
-        <span class="chip ${CHIP[r.priority]}">${ICON[r.priority]} ${PL[r.priority]}</span>
-      </div>
-      <div class="mut">Token #${r.token_no} · ${r.status}</div>
+    <div>
+      <div style="font-weight:650">${esc(r.patient || "Anonymous")}</div>
+      <div class="mut">Token #${r.token_no} · ${esc(r.status)}</div>
       ${r.flags?.length ? `<div style="font-size:.82rem;color:var(--danger);margin-top:3px">${r.flags.map(f => esc(f.code)).join(" · ")}</div>` : ""}
     </div>
-    <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;color:var(--ink-soft);flex-shrink:0"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    <div class="queue-meta mut">${when}</div>
+    <span class="chip ${CHIP[r.priority]}">${ICON[r.priority]} ${PL[r.priority]}</span>
+    <span class="mut">Open</span>
+    <span aria-hidden="true">›</span>
   </div>`;
 }
 
-// Older records may not contain a screening result; distinguish that from no findings.
+async function patientsPage() {
+  setNav("patients");
+  let rs;
+  try { rs = await loadRecords(); } catch (e) { login(); return; }
+  const map = new Map();
+  rs.forEach(r => {
+    const key = (r.patient || "Anonymous") + "|" + (r.abdm_ref || "");
+    if (!map.has(key)) map.set(key, { name: r.patient || "Anonymous", count: 0, latest: r });
+    const row = map.get(key); row.count += 1; if (r.created > row.latest.created) row.latest = r;
+  });
+  const people = [...map.values()];
+  R(`
+  <div class="mt"><p class="eyebrow">Directory</p><h1>Patients</h1>
+    <p class="subtitle">Derived from submitted encounters. This is not a separate patient master list.</p></div>
+  ${people.length ? `<div class="card"><table class="stack-table">
+    <thead><tr><th>Patient</th><th>Encounters</th><th>Latest token</th><th></th></tr></thead>
+    <tbody>${people.map(p => `<tr>
+      <td data-label="Patient">${esc(p.name)}</td>
+      <td data-label="Encounters">${p.count}</td>
+      <td data-label="Latest">#${p.latest.token_no}</td>
+      <td data-label="Action"><button class="btn btn-sm" data-id="${p.latest.id}">Open latest</button></td>
+    </tr>`).join("")}</tbody></table></div>` : `<p class="empty-state">No patient encounters available.</p>`}
+  `);
+  document.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openRecord(b.dataset.id));
+}
+
+async function encountersPage() {
+  setNav("encounters");
+  let rs;
+  try { rs = await loadRecords(); } catch (e) { login(); return; }
+  R(`
+  <div class="mt"><p class="eyebrow">Workspace</p><h1>Encounters</h1>
+    <p class="subtitle">All encounters returned by the clinical queue API.</p></div>
+  ${rs.length ? `<div class="card"><table class="stack-table">
+    <thead><tr><th>Token</th><th>Patient</th><th>Date</th><th>Priority</th><th>Status</th><th></th></tr></thead>
+    <tbody>${rs.map(r => `<tr>
+      <td data-label="Token">#${r.token_no}</td>
+      <td data-label="Patient">${esc(r.patient || "Anonymous")}</td>
+      <td data-label="Date">${new Date(r.created * 1000).toLocaleDateString("en-IN")}</td>
+      <td data-label="Priority"><span class="chip ${CHIP[r.priority]}">${PL[r.priority]}</span></td>
+      <td data-label="Status">${esc(r.status)}</td>
+      <td data-label="Action"><button class="btn btn-sm" data-id="${r.id}">Review</button></td>
+    </tr>`).join("")}</tbody></table></div>` : `<p class="empty-state">No encounters yet.</p>`}
+  `);
+  document.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openRecord(b.dataset.id));
+}
+
+function documentsHub() {
+  setNav("documents");
+  R(`
+  <div class="mt"><p class="eyebrow">Documents</p><h1>Medical documents</h1>
+    <p class="subtitle">The API attaches documents to a patient encounter. Open a record to review extracted findings.</p></div>
+  <p class="empty-state">There is no standalone document inbox. Use Review Queue or Encounters, then open a record.</p>
+  <button class="btn mt" id="goq">Open review queue</button>`);
+  document.getElementById("goq").onclick = () => switchTab("q");
+}
+
+async function summariesPage() {
+  setNav("summaries");
+  let rs;
+  try { rs = await loadRecords(); } catch (e) { login(); return; }
+  const drafts = rs.filter(r => r.status === "submitted" || r.status === "amended");
+  R(`
+  <div class="mt"><p class="eyebrow">Summaries</p><h1>Clinical summaries</h1>
+    <p class="subtitle">Encounters still marked submitted or amended.</p></div>
+  ${drafts.length ? drafts.map(qCard).join("") : `<p class="empty-state">No draft summaries awaiting approval.</p>`}
+  `);
+  document.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openRecord(b.dataset.id));
+}
+
+function settingsPage() {
+  setNav("settings");
+  R(`
+  <div class="mt"><p class="eyebrow">Settings</p><h1>Workspace settings</h1></div>
+  <div class="card">
+    <p>Text size and contrast controls are in the header. They apply immediately to this session.</p>
+    <div class="row mt">
+      <button class="btn btn-outline" id="lo">Log out</button>
+      <button class="btn btn-outline" id="go-eda">Open audit analytics</button>
+    </div>
+  </div>`);
+  document.getElementById("lo").onclick = () => { setToken(""); login(); };
+  document.getElementById("go-eda").onclick = () => switchTab("eda");
+}
+
 function legacyReportHtml(r) {
   return `<section class="rep-card" id="clinical-summary" data-block="clinical_summary"><h2>Clinical Summary</h2>
     <p class="caption">Legacy record without a stored report; draft sections below.</p>
@@ -191,216 +329,173 @@ function legacyReportHtml(r) {
     <button class="btn btn-teal" id="cf">Approve summary</button><button class="btn btn-outline" id="rj">Reject</button></div></section>`;
 }
 
-// ─── Record view ──────────────────────────────────────────────────────────
 async function openRecord(id) {
   clearInterval(timer);
   const r = await api("/doctor/records/" + id);
   const rep = r.clinical_report;
+  const when = r.created ? new Date(r.created * 1000).toLocaleString("en-IN") : "—";
+  const docs = r.documents || [];
 
   R(`
-  <div class="card mt">
-    <div class="row" style="justify-content:space-between;align-items:flex-start">
-      <div>
-        <h2>Token ${r.token_no} \u2014 ${esc(r.patient || "Anonymous")}</h2>
-        <p class="subtitle">ABHA: ${esc(r.abha || "\u2014")} \u00B7 ABDM: ${esc(r.abdm_ref)}</p>
+  <div class="encounter-shell">
+    <div>
+      <div class="card mt">
+        <div class="row" style="justify-content:space-between;align-items:flex-start">
+          <div>
+            <p class="eyebrow">Encounter</p>
+            <h1>Token ${r.token_no} — ${esc(r.patient || "Anonymous")}</h1>
+            <p class="subtitle">ABHA: ${esc(r.abha || "—")} · ABDM: ${esc(r.abdm_ref)} · ${when}</p>
+          </div>
+          <span class="chip ${CHIP[r.priority]}">${ICON[r.priority]} ${PL[r.priority]}</span>
+        </div>
+        <p class="caption mt-sm">Record status: ${esc(r.status)}. The summary below is a draft; the physician remains responsible for the final history.</p>
       </div>
-      <span class="chip ${CHIP[r.priority]}">${ICON[r.priority]} ${PL[r.priority]}</span>
+      ${rep ? renderClinicalReport(rep, { mode: "clinician", sections: r.sections }) : legacyReportHtml(r)}
+      <div class="card mt">
+        <h2>Extracted medical reports and laboratory findings</h2>
+        ${docs.length ? docs.map(d => {
+          const e = d.entities || {}, flags = e.review_flags || [];
+          const facts = (e.facts || []).slice(0, 12);
+          const labs = e.labs || [];
+          return `<div class="mt-sm" style="overflow-wrap:anywhere"><b>${esc(d.filename || "Document")}</b>
+            <span class="caption mut"> ${esc(d.date || "undated")} · ${esc(d.engine || "unknown engine")} · ${esc(String(d.doc_type || "").replace("_"," "))}</span>
+            ${flags.length ? `<div class="caption" style="color:var(--warning)">Review: ${esc(flags.join(", "))}</div>` : ""}
+            ${labs.length ? `<ul class="caption">${labs.map(l => `<li>${esc(l.test)}: ${esc(l.value)} ${esc(l.unit || "")} ${esc(l.flag || "")}${l.ref ? ` · ref ${esc(l.ref)}` : ""}</li>`).join("")}</ul>` : ""}
+            ${facts.length ? `<ul class="caption">${facts.map(f => `<li>${esc(f.field)}: ${esc(typeof f.value === "string" ? f.value : JSON.stringify(f.value))} · ${esc(f.status)} · ${Math.round((f.confidence || 0) * 100)}%${f.source?.page ? ` · page ${f.source.page}` : ""}</li>`).join("")}</ul>` : `<p class="caption mut">No structured facts extracted; review original document.</p>`}
+          </div>`;
+        }).join("") : `<p class="caption mut">No uploaded documents.</p>`}
+      </div>
+      <div class="row mt"><button class="btn btn-outline" id="bk">Queue</button></div>
+      <pre id="fx" hidden>${esc(JSON.stringify(r.fhir, null, 2))}</pre>
     </div>
-    <p class="caption mt-sm">Record status: ${esc(r.status)}. The summary below is a draft; the physician remains responsible for the final history.</p>
+    <aside class="encounter-aside card">
+      <h2>Clinician actions</h2>
+      <p class="caption">Approve, amend, or reject after reviewing the draft and red-flag suggestions. Status updates only after the server confirms.</p>
+      <p class="mut mt-sm">Use the review controls in the clinical document.</p>
+    </aside>
   </div>
-
-  ${rep ? renderClinicalReport(rep, { mode: "clinician", sections: r.sections }) : legacyReportHtml(r)}
-
-  <div class="card mt">
-    <h3>Document evidence &amp; review</h3>
-    ${(r.documents || []).length ? (r.documents || []).map(d => {
-      const e = d.entities || {}, flags = e.review_flags || [];
-      const facts = (e.facts || []).slice(0, 12);
-      return `<div class="mt-sm"><b>${esc(d.filename || "Document")}</b>
-        <span class="caption mut"> ${esc(d.date || "undated")} · ${esc(d.engine || "unknown engine")}</span>
-        ${flags.length ? `<div class="caption" style="color:var(--warning)">Review: ${esc(flags.join(", "))}</div>` : ""}
-        ${facts.length ? `<ul class="caption">${facts.map(f => `<li>${esc(f.field)}: ${esc(typeof f.value === "string" ? f.value : JSON.stringify(f.value))} · ${esc(f.status)} · ${Math.round((f.confidence || 0) * 100)}%${f.source?.page ? ` · page ${f.source.page}` : ""}</li>`).join("")}</ul>` : `<p class="caption mut">No structured facts extracted; review original document.</p>`}
-      </div>`;
-    }).join("") : `<p class="caption mut">No uploaded documents.</p>`}
-  </div>
-
-  <div class="row mt"><button class="btn btn-outline" id="bk">Queue</button></div>
-  <pre id="fx" hidden>${esc(JSON.stringify(r.fhir, null, 2))}</pre>
   `);
 
-  // No unvalidated disease classifier is displayed as a clinical prediction.
-
   const save = async st => {
-    const sec = r.sections.map((s, i) => ({ title: s.title, text: document.querySelector(`[data-i="${i}"]`).value }));
+    const sec = r.sections.map((s, i) => ({ title: s.title, text: (document.querySelector(`[data-i="${i}"]`) || { value: s.text }).value }));
     const finding_reviews = {};
     document.querySelectorAll('#red-flag-suggestions input[type=radio]:checked').forEach(x => { finding_reviews[x.name.replace("fr-", "")] = x.value; });
     await api("/doctor/records/" + id, { method: "PUT", json: { sections: sec, status: st, finding_reviews }});
     queue();
   };
   document.getElementById("bk").onclick = queue;
-  const on = (i, f) => { const el = document.getElementById(i); if (el) el.onclick = f; };
+  const on = (i, f) => { const el = document.getElementById(i); if (el) el.onclick = async () => { el.disabled = true; try { await f(); } catch (e) { el.disabled = false; alert(e.message); } }; };
   on("cf", () => save("confirmed")); on("am", () => save("amended")); on("rj", () => save("rejected"));
   on("fhbtn", () => { document.getElementById("fx").hidden = !document.getElementById("fx").hidden; });
 }
 
-// ─── EDA / Analytics ─────────────────────────────────────────────────────
 async function edaPage() {
-  R(`<div class="mt"><h2>Analytics &amp; EDA</h2><p class="subtitle">De-identified aggregate statistics</p></div><div class="spinner"></div>`);
+  setNav("eda");
+  R(`<div class="mt"><h1>Audit and analytics</h1><p class="subtitle">De-identified aggregate statistics</p></div><div class="spinner"></div>`);
   let summary = {}, labs = {}, quality = {};
-  try { summary = await api("/eda/summary"); } catch(e) {}
-  try { labs = await api("/eda/labs"); } catch(e) {}
-  try { quality = await api("/eda/data-quality"); } catch(e) {}
-
+  try { summary = await api("/eda/summary"); } catch (e) {}
+  try { labs = await api("/eda/labs"); } catch (e) {}
+  try { quality = await api("/eda/data-quality"); } catch (e) {}
   const ccDist = summary.chief_complaint_dist || {};
   const ccKeys = Object.keys(ccDist);
   const ccMax = Math.max(...Object.values(ccDist), 1);
-
   R(`
   <div class="mt">
-    <h2>Analytics &amp; EDA</h2>
-    <p class="subtitle">De-identified · ${summary.total_records || 0} records · Research audit trail</p>
+    <h1>Audit and analytics</h1>
+    <p class="subtitle">De-identified · ${summary.total_records || 0} records</p>
   </div>
-
-  <!-- KPI row -->
   <div class="eda-kpi">
     <div class="kpi-box"><div class="val">${summary.total_records || 0}</div><div class="lbl">Records</div></div>
     <div class="kpi-box teal"><div class="val">${summary.avg_completeness_pct || 0}%</div><div class="lbl">Complete</div></div>
     <div class="kpi-box warn"><div class="val">${summary.ayush_mode_pct || 0}%</div><div class="lbl">AYUSH</div></div>
     <div class="kpi-box"><div class="val">${quality.avg_text_quality_score || 0}</div><div class="lbl">OCR score</div></div>
   </div>
-
-  <!-- Chief complaint distribution -->
   <div class="card">
-    <h3>Chief complaint distribution</h3>
+    <h2>Chief complaint distribution</h2>
     <div class="bar-chart">
       ${ccKeys.slice(0, 8).map(k => {
         const pct = Math.round((ccDist[k] / ccMax) * 100);
-        return `<div class="bar-col">
-          <div class="bar-fill" style="height:${pct}%;background:var(--primary)"></div>
-          <div class="bar-lbl">${esc(k)}<br><b>${ccDist[k]}</b></div>
-        </div>`;
+        return `<div class="bar-col"><div class="bar-fill" style="height:${pct}%"></div><div class="bar-lbl">${esc(k)}<br><b>${ccDist[k]}</b></div></div>`;
       }).join("") || "<p class='mut'>No data</p>"}
     </div>
   </div>
-
-  <!-- Priority distribution -->
   <div class="card">
-    <h3>Priority mix</h3>
+    <h2>Priority mix</h2>
     <div class="eda-kpi">
       ${Object.entries(summary.priority_dist || {}).map(([p, n]) => `
-        <div class="kpi-box ${["","danger","warn","teal"][+p] || ""}">
-          <div class="val">${n}</div>
-          <div class="lbl">${["","Emergency","Urgent","Routine"][+p] || "P"+p}</div>
-        </div>`).join("")}
+        <div class="kpi-box ${["","danger","warn","teal"][+p] || ""}"><div class="val">${n}</div><div class="lbl">${["","Emergency","Urgent","Routine"][+p] || "P"+p}</div></div>`).join("")}
     </div>
   </div>
-
-  <!-- Red flags -->
   ${Object.keys(summary.flag_code_dist || {}).length ? `
-  <div class="card">
-    <h3>Red-flag codes</h3>
-    <table class="mt-sm">
-      <thead><tr><th>Code</th><th>Count</th></tr></thead>
-      <tbody>${Object.entries(summary.flag_code_dist).map(([c, n]) => `<tr><td>${esc(c)}</td><td><b>${n}</b></td></tr>`).join("")}</tbody>
-    </table>
+  <div class="card"><h2>Red-flag codes</h2>
+    <table class="mt-sm"><thead><tr><th>Code</th><th>Count</th></tr></thead>
+      <tbody>${Object.entries(summary.flag_code_dist).map(([c, n]) => `<tr><td>${esc(c)}</td><td><b>${n}</b></td></tr>`).join("")}</tbody></table>
   </div>` : ""}
-
-  <!-- Lab stats -->
   ${Object.keys(labs.lab_stats || {}).length ? `
-  <div class="card">
-    <h3>Lab value EDA (${labs.total_docs_analysed || 0} docs)</h3>
-    <table class="mt-sm">
-      <thead><tr><th>Test</th><th>n</th><th>Mean</th><th>Min</th><th>Max</th><th>Abnormal%</th></tr></thead>
+  <div class="card"><h2>Lab value EDA (${labs.total_docs_analysed || 0} docs)</h2>
+    <table class="mt-sm stack-table"><thead><tr><th>Test</th><th>n</th><th>Mean</th><th>Min</th><th>Max</th><th>Abnormal%</th></tr></thead>
       <tbody>${Object.entries(labs.lab_stats).map(([test, s]) => `
-        <tr>
-          <td>${esc(test)}</td>
-          <td>${s.n}</td>
-          <td>${s.mean}</td>
-          <td>${s.min}</td>
-          <td>${s.max}</td>
-          <td><span class="chip ${s.abnormal_pct > 30 ? "chip-emergency" : "chip-routine"}">${s.abnormal_pct}%</span></td>
-        </tr>`).join("")}</tbody>
-    </table>
+        <tr><td data-label="Test">${esc(test)}</td><td data-label="n">${s.n}</td><td data-label="Mean">${s.mean}</td><td data-label="Min">${s.min}</td><td data-label="Max">${s.max}</td>
+        <td data-label="Abnormal%"><span class="chip ${s.abnormal_pct > 30 ? "chip-emergency" : "chip-routine"}">${s.abnormal_pct}%</span></td></tr>`).join("")}</tbody></table>
   </div>` : ""}
-
-  <!-- Data quality -->
   <div class="card">
-    <h3>Data cleaning pipeline</h3>
+    <h2>Data cleaning pipeline</h2>
     <ol style="padding-left:20px;font-size:.88rem;line-height:1.9;margin-top:8px">
       ${(quality.cleaning_pipeline || []).map(s => `<li>${esc(s)}</li>`).join("")}
     </ol>
-    ${quality.entity_extraction_coverage_pct ? `
-    <div class="eda-kpi mt">
-      ${Object.entries(quality.entity_extraction_coverage_pct).map(([k, v]) => `
-        <div class="kpi-box teal"><div class="val">${v}%</div><div class="lbl">${esc(k)} coverage</div></div>`).join("")}
-    </div>` : ""}
-    ${quality.ocr_engine_dist ? `
-    <table class="mt">
-      <thead><tr><th>OCR Engine</th><th>Documents</th></tr></thead>
-      <tbody>${Object.entries(quality.ocr_engine_dist).map(([e, n]) => `<tr><td>${esc(e)}</td><td>${n}</td></tr>`).join("")}</tbody>
-    </table>` : ""}
   </div>
-
-  <p class="mut caption center mt" style="padding-bottom:8px">Reference: MIMIC-III benchmarks · Rajkomar et al. 2019 audit trail guidelines</p>
   `);
 }
 
-// ─── Help page ────────────────────────────────────────────────────────────
 function helpPage() {
+  setNav("help");
   R(`
-  <div class="mt">
-    <h2>Physician Guide</h2>
-    <p class="subtitle">How to use the MediKiosk console</p>
-  </div>
+  <div class="mt"><p class="eyebrow">Guide</p><h1>Physician guide</h1><p class="subtitle">How to use the MediKiosk console</p></div>
   <div class="card">
-    <h3>Workflow</h3>
+    <h2>Workflow</h2>
     <div class="timeline mt-sm">
       <div class="timeline-item"><div class="timeline-dot"></div>
-        <div class="timeline-title">Patient completes intake kiosk</div>
-        <div class="timeline-body">Voice/touch interview → document upload → consent → summary generated</div>
-      </div>
-      <div class="timeline-item"><div class="timeline-dot teal"></div>
-        <div class="timeline-title">Record appears in your queue</div>
-        <div class="timeline-body">Emergency → Urgent → Routine ordering. Queue auto-refreshes every 15s.</div>
-      </div>
-      <div class="timeline-item"><div class="timeline-dot warn"></div>
-        <div class="timeline-title">Review and edit the draft</div>
-        <div class="timeline-body">All sections are editable. Red-flag rules and evidence are provisional and require clinical review.</div>
+        <div class="timeline-title">Patient completes intake</div>
+        <div class="timeline-body">Guided interview, optional document upload, consent, then a draft summary.</div>
       </div>
       <div class="timeline-item"><div class="timeline-dot"></div>
-        <div class="timeline-title">Confirm, Amend or Reject</div>
-        <div class="timeline-body">Saved status + FHIR R4 bundle generated for ABDM.</div>
+        <div class="timeline-title">Record appears in the queue</div>
+        <div class="timeline-body">Emergency → Urgent → Routine. The queue refreshes while open.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot warn"></div>
+        <div class="timeline-title">Review the draft</div>
+        <div class="timeline-body">Sections are editable. Red-flag suggestions are provisional and require clinical review.</div>
+      </div>
+      <div class="timeline-item"><div class="timeline-dot"></div>
+        <div class="timeline-title">Approve, amend, or reject</div>
+        <div class="timeline-body">Saved status and FHIR R4 bundle for ABDM.</div>
       </div>
     </div>
   </div>
   <div class="card">
-    <h3>Red-flag codes</h3>
-    <table class="mt-sm">
+    <h2>Red-flag codes</h2>
+    <table class="mt-sm stack-table">
       <thead><tr><th>Code</th><th>Meaning</th><th>Level</th></tr></thead>
       <tbody>
-        <tr><td>ACS</td><td>Possible acute coronary syndrome</td><td><span class="chip chip-emergency">Emergency</span></td></tr>
-        <tr><td>STROKE</td><td>Focal weakness — possible stroke</td><td><span class="chip chip-emergency">Emergency</span></td></tr>
-        <tr><td>RESP</td><td>Severe breathlessness</td><td><span class="chip chip-emergency">Emergency</span></td></tr>
-        <tr><td>SAH_MENING</td><td>Thunderclap headache / meningism</td><td><span class="chip chip-emergency">Emergency</span></td></tr>
-        <tr><td>GIB</td><td>Possible GI bleed</td><td><span class="chip chip-urgent">Urgent</span></td></tr>
-        <tr><td>TB_HAEMOPTYSIS</td><td>Haemoptysis / TB pattern</td><td><span class="chip chip-urgent">Urgent</span></td></tr>
-        <tr><td>SYNCOPE</td><td>Severe symptoms with syncope</td><td><span class="chip chip-urgent">Urgent</span></td></tr>
-        <tr><td>KEYWORD</td><td>Emergency keyword in patient text</td><td><span class="chip chip-emergency">Emergency</span></td></tr>
+        <tr><td data-label="Code">ACS</td><td data-label="Meaning">Possible acute coronary syndrome</td><td data-label="Level"><span class="chip chip-emergency">Emergency</span></td></tr>
+        <tr><td data-label="Code">STROKE</td><td data-label="Meaning">Focal weakness — possible stroke</td><td data-label="Level"><span class="chip chip-emergency">Emergency</span></td></tr>
+        <tr><td data-label="Code">RESP</td><td data-label="Meaning">Severe breathlessness</td><td data-label="Level"><span class="chip chip-emergency">Emergency</span></td></tr>
+        <tr><td data-label="Code">SAH_MENING</td><td data-label="Meaning">Thunderclap headache / meningism</td><td data-label="Level"><span class="chip chip-emergency">Emergency</span></td></tr>
+        <tr><td data-label="Code">GIB</td><td data-label="Meaning">Possible GI bleed</td><td data-label="Level"><span class="chip chip-urgent">Urgent</span></td></tr>
+        <tr><td data-label="Code">TB_HAEMOPTYSIS</td><td data-label="Meaning">Haemoptysis / TB pattern</td><td data-label="Level"><span class="chip chip-urgent">Urgent</span></td></tr>
+        <tr><td data-label="Code">SYNCOPE</td><td data-label="Meaning">Severe symptoms with syncope</td><td data-label="Level"><span class="chip chip-urgent">Urgent</span></td></tr>
+        <tr><td data-label="Code">KEYWORD</td><td data-label="Meaning">Emergency keyword in patient text</td><td data-label="Level"><span class="chip chip-emergency">Emergency</span></td></tr>
       </tbody>
     </table>
   </div>
   <div class="card">
-    <h3>Model and evidence status</h3>
-    <p style="font-size:.88rem;line-height:1.7;margin-top:6px">
-      No trained clinical risk classifier or disease-prediction checkpoint is included in this project. The patient summary is an extraction-first draft, and red-flag suggestions are generated by provisional deterministic rules. Do not interpret them as a diagnosis or as a validated probability.
-    </p>
-    <p class="mut caption mt-sm">Relevant research candidates: <a href="https://aclanthology.org/2024.emnlp-main.936/" target="_blank" rel="noopener">MediTOD (2024)</a> for history-taking dialogue and <a href="https://aclanthology.org/2025.nlpai4health-main.10/" target="_blank" rel="noopener">NLP4Health (2025)</a> for multilingual summarization/QA.</p>
+    <h2>Model and evidence status</h2>
+    <p class="mt-sm">No trained clinical risk classifier is included. The patient summary is an extraction-first draft. Red-flag suggestions are provisional deterministic rules. Absence of a warning does not mean the patient is safe.</p>
   </div>
-  <p class="mut caption center mt">MediKiosk v1.0 · SIH PS-4 · Ministry of Ayush / AIIA<br>Not clinically validated. Physician remains responsible.</p>
   `);
 }
 
-// ─── Bootstrap ────────────────────────────────────────────────────────────
-TOKEN ? queue() : login();
+TOKEN ? overview() : login();
 </script>
-</body></html>
+</body>
+</html>

@@ -63,3 +63,13 @@ with document-level and span-level references. Report baseline and proposed
 systems on the same fixed, leakage-safe split, including the number of
 documents/pages and confidence intervals where feasible. Clinical review and
 local regulatory/privacy approval remain required.
+
+## Structured laboratory findings
+
+Uploaded laboratory results are emitted in the dedicated `Laboratory and Investigation
+Findings` summary section. Each finding includes the test, value, normalized unit,
+comparison interval, comparison state, report date, source document, source span,
+explanation, uncertainty, and pending clinician-review status. A report-supplied
+interval takes precedence. When a report omits an interval, the configured baseline
+is explicitly disclosed and the finding still requires clinician confirmation; it is
+not treated as a diagnosis or clearance.

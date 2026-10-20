@@ -1,4 +1,4 @@
-from app.history_agent import HistoryTakingAgent
+from app.history_agent import AdaptiveHistoryTakingAgent, HistoryTakingAgent
 
 
 def test_stateful_questions_are_unique_and_persistable():
@@ -11,6 +11,17 @@ def test_stateful_questions_are_unique_and_persistable():
     assert second.question["id"] == "dur"
     assert third.question["id"] == "sev"
     assert restored.next_response().question["id"] == "sev"
+
+
+def test_adaptive_contract_records_slot_provenance_and_attempts():
+    agent = AdaptiveHistoryTakingAgent()
+    agent.answer("cc", "Chest pain")
+    agent.answer("cc", "Chest pain, still present")
+    slot = agent.state["slot_state"]["cc"]
+    assert slot["source"] == "patient"
+    assert slot["provenance"]["source_type"] == "patient"
+    assert slot["attempts"] == 2
+    assert slot["last_attempt"] == 2
 
 
 def test_negation_and_uncertainty_are_retained_without_inference():

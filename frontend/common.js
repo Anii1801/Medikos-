@@ -1,6 +1,9 @@
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const API_BASE = (window.MEDIKIOSK_API_BASE || "https://medikos.onrender.com").replace(/\/+$/, "");
+const API_BASE = (window.MEDIKIOSK_API_BASE != null
+  ? String(window.MEDIKIOSK_API_BASE)
+  : (["localhost", "127.0.0.1"].includes(location.hostname) ? "" : "https://medikos.onrender.com")
+).replace(/\/+$/, "");
 let TOKEN = sessionStorage.getItem("mk_token") || "";
 async function api(path, opt = {}) {
   const h = { ...(opt.headers || {}) };
@@ -14,9 +17,47 @@ async function api(path, opt = {}) {
 function setToken(t) { TOKEN = t; sessionStorage.setItem("mk_token", t); }
 function a11y() {
   const R = document.documentElement;
-  $("#big").onclick = () => R.toggleAttribute("data-big");
-  $("#hc").onclick = () => R.toggleAttribute("data-hc");
+  const big = $("#big");
+  const hc = $("#hc");
+  if (big) big.onclick = () => R.toggleAttribute("data-big");
+  if (hc) hc.onclick = () => R.toggleAttribute("data-hc");
 }
+
+function mkLogo({ compact = false, inverted = false } = {}) {
+  const mark = `<span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" focusable="false">
+    <rect width="32" height="32" rx="7" fill="currentColor"/>
+    <path d="M5 17h5.2l2.3-6.2 3.4 12.4L18.6 17H27" fill="none" stroke="#F4F7F5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg></span>`;
+  if (compact) return mark;
+  return `<span class="brand"${inverted ? ' style="color:#fff"' : ""}>${mark}<span class="brand-copy"><span class="brand-name"${inverted ? ' style="color:#fff"' : ""}>MediKiosk</span></span></span>`;
+}
+
+function bindBusy(id, fn) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener("click", async e => {
+    if (btn.disabled) return;
+    btn.disabled = true;
+    btn.classList.add("is-loading");
+    try { await fn(e, btn); }
+    finally {
+      if (document.body.contains(btn)) {
+        btn.disabled = false;
+        btn.classList.remove("is-loading");
+      }
+    }
+  });
+}
+
+const ICONS = {
+  history: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></svg>`,
+  reports: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>`,
+  timeline: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h13"/><circle cx="18" cy="12" r="1.4"/><circle cx="15" cy="18" r="1.4"/></svg>`,
+  summary: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 4h12v16H6z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>`,
+  privacy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`,
+  upload: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V6M8 10l4-4 4 4"/><path d="M5 18h14"/></svg>`,
+  warn: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4 3 19h18L12 4z"/><path d="M12 10v5M12 17.5v.5"/></svg>`
+};
 
 /* ── Clinical report: summary → red-flag suggestions → clinician review ──
    Block order is fixed by report.display_order; the red-flag block is ALWAYS the next sibling of the summary. */
@@ -25,9 +66,19 @@ const RF_NOTICE = "AI-generated decision-support information. Not a confirmed di
 const RF_UNAVAILABLE = "Red-flag screening is unavailable or incomplete for this record. This is not a clear result; obtain clinician review.";
 const RF_NONE = "No red-flag rule was triggered by the available information. This does not rule out an emergency.";
 
+function sourceClass(ref) {
+  if (!ref) return "source-system";
+  if (ref.source_type === "document") return "source-document";
+  if (ref.source_type === "patient") return "source-patient";
+  return "source-system";
+}
+
 function reportSummaryHtml(rep, opt) {
   const cs = rep.clinical_summary, edit = opt.mode === "clinician";
-  const refs = x => (x.source_refs || []).map(r => esc(r.source_type === "document" ? "document: " + (r.filename || r.source_id) : "patient answer: " + r.source_id)).join(", ");
+  const refs = x => (x.source_refs || []).map(r => {
+    const label = r.source_type === "document" ? "document: " + (r.filename || r.source_id) : "patient answer: " + r.source_id;
+    return `<span class="source-badge ${sourceClass(r)}">${esc(label)}</span>`;
+  }).join(" ");
   const miss = cs.missing_or_uncertain || {};
   const secs = (opt.sections || cs.sections).map((x, i) => `
     <div class="sum-sec">
@@ -67,7 +118,7 @@ function reportRedFlagsHtml(rep, opt) {
   } else {
     body = rf.items.map(it => `
       <article class="rf-item rf-${esc(it.urgency.toLowerCase())}" ${it.urgency === "EMERGENCY" ? 'role="alert"' : ""} data-rule="${esc(it.rule_id)}">
-        <h3><span aria-hidden="true">${icon(it.urgency)}</span> <span class="rf-urg">${esc(it.urgency)}</span> \u2014 ${esc(it.title)}</h3>
+        <h3><span aria-hidden="true">${ICONS.warn}</span> <span class="rf-urg">${esc(it.urgency)}</span> \u2014 ${esc(it.title)}</h3>
         ${it.immediate_instruction ? `<p class="rf-now"><b>${esc(it.immediate_instruction)}</b></p>` : ""}
         <dl>
           <dt>Why it triggered</dt><dd>${esc(it.reason)}</dd>
@@ -78,9 +129,11 @@ function reportRedFlagsHtml(rep, opt) {
           <dt>Next step</dt><dd>${esc(it.next_step)} <span class="caption mut">(${esc(it.rule_review_note)}; ${esc(it.rule_source)})</span></dd>
           <dt>Human review</dt><dd>${it.human_review_required ? "Required" : "Not required"}</dd>
         </dl>
-        ${edit ? `<div class="row" role="group" aria-label="Review ${esc(it.rule_id)}">
-          <label><input type="radio" name="fr-${esc(it.rule_id)}" value="confirmed" ${review[it.rule_id] === "confirmed" ? "checked" : ""}> Confirm finding</label>
-          <label><input type="radio" name="fr-${esc(it.rule_id)}" value="rejected" ${review[it.rule_id] === "rejected" ? "checked" : ""}> Reject finding</label></div>` : ""}
+        ${edit ? `<div class="review-group" role="group" aria-label="Review ${esc(it.rule_id)}">
+          <label><input type="radio" name="fr-${esc(it.rule_id)}" value="confirmed" ${review[it.rule_id] === "confirmed" ? "checked" : ""}> Accept</label>
+          <label><input type="radio" name="fr-${esc(it.rule_id)}" value="rejected" ${review[it.rule_id] === "rejected" ? "checked" : ""}> Reject</label>
+          <label><input type="radio" name="fr-${esc(it.rule_id)}" value="needs_review" ${review[it.rule_id] === "needs_review" ? "checked" : ""}> Request clarification</label>
+        </div>` : ""}
       </article>`).join("");
   }
   const notes = (rf.context_notes || []).map(n => `<li>${esc(n)}</li>`).join("");
@@ -88,6 +141,7 @@ function reportRedFlagsHtml(rep, opt) {
   return `<section class="rep-card rf-section" id="red-flag-suggestions" aria-labelledby="rf-h" data-block="red_flag_suggestions">
     <h2 id="rf-h">${esc(rf.label || RF_LABEL)}</h2>
     <p class="rf-notice" data-testid="rf-notice"><b>${esc(rf.notice || RF_NOTICE)}</b></p>
+    <p class="rf-explain">Potential concerns identified for clinician review. These suggestions do not establish a diagnosis.</p>
     ${body}${miss}${notes ? `<div class="caption"><b>Context for clinician</b><ul>${notes}</ul></div>` : ""}
   </section>`;
 }
@@ -101,7 +155,7 @@ function reportReviewHtml(rep, opt) {
     <div class="row mt" style="flex-wrap:wrap">
       <button class="btn btn-teal" id="cf">Approve summary</button>
       <button class="btn btn-outline" id="am">Save as amended</button>
-      <button class="btn btn-outline" style="border-color:var(--danger);color:var(--danger)" id="rj">Reject</button>
+      <button class="btn btn-outline btn-danger" id="rj">Reject</button>
       <button class="btn btn-outline" id="fhbtn">{ } Export FHIR</button>
     </div></section>`;
 }

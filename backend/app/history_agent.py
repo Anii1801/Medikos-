@@ -91,10 +91,21 @@ def merge_answer(state: dict[str, Any], field: str, value: Any) -> tuple[dict[st
     status = classify_answer(value)
     if status == "uncertain" and field not in uncertainty:
         uncertainty.append(field)
-    history.append({"field": field, "value": value, "status": status})
+    slot_state = dict(state.get("slot_state", {}))
+    attempts = int(slot_state.get(field, {}).get("attempts", 0)) + 1
+    slot_state[field] = {
+        "value": value,
+        "status": status,
+        "source": "patient",
+        "provenance": {"source_type": "patient", "source_id": "interview"},
+        "attempts": attempts,
+        "last_attempt": len(history) + 1,
+    }
+    history.append({"field": field, "value": value, "status": status, "source": "patient",
+                    "attempt": attempts})
     return (
         {**state, "answers": answers, "answer_history": history, "conflicts": sorted(set(conflicts)),
-         "uncertainty": sorted(set(uncertainty))},
+         "uncertainty": sorted(set(uncertainty)), "slot_state": slot_state},
         sorted(set(conflicts)),
         sorted(set(uncertainty)),
     )
@@ -135,7 +146,8 @@ class HistoryTakingAgent:
     budget: int = 30
     session_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     state: dict[str, Any] = field(default_factory=lambda: {
-        "answers": {}, "asked_questions": [], "answer_history": [], "conflicts": [], "uncertainty": []
+        "answers": {}, "asked_questions": [], "answer_history": [], "conflicts": [], "uncertainty": [],
+        "slot_state": {},
     })
 
     def answer(self, field: str, value: Any) -> QuestionResponse:
@@ -192,6 +204,7 @@ class HistoryTakingAgent:
         agent = cls(adapter=adapter or DevelopmentAdapter(), budget=int(data.get("budget", 30)),
                     session_id=str(data.get("session_id") or uuid.uuid4()))
         agent.state = data.get("state") or agent.state
+        agent.state.setdefault("slot_state", {})
         return agent
 
     @staticmethod
@@ -206,6 +219,12 @@ class HistoryTakingAgent:
         if not isinstance(candidate["options"], list):
             return fallback
         return {**fallback, "en": candidate["en"], "hi": candidate["hi"]}
+
+
+class AdaptiveHistoryTakingAgent(HistoryTakingAgent):
+    """Explicit contract for the safety-first adaptive history baseline."""
+
+    pass
 
 
 DEFAULT_AGENT = HistoryTakingAgent()

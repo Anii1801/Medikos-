@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse, FileResponse
 from pydantic import BaseModel
 from . import asr, db, ontology, ocr, summary, fhir, llm, datasets, clinical_report
-from .history_agent import HistoryTakingAgent, QuestionResponse
+from .history_agent import AdaptiveHistoryTakingAgent, QuestionResponse
 from .redflag_engine import RedFlagEngine, RedFlagResult, rules_manifest
 from .eda_api import router as eda_router
 
@@ -112,7 +112,7 @@ class InterviewAnswer(BaseModel):
     field: str
     value: object
 
-def _save_interview(agent: HistoryTakingAgent, uid: int):
+def _save_interview(agent: AdaptiveHistoryTakingAgent, uid: int):
     now = time.time()
     payload = db.j(agent.to_dict())
     with db.tx() as c:
@@ -121,18 +121,18 @@ def _save_interview(agent: HistoryTakingAgent, uid: int):
                      ON CONFLICT(id) DO UPDATE SET state=excluded.state, adapter=excluded.adapter, updated=excluded.updated""",
                   (agent.session_id, uid, payload, agent.adapter.name, now, now))
 
-def _load_interview(session_id: str, uid: int) -> HistoryTakingAgent:
+def _load_interview(session_id: str, uid: int) -> AdaptiveHistoryTakingAgent:
     with db.tx() as c:
         row = c.execute("SELECT state FROM history_sessions WHERE id=? AND user_id=?", (session_id, uid)).fetchone()
     if not row:
         raise HTTPException(404, "Interview session not found")
-    return HistoryTakingAgent.from_dict(json.loads(row["state"]))
+    return AdaptiveHistoryTakingAgent.from_dict(json.loads(row["state"]))
 
 @app.post("/api/interview/sessions", response_model=QuestionResponse)
 def create_interview_session(req: InterviewSessionCreate, u=Depends(user)):
     if not 1 <= req.budget <= 60:
         raise HTTPException(422, "Budget must be between 1 and 60 questions")
-    agent = HistoryTakingAgent(budget=req.budget)
+    agent = AdaptiveHistoryTakingAgent(budget=req.budget)
     agent.state["answers"]["_ay"] = req.ayush
     response = agent.next_response()
     _save_interview(agent, u["id"])
@@ -153,7 +153,7 @@ def get_interview(session_id: str, u=Depends(user)):
 @app.post("/api/interview/next")
 def interview(t: Turn, u=Depends(user)):
     a = dict(t.answers); a["_ay"] = t.ayush
-    return HistoryTakingAgent().next_response(a).model_dump()
+    return AdaptiveHistoryTakingAgent().next_response(a).model_dump()
 
 # ---------- speech recognition ----------
 class BrowserTranscript(BaseModel):

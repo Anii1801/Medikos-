@@ -13,6 +13,48 @@ def _doc_refs(docs: list[dict]) -> list[dict]:
     return [{"source_type": "document", "source_id": d.get("id"), "filename": d.get("filename"),
              "date": d.get("date"), "engine": d.get("engine")} for d in docs]
 
+
+def _laboratory_findings(docs: list[dict]) -> list[dict]:
+    findings = []
+    for document in docs:
+        entities = document.get("entities") or {}
+        for lab in entities.get("labs", []):
+            source = lab.get("source") or {}
+            flag = lab.get("flag")
+            status = {
+                "low": "below_reference_interval",
+                "high": "above_reference_interval",
+                "normal": "within_reference_interval",
+            }.get(flag, "unable_to_interpret")
+            uncertainty = []
+            if lab.get("reference_source") != "document":
+                uncertainty.append("The report did not provide a reference interval; configured baseline used.")
+            if lab.get("status") != "reported":
+                uncertainty.append(f"Extraction status: {lab.get('status')}.")
+            if lab.get("confidence", 1) < 0.8:
+                uncertainty.append("Extraction confidence is below the review threshold.")
+            explanation = {
+                "below_reference_interval": "The value is below the supplied comparison interval.",
+                "above_reference_interval": "The value is above the supplied comparison interval.",
+                "within_reference_interval": "The value is within the supplied comparison interval; this is not a clearance.",
+                "unable_to_interpret": "The result cannot be interpreted without a valid reference interval.",
+            }[status]
+            findings.append({
+                "test_name": lab.get("test"),
+                "result": lab.get("value"),
+                "unit": lab.get("unit"),
+                "reference_interval": lab.get("ref"),
+                "status": status,
+                "report_date": document.get("date"),
+                "source_document": document.get("filename"),
+                "source": source,
+                "explanation": explanation,
+                "uncertainty": uncertainty,
+                "clinician_review_status": "pending",
+            })
+    return findings
+
+
 def build_sections(user: dict, a: dict, docs: list[dict]) -> list[dict]:
     S = []
     S.append({"title": "Patient", "text": f"{user.get('name') or 'Unnamed'}, {user.get('age') or 'age not reported'}" + (f" · ABHA {user['abha']}" if user.get("abha") else ""), "source_refs": []})
@@ -58,6 +100,14 @@ def build_sections(user: dict, a: dict, docs: list[dict]) -> list[dict]:
         ab = ocr.abnormal(labs)
         S.append({"title": "Abnormal values (prior reports)", "text": "\n".join(ab) or "None detected",
                   "source_refs": refs, "review_flags": ["verify_against_original_report"] if ab else []})
+        lab_findings = _laboratory_findings(ds)
+        S.append({
+            "title": "Laboratory and Investigation Findings",
+            "text": "Structured findings extracted from uploaded reports; confirm against the original document.",
+            "findings": lab_findings,
+            "source_refs": refs,
+            "review_flags": ["clinician_confirmation_required"],
+        })
         patient_medications = {x.strip().split()[0].lower() for x in re.split(r"[,;\n]", declared) if x.strip()}
         documented = {m["name"].lower(): m for d in ds for m in d["entities"].get("medications", [])}
         dose_conflicts = [f"{name}: patient reports '{declared}', document reports {m.get('dose') or 'dose not stated'}"
