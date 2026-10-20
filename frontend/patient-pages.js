@@ -8,7 +8,8 @@ function pageShell(title, active, content) {
         <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M5 17h5.2l2.3-6.2 3.4 12.4L18.6 17H27" fill="none" stroke="#F4F7F5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="brand-copy"><span class="brand-name">MediKiosk</span><span class="brand-tagline">Your health, organized.</span></span>
       </a>
-      <nav class="page-nav" aria-label="Patient workspace">
+      <button class="menu-toggle" id="patient-menu-toggle" type="button" aria-expanded="false" aria-controls="patient-nav" aria-label="Open workspace menu">Menu</button>
+      <nav class="page-nav" id="patient-nav" aria-label="Patient workspace">
         ${[
           ["dashboard.html", "Dashboard", "dashboard"],
           ["interview.html", "Medical History", "interview"],
@@ -22,7 +23,16 @@ function pageShell(title, active, content) {
     </header>
     <main class="patient-page page">${content}</main>
   `;
-  document.getElementById("page-signout").onclick = () => {
+  const menu = document.getElementById("patient-menu-toggle");
+  const nav = document.getElementById("patient-nav");
+  menu.onclick = () => {
+    const expanded = menu.getAttribute("aria-expanded") === "true";
+    menu.setAttribute("aria-expanded", String(!expanded));
+    nav.classList.toggle("is-open", !expanded);
+  };
+  document.getElementById("page-signout").onclick = async () => {
+    try { await api("/auth/logout", { method: "POST" }); }
+    catch (e) { console.error("Sign out failed", e); }
     sessionStorage.removeItem("mk_token");
     window.location.href = "index.html";
   };
@@ -48,7 +58,8 @@ function pageError(message) {
 async function renderDashboard() {
   const me = await requireUser(); if (!me) return;
   let records = [];
-  try { records = await api("/records"); } catch (_) {}
+  let recordsError = "";
+  try { records = await api("/records"); } catch (e) { recordsError = e.message; }
   pageShell("Dashboard", "dashboard", `
     <p class="eyebrow">PATIENT DASHBOARD</p>
     <h1>Welcome${me.name ? ", " + esc(me.name.split(" ")[0]) : ""}</h1>
@@ -63,6 +74,8 @@ async function renderDashboard() {
       <a class="patient-card" href="timeline.html"><span class="action-icon">${ICONS.timeline}</span><h2>Health Timeline</h2><p>${records.length ? `${records.length} recorded encounter${records.length === 1 ? "" : "s"}.` : "No encounters recorded yet."}</p></a>
       <a class="patient-card" href="summary.html"><span class="action-icon">${ICONS.summary}</span><h2>My Summary</h2><p>Review an available generated draft and its source information.</p></a>
     </div>
+    ${recordsError ? `<div class="alert alert-urgent mt" role="alert">Recent activity could not be loaded: ${esc(recordsError)}</div>` :
+      records.length ? `<section class="card mt" aria-labelledby="recent-heading"><h2 id="recent-heading">Recent activity</h2><div class="document-list">${records.slice(0, 3).map(r => `<div class="document-row"><span>Encounter ${esc(r.token_no)}</span><span class="chip">${esc(r.status)}</span></div>`).join("")}</div></section>` : ""}
   `);
 }
 
@@ -95,7 +108,8 @@ async function renderInterview() {
 async function renderReports() {
   const me = await requireUser(); if (!me) return;
   let docs = [];
-  try { docs = await api("/documents"); } catch (_) {}
+  let docsError = "";
+  try { docs = await api("/documents"); } catch (e) { docsError = e.message; }
   pageShell("Medical Reports", "reports", `
     <p class="eyebrow">MEDICAL REPORTS</p><h1>Documents</h1>
     <p class="subtitle">Upload prescriptions, laboratory reports, and other medical documents.</p>
@@ -105,8 +119,11 @@ async function renderReports() {
       <button class="btn" id="upload-report" type="button">Upload Report</button>
       <p id="report-status" class="caption" aria-live="polite"></p>
     </div>
-    <div class="card"><h2>Uploaded documents</h2>
-      ${docs.length ? `<div class="document-list">${docs.map(d => `<div class="document-row"><b>${esc(d.filename || d.name || "Document")}</b><span class="chip">${esc(d.status || "Uploaded")}</span></div>`).join("")}</div>` : `<p class="empty-state">No documents uploaded yet.</p>`}
+    ${docsError ? `<div class="alert alert-urgent" role="alert">Documents could not be loaded: ${esc(docsError)}</div>` : `<div class="card"><h2>Uploaded documents</h2>
+      ${docs.length ? `<div class="document-list">${docs.map(d => `<details class="document-row"><summary><b>${esc(d.filename || d.name || "Document")}</b><span class="chip">${esc(d.doc_type || "Uploaded")}</span></summary>
+        <p class="caption">Source: ${esc(d.filename || "uploaded document")} · Extraction engine: ${esc(d.engine || "not reported")}</p>
+        ${d.entities?.labs?.length ? `<h3>Laboratory findings</h3><div class="table-wrap"><table class="stack-table"><thead><tr><th>Test</th><th>Value</th><th>Reference range</th><th>Uncertainty</th></tr></thead><tbody>${d.entities.labs.map(l => `<tr><td data-label="Test">${esc(l.test)}</td><td data-label="Value">${esc(l.value)} ${esc(l.unit)}</td><td data-label="Reference range">${esc(l.ref || "Not provided")}</td><td data-label="Uncertainty">${esc(l.uncertainty || l.reference_source || "Not reported")}</td></tr>`).join("")}</tbody></table></div>` : `<p class="caption">No laboratory findings were extracted from this document.</p>`}
+      </details>`).join("")}</div>` : `<p class="empty-state">No documents uploaded yet.</p>`}</div>`}
     </div>
   `);
   document.getElementById("upload-report").onclick = async () => {
@@ -128,7 +145,14 @@ async function renderTimeline() {
 
 async function renderSummary() {
   const me = await requireUser(); if (!me) return;
-  pageShell("My Summary", "summary", `<p class="eyebrow">MY SUMMARY</p><h1>Clinical summary</h1><p class="subtitle">Only summaries confirmed by the application are shown here.</p><div class="empty-state">Complete and submit a medical history interview to create a summary.</div>`);
+  let records = [];
+  try { records = await api("/records"); } catch (e) { pageError("Summary records could not be loaded: " + e.message); return; }
+  let report = null;
+  if (records[0]) {
+    try { report = (await api("/records/" + records[0].id)).clinical_report; }
+    catch (e) { pageError("The latest summary could not be loaded: " + e.message); return; }
+  }
+  pageShell("My Summary", "summary", `<p class="eyebrow">MY SUMMARY</p><h1>Clinical summary</h1><p class="subtitle">Patient-reported and document-extracted information remain attributed and unresolved conflicts are preserved.</p>${report ? renderClinicalReport(report, { mode: "patient" }) : `<div class="empty-state">Complete and submit a medical history interview to create a summary.</div>`}`);
 }
 
 async function renderSettings() {

@@ -63,6 +63,14 @@ def guest(name: str = "", age: str = "", abha: str = ""):
         uid = db.add_user(c, "guest-" + secrets.token_hex(5), secrets.token_hex(8), "guest", name, age, abha)
         return {"token": db.new_session(c, uid), "role": "guest"}
 
+@app.post("/api/auth/logout")
+def logout(authorization: Optional[str] = Header(None)):
+    tok = (authorization or "").removeprefix("Bearer ").strip()
+    if tok:
+        with db.tx() as c:
+            c.execute("DELETE FROM sessions WHERE token=?", (tok,))
+    return {"ok": True}
+
 @app.get("/api/me")
 def me(u=Depends(user)):
     return {k: u[k] for k in ("id", "username", "role", "name", "age", "abha")}
@@ -387,6 +395,14 @@ def my_records(u=Depends(user)):
     with db.tx() as c:
         rows = c.execute("SELECT id,token_no,priority,status,flags,created,abdm_ref FROM records WHERE user_id=? ORDER BY id DESC", (u["id"],)).fetchall()
     return [{**dict(r), "flags": json.loads(r["flags"])} for r in rows]
+
+@app.get("/api/records/{rid}")
+def my_record(rid: int, u=Depends(user)):
+    with db.tx() as c:
+        r = c.execute("SELECT * FROM records WHERE id=? AND user_id=?", (rid, u["id"])).fetchone()
+    if not r:
+        raise HTTPException(404, "Record not found")
+    return rec(r, True)
 
 # ---------- doctor ----------
 def rec(r, full=False):
