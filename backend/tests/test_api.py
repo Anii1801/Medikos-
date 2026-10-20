@@ -110,6 +110,20 @@ def test_register_login_erase():
     assert c.delete("/api/me/data", headers=H(t)).json()["erased"]
     assert c.get("/api/me", headers=H(t)).status_code == 401
 
+def test_doctor_can_reset_patient_password_without_deleting_data():
+    c.post("/api/auth/register", json={"username": "reset-me", "password": "oldpass", "name": "Reset Me"})
+    doctor_token = c.post("/api/auth/login", json={"username": "doctor", "password": "doctor123"}).json()["token"]
+    doctor_headers = H(doctor_token)
+    assert c.post("/api/auth/reset-password",
+                  json={"username": "reset-me", "new_password": "newpass"},
+                  headers=doctor_headers).status_code == 200
+    assert c.post("/api/auth/login", json={"username": "reset-me", "password": "oldpass"}).status_code == 401
+    patient_login = c.post("/api/auth/login", json={"username": "RESET-ME", "password": "newpass"})
+    assert patient_login.status_code == 200
+    assert c.get("/api/me", headers=H(patient_login.json()["token"])).json()["name"] == "Reset Me"
+    assert c.post("/api/auth/reset-password",
+                  json={"username": "reset-me", "new_password": "short"},
+                  headers=doctor_headers).status_code == 422
 
 def test_stateful_adaptive_interview_api_persists_answers_and_ayush_branch():
     token = c.post("/api/auth/guest?name=Adaptive").json()["token"]

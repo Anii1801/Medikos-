@@ -41,8 +41,18 @@ def init():
         # additive migration: store the AI clinical report (summary + red-flag block + review state)
         if "report" not in [r[1] for r in c.execute("PRAGMA table_info(records)")]:
             c.execute("ALTER TABLE records ADD COLUMN report TEXT")
-        if not c.execute("SELECT 1 FROM users WHERE role='doctor'").fetchone():
-            add_user(c, os.environ.get("DOCTOR_USER", "doctor"), os.environ.get("DOCTOR_PASS", "doctor123"), "doctor", "Dr. Demo")
+        doctor_username = os.environ.get("DOCTOR_USER", "doctor").strip() or "doctor"
+        doctor_password = os.environ.get("DOCTOR_PASS")
+        doctor = c.execute("SELECT * FROM users WHERE role='doctor' ORDER BY id LIMIT 1").fetchone()
+        if not doctor:
+            add_user(c, doctor_username, doctor_password or "doctor123", "doctor", "Dr. Demo")
+        elif doctor_password is not None and doctor_password:
+            # Keep an explicitly configured local/deployment credential in sync with
+            # the existing doctor row instead of silently retaining its old hash.
+            c.execute("UPDATE users SET username=? WHERE id=?", (doctor_username, doctor["id"]))
+            salt = secrets.token_hex(16)
+            c.execute("UPDATE users SET pw_hash=?, salt=? WHERE id=?",
+                      (_hash(doctor_password, salt), salt, doctor["id"]))
 
 def _hash(pw, salt):
     return hashlib.pbkdf2_hmac("sha256", pw.encode(), bytes.fromhex(salt), 120_000).hex()
@@ -54,8 +64,20 @@ def add_user(c, username, pw, role="patient", name="", age="", abha=""):
     return cur.lastrowid
 
 def check_login(c, username, pw):
-    r = c.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
+    username = username.strip()
+    r = c.execute("SELECT * FROM users WHERE lower(username)=lower(?)", (username,)).fetchone()
     return r if r and secrets.compare_digest(r["pw_hash"], _hash(pw, r["salt"])) else None
+
+def reset_password(c, username, pw):
+    username = username.strip()
+    user = c.execute("SELECT id, role FROM users WHERE lower(username)=lower(?)", (username,)).fetchone()
+    if not user:
+        return False
+    salt = secrets.token_hex(16)
+    c.execute("UPDATE users SET pw_hash=?, salt=? WHERE id=?",
+              (_hash(pw, salt), salt, user["id"]))
+    c.execute("DELETE FROM sessions WHERE user_id=?", (user["id"],))
+    return True
 
 def new_session(c, uid, ttl=8 * 3600):
     t = secrets.token_urlsafe(32)

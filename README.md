@@ -12,6 +12,8 @@ cp .env.example .env && docker compose up --build
 cd backend && python -m pytest -q    # 4 tests incl. real OCR on an image
 ```
 Before first run, copy `.env.example` to `.env` and set a strong `DOCTOR_PASS` and your desired `DOCTOR_USER`. The example password is intentionally a placeholder; do not use a demo credential for real patient data.
+When `DOCTOR_USER` or `DOCTOR_PASS` is set for an existing SQLite database, the doctor account is updated on startup. Existing patient accounts and their data are preserved. Usernames are matched case-insensitively and surrounding whitespace is ignored.
+A doctor can reset a patient password with `POST /api/auth/reset-password` using the doctor bearer token and `{ "username": "...", "new_password": "..." }`. This invalidates the patient’s existing sessions without deleting patient data. Doctor passwords remain controlled by `DOCTOR_USER` and `DOCTOR_PASS`.
 A local run needs Tesseract for image OCR (`apt install tesseract-ocr tesseract-ocr-hin`); Docker includes it.
 
 ### Bundled datasets

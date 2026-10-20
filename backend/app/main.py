@@ -41,6 +41,10 @@ class Reg(BaseModel):
 class Login(BaseModel):
     username: str; password: str
 
+class PasswordReset(BaseModel):
+    username: str
+    new_password: str
+
 @app.post("/api/auth/register")
 def register(r: Reg):
     if len(r.password) < 6 or len(r.username) < 3: raise HTTPException(422, "Username ≥3 and password ≥6 chars")
@@ -55,6 +59,20 @@ def login(r: Login):
         u = db.check_login(c, r.username, r.password)
         if not u: raise HTTPException(401, "Wrong username or password")
         return {"token": db.new_session(c, u["id"]), "role": u["role"]}
+
+@app.post("/api/auth/reset-password")
+def reset_password(r: PasswordReset, d=Depends(doctor)):
+    if len(r.new_password) < 6:
+        raise HTTPException(422, "Password must be at least 6 characters")
+    with db.tx() as c:
+        target = c.execute("SELECT role FROM users WHERE lower(username)=lower(?)", (r.username.strip(),)).fetchone()
+        if not target:
+            raise HTTPException(404, "Patient account not found")
+        if target["role"] == "doctor":
+            raise HTTPException(403, "Doctor passwords must be changed through deployment configuration")
+        if not db.reset_password(c, r.username, r.new_password):
+            raise HTTPException(404, "Patient account not found")
+    return {"ok": True}
 
 @app.post("/api/auth/guest")
 def guest(name: str = "", age: str = "", abha: str = ""):
