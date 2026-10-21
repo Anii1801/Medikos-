@@ -9,9 +9,24 @@ CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username TEXT UNIQUE, p
 CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY, user_id INTEGER, expires REAL);
 CREATE TABLE IF NOT EXISTS consents(id INTEGER PRIMARY KEY, user_id INTEGER, purpose TEXT, granted INTEGER, ts REAL);
 CREATE TABLE IF NOT EXISTS documents(id INTEGER PRIMARY KEY, user_id INTEGER, filename TEXT, doc_date TEXT, doc_type TEXT,
-  text TEXT, entities TEXT, engine TEXT, created REAL);
+  text TEXT, entities TEXT, engine TEXT, created REAL, extraction_status TEXT DEFAULT 'processed',
+  extraction_error TEXT);
 CREATE TABLE IF NOT EXISTS records(id INTEGER PRIMARY KEY, user_id INTEGER, token_no INTEGER, priority INTEGER, status TEXT,
   answers TEXT, sections TEXT, flags TEXT, fhir TEXT, abdm_ref TEXT, created REAL, reviewed_by TEXT, reviewed REAL);
+CREATE TABLE IF NOT EXISTS record_documents(
+  record_id INTEGER NOT NULL, document_id INTEGER, user_id INTEGER NOT NULL, filename TEXT NOT NULL,
+  doc_date TEXT, doc_type TEXT, text TEXT NOT NULL, entities TEXT NOT NULL, engine TEXT,
+  extraction_status TEXT NOT NULL, extraction_error TEXT, created REAL NOT NULL,
+  PRIMARY KEY(record_id, document_id)
+);
+CREATE TABLE IF NOT EXISTS clinical_evidence(
+  id INTEGER PRIMARY KEY, record_id INTEGER NOT NULL, patient_id INTEGER NOT NULL,
+  concept TEXT NOT NULL, value TEXT, normalized_value TEXT, unit TEXT,
+  source_type TEXT NOT NULL, source_document_id INTEGER, source_location TEXT,
+  event_date TEXT, polarity TEXT, temporality TEXT, confidence REAL,
+  verification_status TEXT NOT NULL DEFAULT 'unverified', metadata TEXT,
+  created REAL NOT NULL
+);
 CREATE TABLE IF NOT EXISTS history_sessions(id TEXT PRIMARY KEY, user_id INTEGER, state TEXT NOT NULL,
   adapter TEXT NOT NULL, created REAL NOT NULL, updated REAL NOT NULL);
 CREATE TABLE IF NOT EXISTS asr_transcripts(id TEXT PRIMARY KEY, user_id INTEGER NOT NULL,
@@ -41,6 +56,11 @@ def init():
         # additive migration: store the AI clinical report (summary + red-flag block + review state)
         if "report" not in [r[1] for r in c.execute("PRAGMA table_info(records)")]:
             c.execute("ALTER TABLE records ADD COLUMN report TEXT")
+        document_columns = {r[1] for r in c.execute("PRAGMA table_info(documents)")}
+        if "extraction_status" not in document_columns:
+            c.execute("ALTER TABLE documents ADD COLUMN extraction_status TEXT DEFAULT 'processed'")
+        if "extraction_error" not in document_columns:
+            c.execute("ALTER TABLE documents ADD COLUMN extraction_error TEXT")
         doctor_username = os.environ.get("DOCTOR_USER", "doctor").strip() or "doctor"
         doctor_password = os.environ.get("DOCTOR_PASS")
         doctor = c.execute("SELECT * FROM users WHERE role='doctor' ORDER BY id LIMIT 1").fetchone()

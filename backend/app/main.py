@@ -22,6 +22,7 @@ app.add_middleware(
 app.include_router(eda_router)  # /api/eda/* — analytics, EDA, ML endpoints
 db.init()
 MAX_UPLOAD = 8 * 1024 * 1024
+ALLOWED_UPLOAD_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"}
 PURPOSES = ("history_capture", "abdm_share")
 
 # ---------- auth ----------
@@ -306,14 +307,57 @@ def evaluate_red_flags(case: dict, u=Depends(user)):
 
 # ---------- documents ----------
 def doc_row(r):
-    return {"id": r["id"], "filename": r["filename"], "date": r["doc_date"], "doc_type": r["doc_type"], "engine": r["engine"],
-            "entities": json.loads(r["entities"]), "text": r["text"]}
+    document_id = r["id"] if "id" in r.keys() else r["document_id"]
+    return {"id": document_id, "filename": r["filename"], "date": r["doc_date"], "doc_type": r["doc_type"], "engine": r["engine"],
+            "entities": json.loads(r["entities"]), "text": r["text"],
+            "extraction_status": r["extraction_status"] if "extraction_status" in r.keys() else "processed",
+            "extraction_error": r["extraction_error"] if "extraction_error" in r.keys() else None}
+
+
+def _persist_record_evidence(c, record_id: int, user_id: int, documents: list[dict]):
+    """Snapshot source documents and extracted facts onto the submitted encounter."""
+    now = time.time()
+    for document in documents:
+        entities = document.get("entities") or {}
+        c.execute(
+            """INSERT INTO record_documents
+               (record_id,document_id,user_id,filename,doc_date,doc_type,text,entities,engine,
+                extraction_status,extraction_error,created)
+               VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
+            (record_id, document.get("id"), user_id, document.get("filename") or "unnamed",
+             document.get("date") or "", document.get("doc_type") or "other", document.get("text") or "",
+             db.j(entities), document.get("engine") or "", document.get("extraction_status") or "processed",
+             document.get("extraction_error"), now),
+        )
+        for fact in entities.get("facts", []):
+            value = fact.get("value")
+            source = fact.get("source") or {}
+            c.execute(
+                """INSERT INTO clinical_evidence
+                   (record_id,patient_id,concept,value,normalized_value,unit,source_type,
+                    source_document_id,source_location,event_date,polarity,temporality,
+                    confidence,verification_status,metadata,created)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                (record_id, user_id, fact.get("field") or "unknown",
+                 db.j(value) if isinstance(value, (dict, list)) else str(value or ""),
+                 db.j(value.get("name")) if isinstance(value, dict) and value.get("name") else None,
+                 value.get("unit") if isinstance(value, dict) else None, "document",
+                 document.get("id"), db.j({"page": source.get("page"), "start": source.get("start"),
+                                          "end": source.get("end"), "bbox": source.get("bbox")}),
+                 entities.get("date"), fact.get("status") or "reported", None,
+                 fact.get("confidence"), "unverified", db.j(fact), now),
+            )
+
 
 @app.post("/api/documents")
 async def upload(file: UploadFile = File(...), note: str = Form(""), date: str = Form(""), u=Depends(user)):
+    filename = (file.filename or "").strip()
+    extension = os.path.splitext(filename.lower())[1]
+    if extension not in ALLOWED_UPLOAD_EXTENSIONS:
+        raise HTTPException(415, "Supported uploads are PDF, PNG, JPEG, WEBP, or TIFF")
     data = await file.read()
     if len(data) > MAX_UPLOAD: raise HTTPException(413, "File too large (max 8 MB)")
-    raw_text, engine, pages = ocr.ocr_document(data, file.filename or "scan.png")   # image bytes never stored
+    raw_text, engine, pages = ocr.ocr_document(data, filename)   # image bytes never stored
     # ── Data cleaning pipeline (MedNLP-SC + ADAM v3 abbreviation expansion) ──
     try:
         from .ml_pipeline import clean_ocr_text
@@ -321,14 +365,16 @@ async def upload(file: UploadFile = File(...), note: str = Form(""), date: str =
     except Exception:
         text = raw_text  # graceful fallback if ml_pipeline not available
     if note: text = (text + "\n" + note).strip()
-    ent = ocr.extract(text, {"source_id": file.filename or "upload", "engine": engine, "pages": pages})
+    ent = ocr.extract(text, {"source_id": filename or "upload", "engine": engine, "pages": pages})
     ent["ocr_pages"] = pages
-    ent["document_provenance"] = {"filename": file.filename, "engine": engine, "byte_size": len(data),
+    ent["document_provenance"] = {"filename": filename, "engine": engine, "byte_size": len(data),
                                   "page_count": len(pages), "stored_bytes": False}
     d = date or ent["date"] or ""
     with db.tx() as c:
-        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created) VALUES(?,?,?,?,?,?,?,?)",
-                        (u["id"], file.filename, d, ent["doc_type"], text, db.j(ent), engine, time.time()))
+        status = "processed" if text.strip() else "extraction_failed"
+        error = None if text.strip() else "No text could be extracted from the uploaded file"
+        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,extraction_status,extraction_error) VALUES(?,?,?,?,?,?,?,?,?,?)",
+                        (u["id"], filename, d, ent["doc_type"], text, db.j(ent), engine, time.time(), status, error))
         r = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
     out = doc_row(r)
     out["needs_manual_note"] = not text.strip()
@@ -343,8 +389,8 @@ def upload_text(body: dict, u=Depends(user)):
     ent = ocr.extract(text, {"source_id": "typed-note", "engine": "typed"}); d = body.get("date") or ent["date"] or ""
     ent["document_provenance"] = {"filename": "typed-note", "engine": "typed", "stored_bytes": False, "page_count": 1}
     with db.tx() as c:
-        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created) VALUES(?,?,?,?,?,?,?,?)",
-                        (u["id"], "typed-note", d, ent["doc_type"], text, db.j(ent), "typed", time.time()))
+        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,extraction_status) VALUES(?,?,?,?,?,?,?,?,?)",
+                        (u["id"], "typed-note", d, ent["doc_type"], text, db.j(ent), "typed", time.time(), "processed"))
         r = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
     return doc_row(r)
 
@@ -400,6 +446,7 @@ def submit(s: Submit, u=Depends(user)):
         cur = c.execute("INSERT INTO records(user_id,token_no,priority,status,answers,sections,flags,created,report) VALUES(?,?,?,?,?,?,?,?,?)",
                         (u["id"], n, prio, "submitted", db.j({k: v for k, v in a.items() if not k.startswith("_")}), db.j(sec), db.j(flags), time.time(), db.j(report)))
         rid = cur.lastrowid
+        _persist_record_evidence(c, rid, u["id"], dl)
         bundle = fhir.build_bundle(u, sec, flags, dl, rid)
         push = fhir.abdm_push(bundle, u.get("abha"))
         c.execute("UPDATE records SET fhir=?, abdm_ref=? WHERE id=?", (db.j(bundle), push["ref"], rid))
@@ -441,10 +488,28 @@ def d_list(d=Depends(doctor)):
 def d_get(rid: int, d=Depends(doctor)):
     with db.tx() as c:
         r = c.execute("SELECT r.*, u.name, u.abha FROM records r JOIN users u ON u.id=r.user_id WHERE r.id=?", (rid,)).fetchone()
-        document_rows = c.execute("SELECT * FROM documents WHERE user_id=? ORDER BY id", (r["user_id"],)).fetchall() if r else []
+        document_rows = c.execute("SELECT * FROM record_documents WHERE record_id=? ORDER BY created, filename",
+                                   (rid,)).fetchall() if r else []
     if not r: raise HTTPException(404, "Not found")
     result = rec(r, True)
     result["documents"] = [doc_row(row) for row in document_rows]
+    with db.tx() as c:
+        evidence = c.execute(
+            """SELECT id,concept,value,normalized_value,unit,source_type,source_document_id,
+                      source_location,event_date,polarity,temporality,confidence,
+                      verification_status,metadata
+               FROM clinical_evidence WHERE record_id=? ORDER BY id""", (rid,)).fetchall()
+    result["clinical_evidence"] = []
+    for row in evidence:
+        item = dict(row)
+        for key in ("source_location", "metadata"):
+            item[key] = json.loads(item[key]) if item[key] else None
+        if item["value"]:
+            try:
+                item["value"] = json.loads(item["value"])
+            except (TypeError, json.JSONDecodeError):
+                pass
+        result["clinical_evidence"].append(item)
     return result
 
 class Review(BaseModel):
