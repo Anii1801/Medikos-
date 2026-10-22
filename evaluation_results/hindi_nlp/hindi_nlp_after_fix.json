@@ -1,0 +1,53 @@
+{
+  "polarity_of_answers": {
+    "devanagari": {
+      "answers": 1789,
+      "accuracy": 1.0,
+      "negative_recall": 1.0,
+      "negative_answers": 711,
+      "positive_answers_misread_as_negative": 0,
+      "positive_answers": 1078,
+      "confusion": {
+        "gold=negative,pred=negative": 711,
+        "gold=reported,pred=reported": 1078
+      }
+    },
+    "latin": {
+      "answers": 483,
+      "accuracy": 1.0,
+      "negative_recall": 1.0,
+      "negative_answers": 119,
+      "positive_answers_misread_as_negative": 0,
+      "positive_answers": 364,
+      "confusion": {
+        "gold=negative,pred=negative": 119,
+        "gold=reported,pred=reported": 364
+      }
+    }
+  },
+  "durations": {
+    "devanagari": {
+      "answers": 243,
+      "parsed_rate": 1.0,
+      "days_exact_rate": 1.0
+    },
+    "latin": {
+      "answers": 42,
+      "parsed_rate": 1.0,
+      "days_exact_rate": 1.0
+    }
+  },
+  "complaint_concept_recall": {
+    "devanagari": {
+      "utterances": 102,
+      "expected_concepts": 156,
+      "concept_recall": 1.0
+    },
+    "latin": {
+      "utterances": 24,
+      "expected_concepts": 38,
+      "concept_recall": 1.0
+    }
+  },
+  "polarity_errors": []
+}

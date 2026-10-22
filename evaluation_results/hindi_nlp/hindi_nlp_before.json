@@ -1,0 +1,335 @@
+{
+  "polarity_of_answers": {
+    "devanagari": {
+      "answers": 1789,
+      "accuracy": 0.6026,
+      "negative_recall": 0.0,
+      "negative_answers": 711,
+      "positive_answers_misread_as_negative": 0,
+      "positive_answers": 1078,
+      "confusion": {
+        "gold=negative,pred=reported": 711,
+        "gold=reported,pred=reported": 1078
+      }
+    },
+    "latin": {
+      "answers": 483,
+      "accuracy": 0.9793,
+      "negative_recall": 0.916,
+      "negative_answers": 119,
+      "positive_answers_misread_as_negative": 0,
+      "positive_answers": 364,
+      "confusion": {
+        "gold=negative,pred=negative": 109,
+        "gold=negative,pred=reported": 10,
+        "gold=reported,pred=reported": 364
+      }
+    }
+  },
+  "durations": {
+    "devanagari": {
+      "answers": 243,
+      "parsed_rate": 0.0,
+      "days_exact_rate": 0.0
+    },
+    "latin": {
+      "answers": 42,
+      "parsed_rate": 0.0,
+      "days_exact_rate": 0.0
+    }
+  },
+  "complaint_concept_recall": {
+    "devanagari": {
+      "utterances": 102,
+      "expected_concepts": 156,
+      "concept_recall": 0.0
+    },
+    "latin": {
+      "utterances": 24,
+      "expected_concepts": 38,
+      "concept_recall": 0.8158
+    }
+  },
+  "polarity_errors": [
+    {
+      "slot": "relieving",
+      "script": "devanagari",
+      "text": "किसी चीज़ से आराम नहीं मिलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "past_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "drug_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "past_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "drug_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "family_history",
+      "script": "devanagari",
+      "text": "ऐसी कोई बीमारी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "past_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "drug_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "radiation",
+      "script": "devanagari",
+      "text": "कहीं नहीं फैलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "past_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "drug_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "family_history",
+      "script": "devanagari",
+      "text": "ऐसी कोई बीमारी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "radiation",
+      "script": "devanagari",
+      "text": "कहीं नहीं फैलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "past_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "drug_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "family_history",
+      "script": "devanagari",
+      "text": "ऐसी कोई बीमारी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "family_history",
+      "script": "devanagari",
+      "text": "ऐसी कोई बीमारी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "radiation",
+      "script": "devanagari",
+      "text": "कहीं नहीं फैलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "relieving",
+      "script": "devanagari",
+      "text": "किसी चीज़ से आराम नहीं मिलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "relieving",
+      "script": "devanagari",
+      "text": "किसी चीज़ से आराम नहीं मिलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "family_history",
+      "script": "devanagari",
+      "text": "ऐसी कोई बीमारी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "radiation",
+      "script": "devanagari",
+      "text": "कहीं नहीं फैलता",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "personal_history",
+      "script": "devanagari",
+      "text": "धूम्रपान या शराब नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "past_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "drug_history",
+      "script": "devanagari",
+      "text": "कोई नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    },
+    {
+      "slot": "allergy",
+      "script": "devanagari",
+      "text": "कोई एलर्जी नहीं",
+      "gold": "negative",
+      "predicted": "reported"
+    }
+  ]
+}

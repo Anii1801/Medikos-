@@ -1,0 +1,569 @@
+{
+  "review_status": "provisional_pending_local_clinician_signoff",
+  "derived_from": "slots asked in >=95% of TRAINING-split recorded interviews for the complaint; this reproduces the dataset template and is NOT a clinical definition of 'required'",
+  "complaints": {
+    "burning in the chest and stomach after meals": {
+      "n_train_interviews": 25,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Stomach pain"
+    },
+    "chest pain": {
+      "n_train_interviews": 12,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "char",
+        "rad",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Chest pain"
+    },
+    "constipation": {
+      "n_train_interviews": 14,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Other"
+    },
+    "cough and breathlessness": {
+      "n_train_interviews": 19,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Cough / breathlessness"
+    },
+    "difficulty sleeping": {
+      "n_train_interviews": 7,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Other"
+    },
+    "excessive thirst and frequent urination": {
+      "n_train_interviews": 20,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Other"
+    },
+    "fever": {
+      "n_train_interviews": 21,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Fever"
+    },
+    "headache with dizziness": {
+      "n_train_interviews": 29,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Headache"
+    },
+    "itching with skin rash": {
+      "n_train_interviews": 14,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Other"
+    },
+    "joint pain and morning stiffness": {
+      "n_train_interviews": 8,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Joint / back pain"
+    },
+    "knee pain": {
+      "n_train_interviews": 29,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Joint / back pain"
+    },
+    "low back pain": {
+      "n_train_interviews": 22,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Joint / back pain"
+    },
+    "pain in the abdomen": {
+      "n_train_interviews": 17,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Stomach pain"
+    },
+    "sudden weakness on one side and slurred speech": {
+      "n_train_interviews": 3,
+      "slot_order": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "required": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers"
+      ],
+      "safety_critical": [
+        "char",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy"
+      ],
+      "ontology_cc": "Weakness / tiredness"
+    }
+  }
+}

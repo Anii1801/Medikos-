@@ -1,0 +1,19 @@
+{
+  "adaptive_ranker/v1": {
+    "type": "trained (logistic regression, JSON weights)",
+    "data": "synthetic",
+    "created": "2026-10-20T07:20:03Z",
+    "weights_sha256": "5d7cd442fa94685647770cfc752ec6a62e5b229c2a75f5f1222ddf75cfd68692",
+    "default_in_app": false
+  },
+  "lab_extraction": {
+    "type": "rules + Tesseract",
+    "benchmark": "evaluation_results/lab_extraction/",
+    "data": "synthetic"
+  },
+  "hindi_hinglish_nlp": {
+    "type": "rules",
+    "benchmark": "evaluation_results/hindi_nlp/",
+    "data": "synthetic + hand-written"
+  }
+}

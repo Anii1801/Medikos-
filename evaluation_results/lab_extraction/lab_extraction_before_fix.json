@@ -1,0 +1,1896 @@
+{
+  "ground_truth_text": {
+    "text_field": "ground_truth_text",
+    "reports": 394,
+    "labelled_results": 1238,
+    "matched": 690,
+    "test_name_precision": 1.0,
+    "test_name_recall": 0.5574,
+    "test_name_f1": 0.7158,
+    "false_positive_extractions": 0,
+    "exact_value_accuracy": 1.0,
+    "unit_accuracy": 0.8928,
+    "printed_reference_interval_accuracy": 0.0,
+    "printed_flag_capture_accuracy": 0.0,
+    "abnormal_status_accuracy_vs_printed_flag": 0.8971,
+    "abnormal_recall": 0.9939,
+    "false_abnormal_rate_on_printed_normal": 0.0989,
+    "ambiguous_extraction_rate": 0.0,
+    "critical_result_recall": null,
+    "critical_result_note": "the labels contain only N/H/L; there are no 'critical' labels, so critical-result recall cannot be computed",
+    "per_test": {
+      "CRP": {
+        "missed": 56
+      },
+      "Creatinine": {
+        "found": 117,
+        "wrong_reference interval": 117,
+        "wrong_abnormal status": 1
+      },
+      "ESR": {
+        "missed": 93
+      },
+      "Fasting Blood Sugar": {
+        "found": 96,
+        "wrong_reference interval": 96
+      },
+      "HbA1c": {
+        "found": 96,
+        "wrong_reference interval": 96
+      },
+      "Hemoglobin": {
+        "found": 37,
+        "wrong_reference interval": 37
+      },
+      "LDL": {
+        "found": 65,
+        "wrong_reference interval": 65
+      },
+      "Platelets": {
+        "found": 37,
+        "wrong_unit": 37,
+        "wrong_reference interval": 37,
+        "wrong_abnormal status": 33
+      },
+      "Post-prandial Blood Sugar": {
+        "missed": 96
+      },
+      "SGPT (ALT)": {
+        "found": 117,
+        "wrong_reference interval": 117
+      },
+      "TSH": {
+        "found": 23,
+        "wrong_reference interval": 23
+      },
+      "Total Cholesterol": {
+        "found": 65,
+        "wrong_reference interval": 65
+      },
+      "Triglycerides": {
+        "missed": 65
+      },
+      "Troponin I": {
+        "missed": 65
+      },
+      "Uric Acid": {
+        "missed": 173
+      },
+      "WBC": {
+        "found": 37,
+        "wrong_unit": 37,
+        "wrong_reference interval": 37,
+        "wrong_abnormal status": 37
+      }
+    },
+    "error_examples": [
+      {
+        "report": "L00001",
+        "test": "Hemoglobin",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "14.47",
+          "unit": "g/dL",
+          "ref": [
+            "13",
+            "17"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 14.47,
+          "unit": "g/dL",
+          "ref": "12–17",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "WBC",
+        "error": "unit wrong",
+        "gold": {
+          "value": "10.16",
+          "unit": "x10^3/uL",
+          "ref": [
+            "4",
+            "11"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 10.16,
+          "unit": "/uL",
+          "ref": "4000–11000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "WBC",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "10.16",
+          "unit": "x10^3/uL",
+          "ref": [
+            "4",
+            "11"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 10.16,
+          "unit": "/uL",
+          "ref": "4000–11000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "WBC",
+        "error": "abnormal status wrong",
+        "gold": {
+          "value": "10.16",
+          "unit": "x10^3/uL",
+          "ref": [
+            "4",
+            "11"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 10.16,
+          "unit": "/uL",
+          "ref": "4000–11000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "Platelets",
+        "error": "unit wrong",
+        "gold": {
+          "value": "402.1",
+          "unit": "x10^3/uL",
+          "ref": [
+            "150",
+            "450"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 402.1,
+          "unit": "/uL",
+          "ref": "150000–450000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "Platelets",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "402.1",
+          "unit": "x10^3/uL",
+          "ref": [
+            "150",
+            "450"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 402.1,
+          "unit": "/uL",
+          "ref": "150000–450000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "Platelets",
+        "error": "abnormal status wrong",
+        "gold": {
+          "value": "402.1",
+          "unit": "x10^3/uL",
+          "ref": [
+            "150",
+            "450"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 402.1,
+          "unit": "/uL",
+          "ref": "150000–450000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00002",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00002",
+        "test": "CRP",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00002",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00003",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.07",
+          "unit": "mg/dL",
+          "ref": [
+            "0.6",
+            "1.1"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 1.07,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00003",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "91.7",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 91.7,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00003",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00005",
+        "test": "TSH",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.87",
+          "unit": "uIU/mL",
+          "ref": [
+            "0.4",
+            "4"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 1.87,
+          "unit": "uIU/mL",
+          "ref": "0.4–4.5",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00008",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.06",
+          "unit": "mg/dL",
+          "ref": [
+            "0.6",
+            "1.1"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 1.06,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00008",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "53.2",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 53.2,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00008",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00012",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00012",
+        "test": "CRP",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00012",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00014",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00014",
+        "test": "CRP",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00014",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00018",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "11.38",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 11.38,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00018",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "166.1",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 166.1,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00018",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00018",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00022",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "203.5",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 203.5,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00022",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00022",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "5.52",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 5.52,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00023",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "11.78",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 11.78,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00023",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "5.72",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 5.72,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00023",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00023",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00024",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.65",
+          "unit": "mg/dL",
+          "ref": [
+            "0.7",
+            "1.3"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 1.65,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00024",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "15.65",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 15.65,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00024",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00029",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "84",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 84.0,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00029",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00029",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "4.51",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 4.51,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00030",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "161.2",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 161.2,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00030",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "211.6",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 211.6,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00030",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00030",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00035",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "84.2",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 84.2,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00035",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00035",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "4.76",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 4.76,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00036",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "82.2",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 82.2,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00036",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "5.54",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 5.54,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00036",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00036",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00037",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "0.7",
+          "unit": "mg/dL",
+          "ref": [
+            "0.6",
+            "1.1"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 0.7,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00037",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "115.8",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 115.8,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00037",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00038",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "81.9",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 81.9,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00038",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00038",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "4.81",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 4.81,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00041",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "86.4",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 86.4,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00041",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      }
+    ]
+  },
+  "simulated_ocr_text": {
+    "text_field": "simulated_ocr_text",
+    "reports": 394,
+    "labelled_results": 1238,
+    "matched": 666,
+    "test_name_precision": 1.0,
+    "test_name_recall": 0.538,
+    "test_name_f1": 0.6996,
+    "false_positive_extractions": 0,
+    "exact_value_accuracy": 0.976,
+    "unit_accuracy": 0.8904,
+    "printed_reference_interval_accuracy": 0.0,
+    "printed_flag_capture_accuracy": 0.0,
+    "abnormal_status_accuracy_vs_printed_flag": 0.8874,
+    "abnormal_recall": 0.9936,
+    "false_abnormal_rate_on_printed_normal": 0.1081,
+    "ambiguous_extraction_rate": 0.0,
+    "critical_result_recall": null,
+    "critical_result_note": "the labels contain only N/H/L; there are no 'critical' labels, so critical-result recall cannot be computed",
+    "per_test": {
+      "CRP": {
+        "missed": 56
+      },
+      "Creatinine": {
+        "found": 111,
+        "wrong_reference interval": 111,
+        "missed": 6,
+        "wrong_abnormal status": 2,
+        "wrong_value": 2
+      },
+      "ESR": {
+        "missed": 93
+      },
+      "Fasting Blood Sugar": {
+        "found": 94,
+        "wrong_reference interval": 94,
+        "wrong_value": 3,
+        "wrong_abnormal status": 3,
+        "missed": 2
+      },
+      "HbA1c": {
+        "found": 94,
+        "wrong_reference interval": 94,
+        "missed": 2,
+        "wrong_value": 3
+      },
+      "Hemoglobin": {
+        "found": 32,
+        "wrong_reference interval": 32,
+        "missed": 5
+      },
+      "LDL": {
+        "found": 64,
+        "wrong_reference interval": 64,
+        "missed": 1
+      },
+      "Platelets": {
+        "found": 36,
+        "wrong_unit": 36,
+        "wrong_reference interval": 36,
+        "wrong_abnormal status": 32,
+        "wrong_value": 1,
+        "missed": 1
+      },
+      "Post-prandial Blood Sugar": {
+        "missed": 96
+      },
+      "SGPT (ALT)": {
+        "found": 117,
+        "wrong_reference interval": 117,
+        "wrong_value": 4,
+        "wrong_abnormal status": 1
+      },
+      "TSH": {
+        "found": 23,
+        "wrong_reference interval": 23
+      },
+      "Total Cholesterol": {
+        "found": 58,
+        "wrong_reference interval": 58,
+        "missed": 7,
+        "wrong_value": 3
+      },
+      "Triglycerides": {
+        "missed": 65
+      },
+      "Troponin I": {
+        "missed": 65
+      },
+      "Uric Acid": {
+        "missed": 173
+      },
+      "WBC": {
+        "found": 37,
+        "wrong_unit": 37,
+        "wrong_reference interval": 37,
+        "wrong_abnormal status": 37
+      }
+    },
+    "error_examples": [
+      {
+        "report": "L00001",
+        "test": "Hemoglobin",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "14.47",
+          "unit": "g/dL",
+          "ref": [
+            "13",
+            "17"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 14.47,
+          "unit": "g/dL",
+          "ref": "12–17",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "WBC",
+        "error": "unit wrong",
+        "gold": {
+          "value": "10.16",
+          "unit": "x10^3/uL",
+          "ref": [
+            "4",
+            "11"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 10.16,
+          "unit": "/uL",
+          "ref": "4000–11000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "WBC",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "10.16",
+          "unit": "x10^3/uL",
+          "ref": [
+            "4",
+            "11"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 10.16,
+          "unit": "/uL",
+          "ref": "4000–11000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "WBC",
+        "error": "abnormal status wrong",
+        "gold": {
+          "value": "10.16",
+          "unit": "x10^3/uL",
+          "ref": [
+            "4",
+            "11"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 10.16,
+          "unit": "/uL",
+          "ref": "4000–11000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "Platelets",
+        "error": "unit wrong",
+        "gold": {
+          "value": "402.1",
+          "unit": "x10^3/uL",
+          "ref": [
+            "150",
+            "450"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 402.1,
+          "unit": "/uL",
+          "ref": "150000–450000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "Platelets",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "402.1",
+          "unit": "x10^3/uL",
+          "ref": [
+            "150",
+            "450"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 402.1,
+          "unit": "/uL",
+          "ref": "150000–450000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "Platelets",
+        "error": "abnormal status wrong",
+        "gold": {
+          "value": "402.1",
+          "unit": "x10^3/uL",
+          "ref": [
+            "150",
+            "450"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 402.1,
+          "unit": "/uL",
+          "ref": "150000–450000",
+          "flag": "low",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00001",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00002",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00002",
+        "test": "CRP",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00002",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00003",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.07",
+          "unit": "mg/dL",
+          "ref": [
+            "0.6",
+            "1.1"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 1.07,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00003",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "91.7",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 91.7,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00003",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00005",
+        "test": "TSH",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.87",
+          "unit": "uIU/mL",
+          "ref": [
+            "0.4",
+            "4"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 1.87,
+          "unit": "uIU/mL",
+          "ref": "0.4–4.5",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00008",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.06",
+          "unit": "mg/dL",
+          "ref": [
+            "0.6",
+            "1.1"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 1.06,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00008",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "53.2",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 53.2,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00008",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00012",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00012",
+        "test": "CRP",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00012",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00014",
+        "test": "ESR",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00014",
+        "test": "CRP",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00014",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00018",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "11.38",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 11.38,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00018",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "166.1",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 166.1,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00018",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00018",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00022",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "203.5",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 203.5,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00022",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00022",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "5.52",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 5.52,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00023",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "11.78",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 11.78,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00023",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "5.72",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 5.72,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00023",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00023",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00024",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "1.65",
+          "unit": "mg/dL",
+          "ref": [
+            "0.7",
+            "1.3"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 1.65,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00024",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "15.65",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 15.65,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00024",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00029",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "84",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 84.0,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00029",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00029",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "4.51",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 4.51,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00030",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "161.2",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 161.2,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00030",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "211.6",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 211.6,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00030",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00030",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00035",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "84.2",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 84.2,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00035",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00035",
+        "test": "HbA1c",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "4.76",
+          "unit": "%",
+          "ref": [
+            "4",
+            "5.6"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 4.76,
+          "unit": "%",
+          "ref": "4–5.6",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00036",
+        "test": "Total Cholesterol",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "82.2",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "200"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 82.2,
+          "unit": "mg/dL",
+          "ref": "0–200",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00036",
+        "test": "LDL",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "5.54",
+          "unit": "mg/dL",
+          "ref": [
+            "0",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 5.54,
+          "unit": "mg/dL",
+          "ref": "0–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00036",
+        "test": "Triglycerides",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00036",
+        "test": "Troponin I",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00037",
+        "test": "Creatinine",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "0.7",
+          "unit": "mg/dL",
+          "ref": [
+            "0.6",
+            "1.1"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 0.7,
+          "unit": "mg/dL",
+          "ref": "0.6–1.3",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00037",
+        "test": "SGPT (ALT)",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "115.8",
+          "unit": "U/L",
+          "ref": [
+            "7",
+            "56"
+          ],
+          "flag": "H"
+        },
+        "got": {
+          "value": 115.8,
+          "unit": "U/L",
+          "ref": "7–56",
+          "flag": "high",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00037",
+        "test": "Uric Acid",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00038",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "81.9",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 81.9,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00038",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00038",
+        "test": "HbA1c",
+        "error": "test not extracted"
+      },
+      {
+        "report": "L00041",
+        "test": "Fasting Blood Sugar",
+        "error": "reference interval wrong",
+        "gold": {
+          "value": "86.4",
+          "unit": "mg/dL",
+          "ref": [
+            "70",
+            "100"
+          ],
+          "flag": "N"
+        },
+        "got": {
+          "value": 86.4,
+          "unit": "mg/dL",
+          "ref": "70–100",
+          "flag": "normal",
+          "printed_flag": null,
+          "reference_source": "configured_baseline"
+        }
+      },
+      {
+        "report": "L00041",
+        "test": "Post-prandial Blood Sugar",
+        "error": "test not extracted"
+      }
+    ]
+  }
+}

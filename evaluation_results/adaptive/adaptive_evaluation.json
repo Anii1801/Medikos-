@@ -1,0 +1,4568 @@
+{
+  "protocol_notes": {
+    "data": "SYNTHETIC templated interviews, 14 complaints; no claim of clinical performance",
+    "bootstrap": "cluster bootstrap over interviews, B=2000, seed=20261020, 95% percentile CI",
+    "official_test": "30 interviews, never used for model/threshold selection",
+    "grouped_cv": "5 folds, complaint-stratified; each interview/patient appears in exactly one fold",
+    "C": 100.0,
+    "required_slots": "provisional, derived from training-split template; see config/required_slots.json"
+  },
+  "next_slot": {
+    "official_test": {
+      "recorded": {
+        "top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "top3": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "baseline_majority_class_top1": {
+          "value": 0.0809,
+          "ci95": [
+            0.0798,
+            0.082
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "baseline_template_lookup_with_oracle_complaint_top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "by_complaint_top1": {
+          "chest pain": 1.0,
+          "constipation": 1.0,
+          "cough and breathlessness": 1.0,
+          "excessive thirst and frequent urination": 1.0,
+          "fever": 1.0,
+          "headache with dizziness": 1.0,
+          "itching with skin rash": 1.0,
+          "joint pain and morning stiffness": 1.0,
+          "knee pain": 1.0,
+          "low back pain": 1.0,
+          "sudden weakness on one side and slurred speech": 1.0
+        },
+        "by_script_top1": {
+          "devanagari": 1.0,
+          "latin": 1.0
+        }
+      },
+      "app_label": {
+        "top1": {
+          "value": 0.9973,
+          "ci95": [
+            0.9918,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "top3": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "baseline_majority_class_top1": {
+          "value": 0.0809,
+          "ci95": [
+            0.0798,
+            0.082
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "baseline_template_lookup_with_oracle_complaint_top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "by_complaint_top1": {
+          "chest pain": 1.0,
+          "constipation": 1.0,
+          "cough and breathlessness": 1.0,
+          "excessive thirst and frequent urination": 1.0,
+          "fever": 1.0,
+          "headache with dizziness": 1.0,
+          "itching with skin rash": 1.0,
+          "joint pain and morning stiffness": 0.9167,
+          "knee pain": 1.0,
+          "low back pain": 1.0,
+          "sudden weakness on one side and slurred speech": 1.0
+        },
+        "by_script_top1": {
+          "devanagari": 0.997,
+          "latin": 1.0
+        }
+      }
+    },
+    "grouped_cv": {
+      "recorded": {
+        "top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "top3": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "baseline_majority_class_top1": {
+          "value": 0.0795,
+          "ci95": [
+            0.0792,
+            0.0799
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "baseline_template_lookup_with_oracle_complaint_top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "by_complaint_top1": {
+          "burning in the chest and stomach after meals": 1.0,
+          "chest pain": 1.0,
+          "constipation": 1.0,
+          "cough and breathlessness": 1.0,
+          "difficulty sleeping": 1.0,
+          "excessive thirst and frequent urination": 1.0,
+          "fever": 1.0,
+          "headache with dizziness": 1.0,
+          "itching with skin rash": 1.0,
+          "joint pain and morning stiffness": 1.0,
+          "knee pain": 1.0,
+          "low back pain": 1.0,
+          "pain in the abdomen": 1.0,
+          "sudden weakness on one side and slurred speech": 1.0
+        },
+        "by_script_top1": {
+          "devanagari": 1.0,
+          "latin": 1.0
+        }
+      },
+      "app_label": {
+        "top1": {
+          "value": 0.9973,
+          "ci95": [
+            0.9958,
+            0.9989
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "top3": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "baseline_majority_class_top1": {
+          "value": 0.0795,
+          "ci95": [
+            0.0792,
+            0.0799
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "baseline_template_lookup_with_oracle_complaint_top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 300,
+          "examples": 3772
+        },
+        "by_complaint_top1": {
+          "burning in the chest and stomach after meals": 1.0,
+          "chest pain": 1.0,
+          "constipation": 1.0,
+          "cough and breathlessness": 1.0,
+          "difficulty sleeping": 1.0,
+          "excessive thirst and frequent urination": 1.0,
+          "fever": 1.0,
+          "headache with dizziness": 1.0,
+          "itching with skin rash": 1.0,
+          "joint pain and morning stiffness": 0.9167,
+          "knee pain": 1.0,
+          "low back pain": 1.0,
+          "pain in the abdomen": 1.0,
+          "sudden weakness on one side and slurred speech": 1.0
+        },
+        "by_script_top1": {
+          "devanagari": 0.9972,
+          "latin": 0.9982
+        }
+      }
+    }
+  },
+  "loco_unseen_complaint": {
+    "burning in the chest and stomach after meals": {
+      "n_interviews": 26,
+      "states": 624,
+      "deferred_to_reviewed_policy": 0.0,
+      "top1_when_model_used": 0.9631,
+      "wrong_but_used_without_deferring": 23,
+      "top1_overall": 0.9631
+    },
+    "chest pain": {
+      "n_interviews": 13,
+      "states": 312,
+      "deferred_to_reviewed_policy": 0.0,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "constipation": {
+      "n_interviews": 17,
+      "states": 408,
+      "deferred_to_reviewed_policy": 0.3799,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "cough and breathlessness": {
+      "n_interviews": 26,
+      "states": 624,
+      "deferred_to_reviewed_policy": 0.859,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "difficulty sleeping": {
+      "n_interviews": 9,
+      "states": 216,
+      "deferred_to_reviewed_policy": 0.5417,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "excessive thirst and frequent urination": {
+      "n_interviews": 32,
+      "states": 768,
+      "deferred_to_reviewed_policy": 0.8711,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "fever": {
+      "n_interviews": 28,
+      "states": 672,
+      "deferred_to_reviewed_policy": 0.5908,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "headache with dizziness": {
+      "n_interviews": 36,
+      "states": 864,
+      "deferred_to_reviewed_policy": 0.5,
+      "top1_when_model_used": 0.9167,
+      "wrong_but_used_without_deferring": 36,
+      "top1_overall": 0.9167
+    },
+    "itching with skin rash": {
+      "n_interviews": 19,
+      "states": 456,
+      "deferred_to_reviewed_policy": 1.0,
+      "top1_when_model_used": null,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 0.9167
+    },
+    "joint pain and morning stiffness": {
+      "n_interviews": 10,
+      "states": 240,
+      "deferred_to_reviewed_policy": 0.0833,
+      "top1_when_model_used": 0.9091,
+      "wrong_but_used_without_deferring": 20,
+      "top1_overall": 0.9167
+    },
+    "knee pain": {
+      "n_interviews": 34,
+      "states": 816,
+      "deferred_to_reviewed_policy": 0.0,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "low back pain": {
+      "n_interviews": 27,
+      "states": 648,
+      "deferred_to_reviewed_policy": 0.0,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "pain in the abdomen": {
+      "n_interviews": 17,
+      "states": 408,
+      "deferred_to_reviewed_policy": 0.0,
+      "top1_when_model_used": 1.0,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    },
+    "sudden weakness on one side and slurred speech": {
+      "n_interviews": 6,
+      "states": 144,
+      "deferred_to_reviewed_policy": 1.0,
+      "top1_when_model_used": null,
+      "wrong_but_used_without_deferring": 0,
+      "top1_overall": 1.0
+    }
+  },
+  "policy_comparison": {
+    "official_test_30": {
+      "summary": {
+        "6": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.4859,
+                "ci95": [
+                  0.4795,
+                  0.4923
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.3459,
+                "ci95": [
+                  0.325,
+                  0.3667
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.3515,
+                "ci95": [
+                  0.3284,
+                  0.3763
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.5045,
+                "ci95": [
+                  0.4925,
+                  0.5179
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.5175,
+                "ci95": [
+                  0.5056,
+                  0.5301
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.1667,
+                "ci95": [
+                  0.0333,
+                  0.3
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0316,
+                "ci95": [
+                  0.0184,
+                  0.0453
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.166,
+                "ci95": [
+                  0.1429,
+                  0.1915
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.013,
+                "ci95": [
+                  0.0028,
+                  0.0235
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.0056,
+                "ci95": [
+                  0.0,
+                  0.0139
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          }
+        },
+        "8": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.6479,
+                "ci95": [
+                  0.6393,
+                  0.6564
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.4835,
+                "ci95": [
+                  0.4673,
+                  0.4996
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.562,
+                "ci95": [
+                  0.5453,
+                  0.5784
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.6665,
+                "ci95": [
+                  0.6538,
+                  0.681
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.6665,
+                "ci95": [
+                  0.6538,
+                  0.681
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0186,
+                "ci95": [
+                  0.0079,
+                  0.0321
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.1045,
+                "ci95": [
+                  0.087,
+                  0.1254
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.0784,
+                "ci95": [
+                  0.0724,
+                  0.0821
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          }
+        },
+        "10": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.8098,
+                "ci95": [
+                  0.7991,
+                  0.8205
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.3667,
+                "ci95": [
+                  0.2,
+                  0.5333
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.6455,
+                "ci95": [
+                  0.6274,
+                  0.6628
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.1,
+                "ci95": [
+                  0.0,
+                  0.2333
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.7239,
+                "ci95": [
+                  0.7058,
+                  0.7417
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.9333,
+                "ci95": [
+                  0.8333,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.8284,
+                "ci95": [
+                  0.8147,
+                  0.8438
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.8284,
+                "ci95": [
+                  0.8147,
+                  0.8438
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0186,
+                "ci95": [
+                  0.0079,
+                  0.0321
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": -0.3667,
+                "ci95": [
+                  -0.5333,
+                  -0.2
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.1045,
+                "ci95": [
+                  0.087,
+                  0.1254
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": -0.9333,
+                "ci95": [
+                  -1.0,
+                  -0.8333
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": -1.0,
+                "ci95": [
+                  -1.0,
+                  -1.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.0784,
+                "ci95": [
+                  0.0724,
+                  0.0821
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.8333,
+                "ci95": [
+                  0.6,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          }
+        },
+        "12": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.9718,
+                "ci95": [
+                  0.959,
+                  0.9846
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.7609,
+                "ci95": [
+                  0.7447,
+                  0.778
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0667,
+                "ci95": [
+                  0.0,
+                  0.1667
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.8667,
+                "ci95": [
+                  1.6,
+                  2.1333
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.8859,
+                "ci95": [
+                  0.8662,
+                  0.9056
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.3,
+                "ci95": [
+                  1.0667,
+                  1.5667
+                ],
+                "n": 30
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.2,
+                "ci95": [
+                  0.0667,
+                  0.3667
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.2,
+                "ci95": [
+                  0.0667,
+                  0.3667
+                ],
+                "n": 30
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0026,
+                "ci95": [
+                  0.0,
+                  0.0077
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.0885,
+                "ci95": [
+                  0.0752,
+                  0.1015
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.125,
+                "ci95": [
+                  0.1058,
+                  0.1457
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": -0.0667,
+                "ci95": [
+                  -0.1667,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            }
+          }
+        },
+        "none": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.3667,
+                "ci95": [
+                  12.2,
+                  12.5333
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.766,
+                "ci95": [
+                  0.7457,
+                  0.7889
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0667,
+                "ci95": [
+                  0.0,
+                  0.1667
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 13.5,
+                "ci95": [
+                  13.2333,
+                  13.7667
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.3,
+                "ci95": [
+                  3.0667,
+                  3.5667
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 15.1,
+                "ci95": [
+                  14.9333,
+                  15.2667
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.3,
+                "ci95": [
+                  3.0667,
+                  3.5667
+                ],
+                "n": 30
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 15.1,
+                "ci95": [
+                  14.9333,
+                  15.2667
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.3,
+                "ci95": [
+                  3.0667,
+                  3.5667
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 15.1,
+                "ci95": [
+                  14.9333,
+                  15.2667
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.3,
+                "ci95": [
+                  3.0667,
+                  3.5667
+                ],
+                "n": 30
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": -0.0256,
+                "ci95": [
+                  -0.0385,
+                  -0.0128
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 2.7333,
+                "ci95": [
+                  2.5333,
+                  2.9333
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.2083,
+                "ci95": [
+                  0.1865,
+                  0.2263
+                ],
+                "n": 30
+              },
+              "safety_critical_omission": {
+                "mean": -0.0667,
+                "ci95": [
+                  -0.1667,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions": {
+                "mean": 1.6,
+                "ci95": [
+                  1.4,
+                  1.7667
+                ],
+                "n": 30
+              }
+            }
+          }
+        }
+      },
+      "per_slot_omission_full_budget": {
+        "fixed_template": {},
+        "ontology_v0_frozen": {
+          "agg": 0.967,
+          "rel": 0.967,
+          "char": 0.633,
+          "rad": 0.333
+        },
+        "ontology_v1_current": {
+          "rad": 0.333
+        },
+        "safety_layer_uniform": {
+          "rad": 0.333
+        },
+        "learned_ranker": {
+          "rad": 0.333
+        }
+      },
+      "ordering_agreement": {
+        "learned_same_slot_order_as_fixed_template": 0.3667,
+        "learned_same_slot_order_as_ontology_v1": 0.0,
+        "learned_same_slot_order_as_safety_layer_uniform": 0.0,
+        "interviews": 30,
+        "budget": "none",
+        "note": "projection onto canonical dataset slots; 'same' means identical order of first-covering slots"
+      }
+    },
+    "grouped_cv_300": {
+      "summary": {
+        "6": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.4779,
+                "ci95": [
+                  0.4759,
+                  0.4801
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.3261,
+                "ci95": [
+                  0.3189,
+                  0.3336
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.3278,
+                "ci95": [
+                  0.3203,
+                  0.3358
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.5014,
+                "ci95": [
+                  0.4974,
+                  0.5053
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.5294,
+                "ci95": [
+                  0.5256,
+                  0.533
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0867,
+                "ci95": [
+                  0.0567,
+                  0.12
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0515,
+                "ci95": [
+                  0.0471,
+                  0.0555
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.2016,
+                "ci95": [
+                  0.1931,
+                  0.2097
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.028,
+                "ci95": [
+                  0.0238,
+                  0.0322
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.0017,
+                "ci95": [
+                  0.0006,
+                  0.0031
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          }
+        },
+        "8": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.6373,
+                "ci95": [
+                  0.6345,
+                  0.6402
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.4535,
+                "ci95": [
+                  0.4473,
+                  0.4602
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.5409,
+                "ci95": [
+                  0.5356,
+                  0.5466
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3,
+                "ci95": [
+                  0.25,
+                  0.35
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.6607,
+                "ci95": [
+                  0.6566,
+                  0.6648
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.6607,
+                "ci95": [
+                  0.6566,
+                  0.6648
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0234,
+                "ci95": [
+                  0.0194,
+                  0.0276
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.1198,
+                "ci95": [
+                  0.1123,
+                  0.1272
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.0874,
+                "ci95": [
+                  0.0838,
+                  0.0909
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          }
+        },
+        "10": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.7966,
+                "ci95": [
+                  0.7932,
+                  0.8002
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.5733,
+                "ci95": [
+                  0.5167,
+                  0.6267
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.6128,
+                "ci95": [
+                  0.6062,
+                  0.62
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0633,
+                "ci95": [
+                  0.0367,
+                  0.0933
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.6891,
+                "ci95": [
+                  0.6824,
+                  0.6963
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.98,
+                "ci95": [
+                  0.9633,
+                  0.9933
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.82,
+                "ci95": [
+                  0.8156,
+                  0.8245
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.82,
+                "ci95": [
+                  0.8156,
+                  0.8245
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0234,
+                "ci95": [
+                  0.0194,
+                  0.0276
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": -0.5733,
+                "ci95": [
+                  -0.6267,
+                  -0.5167
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.1309,
+                "ci95": [
+                  0.1234,
+                  0.1378
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": -0.98,
+                "ci95": [
+                  -0.9933,
+                  -0.9633
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": -1.0,
+                "ci95": [
+                  -1.0,
+                  -1.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.0763,
+                "ci95": [
+                  0.0743,
+                  0.0781
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.9167,
+                "ci95": [
+                  0.8767,
+                  0.9533
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          }
+        },
+        "12": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.9559,
+                "ci95": [
+                  0.9518,
+                  0.9603
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.7478,
+                "ci95": [
+                  0.7413,
+                  0.7539
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.02,
+                "ci95": [
+                  0.0067,
+                  0.0367
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.9567,
+                "ci95": [
+                  1.8733,
+                  2.0433
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.8485,
+                "ci95": [
+                  0.8411,
+                  0.8562
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 1.66,
+                "ci95": [
+                  1.5633,
+                  1.7501
+                ],
+                "n": 300
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.2567,
+                "ci95": [
+                  0.2067,
+                  0.3067
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.2567,
+                "ci95": [
+                  0.2067,
+                  0.3067
+                ],
+                "n": 300
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": 0.0033,
+                "ci95": [
+                  0.0015,
+                  0.0054
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.1108,
+                "ci95": [
+                  0.106,
+                  0.1154
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.1006,
+                "ci95": [
+                  0.0957,
+                  0.106
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": -0.02,
+                "ci95": [
+                  -0.0367,
+                  -0.0067
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            }
+          }
+        },
+        "none": {
+          "policies": {
+            "fixed_template": {
+              "required_slot_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.5733,
+                "ci95": [
+                  12.5167,
+                  12.6267
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.7545,
+                "ci95": [
+                  0.7461,
+                  0.763
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.02,
+                "ci95": [
+                  0.0067,
+                  0.0367
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 13.79,
+                "ci95": [
+                  13.7133,
+                  13.8634
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.66,
+                "ci95": [
+                  3.5633,
+                  3.7501
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 15.4033,
+                "ci95": [
+                  15.34,
+                  15.4633
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.66,
+                "ci95": [
+                  3.5633,
+                  3.7501
+                ],
+                "n": 300
+              }
+            },
+            "safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 15.4033,
+                "ci95": [
+                  15.34,
+                  15.4633
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.66,
+                "ci95": [
+                  3.5633,
+                  3.7501
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 15.4033,
+                "ci95": [
+                  15.34,
+                  15.4633
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.66,
+                "ci95": [
+                  3.5633,
+                  3.7501
+                ],
+                "n": 300
+              }
+            }
+          },
+          "paired_differences": {
+            "learned_ranker minus fixed_template": {
+              "required_slot_coverage": {
+                "mean": -0.0408,
+                "ci95": [
+                  -0.0449,
+                  -0.0364
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 2.83,
+                "ci95": [
+                  2.7767,
+                  2.88
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus ontology_v1_current": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker minus safety_layer_uniform": {
+              "required_slot_coverage": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "ontology_v1_current minus ontology_v0_frozen": {
+              "required_slot_coverage": {
+                "mean": 0.2047,
+                "ci95": [
+                  0.1983,
+                  0.2111
+                ],
+                "n": 300
+              },
+              "safety_critical_omission": {
+                "mean": -0.02,
+                "ci95": [
+                  -0.0367,
+                  -0.0067
+                ],
+                "n": 300
+              },
+              "questions": {
+                "mean": 1.6133,
+                "ci95": [
+                  1.5499,
+                  1.68
+                ],
+                "n": 300
+              }
+            }
+          }
+        }
+      },
+      "per_slot_omission_full_budget": {
+        "fixed_template": {},
+        "ontology_v0_frozen": {
+          "agg": 0.957,
+          "rel": 0.957,
+          "char": 0.657,
+          "rad": 0.53
+        },
+        "ontology_v1_current": {
+          "rad": 0.53
+        },
+        "safety_layer_uniform": {
+          "rad": 0.53
+        },
+        "learned_ranker": {
+          "rad": 0.53
+        }
+      },
+      "by_complaint_full_budget": {
+        "fixed_template": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.0
+          }
+        },
+        "ontology_v0_frozen": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.6923,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.75,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.8333,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.75,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.75,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.8333,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.7692,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.6923,
+            "safety_omission_rate": 0.0,
+            "questions": 13.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.75,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.6923,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.6923,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.6923,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 12.0
+          }
+        },
+        "ontology_v1_current": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          }
+        },
+        "safety_layer_uniform": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          }
+        },
+        "learned_ranker": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          }
+        }
+      },
+      "by_complaint_budget_8": {
+        "fixed_template": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          }
+        },
+        "ontology_v0_frozen": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.3846,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 0.5385,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.5,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.5,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.5,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.5,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.5,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.4615,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.4615,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.4167,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.3846,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.3846,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.3846,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.5833,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          }
+        },
+        "ontology_v1_current": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.5385,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 0.5385,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.5833,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.5833,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.5833,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.5833,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.5833,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.5385,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.5385,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.5,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.4615,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.4615,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.5385,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          }
+        },
+        "safety_layer_uniform": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          }
+        },
+        "learned_ranker": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          }
+        }
+      },
+      "by_script_full_budget": {
+        "fixed_template": {
+          "devanagari": {
+            "n": 255,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.57
+          },
+          "latin": {
+            "n": 45,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 12.6
+          }
+        },
+        "ontology_v0_frozen": {
+          "devanagari": {
+            "n": 255,
+            "coverage": 0.7524,
+            "safety_omission_rate": 0.0196,
+            "questions": 13.77
+          },
+          "latin": {
+            "n": 45,
+            "coverage": 0.7664,
+            "safety_omission_rate": 0.0222,
+            "questions": 13.89
+          }
+        },
+        "ontology_v1_current": {
+          "devanagari": {
+            "n": 255,
+            "coverage": 0.9593,
+            "safety_omission_rate": 0.0,
+            "questions": 15.41
+          },
+          "latin": {
+            "n": 45,
+            "coverage": 0.959,
+            "safety_omission_rate": 0.0,
+            "questions": 15.38
+          }
+        },
+        "safety_layer_uniform": {
+          "devanagari": {
+            "n": 255,
+            "coverage": 0.9593,
+            "safety_omission_rate": 0.0,
+            "questions": 15.41
+          },
+          "latin": {
+            "n": 45,
+            "coverage": 0.959,
+            "safety_omission_rate": 0.0,
+            "questions": 15.38
+          }
+        },
+        "learned_ranker": {
+          "devanagari": {
+            "n": 255,
+            "coverage": 0.9593,
+            "safety_omission_rate": 0.0,
+            "questions": 15.41
+          },
+          "latin": {
+            "n": 45,
+            "coverage": 0.959,
+            "safety_omission_rate": 0.0,
+            "questions": 15.38
+          }
+        }
+      },
+      "ordering_agreement": {
+        "learned_same_slot_order_as_fixed_template": 0.2267,
+        "learned_same_slot_order_as_ontology_v1": 0.0,
+        "learned_same_slot_order_as_safety_layer_uniform": 0.0,
+        "interviews": 300,
+        "budget": "none",
+        "note": "projection onto canonical dataset slots; 'same' means identical order of first-covering slots"
+      },
+      "language_robustness_other_complaints": {
+        "devanagari": {
+          "n": 68,
+          "same_question_order_as_english_text": 1.0,
+          "coverage_with_patient_wording": 0.9819,
+          "fallback_share_with_patient_wording": 0.0
+        },
+        "latin": {
+          "n": 9,
+          "same_question_order_as_english_text": 1.0,
+          "coverage_with_patient_wording": 0.9744,
+          "fallback_share_with_patient_wording": 0.0
+        }
+      }
+    }
+  }
+}

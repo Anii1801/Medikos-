@@ -1,0 +1,35 @@
+{
+  "hyperparameter_search_on_valid": [
+    {
+      "C": 0.1,
+      "valid_log_loss": 0.15554,
+      "valid_top1": 0.9973,
+      "features": 1185
+    },
+    {
+      "C": 1.0,
+      "valid_log_loss": 0.03021,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 10.0,
+      "valid_log_loss": 0.00795,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 100.0,
+      "valid_log_loss": 0.0056,
+      "valid_top1": 0.9987,
+      "features": 1185
+    }
+  ],
+  "selected": {
+    "C": 100.0,
+    "valid_log_loss": 0.0056,
+    "valid_top1": 0.9987,
+    "features": 1185
+  },
+  "test_split_used": false
+}

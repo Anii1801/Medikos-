@@ -51,6 +51,13 @@ QUESTIONS = [
    _o("Knees|घुटने", "Hands / small joints|हाथ / छोटे जोड़", "Lower back|कमर", "Neck / shoulder|गर्दन / कंधा", "Hips|कूल्हे"), is_cc("Joint / back pain")),
  Q("jt_stiff", "HPI (musculoskeletal)", "single", "Morning stiffness?", "सुबह अकड़न?",
    _o("More than 1 hour|1 घंटे से ज़्यादा", "Less than 30 min|30 मिनट से कम", "No stiffness|नहीं"), is_cc("Joint / back pain")),
+ # v1 coverage additions: the audit against the interview dataset showed no character / aggravating-relieving
+ # question for most complaints. Free-text so voice answers work; they are NOT safety questions.
+ Q("hpi_char", "HPI", "text", "How would you describe it? (for example burning, dull, sharp, throbbing)",
+   "आप इसे कैसा महसूस करते हैं? (जैसे जलन, हल्का दर्द, तेज़, धड़कन)",
+   when=lambda a: a.get("cc") in ("Stomach pain", "Joint / back pain", "Weakness / tiredness", "Other")),
+ Q("hpi_mod", "HPI", "text", "What makes it better or worse?", "किससे यह बेहतर या बदतर होता है?",
+   when=lambda a: bool(a.get("cc")) and a.get("cc") != "Chest pain"),
  Q("assoc", "Associated symptoms", "multi", "Any of these as well?", "इनमें से कुछ और?",
    _o("Breathlessness|सांस फूलना", "Sweating|पसीना", "Vomiting|उल्टी", "Dizziness / fainting|चक्कर / बेहोशी",
       "Weakness of face/arm/leg|चेहरे/हाथ/पैर में कमज़ोरी", "Weight loss|वज़न घटना", NONE)),

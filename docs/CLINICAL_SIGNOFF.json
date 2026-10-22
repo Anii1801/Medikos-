@@ -1,0 +1,12 @@
+{
+  "_comment": "Set a value to true ONLY when a named, qualified person has completed it. Defaults are deliberately all false.",
+  "red_flag_rules_signed_off": false,
+  "escalation_messages_signed_off": false,
+  "mandatory_question_list_signed_off": false,
+  "required_history_slots_signed_off": false,
+  "hindi_question_wording_signed_off": false,
+  "security_review_done": false,
+  "retention_policy_approved": false,
+  "signed_by": null,
+  "date": null
+}

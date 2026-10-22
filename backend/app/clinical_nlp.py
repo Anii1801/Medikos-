@@ -19,6 +19,7 @@ concept that is not mentioned.
 """
 from __future__ import annotations
 
+from . import hindi_nlp
 import re
 import uuid
 from typing import Any, Literal
@@ -81,6 +82,7 @@ LEXICON: list[tuple[str, str, str]] = [
     ("self_harm", _S, r"self[- ]harm\w*|suicid\w*|want(?:ing|ed)?\s+to\s+die|kill\s+myself|end\s+my\s+life|harm\s+myself|better\s+off\s+dead"),
     ("syncope", _S, r"\bfaint(?:ed|ing)?\b|passed\s+out|blacked\s+out|\bsyncope\b|\bcollapsed\b|dizziness\s*/\s*fainting"),
     ("cough", _S, r"\bcough\w*"),
+    ("dizziness", _S, r"\bdizz\w*|\bgiddiness\b|\blight[- ]?headed\b|\bvertigo\b"),
     ("headache", _S, r"head\s*ache|\bhead\s+pain\b|worst\s+headache"),
     ("neck_stiffness", _S, r"neck\s+(?:stiffness|rigidity)|stiff\s+neck|neck\s+aakar"),
     ("vomiting", _S, r"\bvomit\w*+(?!\s+(?:of\s+)?blood)|\bthrowing\s+up\b|\bnausea\b"),
@@ -96,6 +98,7 @@ LEXICON: list[tuple[str, str, str]] = [
     ("stroke_history", _C, r"\bstroke\b|\blakwa\b|paralysis"),
 ]
 _COMPILED = [(c, f, re.compile(p, re.I)) for c, f, p in LEXICON]
+_COMPILED += [(c, f, re.compile(p, re.I)) for c, f, p in hindi_nlp.LEXICON_HI]   # Hindi/Hinglish terms reuse the same concept names
 
 # ------------------------------------------------------------------------ assertion cues
 _NEG_PRE = re.compile(
@@ -122,7 +125,9 @@ _NUMW = {"a": 1, "an": 1, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, 
 _UNIT_DAYS = {"minute": 1 / 1440, "hour": 1 / 24, "day": 1, "week": 7, "month": 30, "year": 365}
 _NUM = r"(?P<n>\d+(?:\.\d+)?|a\s+few|a\s+couple\s+of|couple\s+of|several|few|an|a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)"
 _UNIT = r"(?P<u>minute|hour|day|week|month|year)s?"
-_T_DUR = re.compile(rf"\b(?:for|since|from|over)\s+(?:the\s+)?(?:last\s+|past\s+)?{_NUM}\s+{_UNIT}\b", re.I)
+_APPROX_EN = r"(?:(?:about|around|approximately|approx\.?|roughly|nearly|almost)\s+)?"
+_T_DUR = re.compile(rf"\b(?:for|since|from|over)\s+(?:the\s+)?(?:last\s+|past\s+)?{_APPROX_EN}{_NUM}\s+{_UNIT}\b", re.I)
+_T_BARE = re.compile(rf"^\s*{_APPROX_EN}{_NUM}\s+{_UNIT}\b", re.I)    # a bare answer to 'how long?': "About 2 weeks."
 _T_AGO = re.compile(rf"\b{_NUM}\s+{_UNIT}\s+ago\b", re.I)
 _T_SINCE = re.compile(r"\bsince\s+(?P<w>yesterday|this\s+morning|morning|last\s+night|today|last\s+week|last\s+month|last\s+year)\b", re.I)
 _T_REL = re.compile(r"\b(?P<w>last\s+(?:year|month|week)|this\s+(?:year|month|week))\b", re.I)
@@ -146,10 +151,11 @@ def _num(token: str) -> tuple[float | None, bool]:
 
 def parse_temporal(text: str) -> TemporalContext | None:
     """Normalise a temporal expression to days. Approximate values are flagged."""
-    for rx, kind in ((_T_DUR, "duration"), (_T_AGO, "ago")):
+    for rx, kind in ((_T_DUR, "duration"), (_T_AGO, "ago"), (_T_BARE, "duration")):
         m = rx.search(text)
         if m:
             n, approx = _num(m.group("n"))
+            approx = approx or bool(re.match(r"\W*(?:for\s+|since\s+|from\s+|over\s+)?(?:the\s+)?(?:last\s+|past\s+)?(?:about|around|approx|roughly|nearly|almost)", m.group(0), re.I))
             unit = m.group("u").lower()
             days = None if n is None else round(n * _UNIT_DAYS[unit], 4)
             return TemporalContext(kind=kind, text=m.group(0), duration_days=days, approximate=approx)
@@ -162,6 +168,9 @@ def parse_temporal(text: str) -> TemporalContext | None:
         w = re.sub(r"\s+", " ", m.group("w").lower())
         unit = w.split()[1]
         return TemporalContext(kind="relative", text=m.group(0), duration_days=float(_UNIT_DAYS[unit]), approximate=True)
+    hi = hindi_nlp.parse_temporal_hi(text)
+    if hi:
+        return TemporalContext(**hi)
     m = re.search(r"\b(?:today|right\s+now|currently|at\s+the\s+moment|now)\b", text, re.I)
     if m:
         return TemporalContext(kind="current", text=m.group(0), duration_days=0.0)
@@ -182,6 +191,8 @@ _FREQ_PER_DAY = {"od": 1, "qd": 1, "daily": 1, "once daily": 1, "once a daily": 
 _NO_MEDS = re.compile(r"\b(?:no|not\s+taking\s+any|don'?t\s+take\s+any|do\s+not\s+take\s+any)\s+(?:regular\s+)?(?:medicines?|medications?|drugs?|tablets?)\b|\bnone\b", re.I)
 _ALLERGY = re.compile(r"\ballerg(?:ic|y|ies)\s+(?:to\s+)?(?P<a>[A-Za-z][A-Za-z\- ]{2,40}?)(?=\s+(?:causing|with|and|which|that|\()|[.,;]|$)", re.I)
 _NO_ALLERGY = re.compile(r"\bno\s+(?:known\s+)?(?:drug\s+|food\s+|medicine\s+)?allerg(?:y|ies)\b|\bnkda\b|\bnot\s+allergic\b", re.I)
+_NO_ALLERGY = re.compile(_NO_ALLERGY.pattern + "|" + hindi_nlp.NO_ALLERGY_HI, re.I)
+_NO_MEDS = re.compile(_NO_MEDS.pattern + "|" + hindi_nlp.NO_MEDS_HI, re.I)
 _REACTION = re.compile(r"\b(rash|hives|swelling|anaphylaxis|breathing\s+difficulty|vomiting|itching)\b", re.I)
 _TEMP = re.compile(r"(?P<v>\d{2,3}(?:\.\d)?)\s*(?:°|deg(?:rees)?\s*)?\s*(?P<u>f|c|fahrenheit|celsius)\b", re.I)
 _SPO2 = re.compile(r"(?:spo2|oxygen\s+saturation|saturation)\D{0,12}(?P<v>\d{2,3})\s*%?", re.I)
@@ -220,6 +231,29 @@ class ClinicalNLPService:
         if not raw.strip():
             return []
         norm = _norm_text(raw)
+        if hindi_nlp.has_devanagari(norm):
+            # Match on a spelling-normalised copy (nukta, chandrabindu, digits), then map spans and quoted text back to the
+            # ORIGINAL text so provenance still points at what the patient actually wrote.
+            hn, idx = hindi_nlp.normalise_with_map(norm)
+            return [self._remap(f, hn, idx, raw) for f in self._extract_normalised(hn, hn, source_id, source_type)]
+        return self._extract_normalised(norm, raw, source_id, source_type)
+
+    @staticmethod
+    def _remap(fact: ClinicalFact, hn: str, idx: list[int], raw: str) -> ClinicalFact:
+        def back(a: int, b: int) -> tuple[int, int]:
+            a = min(max(a, 0), len(idx) - 1)
+            b = min(max(b, a + 1), len(idx))
+            return idx[a], idx[b - 1] + 1
+        update: dict[str, Any] = {}
+        if fact.span:
+            update["span"] = back(*fact.span)
+        pos = hn.find(fact.original_text) if fact.original_text else -1
+        if pos >= 0:
+            oa, ob = back(pos, pos + len(fact.original_text))
+            update["original_text"] = raw[oa:ob]
+        return fact.model_copy(update=update)
+
+    def _extract_normalised(self, norm: str, raw: str, source_id: str, source_type: str) -> list[ClinicalFact]:
         facts: list[ClinicalFact] = []
         offset = 0
         for sent_m in re.finditer(r"[^.!?;\n]+[.!?;]?", norm):
@@ -277,13 +311,15 @@ class ClinicalNLPService:
         pre_words = re.findall(r"\S+", clause[:start])[-7:]
         pre = " ".join(pre_words)
         post = clause[end:end + 45]
-        experiencer = "family" if _FAMILY.search(clause[:start]) or _FAMILY.search(pre) else "patient"
+        experiencer = "family" if (_FAMILY.search(clause[:start]) or _FAMILY.search(pre) or hindi_nlp.family_cue(pre)) else "patient"
+        hi_post = hindi_nlp.post_cue(post)
         if _HYPO.search(pre):
             return "hypothetical", experiencer
-        if _UNCERTAIN.search(pre) or re.match(r"^[\s,]*(?:or\s+not|\?)", post, re.I):
+        if (_UNCERTAIN.search(pre) or re.match(r"^[\s,]*(?:or\s+not|\?)", post, re.I)
+                or hindi_nlp.pre_uncertain(pre) or hi_post == "uncertain"):
             return "uncertain", experiencer
         pre_clean = _PRE_PSEUDO_NEG.sub(" ", pre)
-        if _NEG_PRE.search(pre_clean) or _NEG_POST.match(post):
+        if _NEG_PRE.search(pre_clean) or _NEG_POST.match(post) or hi_post == "absent" or hindi_nlp.pre_negation(pre):
             return "absent", experiencer
         if fld == "symptom" and experiencer == "patient":
             if re.search(r"\bno\s+longer\b|\bnot\s+any\s*more\b", clause, re.I):

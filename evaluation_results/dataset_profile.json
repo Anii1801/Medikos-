@@ -1,0 +1,714 @@
+{
+  "00_patient_master/patient_master.csv": {
+    "rows": 500,
+    "columns": 29,
+    "column_names": [
+      "patient_id",
+      "name",
+      "abha_id_dummy",
+      "age",
+      "sex",
+      "state",
+      "preferred_language",
+      "literacy_level",
+      "phone_access",
+      "department",
+      "visit_type",
+      "accompanied_by_attendant",
+      "consent_capture",
+      "consent_share_with_hospital"
+    ],
+    "empty_cell_share": 0.093,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 400,
+      "valid": 50,
+      "test": 50
+    }
+  },
+  "00_patient_master/patient_master.jsonl": {
+    "rows": 500,
+    "columns": 10,
+    "column_names": [
+      "ayush",
+      "consent",
+      "demographics",
+      "history",
+      "interaction_alerts",
+      "labs",
+      "patient_id",
+      "prescriptions",
+      "split",
+      "visit"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 400,
+      "valid": 50,
+      "test": 50
+    }
+  },
+  "00_patient_master/patient_timeline.csv": {
+    "rows": 1392,
+    "columns": 6,
+    "column_names": [
+      "patient_id",
+      "event_date",
+      "event_type",
+      "facility",
+      "summary",
+      "split"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 1102,
+      "test": 147,
+      "valid": 143
+    }
+  },
+  "01_history_interview/interview_turns.csv": {
+    "rows": 7863,
+    "columns": 9,
+    "column_names": [
+      "interview_id",
+      "patient_id",
+      "split",
+      "turn",
+      "role",
+      "input_mode",
+      "text",
+      "text_script",
+      "slot"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 6311,
+      "valid": 777,
+      "test": 775
+    }
+  },
+  "01_history_interview/interviews.jsonl": {
+    "rows": 300,
+    "columns": 5,
+    "column_names": [
+      "gold_history",
+      "interview_id",
+      "patient_id",
+      "split",
+      "turns"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 240,
+      "valid": 30,
+      "test": 30
+    }
+  },
+  "01_history_interview/meditod_sample_dialogs.csv": {
+    "rows": 359,
+    "columns": 7,
+    "column_names": [
+      "dialog_id",
+      "uttr_id",
+      "speaker",
+      "text",
+      "keywords",
+      "dialog_state",
+      "actions"
+    ],
+    "empty_cell_share": 0.0804,
+    "exact_duplicate_rows": 0
+  },
+  "01_history_interview/slot_inventory.csv": {
+    "rows": 28,
+    "columns": 3,
+    "column_names": [
+      "role",
+      "slot",
+      "count"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "01_history_interview/structured_histories.csv": {
+    "rows": 300,
+    "columns": 25,
+    "column_names": [
+      "interview_id",
+      "patient_id",
+      "age",
+      "sex",
+      "chief_complaint",
+      "icd10_hint",
+      "ayush_correlate",
+      "duration",
+      "hpi_character",
+      "hpi_radiation",
+      "hpi_aggravating",
+      "hpi_relieving",
+      "severity_1_10",
+      "associated_symptoms"
+    ],
+    "empty_cell_share": 0.0545,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 240,
+      "valid": 30,
+      "test": 30
+    }
+  },
+  "02_ocr_handwriting/handwriting_label_map.csv": {
+    "rows": 78,
+    "columns": 3,
+    "column_names": [
+      "medicine_name",
+      "generic_name",
+      "n_images"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "02_ocr_handwriting/handwriting_words_manifest.csv": {
+    "rows": 4680,
+    "columns": 6,
+    "column_names": [
+      "image",
+      "medicine_name",
+      "generic_name",
+      "split",
+      "path_in_zip",
+      "source_zip"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 3120,
+      "valid": 780,
+      "test": 780
+    }
+  },
+  "02_ocr_handwriting/lab_result_entities.csv": {
+    "rows": 1238,
+    "columns": 12,
+    "column_names": [
+      "report_id",
+      "patient_id",
+      "report_date",
+      "lab",
+      "panel",
+      "test",
+      "value",
+      "unit",
+      "ref_low",
+      "ref_high",
+      "flag",
+      "split"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 977,
+      "valid": 131,
+      "test": 130
+    }
+  },
+  "02_ocr_handwriting/noisy_docs_manifest.csv": {
+    "rows": 1000,
+    "columns": 11,
+    "column_names": [
+      "filename",
+      "document_type",
+      "json_data",
+      "path_in_zip",
+      "hospital_name",
+      "patient_name",
+      "diagnosis",
+      "icd_10",
+      "json_keys",
+      "split",
+      "source_zip"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 794,
+      "valid": 109,
+      "test": 97
+    }
+  },
+  "02_ocr_handwriting/ocr_noise_summary.csv": {
+    "rows": 6,
+    "columns": 5,
+    "column_names": [
+      "handwritten",
+      "scan_quality",
+      "n",
+      "mean_cer",
+      "mean_wer"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "02_ocr_handwriting/prescription_entities.csv": {
+    "rows": 1011,
+    "columns": 13,
+    "column_names": [
+      "rx_id",
+      "patient_id",
+      "rx_date",
+      "facility",
+      "drug",
+      "generic_key",
+      "system",
+      "dose_schedule",
+      "duration",
+      "handwritten",
+      "language",
+      "split",
+      "is_exact_duplicate"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 802,
+      "test": 111,
+      "valid": 98
+    },
+    "language_counts": {
+      "English": 665,
+      "Hindi+English": 346
+    }
+  },
+  "02_ocr_handwriting/synthetic_documents_ocr_pairs.csv": {
+    "rows": 892,
+    "columns": 13,
+    "column_names": [
+      "doc_id",
+      "patient_id",
+      "doc_type",
+      "doc_date",
+      "facility",
+      "language",
+      "handwritten",
+      "scan_quality",
+      "ground_truth_text",
+      "simulated_ocr_text",
+      "split",
+      "cer",
+      "wer"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 702,
+      "test": 97,
+      "valid": 93
+    },
+    "language_counts": {
+      "English": 715,
+      "Hindi+English": 177
+    },
+    "doc_type_counts": {
+      "Prescription": 498,
+      "Lab report": 394
+    }
+  },
+  "03_patient_summary/aci_bench_dialogue_note_pairs.csv": {
+    "rows": 207,
+    "columns": 12,
+    "column_names": [
+      "dataset",
+      "encounter_id",
+      "dialogue",
+      "note",
+      "id",
+      "patient_gender",
+      "patient_age",
+      "cc",
+      "2nd_complaints",
+      "split",
+      "dialogue_words",
+      "note_words"
+    ],
+    "empty_cell_share": 0.0435,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 67,
+      "test1": 40,
+      "test2": 40,
+      "test3": 40,
+      "valid": 20
+    }
+  },
+  "03_patient_summary/history_to_summary_synthetic.csv": {
+    "rows": 300,
+    "columns": 9,
+    "column_names": [
+      "interview_id",
+      "patient_id",
+      "split",
+      "input_dialogue",
+      "input_structured_json",
+      "red_flag",
+      "triage_priority",
+      "summary_en",
+      "confirmation_hi"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 240,
+      "valid": 30,
+      "test": 30
+    }
+  },
+  "03_patient_summary/mtsamples_notes_clean.csv": {
+    "rows": 4966,
+    "columns": 7,
+    "column_names": [
+      "description",
+      "medical_specialty",
+      "sample_name",
+      "transcription",
+      "keywords",
+      "word_count",
+      "split"
+    ],
+    "empty_cell_share": 0.0332,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 3952,
+      "valid": 520,
+      "test": 494
+    }
+  },
+  "04_asr_voice/asr_noise_summary.csv": {
+    "rows": 6,
+    "columns": 5,
+    "column_names": [
+      "language",
+      "noise_profile",
+      "n",
+      "mean_wer",
+      "mean_cer"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "language_counts": {
+      "en": 3,
+      "hi": 3
+    }
+  },
+  "04_asr_voice/asr_noisy_test_set.csv": {
+    "rows": 900,
+    "columns": 9,
+    "column_names": [
+      "interview_id",
+      "language",
+      "noise_profile",
+      "reference_text",
+      "simulated_asr_text",
+      "patient_id",
+      "split",
+      "wer",
+      "cer"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 720,
+      "valid": 90,
+      "test": 90
+    },
+    "language_counts": {
+      "hi": 765,
+      "en": 135
+    }
+  },
+  "04_asr_voice/external_audio_sources.csv": {
+    "rows": 4,
+    "columns": 4,
+    "column_names": [
+      "name",
+      "link",
+      "note",
+      "status"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "05_triage_redflag/disease_knowledge.csv": {
+    "rows": 41,
+    "columns": 6,
+    "column_names": [
+      "Disease",
+      "Description",
+      "Precaution_1",
+      "Precaution_2",
+      "Precaution_3",
+      "Precaution_4"
+    ],
+    "empty_cell_share": 0.0081,
+    "exact_duplicate_rows": 0
+  },
+  "05_triage_redflag/red_flag_labeled_cases.csv": {
+    "rows": 300,
+    "columns": 12,
+    "column_names": [
+      "interview_id",
+      "patient_id",
+      "split",
+      "age",
+      "sex",
+      "chief_complaint",
+      "duration",
+      "severity_1_10",
+      "associated_symptoms",
+      "red_flag",
+      "red_flag_reason",
+      "triage_priority"
+    ],
+    "empty_cell_share": 0.0781,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 240,
+      "valid": 30,
+      "test": 30
+    }
+  },
+  "05_triage_redflag/red_flag_rules.csv": {
+    "rows": 8,
+    "columns": 5,
+    "column_names": [
+      "rule_id",
+      "condition",
+      "keywords",
+      "triage",
+      "action"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "05_triage_redflag/symptom2disease_text.csv": {
+    "rows": 1153,
+    "columns": 3,
+    "column_names": [
+      "label",
+      "text",
+      "split"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 922,
+      "test": 116,
+      "valid": 115
+    },
+    "label_counts": {
+      "Psoriasis": 50,
+      "Varicose Veins": 50,
+      "Typhoid": 50,
+      "Impetigo": 50,
+      "Dengue": 50,
+      "Fungal infection": 50,
+      "Hypertension": 50,
+      "urinary tract infection": 50
+    }
+  },
+  "05_triage_redflag/symptom_binary_large_SAMPLE_5000.csv": {
+    "rows": 5000,
+    "columns": 378,
+    "column_names": [
+      "diseases",
+      "anxiety_and_nervousness",
+      "depression",
+      "shortness_of_breath",
+      "depressive_or_psychotic_symptoms",
+      "sharp_chest_pain",
+      "dizziness",
+      "insomnia",
+      "abnormal_involuntary_movements",
+      "chest_tightness",
+      "palpitations",
+      "irregular_heartbeat",
+      "breathing_fast",
+      "hoarse_voice"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 41
+  },
+  "05_triage_redflag/symptom_binary_test.csv": {
+    "rows": 42,
+    "columns": 133,
+    "column_names": [
+      "itching",
+      "skin_rash",
+      "nodal_skin_eruptions",
+      "continuous_sneezing",
+      "shivering",
+      "chills",
+      "joint_pain",
+      "stomach_pain",
+      "acidity",
+      "ulcers_on_tongue",
+      "muscle_wasting",
+      "vomiting",
+      "burning_micturition",
+      "spotting_ urination"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "05_triage_redflag/symptom_binary_train_dedup.csv": {
+    "rows": 304,
+    "columns": 133,
+    "column_names": [
+      "itching",
+      "skin_rash",
+      "nodal_skin_eruptions",
+      "continuous_sneezing",
+      "shivering",
+      "chills",
+      "joint_pain",
+      "stomach_pain",
+      "acidity",
+      "ulcers_on_tongue",
+      "muscle_wasting",
+      "vomiting",
+      "burning_micturition",
+      "spotting_ urination"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "05_triage_redflag/symptom_severity_weights.csv": {
+    "rows": 133,
+    "columns": 2,
+    "column_names": [
+      "Symptom",
+      "weight"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "06_ayush_prakriti/ayush_value_distribution.csv": {
+    "rows": 22,
+    "columns": 3,
+    "column_names": [
+      "field",
+      "value",
+      "count"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "06_ayush_prakriti/dashavidha_pariksha_with_context.csv": {
+    "rows": 356,
+    "columns": 26,
+    "column_names": [
+      "patient_id",
+      "prakriti",
+      "vikriti",
+      "sara",
+      "samhanana",
+      "pramana_bmi",
+      "satmya",
+      "sattva",
+      "ahara_shakti_abhyavaharana",
+      "ahara_shakti_jarana",
+      "vyayama_shakti",
+      "vaya",
+      "agni",
+      "koshtha"
+    ],
+    "empty_cell_share": 0.0463,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 286,
+      "valid": 36,
+      "test": 34
+    }
+  },
+  "07_drug_safety/drug_interaction_alerts.csv": {
+    "rows": 84,
+    "columns": 7,
+    "column_names": [
+      "patient_id",
+      "drug_a",
+      "drug_b",
+      "severity",
+      "note",
+      "evidence",
+      "split"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 62,
+      "test": 12,
+      "valid": 10
+    }
+  },
+  "07_drug_safety/drug_interaction_reference.csv": {
+    "rows": 9,
+    "columns": 5,
+    "column_names": [
+      "drug_a",
+      "drug_b",
+      "severity",
+      "note",
+      "evidence"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "07_drug_safety/patient_drug_lists.csv": {
+    "rows": 377,
+    "columns": 5,
+    "column_names": [
+      "patient_id",
+      "drugs",
+      "n_drugs",
+      "systems",
+      "split"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0,
+    "split_counts": {
+      "train": 302,
+      "test": 40,
+      "valid": 35
+    }
+  },
+  "DATASET_INDEX.csv": {
+    "rows": 35,
+    "columns": 5,
+    "column_names": [
+      "module",
+      "file",
+      "rows",
+      "columns",
+      "description"
+    ],
+    "empty_cell_share": 0.0171,
+    "exact_duplicate_rows": 0
+  },
+  "EXTERNAL_SOURCES.csv": {
+    "rows": 16,
+    "columns": 4,
+    "column_names": [
+      "module",
+      "dataset",
+      "link",
+      "status"
+    ],
+    "empty_cell_share": 0.0,
+    "exact_duplicate_rows": 0
+  },
+  "_image_files_present": 0,
+  "_audio_files_present": 0
+}

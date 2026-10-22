@@ -25,10 +25,12 @@ def _laboratory_findings(docs: list[dict]) -> list[dict]:
                 "low": "below_reference_interval",
                 "high": "above_reference_interval",
                 "normal": "within_reference_interval",
+                "critical": "critical_result",
             }.get(flag, "unable_to_interpret")
             uncertainty = []
             if lab.get("reference_source") != "document":
                 uncertainty.append("The report did not provide a reference interval; configured baseline used.")
+            uncertainty += [str(x) for x in lab.get("ambiguity") or []]
             if lab.get("status") != "reported":
                 uncertainty.append(f"Extraction status: {lab.get('status')}.")
             if lab.get("confidence", 1) < 0.8:
@@ -37,6 +39,7 @@ def _laboratory_findings(docs: list[dict]) -> list[dict]:
                 "below_reference_interval": "The value is below the supplied comparison interval.",
                 "above_reference_interval": "The value is above the supplied comparison interval.",
                 "within_reference_interval": "The value is within the supplied comparison interval; this is not a clearance.",
+                "critical_result": "The report marks this result as critical; urgent clinician review is needed.",
                 "unable_to_interpret": "The result cannot be interpreted without a valid reference interval.",
             }[status]
             findings.append({
@@ -44,6 +47,8 @@ def _laboratory_findings(docs: list[dict]) -> list[dict]:
                 "result": lab.get("value"),
                 "unit": lab.get("unit"),
                 "reference_interval": lab.get("ref"),
+                "reference_source": lab.get("reference_source"),
+                "printed_flag": lab.get("printed_flag"),
                 "status": status,
                 "report_date": document.get("date"),
                 "source_document": document.get("filename"),
@@ -64,12 +69,12 @@ def build_sections(user: dict, a: dict, docs: list[dict]) -> list[dict]:
     hpi = []
     if a.get("cc") == "Chest pain":
         hpi.append(f"SOCRATES — Site: {a.get('cp_site','Not reported')}. Character: {a.get('cp_char','Not reported')}. Radiation: {a.get('cp_rad','Not reported')}. Exacerbating/relieving: {a.get('cp_agg','Not reported')}. Onset/time: {a.get('dur','Not reported')}. Severity: {a.get('sev','Not reported')}.")
-    for k, lab in [("progression", "Progression"), ("fv_pat", "Fever pattern"), ("fv_exp", "Fever associations"), ("co_type", "Cough"), ("co_night", "Respiratory features"),
+    for k, lab in [("progression", "Progression"), ("hpi_char", "Character"), ("hpi_mod", "Aggravating/relieving factors"), ("fv_pat", "Fever pattern"), ("fv_exp", "Fever associations"), ("co_type", "Cough"), ("co_night", "Respiratory features"),
                    ("st_loc", "Abdominal site"), ("st_rel", "Abdominal features"), ("ha_type", "Headache"), ("ha_assoc", "Headache features"),
                    ("jt_site", "Joints/areas"), ("jt_stiff", "Morning stiffness")]:
         if k in a: hpi.append(f"{lab}: {_l(a[k])}.")
     if hpi: S.append({"title": "History of present illness", "text": " ".join(hpi),
-                      "source_refs": [_patient_ref(k) for k in a if k in a and (k == "progression" or k.startswith(("cp_", "fv_", "co_", "st_", "ha_", "jt_")))]})
+                      "source_refs": [_patient_ref(k) for k in a if k in a and (k == "progression" or k.startswith(("cp_", "fv_", "co_", "st_", "ha_", "jt_", "hpi_")))]})
     S += [{"title": "Associated symptoms", "text": _l(a.get("assoc")), "source_refs": [_patient_ref("assoc")]},
           {"title": "Past medical / surgical", "text": _l(a.get("pmh")), "source_refs": [_patient_ref("pmh")]}]
     declared = (a.get("meds") or "").strip()

@@ -9,26 +9,13 @@ CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username TEXT UNIQUE, p
 CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY, user_id INTEGER, expires REAL);
 CREATE TABLE IF NOT EXISTS consents(id INTEGER PRIMARY KEY, user_id INTEGER, purpose TEXT, granted INTEGER, ts REAL);
 CREATE TABLE IF NOT EXISTS documents(id INTEGER PRIMARY KEY, user_id INTEGER, filename TEXT, doc_date TEXT, doc_type TEXT,
-  text TEXT, entities TEXT, engine TEXT, created REAL, extraction_status TEXT DEFAULT 'processed',
-  extraction_error TEXT);
+  text TEXT, entities TEXT, engine TEXT, created REAL);
 CREATE TABLE IF NOT EXISTS records(id INTEGER PRIMARY KEY, user_id INTEGER, token_no INTEGER, priority INTEGER, status TEXT,
   answers TEXT, sections TEXT, flags TEXT, fhir TEXT, abdm_ref TEXT, created REAL, reviewed_by TEXT, reviewed REAL);
-CREATE TABLE IF NOT EXISTS record_documents(
-  record_id INTEGER NOT NULL, document_id INTEGER, user_id INTEGER NOT NULL, filename TEXT NOT NULL,
-  doc_date TEXT, doc_type TEXT, text TEXT NOT NULL, entities TEXT NOT NULL, engine TEXT,
-  extraction_status TEXT NOT NULL, extraction_error TEXT, created REAL NOT NULL,
-  PRIMARY KEY(record_id, document_id)
-);
-CREATE TABLE IF NOT EXISTS clinical_evidence(
-  id INTEGER PRIMARY KEY, record_id INTEGER NOT NULL, patient_id INTEGER NOT NULL,
-  concept TEXT NOT NULL, value TEXT, normalized_value TEXT, unit TEXT,
-  source_type TEXT NOT NULL, source_document_id INTEGER, source_location TEXT,
-  event_date TEXT, polarity TEXT, temporality TEXT, confidence REAL,
-  verification_status TEXT NOT NULL DEFAULT 'unverified', metadata TEXT,
-  created REAL NOT NULL
-);
 CREATE TABLE IF NOT EXISTS history_sessions(id TEXT PRIMARY KEY, user_id INTEGER, state TEXT NOT NULL,
   adapter TEXT NOT NULL, created REAL NOT NULL, updated REAL NOT NULL);
+CREATE TABLE IF NOT EXISTS audit_log(id INTEGER PRIMARY KEY, ts REAL NOT NULL, event TEXT NOT NULL, actor_id INTEGER, role TEXT, target TEXT, detail TEXT, ip TEXT);
+CREATE INDEX IF NOT EXISTS audit_ts ON audit_log(ts);
 CREATE TABLE IF NOT EXISTS asr_transcripts(id TEXT PRIMARY KEY, user_id INTEGER NOT NULL,
   original_transcript TEXT NOT NULL, corrected_transcript TEXT, language TEXT NOT NULL,
   language_detected TEXT, provider TEXT NOT NULL, model TEXT NOT NULL, status TEXT NOT NULL,
@@ -56,23 +43,8 @@ def init():
         # additive migration: store the AI clinical report (summary + red-flag block + review state)
         if "report" not in [r[1] for r in c.execute("PRAGMA table_info(records)")]:
             c.execute("ALTER TABLE records ADD COLUMN report TEXT")
-        document_columns = {r[1] for r in c.execute("PRAGMA table_info(documents)")}
-        if "extraction_status" not in document_columns:
-            c.execute("ALTER TABLE documents ADD COLUMN extraction_status TEXT DEFAULT 'processed'")
-        if "extraction_error" not in document_columns:
-            c.execute("ALTER TABLE documents ADD COLUMN extraction_error TEXT")
-        doctor_username = os.environ.get("DOCTOR_USER", "doctor").strip() or "doctor"
-        doctor_password = os.environ.get("DOCTOR_PASS")
-        doctor = c.execute("SELECT * FROM users WHERE role='doctor' ORDER BY id LIMIT 1").fetchone()
-        if not doctor:
-            add_user(c, doctor_username, doctor_password or "doctor123", "doctor", "Dr. Demo")
-        elif doctor_password is not None and doctor_password:
-            # Keep an explicitly configured local/deployment credential in sync with
-            # the existing doctor row instead of silently retaining its old hash.
-            c.execute("UPDATE users SET username=? WHERE id=?", (doctor_username, doctor["id"]))
-            salt = secrets.token_hex(16)
-            c.execute("UPDATE users SET pw_hash=?, salt=? WHERE id=?",
-                      (_hash(doctor_password, salt), salt, doctor["id"]))
+        if not c.execute("SELECT 1 FROM users WHERE role='doctor'").fetchone():
+            add_user(c, os.environ.get("DOCTOR_USER", "doctor"), os.environ.get("DOCTOR_PASS", "doctor123"), "doctor", "Dr. Demo")
 
 def _hash(pw, salt):
     return hashlib.pbkdf2_hmac("sha256", pw.encode(), bytes.fromhex(salt), 120_000).hex()
@@ -84,20 +56,8 @@ def add_user(c, username, pw, role="patient", name="", age="", abha=""):
     return cur.lastrowid
 
 def check_login(c, username, pw):
-    username = username.strip()
-    r = c.execute("SELECT * FROM users WHERE lower(username)=lower(?)", (username,)).fetchone()
+    r = c.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
     return r if r and secrets.compare_digest(r["pw_hash"], _hash(pw, r["salt"])) else None
-
-def reset_password(c, username, pw):
-    username = username.strip()
-    user = c.execute("SELECT id, role FROM users WHERE lower(username)=lower(?)", (username,)).fetchone()
-    if not user:
-        return False
-    salt = secrets.token_hex(16)
-    c.execute("UPDATE users SET pw_hash=?, salt=? WHERE id=?",
-              (_hash(pw, salt), salt, user["id"]))
-    c.execute("DELETE FROM sessions WHERE user_id=?", (user["id"],))
-    return True
 
 def new_session(c, uid, ttl=8 * 3600):
     t = secrets.token_urlsafe(32)

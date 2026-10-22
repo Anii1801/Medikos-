@@ -89,3 +89,11 @@ evaluation are described in [`docs/ASR_MULTILINGUAL.md`](docs/ASR_MULTILINGUAL.m
 The research comparison registry, paired statistics, error-analysis protocol,
 and achieved/pending results are in
 [`docs/RESEARCH_EVALUATION.md`](docs/RESEARCH_EVALUATION.md).
+
+
+## Adaptive questioning, extraction benchmarks and hardening (2026-10-21)
+
+* `docs/PROJECT_STATUS.md` - single generated status; `docs/EVALUATION_RESULTS.md` - all measured results and what they do *not* show.
+* `docs/MODEL_TRAINING.md` - exact commands; `docs/DATASET_AUDIT.md`; `docs/DEPLOYMENT_READINESS.md`; `docs/HINDI_HINGLISH_NLP.md`.
+* Learned question ranker is **opt-in**: `MEDIKIOSK_QUESTION_POLICY=learned` (default `ontology`). Training needs `pip install -r backend/requirements-train.txt`.
+* All numbers are from synthetic data; nothing here is clinical validation.

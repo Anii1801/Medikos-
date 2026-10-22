@@ -1,3 +1,5 @@
+> **Superseded (2026-10-21).** One checkpoint now exists (`backend/models/adaptive_ranker/v1`, a logistic-regression slot ranker on synthetic data). See `docs/PROJECT_STATUS.md` (generated), `docs/MODEL_TRAINING.md` and `docs/EVALUATION_RESULTS.md`. The statements below predate it.
+
 # MediKiosk training status
 
 Generated from the infrastructure verification run on 2026-10-14.

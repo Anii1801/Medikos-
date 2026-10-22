@@ -5,11 +5,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse, FileResponse
 from pydantic import BaseModel
-from . import asr, db, ontology, ocr, summary, fhir, llm, datasets, clinical_report
+from . import asr, db, ontology, ocr, summary, fhir, llm, datasets, clinical_report, security
+from fastapi import Request
 from .history_agent import AdaptiveHistoryTakingAgent, QuestionResponse
 from .redflag_engine import RedFlagEngine, RedFlagResult, rules_manifest
 from .eda_api import router as eda_router
 
+security.enforce_production_config()      # refuses to start in production with demo credentials / open CORS
 app = FastAPI(title="MediKiosk API", version="1.0")
 allowed_origins = [origin.strip() for origin in os.environ.get("MEDIKIOSK_CORS_ORIGINS", "*").split(",") if origin.strip()]
 app.add_middleware(
@@ -19,10 +21,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.include_router(eda_router)  # /api/eda/* — analytics, EDA, ML endpoints
+app.add_middleware(security.RateLimitMiddleware,
+                   auth_per_min=int(os.environ.get("MEDIKIOSK_RATE_AUTH", "20")), api_per_min=int(os.environ.get("MEDIKIOSK_RATE_API", "300")),
+                   enabled=os.environ.get("MEDIKIOSK_RATE_LIMIT", "on").lower() != "off")
 db.init()
 MAX_UPLOAD = 8 * 1024 * 1024
-ALLOWED_UPLOAD_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"}
 PURPOSES = ("history_capture", "abdm_share")
 
 # ---------- auth ----------
@@ -37,14 +40,13 @@ def doctor(u=Depends(user)):
     if u["role"] != "doctor": raise HTTPException(403, "Doctor access only")
     return u
 
+# /api/eda/* exposes aggregate data and per-record analysis (incl. patient answers by record id): clinician-only.
+app.include_router(eda_router, dependencies=[Depends(doctor)])
+
 class Reg(BaseModel):
     username: str; password: str; name: str = ""; age: str = ""; abha: str = ""
 class Login(BaseModel):
     username: str; password: str
-
-class PasswordReset(BaseModel):
-    username: str
-    new_password: str
 
 @app.post("/api/auth/register")
 def register(r: Reg):
@@ -55,25 +57,14 @@ def register(r: Reg):
         return {"token": db.new_session(c, uid), "role": "patient"}
 
 @app.post("/api/auth/login")
-def login(r: Login):
+def login(r: Login, request: Request):
     with db.tx() as c:
         u = db.check_login(c, r.username, r.password)
-        if not u: raise HTTPException(401, "Wrong username or password")
+        if not u:
+            security.audit("login_failed", target=r.username[:64], ip=request.client.host if request.client else None)
+            raise HTTPException(401, "Wrong username or password")
+        security.audit("login", actor_id=u["id"], role=u["role"], ip=request.client.host if request.client else None)
         return {"token": db.new_session(c, u["id"]), "role": u["role"]}
-
-@app.post("/api/auth/reset-password")
-def reset_password(r: PasswordReset, d=Depends(doctor)):
-    if len(r.new_password) < 6:
-        raise HTTPException(422, "Password must be at least 6 characters")
-    with db.tx() as c:
-        target = c.execute("SELECT role FROM users WHERE lower(username)=lower(?)", (r.username.strip(),)).fetchone()
-        if not target:
-            raise HTTPException(404, "Patient account not found")
-        if target["role"] == "doctor":
-            raise HTTPException(403, "Doctor passwords must be changed through deployment configuration")
-        if not db.reset_password(c, r.username, r.new_password):
-            raise HTTPException(404, "Patient account not found")
-    return {"ok": True}
 
 @app.post("/api/auth/guest")
 def guest(name: str = "", age: str = "", abha: str = ""):
@@ -81,14 +72,6 @@ def guest(name: str = "", age: str = "", abha: str = ""):
     with db.tx() as c:
         uid = db.add_user(c, "guest-" + secrets.token_hex(5), secrets.token_hex(8), "guest", name, age, abha)
         return {"token": db.new_session(c, uid), "role": "guest"}
-
-@app.post("/api/auth/logout")
-def logout(authorization: Optional[str] = Header(None)):
-    tok = (authorization or "").removeprefix("Bearer ").strip()
-    if tok:
-        with db.tx() as c:
-            c.execute("DELETE FROM sessions WHERE token=?", (tok,))
-    return {"ok": True}
 
 @app.get("/api/me")
 def me(u=Depends(user)):
@@ -104,6 +87,7 @@ def update_me(p: Profile, u=Depends(user)):
 @app.delete("/api/me/data")
 def erase(u=Depends(user)):
     """DPDP Act right to erasure."""
+    security.audit("erasure", actor_id=u["id"], role=u["role"])
     with db.tx() as c:
         for t in ("documents", "records", "consents", "sessions", "history_sessions", "asr_transcripts"): c.execute(f"DELETE FROM {t} WHERE user_id=?", (u["id"],))
         c.execute("DELETE FROM users WHERE id=? AND role!='doctor'", (u["id"],))
@@ -307,57 +291,14 @@ def evaluate_red_flags(case: dict, u=Depends(user)):
 
 # ---------- documents ----------
 def doc_row(r):
-    document_id = r["id"] if "id" in r.keys() else r["document_id"]
-    return {"id": document_id, "filename": r["filename"], "date": r["doc_date"], "doc_type": r["doc_type"], "engine": r["engine"],
-            "entities": json.loads(r["entities"]), "text": r["text"],
-            "extraction_status": r["extraction_status"] if "extraction_status" in r.keys() else "processed",
-            "extraction_error": r["extraction_error"] if "extraction_error" in r.keys() else None}
-
-
-def _persist_record_evidence(c, record_id: int, user_id: int, documents: list[dict]):
-    """Snapshot source documents and extracted facts onto the submitted encounter."""
-    now = time.time()
-    for document in documents:
-        entities = document.get("entities") or {}
-        c.execute(
-            """INSERT INTO record_documents
-               (record_id,document_id,user_id,filename,doc_date,doc_type,text,entities,engine,
-                extraction_status,extraction_error,created)
-               VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
-            (record_id, document.get("id"), user_id, document.get("filename") or "unnamed",
-             document.get("date") or "", document.get("doc_type") or "other", document.get("text") or "",
-             db.j(entities), document.get("engine") or "", document.get("extraction_status") or "processed",
-             document.get("extraction_error"), now),
-        )
-        for fact in entities.get("facts", []):
-            value = fact.get("value")
-            source = fact.get("source") or {}
-            c.execute(
-                """INSERT INTO clinical_evidence
-                   (record_id,patient_id,concept,value,normalized_value,unit,source_type,
-                    source_document_id,source_location,event_date,polarity,temporality,
-                    confidence,verification_status,metadata,created)
-                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-                (record_id, user_id, fact.get("field") or "unknown",
-                 db.j(value) if isinstance(value, (dict, list)) else str(value or ""),
-                 db.j(value.get("name")) if isinstance(value, dict) and value.get("name") else None,
-                 value.get("unit") if isinstance(value, dict) else None, "document",
-                 document.get("id"), db.j({"page": source.get("page"), "start": source.get("start"),
-                                          "end": source.get("end"), "bbox": source.get("bbox")}),
-                 entities.get("date"), fact.get("status") or "reported", None,
-                 fact.get("confidence"), "unverified", db.j(fact), now),
-            )
-
+    return {"id": r["id"], "filename": r["filename"], "date": r["doc_date"], "doc_type": r["doc_type"], "engine": r["engine"],
+            "entities": json.loads(r["entities"]), "text": r["text"]}
 
 @app.post("/api/documents")
 async def upload(file: UploadFile = File(...), note: str = Form(""), date: str = Form(""), u=Depends(user)):
-    filename = (file.filename or "").strip()
-    extension = os.path.splitext(filename.lower())[1]
-    if extension not in ALLOWED_UPLOAD_EXTENSIONS:
-        raise HTTPException(415, "Supported uploads are PDF, PNG, JPEG, WEBP, or TIFF")
     data = await file.read()
     if len(data) > MAX_UPLOAD: raise HTTPException(413, "File too large (max 8 MB)")
-    raw_text, engine, pages = ocr.ocr_document(data, filename)   # image bytes never stored
+    raw_text, engine, pages = ocr.ocr_document(data, file.filename or "scan.png")   # image bytes never stored
     # ── Data cleaning pipeline (MedNLP-SC + ADAM v3 abbreviation expansion) ──
     try:
         from .ml_pipeline import clean_ocr_text
@@ -365,16 +306,14 @@ async def upload(file: UploadFile = File(...), note: str = Form(""), date: str =
     except Exception:
         text = raw_text  # graceful fallback if ml_pipeline not available
     if note: text = (text + "\n" + note).strip()
-    ent = ocr.extract(text, {"source_id": filename or "upload", "engine": engine, "pages": pages})
+    ent = ocr.extract(text, {"source_id": file.filename or "upload", "engine": engine, "pages": pages})
     ent["ocr_pages"] = pages
-    ent["document_provenance"] = {"filename": filename, "engine": engine, "byte_size": len(data),
+    ent["document_provenance"] = {"filename": file.filename, "engine": engine, "byte_size": len(data),
                                   "page_count": len(pages), "stored_bytes": False}
     d = date or ent["date"] or ""
     with db.tx() as c:
-        status = "processed" if text.strip() else "extraction_failed"
-        error = None if text.strip() else "No text could be extracted from the uploaded file"
-        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,extraction_status,extraction_error) VALUES(?,?,?,?,?,?,?,?,?,?)",
-                        (u["id"], filename, d, ent["doc_type"], text, db.j(ent), engine, time.time(), status, error))
+        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created) VALUES(?,?,?,?,?,?,?,?)",
+                        (u["id"], file.filename, d, ent["doc_type"], text, db.j(ent), engine, time.time()))
         r = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
     out = doc_row(r)
     out["needs_manual_note"] = not text.strip()
@@ -389,8 +328,8 @@ def upload_text(body: dict, u=Depends(user)):
     ent = ocr.extract(text, {"source_id": "typed-note", "engine": "typed"}); d = body.get("date") or ent["date"] or ""
     ent["document_provenance"] = {"filename": "typed-note", "engine": "typed", "stored_bytes": False, "page_count": 1}
     with db.tx() as c:
-        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,extraction_status) VALUES(?,?,?,?,?,?,?,?,?)",
-                        (u["id"], "typed-note", d, ent["doc_type"], text, db.j(ent), "typed", time.time(), "processed"))
+        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created) VALUES(?,?,?,?,?,?,?,?)",
+                        (u["id"], "typed-note", d, ent["doc_type"], text, db.j(ent), "typed", time.time()))
         r = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
     return doc_row(r)
 
@@ -446,7 +385,6 @@ def submit(s: Submit, u=Depends(user)):
         cur = c.execute("INSERT INTO records(user_id,token_no,priority,status,answers,sections,flags,created,report) VALUES(?,?,?,?,?,?,?,?,?)",
                         (u["id"], n, prio, "submitted", db.j({k: v for k, v in a.items() if not k.startswith("_")}), db.j(sec), db.j(flags), time.time(), db.j(report)))
         rid = cur.lastrowid
-        _persist_record_evidence(c, rid, u["id"], dl)
         bundle = fhir.build_bundle(u, sec, flags, dl, rid)
         push = fhir.abdm_push(bundle, u.get("abha"))
         c.execute("UPDATE records SET fhir=?, abdm_ref=? WHERE id=?", (db.j(bundle), push["ref"], rid))
@@ -461,14 +399,6 @@ def my_records(u=Depends(user)):
         rows = c.execute("SELECT id,token_no,priority,status,flags,created,abdm_ref FROM records WHERE user_id=? ORDER BY id DESC", (u["id"],)).fetchall()
     return [{**dict(r), "flags": json.loads(r["flags"])} for r in rows]
 
-@app.get("/api/records/{rid}")
-def my_record(rid: int, u=Depends(user)):
-    with db.tx() as c:
-        r = c.execute("SELECT * FROM records WHERE id=? AND user_id=?", (rid, u["id"])).fetchone()
-    if not r:
-        raise HTTPException(404, "Record not found")
-    return rec(r, True)
-
 # ---------- doctor ----------
 def rec(r, full=False):
     d = {"id": r["id"], "token_no": r["token_no"], "priority": r["priority"], "status": r["status"], "flags": json.loads(r["flags"]),
@@ -480,6 +410,7 @@ def rec(r, full=False):
 
 @app.get("/api/doctor/records")
 def d_list(d=Depends(doctor)):
+    security.audit("doctor_list_records", actor_id=d["id"], role="doctor")
     with db.tx() as c:
         rows = c.execute("SELECT r.*, u.name, u.abha FROM records r JOIN users u ON u.id=r.user_id ORDER BY r.priority, r.id").fetchall()
     return [rec(r) for r in rows]
@@ -488,28 +419,11 @@ def d_list(d=Depends(doctor)):
 def d_get(rid: int, d=Depends(doctor)):
     with db.tx() as c:
         r = c.execute("SELECT r.*, u.name, u.abha FROM records r JOIN users u ON u.id=r.user_id WHERE r.id=?", (rid,)).fetchone()
-        document_rows = c.execute("SELECT * FROM record_documents WHERE record_id=? ORDER BY created, filename",
-                                   (rid,)).fetchall() if r else []
+        document_rows = c.execute("SELECT * FROM documents WHERE user_id=? ORDER BY id", (r["user_id"],)).fetchall() if r else []
     if not r: raise HTTPException(404, "Not found")
+    security.audit("doctor_view_record", actor_id=d["id"], role="doctor", target=f"record:{rid}")
     result = rec(r, True)
     result["documents"] = [doc_row(row) for row in document_rows]
-    with db.tx() as c:
-        evidence = c.execute(
-            """SELECT id,concept,value,normalized_value,unit,source_type,source_document_id,
-                      source_location,event_date,polarity,temporality,confidence,
-                      verification_status,metadata
-               FROM clinical_evidence WHERE record_id=? ORDER BY id""", (rid,)).fetchall()
-    result["clinical_evidence"] = []
-    for row in evidence:
-        item = dict(row)
-        for key in ("source_location", "metadata"):
-            item[key] = json.loads(item[key]) if item[key] else None
-        if item["value"]:
-            try:
-                item["value"] = json.loads(item["value"])
-            except (TypeError, json.JSONDecodeError):
-                pass
-        result["clinical_evidence"].append(item)
     return result
 
 class Review(BaseModel):
@@ -532,7 +446,15 @@ def d_review(rid: int, rv: Review, d=Depends(doctor)):
                                                     "rejected": "REJECTED_BY_CLINICIAN"}[rv.status]
         c.execute("UPDATE records SET sections=?, status=?, reviewed_by=?, reviewed=?, report=? WHERE id=?",
                   (db.j(rv.sections), rv.status, d["username"], now, db.j(report) if report else None, rid))
+    security.audit("doctor_review_record", actor_id=d["id"], role="doctor", target=f"record:{rid}", detail={"status": rv.status})
     return {"ok": True}
+
+@app.get("/api/admin/audit")
+def audit_log(limit: int = 200, d=Depends(doctor)):
+    """Most recent audit events (metadata only), newest first."""
+    with db.tx() as c:
+        rows = c.execute("SELECT ts,event,actor_id,role,target,detail,ip FROM audit_log ORDER BY id DESC LIMIT ?", (max(1, min(limit, 1000)),)).fetchall()
+    return [dict(r) for r in rows]
 
 @app.get("/api/health")
 def health():

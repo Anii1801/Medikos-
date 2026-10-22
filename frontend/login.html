@@ -16,5 +16,33 @@ const form = document.getElementById("auth-form"), error = document.getElementBy
 function setMode(value) { register = value; document.getElementById("name-field").hidden = !register; document.getElementById("password").autocomplete = register ? "new-password" : "current-password"; document.getElementById("auth-submit").textContent = register ? "Create account" : "Sign in"; document.getElementById("login-tab").classList.toggle("active", !register); document.getElementById("register-tab").classList.toggle("active", register); }
 document.getElementById("login-tab").onclick = () => setMode(false); document.getElementById("register-tab").onclick = () => setMode(true);
 document.getElementById("toggle-password").onclick = e => { const p=document.getElementById("password"); p.type=p.type==="password"?"text":"password"; e.currentTarget.textContent=p.type==="password"?"Show":"Hide"; };
-form.onsubmit = async e => { e.preventDefault(); error.textContent=""; const submit=document.getElementById("auth-submit"); submit.disabled=true; submit.classList.add("is-loading"); try { const path=register?"/auth/register":"/auth/login"; const json=register?{username:username.value,password:password.value,name:name.value,age:age.value}:{username:username.value,password:password.value}; const result=await api(path,{json}); setToken(result.token); const next=new URLSearchParams(location.search).get("next"); location.href=next==="interview.html"?"dashboard.html":(next||"dashboard.html"); } catch(err) { error.textContent=err.message; } finally { submit.disabled=false; submit.classList.remove("is-loading"); } };
+form.onsubmit = async e => {
+  e.preventDefault();
+  error.textContent = "";
+  const submit = document.getElementById("auth-submit");
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  submit.disabled = true;
+  submit.classList.add("is-loading");
+  try {
+    const path = register ? "/auth/register" : "/auth/login";
+    const json = register
+      ? {
+          username,
+          password,
+          name: document.getElementById("name").value,
+          age: document.getElementById("age").value
+        }
+      : { username, password };
+    const result = await api(path, { json });
+    setToken(result.token);
+    const next = new URLSearchParams(location.search).get("next");
+    location.href = next === "interview.html" ? "dashboard.html" : (next || "dashboard.html");
+  } catch (err) {
+    error.textContent = err.message;
+  } finally {
+    submit.disabled = false;
+    submit.classList.remove("is-loading");
+  }
+};
 </script></body></html>

@@ -1,0 +1,33 @@
+{
+  "weights_sha256": "5d7cd442fa94685647770cfc752ec6a62e5b229c2a75f5f1222ddf75cfd68692",
+  "created_utc": "2026-10-20T07:20:03Z",
+  "git_commit": "c916a89b17f5a6e76f350b1cbe9a8433f6709818",
+  "seed": 42,
+  "data": {
+    "interview_turns.csv": "0fab7755f10bf0710e8a1004c78070e6852e7d1bcbb73cd914e2c27fd333008d",
+    "structured_histories.csv": "864d216bf3eb242b590097b9d488fff0356d45535c59faed8300e4d402057f50"
+  },
+  "split_integrity": {
+    "train": {
+      "interviews": 240,
+      "patients": 240
+    },
+    "valid": {
+      "interviews": 30,
+      "patients": 30
+    },
+    "test": {
+      "interviews": 30,
+      "patients": 30
+    }
+  },
+  "train_examples": 6056,
+  "valid_examples": 746,
+  "environment": {
+    "python": "3.12.3",
+    "sklearn": "1.8.0",
+    "numpy": "2.4.4"
+  },
+  "train_seconds": 7.76,
+  "command": "cd backend && PYTHONPATH=. python -m training.adaptive.train"
+}

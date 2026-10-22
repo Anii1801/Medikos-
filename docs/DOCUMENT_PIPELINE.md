@@ -33,13 +33,6 @@ an uploaded document are presented as a conflict instead of being resolved
 silently. The clinician record endpoint and review screen show the document
 facts, source page, confidence, status, and review indicators.
 
-On submission, the source documents are copied into `record_documents` and
-their extracted facts into `clinical_evidence`, keyed by the encounter
-(`records.id`) and patient. This snapshot is what the doctor endpoint reads,
-so guest-session cleanup cannot remove the evidence used by the generated
-report. The working `documents` rows remain patient-owned and are still
-deleted for guest privacy after a successful submission.
-
 The optional LLM section-polishing path is not used to replace the grounded
 release summary. This prevents unsupported claims from entering the clinical
 record. Red-flag detection remains independent and is never suppressed by
@@ -80,9 +73,3 @@ explanation, uncertainty, and pending clinician-review status. A report-supplied
 interval takes precedence. When a report omits an interval, the configured baseline
 is explicitly disclosed and the finding still requires clinician confirmation; it is
 not treated as a diagnosis or clearance.
-
-Supported upload types are PDF, PNG, JPEG, WEBP, and TIFF. Embedded PDF text is
-supported; scanned PDFs without an extractable text layer are recorded as an
-explicit extraction failure (`pdf-scanned-unsupported`) rather than reported as
-successfully processed. Image OCR requires the locally installed Tesseract
-executable.

@@ -1,0 +1,1186 @@
+{
+  "source_files": {
+    "interview_turns.csv": "0fab7755f10bf0710e8a1004c78070e6852e7d1bcbb73cd914e2c27fd333008d",
+    "structured_histories.csv": "864d216bf3eb242b590097b9d488fff0356d45535c59faed8300e4d402057f50"
+  },
+  "interviews": 300,
+  "turns": 7863,
+  "independent_units_note": "7,863 turns come from only 300 interviews / 300 patients; turns are correlated within an interview",
+  "split_integrity": {
+    "train": {
+      "interviews": 240,
+      "patients": 240
+    },
+    "valid": {
+      "interviews": 30,
+      "patients": 30
+    },
+    "test": {
+      "interviews": 30,
+      "patients": 30
+    }
+  },
+  "jsonl_vs_csv": {
+    "jsonl_interviews": 300,
+    "identical_to_csv": 300,
+    "mismatched": 0
+  },
+  "distinct_question_orderings": 2,
+  "orderings": [
+    {
+      "count": 172,
+      "slots": [
+        "cc",
+        "dur",
+        "char",
+        "rad",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers",
+        "STOP"
+      ]
+    },
+    {
+      "count": 128,
+      "slots": [
+        "cc",
+        "dur",
+        "char",
+        "agg",
+        "rel",
+        "sev",
+        "assoc",
+        "pmh",
+        "drug",
+        "allergy",
+        "fam",
+        "pers",
+        "STOP"
+      ]
+    }
+  ],
+  "next_slot_determinism": {
+    "prediction_steps": 3772,
+    "accuracy_of_best_guess_from_asked_set_only": 0.9661,
+    "accuracy_of_best_guess_from_asked_sequence_plus_complaint": 1.0,
+    "states_where_asked_set_alone_is_ambiguous": 1,
+    "ambiguity_cause": "only 'rad' (asked for 172/300 interviews, determined by complaint) varies the order"
+  },
+  "ai_question_text_variants_per_slot": {
+    "CONFIRM": 2,
+    "RED_FLAG_ALERT": 2,
+    "agg": 2,
+    "allergy": 2,
+    "assoc": 2,
+    "cc": 2,
+    "char": 2,
+    "drug": 2,
+    "dur": 2,
+    "fam": 2,
+    "pers": 2,
+    "pmh": 2,
+    "rad": 2,
+    "rel": 2,
+    "sev": 2
+  },
+  "patient_cc_utterance_variants_per_complaint": {
+    "burning in the chest and stomach after meals": 4,
+    "chest pain": 4,
+    "constipation": 3,
+    "cough and breathlessness": 4,
+    "difficulty sleeping": 2,
+    "excessive thirst and frequent urination": 4,
+    "fever": 4,
+    "headache with dizziness": 4,
+    "itching with skin rash": 3,
+    "joint pain and morning stiffness": 3,
+    "knee pain": 4,
+    "low back pain": 4,
+    "pain in the abdomen": 4,
+    "sudden weakness on one side and slurred speech": 3
+  },
+  "answer_entropy": {
+    "complaint_slot_pairs": 161,
+    "pairs_with_a_single_constant_answer": 26,
+    "mean_entropy_bits_by_slot": {
+      "agg": 0.416,
+      "allergy": 1.548,
+      "assoc": 2.418,
+      "char": 0.382,
+      "drug": 1.597,
+      "dur": 3.024,
+      "fam": 2.133,
+      "pers": 1.443,
+      "pmh": 2.548,
+      "rad": 1.13,
+      "rel": 0.283,
+      "sev": 2.567
+    },
+    "rows": [
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "dur",
+        "distinct_answers": 10,
+        "entropy_bits": 3.148
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "rad",
+        "distinct_answers": 2,
+        "entropy_bits": 0.996
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "agg",
+        "distinct_answers": 2,
+        "entropy_bits": 0.996
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "rel",
+        "distinct_answers": 2,
+        "entropy_bits": 0.983
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.796
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.884
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "pmh",
+        "distinct_answers": 11,
+        "entropy_bits": 2.239
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "drug",
+        "distinct_answers": 6,
+        "entropy_bits": 1.715
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.881
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.047
+      },
+      {
+        "complaint": "burning in the chest and stomach after meals",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.485
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "dur",
+        "distinct_answers": 11,
+        "entropy_bits": 3.393
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "char",
+        "distinct_answers": 2,
+        "entropy_bits": 0.89
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "rad",
+        "distinct_answers": 3,
+        "entropy_bits": 1.577
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "rel",
+        "distinct_answers": 2,
+        "entropy_bits": 0.996
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "sev",
+        "distinct_answers": 4,
+        "entropy_bits": 1.884
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "assoc",
+        "distinct_answers": 8,
+        "entropy_bits": 2.931
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "pmh",
+        "distinct_answers": 9,
+        "entropy_bits": 2.807
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "drug",
+        "distinct_answers": 6,
+        "entropy_bits": 2.288
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "allergy",
+        "distinct_answers": 4,
+        "entropy_bits": 1.352
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.2
+      },
+      {
+        "complaint": "chest pain",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.547
+      },
+      {
+        "complaint": "constipation",
+        "slot": "dur",
+        "distinct_answers": 10,
+        "entropy_bits": 3.175
+      },
+      {
+        "complaint": "constipation",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "constipation",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "constipation",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "constipation",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.911
+      },
+      {
+        "complaint": "constipation",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.739
+      },
+      {
+        "complaint": "constipation",
+        "slot": "pmh",
+        "distinct_answers": 8,
+        "entropy_bits": 2.133
+      },
+      {
+        "complaint": "constipation",
+        "slot": "drug",
+        "distinct_answers": 6,
+        "entropy_bits": 1.898
+      },
+      {
+        "complaint": "constipation",
+        "slot": "allergy",
+        "distinct_answers": 4,
+        "entropy_bits": 1.14
+      },
+      {
+        "complaint": "constipation",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.257
+      },
+      {
+        "complaint": "constipation",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.618
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "dur",
+        "distinct_answers": 13,
+        "entropy_bits": 3.565
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "agg",
+        "distinct_answers": 2,
+        "entropy_bits": 0.996
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.815
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.876
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "pmh",
+        "distinct_answers": 14,
+        "entropy_bits": 2.969
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "drug",
+        "distinct_answers": 5,
+        "entropy_bits": 1.566
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "allergy",
+        "distinct_answers": 4,
+        "entropy_bits": 1.212
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.22
+      },
+      {
+        "complaint": "cough and breathlessness",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.615
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "dur",
+        "distinct_answers": 7,
+        "entropy_bits": 2.725
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "sev",
+        "distinct_answers": 6,
+        "entropy_bits": 2.503
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.891
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "pmh",
+        "distinct_answers": 5,
+        "entropy_bits": 1.88
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "drug",
+        "distinct_answers": 2,
+        "entropy_bits": 0.991
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "allergy",
+        "distinct_answers": 4,
+        "entropy_bits": 1.837
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.113
+      },
+      {
+        "complaint": "difficulty sleeping",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.447
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "dur",
+        "distinct_answers": 11,
+        "entropy_bits": 3.165
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.874
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "assoc",
+        "distinct_answers": 13,
+        "entropy_bits": 3.311
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "pmh",
+        "distinct_answers": 22,
+        "entropy_bits": 4.304
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "drug",
+        "distinct_answers": 5,
+        "entropy_bits": 1.423
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.831
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.104
+      },
+      {
+        "complaint": "excessive thirst and frequent urination",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.451
+      },
+      {
+        "complaint": "fever",
+        "slot": "dur",
+        "distinct_answers": 6,
+        "entropy_bits": 2.513
+      },
+      {
+        "complaint": "fever",
+        "slot": "char",
+        "distinct_answers": 2,
+        "entropy_bits": 0.863
+      },
+      {
+        "complaint": "fever",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "fever",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "fever",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.794
+      },
+      {
+        "complaint": "fever",
+        "slot": "assoc",
+        "distinct_answers": 16,
+        "entropy_bits": 3.842
+      },
+      {
+        "complaint": "fever",
+        "slot": "pmh",
+        "distinct_answers": 11,
+        "entropy_bits": 2.254
+      },
+      {
+        "complaint": "fever",
+        "slot": "drug",
+        "distinct_answers": 5,
+        "entropy_bits": 1.542
+      },
+      {
+        "complaint": "fever",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.75
+      },
+      {
+        "complaint": "fever",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.249
+      },
+      {
+        "complaint": "fever",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.531
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "dur",
+        "distinct_answers": 11,
+        "entropy_bits": 3.105
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "rad",
+        "distinct_answers": 2,
+        "entropy_bits": 0.998
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "agg",
+        "distinct_answers": 2,
+        "entropy_bits": 0.888
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.833
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.908
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "pmh",
+        "distinct_answers": 28,
+        "entropy_bits": 4.705
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "drug",
+        "distinct_answers": 6,
+        "entropy_bits": 1.623
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.585
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.245
+      },
+      {
+        "complaint": "headache with dizziness",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.436
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "dur",
+        "distinct_answers": 9,
+        "entropy_bits": 3.076
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "rad",
+        "distinct_answers": 2,
+        "entropy_bits": 0.982
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "agg",
+        "distinct_answers": 2,
+        "entropy_bits": 0.998
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.721
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.978
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "pmh",
+        "distinct_answers": 7,
+        "entropy_bits": 1.716
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "drug",
+        "distinct_answers": 4,
+        "entropy_bits": 1.192
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.628
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.129
+      },
+      {
+        "complaint": "itching with skin rash",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.483
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "dur",
+        "distinct_answers": 6,
+        "entropy_bits": 2.522
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "char",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "sev",
+        "distinct_answers": 5,
+        "entropy_bits": 2.046
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "assoc",
+        "distinct_answers": 7,
+        "entropy_bits": 2.722
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "pmh",
+        "distinct_answers": 4,
+        "entropy_bits": 1.357
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "drug",
+        "distinct_answers": 3,
+        "entropy_bits": 0.922
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 2.046
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "fam",
+        "distinct_answers": 4,
+        "entropy_bits": 1.895
+      },
+      {
+        "complaint": "joint pain and morning stiffness",
+        "slot": "pers",
+        "distinct_answers": 3,
+        "entropy_bits": 0.922
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "dur",
+        "distinct_answers": 11,
+        "entropy_bits": 3.245
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "char",
+        "distinct_answers": 2,
+        "entropy_bits": 0.977
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "rad",
+        "distinct_answers": 2,
+        "entropy_bits": 0.998
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "agg",
+        "distinct_answers": 2,
+        "entropy_bits": 0.998
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "rel",
+        "distinct_answers": 2,
+        "entropy_bits": 0.99
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "sev",
+        "distinct_answers": 8,
+        "entropy_bits": 2.936
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.987
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "pmh",
+        "distinct_answers": 15,
+        "entropy_bits": 2.545
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "drug",
+        "distinct_answers": 8,
+        "entropy_bits": 1.971
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.487
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.151
+      },
+      {
+        "complaint": "knee pain",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.563
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "dur",
+        "distinct_answers": 10,
+        "entropy_bits": 3.13
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "char",
+        "distinct_answers": 2,
+        "entropy_bits": 0.975
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "rad",
+        "distinct_answers": 3,
+        "entropy_bits": 1.38
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "agg",
+        "distinct_answers": 2,
+        "entropy_bits": 0.951
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "rel",
+        "distinct_answers": 2,
+        "entropy_bits": 0.991
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "sev",
+        "distinct_answers": 7,
+        "entropy_bits": 2.763
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "assoc",
+        "distinct_answers": 4,
+        "entropy_bits": 1.926
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "pmh",
+        "distinct_answers": 9,
+        "entropy_bits": 1.766
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "drug",
+        "distinct_answers": 6,
+        "entropy_bits": 1.405
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.395
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.193
+      },
+      {
+        "complaint": "low back pain",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.247
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "dur",
+        "distinct_answers": 9,
+        "entropy_bits": 2.984
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "char",
+        "distinct_answers": 2,
+        "entropy_bits": 0.998
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "rad",
+        "distinct_answers": 2,
+        "entropy_bits": 0.977
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "sev",
+        "distinct_answers": 6,
+        "entropy_bits": 2.145
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "assoc",
+        "distinct_answers": 10,
+        "entropy_bits": 3.264
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "pmh",
+        "distinct_answers": 9,
+        "entropy_bits": 2.409
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "drug",
+        "distinct_answers": 5,
+        "entropy_bits": 1.569
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "allergy",
+        "distinct_answers": 5,
+        "entropy_bits": 1.875
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "fam",
+        "distinct_answers": 5,
+        "entropy_bits": 2.145
+      },
+      {
+        "complaint": "pain in the abdomen",
+        "slot": "pers",
+        "distinct_answers": 4,
+        "entropy_bits": 1.609
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "dur",
+        "distinct_answers": 6,
+        "entropy_bits": 2.585
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "char",
+        "distinct_answers": 2,
+        "entropy_bits": 0.65
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "agg",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "rel",
+        "distinct_answers": 1,
+        "entropy_bits": -0.0
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "sev",
+        "distinct_answers": 4,
+        "entropy_bits": 1.918
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "assoc",
+        "distinct_answers": 6,
+        "entropy_bits": 2.585
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "pmh",
+        "distinct_answers": 6,
+        "entropy_bits": 2.585
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "drug",
+        "distinct_answers": 5,
+        "entropy_bits": 2.252
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "allergy",
+        "distinct_answers": 2,
+        "entropy_bits": 0.65
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "fam",
+        "distinct_answers": 4,
+        "entropy_bits": 1.918
+      },
+      {
+        "complaint": "sudden weakness on one side and slurred speech",
+        "slot": "pers",
+        "distinct_answers": 3,
+        "entropy_bits": 1.252
+      }
+    ]
+  },
+  "triage_is_function_of_severity": {
+    "match": 300,
+    "of": 300,
+    "rule": "red_flag -> EMERGENCY; severity>=8 -> URGENT; else ROUTINE"
+  },
+  "duplicates": {
+    "identical_patient_answer_sequences_groups": 0,
+    "of_which_cross_split": 0,
+    "test_interviews_duplicated_in_train": 0
+  },
+  "complaint_coverage": {
+    "burning in the chest and stomach after meals": {
+      "train": 25,
+      "valid": 1,
+      "test": 0
+    },
+    "chest pain": {
+      "train": 12,
+      "valid": 0,
+      "test": 1
+    },
+    "constipation": {
+      "train": 14,
+      "valid": 0,
+      "test": 3
+    },
+    "cough and breathlessness": {
+      "train": 19,
+      "valid": 2,
+      "test": 5
+    },
+    "difficulty sleeping": {
+      "train": 7,
+      "valid": 2,
+      "test": 0
+    },
+    "excessive thirst and frequent urination": {
+      "train": 20,
+      "valid": 5,
+      "test": 7
+    },
+    "fever": {
+      "train": 21,
+      "valid": 6,
+      "test": 1
+    },
+    "headache with dizziness": {
+      "train": 29,
+      "valid": 3,
+      "test": 4
+    },
+    "itching with skin rash": {
+      "train": 14,
+      "valid": 2,
+      "test": 3
+    },
+    "joint pain and morning stiffness": {
+      "train": 8,
+      "valid": 1,
+      "test": 1
+    },
+    "knee pain": {
+      "train": 29,
+      "valid": 3,
+      "test": 2
+    },
+    "low back pain": {
+      "train": 22,
+      "valid": 4,
+      "test": 1
+    },
+    "pain in the abdomen": {
+      "train": 17,
+      "valid": 0,
+      "test": 0
+    },
+    "sudden weakness on one side and slurred speech": {
+      "train": 3,
+      "valid": 1,
+      "test": 2
+    }
+  },
+  "complaints_with_fewer_than_10_interviews": [
+    "difficulty sleeping",
+    "sudden weakness on one side and slurred speech"
+  ],
+  "script_distribution": {
+    "devanagari": 255,
+    "latin": 45
+  },
+  "required_slots_config": "training/adaptive/config/required_slots.json",
+  "conclusion": "The recorded 'next question' is a fixed template: 2 question orderings (4 if the inserted RED_FLAG_ALERT turn is counted), differing only by whether 'rad' is asked, which the complaint fixes. A model that reproduces it learns the template, not a question-selection skill; top-1 accuracy is therefore uninformative and policy-level metrics (coverage, redundancy, turns, safety omissions) are reported instead."
+}

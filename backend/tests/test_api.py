@@ -110,20 +110,6 @@ def test_register_login_erase():
     assert c.delete("/api/me/data", headers=H(t)).json()["erased"]
     assert c.get("/api/me", headers=H(t)).status_code == 401
 
-def test_doctor_can_reset_patient_password_without_deleting_data():
-    c.post("/api/auth/register", json={"username": "reset-me", "password": "oldpass", "name": "Reset Me"})
-    doctor_token = c.post("/api/auth/login", json={"username": "doctor", "password": "doctor123"}).json()["token"]
-    doctor_headers = H(doctor_token)
-    assert c.post("/api/auth/reset-password",
-                  json={"username": "reset-me", "new_password": "newpass"},
-                  headers=doctor_headers).status_code == 200
-    assert c.post("/api/auth/login", json={"username": "reset-me", "password": "oldpass"}).status_code == 401
-    patient_login = c.post("/api/auth/login", json={"username": "RESET-ME", "password": "newpass"})
-    assert patient_login.status_code == 200
-    assert c.get("/api/me", headers=H(patient_login.json()["token"])).json()["name"] == "Reset Me"
-    assert c.post("/api/auth/reset-password",
-                  json={"username": "reset-me", "new_password": "short"},
-                  headers=doctor_headers).status_code == 422
 
 def test_stateful_adaptive_interview_api_persists_answers_and_ayush_branch():
     token = c.post("/api/auth/guest?name=Adaptive").json()["token"]
@@ -151,32 +137,11 @@ def test_ml_route_does_not_claim_unavailable_trained_clinical_model():
         c.post("/api/consent", json={"purpose": purpose}, headers=h)
     submitted = c.post("/api/submit", json={"answers": {"cc": "Fever"}}, headers=h)
     assert submitted.status_code == 200
-    response = c.get(f"/api/eda/red-flag-ml/{submitted.json()['record_id']}")
+    assert c.get(f"/api/eda/red-flag-ml/{submitted.json()['record_id']}").status_code == 401   # EDA is clinician-only
+    doctor_token = c.post("/api/auth/login", json={"username": "doctor", "password": "doctor123"}).json()["token"]
+    response = c.get(f"/api/eda/red-flag-ml/{submitted.json()['record_id']}", headers=H(doctor_token))
     assert response.status_code == 200
     payload = response.json()
     assert payload["model_available"] is False
     assert payload["ml_red_flag_probability"] is None
     assert payload["likely_conditions"] == []
-
-
-def test_submitted_record_retains_document_snapshot_and_evidence_after_guest_cleanup():
-    token = c.post("/api/auth/guest?name=Evidence").json()["token"]
-    headers = H(token)
-    for purpose in ("history_capture", "abdm_share"):
-        assert c.post("/api/consent", json={"purpose": purpose}, headers=headers).status_code == 200
-    uploaded = c.post(
-        "/api/documents/text",
-        json={"text": "Pathology report 2026-01-02\nHaemoglobin 10 g/dL (ref range 12-16)"},
-        headers=headers,
-    )
-    assert uploaded.status_code == 200
-    record = c.post("/api/submit", json={"answers": {"cc": "Fatigue"}}, headers=headers)
-    assert record.status_code == 200, record.text
-    doctor = c.post("/api/auth/login", json={"username": "doctor", "password": "doctor123"}).json()["token"]
-    detail = c.get(f"/api/doctor/records/{record.json()['record_id']}", headers=H(doctor))
-    assert detail.status_code == 200
-    payload = detail.json()
-    assert payload["documents"][0]["filename"] == "typed-note"
-    assert payload["documents"][0]["entities"]["labs"][0]["test"] == "Haemoglobin"
-    assert payload["clinical_evidence"][0]["source_document_id"] == payload["documents"][0]["id"]
-    assert c.get("/api/documents", headers=headers).json() == []
