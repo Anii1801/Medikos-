@@ -1,0 +1,235 @@
+{
+  "ground_truth_text": {
+    "text_field": "ground_truth_text",
+    "split_method": "existing patient-grouped train/valid/test assignments; unchanged",
+    "split_integrity": {
+      "patients_per_split": {
+        "train": 302,
+        "valid": 35,
+        "test": 40
+      },
+      "cross_split_patient_ids": 0
+    },
+    "normalization": {
+      "name": "case-fold and remove non-alphanumeric characters; exact generic_key match",
+      "source_name": "case-fold and remove non-alphanumeric characters after stripping a terminal dose/unit from the labeled drug field; exact source-formulation name match",
+      "dose": "case-fold, remove whitespace, normalize Greek mu to u",
+      "schedule": "case-fold, remove whitespace; otherwise exact"
+    },
+    "source_name_misses": {
+      "train": {
+        "Ashwagandha churna 3 g": 2,
+        "Atorvastatin 20 mg": 2,
+        "Triphala churna 5 g": 3
+      },
+      "valid": {
+        "Atorvastatin 20 mg": 1
+      },
+      "test": {
+        "Atorvastatin 20 mg": 1
+      }
+    },
+    "limitations": [
+      "Synthetic text pairs; no source images, so this is not OCR evaluation.",
+      "No token spans are supplied; exact generic-key matching is a strict name proxy.",
+      "Dose accuracy excludes unmatched names and labels without a terminal strength/unit pattern.",
+      "Duration, route, and report-generation fidelity are not scored by this evaluator.",
+      "The extractor has been developed on this corpus; results are descriptive regression results, not a blinded estimate."
+    ],
+    "results": {
+      "train": {
+        "documents": 392,
+        "gold_entities": 802,
+        "predicted_entities": 800,
+        "exact_generic_key_matches": 581,
+        "dose_comparable": 581,
+        "dose_exact": 581,
+        "schedule_comparable": 581,
+        "schedule_exact": 507,
+        "exact_source_name_matches": 795,
+        "unmatched_predictions": 219,
+        "generic_key_precision": 0.7262,
+        "generic_key_recall": 0.7244,
+        "generic_key_f1": 0.7253,
+        "source_name_true_positives": 795,
+        "source_name_precision": 0.9938,
+        "source_name_recall": 0.9913,
+        "source_name_f1": 0.9925,
+        "exact_dose_accuracy_on_name_matches": 1.0,
+        "exact_schedule_accuracy_on_name_matches": 0.8726
+      },
+      "valid": {
+        "documents": 51,
+        "gold_entities": 98,
+        "predicted_entities": 97,
+        "exact_generic_key_matches": 64,
+        "dose_comparable": 64,
+        "dose_exact": 64,
+        "schedule_comparable": 64,
+        "schedule_exact": 55,
+        "exact_source_name_matches": 97,
+        "unmatched_predictions": 33,
+        "generic_key_precision": 0.6598,
+        "generic_key_recall": 0.6531,
+        "generic_key_f1": 0.6564,
+        "source_name_true_positives": 97,
+        "source_name_precision": 1.0,
+        "source_name_recall": 0.9898,
+        "source_name_f1": 0.9949,
+        "exact_dose_accuracy_on_name_matches": 1.0,
+        "exact_schedule_accuracy_on_name_matches": 0.8594
+      },
+      "test": {
+        "documents": 55,
+        "gold_entities": 111,
+        "predicted_entities": 110,
+        "exact_generic_key_matches": 78,
+        "dose_comparable": 78,
+        "dose_exact": 78,
+        "schedule_comparable": 78,
+        "schedule_exact": 74,
+        "exact_source_name_matches": 110,
+        "unmatched_predictions": 32,
+        "generic_key_precision": 0.7091,
+        "generic_key_recall": 0.7027,
+        "generic_key_f1": 0.7059,
+        "source_name_true_positives": 110,
+        "source_name_precision": 1.0,
+        "source_name_recall": 0.991,
+        "source_name_f1": 0.9955,
+        "exact_dose_accuracy_on_name_matches": 1.0,
+        "exact_schedule_accuracy_on_name_matches": 0.9487
+      }
+    }
+  },
+  "simulated_ocr_text": {
+    "text_field": "simulated_ocr_text",
+    "split_method": "existing patient-grouped train/valid/test assignments; unchanged",
+    "split_integrity": {
+      "patients_per_split": {
+        "train": 302,
+        "valid": 35,
+        "test": 40
+      },
+      "cross_split_patient_ids": 0
+    },
+    "normalization": {
+      "name": "case-fold and remove non-alphanumeric characters; exact generic_key match",
+      "source_name": "case-fold and remove non-alphanumeric characters after stripping a terminal dose/unit from the labeled drug field; exact source-formulation name match",
+      "dose": "case-fold, remove whitespace, normalize Greek mu to u",
+      "schedule": "case-fold, remove whitespace; otherwise exact"
+    },
+    "source_name_misses": {
+      "train": {
+        "Amlodipine 5 mg": 9,
+        "Ashwagandha churna 3 g": 3,
+        "Atorvastatin 20 mg": 4,
+        "Avipattikar churna 5 g": 2,
+        "Cetirizine 10 mg": 1,
+        "Dashmoolarishta 20 ml": 3,
+        "Diclofenac 50 mg": 2,
+        "Gudmar churna 3 g": 1,
+        "Levothyroxine 50 mcg": 2,
+        "Metformin 500 mg": 5,
+        "Neem capsule 500 mg": 1,
+        "Pantoprazole 40 mg": 2,
+        "Paracetamol 650 mg": 3,
+        "Salbutamol inhaler 100 mcg": 5,
+        "Sarpagandha vati 1 tab": 4,
+        "Sitopaladi churna 3 g": 1,
+        "Triphala churna 5 g": 6,
+        "Yogaraj guggulu 2 tab": 3
+      },
+      "valid": {
+        "Amlodipine 5 mg": 1,
+        "Atorvastatin 20 mg": 2,
+        "Diclofenac 50 mg": 1,
+        "Gudmar churna 3 g": 1,
+        "Metformin 500 mg": 1,
+        "Paracetamol 650 mg": 3,
+        "Simhanada guggulu 2 tab": 1
+      },
+      "test": {
+        "Amlodipine 5 mg": 2,
+        "Atorvastatin 20 mg": 1,
+        "Metformin 500 mg": 1,
+        "Neem capsule 500 mg": 3,
+        "Salbutamol inhaler 100 mcg": 1,
+        "Sarpagandha vati 1 tab": 1,
+        "Sitopaladi churna 3 g": 1
+      }
+    },
+    "limitations": [
+      "Synthetic text pairs; no source images, so this is not OCR evaluation.",
+      "No token spans are supplied; exact generic-key matching is a strict name proxy.",
+      "Dose accuracy excludes unmatched names and labels without a terminal strength/unit pattern.",
+      "Duration, route, and report-generation fidelity are not scored by this evaluator.",
+      "The extractor has been developed on this corpus; results are descriptive regression results, not a blinded estimate."
+    ],
+    "results": {
+      "train": {
+        "documents": 392,
+        "gold_entities": 802,
+        "predicted_entities": 751,
+        "exact_generic_key_matches": 547,
+        "dose_comparable": 547,
+        "dose_exact": 527,
+        "schedule_comparable": 547,
+        "schedule_exact": 453,
+        "exact_source_name_matches": 745,
+        "unmatched_predictions": 204,
+        "generic_key_precision": 0.7284,
+        "generic_key_recall": 0.682,
+        "generic_key_f1": 0.7044,
+        "source_name_true_positives": 745,
+        "source_name_precision": 0.992,
+        "source_name_recall": 0.9289,
+        "source_name_f1": 0.9594,
+        "exact_dose_accuracy_on_name_matches": 0.9634,
+        "exact_schedule_accuracy_on_name_matches": 0.8282
+      },
+      "valid": {
+        "documents": 51,
+        "gold_entities": 98,
+        "predicted_entities": 88,
+        "exact_source_name_matches": 88,
+        "unmatched_predictions": 31,
+        "exact_generic_key_matches": 57,
+        "dose_comparable": 57,
+        "dose_exact": 54,
+        "schedule_comparable": 57,
+        "schedule_exact": 47,
+        "generic_key_precision": 0.6477,
+        "generic_key_recall": 0.5816,
+        "generic_key_f1": 0.6129,
+        "source_name_true_positives": 88,
+        "source_name_precision": 1.0,
+        "source_name_recall": 0.898,
+        "source_name_f1": 0.9462,
+        "exact_dose_accuracy_on_name_matches": 0.9474,
+        "exact_schedule_accuracy_on_name_matches": 0.8246
+      },
+      "test": {
+        "documents": 55,
+        "gold_entities": 111,
+        "predicted_entities": 102,
+        "exact_generic_key_matches": 75,
+        "dose_comparable": 75,
+        "dose_exact": 72,
+        "schedule_comparable": 75,
+        "schedule_exact": 67,
+        "exact_source_name_matches": 101,
+        "unmatched_predictions": 27,
+        "generic_key_precision": 0.7353,
+        "generic_key_recall": 0.6757,
+        "generic_key_f1": 0.7042,
+        "source_name_true_positives": 101,
+        "source_name_precision": 0.9902,
+        "source_name_recall": 0.9099,
+        "source_name_f1": 0.9484,
+        "exact_dose_accuracy_on_name_matches": 0.96,
+        "exact_schedule_accuracy_on_name_matches": 0.8933
+      }
+    }
+  }
+}

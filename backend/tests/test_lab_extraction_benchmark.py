@@ -187,6 +187,25 @@ def test_synthetic_multiframe_tiff_keeps_page_text_and_provenance():
     assert "Haemoglobin" in pages[0]["text"] and "Creatinine" in pages[1]["text"]
 
 
+@pytest.mark.skipif(shutil.which("tesseract") is None, reason="Tesseract is not installed; real multiframe OCR is blocked")
+def test_synthetic_multiframe_webp_ocr_preserves_each_frame_and_finding():
+    frames = []
+    for line in ("Haemoglobin 12.4 g/dL (12-16)", "Creatinine 1.0 mg/dL (0.6-1.3)"):
+        image = Image.new("RGB", (1400, 280), "white")
+        ImageDraw.Draw(image).text((40, 70), line, fill="black",
+                                  font=ImageFont.load_default(size=64))
+        frames.append(image)
+    stream = io.BytesIO()
+    frames[0].save(stream, format="WEBP", save_all=True, append_images=frames[1:], duration=100, loop=0)
+    text, engine, pages = ocr.ocr_document(stream.getvalue(), "synthetic-multiframe.webp")
+    assert engine.startswith("tesseract(")
+    assert [page["page"] for page in pages] == [1, 2]
+    assert "Haemoglobin" in pages[0]["text"] and "Creatinine" in pages[1]["text"]
+    findings = {item["test"]: item for item in ocr.extract(text)["labs"]}
+    assert findings["Haemoglobin"]["value"] == pytest.approx(12.4)
+    assert findings["Creatinine"]["value"] == pytest.approx(1.0)
+
+
 def test_synthetic_multipage_pdf_text_extraction_keeps_page_provenance():
     stream = io.BytesIO()
     pdf = canvas.Canvas(stream)
@@ -230,6 +249,33 @@ def test_scanned_image_only_pdf_is_ocrd_and_parsed():
     by = {l["test"]: l for l in e["labs"]}
     assert by["Haemoglobin"]["value"] == 9.8 and by["Haemoglobin"]["flag"] == "low"
     assert by["Creatinine"]["value"] == 1.9 and by["Creatinine"]["flag"] == "high"
+
+
+@pytest.mark.skipif(not shutil.which("tesseract"), reason="tesseract not installed")
+def test_multipage_scanned_pdf_ocr_preserves_page_findings():
+    from reportlab.lib.utils import ImageReader
+    from reportlab.pdfgen import canvas
+    from training.lab_scan_eval import render
+
+    images = [
+        render("Haemoglobin 12.4 g/dL (12-16)", "good", 10),
+        render("Creatinine 1.0 mg/dL (0.6-1.3)", "good", 11),
+    ]
+    stream = io.BytesIO()
+    pdf = canvas.Canvas(stream, pagesize=(images[0].width, images[0].height))
+    for image in images:
+        pdf.setPageSize((image.width, image.height))
+        pdf.drawImage(ImageReader(image), 0, 0, image.width, image.height)
+        pdf.showPage()
+    pdf.save()
+
+    text, engine, pages = ocr.ocr_document(stream.getvalue(), "synthetic-multipage-scan.pdf")
+    assert engine == "pdf-scanned-ocr(tesseract)"
+    assert [page["page"] for page in pages] == [1, 2]
+    assert "Haemoglobin" in pages[0]["text"] and "Creatinine" in pages[1]["text"]
+    findings = {item["test"]: item for item in ocr.extract(text)["labs"]}
+    assert findings["Haemoglobin"]["value"] == pytest.approx(12.4)
+    assert findings["Creatinine"]["value"] == pytest.approx(1.0)
 
 
 def test_blank_scanned_pdf_reports_unsupported_not_fabricated_text():

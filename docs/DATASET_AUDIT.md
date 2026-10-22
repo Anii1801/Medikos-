@@ -55,10 +55,10 @@ The following field-level inspection was performed on the current files, not inf
 | Task/source file | Rows and useful fields | Labels / supervision present | Training decision |
 |---|---|---|---|
 | `01_history_interview/interview_turns.csv` | 7,863 turns; `interview_id`, `patient_id`, `split`, `role`, `text`, `slot` | Contextual AI question slots with patient/interview grouping; reconstructed strictly from preceding turns | Supports only a synthetic next-slot imitation experiment. The separate structured file has 300 interview targets, split 240/30/30. |
-| `02_ocr_handwriting/lab_result_entities.csv` | 1,238 rows; `report_id`, `patient_id`, `lab`, `test`, `value`, `unit`, reference interval, flag | Structured normalized lab fields, but no originating report text or character spans in this file | Useful for rule-extractor regression after joining the 394 available simulated text-pair reports; insufficient for token-classification fine-tuning. |
-| `02_ocr_handwriting/prescription_entities.csv` | 1,011 rows; `rx_id`, `patient_id`, `drug`, `generic_key`, `dose_schedule`, `duration` | Structured prescription fields; no source text or spans | Not NER supervision. Upstream data terms need confirmation. |
+| `02_ocr_handwriting/lab_result_entities.csv` | 1,238 rows; `report_id`, `patient_id`, `lab`, `test`, `value`, `unit`, reference interval, flag | Structured fields join by report ID to 394 synthetic text reports; all 1,238 rows also match patient and split. No character spans. | Suitable for text-to-field extractor regression; insufficient for token-classification fine-tuning or real-image OCR. |
+| `02_ocr_handwriting/prescription_entities.csv` | 1,011 rows; `rx_id`, `patient_id`, `drug`, `generic_key`, `dose_schedule`, `duration` | Structured fields join by prescription ID to 498 synthetic text reports; all 1,011 rows also match patient and split. No character spans. | Suitable for text-based medication extraction regression; not source-image OCR or span-supervised NER. Upstream data terms need confirmation. |
 | `02_ocr_handwriting/handwriting_words_manifest.csv`; `noisy_docs_manifest.csv` | 4,680 word labels; 1,000 document manifests | Image-path-in-ZIP references and text labels/JSON fields | Source ZIPs and pixels are absent; no image training or OCR evaluation can run from this checkout. |
-| `02_ocr_handwriting/synthetic_documents_ocr_pairs.csv` | 892 pairs; `ground_truth_text`, `simulated_ocr_text`, synthetic metadata | Simulated text-to-text corruption pairs, no source pixels | May test text cleanup only; not OCR model training or image CER/WER. |
+| `02_ocr_handwriting/synthetic_documents_ocr_pairs.csv` | 892 pairs (394 lab, 498 prescription); `ground_truth_text`, `simulated_ocr_text`, synthetic metadata | Exact ID, patient, and split joins to all lab and prescription entity rows; no source pixels or entity character spans | Suitable for synthetic text extraction/regression comparisons; not OCR model training or image CER/WER. |
 | `03_patient_summary/history_to_summary_synthetic.csv` | 300 synthetic interview/summary pairs; `input_dialogue`, `input_structured_json`, `summary_en` | Templated synthetic targets without required source-evidence IDs/spans | Pipeline smoke tests only; not grounded-generation fine-tuning evidence. |
 | `03_patient_summary/aci_bench_dialogue_note_pairs.csv` | 207 dialogue/note pairs; `encounter_id`, `dialogue`, `note`, metadata | Paired note targets, but no source-linked fact annotations; license status unresolved | Defer model training pending permissions and evidence-grounding annotations. Splits: 67 train, 20 validation, 40 each in test1/test2/test3. |
 | `03_patient_summary/mtsamples_notes_clean.csv` | 4,966 notes; `transcription`, specialty, metadata | Note-only text; no paired dialogue or source evidence | Style analysis only; cannot be treated as dialogue-to-note training pairs. |
@@ -77,14 +77,42 @@ All records in this project's supplied data are **synthetic or simulated unless 
 | `01_history_interview/interview_turns.csv` + `structured_histories.csv` | synthetic, 300 interviews / 7,863 turns, 14 complaints; 1 interview per patient | adaptive questioning | 1:1 patient<->interview, no patient spans splits (verified) | **fixed question template (2 orderings), 2 wording variants per question, triage = f(severity)**; turns are not independent; 2 complaints have fewer than 10 interviews (difficulty sleeping; sudden one-sided weakness with slurred speech), the latter being the stroke-like emergency case; 0 duplicate patient-answer sequences | pipeline/regression and extraction tests; **not** evidence of adaptive skill |
 | `interviews.jsonl` | verified identical re-packaging of the CSV (300/300) | none | same | double-counting if used with the CSVs | ignore for training |
 | `meditod_sample_dialogs.csv` | 3 canonical dialogues (359 rows) | format reference | none | UMLS-licensed full set absent | do not call this MediTOD |
-| `02_ocr_handwriting/lab_result_entities.csv` + `synthetic_documents_ocr_pairs.csv` | synthetic; labels **verified to join** the source text (394/394) | lab extraction benchmark | report ids only | one uniform layout; developed against it | benchmark + regression |
-| `prescription_entities.csv`, handwriting/noisy manifests | synthetic labels; **images absent** | text-level robustness only | none | cannot be OCR-evaluated | not used here |
+| `02_ocr_handwriting/lab_result_entities.csv` + `synthetic_documents_ocr_pairs.csv` | synthetic; 1,238 lab rows over 394 report IDs; every ID, patient, and split joins | lab text-to-field extraction benchmark | report IDs and patient IDs | one uniform layout; extractor developed against it; no spans or pixels | descriptive regression, not independent clinical/OCR validation |
+| `02_ocr_handwriting/prescription_entities.csv` + `synthetic_documents_ocr_pairs.csv` | synthetic; 1,011 medication rows over 498 prescription IDs; every ID, patient, and split joins | medication text-to-field extraction benchmark | prescription IDs and patient IDs | no entity spans or pixels; `generic_key` is a strict lexical proxy; extractor developed against corpus | descriptive regression; not independent OCR/NER validation |
 | `03_patient_summary/history_to_summary_synthetic.csv` | synthetic pairs | pipeline tests | per interview | template-generated targets | smoke tests only |
 | `aci_bench_dialogue_note_pairs.csv` | external dialogue-note pairs (207) | summary experiments | none | provenance/licence unverified | verify, then evaluate separately from synthetic |
 | `mtsamples_notes_clean.csv` | external clinical notes, **note-only** (4,966) | clinical-NLP experiments | none | no dialogue pairing exists | never fabricate dialogue/summary pairs |
 | `04_asr_voice` | simulated noisy **text**; audio absent | text-noise robustness | none | not acoustic data | no ASR training or accuracy claims |
 | `05_triage_redflag` | synthetic labelled cases, illustrative rules | rule regression | per case | synthetic labels; symptom-to-disease files are not question-selection ground truth | rule regression/error analysis; not validation |
 | `06_ayush_prakriti`, `07_drug_safety` | small, illustrative | separate optional modules | none | interaction table is tiny and unvalidated | keep isolated; not comprehensive safety |
+
+## Source-linked report-fidelity eligibility
+
+The existing files support text-extraction tasks, but do not contain a unified
+encounter-level gold report linking interview answers, laboratory and
+prescription documents, and a reviewed doctor-facing report:
+
+| Existing files | Verified eligible records | Used for | Excluded from end-to-end report fidelity because |
+|---|---:|---|---|
+| `lab_result_entities.csv` + `synthetic_documents_ocr_pairs.csv` | 1,238 labeled rows / 394 report IDs; 394/394 IDs and all row-level patient/split values agree | Existing lab text-to-field evaluation | No original scan/PDF bytes or source spans; no link to a particular history/summary encounter or gold final report. |
+| `prescription_entities.csv` + `synthetic_documents_ocr_pairs.csv` | 1,011 labeled rows / 498 prescription IDs; 498/498 IDs and all row-level patient/split values agree | Prescription text-to-field evaluation | No original scan/PDF bytes or mention spans; no link to a particular history/summary encounter or gold final report. |
+| `structured_histories.csv` + `history_to_summary_synthetic.csv` | 300 histories and 300 summary pairs; all interview IDs, patient IDs, and split values agree | Synthetic history/summary pair inventory | No source-document identifiers or findings, and no encounter-level link to the lab/Rx reports. |
+| `interview_turns.csv` | 7,863 turns / 300 interviews; all turn rows match the history patient and split | Adaptive-question imitation experiment | Turn data are not linked to source documents or a reference doctor-facing evidence report. |
+| `aci_bench_dialogue_note_pairs.csv` | 207 dialogue/note pairs | Considered, not included in report-fidelity score | No evidence IDs/spans or source-document links; source license remains unresolved. |
+| `mtsamples_notes_clean.csv` | 4,966 note-only rows | Considered, not included in report-fidelity score | No paired encounter dialogue or source documents; note-only text cannot serve as evidence-linked gold. |
+
+No existing records were copied, duplicated, relabeled, or regenerated for the
+report-fidelity benchmark. A single two-document synthetic encounter is
+generated in the API integration test at runtime; its expected answers and
+findings are defined in the test before upload. Separate existing tests cover
+conflicting measurements, missing units, explicit negatives, failed extraction,
+and clinician amendments. These fixtures are software tests, not new training
+data or clinical validation data.
+
+The linked lab corpus has 211/27/26 unique patients in train/valid/test; the
+prescription corpus has 302/35/40. There are zero patient IDs crossing splits
+in either corpus. The evaluators validate the source ID, patient ID, and split
+join before scoring; no records were reassigned.
 
 ## Interview-data profile used for the adaptive experiment
 
@@ -107,10 +135,9 @@ results are synthetic template agreement only (see
 [`MODEL_TRAINING.md`](./MODEL_TRAINING.md) and
 [`EVALUATION_RESULTS.md`](./EVALUATION_RESULTS.md)).
 
-Tesseract is not installed. Embedded-text PDF and synthetic text extraction
-integration tests execute, but real raster OCR tests are blocked/skipped.
-Accordingly there are no new OCR field-accuracy, CER, or WER results. Install
-Tesseract on macOS with `brew install tesseract` (optionally
-`brew install tesseract-lang` for Hindi), then validate with
-`tesseract --version` and `tesseract --list-langs`. No permissions were
-assumed for the external-origin ACI-Bench or MTSamples files.
+Tesseract 5.5.3 was installed on macOS for this validation; its available
+language data are `eng` and `osd`. Playwright 1.64.0 and Chromium 156 were
+installed into the local project environment for browser tests. See
+[`EVALUATION_RESULTS.md`](./EVALUATION_RESULTS.md) for the executed OCR and
+test results. No permissions were assumed for the external-origin ACI-Bench
+or MTSamples files.

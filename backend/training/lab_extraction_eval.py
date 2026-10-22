@@ -45,6 +45,15 @@ def load() -> tuple[dict[str, list[dict]], dict[str, dict]]:
     missing = set(labels) - set(docs)
     if missing:
         raise ValueError(f"{len(missing)} labelled reports have no source document")
+    patient_splits: dict[str, set[str]] = defaultdict(set)
+    for rid, group in labels.items():
+        doc = docs[rid]
+        if any(row["patient_id"] != doc["patient_id"] or row["split"] != doc["split"] for row in group):
+            raise ValueError(f"patient/split mismatch for report {rid}")
+        patient_splits[doc["patient_id"]].add(doc["split"])
+    overlaps = [patient_id for patient_id, splits in patient_splits.items() if len(splits) > 1]
+    if overlaps:
+        raise ValueError(f"{len(overlaps)} lab patients appear in multiple splits")
     return labels, docs
 
 
@@ -132,6 +141,20 @@ def evaluate(field: str, extractor: Callable[[str], dict], splits=("train", "val
         "abnormal_recall": ratio(n_abnormal - missed_abnormal, n_abnormal) if n_abnormal else None,
         "false_abnormal_rate_on_printed_normal": ratio(wrong_abnormal_when_printed_normal, n_normal),
         "ambiguous_extraction_rate": ratio(ambiguous, n_matched),
+        "counts": {
+            "test_name": {"true_positive": tp, "false_positive": fp, "false_negative": fn,
+                          "predicted": tp + fp, "labelled": tp + fn},
+            "exact_value": {"correct": value_ok, "denominator": n_matched},
+            "unit": {"correct": unit_ok, "denominator": n_matched},
+            "printed_reference_interval": {"correct": ref_ok, "denominator": n_matched},
+            "printed_flag_capture": {"correct": printed_flag_ok, "denominator": n_matched},
+            "abnormal_status_vs_printed_flag": {"correct": flag_ok, "denominator": n_matched},
+            "abnormal_recall": {"correct": n_abnormal - missed_abnormal, "denominator": n_abnormal},
+            "false_abnormal_on_printed_normal": {
+                "false_abnormal": wrong_abnormal_when_printed_normal, "denominator": n_normal,
+            },
+            "ambiguous_extraction": {"count": ambiguous, "denominator": n_matched},
+        },
         "critical_result_recall": None,
         "critical_result_note": "the labels contain only N/H/L; there are no 'critical' labels, so critical-result recall cannot be computed",
         "per_test": {k: dict(v) for k, v in sorted(per_test.items())},

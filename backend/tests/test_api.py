@@ -29,6 +29,53 @@ def test_ocr_extraction():
     assert {m["name"] for m in e["medications"]} >= {"Metformin", "Warfarin", "Aspirin"}
     assert any("bleeding" in i for i in ocr.interactions([m["name"] for m in e["medications"]]))
 
+
+def test_blood_pressure_is_not_guessed_from_bare_bp_number():
+    bare = ocr.extract("Prescription\nTab Metformin 500 mg BD\nBP: 150")
+    assert not any(item["test"] == "Systolic BP" for item in bare["labs"])
+    explicit = ocr.extract("Vitals\nSystolic BP: 150 mmHg")
+    result = next(item for item in explicit["labs"] if item["test"] == "Systolic BP")
+    assert result["value"] == 150 and result["unit"] == "mmHg"
+
+
+def test_supported_prescription_formulations_keep_source_names():
+    text = (
+        "Yogaraj guggulu 2 tab 1-0-1\n"
+        "Simhanada guggulu 2 tab 1-0-1\n"
+        "Sarpagandha vati 1 tab 0-0-1\n"
+        "Avipattikar churna 5 g 0-0-1\n"
+        "Dashmoolarishta 20 ml 1-0-1\n"
+        "Gudmar churna 3 g 1-0-1\n"
+        "Sitopaladi churna 3 g 1-0-1\n"
+        "Neem capsule 500 mg 1-0-1\n"
+        "Dicyclomine 10 mg 1-1-1 SOS\n"
+        "Ashwagandha churna 3 g 0-0-1\n"
+        "Triphala churna 5 g 0-0-1\n"
+        "Salbutamol inhaler 100 mcg SOS"
+    )
+    medications = ocr.extract(text, {"source_id": "prescription-1"})["medications"]
+    names = {item["name"] for item in medications}
+    source_names = {item["source_name"] for item in medications}
+    assert len(medications) == 12
+    assert source_names >= {
+        "Yogaraj Guggulu", "Simhanada Guggulu", "Sarpagandha Vati",
+        "Avipattikar Churna", "Dashmoolarishta", "Gudmar Churna",
+        "Sitopaladi Churna", "Neem Capsule", "Dicyclomine",
+        "Ashwagandha Churna", "Triphala Churna", "Salbutamol Inhaler",
+    }
+    assert {"Ashwagandha", "Triphala", "Salbutamol"} <= names
+    assert any("salbutamol" in alert.lower()
+               for alert in ocr.interactions(["Atenolol", next(
+                   item["name"] for item in medications if item["source_name"] == "Salbutamol Inhaler"
+               )]))
+    assert any("ashwagandha" in alert.lower()
+               for alert in ocr.interactions(["Warfarin", next(
+                   item["name"] for item in medications if item["source_name"] == "Ashwagandha Churna"
+               )]))
+    for medication in medications:
+        assert medication["source"]["source_id"] == "prescription-1"
+
+
 def test_document_facts_preserve_negation_uncertainty_and_provenance():
     e = ocr.extract("No fever. Patient is unsure about aspirin. Allergy: penicillin.",
                     {"source_id": "note-1", "pages": [{"page": 2, "text": "No fever. Patient is unsure about aspirin. Allergy: penicillin.",
@@ -45,6 +92,38 @@ def test_poor_quality_or_unsupported_upload_is_explicit():
     text, engine, pages = ocr.ocr_document(b"not an image", "poor.png")
     assert text == "" and engine.startswith("ocr-unavailable:")
     assert pages == []
+
+
+def test_encrypted_pdf_upload_fails_with_actionable_message_and_no_facts():
+    from pypdf import PdfWriter
+    stream = io.BytesIO()
+    writer = PdfWriter()
+    writer.add_blank_page(width=300, height=300)
+    writer.encrypt("test-password")
+    writer.write(stream)
+    token = c.post("/api/auth/guest?name=Encrypted").json()["token"]
+    response = c.post(
+        "/api/documents",
+        files={"file": ("CBC.pdf", stream.getvalue(), "application/pdf")},
+        headers=H(token),
+    )
+    assert response.status_code == 422
+    result = response.json()
+    assert result["processing_status"] == "failed"
+    assert "encrypted or password-protected" in result["processing_error"]
+    assert "unlocked copy" in result["processing_error"]
+    assert result["entities"]["facts"] == []
+
+
+def test_consent_must_be_explicit_and_abdm_sharing_is_not_a_supported_purpose():
+    token = c.post("/api/auth/guest?name=Consent").json()["token"]
+    headers = H(token)
+    assert c.post("/api/consent", json={"purpose": "history_capture"}, headers=headers).status_code == 422
+    assert c.post("/api/consent", json={"purpose": "abdm_share", "granted": True},
+                  headers=headers).status_code == 422
+    assert c.post("/api/consent", json={"purpose": "history_capture", "granted": False},
+                  headers=headers).status_code == 200
+    assert c.post("/api/submit", json={"answers": {}}, headers=headers).status_code == 403
 
 
 def test_batch_upload_isolates_failures_and_restricts_original_file_access():
@@ -68,6 +147,38 @@ def test_batch_upload_isolates_failures_and_restricts_original_file_access():
     assert c.get(f"/api/documents/{good['id']}/file", headers=H(other)).status_code == 404
 
 
+def test_failed_document_can_be_replaced_retried_reclassified_and_removed():
+    token = c.post("/api/auth/guest?name=DocumentActions").json()["token"]
+    headers = H(token)
+    failed = c.post("/api/documents", files={"file": ("broken.pdf", b"not a PDF", "application/pdf")},
+                    headers=headers)
+    assert failed.status_code == 422
+    doc = failed.json()
+    assert doc["has_original"] is True
+
+    corrected = c.put(f"/api/documents/{doc['id']}", json={"doc_type": "prescription"}, headers=headers)
+    assert corrected.status_code == 200
+    assert corrected.json()["doc_type"] == "prescription"
+    assert c.put(f"/api/documents/{doc['id']}", json={"doc_type": "not-real"}, headers=headers).status_code == 422
+
+    still_failed = c.post(f"/api/documents/{doc['id']}/retry",
+                          files={"file": ("still-broken.pdf", b"still not a PDF", "application/pdf")},
+                          headers=headers)
+    assert still_failed.status_code == 200
+    assert still_failed.json()["doc_type"] == "prescription"
+
+    retried = c.post(f"/api/documents/{doc['id']}/retry",
+                     files={"file": ("replacement.txt", b"Prescription\nTab Metformin 500 mg BD", "text/plain")},
+                     headers=headers)
+    assert retried.status_code == 200, retried.text
+    assert retried.json()["id"] == doc["id"]
+    assert retried.json()["filename"] == "replacement.txt"
+    assert retried.json()["processing_status"] == "extracted"
+    assert len(c.get("/api/documents", headers=headers).json()) == 1
+    assert c.delete(f"/api/documents/{doc['id']}", headers=headers).json() == {"ok": True}
+    assert c.get("/api/documents", headers=headers).json() == []
+
+
 def test_duplicate_upload_is_reported_without_duplicating_document():
     token = c.post("/api/auth/guest?name=Duplicate").json()["token"]
     content = b"Medical note: no fever."
@@ -85,8 +196,8 @@ def test_duplicate_upload_is_reported_without_duplicating_document():
 def test_guest_submission_keeps_encounter_document_and_source_evidence_snapshot():
     token = c.post("/api/auth/guest?name=Snapshot").json()["token"]
     headers = H(token)
-    for purpose in ("history_capture", "abdm_share"):
-        assert c.post("/api/consent", json={"purpose": purpose}, headers=headers).status_code == 200
+    assert c.post("/api/consent", json={"purpose": "history_capture", "granted": True},
+                  headers=headers).status_code == 200
     source = b"Lab report 2025-03-12\nHaemoglobin 9.1 g/dL\nPatient reports fever."
     upload = c.post("/api/documents", files={"file": ("lab.txt", source, "text/plain")}, headers=headers)
     assert upload.status_code == 200, upload.text
@@ -117,10 +228,30 @@ def test_guest_submission_keeps_encounter_document_and_source_evidence_snapshot(
 
 
 def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_cleanup():
+    expected = {
+        "history": {
+            "chief_complaint": "Cough; Duration: 2 days; Severity: Moderate",
+            "duration": "Duration: 2 days",
+            "severity": "Severity: Moderate",
+            "negative_symptom": "No fever",
+        },
+        "labs": {
+            "Haemoglobin": {"result": 9.1, "unit": "g/dL", "report_date": "2025-03-12",
+                            "reference_interval": "13–17", "source_file": "lab.pdf"},
+            "Creatinine": {"result": 1.0, "unit": "mg/dL", "report_date": "2025-03-12",
+                           "reference_interval": "0.6–1.3", "source_file": "lab.pdf"},
+        },
+        "medications": {
+            "Warfarin": {"dose": "5 mg", "frequency": "ONCE DAILY", "report_date": "2025-03-13",
+                         "source_file": "prescription.pdf"},
+            "Aspirin": {"dose": "75 mg", "frequency": "ONCE DAILY", "report_date": "2025-03-13",
+                        "source_file": "prescription.pdf"},
+        },
+    }
     token = c.post("/api/auth/guest?name=Evidence&age=46").json()["token"]
     headers = H(token)
-    for purpose in ("history_capture", "abdm_share"):
-        assert c.post("/api/consent", json={"purpose": purpose}, headers=headers).status_code == 200
+    assert c.post("/api/consent", json={"purpose": "history_capture", "granted": True},
+                  headers=headers).status_code == 200
 
     def make_pdf(lines):
         stream = io.BytesIO()
@@ -144,7 +275,9 @@ def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_clea
         assert uploaded[filename]["processing_status"] == "extracted"
         assert uploaded[filename]["engine"] == "pdf-text"
 
-    response = c.post("/api/submit", json={"answers": {"cc": "Fever", "meds": "Warfarin 2 mg"}}, headers=headers)
+    response = c.post("/api/submit", json={"answers": {
+        "cc": "Cough", "dur": "2 days", "sev": "Moderate", "assoc": ["No fever"], "meds": "Warfarin 2 mg"
+    }}, headers=headers)
     assert response.status_code == 200, response.text
     record_id = response.json()["record_id"]
     assert c.get("/api/documents", headers=headers).json() == []
@@ -153,34 +286,67 @@ def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_clea
     record = c.get(f"/api/doctor/records/{record_id}", headers=H(doctor)).json()
     by_name = {document["filename"]: document for document in record["documents"]}
     assert set(by_name) == set(sources)
+    fidelity_checks = {}
+    report = record["clinical_report"]["clinical_summary"]
+    report_sections = {section["title"]: section for section in report["sections"]}
+    complaint_text = report_sections.get("Chief complaint", {}).get("text", "")
+    negative_text = report_sections.get("Important positive and negative findings", {}).get("text")
+    fidelity_checks["history.chief_complaint"] = complaint_text == expected["history"]["chief_complaint"]
+    fidelity_checks["history.duration"] = expected["history"]["duration"] in complaint_text
+    fidelity_checks["history.severity"] = expected["history"]["severity"] in complaint_text
+    fidelity_checks["history.explicit_negative_symptom"] = negative_text == expected["history"]["negative_symptom"]
     lab_doc = by_name["lab.pdf"]
     rx_doc = by_name["prescription.pdf"]
     assert c.get(f"/api/doctor/records/{record_id}/documents/{lab_doc['id']}/file",
                  headers=H(doctor)).content == sources["lab.pdf"]
-    report = record["clinical_report"]["clinical_summary"]
     lab_section = next(section for section in report["sections"]
                        if section["title"] == "Laboratory and Investigation Findings")
     findings = {finding["test_name"]: finding for finding in lab_section["findings"]}
-    assert findings["Haemoglobin"]["result"] == 9.1
-    assert findings["Haemoglobin"]["unit"] == "g/dL"
-    assert findings["Haemoglobin"]["report_date"] == "2025-03-12"
-    assert findings["Haemoglobin"]["reference_interval"] == "13–17"
-    assert findings["Haemoglobin"]["source_document_id"] == lab_doc["id"]
-    assert findings["Haemoglobin"]["source"]["page"] == 1
-    assert findings["Haemoglobin"]["source"]["start"] < findings["Haemoglobin"]["source"]["end"]
+    for name, reference in expected["labs"].items():
+        finding = findings[name]
+        for field in ("result", "unit", "report_date", "reference_interval"):
+            fidelity_checks[f"lab.{name}.{field}"] = finding.get(field) == reference[field]
+        source = finding.get("source") or {}
+        fidelity_checks[f"lab.{name}.document_reference"] = (
+            finding.get("source_document") == reference["source_file"]
+            and finding.get("source_document_id") == lab_doc["id"]
+        )
+        fidelity_checks[f"lab.{name}.page_and_span"] = (
+            source.get("page") == 1
+            and source.get("start") is not None
+            and source.get("end") is not None
+            and source["start"] < source["end"]
+        )
     evidence_section = next(section for section in report["sections"]
                             if section["title"] == "Current medications and allergies")
     med_facts = [finding for finding in evidence_section["findings"] if finding["field"] == "medication"]
-    assert {finding["source_document_id"] for finding in med_facts} == {rx_doc["id"]}
-    assert {finding["value"]["name"] for finding in med_facts} >= {"Warfarin", "Aspirin"}
     med_values = {finding["value"]["name"]: finding["value"] for finding in med_facts}
-    assert (med_values["Warfarin"]["dose"], med_values["Warfarin"]["frequency"]) == ("5 mg", "ONCE DAILY")
-    assert (med_values["Aspirin"]["dose"], med_values["Aspirin"]["frequency"]) == ("75 mg", "ONCE DAILY")
-    assert all(finding["report_date"] == "2025-03-13" for finding in med_facts)
-    assert any(section["title"] == "Conflicts requiring review" for section in report["sections"])
-    assert any(section["title"] == "Items requiring clinician verification" for section in report["sections"])
+    for name, reference in expected["medications"].items():
+        fidelity_checks[f"medication.{name}.name"] = name in med_values
+        finding = next((item for item in med_facts if item["value"]["name"] == name), None)
+        if finding is None:
+            continue
+        for field in ("dose", "frequency"):
+            fidelity_checks[f"medication.{name}.{field}"] = finding["value"].get(field) == reference[field]
+        fidelity_checks[f"medication.{name}.date"] = finding.get("report_date") == reference["report_date"]
+        fidelity_checks[f"medication.{name}.document_reference"] = (
+            finding.get("source_document") == reference["source_file"]
+            and finding.get("source_document_id") == rx_doc["id"]
+        )
+    conflict_section = next((section for section in report["sections"]
+                             if section["title"] == "Conflicts requiring review"), {})
+    fidelity_checks["uncertainty.conflict_reviewed"] = (
+        "conflicting_medication_information" in conflict_section.get("review_flags", [])
+    )
+    fidelity_checks["uncertainty.clinician_verification_listed"] = any(
+        section["title"] == "Items requiring clinician verification" for section in report["sections"]
+    )
+
+    edited_sections = json.loads(json.dumps(record["sections"]))
+    edited_chief = next(section for section in edited_sections if section["title"] == "Chief complaint")
+    edited_chief["text"] += "; clinician amended"
     reviewed = c.put(f"/api/doctor/records/{record_id}",
-                     json={"sections": record["sections"], "status": "amended"},
+                     json={"sections": edited_sections, "status": "amended"},
                      headers=H(doctor))
     assert reviewed.status_code == 200, reviewed.text
     reviewed_record = c.get(f"/api/doctor/records/{record_id}", headers=H(doctor)).json()
@@ -189,7 +355,14 @@ def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_clea
     assert reviewed_lab["findings"][0]["source_document_id"] == lab_doc["id"]
     reviewed_report_lab = next(section for section in reviewed_record["clinical_report"]["clinical_summary"]["sections"]
                                if section["title"] == "Laboratory and Investigation Findings")
-    assert reviewed_report_lab == reviewed_lab
+    fidelity_checks["clinician_edit.persisted"] = next(
+        section for section in reviewed_record["sections"] if section["title"] == "Chief complaint"
+    )["text"] == edited_chief["text"]
+    fidelity_checks["clinician_edit.preserved_lab_provenance"] = (
+        reviewed_lab["findings"][0]["source_document_id"] == lab_doc["id"]
+        and reviewed_lab["findings"][0]["unit"] == expected["labs"]["Haemoglobin"]["unit"]
+        and reviewed_report_lab == reviewed_lab
+    )
 
     with db.tx() as conn:
         row = conn.execute("""SELECT e.user_id,e.record_id,e.record_document_id,e.status,e.source,
@@ -198,10 +371,17 @@ def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_clea
                               JOIN records r ON r.id=e.record_id
                               JOIN record_documents rd ON rd.id=e.record_document_id
                               WHERE e.record_id=? LIMIT 1""", (record_id,)).fetchone()
-    assert row and row["user_id"] == row["record_user_id"]
-    assert row["record_id"] == record_id
-    assert row["snapshot_record_id"] == record_id and row["filename"] in sources
-    assert json.loads(row["source"])["source_type"] == "document"
+    fidelity_checks["persistence.patient_encounter_and_document"] = bool(
+        row
+        and row["user_id"] == row["record_user_id"]
+        and row["record_id"] == record_id
+        and row["snapshot_record_id"] == record_id
+        and row["filename"] in sources
+        and json.loads(row["source"])["source_type"] == "document"
+    )
+    assert len(fidelity_checks) == 31, fidelity_checks
+    assert all(fidelity_checks.values()), [name for name, passed in fidelity_checks.items() if not passed]
+    print(f"Synthetic report fidelity: {sum(fidelity_checks.values())}/{len(fidelity_checks)} exact reference checks")
 
 
 def test_batch_enforces_per_file_and_aggregate_size_limits(monkeypatch):
@@ -323,7 +503,7 @@ def test_full_journey():
     g = c.post("/api/auth/guest?name=Ramesh&age=58&abha=12-3456-7890-1234").json()["token"]
     # submit without consent is blocked
     assert c.post("/api/submit", json={"answers": {}}, headers=H(g)).status_code == 403
-    for p in ("history_capture", "abdm_share"): c.post("/api/consent", json={"purpose": p}, headers=H(g))
+    c.post("/api/consent", json={"purpose": "history_capture", "granted": True}, headers=H(g))
     # real image OCR through tesseract
     img = Image.new("RGB", (900, 220), "white"); d = ImageDraw.Draw(img)
     d.text((20, 20), "Pathology Report 2025-03-12", fill="black"); d.text((20, 70), "Haemoglobin 9.1 g/dL", fill="black"); d.text((20, 120), "HbA1c 8.2 %", fill="black")
@@ -381,8 +561,7 @@ def test_stateful_adaptive_interview_api_persists_answers_and_ayush_branch():
 def test_ml_route_does_not_claim_unavailable_trained_clinical_model():
     token = c.post("/api/auth/guest?name=ModelStatus").json()["token"]
     h = H(token)
-    for purpose in ("history_capture", "abdm_share"):
-        c.post("/api/consent", json={"purpose": purpose}, headers=h)
+    c.post("/api/consent", json={"purpose": "history_capture", "granted": True}, headers=h)
     submitted = c.post("/api/submit", json={"answers": {"cc": "Fever"}}, headers=h)
     assert submitted.status_code == 200
     assert c.get(f"/api/eda/red-flag-ml/{submitted.json()['record_id']}").status_code == 401   # EDA is clinician-only

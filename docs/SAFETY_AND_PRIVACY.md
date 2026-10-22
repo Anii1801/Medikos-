@@ -6,7 +6,8 @@ are informational signals for prioritisation and require clinician review.
 
 ## Controls implemented
 
-- consent is required for history capture and ABDM sharing;
+- explicit consent is required for history capture; ABDM sharing is not an
+  operational integration and is not offered as a consent purpose;
 - patient and doctor APIs are role-protected;
 - batch uploads validate file type and size, isolate per-file failures, and
   report extraction status rather than treating partial failures as success;

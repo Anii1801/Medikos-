@@ -15,8 +15,7 @@ function pageShell(title, active, content) {
           ["interview.html", "Medical History", "interview"],
           ["reports.html", "Medical Reports", "reports"],
           ["timeline.html", "Health Timeline", "timeline"],
-          ["summary.html", "My Summary", "summary"],
-          ["settings.html", "Privacy & Consent", "settings"]
+          ["summary.html", "My Summary", "summary"]
         ].map(x => `<a class="${active === x[2] ? "active" : ""}" href="${x[0]}">${x[1]}</a>`).join("")}
       </nav>
       <button class="btn btn-outline btn-sm" id="page-signout" type="button">Sign out</button>
@@ -57,9 +56,10 @@ function pageError(message) {
 
 async function renderDashboard() {
   const me = await requireUser(); if (!me) return;
-  let records = [];
-  let recordsError = "";
+  let records = [], docs = [];
+  let recordsError = "", docsError = "";
   try { records = await api("/records"); } catch (e) { recordsError = e.message; }
+  try { docs = await api("/documents"); } catch (e) { docsError = e.message; }
   pageShell("Dashboard", "dashboard", `
     <p class="eyebrow">PATIENT DASHBOARD</p>
     <h1>Welcome${me.name ? ", " + esc(me.name.split(" ")[0]) : ""}</h1>
@@ -70,13 +70,32 @@ async function renderDashboard() {
     </div>
     <div class="patient-card-grid">
       <a class="patient-card" href="interview.html"><span class="action-icon">${ICONS.history}</span><h2>Medical History</h2><p>Answer questions about your symptoms, health history, and medications.</p></a>
-      <a class="patient-card" href="reports.html"><span class="action-icon">${ICONS.reports}</span><h2>Medical Reports</h2><p>Upload and organize your medical documents.</p></a>
+      <a class="patient-card" href="reports.html"><span class="action-icon">${ICONS.reports}</span><h2>Medical Reports</h2><p>${docs.length} uploaded document${docs.length === 1 ? "" : "s"} · Upload and organize your reports.</p></a>
       <a class="patient-card" href="timeline.html"><span class="action-icon">${ICONS.timeline}</span><h2>Health Timeline</h2><p>${records.length ? `${records.length} recorded encounter${records.length === 1 ? "" : "s"}.` : "No encounters recorded yet."}</p></a>
       <a class="patient-card" href="summary.html"><span class="action-icon">${ICONS.summary}</span><h2>My Summary</h2><p>Review an available generated draft and its source information.</p></a>
     </div>
     ${recordsError ? `<div class="alert alert-urgent mt" role="alert">Recent activity could not be loaded: ${esc(recordsError)}</div>` :
       records.length ? `<section class="card mt" aria-labelledby="recent-heading"><h2 id="recent-heading">Recent activity</h2><div class="document-list">${records.slice(0, 3).map(r => `<div class="document-row"><span>Encounter ${esc(r.token_no)}</span><span class="chip">${esc(r.status)}</span></div>`).join("")}</div></section>` : ""}
+    ${docsError ? `<div class="alert alert-urgent mt" role="alert">Document activity could not be loaded: ${esc(docsError)}</div>` : ""}
+    <section class="card mt" aria-labelledby="data-controls-heading">
+      <h2 id="data-controls-heading">Account data</h2>
+      <p class="caption">You can permanently erase your working data and submitted records from this application. This cannot be undone.</p>
+      <button class="btn btn-outline" id="erase-data" type="button">Delete my data</button>
+      <p id="erase-status" class="caption" aria-live="polite"></p>
+    </section>
   `);
+  document.getElementById("erase-data").onclick = async event => {
+    if (!window.confirm("Permanently erase your documents, encounter records, evidence, and account? This cannot be undone.")) return;
+    event.currentTarget.disabled = true;
+    try {
+      await api("/me/data", { method: "DELETE" });
+      sessionStorage.removeItem("mk_token");
+      window.location.href = "index.html";
+    } catch (e) {
+      document.getElementById("erase-status").textContent = "Data deletion failed: " + e.message;
+      event.currentTarget.disabled = false;
+    }
+  };
 }
 
 async function renderInterview() {
@@ -89,7 +108,7 @@ async function renderInterview() {
       <h2>${sessionStorage.getItem("mk_iv") ? "Continue your interview" : "Ready to begin?"}</h2>
       <p>${sessionStorage.getItem("mk_iv") ? "Your saved session is ready to continue." : "Answer one question at a time. You can go back and review your answers."}</p>
       <button class="btn" id="open-interview">${sessionStorage.getItem("mk_iv") ? "Continue Interview" : "Start Interview"}</button>
-      ${!me ? `<button class="btn btn-outline" id="guest-interview" type="button">Continue as guest</button><p class="caption">Guest sessions are wiped after submission, consistent with the current application policy.</p>` : ""}
+      ${!me ? `<button class="btn btn-outline" id="guest-interview" type="button">Continue as guest</button><p class="caption">Guest working-session data is removed after submission. Encounter evidence and source documents remain attached to the submitted record for clinician review.</p>` : ""}
     </div>
   `);
   document.getElementById("open-interview").onclick = () => {
@@ -122,9 +141,17 @@ async function renderReports() {
     </div>
     ${docsError ? `<div class="alert alert-urgent" role="alert">Documents could not be loaded: ${esc(docsError)}</div>` : `<div class="card"><h2>Uploaded documents</h2>
       ${docs.length ? `<div class="document-list">${docs.map(d => `<details class="document-row"><summary><b>${esc(d.filename || d.name || "Document")}</b><span class="chip">${esc(d.processing_status || d.doc_type || "Uploaded")}</span></summary>
-        <p class="caption">Source: ${esc(d.filename || "uploaded document")} · Extraction engine: ${esc(d.engine || "not reported")} · ${esc(d.date || "undated")}</p>
+        <p class="caption">Source: ${esc(d.filename || "uploaded document")} · Extraction engine: ${esc(d.engine || "not reported")} · Document date: ${esc(d.date || "Not extracted")} · Uploaded: ${esc(d.created ? new Date(d.created * 1000).toLocaleString() : "Not recorded")}</p>
         ${d.processing_error ? `<p class="alert alert-urgent" role="status">${esc(d.processing_error)}</p>` : ""}
         ${d.has_original ? `<button class="btn btn-outline btn-sm" type="button" data-report-download="${d.id}" data-filename="${esc(d.filename)}">Download original</button>` : ""}
+        <label class="input-label" for="category-${d.id}">Document category</label>
+        <select id="category-${d.id}" data-document-category="${d.id}">
+          ${[["lab_report", "Laboratory report"], ["prescription", "Prescription"], ["discharge_summary", "Discharge summary"], ["other", "Other"]].map(([value, label]) => `<option value="${value}" ${d.doc_type === value ? "selected" : ""}>${label}</option>`).join("")}
+        </select>
+        <button class="btn btn-outline btn-sm" type="button" data-document-save-category="${d.id}">Save category</button>
+        ${d.processing_status === "failed" ? `<label class="input-label" for="replacement-${d.id}">Optional: choose an unlocked or corrected replacement file</label><input id="replacement-${d.id}" type="file" data-document-replacement="${d.id}" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt"><button class="btn btn-outline btn-sm" type="button" data-document-retry="${d.id}">Retry extraction</button>` : ""}
+        <button class="btn btn-outline btn-sm" type="button" data-document-delete="${d.id}">Remove document</button>
+        ${d.text ? `<details><summary>Preview extracted text</summary><pre class="document-preview">${esc(d.text)}</pre></details>` : `<p class="caption">No text was extracted. Verify the original or retry extraction.</p>`}
         ${d.entities?.diagnoses?.length ? `<h3>Diagnoses mentioned</h3><p>${d.entities.diagnoses.map(esc).join(", ")}</p>` : ""}
         ${d.entities?.medications?.length ? `<h3>Medication mentions</h3><ul>${d.entities.medications.map(m => `<li>${esc(m.name)} ${esc(m.dose || "")} ${esc(m.frequency || "")} · ${esc(m.status || "reported")}</li>`).join("")}</ul>` : ""}
         ${d.entities?.allergies?.length ? `<h3>Allergy mentions</h3><ul>${d.entities.allergies.map(esc).map(x => `<li>${x}</li>`).join("")}</ul>` : ""}
@@ -135,6 +162,40 @@ async function renderReports() {
   document.querySelectorAll("[data-report-download]").forEach(button => button.onclick = async () => {
     try { await downloadDocument("/documents/" + button.dataset.reportDownload + "/file", button.dataset.filename); }
     catch (e) { document.getElementById("report-status").textContent = "Download failed: " + e.message; }
+  });
+  document.querySelectorAll("[data-document-save-category]").forEach(button => button.onclick = async () => {
+    const select = document.querySelector(`[data-document-category="${button.dataset.documentSaveCategory}"]`);
+    const status = document.getElementById("report-status");
+    button.disabled = true;
+    try {
+      await api("/documents/" + button.dataset.documentSaveCategory, {
+        method: "PUT", json: { doc_type: select.value }
+      });
+      status.textContent = "Document category updated.";
+    } catch (e) { status.textContent = "Category update failed: " + e.message; }
+    finally { button.disabled = false; }
+  });
+  document.querySelectorAll("[data-document-retry]").forEach(button => button.onclick = async () => {
+    const status = document.getElementById("report-status");
+    button.disabled = true;
+    try {
+      const replacement = document.querySelector(`[data-document-replacement="${button.dataset.documentRetry}"]`)?.files?.[0];
+      const body = new FormData();
+      if (replacement) body.append("file", replacement);
+      const result = await api("/documents/" + button.dataset.documentRetry + "/retry", { method: "POST", body });
+      status.textContent = result.processing_status === "failed" ? "Retry did not extract the document: " + result.processing_error : "Document extraction retried.";
+      await renderReports();
+    } catch (e) { status.textContent = "Retry failed: " + e.message; button.disabled = false; }
+  });
+  document.querySelectorAll("[data-document-delete]").forEach(button => button.onclick = async () => {
+    const status = document.getElementById("report-status");
+    if (!window.confirm("Remove this document from your working list? Submitted encounter copies are not changed.")) return;
+    button.disabled = true;
+    try {
+      await api("/documents/" + button.dataset.documentDelete, { method: "DELETE" });
+      status.textContent = "Document removed.";
+      await renderReports();
+    } catch (e) { status.textContent = "Removal failed: " + e.message; button.disabled = false; }
   });
   document.getElementById("upload-report").onclick = async () => {
     const files = Array.from(document.getElementById("report-file").files || []), status = document.getElementById("report-status");
@@ -151,10 +212,19 @@ async function renderReports() {
 
 async function renderTimeline() {
   const me = await requireUser(); if (!me) return;
-  let records = [];
-  try { records = await api("/records"); } catch (_) {}
-  pageShell("Health Timeline", "timeline", `<p class="eyebrow">HEALTH TIMELINE</p><h1>Your recorded history</h1><p class="subtitle">Available encounters and statuses from your account.</p>
-    <div class="card">${records.length ? `<div class="table-wrap"><table class="stack-table"><thead><tr><th>Token</th><th>Date</th><th>Priority</th><th>Status</th></tr></thead><tbody>${records.map(r => `<tr><td data-label="Token">${esc(r.token_no)}</td><td data-label="Date">${new Date(r.created * 1000).toLocaleDateString("en-IN")}</td><td data-label="Priority">${esc(["", "Emergency", "Urgent", "Routine"][r.priority] || "—")}</td><td data-label="Status">${esc(r.status)}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty-state">No encounters recorded yet.</p>`}</div>`);
+  let records = [], docs = [];
+  try { [records, docs] = await Promise.all([api("/records"), api("/documents")]); }
+  catch (e) { pageError("Timeline could not be loaded: " + e.message); return; }
+  const events = [
+    ...records.map(r => ({ kind: "Encounter", date: r.created, description: `Encounter ${r.token_no}`, detail: `Priority: ${["", "Emergency", "Urgent", "Routine"][r.priority] || "Not reported"} · Status: ${r.status}` })),
+    ...docs.map(d => ({ kind: "Document", date: d.created, description: d.filename, detail: `${d.doc_type} · ${d.processing_status}`, id: d.id, hasOriginal: d.has_original }))
+  ].filter(item => Number.isFinite(Number(item.date))).sort((a, b) => Number(b.date) - Number(a.date));
+  pageShell("Health Timeline", "timeline", `<p class="eyebrow">HEALTH TIMELINE</p><h1>Your recorded history</h1><p class="subtitle">Encounter dates and document upload dates are shown separately; an upload date is not a clinical event date.</p>
+    <div class="card">${events.length ? `<div class="document-list">${events.map(item => `<article class="document-row"><span class="chip">${esc(item.kind)}</span><strong>${esc(item.description)}</strong><span>${new Date(Number(item.date) * 1000).toLocaleString("en-IN")}</span><span class="caption">${esc(item.detail)}</span>${item.hasOriginal ? `<button class="btn btn-outline btn-sm" type="button" data-timeline-download="${item.id}" data-filename="${esc(item.description)}">Download source</button>` : ""}</article>`).join("")}</div>` : `<p class="empty-state">No encounters or documents are available yet.</p>`}</div>`);
+  document.querySelectorAll("[data-timeline-download]").forEach(button => button.onclick = async () => {
+    try { await downloadDocument("/documents/" + button.dataset.timelineDownload + "/file", button.dataset.filename); }
+    catch (e) { alert("Document download failed: " + e.message); }
+  });
 }
 
 async function renderSummary() {
@@ -169,18 +239,6 @@ async function renderSummary() {
   pageShell("My Summary", "summary", `<p class="eyebrow">MY SUMMARY</p><h1>Clinical summary</h1><p class="subtitle">Patient-reported and document-extracted information remain attributed and unresolved conflicts are preserved.</p>${report ? renderClinicalReport(report, { mode: "patient" }) : `<div class="empty-state">Complete and submit a medical history interview to create a summary.</div>`}`);
 }
 
-async function renderSettings() {
-  const me = await requireUser(); if (!me) return;
-  let consent = {};
-  try { consent = await api("/consent"); } catch (_) {}
-  pageShell("Privacy & Consent", "settings", `<p class="eyebrow">PRIVACY & CONSENT</p><h1>Your privacy choices</h1><p class="subtitle">Review consent and data-handling information supported by your account.</p><div class="card"><h2>Data handling</h2><p>History capture and sharing require explicit consent. Guest sessions are wiped after submission. Image bytes are not stored.</p><label class="consent-item"><input type="checkbox" id="consent-history" ${consent.history_capture ? "checked" : ""}> I consent to my health information being recorded for my doctor.</label><label class="consent-item"><input type="checkbox" id="consent-abdm" ${consent.abdm_share ? "checked" : ""}> I consent to sharing with the hospital system and ABHA record.</label><p id="consent-status" class="caption" aria-live="polite"></p><button class="btn btn-outline" id="manage-consent" type="button">Save consent</button></div>`);
-  document.getElementById("manage-consent").onclick = async () => {
-    const status = document.getElementById("consent-status");
-    try { await api("/consent", { json: { purpose: "history_capture", granted: document.getElementById("consent-history").checked }}); await api("/consent", { json: { purpose: "abdm_share", granted: document.getElementById("consent-abdm").checked }}); status.textContent = "Consent updated."; }
-    catch (e) { status.textContent = e.message; }
-  };
-}
-
 async function bootPatientPage() {
   try {
     if (pageName === "dashboard") await renderDashboard();
@@ -188,7 +246,7 @@ async function bootPatientPage() {
     else if (pageName === "reports") await renderReports();
     else if (pageName === "timeline") await renderTimeline();
     else if (pageName === "summary") await renderSummary();
-    else await renderSettings();
+    else await renderDashboard();
   } catch (e) { pageError(e.message); }
 }
 bootPatientPage();

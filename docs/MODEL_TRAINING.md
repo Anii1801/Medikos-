@@ -15,7 +15,8 @@ python -m training.audit_datasets          # profile every file on disk -> evalu
 python -m training.adaptive.train          # fit on TRAIN split, choose C on VALID, write models/adaptive_ranker/v1/ (test split never read)
 python -m training.adaptive.evaluate       # label audit + four-way next-slot comparison + policy replays + LOCO
 python -m training.lab_extraction_eval --label current
-python -m training.lab_scan_eval           # needs tesseract
+python -m training.prescription_extraction_eval
+python -m training.lab_scan_eval --output ../evaluation_results/lab_scan_eval_macos.json
 python -m training.hindi_nlp_eval --label current
 python -m training.render_reports          # tables for docs/EVALUATION_RESULTS.md
 python scripts/generate_project_status.py  # runs pytest, writes docs/PROJECT_STATUS.md
@@ -24,10 +25,18 @@ python -m pytest -q                        # software tests
 MEDIKIOSK_QUESTION_POLICY=learned uvicorn app.main:app --port 8000   # run the app with the learned policy (default: ontology)
 ```
 
-On the current macOS host, use the existing environment without reinstalling:
-`cd backend && PYTHONPATH=. ../.venv/bin/python -m training.adaptive.evaluate`.
-Install local raster OCR support separately with `brew install tesseract`;
-optional Hindi language data: `brew install tesseract-lang`.
+On macOS, Homebrew provides Tesseract (`brew install tesseract`, optional
+additional languages via `brew install tesseract-lang`). Playwright's optional
+browser tests use:
+
+```bash
+./.venv/bin/python -m pip install playwright
+./.venv/bin/python -m playwright install chromium
+```
+
+Re-run the test suite with `cd backend && ../.venv/bin/python -m pytest -q -rs`.
+The Tesseract image/report experiment supports `--output` so new host-specific
+results do not overwrite the preserved prior artifact.
 
 ## What the ranker is
 
@@ -67,8 +76,8 @@ Synthetic data; provisional required-slot and safety-critical lists; thresholds 
 
 | Task | Selected model / baseline | Data actually available | Decision, license and integration |
 |---|---|---|---|
-| PDF/image OCR | `pypdf` embedded-text extraction; Tesseract OCR for raster/scanned pages | 0 image/PDF files in the dataset tree. The 892 OCR pairs are simulated text, and the two image manifests reference source ZIPs that are absent. | Keep OCR as an extraction component, not a clinical-language model. Tesseract is Apache-2.0; its language-data files have their own terms. No OCR model was trained or evaluated on images. Tesseract is not installed on the audited Mac, so raster OCR cannot be reproduced there. |
-| Clinical entities | Existing deterministic `ocr.extract` / `ClinicalNLPService` rules | 1,238 lab rows and 1,011 prescription rows contain normalized fields, but no source report text with exact entity spans. | Do not fine-tune NER from field rows. `emilyalsentzer/Bio_ClinicalBERT` is an English candidate encoder; its official model card/API declares MIT. A general alternative is DistilBERT (`Apache-2.0`). Both are deferred until licensed source text and adjudicated token spans exist. Rules remain the live baseline. |
+| PDF/image OCR | `pypdf` embedded-text extraction; Tesseract OCR for raster/scanned pages | No source pixels are present. The 892 OCR pairs are synthetic text, and the image manifests reference source ZIPs that are absent. | Tesseract 5.5.3 was installed and evaluated on generated PNG/JPEG/WEBP/TIFF and scanned PDFs; this is not real-scan or handwriting evidence. Tesseract is Apache-2.0; language-data files have their own terms. No OCR model was trained. |
+| Clinical entities | Existing deterministic `ocr.extract` / `ClinicalNLPService` rules | 1,238 lab rows join 394 synthetic report texts; 1,011 prescription rows join 498 synthetic prescription texts. All ID/patient/split joins agree, but there are no entity character spans or source images. | Run text-to-field regression only; do not fine-tune NER from field rows. `emilyalsentzer/Bio_ClinicalBERT` is an English candidate encoder; its official model card/API declares MIT. A general alternative is DistilBERT (`Apache-2.0`). Both are deferred until licensed source text and adjudicated token spans exist. Rules remain the live baseline. |
 | Negation, uncertainty and temporality | Existing rule-based `ClinicalNLPService` | No independently adjudicated assertion/temporality labels; structured histories are synthetic and not mention-level annotations. | Do not train a classifier yet. Keep the explicit assertion, temporal context, source span, and unverified/clinician-review states; collect annotated positive, denied, uncertain, historical, hypothetical, and missing examples first. |
 | Adaptive question ranking | Multinomial logistic regression; deterministic ontology order is the safe default/baseline | 300 synthetic interviews (240/30/30 patient-group split); 7,863 turns, reconstructed into pre-answer states. | Retrained and evaluated below. scikit-learn is BSD-3-Clause. Checkpoint is `adaptive_ranker/v1`, loaded by `app/adaptive/ranker.py`; opt-in only with `MEDIKIOSK_QUESTION_POLICY=learned`. Do not claim clinical utility: its test result matches an oracle complaint/template lookup. |
 | Evidence-grounded report generation | Deterministic extraction-first summary | 300 synthetic history-summary pairs; 207 ACI-Bench dialogue/note pairs; 4,966 note-only MTSamples records. ACI-Bench terms are unresolved in the local register, and the pairs lack the report's required document/source evidence links. | Keep the deterministic summary and clinician approval. Do not SFT on note-only rows or treat ungrounded dialogue/note pairs as evidence-grounded targets. Qwen2.5-1.5B-Instruct is a candidate (official card: Apache-2.0), not installed, benchmarked, or fine-tuned. |
@@ -80,6 +89,10 @@ Model-card license metadata was checked on the official Hugging Face model pages
 [DistilBERT base uncased](https://huggingface.co/distilbert/distilbert-base-uncased), and
 [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct).
 Upstream dataset permissions remain separate and must be verified before use.
+
+No model was retrained during the evidence-fidelity and environment-validation
+continuation. The existing adaptive ranker checkpoint, manifest, grouped split,
+and validation-selected configuration were preserved.
 
 ## Reproduced experiment on 2026-10-22
 
@@ -114,7 +127,7 @@ safety layer; the learned ranker remains opt-in.
 
 ## Hardware and dependency audit
 
-Audited on Apple M4 macOS ARM with 16 GiB system memory. The project environment has Python 3.14.7, scikit-learn 1.9.1, NumPy 2.5.4, SciPy 1.18.1, Pillow 13.0.0, pypdf 6.21.1, and ReportLab 5.0.1. PyTorch, Transformers, Datasets, and PEFT are not installed; no NVIDIA/CUDA device or Tesseract binary is available. Apple Metal hardware exists, but a PyTorch/MPS path was not available to test. The small feature-based ranker can be trained with the existing CPU stack. No transformer fine-tuning was attempted and no optional packages were installed.
+Audited on Apple M4 macOS ARM with 16 GiB system memory. The project environment has Python 3.14.7, scikit-learn 1.9.1, NumPy 2.5.4, SciPy 1.18.1, Pillow 13.0.0, pypdf 6.21.1, and ReportLab 5.0.1. Tesseract 5.5.3 (`eng`, `osd`), Playwright 1.64.0, and Playwright Chromium 156 were installed to complete environment-dependent validation. PyTorch, Transformers, Datasets, and PEFT are not installed; no NVIDIA/CUDA device was used. Apple Metal hardware exists, but a PyTorch/MPS path was not tested. The small feature-based ranker can be trained with the existing CPU stack. No transformer fine-tuning was attempted.
 
 ## Annotation required before further training
 

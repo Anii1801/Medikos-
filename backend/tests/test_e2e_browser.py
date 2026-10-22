@@ -40,18 +40,28 @@ def server():
     proc.terminate(); proc.wait(timeout=10)
 
 
-def submit(base, answers):
+def submit(base, answers, document=None):
     t = httpx.post(base + "/api/auth/guest?name=E2E").json()["token"]
     h = {"Authorization": f"Bearer {t}"}
-    for p in ("history_capture", "abdm_share"):
-        httpx.post(base + "/api/consent", json={"purpose": p, "granted": True}, headers=h)
+    httpx.post(base + "/api/consent", json={"purpose": "history_capture", "granted": True}, headers=h)
+    if document:
+        filename, content = document
+        response = httpx.post(base + "/api/documents",
+                              files={"file": (filename, content, "text/plain")}, headers=h)
+        assert response.status_code == 200, response.text
     return httpx.post(base + "/api/submit", json={"answers": answers}, headers=h).json()["record_id"]
 
 
 @pytest.fixture(scope="module")
 def records(server):
     base, db = server
-    ids = {"emergency": submit(base, EMERGENCY), "routine": submit(base, ROUTINE), "legacy": submit(base, ROUTINE)}
+    ids = {
+        "emergency": submit(base, EMERGENCY, (
+            "lab.txt", b"Laboratory Report 2025-03-12\nHaemoglobin 9.1 g/dL (13-17)"
+        )),
+        "routine": submit(base, ROUTINE),
+        "legacy": submit(base, ROUTINE),
+    }
     con = sqlite3.connect(db); con.execute("UPDATE records SET report=NULL WHERE id=?", (ids["legacy"],)); con.commit(); con.close()
     return ids
 
@@ -71,7 +81,7 @@ def open_record(browser, base, rid):
     page = browser.new_page()
     page.on("dialog", lambda d: d.dismiss())
     page.goto(base + "/doctor.html")
-    page.fill("#p", "doctor123"); page.click("#go")
+    page.fill("#u", "doctor"); page.fill("#p", "doctor123"); page.click("#go")
     page.click(f'[data-id="{rid}"]')
     page.wait_for_selector("#red-flag-suggestions")
     return page
@@ -98,11 +108,61 @@ def test_dom_order_label_notice_and_emergency_item(browser, server, records):
     page.close()
 
 
+def test_patient_document_management_flow(browser, server):
+    base, _ = server
+    token = httpx.post(base + "/api/auth/guest?name=PatientUI").json()["token"]
+    headers = {"Authorization": f"Bearer {token}"}
+    failed = httpx.post(base + "/api/documents",
+                        files={"file": ("broken.pdf", b"not a PDF", "application/pdf")},
+                        headers=headers)
+    assert failed.status_code == 422
+    document_id = failed.json()["id"]
+
+    page = browser.new_page()
+    page.set_default_timeout(5000)
+    page.add_init_script(f"sessionStorage.setItem('mk_token', '{token}')")
+    page.goto(base + "/reports.html")
+    page.get_by_text("broken.pdf", exact=True).wait_for()
+    page.locator("details.document-row > summary").click()
+    page.select_option(f"#category-{document_id}", "prescription")
+    page.locator(f'[data-document-save-category="{document_id}"]').click()
+    page.get_by_text("Document category updated.").wait_for()
+
+    page.locator(f'[data-document-replacement="{document_id}"]').set_input_files({
+        "name": "replacement.txt",
+        "mimeType": "text/plain",
+        "buffer": b"Prescription\nTab Metformin 500 mg BD",
+    })
+    page.locator(f'[data-document-retry="{document_id}"]').click()
+    page.get_by_text("replacement.txt", exact=True).wait_for()
+    page.locator("details.document-row > summary").click()
+    assert page.locator("details.document-row .chip").inner_text() == "extracted"
+
+    page.once("dialog", lambda dialog: dialog.accept())
+    page.locator(f'[data-document-delete="{document_id}"]').click()
+    page.get_by_text("No documents uploaded yet.").wait_for()
+    page.goto(base + "/dashboard.html")
+    page.get_by_role("button", name="Delete my data").wait_for()
+    assert page.locator('a[href="settings.html"]').count() == 0
+    page.close()
+
+
 def test_user_text_is_escaped_not_executed(browser, server, records):
     base, _ = server
     page = open_record(browser, base, records["emergency"])
     assert page.evaluate("typeof window.__xss") == "undefined"
     assert page.locator("#app img[src='x']").count() == 0
+    page.close()
+
+
+def test_doctor_screen_preserves_source_linked_lab_evidence(browser, server, records):
+    base, _ = server
+    page = open_record(browser, base, records["emergency"])
+    summary = page.inner_text("#ai-summary")
+    assert "Haemoglobin: 9.1 g/dL · reference 13–17" in summary
+    assert "lab.txt" in summary and "2025-03-12" in summary
+    assert "page 1" in summary and "text " in summary
+    assert "Haemoglobin: 9.1 g/dL" in page.inner_text(".encounter-shell")
     page.close()
 
 
@@ -120,7 +180,7 @@ def test_record_without_stored_screening_shows_unavailable_never_no_flags(browse
     page = open_record(browser, base, records["legacy"])
     assert page.locator("#red-flag-suggestions .rf-unavailable").count() == 1
     assert page.locator("#red-flag-suggestions .rf-none").count() == 0
-    assert "NOT" in page.inner_text(".rf-unavailable")
+    assert "not a clear result" in page.inner_text(".rf-unavailable").lower()
     assert page.inner_text("#red-flag-suggestions h2") == LABEL
     page.close()
 

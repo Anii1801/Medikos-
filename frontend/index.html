@@ -52,8 +52,7 @@ const T = {
     quick: "Continue as guest", login: "Log in", reg: "Register",
     user: "Username", pw: "Password", name: "Your name", age: "Age", abha: "ABHA ID (optional)",
     ayush: "Ayurveda OPD — extended Dashavidha Pariksha history",
-    consentH: "Privacy and consent", c1: "I consent to my health info being recorded for my doctor.",
-    c2: "I consent to sharing with the hospital system & my ABHA record. (Withdrawable anytime)",
+    consentH: "Privacy and consent", c1: "I consent to my health information being recorded for my doctor.",
     start: "Start Interview", cont: "Continue Interview", next: "Continue", back: "Back", speak: "Speak", listen: "Listening…",
     type: "Type or speak your answer",
     docsH: "Upload medical reports", docsS: "Upload prescriptions, laboratory reports, and other medical documents.",
@@ -76,7 +75,6 @@ const T = {
     user: "यूज़रनेम", pw: "पासवर्ड", name: "आपका नाम", age: "उम्र", abha: "आभा आईडी (वैकल्पिक)",
     ayush: "आयुर्वेद ओपीडी — दशविध परीक्षा",
     consentH: "गोपनीयता और सहमति", c1: "मैं स्वास्थ्य जानकारी डॉक्टर के लिए दर्ज करने की सहमति देता/देती हूँ।",
-    c2: "मैं अस्पताल व आभा रिकॉर्ड से साझा करने की सहमति देता/देती हूँ।",
     start: "साक्षात्कार शुरू करें", cont: "साक्षात्कार जारी रखें", next: "आगे", back: "पीछे", speak: "बोलिए", listen: "सुन रहा है…",
     newH: "साक्षात्कार शुरू करें",
     type: "लिखिए या बोलिए",
@@ -381,7 +379,6 @@ async function homeDash() {
     </div>
     <div class="mk-home-secondary">
       <button class="text-btn" id="card-sum">View health summary</button>
-      <button class="text-btn" id="card-cons">Manage consent</button>
       <button class="text-btn" id="lp">${lang === "en" ? "हिंदी में देखें" : "View in English"}</button>
     </div>
   `);
@@ -404,7 +401,6 @@ async function homeDash() {
     if (canSummary) summaryPage();
     else showToast("A draft summary is available after you complete a history interview in this session.");
   };
-  document.getElementById("card-cons").onclick = consentPage;
 }
 
 async function dashHistory() {
@@ -452,8 +448,7 @@ function aboutPage() {
   </div>
   <div class="card">
     <h2>Privacy</h2>
-    <p class="mt-sm">History capture and ABDM sharing require explicit consent. Guest sessions are wiped after submission. Image bytes are not stored. You may request deletion of your data.</p>
-    <button class="btn mt" id="go-consent">Manage Consent</button>
+    <p class="mt-sm">Before an interview starts, you are asked for explicit consent to record health information for your doctor. Guest working documents are removed after submission while source-linked encounter evidence remains available for doctor review. Data deletion is available from your account. ABDM sharing is not an operational integration in this application.</p>
   </div>
   <div class="card">
     <h2>Clinical support components</h2>
@@ -475,36 +470,6 @@ function aboutPage() {
   </div>
   <p class="mut caption center mt">Not clinically validated. For evaluation and software testing.</p>
   `);
-  document.getElementById("go-consent").onclick = () => TOKEN ? consentPage() : auth("Please sign in to manage consent.");
-}
-
-async function consentPage() {
-  if (!TOKEN) { auth("Please sign in to manage consent."); return; }
-  setActive("bn-info");
-  let cs = {};
-  try { cs = await api("/consent"); } catch (e) { showToast(e.message); }
-  R(`
-  <div class="mt">
-    <p class="eyebrow">Privacy</p>
-    <h1>${t("consentH")}</h1>
-    <p class="subtitle">Consent is recorded before a history is sent to a clinician. You can update it here.</p>
-  </div>
-  <div class="card">
-    <label class="consent-item"><input type="checkbox" id="c1" ${cs.history_capture ? "checked" : ""}><span>${t("c1")}</span></label>
-    <label class="consent-item"><input type="checkbox" id="c2" ${cs.abdm_share ? "checked" : ""}><span>${t("c2")}</span></label>
-    <p id="cerr" class="field-error"></p>
-    <button class="btn mt" id="save-c">Save consent</button>
-  </div>
-  <button class="btn btn-outline mt" id="bk">Home</button>
-  `);
-  document.getElementById("save-c").onclick = async () => {
-    try {
-      await api("/consent", { json: { purpose: "history_capture", granted: document.getElementById("c1").checked }});
-      await api("/consent", { json: { purpose: "abdm_share", granted: document.getElementById("c2").checked }});
-      showToast("Consent updated.");
-    } catch (e) { document.getElementById("cerr").textContent = e.message; }
-  };
-  document.getElementById("bk").onclick = route;
 }
 
 function auth(msg = "") {
@@ -582,14 +547,13 @@ function setup() {
     </div>`}
     <label class="consent-item"><input type="checkbox" id="ay"><span>${t("ayush")}</span></label>
     <label class="consent-item"><input type="checkbox" id="c1"><span>${t("c1")}</span></label>
-    <label class="consent-item"><input type="checkbox" id="c2"><span>${t("c2")}</span></label>
     <p id="cerr" class="field-error"></p>
     <div class="sticky-actions"><button class="btn btn-lg btn-block mt" id="go">${t("start")}</button></div>
   </div>
   `);
   document.getElementById("go").onclick = async () => {
-    if (!document.getElementById("c1").checked || !document.getElementById("c2").checked) {
-      document.getElementById("cerr").textContent = "Please confirm both consent items to continue."; return;
+    if (!document.getElementById("c1").checked) {
+      document.getElementById("cerr").textContent = "Please consent to recording health information for your doctor before continuing."; return;
     }
     const btn = document.getElementById("go");
     btn.disabled = true;
@@ -599,8 +563,7 @@ function setup() {
         age: g ? document.getElementById("ag").value : me.age,
         abha: document.getElementById("ab").value
       }});
-      await api("/consent", { json: { purpose: "history_capture" }});
-      await api("/consent", { json: { purpose: "abdm_share" }});
+      await api("/consent", { json: { purpose: "history_capture", granted: true }});
       me = await api("/me"); ayush = document.getElementById("ay").checked; ans = {}; stack = []; interviewSessionId = null;
       persistInterview();
       await startInterviewSession();
@@ -874,7 +837,7 @@ async function docs() {
           <div class="mut">${esc(d.date || "undated")} · ${esc(String(d.doc_type || "").replace("_"," "))} · ${esc(d.engine)}</div>
           <div class="mut"><span class="status-dot ${st.cls}"></span>${esc(st.label)}</div>
           ${(ent.medications || []).map(m => `<div class="timeline-body">${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
-          ${(ent.labs || []).map(l => `<div class="timeline-body">${esc(l.test)}: ${l.value} ${l.unit} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${esc(l.flag)}</span></div>`).join("")}
+          ${(ent.labs || []).map(l => `<div class="timeline-body">${esc(l.test)}: ${esc(l.value)}${l.unit ? ` ${esc(l.unit)}` : ""} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${esc(l.flag)}</span></div>`).join("")}
         </div>
         <div class="row">${d.has_original ? `<button class="btn btn-outline btn-sm" data-download-doc="${d.id}" data-filename="${esc(d.filename)}" type="button">Download original</button>` : ""}
         <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">Remove</button></div>

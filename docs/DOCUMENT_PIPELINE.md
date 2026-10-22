@@ -21,6 +21,11 @@ and extraction failures per file. PDF and image uploads are processed by
 - Each upload records `extracted`, `needs_review`, or `failed` status and an
   explanatory message when automated extraction cannot be used. Duplicate
   content is reported instead of silently adding another document.
+- Validation and extraction failures retain the uploaded original when it was
+  within the individual upload limit. The patient can inspect the error,
+  download the original, replace it and retry extraction, correct its document
+  category, or remove the working copy. Oversized files rejected before
+  processing are not retained.
 - Submission copies each source document and extracted fact, including status,
   confidence, and source span, into encounter-scoped snapshot tables. The
   doctor-facing report is generated from those database snapshots, and guest
@@ -69,23 +74,29 @@ environment. No clinical accuracy result is claimed.
 
 Verified synthetic PDF text-layer integration tests run through upload,
 normalization, encounter persistence, report generation, guest cleanup, and
-doctor retrieval. Real raster OCR comparison remains **blocked**: the current
-macOS environment has no `tesseract` executable, and the repository contains
-no source scans with human-verified ground truth. PNG/JPEG/WEBP/TIFF synthetic
-OCR tests are explicitly skipped until Tesseract is available. Upload
-acceptance and monkeypatched OCR tests are not counted as OCR accuracy.
-Install on macOS with `brew install tesseract`; optionally add Hindi data with
-`brew install tesseract-lang`, then verify with `tesseract --version` and
-`tesseract --list-langs`. The software suite also covers negation, uncertainty,
-conflicting medication doses, missing units, corrupted/unsupported files,
+doctor retrieval. In the current macOS run, Tesseract 5.5.3 is installed with
+English (`eng`) and orientation (`osd`) language data. Synthetic PNG/JPEG/
+WEBP/TIFF and scanned-PDF tests now execute against manually specified text;
+the evaluation uses synthetic, uniform layouts and is not evidence about
+real-world scans or handwriting.
+
+Install on macOS with `brew install tesseract` and verify using
+`tesseract --version` and `tesseract --list-langs`. The base Homebrew formula
+contains `eng` and `osd`; `brew install tesseract-lang` adds optional language
+data, including Hindi where available. Playwright browser tests require
+`../.venv/bin/python -m pip install playwright` and
+`../.venv/bin/python -m playwright install chromium` from the repository root.
+The software suite also covers negation, uncertainty, conflicting medication
+doses and laboratory measurements, missing units, corrupted/unsupported files,
 duplicate uploads, failed red-flag evaluation, and persisted evidence.
 
-No CER, WER, or field-accuracy result is claimed for real OCR. Existing
-text-level dataset measurements are synthetic/development-set checks, not
-raster OCR performance. The required representative OCR comparison and
-summarization comparison (factuality, omission rate, ROUGE, and BERTScore)
-remain pending licensed ground-truth data. Text-overlap metrics must not be
-interpreted as clinical correctness.
+No result is claimed for real OCR. The current CER, WER, and field-accuracy
+measurements use generated raster documents or synthetic text pairs and are
+development/regression evidence only. A representative real-scan comparison
+and report-generation comparison (factuality and clinically weighted
+omissions) remain blocked on licensed, source-linked, clinician-reviewed
+ground truth. Text-overlap metrics must not be interpreted as clinical
+correctness.
 
 With a permissioned JSONL image/transcript set, the reproducible OCR comparison
 is run with `python backend/scripts/evaluate_document_pipeline.py --pairs

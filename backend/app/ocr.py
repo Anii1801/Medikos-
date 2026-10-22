@@ -52,10 +52,16 @@ _UNIT_RX = (r"x?10\^?3\s*/\s*u?l|x?10\^?9\s*/\s*l|lakhs?\s*/\s*cu\.?\s*mm|/\s*cu
             r"u?iu\s*/\s*m?l|u\s*/\s*l|ng\s*/\s*m?l|mmhg|mm\s*/\s*h(?:r)?|%")
 _PRINTED_FLAG = {"n": "N", "normal": "N", "h": "H", "high": "H", "l": "L", "low": "L", "hh": "HH", "ll": "LL",
                  "critical": "CRITICAL", "crit": "CRITICAL", "*": "ABNORMAL", "abnormal": "ABNORMAL"}
-DRUGS = ["metformin","glimepiride","insulin","amlodipine","telmisartan","losartan","atenolol","metoprolol","aspirin","clopidogrel",
+DRUGS = ["yogaraj guggulu","simhanada guggulu","sarpagandha vati","avipattikar churna","gudmar churna","sitopaladi churna",
+ "neem capsule","ashwagandha churna","triphala churna","salbutamol inhaler","dicyclomine","metformin","glimepiride","insulin","amlodipine","telmisartan","losartan","atenolol","metoprolol","aspirin","clopidogrel",
  "atorvastatin","rosuvastatin","warfarin","pantoprazole","omeprazole","paracetamol","ibuprofen","diclofenac","amoxicillin","azithromycin",
  "ciprofloxacin","levothyroxine","salbutamol","montelukast","cetirizine","furosemide","spironolactone","ramipril","enalapril","ashwagandha",
  "triphala","giloy","chyawanprash","arjunarishta","dashmoolarishta"]
+MEDICATION_CANONICAL = {
+    "ashwagandha churna": "ashwagandha",
+    "triphala churna": "triphala",
+    "salbutamol inhaler": "salbutamol",
+}
 DX = ["diabetes","hypertension","anaemia","anemia","asthma","tuberculosis","typhoid","dengue","malaria","hypothyroidism","ckd","kidney disease",
  "coronary artery disease","angina","myocardial infarction","stroke","fracture","pneumonia","uti","fatty liver","arthritis","gastritis"]
 FALLBACK_INTERACTIONS = [
@@ -142,15 +148,20 @@ def ocr_document(data: bytes, filename: str) -> tuple[str, str, list[dict[str, A
                     continue
                 page_text = (page.extract_text() or "").strip()
                 blocks: list[dict[str, Any]] = []
-                if not page_text:
+                if len(page_text.split()) < 5:
                     parts = []
+                    ocr_blocks: list[dict[str, Any]] = []
                     for image in page.images:
                         try:
                             text, _, blk = _ocr_image(image.data)
                         except Exception:
                             continue
-                        parts.append(text); blocks += blk
-                    page_text, used_ocr = "\n".join(parts).strip(), used_ocr or bool(parts)
+                        parts.append(text)
+                        ocr_blocks.extend(blk)
+                    ocr_text = "\n".join(parts).strip()
+                    if len(ocr_text.split()) > len(page_text.split()):
+                        page_text, blocks = ocr_text, ocr_blocks
+                        used_ocr = used_ocr or bool(parts)
                 pages.append({"page": page_number, "text": page_text, "blocks": blocks})
             txt = "\n".join(p["text"] for p in pages).strip()
             if txt:
@@ -273,6 +284,10 @@ def _interpret(value: float, low: float | None, high: float | None) -> str:
 
 def _lab_item(text: str, match: re.Match, name: str, baseline_unit: str,
               low: float | None, high: float | None, provenance: dict[str, Any] | None) -> dict | None:
+    if name == "Systolic BP":
+        label_context = text[max(0, match.start() - 24):match.start()].lower()
+        if not re.search(r"\bsystolic\b", label_context) and match.group(2) is None:
+            return None
     try:
         value = float(match.group(1).replace(",", "").replace("<", "").replace(">", "").strip())
     except ValueError:
@@ -344,13 +359,21 @@ def extract(text: str, provenance: dict[str, Any] | None = None) -> dict:
     t = text or ""
     low = t.lower()
     meds, facts = [], []
+    medication_name_spans: list[tuple[int, int]] = []
     for d in DRUGS:
         for m in re.finditer(rf"(?:tab(?:let)?\.?|cap(?:sule)?\.?|syp\.?|inj\.?)?\s*\b{d}\b[^\n]{{0,40}}", low):
             seg = m.group(0)
+            name_offset = seg.find(d)
+            name_start = m.start() + name_offset
+            name_end = name_start + len(d)
+            if any(name_start < end and start < name_end for start, end in medication_name_spans):
+                continue
+            medication_name_spans.append((name_start, name_end))
             dose = re.search(r"(\d+(?:\.\d+)?\s?(?:mg|mcg|g|ml|iu|units?))", seg)
             freq = re.search(r"\b(od|bd|tds|qid|hs|1-0-1|1-1-1|0-0-1|1-0-0|once daily|twice daily|sos)\b", seg)
             status = _status(t[max(0, m.start()-30):m.end()])
-            item = {"name": d.title(), "dose": dose.group(1) if dose else None, "frequency": freq.group(1).upper() if freq else None,
+            item = {"name": MEDICATION_CANONICAL.get(d, d).title(), "source_name": d.title(),
+                    "dose": dose.group(1) if dose else None, "frequency": freq.group(1).upper() if freq else None,
                     "status": status, "confidence": 0.75 if dose else 0.6,
                     "source": _fact_source(t, m.start(), m.end(), provenance, 0.75 if dose else 0.6).model_dump()}
             meds.append(item)

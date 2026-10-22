@@ -21,8 +21,7 @@ ROUTINE = {"cc": "Joint / back pain", "dur": "1–4 weeks", "sev": "Mild", "prog
 
 def guest():
     t = c.post("/api/auth/guest?name=Test").json()["token"]
-    for p in ("history_capture", "abdm_share"):
-        c.post("/api/consent", json={"purpose": p, "granted": True}, headers=H(t))
+    c.post("/api/consent", json={"purpose": "history_capture", "granted": True}, headers=H(t))
     return t
 
 

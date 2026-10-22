@@ -1,8 +1,8 @@
 # Evaluation Results
 
 > **Read this first.** Every number below comes from **synthetic, templated data** and from software replays. None of it is evidence of
-> clinical performance. Tables are rendered from `evaluation_results/*.json` by `backend/training/render_reports.py`; nothing is hand-copied.
-> Regenerate everything with the commands in `docs/MODEL_TRAINING.md`.
+> clinical performance. Adaptive-ranker tables are rendered from their committed JSON outputs; the report-fidelity and OCR tables below
+> summarize the explicitly named output artifacts and use exact numerators and denominators.
 
 ## 0. Summary: what the results do and do not show
 
@@ -13,6 +13,7 @@
 | Does it beat the existing ontology policy? | At full interview length: **no, identical** (A5). Under a question budget it wins, but the identical-to-ablation result shows the gain comes from the **safety-first + schema-first structure**, not the learned signal. |
 | Where does the learned signal show up? | At a 10-question budget it avoids safety-critical omissions (0% vs 100% for the ablation) because it follows the recorded template order, which asks drug/allergy history before family/personal history. That is imitation of a template, not a discovery. At budgets <= 8 **every** policy omits safety-critical slots. |
 | Is the model safe to rely on for unseen complaints? | Not by its own confidence. Leave-one-complaint-out shows it stays confident when wrong (A3). The errors are all `rad` applicability, which the app cannot ask outside chest pain, so ranking is unaffected, but the deferral thresholds do **not** detect unseen complaints. |
+| Does the doctor-facing report preserve a known synthetic encounter? | Yes: 31/31 exact predeclared reference checks in one two-document end-to-end encounter (H). This is a software-fidelity test, not clinical validation. |
 | Default policy | **Reviewed ontology policy stays the default.** The learned ranker is opt-in (`MEDIKIOSK_QUESTION_POLICY=learned`). |
 
 The genuinely actionable findings were about the *existing* system: the frozen ontology covered only 75% of the dataset's history slots, and lab/Hindi extraction had large, silent failures (sections B and C). These are fixed and re-measured.
@@ -268,7 +269,10 @@ The "after" 100% reflects the dataset's few templated phrasings and should be re
 
 ## D. Software tests (these verify behaviour, not clinical accuracy)
 
-Latest full backend run: **225 passed, 8 skipped**, one Starlette/httpx deprecation warning. Seven OCR tests were skipped because Tesseract is unavailable; one browser E2E module was skipped because Playwright is not installed. API-to-doctor-record persistence is covered by TestClient integration tests, but an interactive browser run remains unverified. Command: `cd backend && ../.venv/bin/python -m pytest -q -rs`.
+Full backend validation was re-run after installing Tesseract and Playwright.
+The final result was **241 passed, 0 failed, 0 skipped**, with one
+Starlette/httpx deprecation warning. The command is
+`cd backend && ../.venv/bin/python -m pytest -q -rs`.
 
 ## E. Not evaluated (and why)
 
@@ -277,35 +281,47 @@ Latest full backend run: **225 passed, 8 skipped**, one Starlette/httpx deprecat
 | Summary generation (unsupported-claim rate, critical-fact omission) | Not run. No genuine dialogue->summary training pairs beyond ACI-Bench (207) were verified for provenance/licence, and the rule-based summary builder consumes ontology answers, not dataset slots. No model was trained, deliberately. |
 | Red-flag precision/recall on `red_flag_labeled_cases.csv` | Pre-existing evaluation in `evaluation_results/`; labels are synthetic. Not re-run or extended here. |
 | OCR on real scans, handwriting, ASR on audio | No images or audio exist in the supplied dataset (0 image/PDF files, 0 audio files on disk). |
-| Prescription entity extraction | Not implemented in this pass. |
+| Prescription extraction on real images | Not evaluated: no source images are present. Synthetic text-pair parsing is reported in H. |
 | Critical-result recall | The labels contain only N/H/L. |
 
 ## F. Evidence-to-report integration and document limitations
 
-The new synthetic PDF integration workflow actually executed and passed. It
-uploaded a lab report (`Haemoglobin 9.1 g/dL`, printed `13-17` interval, dated
-2025-03-12) and a prescription (`Warfarin 5 mg OD`, `Aspirin 75 mg OD`),
-verified `pdf-text` extraction and `extracted` status, submitted an encounter,
-and retrieved the doctor's stored report and original source PDF after guest
-working-document cleanup. The report's source IDs resolve to the encounter's
-document snapshots; `clinical_evidence` rows match the encounter patient and
-record. The report preserved the lab's result, unit, interval, report date,
-page/source span, and a patient-vs-document medication-dose conflict.
+The deterministic synthetic report benchmark actually executed and passed.
+Before upload, the test defines the expected history (`Cough`, `2 days`,
+`Moderate`, explicit `No fever`), two laboratory findings (Haemoglobin
+`9.1 g/dL`, Creatinine `1.0 mg/dL`, dates, and printed intervals), and
+prescription findings (Warfarin `5 mg` and Aspirin `75 mg`, once daily, dated
+2025-03-13). The patient separately reports Warfarin `2 mg`; the report keeps
+both facts and requests clinician review rather than resolving the conflict.
+The test uploads two generated PDF fixtures, verifies extraction and source
+page/spans, persists an encounter, retrieves the doctor's report and source
+PDFs after guest working-document cleanup, then applies a clinician amendment
+and verifies evidence provenance remains intact.
+
+The benchmark scored **31/31 exact reference checks**: history 4/4; labs 12/12
+(value, unit, date, interval, document ID, page/span for each result);
+medications 10/10 (name, dose, frequency, date, source document for each);
+conflict/verification disclosures 2/2; clinician edit and evidence retention
+2/2; persisted patient/encounter/document linkage 1/1. Each check is binary
+(exact equality or the stated provenance condition); the score is passing
+checks divided by predeclared checks, not a clinical accuracy estimate.
 
 Additional executed tests preserve explicitly negative and uncertain facts,
-missing lab units, multiple dated measurements, entered-vs-extracted date
-conflicts, duplicate files, missing/poor extraction, unsupported/corrupt
-uploads, missing provenance, and fail-safe red-flag behavior. A missing unit
-is no longer replaced with the configured lab baseline unit. The report remains
-deterministic; no generative model was introduced.
+missing units, multiple dated measurements, same-day conflicting values,
+entered-vs-extracted date conflicts, duplicate files, missing/poor extraction,
+unsupported/corrupt uploads, missing provenance, and fail-safe red-flag
+behavior. A missing unit is not replaced with a configured baseline unit.
+These are synthetic software-test cases, not additional records in a training
+dataset. The report remains deterministic; no generative model was introduced.
 
-The separate actual raster OCR run is **blocked**, not passed: Tesseract is
-absent. Synthetic PNG/JPEG/WEBP/TIFF CER/WER/field tests and the image-based
-end-to-end workflow were skipped for that reason. Synthetic multi-page
-embedded-text PDF extraction did execute. Install on macOS using
-`brew install tesseract` (optional Hindi data: `brew install tesseract-lang`),
-then rerun `cd backend && ../.venv/bin/python -m pytest -q -rs`. No OCR
-accuracy metric is claimed from upload acceptance or monkeypatched OCR tests.
+Tesseract 5.5.3 was installed on macOS (available languages: `eng`, `osd`).
+The synthetic PNG, JPEG, WEBP, TIFF, multi-frame WEBP, multi-page TIFF, and
+single-/multi-page scanned-PDF tests executed against manually known text.
+An additional 42-report synthetic rendering run is reported in H. This does
+not validate real-world scans, handwriting, or Hindi OCR. Install on macOS
+with `brew install tesseract`; optional additional language data:
+`brew install tesseract-lang`. Playwright 1.64.0 and Chromium 156 were also
+installed; setup commands are listed in H.
 
 ## G. Four-way next-question comparison (official test, 30 interviews)
 
@@ -316,26 +332,231 @@ accuracy metric is claimed from upload acceptance or monkeypatched OCR tests.
 | Logistic regression, application labels | 0.997 | 0.997 | 0.999 |
 | Training-only oracle complaint/state template lookup | 1.000 | 1.000 | 1.000 |
 
-Each estimate uses 371 held-out pre-answer examples, with cluster-bootstrap
-confidence intervals in `evaluation_results/adaptive/adaptive_evaluation.json`.
-The oracle lookup uses training-split examples only. Its perfect score explains
+Top-1/top-3 denominators are 371 held-out pre-answer states; NDCG is averaged
+over 30 interview-level rankings. Cluster-bootstrap confidence intervals are
+in `evaluation_results/adaptive/adaptive_evaluation.json`. The oracle lookup
+uses training-split examples only. Its perfect score explains
 the near-perfect model result: the score is template/recorded-choice agreement,
 not evidence of clinical utility. NDCG for the ontology and oracle uses only
 their single chosen question, so NDCG@3 equals NDCG@1.
 
-Operational replay on the official split (unlimited interview budget):
+Operational replay on the official split (30 interviews, unlimited budget):
 
-| policy | required-slot coverage | mandatory safety-question coverage | interviews with safety-critical omission | questions/interview | duplicates/interview (rate) |
+| policy | required-slot coverage (mean) | mandatory safety coverage (mean) | interviews with safety-critical omission | questions (total / mean per interview) | duplicates (total / rate of questions) |
 |---|---:|---:|---:|---:|---:|
-| Fixed template | 1.000 | 1.000 | 0.000 | 12.4 | 0.00 (0.000) |
-| Current ontology | 0.974 | 1.000 | 0.000 | 15.1 | 0.33 (0.022) |
-| Learned, application-label wording | 0.974 | 1.000 | 0.000 | 15.1 | 0.33 (0.022) |
-| Learned, recorded wording | 0.974 | 1.000 | 0.000 | 15.1 | 0.33 (0.022) |
+| Fixed template | 1.000 | 1.000 | 0/30 | 371 / 12.37 | 0/371 (0.0000) |
+| Current ontology | 0.974 | 1.000 | 0/30 | 453 / 15.10 | 10/453 (0.0221) |
+| Learned, application-label wording | 0.974 | 1.000 | 0/30 | 453 / 15.10 | 10/453 (0.0221) |
+| Learned, recorded wording | 0.974 | 1.000 | 0/30 | 453 / 15.10 | 10/453 (0.0221) |
 
 Required-slot and safety-critical definitions are provisional synthetic
 templates, not clinician-approved measures. The ranker is opt-in; the
 ontology and deterministic mandatory-safety layer remain authoritative.
 
+Policy metric definitions: required-slot coverage is the mean of each
+interview's required canonical slots asked divided by required slots for that
+interview; mandatory-safety coverage is the corresponding mean over applicable
+mandatory safety slots. Safety-critical omission is the count of interviews
+with at least one missing critical slot divided by 30. Questions per interview
+is total questions divided by 30. Duplicate-question rate is total duplicate
+question count divided by total questions across the test interviews.
+These denominators use provisional synthetic template lists. No clinician or
+expert relevance labels are available; top-1 and NDCG score agreement with a
+single recorded next question, not graded relevance, safety, benefit, or
+clinical superiority. The patient-grouped train/validation/test split remains
+240/30/30, seed 42, and validation-selected `C=100`; test data were not used
+for training or tuning in this evaluation.
+
 Reproduce the model evaluation and rendered table with:
 `cd backend && PYTHONPATH=. ../.venv/bin/python -m training.adaptive.evaluate`
 and `PYTHONPATH=. ../.venv/bin/python -m training.render_reports`.
+
+## H. Existing source-linked data, report benchmark, and OCR validation
+
+| Experiment | Evaluated records | Result | Scope |
+|---|---:|---:|---|
+| Evidence-to-report synthetic encounter | 31 predeclared checks | 31/31 | Exact field/provenance/edit behavior; software test only |
+| Lab parser, linked ground-truth text | 394 reports / 1,238 results | 1,238/1,238 test names, values, units, intervals | Synthetic text-to-field regression |
+| Prescription parser, held-out split | 55 reports / 111 labels | After alias additions: exact source-name 110/110 precision, 110/111 recall, F1 0.996 | Synthetic text only; extractor was previously developed on this corpus |
+| Rendered PNG OCR | 42 synthetic reports / 130 labels | 121/130 test names | Menlo-rendered benchmark; not real scans |
+| Rendered scanned-PDF OCR | 42 synthetic reports / 130 labels | 123/130 test names | Image-only generated PDFs; not real scans |
+| Adaptive ranker | 30 grouped test interviews / 371 states | LR 1.000 recorded-wording top-1; oracle 1.000 | Recorded-choice agreement only; no expert relevance labels |
+
+### Existing records inspected and task eligibility
+
+The exact source inventory and exclusions are in
+[`DATASET_AUDIT.md`](./DATASET_AUDIT.md). Lab labels join all 394 available
+synthetic lab text-pair reports (1,238 labeled result rows); prescription
+labels join all 498 prescription text-pair reports (1,011 rows). IDs, patient
+IDs, and existing split assignments match for every joined row. These records
+are suitable for text-to-field extraction regressions, but the supplied data
+contain no source pixels, entity spans, encounter-level cross-links to history,
+or gold doctor-facing report. The 300 history-summary pairs similarly join by
+interview, patient, and split but have no document evidence links. ACI-Bench
+(207) has no evidence annotations and unresolved licensing; MTSamples (4,966)
+is note-only. Neither was used as report ground truth.
+
+The lab patient split has 211/27/26 unique train/validation/test patients; the
+prescription split has 302/35/40. Neither corpus has cross-split patient IDs,
+and the evaluators reject patient/split or source-ID mismatches rather than
+silently joining them.
+
+### Dataset-linked extraction regressions
+
+The lab parser was evaluated against all 394 synthetic report text pairs
+(development/regression data; not an independent test because the extractor
+was developed against this corpus). Counts are exact; field accuracies are
+conditional on a matched test name:
+
+| input text | test-name TP / labeled | exact value / matched | unit / matched | printed interval / matched | abnormal status / matched |
+|---|---:|---:|---:|---:|---:|
+| ground-truth text | 1,238/1,238 | 1,238/1,238 | 1,238/1,238 | 1,238/1,238 | 1,238/1,238 |
+| simulated OCR text | 1,208/1,238 | 1,178/1,208 | 1,169/1,208 | 1,161/1,208 | 1,181/1,208 |
+
+There were 30 unmatched labels on simulated-OCR text. No critical-result
+recall can be computed because labels only distinguish N/H/L.
+
+The prescription parser was evaluated against unchanged patient-grouped
+assignments; there was no training. Investigation of train/validation misses
+found 267 strict `generic_key` misses. Of these, 36 were `Dashmoolarishta`
+already extracted under a different source `generic_key` (`dashmoola`); the
+other 231 were missing catalog forms: Yogaraj/Simhanada guggulu (59),
+Sarpagandha vati (40), Avipattikar churna (38), Gudmar churna (30),
+Sitopaladi churna (29), Neem capsule (20), and Dicyclomine (15). The parser
+catalog was extended for those source-attested forms. A separate train/
+validation source-name comparison showed that the parser found the ingredient
+but emitted only the short ingredient name for Ashwagandha churna (44),
+Triphala churna (58), and Salbutamol inhaler (50); exact formulation aliases
+were added and the overlapping short-name match is suppressed, avoiding
+duplicate findings. Existing source names are returned, not replaced with a
+guessed generic.
+
+Both the historical exact-`generic_key` metric and a separate exact
+source-formulation metric are retained. Source-name matching case-folds,
+removes punctuation, strips a terminal dose/unit from the label's `drug`
+field, and otherwise requires an exact name. For each metric, precision is
+TP/predicted extractions, recall is TP/labeled rows, and micro-F1 is
+`2*TP/(predicted extractions + labeled rows)`. The existing `generic_key`
+metric requires an exact normalized key match and therefore undercounts
+formulation names whose labeled key is different. Test results, measured
+after the parser change was fixed, are:
+
+| text | metric | before TP / predicted / labeled | before P / R / F1 | after TP / predicted / labeled | after P / R / F1 |
+|---|---|---:|---:|---:|---:|
+| Ground truth | exact source name | 50 / 77 / 111 | 0.649 / 0.450 / 0.532 | 110 / 110 / 111 | 1.000 / 0.991 / 0.996 |
+| Simulated OCR | exact source name | 47 / 74 / 111 | 0.635 / 0.423 / 0.508 | 101 / 102 / 111 | 0.990 / 0.910 / 0.948 |
+| Ground truth | strict `generic_key` | 77 / 77 / 111 | 1.000 / 0.694 / 0.819 | 78 / 110 / 111 | 0.709 / 0.703 / 0.706 |
+| Simulated OCR | strict `generic_key` | 74 / 74 / 111 | 1.000 / 0.667 / 0.800 | 75 / 102 / 111 | 0.735 / 0.676 / 0.704 |
+
+The source-name metric improves on validation as well: ground-truth text
+changes from 60/70 precision and 60/98 recall (F1 0.714) to 97/97 (1.000)
+and 97/98 (0.990), F1 0.995; simulated-OCR text changes from 53/63 (0.841)
+and 53/98 (0.541), F1 0.658, to 88/88 (1.000) and 88/98 (0.898), F1
+0.946. Test data were not used to select the additions. The strict `generic_key` precision after the change reflects the mismatch between
+formulation names now extracted and labels' generic keys; it should not be
+interpreted as evidence that those source-attested formulation extractions
+are clinically incorrect. On held-out ground-truth text, the one remaining
+source-name miss is an unmatched labeled row; on simulated-OCR text, ten
+source-name labels remain unmatched (Amlodipine 2, Atorvastatin 1,
+Metformin 1, Neem capsule 3, Salbutamol inhaler 1, Sarpagandha vati 1,
+Sitopaladi churna 1). These text results do not establish OCR accuracy.
+
+The unchanged test split has 40 patients, 55 documents, and 111 labels.
+Results do not score duration, route, token spans, report generation, or image
+OCR. This is a synthetic-text regression and not a blinded estimate. The
+pre-change and post-change artifacts are
+`evaluation_results/prescription_extraction/prescription_extraction_before_parser_change.json`
+and `evaluation_results/prescription_extraction/prescription_extraction_improved.json`.
+Reproduce the current result from `backend/` with:
+
+```bash
+PYTHONPATH=. ../.venv/bin/python -m training.prescription_extraction_eval \
+  --output ../evaluation_results/prescription_extraction/prescription_extraction_improved.json
+```
+
+### Laboratory mismatch investigation
+
+The lab parser was not changed in this pass. On simulated-OCR text, field
+mismatches by existing split were:
+
+| split | test names TP / labeled | value exact / matched | unit exact / matched | printed interval exact / matched |
+|---|---:|---:|---:|---:|
+| train | 954/977 | 928/954 | 920/954 | 919/954 |
+| validation | 125/131 | 123/125 | 122/125 | 122/125 |
+| test | 129/130 | 127/129 | 127/129 | 120/129 |
+
+The single held-out name miss came from OCR text `Fasting B1ood Sugar`.
+Value/unit errors include OCR substitutions that leave an unusable token,
+such as `109.2 rng/dL` and `9l.7 mg/dL`; the parser does not infer a corrected
+value or unit. Of the nine held-out interval mismatches, examples include
+`(4.0-S.6)`, `(70-l40)`, and `(2.6-6.O)`. These are character confusions in
+the simulated OCR. When an interval is not parsed, output marks a configured
+baseline or unavailable interval and carries ambiguity; it does not present
+the configured baseline as a printed document interval. No lab values,
+attribution, or deterministic safety behavior were modified. Per-field
+examples and source IDs are in
+`evaluation_results/lab_extraction/lab_extraction_final_prescription_review.json`.
+
+### Rendered raster / scanned-PDF results
+
+`lab_scan_eval_macos.json` uses 42 test-split source reports rendered with
+Menlo as synthetic ground truth: 24 good, 12 fair, and 6 poor. CER/WER are
+the mean of per-document edit-distance rates after removing rule separator
+lines. The file-format tests also use explicit hand-written reference strings;
+the 42-report run uses the existing dataset's synthetic `ground_truth_text`,
+not a human-adjudicated real-world scan corpus. Field denominators below are matched extracted findings; test-name
+recall uses all 130 labeled test results.
+
+| channel | mean CER / mean WER, good (24 reports) | fair (12) | poor (6) | test-name TP / 130 | exact value / matched | unit / matched | printed interval / matched |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| PNG image OCR | 0.0052 / 0.0320 | 0.0096 / 0.0521 | 0.0993 / 0.4223 | 121/130 | 112/121 | 108/121 | 87/121 |
+| Scanned PDF OCR | 0.0063 / 0.0392 | 0.0102 / 0.0556 | 0.1265 / 0.4472 | 123/130 | 116/123 | 108/123 | 83/123 |
+| Embedded-text PDF | 0 / 0 | 0 / 0 | 0 / 0 | 130/130 | 130/130 | 130/130 | 130/130 |
+
+CER = character edit distance divided by reference characters after
+normalizing whitespace and excluding rule-only separator lines. WER uses
+word edit distance divided by reference word count. Each table value is a
+mean over the indicated reports, not pooled character/word counts. Exact
+per-field numerators and denominators, abnormal-status errors, and ambiguity
+counts are saved in `evaluation_results/lab_scan_eval_macos.json`. The
+embedded-text PDF channel is a parser control, not OCR.
+
+Tesseract was version 5.5.3; only English and orientation data (`eng`, `osd`)
+were installed, so Hindi OCR remains untested. Playwright was version 1.64.0
+with bundled Chromium 156. Exact macOS setup and test commands:
+
+```bash
+brew install tesseract
+./.venv/bin/python -m pip install playwright
+./.venv/bin/python -m playwright install chromium
+cd backend
+../.venv/bin/python -m pytest -q -rs
+PYTHONPATH=. ../.venv/bin/python -m training.lab_scan_eval --split test \
+  --output ../evaluation_results/lab_scan_eval_macos.json
+PYTHONPATH=. ../.venv/bin/python -m training.prescription_extraction_eval \
+  --output ../evaluation_results/prescription_extraction/prescription_extraction_improved.json
+PYTHONPATH=. ../.venv/bin/python -m training.adaptive.evaluate
+```
+
+No real patient data, real scans, clinical benefit, or OCR performance on
+real-world layouts is claimed.
+
+### Final validation
+
+Final full-suite pass/fail/skip totals, frontend syntax checks, Python
+compilation, diff validation, and checkpoint integrity are recorded after the
+commands completed:
+
+| Check | Result |
+|---|---|
+| Backend tests, including Playwright and Tesseract cases | 242 passed, 0 failed, 0 skipped |
+| Python compile (`compileall app training tests scripts`) | Passed |
+| Frontend external JavaScript syntax (`node --check frontend/*.js`) | Passed |
+| `git diff --check` | Passed |
+| Adaptive-ranker checkpoint integrity | Passed; checkpoint and manifest SHA-256 values unchanged |
+
+One non-failing Starlette/httpx deprecation warning remains. The browser test
+setup had not entered the username field despite requiring username/password;
+the test now enters both, and its “not a clear result” assertion is
+case-insensitive to match the rendered wording. No application behavior was
+changed for those test fixes.

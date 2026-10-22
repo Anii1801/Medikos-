@@ -8,6 +8,7 @@ handwriting. Real, permissioned scans with annotation are still required before 
 """
 from __future__ import annotations
 
+import argparse
 import io
 import json
 import random
@@ -19,7 +20,16 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from app import ocr
 from .lab_extraction_eval import OUT, evaluate, load
 
-FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+FONT = next(
+    (path for path in (
+        Path("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"),
+        Path("/System/Library/Fonts/Menlo.ttc"),
+        Path("/System/Library/Fonts/Supplemental/Courier New.ttf"),
+    ) if path.is_file()),
+    None,
+)
+if FONT is None:
+    raise RuntimeError("No supported monospace test font found; install DejaVu Sans Mono or use macOS Menlo.")
 DEGRADE = {  # keyed by the dataset's own scan_quality tag
     "good": dict(dpi=200, rotate=0.0, blur=0.0, noise=0.0, jpeg=95),
     "fair": dict(dpi=150, rotate=1.0, blur=0.7, noise=6.0, jpeg=70),
@@ -30,7 +40,7 @@ DEGRADE = {  # keyed by the dataset's own scan_quality tag
 def render(text: str, quality: str, seed: int) -> Image.Image:
     cfg, rnd = DEGRADE[quality], random.Random(seed)
     size = max(12, round(cfg["dpi"] / 8))
-    font = ImageFont.truetype(FONT, size)
+    font = ImageFont.truetype(str(FONT), size)
     lines = text.split("\n")
     w = int(size * 0.62 * max(len(l) for l in lines)) + 80
     h = int(size * 1.5 * len(lines)) + 80
@@ -120,6 +130,7 @@ def run(split: str = "test", limit: int | None = None) -> dict[str, Any]:
             ref, hyp = _strip_rules(gt), _strip_rules(text)   # CER/WER ignore the '-----' separator line (no clinical content)
             cer_rows[ch].append((q, edit_distance(" ".join(ref.split()), " ".join(hyp.split())) / max(1, len(" ".join(ref.split()))), wer(ref, hyp)))
     out: dict[str, Any] = {"split": split, "reports": len(ids),
+                           "render_font": FONT.name,
                            "disclaimer": "synthetic rendering of one monospace layout; not evidence about real scans"}
     for ch, texts in channels.items():
         ev = evaluate("ground_truth_text", ocr.extract, (split,), text_override=texts)
@@ -136,9 +147,14 @@ def run(split: str = "test", limit: int | None = None) -> dict[str, Any]:
 
 
 if __name__ == "__main__":
-    res = run()
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "lab_scan_eval.json").write_text(json.dumps(res, indent=2), encoding="utf-8")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--split", default="test")
+    parser.add_argument("--limit", type=int)
+    parser.add_argument("--output", type=Path, default=OUT / "lab_scan_eval.json")
+    args = parser.parse_args()
+    res = run(args.split, args.limit)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(res, indent=2), encoding="utf-8")
     for ch in ("image_png", "scanned_pdf", "text_pdf"):
         print(ch, json.dumps(res[ch]["ocr_by_scan_quality"]), json.dumps({k: res[ch]["extraction"][k] for k in
               ("test_name_recall", "exact_value_accuracy", "unit_accuracy", "printed_reference_interval_accuracy", "abnormal_status_accuracy_vs_printed_flag", "false_abnormal_rate_on_printed_normal", "ambiguous_extraction_rate")}))

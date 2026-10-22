@@ -1,0 +1,246 @@
+{
+  "split": "test",
+  "reports": 42,
+  "render_font": "Menlo.ttc",
+  "disclaimer": "synthetic rendering of one monospace layout; not evidence about real scans",
+  "image_png": {
+    "ocr_by_scan_quality": {
+      "good": {
+        "reports": 24,
+        "char_error_rate_excluding_rule_lines": 0.0052,
+        "word_error_rate_excluding_rule_lines": 0.032
+      },
+      "fair": {
+        "reports": 12,
+        "char_error_rate_excluding_rule_lines": 0.0096,
+        "word_error_rate_excluding_rule_lines": 0.0521
+      },
+      "poor": {
+        "reports": 6,
+        "char_error_rate_excluding_rule_lines": 0.0993,
+        "word_error_rate_excluding_rule_lines": 0.4223
+      }
+    },
+    "extraction": {
+      "text_field": "ground_truth_text",
+      "reports": 42,
+      "labelled_results": 130,
+      "matched": 121,
+      "test_name_precision": 1.0,
+      "test_name_recall": 0.9308,
+      "test_name_f1": 0.9641,
+      "false_positive_extractions": 0,
+      "exact_value_accuracy": 0.9256,
+      "unit_accuracy": 0.8926,
+      "printed_reference_interval_accuracy": 0.719,
+      "printed_flag_capture_accuracy": 0.9091,
+      "abnormal_status_accuracy_vs_printed_flag": 0.8926,
+      "abnormal_recall": 0.9677,
+      "false_abnormal_rate_on_printed_normal": 0.0333,
+      "ambiguous_extraction_rate": 0.3471,
+      "counts": {
+        "test_name": {
+          "true_positive": 121,
+          "false_positive": 0,
+          "false_negative": 9,
+          "predicted": 121,
+          "labelled": 130
+        },
+        "exact_value": {
+          "correct": 112,
+          "denominator": 121
+        },
+        "unit": {
+          "correct": 108,
+          "denominator": 121
+        },
+        "printed_reference_interval": {
+          "correct": 87,
+          "denominator": 121
+        },
+        "printed_flag_capture": {
+          "correct": 110,
+          "denominator": 121
+        },
+        "abnormal_status_vs_printed_flag": {
+          "correct": 108,
+          "denominator": 121
+        },
+        "abnormal_recall": {
+          "correct": 30,
+          "denominator": 31
+        },
+        "false_abnormal_on_printed_normal": {
+          "false_abnormal": 3,
+          "denominator": 90
+        },
+        "ambiguous_extraction": {
+          "count": 42,
+          "denominator": 121
+        }
+      },
+      "critical_result_recall": null
+    },
+    "empty_ocr_output": 0
+  },
+  "scanned_pdf": {
+    "ocr_by_scan_quality": {
+      "good": {
+        "reports": 24,
+        "char_error_rate_excluding_rule_lines": 0.0063,
+        "word_error_rate_excluding_rule_lines": 0.0392
+      },
+      "fair": {
+        "reports": 12,
+        "char_error_rate_excluding_rule_lines": 0.0102,
+        "word_error_rate_excluding_rule_lines": 0.0556
+      },
+      "poor": {
+        "reports": 6,
+        "char_error_rate_excluding_rule_lines": 0.1265,
+        "word_error_rate_excluding_rule_lines": 0.4472
+      }
+    },
+    "extraction": {
+      "text_field": "ground_truth_text",
+      "reports": 42,
+      "labelled_results": 130,
+      "matched": 123,
+      "test_name_precision": 1.0,
+      "test_name_recall": 0.9462,
+      "test_name_f1": 0.9723,
+      "false_positive_extractions": 0,
+      "exact_value_accuracy": 0.9431,
+      "unit_accuracy": 0.878,
+      "printed_reference_interval_accuracy": 0.6748,
+      "printed_flag_capture_accuracy": 0.9106,
+      "abnormal_status_accuracy_vs_printed_flag": 0.8537,
+      "abnormal_recall": 0.9394,
+      "false_abnormal_rate_on_printed_normal": 0.0333,
+      "ambiguous_extraction_rate": 0.3984,
+      "counts": {
+        "test_name": {
+          "true_positive": 123,
+          "false_positive": 0,
+          "false_negative": 7,
+          "predicted": 123,
+          "labelled": 130
+        },
+        "exact_value": {
+          "correct": 116,
+          "denominator": 123
+        },
+        "unit": {
+          "correct": 108,
+          "denominator": 123
+        },
+        "printed_reference_interval": {
+          "correct": 83,
+          "denominator": 123
+        },
+        "printed_flag_capture": {
+          "correct": 112,
+          "denominator": 123
+        },
+        "abnormal_status_vs_printed_flag": {
+          "correct": 105,
+          "denominator": 123
+        },
+        "abnormal_recall": {
+          "correct": 31,
+          "denominator": 33
+        },
+        "false_abnormal_on_printed_normal": {
+          "false_abnormal": 3,
+          "denominator": 90
+        },
+        "ambiguous_extraction": {
+          "count": 49,
+          "denominator": 123
+        }
+      },
+      "critical_result_recall": null
+    },
+    "empty_ocr_output": 0
+  },
+  "text_pdf": {
+    "ocr_by_scan_quality": {
+      "good": {
+        "reports": 24,
+        "char_error_rate_excluding_rule_lines": 0.0,
+        "word_error_rate_excluding_rule_lines": 0.0
+      },
+      "fair": {
+        "reports": 12,
+        "char_error_rate_excluding_rule_lines": 0.0,
+        "word_error_rate_excluding_rule_lines": 0.0
+      },
+      "poor": {
+        "reports": 6,
+        "char_error_rate_excluding_rule_lines": 0.0,
+        "word_error_rate_excluding_rule_lines": 0.0
+      }
+    },
+    "extraction": {
+      "text_field": "ground_truth_text",
+      "reports": 42,
+      "labelled_results": 130,
+      "matched": 130,
+      "test_name_precision": 1.0,
+      "test_name_recall": 1.0,
+      "test_name_f1": 1.0,
+      "false_positive_extractions": 0,
+      "exact_value_accuracy": 1.0,
+      "unit_accuracy": 1.0,
+      "printed_reference_interval_accuracy": 1.0,
+      "printed_flag_capture_accuracy": 1.0,
+      "abnormal_status_accuracy_vs_printed_flag": 1.0,
+      "abnormal_recall": 1.0,
+      "false_abnormal_rate_on_printed_normal": 0.0,
+      "ambiguous_extraction_rate": 0.0,
+      "counts": {
+        "test_name": {
+          "true_positive": 130,
+          "false_positive": 0,
+          "false_negative": 0,
+          "predicted": 130,
+          "labelled": 130
+        },
+        "exact_value": {
+          "correct": 130,
+          "denominator": 130
+        },
+        "unit": {
+          "correct": 130,
+          "denominator": 130
+        },
+        "printed_reference_interval": {
+          "correct": 130,
+          "denominator": 130
+        },
+        "printed_flag_capture": {
+          "correct": 130,
+          "denominator": 130
+        },
+        "abnormal_status_vs_printed_flag": {
+          "correct": 130,
+          "denominator": 130
+        },
+        "abnormal_recall": {
+          "correct": 37,
+          "denominator": 37
+        },
+        "false_abnormal_on_printed_normal": {
+          "false_abnormal": 0,
+          "denominator": 93
+        },
+        "ambiguous_extraction": {
+          "count": 0,
+          "denominator": 130
+        }
+      },
+      "critical_result_recall": null
+    },
+    "empty_ocr_output": 0
+  }
+}

@@ -9,12 +9,29 @@ medical documents, and hands the physician an **editable, structured summary** b
 ./run.sh                 # → http://localhost:8000  (patient)   /doctor.html (physician)
 # or
 cp .env.example .env && docker compose up --build
-cd backend && python -m pytest -q    # 4 tests incl. real OCR on an image
+cd backend && ../.venv/bin/python -m pytest -q -rs
 ```
 Before first run, copy `.env.example` to `.env` and set a strong `DOCTOR_PASS` and your desired `DOCTOR_USER`. The example password is intentionally a placeholder; do not use a demo credential for real patient data.
 When `DOCTOR_USER` or `DOCTOR_PASS` is set for an existing SQLite database, the doctor account is updated on startup. Existing patient accounts and their data are preserved. Usernames are matched case-insensitively and surrounding whitespace is ignored.
 A doctor can reset a patient password with `POST /api/auth/reset-password` using the doctor bearer token and `{ "username": "...", "new_password": "..." }`. This invalidates the patient’s existing sessions without deleting patient data. Doctor passwords remain controlled by `DOCTOR_USER` and `DOCTOR_PASS`.
-A local run needs Tesseract for image OCR (`apt install tesseract-ocr tesseract-ocr-hin`); Docker includes it.
+A local image-OCR run needs the native Tesseract executable in addition to the
+Python `pytesseract` wrapper. On macOS install it with `brew install
+tesseract` (English and orientation data); add `brew install tesseract-lang`
+for Hindi. On Debian/Ubuntu use `sudo apt-get install tesseract-ocr
+tesseract-ocr-eng tesseract-ocr-hin`. The Docker image installs English and
+Hindi Tesseract data. Verify the local binary with `tesseract --version` and
+`tesseract --list-langs`.
+
+For the optional browser E2E tests on macOS, install Playwright into the
+project environment and its Chromium browser:
+
+```bash
+./.venv/bin/python -m pip install playwright
+./.venv/bin/python -m playwright install chromium
+```
+
+Then run the backend suite from `backend/` with
+`../.venv/bin/python -m pytest -q -rs`.
 
 ### Bundled datasets
 

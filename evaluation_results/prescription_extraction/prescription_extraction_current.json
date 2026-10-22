@@ -1,0 +1,144 @@
+{
+  "ground_truth_text": {
+    "text_field": "ground_truth_text",
+    "split_method": "existing patient-grouped train/valid/test assignments; unchanged",
+    "split_integrity": {
+      "patients_per_split": {
+        "train": 302,
+        "valid": 35,
+        "test": 40
+      },
+      "cross_split_patient_ids": 0
+    },
+    "normalization": {
+      "name": "case-fold and remove non-alphanumeric characters; exact generic_key match",
+      "dose": "case-fold, remove whitespace, normalize Greek mu to u",
+      "schedule": "case-fold, remove whitespace; otherwise exact"
+    },
+    "limitations": [
+      "Synthetic text pairs; no source images, so this is not OCR evaluation.",
+      "No token spans are supplied; exact generic-key matching is a strict name proxy.",
+      "Dose accuracy excludes unmatched names and labels without a terminal strength/unit pattern.",
+      "Duration, route, and report-generation fidelity are not scored by this evaluator.",
+      "The extractor has been developed on this corpus; results are descriptive regression results, not a blinded estimate."
+    ],
+    "results": {
+      "train": {
+        "documents": 392,
+        "gold_entities": 802,
+        "predicted_entities": 591,
+        "exact_generic_key_matches": 561,
+        "dose_comparable": 561,
+        "dose_exact": 561,
+        "schedule_comparable": 561,
+        "schedule_exact": 502,
+        "unmatched_predictions": 30,
+        "generic_key_precision": 0.9492,
+        "generic_key_recall": 0.6995,
+        "exact_dose_accuracy_on_name_matches": 1.0,
+        "exact_schedule_accuracy_on_name_matches": 0.8948
+      },
+      "valid": {
+        "documents": 51,
+        "gold_entities": 98,
+        "predicted_entities": 70,
+        "exact_generic_key_matches": 64,
+        "dose_comparable": 64,
+        "dose_exact": 64,
+        "schedule_comparable": 64,
+        "schedule_exact": 55,
+        "unmatched_predictions": 6,
+        "generic_key_precision": 0.9143,
+        "generic_key_recall": 0.6531,
+        "exact_dose_accuracy_on_name_matches": 1.0,
+        "exact_schedule_accuracy_on_name_matches": 0.8594
+      },
+      "test": {
+        "documents": 55,
+        "gold_entities": 111,
+        "predicted_entities": 77,
+        "exact_generic_key_matches": 77,
+        "dose_comparable": 77,
+        "dose_exact": 77,
+        "schedule_comparable": 77,
+        "schedule_exact": 74,
+        "unmatched_predictions": 0,
+        "generic_key_precision": 1.0,
+        "generic_key_recall": 0.6937,
+        "exact_dose_accuracy_on_name_matches": 1.0,
+        "exact_schedule_accuracy_on_name_matches": 0.961
+      }
+    }
+  },
+  "simulated_ocr_text": {
+    "text_field": "simulated_ocr_text",
+    "split_method": "existing patient-grouped train/valid/test assignments; unchanged",
+    "split_integrity": {
+      "patients_per_split": {
+        "train": 302,
+        "valid": 35,
+        "test": 40
+      },
+      "cross_split_patient_ids": 0
+    },
+    "normalization": {
+      "name": "case-fold and remove non-alphanumeric characters; exact generic_key match",
+      "dose": "case-fold, remove whitespace, normalize Greek mu to u",
+      "schedule": "case-fold, remove whitespace; otherwise exact"
+    },
+    "limitations": [
+      "Synthetic text pairs; no source images, so this is not OCR evaluation.",
+      "No token spans are supplied; exact generic-key matching is a strict name proxy.",
+      "Dose accuracy excludes unmatched names and labels without a terminal strength/unit pattern.",
+      "Duration, route, and report-generation fidelity are not scored by this evaluator.",
+      "The extractor has been developed on this corpus; results are descriptive regression results, not a blinded estimate."
+    ],
+    "results": {
+      "train": {
+        "documents": 392,
+        "gold_entities": 802,
+        "predicted_entities": 555,
+        "exact_generic_key_matches": 528,
+        "dose_comparable": 528,
+        "dose_exact": 508,
+        "schedule_comparable": 528,
+        "schedule_exact": 449,
+        "unmatched_predictions": 27,
+        "generic_key_precision": 0.9514,
+        "generic_key_recall": 0.6584,
+        "exact_dose_accuracy_on_name_matches": 0.9621,
+        "exact_schedule_accuracy_on_name_matches": 0.8504
+      },
+      "valid": {
+        "documents": 51,
+        "gold_entities": 98,
+        "predicted_entities": 63,
+        "unmatched_predictions": 6,
+        "exact_generic_key_matches": 57,
+        "dose_comparable": 57,
+        "dose_exact": 54,
+        "schedule_comparable": 57,
+        "schedule_exact": 47,
+        "generic_key_precision": 0.9048,
+        "generic_key_recall": 0.5816,
+        "exact_dose_accuracy_on_name_matches": 0.9474,
+        "exact_schedule_accuracy_on_name_matches": 0.8246
+      },
+      "test": {
+        "documents": 55,
+        "gold_entities": 111,
+        "predicted_entities": 74,
+        "exact_generic_key_matches": 74,
+        "dose_comparable": 74,
+        "dose_exact": 71,
+        "schedule_comparable": 74,
+        "schedule_exact": 67,
+        "unmatched_predictions": 0,
+        "generic_key_precision": 1.0,
+        "generic_key_recall": 0.6667,
+        "exact_dose_accuracy_on_name_matches": 0.9595,
+        "exact_schedule_accuracy_on_name_matches": 0.9054
+      }
+    }
+  }
+}

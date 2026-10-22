@@ -31,7 +31,7 @@ MAX_BATCH_UPLOAD = 32 * 1024 * 1024
 MAX_BATCH_FILES = 10
 ALLOWED_UPLOADS = {".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
                    ".webp": "image/webp", ".tif": "image/tiff", ".tiff": "image/tiff", ".txt": "text/plain"}
-PURPOSES = ("history_capture", "abdm_share")
+PURPOSES = ("history_capture",)
 logger = logging.getLogger(__name__)
 
 # ---------- auth ----------
@@ -102,7 +102,8 @@ def erase(u=Depends(user)):
 
 # ---------- consent ----------
 class Consent(BaseModel):
-    purpose: str; granted: bool = True
+    purpose: str
+    granted: bool
 @app.post("/api/consent")
 def set_consent(cn: Consent, u=Depends(user)):
     if cn.purpose not in PURPOSES: raise HTTPException(422, "Unknown purpose")
@@ -305,6 +306,7 @@ def doc_row(r):
             "processing_error": r["processing_error"] if "processing_error" in keys else None,
             "byte_size": r["byte_size"] if "byte_size" in keys else 0,
             "content_type": r["content_type"] if "content_type" in keys else None,
+            "created": r["created"] if "created" in keys else None,
             "has_original": bool(r["content"]) if "content" in keys else False,
             "sha256": r["sha256"] if "sha256" in keys else None}
 
@@ -339,7 +341,10 @@ def _validate_upload(data: bytes, filename: str) -> str:
         except (PdfReadError, OSError, ValueError, EOFError) as exc:
             raise ValueError("The uploaded PDF is invalid or unreadable.") from exc
         if reader.is_encrypted:
-            raise ValueError("Encrypted PDFs are not supported.")
+            raise ValueError(
+                "This PDF is encrypted or password-protected. MediKiosk does not retain PDF passwords. "
+                "Save an unlocked copy from a trusted PDF application, then upload that copy."
+            )
         try:
             page_count = len(reader.pages)
         except (PdfReadError, OSError, ValueError, EOFError) as exc:
@@ -370,17 +375,24 @@ def _validate_upload(data: bytes, filename: str) -> str:
     return expected
 
 
-def _process_upload(data: bytes, filename: str, note: str, date: str, user_id: int) -> dict:
+def _process_upload(data: bytes, filename: str, note: str, date: str, user_id: int,
+                    existing_id: int | None = None) -> dict:
     safe_name = _safe_filename(filename)
     digest = hashlib.sha256(data).hexdigest()
     try:
         content_type = _validate_upload(data, safe_name)
     except ValueError as exc:
         # Validation failures are isolated to this file in a batch.
-        return _store_failed_upload(user_id, safe_name, len(data), digest, str(exc))
+        return _store_failed_upload(
+            user_id, safe_name, len(data), digest, str(exc), data,
+            ALLOWED_UPLOADS.get(os.path.splitext(safe_name)[1].lower(), "application/octet-stream"),
+            existing_id,
+        )
     with db.tx() as c:
-        duplicate = c.execute("SELECT * FROM documents WHERE user_id=? AND sha256=? AND content IS NOT NULL AND processing_status!='failed' ORDER BY id LIMIT 1",
-                              (user_id, digest)).fetchone()
+        duplicate = c.execute("""SELECT * FROM documents WHERE user_id=? AND sha256=?
+                                 AND content IS NOT NULL AND processing_status!='failed' AND id!=?
+                                 ORDER BY id LIMIT 1""",
+                              (user_id, digest, existing_id or -1)).fetchone()
     if duplicate:
         result = doc_row(duplicate)
         result.update(status="duplicate", duplicate_of=duplicate["id"], message="This file is already in your document list.")
@@ -418,30 +430,57 @@ def _process_upload(data: bytes, filename: str, note: str, date: str, user_id: i
     except Exception as exc:
         logger.warning("Document processing failed (%s)", type(exc).__name__)
         return _store_failed_upload(user_id, safe_name, len(data), digest,
-                                    f"Document processing failed ({type(exc).__name__}).")
+                                    f"Document processing failed ({type(exc).__name__}).", data, content_type,
+                                    existing_id)
     created = time.time()
     with db.tx() as c:
-        cur = c.execute("""INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,
-                          content,content_type,sha256,processing_status,processing_error,byte_size)
-                          VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-                        (user_id, safe_name, doc_date, entities["doc_type"], text, db.j(entities), engine, created,
-                         data, content_type, digest, status, error, len(data)))
-        row = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
+        if existing_id is None:
+            cur = c.execute("""INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,
+                              content,content_type,sha256,processing_status,processing_error,byte_size)
+                              VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                            (user_id, safe_name, doc_date, entities["doc_type"], text, db.j(entities), engine, created,
+                             data, content_type, digest, status, error, len(data)))
+            document_id = cur.lastrowid
+        else:
+            c.execute("""UPDATE documents SET filename=?,doc_date=?,doc_type=?,text=?,entities=?,engine=?,created=?,
+                          content=?,content_type=?,sha256=?,processing_status=?,processing_error=?,byte_size=?
+                          WHERE id=? AND user_id=?""",
+                      (safe_name, doc_date, entities["doc_type"], text, db.j(entities), engine, created,
+                       data, content_type, digest, status, error, len(data), existing_id, user_id))
+            document_id = existing_id
+        row = c.execute("SELECT * FROM documents WHERE id=? AND user_id=?", (document_id, user_id)).fetchone()
     result = doc_row(row)
     result.update(status=status, needs_manual_note=not text.strip())
     return result
 
 
-def _store_failed_upload(user_id: int, filename: str, size: int, digest: str | None, error: str) -> dict:
+def _store_failed_upload(user_id: int, filename: str, size: int, digest: str | None, error: str,
+                         data: bytes | None = None, content_type: str | None = None,
+                         existing_id: int | None = None) -> dict:
     now = time.time()
     entities = {"schema_version": "clinical-facts-v1", "doc_type": "other", "medications": [], "labs": [],
                 "diagnoses": [], "symptoms": [], "allergies": [], "facts": [], "review_flags": []}
     with db.tx() as c:
-        cur = c.execute("""INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,
-                          sha256,processing_status,processing_error,byte_size)
-                          VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
-                        (user_id, filename, "", "other", "", db.j(entities), "unavailable", now, digest, "failed", error, size))
-        row = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
+        if existing_id is None:
+            cur = c.execute("""INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,
+                              content,content_type,sha256,processing_status,processing_error,byte_size)
+                              VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                            (user_id, filename, "", "other", "", db.j(entities), "unavailable", now,
+                             data, content_type, digest, "failed", error, size))
+            document_id = cur.lastrowid
+        else:
+            previous = c.execute("SELECT doc_type FROM documents WHERE id=? AND user_id=?",
+                                 (existing_id, user_id)).fetchone()
+            if not previous:
+                raise HTTPException(404, "Document not found")
+            entities["doc_type"] = previous["doc_type"]
+            c.execute("""UPDATE documents SET filename=?,doc_date='',doc_type=?,text='',entities=?,engine='unavailable',
+                          created=?,content=?,content_type=?,sha256=?,processing_status='failed',processing_error=?,byte_size=?
+                          WHERE id=? AND user_id=?""",
+                      (filename, previous["doc_type"], db.j(entities), now, data, content_type, digest, error, size,
+                       existing_id, user_id))
+            document_id = existing_id
+        row = c.execute("SELECT * FROM documents WHERE id=? AND user_id=?", (document_id, user_id)).fetchone()
     result = doc_row(row)
     result.update(status="failed", needs_manual_note=True)
     return result
@@ -559,6 +598,41 @@ def document_file(did: int, u=Depends(user)):
                     headers={"Content-Disposition": f"attachment; filename*=UTF-8''{filename}",
                              "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "sandbox"})
 
+class DocumentCorrection(BaseModel):
+    doc_type: str
+
+@app.put("/api/documents/{did}")
+def correct_document(did: int, correction: DocumentCorrection, u=Depends(user)):
+    if correction.doc_type not in {"lab_report", "prescription", "discharge_summary", "other"}:
+        raise HTTPException(422, "Unsupported document category.")
+    with db.tx() as c:
+        row = c.execute("SELECT entities FROM documents WHERE id=? AND user_id=?", (did, u["id"])).fetchone()
+        if not row:
+            raise HTTPException(404, "Document not found")
+        entities = json.loads(row["entities"] or "{}")
+        entities["doc_type"] = correction.doc_type
+        c.execute("UPDATE documents SET doc_type=?,entities=? WHERE id=? AND user_id=?",
+                  (correction.doc_type, db.j(entities), did, u["id"]))
+        updated = c.execute("SELECT * FROM documents WHERE id=? AND user_id=?", (did, u["id"])).fetchone()
+    return doc_row(updated)
+
+@app.post("/api/documents/{did}/retry")
+async def retry_document(did: int, file: UploadFile | None = File(None), u=Depends(user)):
+    with db.tx() as c:
+        row = c.execute("SELECT filename,content FROM documents WHERE id=? AND user_id=?", (did, u["id"])).fetchone()
+    if not row:
+        raise HTTPException(404, "Document not found")
+    if file:
+        data = await _read_upload(file)
+        if len(data) > MAX_UPLOAD:
+            raise HTTPException(413, "File too large (max 8 MiB)")
+        filename = file.filename or row["filename"]
+    elif row["content"] is not None:
+        data, filename = row["content"], row["filename"]
+    else:
+        raise HTTPException(409, "The original file is unavailable; upload it again to retry extraction.")
+    return _process_upload(data, filename, "", "", u["id"], existing_id=did)
+
 @app.delete("/api/documents/{did}")
 def del_doc(did: int, u=Depends(user)):
     with db.tx() as c: c.execute("DELETE FROM documents WHERE id=? AND user_id=?", (did, u["id"]))
@@ -625,8 +699,8 @@ def clinical_summary(s: Submit, u=Depends(user)):
 @app.post("/api/submit")
 def submit(s: Submit, u=Depends(user)):
     cs = active_consents(u["id"])
-    if not (cs.get("history_capture") and cs.get("abdm_share")):
-        raise HTTPException(403, "Consent for history capture and ABDM sharing is required")
+    if not cs.get("history_capture"):
+        raise HTTPException(403, "Consent to record health information for the doctor is required")
     with db.tx() as c:
         source_rows = c.execute("SELECT * FROM documents WHERE user_id=? ORDER BY id", (u["id"],)).fetchall()
         source_documents = [doc_row(row) for row in source_rows]
