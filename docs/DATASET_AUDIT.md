@@ -3,6 +3,7 @@
 Profiled from the files **actually on disk** by `backend/training/audit_datasets.py` (output: `evaluation_results/dataset_profile.json`). A manifest entry is never taken as proof a file exists.
 
 **On-disk facts that limit everything else:** 0 image/PDF files and 0 audio files exist anywhere in `Datasets/`. All image manifests and audio sources are references to material that is **not present**.
+No research-paper PDFs or Jupyter notebooks were found in the repository; the available literature and dataset references are the citations and source notes recorded in project documentation and manifests.
 
 ## File profile (rows, columns, empty cells, exact duplicate rows)
 
@@ -47,6 +48,25 @@ Profiled from the files **actually on disk** by `backend/training/audit_datasets
 
 (`symptom_binary_large_SAMPLE_5000.csv` has 41 exact duplicate rows; the `_train_dedup` file is already de-duplicated. 9.3% empty cells in `patient_master.csv` are legitimately optional fields.)
 
+## Task labels and trainability audit
+
+The following field-level inspection was performed on the current files, not inferred from historical counts:
+
+| Task/source file | Rows and useful fields | Labels / supervision present | Training decision |
+|---|---|---|---|
+| `01_history_interview/interview_turns.csv` | 7,863 turns; `interview_id`, `patient_id`, `split`, `role`, `text`, `slot` | Contextual AI question slots with patient/interview grouping; reconstructed strictly from preceding turns | Supports only a synthetic next-slot imitation experiment. The separate structured file has 300 interview targets, split 240/30/30. |
+| `02_ocr_handwriting/lab_result_entities.csv` | 1,238 rows; `report_id`, `patient_id`, `lab`, `test`, `value`, `unit`, reference interval, flag | Structured normalized lab fields, but no originating report text or character spans in this file | Useful for rule-extractor regression after joining the 394 available simulated text-pair reports; insufficient for token-classification fine-tuning. |
+| `02_ocr_handwriting/prescription_entities.csv` | 1,011 rows; `rx_id`, `patient_id`, `drug`, `generic_key`, `dose_schedule`, `duration` | Structured prescription fields; no source text or spans | Not NER supervision. Upstream data terms need confirmation. |
+| `02_ocr_handwriting/handwriting_words_manifest.csv`; `noisy_docs_manifest.csv` | 4,680 word labels; 1,000 document manifests | Image-path-in-ZIP references and text labels/JSON fields | Source ZIPs and pixels are absent; no image training or OCR evaluation can run from this checkout. |
+| `02_ocr_handwriting/synthetic_documents_ocr_pairs.csv` | 892 pairs; `ground_truth_text`, `simulated_ocr_text`, synthetic metadata | Simulated text-to-text corruption pairs, no source pixels | May test text cleanup only; not OCR model training or image CER/WER. |
+| `03_patient_summary/history_to_summary_synthetic.csv` | 300 synthetic interview/summary pairs; `input_dialogue`, `input_structured_json`, `summary_en` | Templated synthetic targets without required source-evidence IDs/spans | Pipeline smoke tests only; not grounded-generation fine-tuning evidence. |
+| `03_patient_summary/aci_bench_dialogue_note_pairs.csv` | 207 dialogue/note pairs; `encounter_id`, `dialogue`, `note`, metadata | Paired note targets, but no source-linked fact annotations; license status unresolved | Defer model training pending permissions and evidence-grounding annotations. Splits: 67 train, 20 validation, 40 each in test1/test2/test3. |
+| `03_patient_summary/mtsamples_notes_clean.csv` | 4,966 notes; `transcription`, specialty, metadata | Note-only text; no paired dialogue or source evidence | Style analysis only; cannot be treated as dialogue-to-note training pairs. |
+| `04_asr_voice/asr_noisy_test_set.csv` | 900 rows; reference/transcript text, language, synthetic noise profile | Text-level simulated ASR pairs; no audio | Text normalization smoke evaluation only, not acoustic ASR training/evaluation. |
+| `05_triage_redflag/red_flag_labeled_cases.csv` | 300 cases; complaint, symptoms, red-flag and triage labels | Synthetic/demo labels | Software regression only. Deterministic red-flag rules remain authoritative. |
+
+The history-training examples have exactly one pre-answer target per recorded AI question after the initial complaint question. They are not independent turn samples: 7,863 turns reduce to 300 interviews/patients, and only 14 complaints occur. All external-origin dataset licenses remain subject to the per-resource register and any required upstream terms; local presence is not redistribution permission.
+
 ## Provenance, task fit and risks
 
 All records in this project's supplied data are **synthetic or simulated unless stated otherwise**; none are real patients. External sources marked "not downloaded" in `EXTERNAL_SOURCES.csv` are absent. The dataset index carries no licence column, so licences for the external-origin files (ACI-Bench, MTSamples, MediTOD sample, Symptom2Disease/Kaggle-derived files) are **unverified and must be confirmed before redistribution or any use beyond local research**.
@@ -73,3 +93,24 @@ Language: 255 Hindi (Devanagari) / 45 English-script interviews. Splits 240/30/3
 ## Recommended next data work
 
 1. Obtain a small **consented, de-identified, clinician-annotated** interview set with genuinely varying question order. 2. Obtain real, permissioned scanned reports with field-level annotation. 3. Confirm licences for the external-origin files. 4. Document which patient-master columns are attributes vs derived labels.
+
+## Verification run status
+
+No dataset, label, or source image was added or re-labelled for the clinical
+pipeline checks. Synthetic PDF and raster documents are generated only inside
+software tests; they are integration fixtures, not training or research data.
+The current environment is macOS ARM with Python 3.14.7, scikit-learn 1.9.1,
+NumPy 2.5.4, SciPy 1.18.1, Pillow 13.0.0, pypdf 6.21.1, and ReportLab 5.0.1.
+The adaptive model uses the verified bundled 300-interview corpus and its
+patient-grouped 240/30/30 split, seed 42, and validation-selected `C=100`;
+results are synthetic template agreement only (see
+[`MODEL_TRAINING.md`](./MODEL_TRAINING.md) and
+[`EVALUATION_RESULTS.md`](./EVALUATION_RESULTS.md)).
+
+Tesseract is not installed. Embedded-text PDF and synthetic text extraction
+integration tests execute, but real raster OCR tests are blocked/skipped.
+Accordingly there are no new OCR field-accuracy, CER, or WER results. Install
+Tesseract on macOS with `brew install tesseract` (optionally
+`brew install tesseract-lang` for Hindi), then validate with
+`tesseract --version` and `tesseract --list-langs`. No permissions were
+assumed for the external-origin ACI-Bench or MTSamples files.

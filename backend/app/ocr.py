@@ -92,14 +92,14 @@ def _reference_interactions() -> list[tuple[set[str], str]]:
     )
     return result or FALLBACK_INTERACTIONS
 
-MAX_PDF_PAGES = 20          # cap on pages OCR'd from one upload (bounds CPU time on a hostile or huge file)
+MAX_PDF_PAGES = 20          # cap on PDF pages and multi-frame raster images (bounds OCR work per upload)
 
 
-def _ocr_image(data: bytes) -> tuple[str, str, list[dict[str, Any]]]:
-    """Tesseract on one raster image -> (text, engine, word blocks with bbox and confidence)."""
-    from PIL import Image, ImageOps
+def _ocr_pil_image(image) -> tuple[str, str, list[dict[str, Any]]]:
+    """Tesseract on one Pillow image -> (text, engine, word blocks with bbox and confidence)."""
+    from PIL import ImageOps
     import pytesseract
-    img = ImageOps.autocontrast(ImageOps.grayscale(Image.open(io.BytesIO(data))))
+    img = ImageOps.autocontrast(ImageOps.grayscale(image.convert("RGB")))
     langs = "eng"
     try:
         have = pytesseract.get_languages(config="")
@@ -119,9 +119,17 @@ def _ocr_image(data: bytes) -> tuple[str, str, list[dict[str, Any]]]:
     return pytesseract.image_to_string(img, lang=langs, config=cfg), f"tesseract({langs})", blocks
 
 
+def _ocr_image(data: bytes) -> tuple[str, str, list[dict[str, Any]]]:
+    """Tesseract on one raster image -> (text, engine, word blocks with bbox and confidence)."""
+    from PIL import Image
+    with Image.open(io.BytesIO(data)) as image:
+        return _ocr_pil_image(image)
+
+
 def ocr_document(data: bytes, filename: str) -> tuple[str, str, list[dict[str, Any]]]:
     """Return (text, engine, pages). A PDF with a text layer is read directly; a scanned PDF (image-only pages) is
-    OCR'd page by page from its embedded images. Falls back gracefully if no engine is installed."""
+    OCR'd page by page from its embedded images. TIFF and animated WebP frames retain page provenance; unavailable OCR
+    returns an explicit engine status."""
     name = filename.lower()
     try:
         if name.endswith(".pdf"):
@@ -148,6 +156,21 @@ def ocr_document(data: bytes, filename: str) -> tuple[str, str, list[dict[str, A
             if txt:
                 return txt, ("pdf-scanned-ocr(tesseract)" if used_ocr else "pdf-text"), pages
             return "", "pdf-scanned-unsupported", pages
+        if name.endswith((".tif", ".tiff", ".webp")):
+            from PIL import Image
+            pages, engines = [], []
+            with Image.open(io.BytesIO(data)) as image:
+                frame_count = min(getattr(image, "n_frames", 1), MAX_PDF_PAGES)
+                for frame_number in range(frame_count):
+                    image.seek(frame_number)
+                    text, engine, blocks = _ocr_pil_image(image.copy())
+                    pages.append({"page": frame_number + 1, "text": text, "blocks": blocks})
+                    engines.append(engine)
+                if getattr(image, "n_frames", 1) > MAX_PDF_PAGES:
+                    pages.append({"page": MAX_PDF_PAGES + 1, "text": "", "blocks": [], "skipped": "frame limit"})
+            text = "\n".join(page["text"] for page in pages if not page.get("skipped")).strip()
+            engine = engines[0] if engines and len(set(engines)) == 1 else "tesseract(mixed)" if engines else "ocr-unavailable"
+            return text, engine, pages
         text, engine, blocks = _ocr_image(data)
         return text, engine, [{"page": 1, "text": text, "blocks": blocks}]
     except Exception as e:
@@ -248,6 +271,75 @@ def _interpret(value: float, low: float | None, high: float | None) -> str:
     return "within"
 
 
+def _lab_item(text: str, match: re.Match, name: str, baseline_unit: str,
+              low: float | None, high: float | None, provenance: dict[str, Any] | None) -> dict | None:
+    try:
+        value = float(match.group(1).replace(",", "").replace("<", "").replace(">", "").strip())
+    except ValueError:
+        return None
+    if name == "Systolic BP" and match.group(2) is None and value < 60:
+        return None
+
+    line_end = text.find("\n", match.end())
+    line_start = text.rfind("\n", 0, match.start()) + 1
+    line = text[line_start: line_end if line_end != -1 else len(text)]
+    prefix = text[line_start:match.start(1)].lower()
+    if re.search(r"\b(?:ref(?:erence)?(?:\s+range|\s*\.?\s*range)?|normal(?:\s+range)?|range)\s*[:=]?\s*$", prefix):
+        return None
+
+    tail = text[match.end(): line_end if line_end != -1 else len(text)]
+    printed = _printed_interval(tail)
+    printed_unit = _normalise_unit(match.group(3), "") if match.group(3) else ""
+    flag_m = re.search(r"(?:\)|\s)\s*(HH|LL|H|L|N|High|Low|Normal|Critical|Abnormal|\*)\s*$",
+                       tail.strip(), re.I) if tail.strip() else None
+    printed_flag = _PRINTED_FLAG.get(flag_m.group(1).lower()) if flag_m else None
+    ambiguity: list[str] = []
+    if printed is not None:
+        effective_low, effective_high = printed
+        ref_source = "document"
+        if not printed_unit:
+            ambiguity.append("unit not printed next to the value; the printed interval is used as given")
+    elif not printed_unit:
+        ref_source = "unavailable"
+        effective_low = effective_high = None
+        ambiguity.append("unit and reference interval are not printed; no comparison was made")
+    else:
+        ref_source = "configured_baseline"
+        effective_low, effective_high = low, high
+        if low is None and high is None:
+            ambiguity.append("no reference interval printed and no baseline configured")
+        elif printed_unit != baseline_unit:
+            effective_low = effective_high = None
+            ambiguity.append(f"unit '{printed_unit}' differs from baseline unit '{baseline_unit}'; not compared")
+        else:
+            ambiguity.append("no legible reference interval on the report; generic configured baseline used - confirm against the original")
+
+    explicit_critical = bool(re.search(r"\bcritical(?:ly)?\b", line, re.I)) or printed_flag in ("CRITICAL", "HH", "LL")
+    interpretation = _interpret(value, effective_low, effective_high)
+    if explicit_critical:
+        flag = "critical"
+    elif interpretation == "unable_to_interpret":
+        flag = "unable_to_interpret"
+    else:
+        flag = {"below": "low", "above": "high", "within": "normal"}[interpretation]
+    computed = {"low": "L", "high": "H", "normal": "N"}.get(flag)
+    if printed_flag in ("N", "H", "L") and computed and computed != printed_flag:
+        ambiguity.append(f"printed flag '{printed_flag}' disagrees with comparison against the interval ({computed}); confirm")
+    status = _status(text[max(0, match.start()-25):match.end()])
+    source = _fact_source(text, match.start(), match.end(), provenance).model_dump()
+    return {
+        "test": name, "value": value, "unit": printed_unit or None,
+        "measurement_date": find_date(line),
+        "ref": (f"{effective_low:g}–{effective_high:g}" if effective_low is not None and effective_high is not None
+                else f"<{effective_high:g}" if effective_high is not None else f">{effective_low:g}" if effective_low is not None else None),
+        "ref_low": effective_low, "ref_high": effective_high, "flag": flag, "printed_flag": printed_flag,
+        "interpretation": interpretation if flag != "unable_to_interpret" else "unable_to_interpret",
+        "reference_source": ref_source, "ambiguity": ambiguity,
+        "status": status, "confidence": 0.9 if (ref_source == "document" and printed_unit and not ambiguity) else 0.7,
+        "source": source,
+    }
+
+
 def extract(text: str, provenance: dict[str, Any] | None = None) -> dict:
     t = text or ""
     low = t.lower()
@@ -267,68 +359,20 @@ def extract(text: str, provenance: dict[str, Any] | None = None) -> dict:
             break
     labs = []
     for name, (rx, unit, lo, hi) in LABS.items():
-        m = re.search(
+        matches = re.finditer(
             rf"(?:{rx})[^\n\d(]{{0,40}}([<>]?\s*\d+(?:[.,]\d+)?(?:[eE][+-]?\d+)?)"
             rf"(?:\s*/\s*(\d+))?"
             rf"(?:[ \t]*({_UNIT_RX}))?",
             low,
         )
-        if not m: continue
-        try: val = float(m.group(1).replace(",", "").replace("<", "").replace(">", "").strip())
-        except ValueError: continue
-        if name == "Systolic BP" and m.group(2) is None and val < 60: continue
-        # Everything below is read from the SAME LINE as the value. Looking further would let a garbled row
-        # silently borrow the reference interval or the word 'critical' from a neighbouring test.
-        line_end = t.find("\n", m.end())
-        line_start = t.rfind("\n", 0, m.start()) + 1
-        tail = t[m.end(): line_end if line_end != -1 else len(t)]
-        printed = _printed_interval(tail)
-        printed_unit = _normalise_unit(m.group(3), "") if m.group(3) else ""
-        flag_m = re.search(r"(?:\)|\s)\s*(HH|LL|H|L|N|High|Low|Normal|Critical|Abnormal|\*)\s*$", tail.strip(), re.I) if tail.strip() else None
-        printed_flag = _PRINTED_FLAG.get(flag_m.group(1).lower()) if flag_m else None
-        ambiguity: list[str] = []
-        if printed is not None:
-            effective_low, effective_high = printed
-            ref_source = "document"
-            if not printed_unit:
-                ambiguity.append("unit not printed next to the value; the printed interval is used as given")
-        else:
-            ref_source = "configured_baseline"
-            effective_low, effective_high = lo, hi
-            if lo is None and hi is None:
-                ambiguity.append("no reference interval printed and no baseline configured")
-            elif printed_unit and printed_unit != unit:
-                effective_low = effective_high = None      # incompatible scale: never compare, never convert silently
-                ambiguity.append(f"unit '{printed_unit}' differs from baseline unit '{unit}'; not compared")
-            else:
-                ambiguity.append("no legible reference interval on the report; generic configured baseline used - confirm against the original")
-                if not printed_unit:
-                    ambiguity.append(f"unit not printed; baseline unit '{unit}' assumed")
-        context = t[line_start: line_end if line_end != -1 else len(t)]
-        explicit_critical = bool(re.search(r"\bcritical(?:ly)?\b", context, re.I)) or printed_flag in ("CRITICAL", "HH", "LL")
-        interp = _interpret(val, effective_low, effective_high)
-        if explicit_critical:
-            flag = "critical"
-        elif interp == "unable_to_interpret":
-            flag = "unable_to_interpret"
-        else:
-            flag = {"below": "low", "above": "high", "within": "normal"}[interp]
-        computed = {"low": "L", "high": "H", "normal": "N"}.get(flag)
-        if printed_flag in ("N", "H", "L") and computed and computed != printed_flag:
-            ambiguity.append(f"printed flag '{printed_flag}' disagrees with comparison against the interval ({computed}); confirm")
-        status = _status(t[max(0, m.start()-25):m.end()])
-        item = {"test": name, "value": val, "unit": printed_unit or unit,
-                "ref": (f"{effective_low:g}–{effective_high:g}" if effective_low is not None and effective_high is not None
-                        else f"<{effective_high:g}" if effective_high is not None else f">{effective_low:g}" if effective_low is not None else None),
-                "ref_low": effective_low, "ref_high": effective_high, "flag": flag, "printed_flag": printed_flag,
-                "interpretation": interp if flag != "unable_to_interpret" else "unable_to_interpret",
-                "reference_source": ref_source, "ambiguity": ambiguity,
-                "status": status, "confidence": 0.9 if (ref_source == "document" and printed_unit and not ambiguity) else 0.7,
-                "source": _fact_source(t, m.start(), m.end(), provenance).model_dump()}
-        labs.append(item)
-        facts.append(ExtractedFact(field="lab", value=item, status=status, confidence=item["confidence"],
-                                   source=SourceSpan.model_validate(item["source"]),
-                                   review_required=status != "reported" or bool(ambiguity)))
+        for match in matches:
+            item = _lab_item(t, match, name, unit, lo, hi, provenance)
+            if item is None:
+                continue
+            labs.append(item)
+            facts.append(ExtractedFact(field="lab", value=item, status=item["status"], confidence=item["confidence"],
+                                       source=SourceSpan.model_validate(item["source"]),
+                                       review_required=item["status"] != "reported" or bool(item["ambiguity"])))
     dx = sorted({d.replace("anemia", "anaemia") for d in DX if re.search(rf"\b{d}\b", low)})
     symptoms = [term for term in ("chest pain", "fever", "cough", "breathlessness", "headache", "vomiting", "rash")
                 if re.search(rf"\b{re.escape(term)}\b", low)]

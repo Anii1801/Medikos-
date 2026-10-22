@@ -31,12 +31,12 @@ Protocols: `official_test` = checkpoint trained on 240 train interviews, scored 
 
 ### A2. Next-slot prediction (recorded next question)
 
-| protocol | view | learned top-1 | top-3 | majority-class top-1 | template lookup (oracle complaint) top-1 |
-|---|---|---|---|---|---|
-| official_test | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.081 | 1.000 |
-| official_test | app_label | 0.997 [0.992, 1.000] | 1.000 [1.000, 1.000] | 0.081 | 1.000 |
-| grouped_cv | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.080 | 1.000 |
-| grouped_cv | app_label | 0.997 [0.996, 0.999] | 1.000 [1.000, 1.000] | 0.080 | 1.000 |
+| protocol | view | learned top-1 | top-3 | NDCG@1 | NDCG@3 | majority-class top-1 | template lookup (oracle complaint) top-1 |
+|---|---|---|---|---|---|---|---|
+| official_test | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.081 | 1.000 |
+| official_test | app_label | 0.997 [0.992, 1.000] | 1.000 [1.000, 1.000] | 0.997 [0.992, 1.000] | 0.999 [0.997, 1.000] | 0.081 | 1.000 |
+| grouped_cv | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.080 | 1.000 |
+| grouped_cv | app_label | 0.997 [0.996, 0.999] | 1.000 [1.000, 1.000] | 0.997 [0.996, 0.999] | 0.999 [0.998, 1.000] | 0.080 | 1.000 |
 
 ### A3. Unseen-complaint generalisation (leave-one-complaint-out)
 
@@ -268,7 +268,7 @@ The "after" 100% reflects the dataset's few templated phrasings and should be re
 
 ## D. Software tests (these verify behaviour, not clinical accuracy)
 
-Last full run: see `docs/PROJECT_STATUS.md` (generated from an actual pytest run). The browser end-to-end tests (`tests/test_e2e_browser.py`) could not complete in the sandbox used for this work: 5 of 6 time out waiting for a doctor-page element, and the **original, unmodified code fails identically**, so this is an environment limit. They must be run on a machine with a working browser before the UI flow is claimed verified.
+Latest full backend run: **225 passed, 8 skipped**, one Starlette/httpx deprecation warning. Seven OCR tests were skipped because Tesseract is unavailable; one browser E2E module was skipped because Playwright is not installed. API-to-doctor-record persistence is covered by TestClient integration tests, but an interactive browser run remains unverified. Command: `cd backend && ../.venv/bin/python -m pytest -q -rs`.
 
 ## E. Not evaluated (and why)
 
@@ -279,3 +279,63 @@ Last full run: see `docs/PROJECT_STATUS.md` (generated from an actual pytest run
 | OCR on real scans, handwriting, ASR on audio | No images or audio exist in the supplied dataset (0 image/PDF files, 0 audio files on disk). |
 | Prescription entity extraction | Not implemented in this pass. |
 | Critical-result recall | The labels contain only N/H/L. |
+
+## F. Evidence-to-report integration and document limitations
+
+The new synthetic PDF integration workflow actually executed and passed. It
+uploaded a lab report (`Haemoglobin 9.1 g/dL`, printed `13-17` interval, dated
+2025-03-12) and a prescription (`Warfarin 5 mg OD`, `Aspirin 75 mg OD`),
+verified `pdf-text` extraction and `extracted` status, submitted an encounter,
+and retrieved the doctor's stored report and original source PDF after guest
+working-document cleanup. The report's source IDs resolve to the encounter's
+document snapshots; `clinical_evidence` rows match the encounter patient and
+record. The report preserved the lab's result, unit, interval, report date,
+page/source span, and a patient-vs-document medication-dose conflict.
+
+Additional executed tests preserve explicitly negative and uncertain facts,
+missing lab units, multiple dated measurements, entered-vs-extracted date
+conflicts, duplicate files, missing/poor extraction, unsupported/corrupt
+uploads, missing provenance, and fail-safe red-flag behavior. A missing unit
+is no longer replaced with the configured lab baseline unit. The report remains
+deterministic; no generative model was introduced.
+
+The separate actual raster OCR run is **blocked**, not passed: Tesseract is
+absent. Synthetic PNG/JPEG/WEBP/TIFF CER/WER/field tests and the image-based
+end-to-end workflow were skipped for that reason. Synthetic multi-page
+embedded-text PDF extraction did execute. Install on macOS using
+`brew install tesseract` (optional Hindi data: `brew install tesseract-lang`),
+then rerun `cd backend && ../.venv/bin/python -m pytest -q -rs`. No OCR
+accuracy metric is claimed from upload acceptance or monkeypatched OCR tests.
+
+## G. Four-way next-question comparison (official test, 30 interviews)
+
+| selector | top-1 | NDCG@1 | NDCG@3 |
+|---|---:|---:|---:|
+| Existing ontology/rule selection | 0.162 | 0.162 | 0.162 |
+| Logistic regression, recorded patient wording | 1.000 | 1.000 | 1.000 |
+| Logistic regression, application labels | 0.997 | 0.997 | 0.999 |
+| Training-only oracle complaint/state template lookup | 1.000 | 1.000 | 1.000 |
+
+Each estimate uses 371 held-out pre-answer examples, with cluster-bootstrap
+confidence intervals in `evaluation_results/adaptive/adaptive_evaluation.json`.
+The oracle lookup uses training-split examples only. Its perfect score explains
+the near-perfect model result: the score is template/recorded-choice agreement,
+not evidence of clinical utility. NDCG for the ontology and oracle uses only
+their single chosen question, so NDCG@3 equals NDCG@1.
+
+Operational replay on the official split (unlimited interview budget):
+
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with safety-critical omission | questions/interview | duplicates/interview (rate) |
+|---|---:|---:|---:|---:|---:|
+| Fixed template | 1.000 | 1.000 | 0.000 | 12.4 | 0.00 (0.000) |
+| Current ontology | 0.974 | 1.000 | 0.000 | 15.1 | 0.33 (0.022) |
+| Learned, application-label wording | 0.974 | 1.000 | 0.000 | 15.1 | 0.33 (0.022) |
+| Learned, recorded wording | 0.974 | 1.000 | 0.000 | 15.1 | 0.33 (0.022) |
+
+Required-slot and safety-critical definitions are provisional synthetic
+templates, not clinician-approved measures. The ranker is opt-in; the
+ontology and deterministic mandatory-safety layer remain authoritative.
+
+Reproduce the model evaluation and rendered table with:
+`cd backend && PYTHONPATH=. ../.venv/bin/python -m training.adaptive.evaluate`
+and `PYTHONPATH=. ../.venv/bin/python -m training.render_reports`.

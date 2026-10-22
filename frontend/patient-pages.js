@@ -115,7 +115,7 @@ async function renderReports() {
     <p class="subtitle">Upload prescriptions, laboratory reports, and other medical documents.</p>
     <div class="card">
       <label class="input-label" for="report-file">Choose a document</label>
-      <input id="report-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt" multiple>
+      <input id="report-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt" multiple>
       <p class="caption">Up to 10 files, 8 MiB each and 32 MiB per batch.</p>
       <button class="btn" id="upload-report" type="button">Upload Reports</button>
       <p id="report-status" class="caption" aria-live="polite"></p>

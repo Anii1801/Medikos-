@@ -2,15 +2,32 @@
 
 ```text
 Patient kiosk / doctor console
-              |
-          REST / JSON
+              | REST / JSON
               v
-FastAPI main.py
-  |-- HistoryTakingAgent -> ontology policy -> red-flag rules
-  |-- OCR and extraction -> document timeline/interactions
-  |-- summary builder -> optional fact-preserving LLM rewording
-  |-- consent/auth/SQLite
-  `-- FHIR bundle -> mock ABDM adapter
+           FastAPI
+   +----------+------------------------+
+   |                                   |
+   v                                   v
+HistoryTakingAgent                Document ingestion
+   |                               PDF text: pypdf
+   +-- structural questions        raster OCR: Tesseract*
+   +-- mandatory safety questions  deterministic fact extraction
+   +-- learned slot ranker*        source/page/confidence provenance
+   +-- ontology fallback                 |
+   |                                     v
+   +--------------------------> Encounter evidence snapshot
+                                         |
+                                         v
+                                  Deterministic summary
+                                         |
+                                         v
+                                  RedFlagEngine rules
+                                         |
+                                         v
+                                  Clinician review/approval
+
+Consent/auth + SQLite protect patient data; FHIR export feeds mock ABDM.
+* Optional: learned ranker is off by default; OCR needs a local Tesseract binary.
 ```
 
 ## Safety boundaries
@@ -21,9 +38,12 @@ FastAPI main.py
   red-flag disposition.
 - Stateful sessions use `/api/interview/sessions` and persist in SQLite;
   `/api/interview/next` remains a stateless compatibility endpoint.
-- `summary.py` labels patient-reported information and missing information;
-  `llm.py` is disabled without an API key and is instructed to use only
-  supplied facts.
+- `summary.py` labels patient-reported information, extracted document
+  evidence, and missing information. No trained report-generation model is
+  integrated; `llm.py` is a separate optional adapter, not a fine-tuned model.
+- The adaptive ranker can order eligible questions only after structural and
+  mandatory safety questions. It cannot remove required questions and falls
+  back to the ontology policy; the learned policy remains opt-in.
 - A doctor must review and approve the draft record.
 
 ## Data flow
@@ -34,12 +54,16 @@ FastAPI main.py
 4. Batch PDF/image/text uploads are validated and processed per file.
    Originals, extracted text, structured facts, and processing status are
    stored under the patient account.
-5. Red flags are calculated independently from summary wording.
-6. Submission creates a draft FHIR document and a mock ABDM reference.
-7. Submission snapshots each document and its source evidence into the
-   encounter before guest working documents are deleted. Patients can access
-   their own encounter snapshots; doctors see only the documents attached to
-   the encounter they opened.
+5. Submission snapshots each document and its extracted facts into the
+   encounter. The submission report is then built from those persisted
+   encounter snapshots, not temporary upload variables.
+6. The deterministic red-flag engine runs independently of OCR, the adaptive
+   ranker, and report wording. A failed screen is represented as unavailable,
+   never as a clear result.
+7. Report sections, red flags, and a draft FHIR bundle are stored on the
+   encounter. Guest working documents are deleted only after the snapshots
+   have been saved. Patients and doctors read the same encounter evidence;
+   doctors can retrieve the retained original document.
 
 ## Model configuration
 

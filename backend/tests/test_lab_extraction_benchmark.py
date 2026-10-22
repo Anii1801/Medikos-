@@ -3,8 +3,11 @@
 Software tests on SYNTHETIC reports; they do not establish accuracy on real laboratory documents.
 """
 import shutil
+import io
 
 import pytest
+from PIL import Image, ImageDraw, ImageFont
+from reportlab.pdfgen import canvas
 
 from app import ocr, summary
 from app.datasets import DATASET_ROOT
@@ -65,6 +68,33 @@ def test_no_interval_and_no_baseline_is_not_invented():
     assert l["ref"] is None and l["flag"] == "unable_to_interpret" and l["reference_source"] == "configured_baseline"
 
 
+def test_missing_unit_is_not_filled_from_configured_baseline():
+    explicit_interval = lab("Haemoglobin 9.8 (13-17)", "Haemoglobin")
+    assert explicit_interval["unit"] is None
+    assert explicit_interval["reference_source"] == "document"
+    assert any("unit not printed" in item for item in explicit_interval["ambiguity"])
+    no_interval = lab("CRP 7.8", "CRP")
+    assert no_interval["unit"] is None
+    assert no_interval["reference_source"] == "unavailable"
+    assert no_interval["flag"] == "unable_to_interpret"
+
+
+def test_missing_measurement_is_not_extracted_from_the_reference_interval():
+    extracted = ocr.extract("Haemoglobin g/dL reference range 12-16")
+    assert extracted["labs"] == []
+    assert not any(fact["field"] == "lab" for fact in extracted["facts"])
+
+
+def test_repeated_lab_measurements_are_not_collapsed():
+    extracted = ocr.extract(
+        "Haemoglobin 10 g/dL (12-16) 2025-02-10\n"
+        "Haemoglobin 11 g/dL (12-16) 2025-03-10"
+    )
+    hemoglobin = [item for item in extracted["labs"] if item["test"] == "Haemoglobin"]
+    assert [(item["value"], item["measurement_date"]) for item in hemoglobin] == [
+        (10.0, "2025-02-10"), (11.0, "2025-03-10")]
+
+
 def test_reference_interval_is_never_borrowed_from_a_neighbouring_line():
     text = "Total Cholesterol   180 mg/dL   (0-200) N\nLDL   182.7 mg/dL\n"       # LDL row has no legible interval
     l = lab(text, "LDL")
@@ -96,6 +126,82 @@ def test_layout_variations_other_than_the_dataset_template(text, name, value, lo
 def test_one_sided_printed_limit():
     l = lab("CRP 7.8 mg/L (<5.0) H", "CRP")
     assert l["ref_high"] == 5.0 and l["ref_low"] is None and l["flag"] == "high"
+
+
+def _edit_distance(left, right):
+    previous = list(range(len(right) + 1))
+    for i, a in enumerate(left, 1):
+        current = [i]
+        for j, b in enumerate(right, 1):
+            current.append(min(current[-1] + 1, previous[j] + 1, previous[j - 1] + (a != b)))
+        previous = current
+    return previous[-1]
+
+
+def _synthetic_raster(format_name):
+    image = Image.new("RGB", (1400, 280), "white")
+    draw = ImageDraw.Draw(image)
+    try:
+        font = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial.ttf", 64)
+    except OSError:
+        font = ImageFont.load_default(size=64)
+    draw.text((40, 70), "Haemoglobin 12.4 g/dL (12-16)", fill="black", font=font)
+    stream = io.BytesIO()
+    image.save(stream, format=format_name)
+    return stream.getvalue()
+
+
+@pytest.mark.skipif(shutil.which("tesseract") is None, reason="Tesseract is not installed; real raster OCR is blocked")
+@pytest.mark.parametrize(("format_name", "extension"), [
+    ("PNG", "png"), ("JPEG", "jpg"), ("WEBP", "webp"), ("TIFF", "tiff"),
+])
+def test_synthetic_raster_ocr_field_accuracy_and_error_rates(format_name, extension):
+    expected = "Haemoglobin 12.4 g/dL (12-16)"
+    text, engine, pages = ocr.ocr_document(_synthetic_raster(format_name), f"synthetic.{extension}")
+    assert engine.startswith("tesseract(") and pages
+    normalise = lambda value: " ".join(value.lower().split())
+    actual = normalise(text)
+    reference = normalise(expected)
+    cer = _edit_distance(reference, actual) / max(1, len(reference))
+    expected_words, actual_words = reference.split(), actual.split()
+    wer = _edit_distance(expected_words, actual_words) / max(1, len(expected_words))
+    assert cer <= 0.20 and wer <= 0.50
+    finding = next(item for item in ocr.extract(text)["labs"] if item["test"] == "Haemoglobin")
+    assert finding["value"] == pytest.approx(12.4)
+    assert finding["unit"] == "g/dL"
+
+
+@pytest.mark.skipif(shutil.which("tesseract") is None, reason="Tesseract is not installed; real multiframe OCR is blocked")
+def test_synthetic_multiframe_tiff_keeps_page_text_and_provenance():
+    frames = []
+    for line in ("Haemoglobin 12.4 g/dL (12-16)", "Creatinine 1.0 mg/dL (0.6-1.3)"):
+        image = Image.new("RGB", (1400, 280), "white")
+        ImageDraw.Draw(image).text((40, 70), line, fill="black",
+                                  font=ImageFont.load_default(size=64))
+        frames.append(image)
+    stream = io.BytesIO()
+    frames[0].save(stream, format="TIFF", save_all=True, append_images=frames[1:])
+    text, engine, pages = ocr.ocr_document(stream.getvalue(), "synthetic-multipage.tiff")
+    assert engine.startswith("tesseract(")
+    assert [page["page"] for page in pages] == [1, 2]
+    assert "Haemoglobin" in pages[0]["text"] and "Creatinine" in pages[1]["text"]
+
+
+def test_synthetic_multipage_pdf_text_extraction_keeps_page_provenance():
+    stream = io.BytesIO()
+    pdf = canvas.Canvas(stream)
+    pdf.drawString(48, 780, "Laboratory Report 2025-03-12")
+    pdf.drawString(48, 750, "Haemoglobin 9.1 g/dL (13-17) L")
+    pdf.showPage()
+    pdf.drawString(48, 780, "Creatinine 1.0 mg/dL (0.6-1.3) N")
+    pdf.showPage()
+    pdf.save()
+    text, engine, pages = ocr.ocr_document(stream.getvalue(), "synthetic-multipage.pdf")
+    assert engine == "pdf-text"
+    assert [page["page"] for page in pages] == [1, 2]
+    results = ocr.extract(text, {"source_id": "synthetic-pdf", "pages": pages})
+    assert {item["test"] for item in results["labs"]} >= {"Haemoglobin", "Creatinine"}
+    assert all(item["source"]["page"] in (1, 2) for item in results["labs"])
 
 
 def test_critical_result_is_never_downgraded_in_the_summary():

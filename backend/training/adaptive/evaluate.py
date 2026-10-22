@@ -13,14 +13,16 @@ from __future__ import annotations
 import collections
 import csv
 import json
+import math
 from pathlib import Path
 from typing import Any, Callable, Sequence
 
 import numpy as np
 
+from app import ontology
 from app.adaptive.features import featurize
 from app.adaptive.ranker import LearnedSlotRanker
-from app.adaptive.schema import STOP, TARGET_CLASSES
+from app.adaptive.schema import COMPLAINT_TO_ONTOLOGY_CC, STOP, TARGET_CLASSES
 from .data import Interview, load_interviews, pre_answer_examples, split_interviews
 from .model import fit_weights, predict_next, runtime_ranker
 from .simulator import BUDGETS, CONFIG, POLICY_NAMES, replay
@@ -63,6 +65,12 @@ def _topk(ranker, e, k: int) -> bool:
     return e.target in [c for c, _ in predict_next(ranker, e)[:k]]
 
 
+def _ndcg_at_k(ranked: Sequence[tuple[str, float]], target: str, k: int) -> float:
+    """NDCG for the single recorded next-slot relevance label."""
+    rank = next((i for i, (slot, _) in enumerate(ranked) if slot == target), None)
+    return 1.0 / math.log2(rank + 2) if rank is not None and rank < k else 0.0
+
+
 def next_slot_metrics(ranker, ivs: Sequence[Interview], baselines_from: Sequence[Interview]) -> dict[str, Any]:
     """Top-1/top-3 of the learned model vs two non-learning baselines, per view/complaint/script."""
     train_ex = [e for iv in baselines_from for e in pre_answer_examples(iv, "recorded")]
@@ -81,11 +89,15 @@ def next_slot_metrics(ranker, ivs: Sequence[Interview], baselines_from: Sequence
         rows = []
         for iv in ivs:
             exs = pre_answer_examples(iv, view)
-            hit1 = [predict_next(ranker, e)[0][0] == e.target for e in exs]
-            hit3 = [_topk(ranker, e, 3) for e in exs]
+            rankings = [predict_next(ranker, e) for e in exs]
+            hit1 = [ranked[0][0] == e.target for ranked, e in zip(rankings, exs)]
+            hit3 = [e.target in [slot for slot, _ in ranked[:3]] for ranked, e in zip(rankings, exs)]
+            ndcg1 = [_ndcg_at_k(ranked, e.target, 1) for ranked, e in zip(rankings, exs)]
+            ndcg3 = [_ndcg_at_k(ranked, e.target, 3) for ranked, e in zip(rankings, exs)]
             maj = [majority == e.target for e in exs]
             tmp = [template_pred(e) == e.target for e in exs]
-            per_iv.append((iv, sum(hit1), sum(hit3), sum(maj), sum(tmp), len(exs)))
+            per_iv.append((iv, sum(hit1), sum(hit3), sum(maj), sum(tmp), len(exs),
+                           sum(ndcg1) / max(1, len(exs)), sum(ndcg3) / max(1, len(exs))))
             for e, h in zip(exs, hit1):
                 if not h:
                     rows.append({"interview_id": e.interview_id, "complaint": e.complaint, "view": view, "asked": e.state["asked"],
@@ -93,6 +105,7 @@ def next_slot_metrics(ranker, ivs: Sequence[Interview], baselines_from: Sequence
         n = [p[5] for p in per_iv]
         out[view] = {
             "top1": boot_ratio([p[1] for p in per_iv], n), "top3": boot_ratio([p[2] for p in per_iv], n),
+            "ndcg_at_1": boot_mean([p[6] for p in per_iv]), "ndcg_at_3": boot_mean([p[7] for p in per_iv]),
             "baseline_majority_class_top1": boot_ratio([p[3] for p in per_iv], n),
             "baseline_template_lookup_with_oracle_complaint_top1": boot_ratio([p[4] for p in per_iv], n),
             "errors": rows,
@@ -102,6 +115,70 @@ def next_slot_metrics(ranker, ivs: Sequence[Interview], baselines_from: Sequence
                                for s in sorted({p[0].script for p in per_iv})},
         }
     return out
+
+
+def question_choice_comparison(ranker, test_ivs: Sequence[Interview],
+                               train_ivs: Sequence[Interview]) -> dict[str, Any]:
+    """Compare selectable next-slot policies on the same held-out pre-answer examples."""
+    train_examples = [e for iv in train_ivs for e in pre_answer_examples(iv, "recorded")]
+    majority = collections.Counter(e.target for e in train_examples).most_common(1)[0][0]
+    templates: dict[tuple[str, tuple[str, ...]], collections.Counter] = collections.defaultdict(collections.Counter)
+    for example in train_examples:
+        templates[(example.complaint, tuple(example.state["asked"]))][example.target] += 1
+
+    def oracle(example):
+        choices = templates.get((example.complaint, tuple(example.state["asked"])))
+        return choices.most_common(1)[0][0] if choices else majority
+
+    results = {}
+    for view in ("recorded", "app_label"):
+        by_policy: dict[str, list[tuple[Interview, bool, float, float]]] = collections.defaultdict(list)
+        for iv in test_ivs:
+            for example in pre_answer_examples(iv, view):
+                answers = {"cc": COMPLAINT_TO_ONTOLOGY_CC[iv.complaint], "cc_text": example.state["cc_text"]}
+                answers.update({slot: "x" for slot in example.state["asked"] if slot not in ("cc", "cc_text")})
+                ontology_question = ontology.next_question(answers)["question"]
+                ontology_order = [(ontology_question["id"], 1.0)] if ontology_question else []
+                rankings = {
+                    "ontology_rule_selection": ontology_order,
+                }
+                # Use the exact current example view; recorded and app-label inputs differ only in complaint wording.
+                rankings["logistic_regression_recorded_wording"] = (
+                    predict_next(ranker, example) if view == "recorded" else [])
+                rankings["logistic_regression_app_labels"] = (
+                    predict_next(ranker, example) if view == "app_label" else [])
+                oracle_choice = oracle(example)
+                rankings["oracle_template_lookup"] = [(oracle_choice, 1.0)]
+                for policy, ranked in rankings.items():
+                    if not ranked:
+                        continue
+                    by_policy[policy].append((
+                        iv,
+                        ranked[0][0] == example.target,
+                        _ndcg_at_k(ranked, example.target, 1),
+                        _ndcg_at_k(ranked, example.target, 3),
+                    ))
+        for policy, observations in by_policy.items():
+            if policy in results:
+                continue
+            results[policy] = {
+                "top1": boot_ratio(
+                    [sum(1 for iv_, hit, _, _ in observations if iv_ == iv and hit)
+                     for iv in test_ivs],
+                    [sum(1 for iv_, _, _, _ in observations if iv_ == iv) for iv in test_ivs]),
+                "ndcg_at_1": boot_mean([
+                    sum(ndcg1 for iv_, _, ndcg1, _ in observations if iv_ == iv)
+                    / max(1, sum(1 for iv_, _, _, _ in observations if iv_ == iv))
+                    for iv in test_ivs]),
+                "ndcg_at_3": boot_mean([
+                    sum(ndcg3 for iv_, _, _, ndcg3 in observations if iv_ == iv)
+                    / max(1, sum(1 for iv_, _, _, _ in observations if iv_ == iv))
+                    for iv in test_ivs]),
+            }
+    return {
+        "official_test": results,
+        "note": "Oracle lookup is trained only on training-split complaint/state templates. Single-choice ontology/oracle policies have no meaningful ranking beyond top-1; their NDCG@3 equals NDCG@1. Scores measure agreement with recorded template choices, not clinical benefit.",
+    }
 
 
 def make_folds(ivs: Sequence[Interview], k: int = 5) -> list[list[Interview]]:
@@ -174,9 +251,11 @@ def summarise_policies(rows: list[dict[str, Any]]) -> dict[str, Any]:
             rs = ref[p]
             table[p] = {
                 "required_slot_coverage": boot_mean([r["required_coverage"] for r in rs]),
+                "mandatory_safety_question_coverage": boot_mean([r["mandatory_safety_question_coverage"] for r in rs]),
                 "interviews_with_safety_critical_omission": boot_mean([float(r["safety_critical_omitted"]) for r in rs]),
                 "questions_per_interview": boot_mean([r["n_questions"] for r in rs]),
                 "duplicate_questions_per_interview": boot_mean([r["duplicate_questions"] for r in rs]),
+                "duplicate_question_rate": sum(r["duplicate_questions"] for r in rs) / max(1, sum(r["n_questions"] for r in rs)),
                 "questions_outside_dataset_schema_per_interview": boot_mean([r["non_schema_questions"] for r in rs]),
             }
         paired = {}
@@ -249,7 +328,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]], keep=lambda r: True):
             "safety_critical_omitted", "missing_required", "missing_safety_critical", "duplicate_questions",
             "non_schema_questions", "questions"]
     with path.open("w", encoding="utf-8", newline="") as fh:
-        w = csv.writer(fh)
+        w = csv.writer(fh, lineterminator="\n")
         w.writerow(cols)
         for r in rows:
             if keep(r):
@@ -288,6 +367,7 @@ def run_evaluation(out: Path = OUT) -> dict[str, Any]:
     rows_cv = {}
     for v in ("recorded", "app_label"):
         c1, c3, n, maj, tmp = [], [], [], [], []
+        interview_ndcg1, interview_ndcg3 = [], []
         by_c, by_s = collections.defaultdict(lambda: [0, 0]), collections.defaultdict(lambda: [0, 0])
         for m, held, train_ivs in cv_next_parts:
             tr = [e for iv in train_ivs for e in pre_answer_examples(iv, "recorded")]
@@ -297,13 +377,17 @@ def run_evaluation(out: Path = OUT) -> dict[str, Any]:
                 tmpl[(e.complaint, tuple(e.state["asked"]))][e.target] += 1
             for iv in held:
                 exs = pre_answer_examples(iv, v)
-                h1 = sum(predict_next(m, e)[0][0] == e.target for e in exs)
-                c1.append(h1); c3.append(sum(_topk(m, e, 3) for e in exs)); n.append(len(exs))
+                rankings = [predict_next(m, e) for e in exs]
+                h1 = sum(ranked[0][0] == e.target for ranked, e in zip(rankings, exs))
+                c1.append(h1); c3.append(sum(e.target in [slot for slot, _ in ranked[:3]] for ranked, e in zip(rankings, exs))); n.append(len(exs))
+                interview_ndcg1.append(sum(_ndcg_at_k(ranked, e.target, 1) for ranked, e in zip(rankings, exs)) / max(1, len(exs)))
+                interview_ndcg3.append(sum(_ndcg_at_k(ranked, e.target, 3) for ranked, e in zip(rankings, exs)) / max(1, len(exs)))
                 maj.append(sum(majority == e.target for e in exs))
                 tmp.append(sum((tmpl.get((e.complaint, tuple(e.state["asked"])), collections.Counter({majority: 1})).most_common(1)[0][0]) == e.target for e in exs))
                 by_c[iv.complaint][0] += h1; by_c[iv.complaint][1] += len(exs)
                 by_s[iv.script][0] += h1; by_s[iv.script][1] += len(exs)
         rows_cv[v] = {"top1": boot_ratio(c1, n), "top3": boot_ratio(c3, n),
+                      "ndcg_at_1": boot_mean(interview_ndcg1), "ndcg_at_3": boot_mean(interview_ndcg3),
                       "baseline_majority_class_top1": boot_ratio(maj, n),
                       "baseline_template_lookup_with_oracle_complaint_top1": boot_ratio(tmp, n),
                       "by_complaint_top1": {k: round(a / b, 4) for k, (a, b) in sorted(by_c.items())},
@@ -319,6 +403,7 @@ def run_evaluation(out: Path = OUT) -> dict[str, Any]:
                            "C": C, "required_slots": "provisional, derived from training-split template; see config/required_slots.json"},
         "next_slot": {"official_test": {v: {k: x for k, x in d.items() if k != "errors"} for v, d in test_next.items()},
                       "grouped_cv": {v: {k: x for k, x in d.items() if k != "errors"} for v, d in rows_cv.items()}},
+        "question_choice_comparison": question_choice_comparison(checkpoint, splits["test"], splits["train"]),
         "loco_unseen_complaint": loco(ivs, C),
         "policy_comparison": {
             "official_test_30": {"summary": summarise_policies(test_rows),

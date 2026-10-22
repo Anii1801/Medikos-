@@ -29,7 +29,8 @@ db.init()
 MAX_UPLOAD = 8 * 1024 * 1024
 MAX_BATCH_UPLOAD = 32 * 1024 * 1024
 MAX_BATCH_FILES = 10
-ALLOWED_UPLOADS = {".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".txt": "text/plain"}
+ALLOWED_UPLOADS = {".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+                   ".webp": "image/webp", ".tif": "image/tiff", ".tiff": "image/tiff", ".txt": "text/plain"}
 PURPOSES = ("history_capture", "abdm_share")
 logger = logging.getLogger(__name__)
 
@@ -319,7 +320,7 @@ def _validate_upload(data: bytes, filename: str) -> str:
     ext = os.path.splitext(filename)[1].lower()
     expected = ALLOWED_UPLOADS.get(ext)
     if not expected:
-        raise ValueError("Unsupported file type. Upload a PDF, PNG, JPG, JPEG, or UTF-8 TXT file.")
+        raise ValueError("Unsupported file type. Upload PDF, PNG, JPG, WEBP, TIFF, or UTF-8 TXT.")
     if not data:
         raise ValueError("The uploaded file is empty.")
     if expected == "text/plain":
@@ -351,12 +352,17 @@ def _validate_upload(data: bytes, filename: str) -> str:
         from PIL import Image, UnidentifiedImageError
         try:
             with Image.open(io.BytesIO(data)) as image:
-                actual = {"JPEG": "image/jpeg", "PNG": "image/png"}.get(image.format)
+                actual = {"JPEG": "image/jpeg", "PNG": "image/png", "WEBP": "image/webp", "TIFF": "image/tiff"}.get(image.format)
                 if actual != expected:
                     raise ValueError(f"File content does not match the .{ext.lstrip('.')} extension.")
-                if image.width * image.height > 20_000_000:
-                    raise ValueError("Image dimensions are too large to process safely.")
-                image.verify()
+                frame_count = getattr(image, "n_frames", 1)
+                if frame_count > ocr.MAX_PDF_PAGES:
+                    raise ValueError(f"Images may contain at most {ocr.MAX_PDF_PAGES} frames.")
+                for frame_number in range(frame_count):
+                    image.seek(frame_number)
+                    if image.width * image.height > 20_000_000:
+                        raise ValueError("Image dimensions are too large to process safely.")
+                    image.load()
         except (Image.DecompressionBombError, Image.DecompressionBombWarning) as exc:
             raise ValueError("Image dimensions are too large to process safely.") from exc
         except (UnidentifiedImageError, OSError, EOFError, SyntaxError) as exc:
@@ -562,11 +568,14 @@ def del_doc(did: int, u=Depends(user)):
 class Submit(BaseModel):
     answers: dict; ayush: bool = False; lang: str = "en"
 
-def _prepare(u, s: Submit):
+def _prepare(u, s: Submit, documents: list[dict] | None = None):
     a = dict(s.answers); a["_ay"] = s.ayush
-    with db.tx() as c:
-        rows = c.execute("SELECT * FROM documents WHERE user_id=?", (u["id"],)).fetchall()
-    dl = [doc_row(r) for r in rows]
+    if documents is None:
+        with db.tx() as c:
+            rows = c.execute("SELECT * FROM documents WHERE user_id=?", (u["id"],)).fetchall()
+        dl = [doc_row(r) for r in rows]
+    else:
+        dl = documents
     # One evaluation feeds the report, the legacy flag list, the queue priority and FHIR, so they can
     # never disagree. A failed screen yields an explicit SCREENING_UNAVAILABLE flag, never an empty list.
     report, rf = clinical_report.build_clinical_report(u, {k: v for k, v in a.items()}, dl)
@@ -618,19 +627,28 @@ def submit(s: Submit, u=Depends(user)):
     cs = active_consents(u["id"])
     if not (cs.get("history_capture") and cs.get("abdm_share")):
         raise HTTPException(403, "Consent for history capture and ABDM sharing is required")
-    a, dl, sec, flags, report = _prepare(u, s)
-    prio = 1 if any(f["level"] == "emergency" for f in flags) else 2 if flags else 3
     with db.tx() as c:
+        source_rows = c.execute("SELECT * FROM documents WHERE user_id=? ORDER BY id", (u["id"],)).fetchall()
+        source_documents = [doc_row(row) for row in source_rows]
+        now = time.time()
         today = time.strftime("%Y-%m-%d")
         n = c.execute("SELECT COUNT(*) FROM records WHERE date(created,'unixepoch')=?", (today,)).fetchone()[0] + 1
         cur = c.execute("INSERT INTO records(user_id,token_no,priority,status,answers,sections,flags,created,report) VALUES(?,?,?,?,?,?,?,?,?)",
-                        (u["id"], n, prio, "submitted", db.j({k: v for k, v in a.items() if not k.startswith("_")}), db.j(sec), db.j(flags), time.time(), db.j(report)))
+                        (u["id"], n, 3, "submitted", db.j({}), db.j([]), db.j([]), now, None))
         rid = cur.lastrowid
-        _snapshot_documents(c, rid, u["id"], dl)
+        _snapshot_documents(c, rid, u["id"], source_documents)
+        snapshot_rows = c.execute("SELECT * FROM record_documents WHERE record_id=? AND user_id=? ORDER BY id",
+                                  (rid, u["id"])).fetchall()
+        snapshot_documents = [doc_row(row) for row in snapshot_rows]
+        a, dl, sec, flags, report = _prepare(u, s, snapshot_documents)
+        prio = 1 if any(f["level"] == "emergency" for f in flags) else 2 if flags else 3
+        c.execute("UPDATE records SET priority=?,answers=?,sections=?,flags=?,report=? WHERE id=?",
+                  (prio, db.j({k: v for k, v in a.items() if not k.startswith("_")}),
+                   db.j(sec), db.j(flags), db.j(report), rid))
         bundle = fhir.build_bundle(u, sec, flags, dl, rid)
         push = fhir.abdm_push(bundle, u.get("abha"))
         c.execute("UPDATE records SET fhir=?, abdm_ref=? WHERE id=?", (db.j(bundle), push["ref"], rid))
-        if u["role"] == "guest":   # kiosk privacy: wipe temporary patient-side data (record is retained for the doctor by id only)
+        if u["role"] == "guest":
             c.execute("DELETE FROM documents WHERE user_id=?", (u["id"],))
     return {"record_id": rid, "token_no": n, "priority": prio, "abdm": push, "red_flags": flags,
             "patient_message": summary.patient_confirmation(a, s.lang)}
@@ -724,6 +742,7 @@ def d_review(rid: int, rv: Review, d=Depends(doctor)):
         if not row: raise HTTPException(404, "Not found")
         report = json.loads(row["report"]) if row["report"] else None
         if report:   # record who reviewed what; only an explicit approval flips 'approved'
+            report["clinical_summary"]["sections"] = rv.sections
             report["clinician_review"].update(status=rv.status, approved=(rv.status == "confirmed"),
                                               reviewed_by=d["username"], reviewed_at=now, finding_reviews=rv.finding_reviews)
             report["clinical_summary"]["status"] = {"confirmed": "APPROVED_BY_CLINICIAN", "amended": "AMENDED_BY_CLINICIAN",

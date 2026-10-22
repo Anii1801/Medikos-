@@ -10,12 +10,23 @@
 
 ### A2. Next-slot prediction (recorded next question)
 
-| protocol | view | learned top-1 | top-3 | majority-class top-1 | template lookup (oracle complaint) top-1 |
-|---|---|---|---|---|---|
-| official_test | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.081 | 1.000 |
-| official_test | app_label | 0.997 [0.992, 1.000] | 1.000 [1.000, 1.000] | 0.081 | 1.000 |
-| grouped_cv | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.080 | 1.000 |
-| grouped_cv | app_label | 0.997 [0.996, 0.999] | 1.000 [1.000, 1.000] | 0.080 | 1.000 |
+| protocol | view | learned top-1 | top-3 | NDCG@1 | NDCG@3 | majority-class top-1 | template lookup (oracle complaint) top-1 |
+|---|---|---|---|---|---|---|---|
+| official_test | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.081 | 1.000 |
+| official_test | app_label | 0.997 [0.992, 1.000] | 1.000 [1.000, 1.000] | 0.997 [0.992, 1.000] | 0.999 [0.997, 1.000] | 0.081 | 1.000 |
+| grouped_cv | recorded | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.080 | 1.000 |
+| grouped_cv | app_label | 0.997 [0.996, 0.999] | 1.000 [1.000, 1.000] | 0.997 [0.996, 0.999] | 0.999 [0.998, 1.000] | 0.080 | 1.000 |
+
+### A2b. Four-way next-question choice comparison (untouched official test)
+
+| selector | top-1 | NDCG@1 | NDCG@3 |
+|---|---|---|---|
+| ontology_rule_selection | 0.162 [0.160, 0.164] | 0.162 [0.160, 0.164] | 0.162 [0.160, 0.164] |
+| logistic_regression_recorded_wording | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| oracle_template_lookup | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] |
+| logistic_regression_app_labels | 0.997 [0.992, 1.000] | 0.997 [0.992, 1.000] | 0.999 [0.997, 1.000] |
+
+Oracle lookup is trained only on training-split complaint/state templates. Single-choice ontology/oracle policies have no meaningful ranking beyond top-1; their NDCG@3 equals NDCG@1. Scores measure agreement with recorded template choices, not clinical benefit.
 
 ### A3. Unseen-complaint generalisation (leave-one-complaint-out)
 
@@ -40,66 +51,72 @@
 
 **Budget: no limit**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.4 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.766 [0.746, 0.789] | 0.067 [0.000, 0.167] | 13.5 | 0.33 | 3.30 |
-| ontology_v1_current | 0.974 [0.962, 0.987] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 3.30 |
-| safety_layer_uniform | 0.974 [0.962, 0.987] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 3.30 |
-| learned_ranker | 0.974 [0.962, 0.987] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 3.30 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.4 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.766 [0.746, 0.789] | 1.000 [1.000, 1.000] | 0.067 [0.000, 0.167] | 13.5 | 0.33 | 0.025 | 3.30 |
+| ontology_v1_current | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 0.022 | 3.30 |
+| safety_layer_uniform | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 0.022 | 3.30 |
+| learned_ranker | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 0.022 | 3.30 |
+| learned_ranker_recorded | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.1 | 0.33 | 0.022 | 3.30 |
 
 **Budget: 12 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.972 [0.959, 0.985] | 0.000 [0.000, 0.000] | 12.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.761 [0.745, 0.778] | 0.067 [0.000, 0.167] | 12.0 | 0.33 | 1.87 |
-| ontology_v1_current | 0.886 [0.866, 0.906] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 1.30 |
-| safety_layer_uniform | 0.974 [0.962, 0.987] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 0.20 |
-| learned_ranker | 0.974 [0.962, 0.987] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 0.20 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.972 [0.959, 0.985] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.761 [0.745, 0.778] | 1.000 [1.000, 1.000] | 0.067 [0.000, 0.167] | 12.0 | 0.33 | 0.028 | 1.87 |
+| ontology_v1_current | 0.886 [0.866, 0.906] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 0.028 | 1.30 |
+| safety_layer_uniform | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 0.028 | 0.20 |
+| learned_ranker | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 0.028 | 0.20 |
+| learned_ranker_recorded | 0.974 [0.962, 0.987] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.33 | 0.028 | 0.20 |
 
 **Budget: 10 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.810 [0.799, 0.821] | 0.367 [0.200, 0.533] | 10.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.645 [0.627, 0.663] | 0.100 [0.000, 0.233] | 10.0 | 0.33 | 1.30 |
-| ontology_v1_current | 0.724 [0.706, 0.742] | 0.933 [0.833, 1.000] | 10.0 | 0.33 | 1.30 |
-| safety_layer_uniform | 0.828 [0.815, 0.844] | 1.000 [1.000, 1.000] | 10.0 | 0.33 | 0.00 |
-| learned_ranker | 0.828 [0.815, 0.844] | 0.000 [0.000, 0.000] | 10.0 | 0.33 | 0.00 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.810 [0.799, 0.821] | 1.000 [1.000, 1.000] | 0.367 [0.200, 0.533] | 10.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.645 [0.627, 0.663] | 1.000 [1.000, 1.000] | 0.100 [0.000, 0.233] | 10.0 | 0.33 | 0.033 | 1.30 |
+| ontology_v1_current | 0.724 [0.706, 0.742] | 1.000 [1.000, 1.000] | 0.933 [0.833, 1.000] | 10.0 | 0.33 | 0.033 | 1.30 |
+| safety_layer_uniform | 0.828 [0.815, 0.844] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 10.0 | 0.33 | 0.033 | 0.00 |
+| learned_ranker | 0.828 [0.815, 0.844] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 10.0 | 0.33 | 0.033 | 0.00 |
+| learned_ranker_recorded | 0.828 [0.815, 0.844] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 10.0 | 0.33 | 0.033 | 0.00 |
 
 **Budget: 8 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.648 [0.639, 0.656] | 1.000 [1.000, 1.000] | 8.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.483 [0.467, 0.500] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 1.30 |
-| ontology_v1_current | 0.562 [0.545, 0.578] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 1.30 |
-| safety_layer_uniform | 0.666 [0.654, 0.681] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.00 |
-| learned_ranker | 0.666 [0.654, 0.681] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.00 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.648 [0.639, 0.656] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.483 [0.467, 0.500] | 0.989 [0.967, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.042 | 1.30 |
+| ontology_v1_current | 0.562 [0.545, 0.578] | 0.989 [0.967, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.042 | 1.30 |
+| safety_layer_uniform | 0.666 [0.654, 0.681] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.042 | 0.00 |
+| learned_ranker | 0.666 [0.654, 0.681] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.042 | 0.00 |
+| learned_ranker_recorded | 0.666 [0.654, 0.681] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.33 | 0.042 | 0.00 |
 
 **Budget: 6 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.486 [0.479, 0.492] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.346 [0.325, 0.367] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 1.30 |
-| ontology_v1_current | 0.351 [0.328, 0.376] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 1.30 |
-| safety_layer_uniform | 0.504 [0.492, 0.518] | 1.000 [1.000, 1.000] | 6.0 | 0.33 | 0.00 |
-| learned_ranker | 0.517 [0.506, 0.530] | 1.000 [1.000, 1.000] | 6.0 | 0.17 | 0.00 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.486 [0.479, 0.492] | 0.739 [0.617, 0.850] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.346 [0.325, 0.367] | 0.978 [0.933, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.000 | 1.30 |
+| ontology_v1_current | 0.351 [0.328, 0.376] | 0.911 [0.800, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.000 | 1.30 |
+| safety_layer_uniform | 0.504 [0.492, 0.518] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.33 | 0.056 | 0.00 |
+| learned_ranker | 0.517 [0.506, 0.530] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.17 | 0.028 | 0.00 |
+| learned_ranker_recorded | 0.517 [0.506, 0.530] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.17 | 0.028 | 0.00 |
 
 
 ### A5. Policy comparison — grouped CV, out-of-fold over all 300 interviews
 
 **Budget: no limit**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.6 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.754 [0.746, 0.763] | 0.020 [0.007, 0.037] | 13.8 | 0.44 | 3.66 |
-| ontology_v1_current | 0.959 [0.955, 0.964] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 3.66 |
-| safety_layer_uniform | 0.959 [0.955, 0.964] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 3.66 |
-| learned_ranker | 0.959 [0.955, 0.964] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 3.66 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.6 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.754 [0.746, 0.763] | 1.000 [1.000, 1.000] | 0.020 [0.007, 0.037] | 13.8 | 0.44 | 0.032 | 3.66 |
+| ontology_v1_current | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 0.029 | 3.66 |
+| safety_layer_uniform | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 0.029 | 3.66 |
+| learned_ranker | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 0.029 | 3.66 |
+| learned_ranker_recorded | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 15.4 | 0.44 | 0.029 | 3.66 |
 
 Paired differences (same interviews; coverage / safety-omission rate / questions):
 
@@ -110,13 +127,14 @@ Paired differences (same interviews; coverage / safety-omission rate / questions
 
 **Budget: 12 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.956 [0.952, 0.960] | 0.000 [0.000, 0.000] | 12.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.748 [0.741, 0.754] | 0.020 [0.007, 0.037] | 12.0 | 0.44 | 1.96 |
-| ontology_v1_current | 0.849 [0.841, 0.856] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 1.66 |
-| safety_layer_uniform | 0.959 [0.955, 0.964] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 0.26 |
-| learned_ranker | 0.959 [0.955, 0.964] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 0.26 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.956 [0.952, 0.960] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.748 [0.741, 0.754] | 1.000 [1.000, 1.000] | 0.020 [0.007, 0.037] | 12.0 | 0.44 | 0.037 | 1.96 |
+| ontology_v1_current | 0.849 [0.841, 0.856] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 0.037 | 1.66 |
+| safety_layer_uniform | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 0.037 | 0.26 |
+| learned_ranker | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 0.037 | 0.26 |
+| learned_ranker_recorded | 0.959 [0.955, 0.964] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 12.0 | 0.44 | 0.037 | 0.26 |
 
 Paired differences (same interviews; coverage / safety-omission rate / questions):
 
@@ -127,13 +145,14 @@ Paired differences (same interviews; coverage / safety-omission rate / questions
 
 **Budget: 10 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.797 [0.793, 0.800] | 0.573 [0.517, 0.627] | 10.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.613 [0.606, 0.620] | 0.063 [0.037, 0.093] | 10.0 | 0.44 | 1.66 |
-| ontology_v1_current | 0.689 [0.682, 0.696] | 0.980 [0.963, 0.993] | 10.0 | 0.44 | 1.66 |
-| safety_layer_uniform | 0.820 [0.816, 0.825] | 1.000 [1.000, 1.000] | 10.0 | 0.44 | 0.00 |
-| learned_ranker | 0.820 [0.816, 0.825] | 0.000 [0.000, 0.000] | 10.0 | 0.44 | 0.00 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.797 [0.793, 0.800] | 1.000 [1.000, 1.000] | 0.573 [0.517, 0.627] | 10.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.613 [0.606, 0.620] | 1.000 [1.000, 1.000] | 0.063 [0.037, 0.093] | 10.0 | 0.44 | 0.044 | 1.66 |
+| ontology_v1_current | 0.689 [0.682, 0.696] | 1.000 [1.000, 1.000] | 0.980 [0.963, 0.993] | 10.0 | 0.44 | 0.044 | 1.66 |
+| safety_layer_uniform | 0.820 [0.816, 0.825] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 10.0 | 0.44 | 0.044 | 0.00 |
+| learned_ranker | 0.820 [0.816, 0.825] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 10.0 | 0.44 | 0.044 | 0.00 |
+| learned_ranker_recorded | 0.820 [0.816, 0.825] | 1.000 [1.000, 1.000] | 0.000 [0.000, 0.000] | 10.0 | 0.44 | 0.044 | 0.00 |
 
 Paired differences (same interviews; coverage / safety-omission rate / questions):
 
@@ -144,13 +163,14 @@ Paired differences (same interviews; coverage / safety-omission rate / questions
 
 **Budget: 8 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.637 [0.634, 0.640] | 1.000 [1.000, 1.000] | 8.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.454 [0.447, 0.460] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 1.66 |
-| ontology_v1_current | 0.541 [0.536, 0.547] | 1.000 [1.000, 1.000] | 8.0 | 0.30 | 1.66 |
-| safety_layer_uniform | 0.661 [0.657, 0.665] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 0.00 |
-| learned_ranker | 0.661 [0.657, 0.665] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 0.00 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.637 [0.634, 0.640] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.454 [0.447, 0.460] | 0.986 [0.977, 0.993] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 0.055 | 1.66 |
+| ontology_v1_current | 0.541 [0.536, 0.547] | 0.986 [0.977, 0.993] | 1.000 [1.000, 1.000] | 8.0 | 0.30 | 0.037 | 1.66 |
+| safety_layer_uniform | 0.661 [0.657, 0.665] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 0.055 | 0.00 |
+| learned_ranker | 0.661 [0.657, 0.665] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 0.055 | 0.00 |
+| learned_ranker_recorded | 0.661 [0.657, 0.665] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 8.0 | 0.44 | 0.055 | 0.00 |
 
 Paired differences (same interviews; coverage / safety-omission rate / questions):
 
@@ -161,13 +181,14 @@ Paired differences (same interviews; coverage / safety-omission rate / questions
 
 **Budget: 6 questions max**
 
-| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |
-|---|---|---|---|---|---|
-| fixed_template | 0.478 [0.476, 0.480] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.00 |
-| ontology_v0_frozen | 0.326 [0.319, 0.334] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 1.66 |
-| ontology_v1_current | 0.328 [0.320, 0.336] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 1.66 |
-| safety_layer_uniform | 0.501 [0.497, 0.505] | 1.000 [1.000, 1.000] | 6.0 | 0.44 | 0.00 |
-| learned_ranker | 0.529 [0.526, 0.533] | 1.000 [1.000, 1.000] | 6.0 | 0.09 | 0.00 |
+| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |
+|---|---|---|---|---|---|---|---|
+| fixed_template | 0.478 [0.476, 0.480] | 0.626 [0.579, 0.674] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.000 | 0.00 |
+| ontology_v0_frozen | 0.326 [0.319, 0.334] | 0.971 [0.953, 0.987] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.000 | 1.66 |
+| ontology_v1_current | 0.328 [0.320, 0.336] | 0.951 [0.928, 0.972] | 1.000 [1.000, 1.000] | 6.0 | 0.00 | 0.000 | 1.66 |
+| safety_layer_uniform | 0.501 [0.497, 0.505] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.44 | 0.074 | 0.00 |
+| learned_ranker | 0.529 [0.526, 0.533] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.09 | 0.014 | 0.00 |
+| learned_ranker_recorded | 0.529 [0.526, 0.533] | 1.000 [1.000, 1.000] | 1.000 [1.000, 1.000] | 6.0 | 0.09 | 0.014 | 0.00 |
 
 Paired differences (same interviews; coverage / safety-omission rate / questions):
 
@@ -185,6 +206,7 @@ Paired differences (same interviews; coverage / safety-omission rate / questions
 | ontology_v1_current | rad: 53% |
 | safety_layer_uniform | rad: 53% |
 | learned_ranker | rad: 53% |
+| learned_ranker_recorded | rad: 53% |
 
 ### A7. Does the learned policy ask in a different order?
 

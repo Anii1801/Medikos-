@@ -28,6 +28,22 @@
           "interviews": 30,
           "examples": 371
         },
+        "ndcg_at_1": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 30
+        },
+        "ndcg_at_3": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 30
+        },
         "baseline_majority_class_top1": {
           "value": 0.0809,
           "ci95": [
@@ -82,6 +98,22 @@
           ],
           "interviews": 30,
           "examples": 371
+        },
+        "ndcg_at_1": {
+          "mean": 0.9972,
+          "ci95": [
+            0.9917,
+            1.0
+          ],
+          "n": 30
+        },
+        "ndcg_at_3": {
+          "mean": 0.999,
+          "ci95": [
+            0.9969,
+            1.0
+          ],
+          "n": 30
         },
         "baseline_majority_class_top1": {
           "value": 0.0809,
@@ -139,6 +171,22 @@
           ],
           "interviews": 300,
           "examples": 3772
+        },
+        "ndcg_at_1": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 300
+        },
+        "ndcg_at_3": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 300
         },
         "baseline_majority_class_top1": {
           "value": 0.0795,
@@ -198,6 +246,22 @@
           "interviews": 300,
           "examples": 3772
         },
+        "ndcg_at_1": {
+          "mean": 0.9972,
+          "ci95": [
+            0.9956,
+            0.9989
+          ],
+          "n": 300
+        },
+        "ndcg_at_3": {
+          "mean": 0.999,
+          "ci95": [
+            0.9984,
+            0.9996
+          ],
+          "n": 300
+        },
         "baseline_majority_class_top1": {
           "value": 0.0795,
           "ci95": [
@@ -238,6 +302,119 @@
         }
       }
     }
+  },
+  "question_choice_comparison": {
+    "official_test": {
+      "ontology_rule_selection": {
+        "top1": {
+          "value": 0.1617,
+          "ci95": [
+            0.1596,
+            0.1639
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "ndcg_at_1": {
+          "mean": 0.162,
+          "ci95": [
+            0.1598,
+            0.1641
+          ],
+          "n": 30
+        },
+        "ndcg_at_3": {
+          "mean": 0.162,
+          "ci95": [
+            0.1598,
+            0.1641
+          ],
+          "n": 30
+        }
+      },
+      "logistic_regression_recorded_wording": {
+        "top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "ndcg_at_1": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 30
+        },
+        "ndcg_at_3": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 30
+        }
+      },
+      "oracle_template_lookup": {
+        "top1": {
+          "value": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "ndcg_at_1": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 30
+        },
+        "ndcg_at_3": {
+          "mean": 1.0,
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "n": 30
+        }
+      },
+      "logistic_regression_app_labels": {
+        "top1": {
+          "value": 0.9973,
+          "ci95": [
+            0.9918,
+            1.0
+          ],
+          "interviews": 30,
+          "examples": 371
+        },
+        "ndcg_at_1": {
+          "mean": 0.9972,
+          "ci95": [
+            0.9917,
+            1.0
+          ],
+          "n": 30
+        },
+        "ndcg_at_3": {
+          "mean": 0.999,
+          "ci95": [
+            0.9969,
+            1.0
+          ],
+          "n": 30
+        }
+      }
+    },
+    "note": "Oracle lookup is trained only on training-split complaint/state templates. Single-choice ontology/oracle policies have no meaningful ranking beyond top-1; their NDCG@3 equals NDCG@1. Scores measure agreement with recorded template choices, not clinical benefit."
   },
   "loco_unseen_complaint": {
     "burning in the chest and stomach after meals": {
@@ -367,6 +544,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.7389,
+                "ci95": [
+                  0.6167,
+                  0.85
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -391,6 +576,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -409,6 +595,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9778,
+                "ci95": [
+                  0.9333,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -433,6 +627,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -451,6 +646,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9111,
+                "ci95": [
+                  0.8,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -475,6 +678,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -490,6 +694,14 @@
                 "ci95": [
                   0.4925,
                   0.5179
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -517,6 +729,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.05555555555555555,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -532,6 +745,14 @@
                 "ci95": [
                   0.5056,
                   0.5301
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -559,6 +780,58 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.027777777777777776,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.5175,
+                "ci95": [
+                  0.5056,
+                  0.5301
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.1667,
+                "ci95": [
+                  0.0333,
+                  0.3
+                ],
+                "n": 30
+              },
+              "duplicate_question_rate": 0.027777777777777776,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -687,6 +960,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -711,6 +992,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -729,6 +1011,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9889,
+                "ci95": [
+                  0.9667,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -753,6 +1043,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.041666666666666664,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -771,6 +1062,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9889,
+                "ci95": [
+                  0.9667,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -795,6 +1094,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.041666666666666664,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -813,6 +1113,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -837,6 +1145,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.041666666666666664,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -855,6 +1164,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -879,6 +1196,58 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.041666666666666664,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.6665,
+                "ci95": [
+                  0.6538,
+                  0.681
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "duplicate_question_rate": 0.041666666666666664,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -1007,6 +1376,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.3667,
                 "ci95": [
@@ -1031,6 +1408,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -1046,6 +1424,14 @@
                 "ci95": [
                   0.6274,
                   0.6628
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -1073,6 +1459,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.03333333333333333,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -1088,6 +1475,14 @@
                 "ci95": [
                   0.7058,
                   0.7417
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -1115,6 +1510,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.03333333333333333,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -1130,6 +1526,14 @@
                 "ci95": [
                   0.8147,
                   0.8438
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -1157,6 +1561,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.03333333333333333,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -1172,6 +1577,14 @@
                 "ci95": [
                   0.8147,
                   0.8438
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -1199,6 +1612,58 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.03333333333333333,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.8284,
+                "ci95": [
+                  0.8147,
+                  0.8438
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "duplicate_question_rate": 0.03333333333333333,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -1327,6 +1792,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1351,6 +1824,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -1366,6 +1840,14 @@
                 "ci95": [
                   0.7447,
                   0.778
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -1393,6 +1875,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.027777777777777776,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.8667,
                 "ci95": [
@@ -1411,6 +1894,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1435,6 +1926,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.027777777777777776,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.3,
                 "ci95": [
@@ -1453,6 +1945,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1477,6 +1977,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.027777777777777776,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.2,
                 "ci95": [
@@ -1495,6 +1996,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1519,6 +2028,58 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.027777777777777776,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.2,
+                "ci95": [
+                  0.0667,
+                  0.3667
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "duplicate_question_rate": 0.027777777777777776,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.2,
                 "ci95": [
@@ -1647,6 +2208,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1671,6 +2240,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -1686,6 +2256,14 @@
                 "ci95": [
                   0.7457,
                   0.7889
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 30
               },
@@ -1713,6 +2291,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.024691358024691357,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.3,
                 "ci95": [
@@ -1731,6 +2310,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1755,6 +2342,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.02207505518763797,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.3,
                 "ci95": [
@@ -1773,6 +2361,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1797,6 +2393,7 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.02207505518763797,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.3,
                 "ci95": [
@@ -1815,6 +2412,14 @@
                 ],
                 "n": 30
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -1839,6 +2444,58 @@
                 ],
                 "n": 30
               },
+              "duplicate_question_rate": 0.02207505518763797,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.3,
+                "ci95": [
+                  3.0667,
+                  3.5667
+                ],
+                "n": 30
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.9744,
+                "ci95": [
+                  0.9615,
+                  0.9872
+                ],
+                "n": 30
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 30
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 30
+              },
+              "questions_per_interview": {
+                "mean": 15.1,
+                "ci95": [
+                  14.9333,
+                  15.2667
+                ],
+                "n": 30
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.3333,
+                "ci95": [
+                  0.1667,
+                  0.5
+                ],
+                "n": 30
+              },
+              "duplicate_question_rate": 0.02207505518763797,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.3,
                 "ci95": [
@@ -1973,6 +2630,9 @@
         },
         "learned_ranker": {
           "rad": 0.333
+        },
+        "learned_ranker_recorded": {
+          "rad": 0.333
         }
       },
       "ordering_agreement": {
@@ -1997,6 +2657,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.6256,
+                "ci95": [
+                  0.5794,
+                  0.6739
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -2021,6 +2689,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2039,6 +2708,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9711,
+                "ci95": [
+                  0.9533,
+                  0.9867
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -2063,6 +2740,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -2081,6 +2759,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9511,
+                "ci95": [
+                  0.9278,
+                  0.9722
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -2105,6 +2791,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -2120,6 +2807,14 @@
                 "ci95": [
                   0.4974,
                   0.5053
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -2147,6 +2842,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.07388888888888889,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2162,6 +2858,14 @@
                 "ci95": [
                   0.5256,
                   0.533
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -2189,6 +2893,58 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.014444444444444444,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.5294,
+                "ci95": [
+                  0.5256,
+                  0.533
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 6.0,
+                "ci95": [
+                  6.0,
+                  6.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.0867,
+                "ci95": [
+                  0.0567,
+                  0.12
+                ],
+                "n": 300
+              },
+              "duplicate_question_rate": 0.014444444444444444,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2317,6 +3073,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -2341,6 +3105,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2356,6 +3121,14 @@
                 "ci95": [
                   0.4473,
                   0.4602
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9856,
+                "ci95": [
+                  0.9767,
+                  0.9933
                 ],
                 "n": 300
               },
@@ -2383,6 +3156,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.05541666666666667,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -2398,6 +3172,14 @@
                 "ci95": [
                   0.5356,
                   0.5466
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 0.9856,
+                "ci95": [
+                  0.9767,
+                  0.9933
                 ],
                 "n": 300
               },
@@ -2425,6 +3207,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0375,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -2443,6 +3226,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -2467,6 +3258,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.05541666666666667,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2485,6 +3277,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 1.0,
                 "ci95": [
@@ -2509,6 +3309,58 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.05541666666666667,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.6607,
+                "ci95": [
+                  0.6566,
+                  0.6648
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 8.0,
+                "ci95": [
+                  8.0,
+                  8.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "duplicate_question_rate": 0.05541666666666667,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2637,6 +3489,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.5733,
                 "ci95": [
@@ -2661,6 +3521,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2676,6 +3537,14 @@
                 "ci95": [
                   0.6062,
                   0.62
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -2703,6 +3572,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.044333333333333336,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -2718,6 +3588,14 @@
                 "ci95": [
                   0.6824,
                   0.6963
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -2745,6 +3623,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.044333333333333336,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -2760,6 +3639,14 @@
                 "ci95": [
                   0.8156,
                   0.8245
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -2787,6 +3674,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.044333333333333336,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2802,6 +3690,14 @@
                 "ci95": [
                   0.8156,
                   0.8245
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -2829,6 +3725,58 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.044333333333333336,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.82,
+                "ci95": [
+                  0.8156,
+                  0.8245
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 10.0,
+                "ci95": [
+                  10.0,
+                  10.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "duplicate_question_rate": 0.044333333333333336,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2957,6 +3905,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -2981,6 +3937,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -2996,6 +3953,14 @@
                 "ci95": [
                   0.7413,
                   0.7539
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -3023,6 +3988,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.036944444444444446,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.9567,
                 "ci95": [
@@ -3041,6 +4007,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3065,6 +4039,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.036944444444444446,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 1.66,
                 "ci95": [
@@ -3083,6 +4058,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3107,6 +4090,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.036944444444444446,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.2567,
                 "ci95": [
@@ -3125,6 +4109,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3149,6 +4141,58 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.036944444444444446,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 0.2567,
+                "ci95": [
+                  0.2067,
+                  0.3067
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 12.0,
+                "ci95": [
+                  12.0,
+                  12.0
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "duplicate_question_rate": 0.036944444444444446,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.2567,
                 "ci95": [
@@ -3277,6 +4321,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3301,6 +4353,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 0.0,
                 "ci95": [
@@ -3316,6 +4369,14 @@
                 "ci95": [
                   0.7461,
                   0.763
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
                 ],
                 "n": 300
               },
@@ -3343,6 +4404,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.032148900169204735,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.66,
                 "ci95": [
@@ -3361,6 +4423,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3385,6 +4455,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0287816489937243,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.66,
                 "ci95": [
@@ -3403,6 +4474,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3427,6 +4506,7 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0287816489937243,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.66,
                 "ci95": [
@@ -3445,6 +4525,14 @@
                 ],
                 "n": 300
               },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
               "interviews_with_safety_critical_omission": {
                 "mean": 0.0,
                 "ci95": [
@@ -3469,6 +4557,58 @@
                 ],
                 "n": 300
               },
+              "duplicate_question_rate": 0.0287816489937243,
+              "questions_outside_dataset_schema_per_interview": {
+                "mean": 3.66,
+                "ci95": [
+                  3.5633,
+                  3.7501
+                ],
+                "n": 300
+              }
+            },
+            "learned_ranker_recorded": {
+              "required_slot_coverage": {
+                "mean": 0.9592,
+                "ci95": [
+                  0.9551,
+                  0.9636
+                ],
+                "n": 300
+              },
+              "mandatory_safety_question_coverage": {
+                "mean": 1.0,
+                "ci95": [
+                  1.0,
+                  1.0
+                ],
+                "n": 300
+              },
+              "interviews_with_safety_critical_omission": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "n": 300
+              },
+              "questions_per_interview": {
+                "mean": 15.4033,
+                "ci95": [
+                  15.34,
+                  15.4633
+                ],
+                "n": 300
+              },
+              "duplicate_questions_per_interview": {
+                "mean": 0.4433,
+                "ci95": [
+                  0.3899,
+                  0.4967
+                ],
+                "n": 300
+              },
+              "duplicate_question_rate": 0.0287816489937243,
               "questions_outside_dataset_schema_per_interview": {
                 "mean": 3.66,
                 "ci95": [
@@ -3602,6 +4742,9 @@
           "rad": 0.53
         },
         "learned_ranker": {
+          "rad": 0.53
+        },
+        "learned_ranker_recorded": {
           "rad": 0.53
         }
       },
@@ -3951,6 +5094,92 @@
           }
         },
         "learned_ranker": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 15.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.9231,
+            "safety_omission_rate": 0.0,
+            "questions": 16.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 1.0,
+            "safety_omission_rate": 0.0,
+            "questions": 14.0
+          }
+        },
+        "learned_ranker_recorded": {
           "burning in the chest and stomach after meals": {
             "n": 26,
             "coverage": 0.9231,
@@ -4467,6 +5696,92 @@
             "safety_omission_rate": 1.0,
             "questions": 8.0
           }
+        },
+        "learned_ranker_recorded": {
+          "burning in the chest and stomach after meals": {
+            "n": 26,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "chest pain": {
+            "n": 13,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "constipation": {
+            "n": 17,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "cough and breathlessness": {
+            "n": 26,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "difficulty sleeping": {
+            "n": 9,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "excessive thirst and frequent urination": {
+            "n": 32,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "fever": {
+            "n": 28,
+            "coverage": 0.6667,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "headache with dizziness": {
+            "n": 36,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "itching with skin rash": {
+            "n": 19,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "joint pain and morning stiffness": {
+            "n": 10,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "knee pain": {
+            "n": 34,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "low back pain": {
+            "n": 27,
+            "coverage": 0.6923,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "pain in the abdomen": {
+            "n": 17,
+            "coverage": 0.6154,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          },
+          "sudden weakness on one side and slurred speech": {
+            "n": 6,
+            "coverage": 0.75,
+            "safety_omission_rate": 1.0,
+            "questions": 8.0
+          }
         }
       },
       "by_script_full_budget": {
@@ -4527,6 +5842,20 @@
           }
         },
         "learned_ranker": {
+          "devanagari": {
+            "n": 255,
+            "coverage": 0.9593,
+            "safety_omission_rate": 0.0,
+            "questions": 15.41
+          },
+          "latin": {
+            "n": 45,
+            "coverage": 0.959,
+            "safety_omission_rate": 0.0,
+            "questions": 15.38
+          }
+        },
+        "learned_ranker_recorded": {
           "devanagari": {
             "n": 255,
             "coverage": 0.9593,

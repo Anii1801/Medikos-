@@ -13,7 +13,7 @@ export PYTHONPATH=.
 
 python -m training.audit_datasets          # profile every file on disk -> evaluation_results/dataset_profile.json
 python -m training.adaptive.train          # fit on TRAIN split, choose C on VALID, write models/adaptive_ranker/v1/ (test split never read)
-python -m training.adaptive.evaluate       # label audit + next-slot metrics + 3-policy replay + LOCO -> evaluation_results/adaptive/
+python -m training.adaptive.evaluate       # label audit + four-way next-slot comparison + policy replays + LOCO
 python -m training.lab_extraction_eval --label current
 python -m training.lab_scan_eval           # needs tesseract
 python -m training.hindi_nlp_eval --label current
@@ -23,6 +23,11 @@ python scripts/generate_project_status.py  # runs pytest, writes docs/PROJECT_ST
 python -m pytest -q                        # software tests
 MEDIKIOSK_QUESTION_POLICY=learned uvicorn app.main:app --port 8000   # run the app with the learned policy (default: ontology)
 ```
+
+On the current macOS host, use the existing environment without reinstalling:
+`cd backend && PYTHONPATH=. ../.venv/bin/python -m training.adaptive.evaluate`.
+Install local raster OCR support separately with `brew install tesseract`;
+optional Hindi language data: `brew install tesseract-lang`.
 
 ## What the ranker is
 
@@ -57,3 +62,69 @@ extraction-first design already in the repository (facts with provenance feed th
 ## Known limitations
 
 Synthetic data; provisional required-slot and safety-critical lists; thresholds fixed a priori; no real-patient validation; the unseen-complaint deferral does not work (see EVALUATION_RESULTS A3).
+
+## Model selection and training decisions
+
+| Task | Selected model / baseline | Data actually available | Decision, license and integration |
+|---|---|---|---|
+| PDF/image OCR | `pypdf` embedded-text extraction; Tesseract OCR for raster/scanned pages | 0 image/PDF files in the dataset tree. The 892 OCR pairs are simulated text, and the two image manifests reference source ZIPs that are absent. | Keep OCR as an extraction component, not a clinical-language model. Tesseract is Apache-2.0; its language-data files have their own terms. No OCR model was trained or evaluated on images. Tesseract is not installed on the audited Mac, so raster OCR cannot be reproduced there. |
+| Clinical entities | Existing deterministic `ocr.extract` / `ClinicalNLPService` rules | 1,238 lab rows and 1,011 prescription rows contain normalized fields, but no source report text with exact entity spans. | Do not fine-tune NER from field rows. `emilyalsentzer/Bio_ClinicalBERT` is an English candidate encoder; its official model card/API declares MIT. A general alternative is DistilBERT (`Apache-2.0`). Both are deferred until licensed source text and adjudicated token spans exist. Rules remain the live baseline. |
+| Negation, uncertainty and temporality | Existing rule-based `ClinicalNLPService` | No independently adjudicated assertion/temporality labels; structured histories are synthetic and not mention-level annotations. | Do not train a classifier yet. Keep the explicit assertion, temporal context, source span, and unverified/clinician-review states; collect annotated positive, denied, uncertain, historical, hypothetical, and missing examples first. |
+| Adaptive question ranking | Multinomial logistic regression; deterministic ontology order is the safe default/baseline | 300 synthetic interviews (240/30/30 patient-group split); 7,863 turns, reconstructed into pre-answer states. | Retrained and evaluated below. scikit-learn is BSD-3-Clause. Checkpoint is `adaptive_ranker/v1`, loaded by `app/adaptive/ranker.py`; opt-in only with `MEDIKIOSK_QUESTION_POLICY=learned`. Do not claim clinical utility: its test result matches an oracle complaint/template lookup. |
+| Evidence-grounded report generation | Deterministic extraction-first summary | 300 synthetic history-summary pairs; 207 ACI-Bench dialogue/note pairs; 4,966 note-only MTSamples records. ACI-Bench terms are unresolved in the local register, and the pairs lack the report's required document/source evidence links. | Keep the deterministic summary and clinician approval. Do not SFT on note-only rows or treat ungrounded dialogue/note pairs as evidence-grounded targets. Qwen2.5-1.5B-Instruct is a candidate (official card: Apache-2.0), not installed, benchmarked, or fine-tuned. |
+| Contradiction detection | Deterministic source-preserving checks in `ClinicalNLPService` and the summary pipeline | No adjudicated conflict/non-conflict corpus. | Keep both sources and request review; a supervised classifier is deferred until conflict labels and relevant time/unit context are collected. |
+| Red flags | `RedFlagEngine` deterministic rules; classifier adapter remains unavailable | 300 synthetic/demo cases only; rule metadata is marked provisional pending local clinician sign-off. | Never replace or suppress deterministic safety findings with a learned model. The bundled audit is software-only, not clinical sensitivity/specificity evidence. |
+
+Model-card license metadata was checked on the official Hugging Face model pages on 2026-10-22:
+[Bio_ClinicalBERT](https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT),
+[DistilBERT base uncased](https://huggingface.co/distilbert/distilbert-base-uncased), and
+[Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct).
+Upstream dataset permissions remain separate and must be verified before use.
+
+## Reproduced experiment on 2026-10-22
+
+The ranker was retrained from the bundled interview data with seed 42. The patient-group split contained 240 train, 30 validation, and 30 held-out test interviews; 6,056 training and 746 validation examples were generated from the recorded and app-label views. Validation selected `C=100` from `{0.1, 1, 10, 100}`. Training took 2.21 seconds on the local CPU environment; the 240,117-byte JSON checkpoint SHA-256 is recorded in `backend/models/adaptive_ranker/v1/manifest.json`.
+
+| Held-out test view | Interviews / next-slot examples | Top-1 | Top-3 | NDCG@1 | NDCG@3 | Majority baseline | Oracle template lookup |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Recorded complaint wording | 30 / 371 | 1.000 | 1.000 | 1.000 | 1.000 | 0.081 | 1.000 |
+| App ontology-label wording | 30 / 371 | 0.997 | 1.000 | 0.997 | 0.999 | 0.081 | 1.000 |
+
+These are repeated-template imitation results on synthetic data, not evidence of clinical relevance or generalization. The model has no answer-content features, and the oracle template baseline reaches the same score on the recorded wording. The independent deterministic ontology and mandatory safety-question layer remain authoritative.
+
+The held-out experiment also compares next-slot agreement across four
+selection approaches (30 test interviews / 371 pre-answer states):
+
+| selector | top-1 | NDCG@1 | NDCG@3 |
+|---|---:|---:|---:|
+| Existing ontology/rule selection | 0.162 | 0.162 | 0.162 |
+| Logistic regression, recorded patient wording | 1.000 | 1.000 | 1.000 |
+| Logistic regression, application labels | 0.997 | 0.997 | 0.999 |
+| Training-only oracle complaint/state template lookup | 1.000 | 1.000 | 1.000 |
+
+The single-choice ontology and oracle policies have no ranking beyond their
+chosen next question, so their NDCG@3 equals NDCG@1. The oracle is a deliberately
+strong template-imitation baseline, not a deployable or clinical comparator.
+The top-1/NDCG results measure agreement with recorded synthetic choices only.
+The operational replays separately measure required-slot coverage, mandatory
+safety-question coverage, safety-critical omissions, duplicate-question rate,
+and questions asked per interview. `learned_ranker_recorded` and
+`learned_ranker` (application-label wording) both preserve the same mandatory
+safety layer; the learned ranker remains opt-in.
+
+## Hardware and dependency audit
+
+Audited on Apple M4 macOS ARM with 16 GiB system memory. The project environment has Python 3.14.7, scikit-learn 1.9.1, NumPy 2.5.4, SciPy 1.18.1, Pillow 13.0.0, pypdf 6.21.1, and ReportLab 5.0.1. PyTorch, Transformers, Datasets, and PEFT are not installed; no NVIDIA/CUDA device or Tesseract binary is available. Apple Metal hardware exists, but a PyTorch/MPS path was not available to test. The small feature-based ranker can be trained with the existing CPU stack. No transformer fine-tuning was attempted and no optional packages were installed.
+
+## Annotation required before further training
+
+- **NER / assertion / temporality:** store the de-identified source text and immutable document/group ID; annotate exact character offsets and entity type (symptom, condition, medication, strength/dose, route, frequency, lab name/value/unit, date, allergy, procedure), plus assertion (present/absent/uncertain/historical/hypothetical), experiencer, and temporal context. Independently annotate and adjudicate a held-out patient/document-group split. The current lab/prescription tables do not contain those spans.
+- **Question ranking:** capture the interview state before each turn, the eligible candidate questions, unresolved slots, answer/budget context, and clinician relevance judgments. Vary question order naturally and split by patient; one synthetic template cannot establish a useful learned ranking.
+- **Report generation:** create reviewed structured targets whose every clinical claim points to evidence IDs, source document/page/span, date, assertion, uncertainty, and conflicts. Include missing-information labels and clinically important omissions; do not use note-only corpora as paired inputs.
+- **OCR / ASR:** retain permissioned source images/audio with exact transcripts and document/speaker-group keys. Simulated text corruption is not a substitute for images or audio.
+
+The proposed review record is defined in [`clinical_annotation.schema.json`](../backend/training/configs/clinical_annotation.schema.json); it requires de-identification, permission status, source-text SHA-256, opaque group IDs, exact character offsets, and adjudication state. No annotated corpus was fabricated. The dataset profile is recalculated by `cd backend && PYTHONPATH=. python -m training.audit_datasets`; the detailed on-disk counts, provenance and limitations are in [`DATASET_AUDIT.md`](./DATASET_AUDIT.md). The existing manifest-based `training.validate` and `training.prepare` commands provide schema-field checks, duplicate fingerprints, grouped splits, split-leakage assertions, seeds and file hashes. Current upstream licenses for bundled external-origin corpora are not all verified, so the audit treats them as local-only pending confirmation.
+
+## Research-paper experimental setup
+
+For a reproducible report of the existing experiment, identify the task as next-question-slot imitation, the algorithm as multinomial logistic regression, seed 42, feature schema as chief-complaint character 2–4-grams plus language script and the set of already asked canonical slots, and data as the synthetic 300-interview corpus. Report patient-level 240/30/30 splits, validation-only selection of `C`, the held-out 30-interview/371-example results above, and the template-lookup baseline. State explicitly that no clinical validation, prospective workflow study, neural fine-tuning, OCR image evaluation, acoustic ASR evaluation, or report-generation model comparison was performed. Do not present the test top-1 score as clinical accuracy.

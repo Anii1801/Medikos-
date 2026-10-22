@@ -25,10 +25,15 @@ def adaptive() -> str:
          f"- Question text variants per slot: {set(a['ai_question_text_variants_per_slot'].values())} (one Hindi, one English). Triage priority = deterministic function of severity: {a['triage_is_function_of_severity']['match']}/{a['triage_is_function_of_severity']['of']}.",
          f"- {a['answer_entropy']['pairs_with_a_single_constant_answer']} of {a['answer_entropy']['complaint_slot_pairs']} (complaint, slot) pairs have a single constant answer.",
          f"- Conclusion: {a['conclusion']}", "", "### A2. Next-slot prediction (recorded next question)", "",
-         "| protocol | view | learned top-1 | top-3 | majority-class top-1 | template lookup (oracle complaint) top-1 |", "|---|---|---|---|---|---|"]
+         "| protocol | view | learned top-1 | top-3 | NDCG@1 | NDCG@3 | majority-class top-1 | template lookup (oracle complaint) top-1 |", "|---|---|---|---|---|---|---|---|"]
     for proto in ("official_test", "grouped_cv"):
         for v, d in r["next_slot"][proto].items():
-            L.append(f"| {proto} | {v} | {ci(d['top1'])} | {ci(d['top3'])} | {d['baseline_majority_class_top1']['value']:.3f} | {d['baseline_template_lookup_with_oracle_complaint_top1']['value']:.3f} |")
+            L.append(f"| {proto} | {v} | {ci(d['top1'])} | {ci(d['top3'])} | {ci(d['ndcg_at_1'])} | {ci(d['ndcg_at_3'])} | {d['baseline_majority_class_top1']['value']:.3f} | {d['baseline_template_lookup_with_oracle_complaint_top1']['value']:.3f} |")
+    L += ["", "### A2b. Four-way next-question choice comparison (untouched official test)", "",
+          "| selector | top-1 | NDCG@1 | NDCG@3 |", "|---|---|---|---|"]
+    for selector, metrics in r["question_choice_comparison"]["official_test"].items():
+        L.append(f"| {selector} | {ci(metrics['top1'])} | {ci(metrics['ndcg_at_1'])} | {ci(metrics['ndcg_at_3'])} |")
+    L += ["", r["question_choice_comparison"]["note"]]
     L += ["", "### A3. Unseen-complaint generalisation (leave-one-complaint-out)", "",
           "| held-out complaint | states | deferred to reviewed policy | top-1 when model used | wrong but used | top-1 overall |", "|---|---:|---:|---:|---:|---:|"]
     for c, d in r["loco_unseen_complaint"].items():
@@ -37,9 +42,9 @@ def adaptive() -> str:
         L += ["", f"### {title}", ""]
         for b in ("none", "12", "10", "8", "6"):
             s = r["policy_comparison"][proto]["summary"][b]["policies"]
-            L += [f"**Budget: {'no limit' if b == 'none' else b + ' questions max'}**", "", "| policy | required-slot coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | questions outside dataset schema |", "|---|---|---|---|---|---|"]
+            L += [f"**Budget: {'no limit' if b == 'none' else b + ' questions max'}**", "", "| policy | required-slot coverage | mandatory safety-question coverage | interviews with a safety-critical omission | questions | duplicate-slot questions | duplicate-question rate | questions outside dataset schema |", "|---|---|---|---|---|---|---|---|"]
             for p, m in s.items():
-                L.append(f"| {p} | {ci(m['required_slot_coverage'])} | {ci(m['interviews_with_safety_critical_omission'])} | {m['questions_per_interview']['mean']:.1f} | {m['duplicate_questions_per_interview']['mean']:.2f} | {m['questions_outside_dataset_schema_per_interview']['mean']:.2f} |")
+                L.append(f"| {p} | {ci(m['required_slot_coverage'])} | {ci(m['mandatory_safety_question_coverage'])} | {ci(m['interviews_with_safety_critical_omission'])} | {m['questions_per_interview']['mean']:.1f} | {m['duplicate_questions_per_interview']['mean']:.2f} | {m['duplicate_question_rate']:.3f} | {m['questions_outside_dataset_schema_per_interview']['mean']:.2f} |")
             L.append("")
             if proto == "grouped_cv_300":
                 L += ["Paired differences (same interviews; coverage / safety-omission rate / questions):", ""]

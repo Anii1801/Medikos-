@@ -95,12 +95,27 @@ function reportSummaryHtml(rep, opt) {
     const label = r.source_type === "document" ? "document: " + (r.filename || r.source_id) : "patient answer: " + r.source_id;
     return `<span class="source-badge ${sourceClass(r)}">${esc(label)}</span>`;
   }).join(" ");
+  const findings = x => (x.findings || []).length ? `<ul class="caption evidence-list">${x.findings.map(f => {
+    const source = f.source || {};
+    const value = f.test_name
+      ? `${f.test_name}: ${f.result ?? "value not extracted"}${f.unit ? ` ${f.unit}` : ""}${f.reference_interval ? ` · reference ${f.reference_interval}` : ""}`
+      : `${f.field || "finding"}: ${typeof f.value === "string" ? f.value : JSON.stringify(f.value ?? "value not extracted")}`;
+    const date = f.report_date || f.extracted_report_date || f.entered_document_date;
+    const location = [f.source_document, date, source.page ? `page ${source.page}` : null,
+      source.start != null && source.end != null ? `text ${source.start}-${source.end}` : null].filter(Boolean).join(" · ");
+    return `<li><b>${esc(value)}</b>${f.status ? ` · ${esc(f.status)}` : ""}
+      ${location ? `<br><span class="mut">${esc(location)}</span>` : ""}
+      ${f.date_conflict ? `<br><span class="caption" style="color:var(--warning)">Entered and extracted document dates conflict.</span>` : ""}
+      ${f.uncertainty?.length ? `<br><span class="caption" style="color:var(--warning)">Verify: ${esc(f.uncertainty.join("; "))}</span>` : ""}
+      ${f.verification_status ? `<br><span class="mut">${esc(f.verification_status.replace(/_/g, " "))}</span>` : ""}</li>`;
+  }).join("")}</ul>` : "";
   const miss = cs.missing_or_uncertain || {};
   const secs = (opt.sections || cs.sections).map((x, i) => `
     <div class="sum-sec">
       <h3>${esc(x.title)}</h3>
-      ${edit ? `<textarea data-i="${i}" aria-label="${esc(x.title)}" style="min-height:${Math.min(200, 60 + x.text.length / 2)}px">${esc(x.text)}</textarea>`
-             : `<p>${esc(x.text)}</p>`}
+      ${x.text ? (edit ? `<textarea data-i="${i}" aria-label="${esc(x.title)}" style="min-height:${Math.min(200, 60 + x.text.length / 2)}px">${esc(x.text)}</textarea>`
+             : `<p>${esc(x.text)}</p>`) : ""}
+      ${findings(x)}
       ${(cs.sections[i] && refs(cs.sections[i])) ? `<p class="caption mut">Source: ${refs(cs.sections[i])}</p>` : ""}
       ${(cs.sections[i] && (cs.sections[i].review_flags || []).length) ? `<p class="caption" style="color:var(--warning)">Review: ${esc(cs.sections[i].review_flags.join(", "))}</p>` : ""}
     </div>`).join("");

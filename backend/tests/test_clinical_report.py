@@ -104,6 +104,22 @@ def test_missing_history_is_marked_not_reported_never_negative():
     assert not any(f["assertion"] == "absent" for f in s["patient_stated_findings"])
 
 
+def test_report_omits_empty_sections_instead_of_filling_them_with_boilerplate():
+    sections = report({"cc": "Fever"})["clinical_summary"]["sections"]
+    by_title = {section["title"]: section for section in sections}
+    assert by_title["Chief complaint"]["text"] == "Fever"
+    assert "Associated symptoms" not in by_title
+    assert "Relevant history" not in by_title
+    assert "Current medications and allergies" not in by_title
+    assert "Patient's own words" not in by_title
+
+
+def test_other_complaint_without_free_text_is_not_silently_dropped():
+    sections = report({"cc": "Other"})["clinical_summary"]["sections"]
+    complaint = next(section for section in sections if section["title"] == "Chief complaint")
+    assert complaint["text"] == "Other (details not reported)"
+
+
 def test_every_stated_finding_is_traceable_to_input_text():
     s = report(EMERGENCY)["clinical_summary"]
     source_text = " ".join(str(v) for v in EMERGENCY.values()).lower()

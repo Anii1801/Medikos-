@@ -1,9 +1,10 @@
-import io, os, tempfile
+import io, json, os, tempfile
 import shutil
 import pytest
 os.environ["MEDIKIOSK_DB"] = os.path.join(tempfile.mkdtemp(), "t.db")
 from fastapi.testclient import TestClient
 from PIL import Image, ImageDraw
+from reportlab.pdfgen import canvas
 from app.main import app
 from app import ontology, ocr, summary, db, main as main_module
 
@@ -115,6 +116,94 @@ def test_guest_submission_keeps_encounter_document_and_source_evidence_snapshot(
     assert count > 0
 
 
+def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_cleanup():
+    token = c.post("/api/auth/guest?name=Evidence&age=46").json()["token"]
+    headers = H(token)
+    for purpose in ("history_capture", "abdm_share"):
+        assert c.post("/api/consent", json={"purpose": purpose}, headers=headers).status_code == 200
+
+    def make_pdf(lines):
+        stream = io.BytesIO()
+        page = canvas.Canvas(stream)
+        for index, line in enumerate(lines):
+            page.drawString(48, 780 - index * 24, line)
+        page.save()
+        return stream.getvalue()
+
+    sources = {
+        "lab.pdf": make_pdf(["Laboratory Report", "Report date: 2025-03-12",
+                             "Haemoglobin 9.1 g/dL (13-17) L", "Creatinine 1.0 mg/dL (0.6-1.3) N"]),
+        "prescription.pdf": make_pdf(["Prescription 2025-03-13",
+                                      "Tab Warfarin 5 mg OD", "Tab Aspirin 75 mg OD"]),
+    }
+    uploaded = {}
+    for filename, content in sources.items():
+        response = c.post("/api/documents", files={"file": (filename, content, "application/pdf")}, headers=headers)
+        assert response.status_code == 200, response.text
+        uploaded[filename] = response.json()
+        assert uploaded[filename]["processing_status"] == "extracted"
+        assert uploaded[filename]["engine"] == "pdf-text"
+
+    response = c.post("/api/submit", json={"answers": {"cc": "Fever", "meds": "Warfarin 2 mg"}}, headers=headers)
+    assert response.status_code == 200, response.text
+    record_id = response.json()["record_id"]
+    assert c.get("/api/documents", headers=headers).json() == []
+
+    doctor = c.post("/api/auth/login", json={"username": "doctor", "password": "doctor123"}).json()["token"]
+    record = c.get(f"/api/doctor/records/{record_id}", headers=H(doctor)).json()
+    by_name = {document["filename"]: document for document in record["documents"]}
+    assert set(by_name) == set(sources)
+    lab_doc = by_name["lab.pdf"]
+    rx_doc = by_name["prescription.pdf"]
+    assert c.get(f"/api/doctor/records/{record_id}/documents/{lab_doc['id']}/file",
+                 headers=H(doctor)).content == sources["lab.pdf"]
+    report = record["clinical_report"]["clinical_summary"]
+    lab_section = next(section for section in report["sections"]
+                       if section["title"] == "Laboratory and Investigation Findings")
+    findings = {finding["test_name"]: finding for finding in lab_section["findings"]}
+    assert findings["Haemoglobin"]["result"] == 9.1
+    assert findings["Haemoglobin"]["unit"] == "g/dL"
+    assert findings["Haemoglobin"]["report_date"] == "2025-03-12"
+    assert findings["Haemoglobin"]["reference_interval"] == "13–17"
+    assert findings["Haemoglobin"]["source_document_id"] == lab_doc["id"]
+    assert findings["Haemoglobin"]["source"]["page"] == 1
+    assert findings["Haemoglobin"]["source"]["start"] < findings["Haemoglobin"]["source"]["end"]
+    evidence_section = next(section for section in report["sections"]
+                            if section["title"] == "Current medications and allergies")
+    med_facts = [finding for finding in evidence_section["findings"] if finding["field"] == "medication"]
+    assert {finding["source_document_id"] for finding in med_facts} == {rx_doc["id"]}
+    assert {finding["value"]["name"] for finding in med_facts} >= {"Warfarin", "Aspirin"}
+    med_values = {finding["value"]["name"]: finding["value"] for finding in med_facts}
+    assert (med_values["Warfarin"]["dose"], med_values["Warfarin"]["frequency"]) == ("5 mg", "ONCE DAILY")
+    assert (med_values["Aspirin"]["dose"], med_values["Aspirin"]["frequency"]) == ("75 mg", "ONCE DAILY")
+    assert all(finding["report_date"] == "2025-03-13" for finding in med_facts)
+    assert any(section["title"] == "Conflicts requiring review" for section in report["sections"])
+    assert any(section["title"] == "Items requiring clinician verification" for section in report["sections"])
+    reviewed = c.put(f"/api/doctor/records/{record_id}",
+                     json={"sections": record["sections"], "status": "amended"},
+                     headers=H(doctor))
+    assert reviewed.status_code == 200, reviewed.text
+    reviewed_record = c.get(f"/api/doctor/records/{record_id}", headers=H(doctor)).json()
+    reviewed_lab = next(section for section in reviewed_record["sections"]
+                        if section["title"] == "Laboratory and Investigation Findings")
+    assert reviewed_lab["findings"][0]["source_document_id"] == lab_doc["id"]
+    reviewed_report_lab = next(section for section in reviewed_record["clinical_report"]["clinical_summary"]["sections"]
+                               if section["title"] == "Laboratory and Investigation Findings")
+    assert reviewed_report_lab == reviewed_lab
+
+    with db.tx() as conn:
+        row = conn.execute("""SELECT e.user_id,e.record_id,e.record_document_id,e.status,e.source,
+                                     r.user_id AS record_user_id,rd.record_id AS snapshot_record_id,rd.filename
+                              FROM clinical_evidence e
+                              JOIN records r ON r.id=e.record_id
+                              JOIN record_documents rd ON rd.id=e.record_document_id
+                              WHERE e.record_id=? LIMIT 1""", (record_id,)).fetchone()
+    assert row and row["user_id"] == row["record_user_id"]
+    assert row["record_id"] == record_id
+    assert row["snapshot_record_id"] == record_id and row["filename"] in sources
+    assert json.loads(row["source"])["source_type"] == "document"
+
+
 def test_batch_enforces_per_file_and_aggregate_size_limits(monkeypatch):
     token = c.post("/api/auth/guest?name=Limits").json()["token"]
     monkeypatch.setattr(main_module, "MAX_UPLOAD", 4)
@@ -154,6 +243,54 @@ def test_valid_image_upload_retains_original_with_verified_content_type(monkeypa
     assert document["processing_status"] == "extracted" and document["content_type"] == "image/png"
     original = c.get(f"/api/documents/{document['id']}/file", headers=H(token))
     assert original.content == payload
+
+
+@pytest.mark.parametrize(("format_name", "filename", "content_type"), [
+    ("WEBP", "scan.webp", "image/webp"),
+    ("TIFF", "scan.tiff", "image/tiff"),
+])
+def test_webp_and_tiff_uploads_are_validated_and_retained(monkeypatch, format_name, filename, content_type):
+    token = c.post(f"/api/auth/guest?name={format_name}").json()["token"]
+    image = Image.new("RGB", (12, 12), "white")
+    payload = io.BytesIO()
+    image.save(payload, format=format_name)
+    raw = payload.getvalue()
+    monkeypatch.setattr(main_module.ocr, "ocr_document", lambda content, source_name: (
+        "Patient reports fever.", "test-ocr", [{"page": 1, "text": "Patient reports fever.", "blocks": []}]
+    ))
+    response = c.post("/api/documents", files={"file": (filename, raw, content_type)}, headers=H(token))
+    assert response.status_code == 200, response.text
+    document = response.json()
+    assert document["content_type"] == content_type and document["processing_status"] == "extracted"
+    assert c.get(f"/api/documents/{document['id']}/file", headers=H(token)).content == raw
+
+
+def test_multipage_tiff_preserves_page_numbers(monkeypatch):
+    first = Image.new("RGB", (8, 8), "white")
+    second = Image.new("RGB", (8, 8), "black")
+    stream = io.BytesIO()
+    first.save(stream, format="TIFF", save_all=True, append_images=[second])
+    monkeypatch.setattr(ocr, "_ocr_pil_image", lambda image: (
+        "Page " + ("one" if image.getpixel((0, 0))[0] > 0 else "two"),
+        "tesseract(test)", []
+    ))
+    text, engine, pages = ocr.ocr_document(stream.getvalue(), "multi.tiff")
+    assert text == "Page one\nPage two" and engine == "tesseract(test)"
+    assert [page["page"] for page in pages] == [1, 2]
+
+
+def test_multiframe_webp_preserves_frame_numbers(monkeypatch):
+    first = Image.new("RGB", (8, 8), "white")
+    second = Image.new("RGB", (8, 8), "black")
+    stream = io.BytesIO()
+    first.save(stream, format="WEBP", save_all=True, append_images=[second], duration=100, loop=0)
+    monkeypatch.setattr(ocr, "_ocr_pil_image", lambda image: (
+        "Frame " + ("one" if image.getpixel((0, 0))[0] > 0 else "two"),
+        "tesseract(test)", []
+    ))
+    text, engine, pages = ocr.ocr_document(stream.getvalue(), "multi.webp")
+    assert text == "Frame one\nFrame two" and engine == "tesseract(test)"
+    assert [page["page"] for page in pages] == [1, 2]
 
 
 def test_grounded_summary_marks_conflicting_medication_for_review():

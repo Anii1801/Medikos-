@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MediKiosk clinician-reviewable clinical text annotation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source", "annotations", "adjudication"],
+  "properties": {
+    "schema_version": {
+      "const": "clinical-span-annotation-v1"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "group_id", "text_sha256", "text", "language", "licence_status", "deidentified"],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "group_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque patient, encounter, document, or conversation grouping key used to prevent split leakage."
+        },
+        "text_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "enum": ["en", "hi", "hinglish", "other"]
+        },
+        "licence_status": {
+          "enum": ["approved_for_annotation_and_training", "local_research_only", "pending"]
+        },
+        "deidentified": {
+          "const": true
+        }
+      }
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["annotator_id", "start", "end", "label", "assertion", "experiencer", "temporal", "review_status"],
+        "properties": {
+          "annotator_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Pseudonymous annotator identifier; do not store names or contact details."
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Exclusive character offset into source.text."
+          },
+          "label": {
+            "enum": ["symptom", "condition", "medication", "strength_dose", "route", "frequency", "lab_test", "lab_value", "unit", "date", "allergy", "procedure"]
+          },
+          "assertion": {
+            "enum": ["present", "absent", "uncertain", "historical", "hypothetical", "not_applicable"]
+          },
+          "experiencer": {
+            "enum": ["patient", "family", "other", "not_applicable"]
+          },
+          "temporal": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["kind", "text"],
+            "properties": {
+              "kind": {
+                "enum": ["current", "onset", "duration", "ago", "relative", "historical", "unknown"]
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          "review_status": {
+            "enum": ["unreviewed", "confirmed", "rejected", "needs_adjudication"]
+          }
+        }
+      }
+    },
+    "adjudication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": ["pending", "adjudicated"]
+        },
+        "reviewer_id": {
+          "type": ["string", "null"]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

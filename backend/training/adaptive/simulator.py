@@ -13,12 +13,14 @@ from typing import Any, Callable
 
 from app import ontology
 from app.adaptive.ranker import LearnedSlotRanker, RankResult
-from app.adaptive.schema import (COMPLAINT_TO_ONTOLOGY_CC, V1_ADDITIONS, canonical_slots_for, covered_slots)
+from app.adaptive.schema import (COMPLAINT_TO_ONTOLOGY_CC, MANDATORY_FIRST, V1_ADDITIONS,
+                                 canonical_slots_for, covered_slots)
 from app.history_agent import AdaptiveHistoryTakingAgent
 from .data import Interview
 
 CONFIG = json.loads((Path(__file__).parent / "config" / "required_slots.json").read_text(encoding="utf-8"))
-POLICY_NAMES = ("fixed_template", "ontology_v0_frozen", "ontology_v1_current", "safety_layer_uniform", "learned_ranker")
+POLICY_NAMES = ("fixed_template", "ontology_v0_frozen", "ontology_v1_current", "safety_layer_uniform",
+                "learned_ranker", "learned_ranker_recorded")
 BUDGETS = (6, 8, 10, 12, None)          # max questions asked; None = no limit
 
 
@@ -81,14 +83,20 @@ def replay(iv: Interview, policy: str, budget, ranker: LearnedSlotRanker | None 
             ids, bases = _run_agent(iv, budget, "ontology", None)
         elif policy == "safety_layer_uniform":
             ids, bases = _run_agent(iv, budget, "learned", UniformRanker())
-        elif policy == "learned_ranker":
-            ids, bases = _run_agent(iv, budget, "learned", ranker, view)
+        elif policy in ("learned_ranker", "learned_ranker_recorded"):
+            ranker_view = "recorded" if policy == "learned_ranker_recorded" else view
+            ids, bases = _run_agent(iv, budget, "learned", ranker, ranker_view)
         else:
             raise ValueError(policy)
         per_q_slots = [canonical_slots_for(q) for q in ids]
         covered = covered_slots(ids)
     cfg = CONFIG["complaints"][iv.complaint]
     required, critical = set(cfg["required"]), set(cfg["safety_critical"])
+    mandatory = {
+        slot
+        for question_id in MANDATORY_FIRST.get(COMPLAINT_TO_ONTOLOGY_CC[iv.complaint], ())
+        for slot in canonical_slots_for(question_id)
+    }
     seen: set[str] = set()
     duplicates = non_schema = 0
     for qid, slots in zip(ids, per_q_slots):
@@ -104,6 +112,8 @@ def replay(iv: Interview, policy: str, budget, ranker: LearnedSlotRanker | None 
         "interview_id": iv.interview_id, "complaint": iv.complaint, "script": iv.script, "policy": policy,
         "budget": budget or "none", "questions": ids, "n_questions": len(ids),
         "required_coverage": len(required & covered) / len(required),
+        "mandatory_safety_question_coverage": len(mandatory & covered) / len(mandatory) if mandatory else 1.0,
+        "missing_mandatory_safety_questions": sorted(mandatory - covered),
         "missing_required": sorted(required - covered),
         "safety_critical_omitted": bool(missing_critical), "missing_safety_critical": missing_critical,
         "duplicate_questions": duplicates, "non_schema_questions": non_schema,

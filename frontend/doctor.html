@@ -380,7 +380,7 @@ async function openRecord(id) {
   `);
 
   const save = async st => {
-    const sec = r.sections.map((s, i) => ({ title: s.title, text: (document.querySelector(`[data-i="${i}"]`) || { value: s.text }).value }));
+    const sec = r.sections.map((s, i) => ({ ...s, text: (document.querySelector(`[data-i="${i}"]`) || { value: s.text }).value }));
     const finding_reviews = {};
     document.querySelectorAll('#red-flag-suggestions input[type=radio]:checked').forEach(x => { finding_reviews[x.name.replace("fr-", "")] = x.value; });
     await api("/doctor/records/" + id, { method: "PUT", json: { sections: sec, status: st, finding_reviews }});
