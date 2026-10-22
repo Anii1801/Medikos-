@@ -9,9 +9,24 @@ CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username TEXT UNIQUE, p
 CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY, user_id INTEGER, expires REAL);
 CREATE TABLE IF NOT EXISTS consents(id INTEGER PRIMARY KEY, user_id INTEGER, purpose TEXT, granted INTEGER, ts REAL);
 CREATE TABLE IF NOT EXISTS documents(id INTEGER PRIMARY KEY, user_id INTEGER, filename TEXT, doc_date TEXT, doc_type TEXT,
-  text TEXT, entities TEXT, engine TEXT, created REAL);
+  text TEXT, entities TEXT, engine TEXT, created REAL, content BLOB, content_type TEXT, sha256 TEXT,
+  processing_status TEXT NOT NULL DEFAULT 'needs_review', processing_error TEXT, byte_size INTEGER NOT NULL DEFAULT 0,
+  duplicate_of INTEGER);
 CREATE TABLE IF NOT EXISTS records(id INTEGER PRIMARY KEY, user_id INTEGER, token_no INTEGER, priority INTEGER, status TEXT,
   answers TEXT, sections TEXT, flags TEXT, fhir TEXT, abdm_ref TEXT, created REAL, reviewed_by TEXT, reviewed REAL);
+CREATE TABLE IF NOT EXISTS record_documents(
+  id INTEGER PRIMARY KEY, record_id INTEGER NOT NULL, user_id INTEGER NOT NULL, source_document_id INTEGER,
+  filename TEXT NOT NULL, doc_date TEXT, doc_type TEXT, text TEXT, entities TEXT NOT NULL, engine TEXT,
+  created REAL NOT NULL, content BLOB, content_type TEXT, sha256 TEXT,
+  processing_status TEXT NOT NULL DEFAULT 'needs_review', processing_error TEXT, byte_size INTEGER NOT NULL DEFAULT 0,
+  UNIQUE(record_id, source_document_id));
+CREATE INDEX IF NOT EXISTS record_documents_record ON record_documents(record_id);
+CREATE TABLE IF NOT EXISTS clinical_evidence(
+  id INTEGER PRIMARY KEY, record_id INTEGER NOT NULL, user_id INTEGER NOT NULL, record_document_id INTEGER NOT NULL,
+  fact_index INTEGER NOT NULL, field TEXT NOT NULL, value TEXT NOT NULL, status TEXT NOT NULL,
+  confidence REAL NOT NULL, source TEXT NOT NULL, created REAL NOT NULL,
+  UNIQUE(record_document_id, fact_index));
+CREATE INDEX IF NOT EXISTS clinical_evidence_record ON clinical_evidence(record_id);
 CREATE TABLE IF NOT EXISTS history_sessions(id TEXT PRIMARY KEY, user_id INTEGER, state TEXT NOT NULL,
   adapter TEXT NOT NULL, created REAL NOT NULL, updated REAL NOT NULL);
 CREATE TABLE IF NOT EXISTS audit_log(id INTEGER PRIMARY KEY, ts REAL NOT NULL, event TEXT NOT NULL, actor_id INTEGER, role TEXT, target TEXT, detail TEXT, ip TEXT);
@@ -40,6 +55,19 @@ def tx():
 def init():
     with tx() as c:
         c.executescript(SCHEMA)
+        columns = {r[1] for r in c.execute("PRAGMA table_info(documents)")}
+        migrations = {
+            "content": "BLOB",
+            "content_type": "TEXT",
+            "sha256": "TEXT",
+            "processing_status": "TEXT NOT NULL DEFAULT 'needs_review'",
+            "processing_error": "TEXT",
+            "byte_size": "INTEGER NOT NULL DEFAULT 0",
+            "duplicate_of": "INTEGER",
+        }
+        for name, declaration in migrations.items():
+            if name not in columns:
+                c.execute(f"ALTER TABLE documents ADD COLUMN {name} {declaration}")
         # additive migration: store the AI clinical report (summary + red-flag block + review state)
         if "report" not in [r[1] for r in c.execute("PRAGMA table_info(records)")]:
             c.execute("ALTER TABLE records ADD COLUMN report TEXT")

@@ -115,22 +115,36 @@ async function renderReports() {
     <p class="subtitle">Upload prescriptions, laboratory reports, and other medical documents.</p>
     <div class="card">
       <label class="input-label" for="report-file">Choose a document</label>
-      <input id="report-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt">
-      <button class="btn" id="upload-report" type="button">Upload Report</button>
+      <input id="report-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt" multiple>
+      <p class="caption">Up to 10 files, 8 MiB each and 32 MiB per batch.</p>
+      <button class="btn" id="upload-report" type="button">Upload Reports</button>
       <p id="report-status" class="caption" aria-live="polite"></p>
     </div>
     ${docsError ? `<div class="alert alert-urgent" role="alert">Documents could not be loaded: ${esc(docsError)}</div>` : `<div class="card"><h2>Uploaded documents</h2>
-      ${docs.length ? `<div class="document-list">${docs.map(d => `<details class="document-row"><summary><b>${esc(d.filename || d.name || "Document")}</b><span class="chip">${esc(d.doc_type || "Uploaded")}</span></summary>
-        <p class="caption">Source: ${esc(d.filename || "uploaded document")} · Extraction engine: ${esc(d.engine || "not reported")}</p>
+      ${docs.length ? `<div class="document-list">${docs.map(d => `<details class="document-row"><summary><b>${esc(d.filename || d.name || "Document")}</b><span class="chip">${esc(d.processing_status || d.doc_type || "Uploaded")}</span></summary>
+        <p class="caption">Source: ${esc(d.filename || "uploaded document")} · Extraction engine: ${esc(d.engine || "not reported")} · ${esc(d.date || "undated")}</p>
+        ${d.processing_error ? `<p class="alert alert-urgent" role="status">${esc(d.processing_error)}</p>` : ""}
+        ${d.has_original ? `<button class="btn btn-outline btn-sm" type="button" data-report-download="${d.id}" data-filename="${esc(d.filename)}">Download original</button>` : ""}
+        ${d.entities?.diagnoses?.length ? `<h3>Diagnoses mentioned</h3><p>${d.entities.diagnoses.map(esc).join(", ")}</p>` : ""}
+        ${d.entities?.medications?.length ? `<h3>Medication mentions</h3><ul>${d.entities.medications.map(m => `<li>${esc(m.name)} ${esc(m.dose || "")} ${esc(m.frequency || "")} · ${esc(m.status || "reported")}</li>`).join("")}</ul>` : ""}
+        ${d.entities?.allergies?.length ? `<h3>Allergy mentions</h3><ul>${d.entities.allergies.map(esc).map(x => `<li>${x}</li>`).join("")}</ul>` : ""}
         ${d.entities?.labs?.length ? `<h3>Laboratory findings</h3><div class="table-wrap"><table class="stack-table"><thead><tr><th>Test</th><th>Value</th><th>Reference range</th><th>Uncertainty</th></tr></thead><tbody>${d.entities.labs.map(l => `<tr><td data-label="Test">${esc(l.test)}</td><td data-label="Value">${esc(l.value)} ${esc(l.unit)}</td><td data-label="Reference range">${esc(l.ref || "Not provided")}</td><td data-label="Uncertainty">${esc(l.uncertainty || l.reference_source || "Not reported")}</td></tr>`).join("")}</tbody></table></div>` : `<p class="caption">No laboratory findings were extracted from this document.</p>`}
       </details>`).join("")}</div>` : `<p class="empty-state">No documents uploaded yet.</p>`}</div>`}
     </div>
   `);
+  document.querySelectorAll("[data-report-download]").forEach(button => button.onclick = async () => {
+    try { await downloadDocument("/documents/" + button.dataset.reportDownload + "/file", button.dataset.filename); }
+    catch (e) { document.getElementById("report-status").textContent = "Download failed: " + e.message; }
+  });
   document.getElementById("upload-report").onclick = async () => {
-    const file = document.getElementById("report-file").files[0], status = document.getElementById("report-status");
-    if (!file) { status.textContent = "Choose a file first."; return; }
-    const data = new FormData(); data.append("file", file); status.textContent = "Uploading…";
-    try { await api("/documents", { body: data }); status.textContent = "Upload completed."; setTimeout(() => renderReports(), 400); }
+    const files = Array.from(document.getElementById("report-file").files || []), status = document.getElementById("report-status");
+    if (!files.length) { status.textContent = "Choose at least one file."; return; }
+    const data = new FormData(); files.forEach(file => data.append("files", file)); status.textContent = `Processing ${files.length} document${files.length === 1 ? "" : "s"}…`;
+    try {
+      const result = await api("/documents/batch", { body: data });
+      status.textContent = `${result.succeeded} processed, ${result.failed} failed. Each document shows its extraction status below.`;
+      await renderReports();
+    }
     catch (e) { status.textContent = "Upload failed: " + e.message; }
   };
 }

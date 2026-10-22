@@ -2,16 +2,30 @@
 
 ## Current release path
 
-Permitted PDF and image uploads are processed by `backend/app/ocr.py`.
+PDF, PNG, JPEG, and UTF-8 text uploads are accepted through the document API.
+The batch endpoint accepts up to 10 files (8 MiB per file, 32 MiB total),
+limits PDFs to 20 pages and images to 20 megapixels, and isolates validation
+and extraction failures per file. PDF and image uploads are processed by
+`backend/app/ocr.py`.
 
 - PDF text is extracted page by page with `pdf-text` when an embedded text layer
-  exists. Scanned PDFs are reported as `pdf-scanned-unsupported`; no text is
+  exists. Scanned pages attempt OCR from their embedded images; if no usable OCR
+  is available, the document is marked failed for manual review and no text is
   fabricated.
 - Images use the installed Tesseract executable when available. OCR word
   boxes and confidence values are retained in `entities.ocr_pages`.
-- Original image/PDF bytes are not stored. The extracted text is stored in full
-  in the document row, together with filename, date, engine, page count and
-  byte-size provenance.
+- Supported upload bytes are retained in SQLite with their detected MIME type
+  and SHA-256 digest. Downloads require patient ownership or access to the
+  encounter snapshot; client-supplied paths and MIME types are not used.
+- Each upload records `extracted`, `needs_review`, or `failed` status and an
+  explanatory message when automated extraction cannot be used. Duplicate
+  content is reported instead of silently adding another document.
+- Submission copies the source document and each structured fact, including
+  status, confidence, and source span, into encounter-scoped snapshot tables
+  before temporary guest documents are deleted. Patient and doctor APIs read
+  those snapshots without mixing documents from other encounters.
+- Retained originals are included in account erasure. A production retention
+  period and encryption-at-rest controls still need to be configured.
 - Structured facts use the `clinical-facts-v1` schema. Facts include source
   offsets, page where known, bounding box where OCR provides one, confidence,
   and `reported`, `negated`, or `uncertain` status.

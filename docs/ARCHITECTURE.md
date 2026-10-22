@@ -31,11 +31,15 @@ FastAPI main.py
 1. A patient authenticates or starts a guest session.
 2. Consent is recorded before submission.
 3. Answers are kept as structured fields and are never inferred when absent.
-4. Uploaded bytes are processed in memory; extracted text and entities are
-   stored, not the original image bytes.
+4. Batch PDF/image/text uploads are validated and processed per file.
+   Originals, extracted text, structured facts, and processing status are
+   stored under the patient account.
 5. Red flags are calculated independently from summary wording.
 6. Submission creates a draft FHIR document and a mock ABDM reference.
-7. Guest documents are deleted after submission; the doctor record remains.
+7. Submission snapshots each document and its source evidence into the
+   encounter before guest working documents are deleted. Patients can access
+   their own encounter snapshots; doctors see only the documents attached to
+   the encounter they opened.
 
 ## Model configuration
 

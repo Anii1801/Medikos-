@@ -8,8 +8,15 @@ are informational signals for prioritisation and require clinician review.
 
 - consent is required for history capture and ABDM sharing;
 - patient and doctor APIs are role-protected;
-- guest documents are deleted after submission;
-- uploaded image bytes are processed in memory;
+- batch uploads validate file type and size, isolate per-file failures, and
+  report extraction status rather than treating partial failures as success;
+- originals are retained in the document store for patient access and copied
+  into an encounter-scoped snapshot for clinical review; guest working copies
+  are deleted after submission, while snapshots follow the record lifecycle;
+- document originals are served only through authenticated owner or
+  encounter-authorized download routes, not from a public filesystem path;
+- DPDP-style erasure deletes document originals, encounter snapshots, and
+  extracted evidence for the account;
 - patient-reported facts are kept distinct from generated organisation;
 - FHIR resources are marked preliminary and the doctor approves the record;
 - DPDP-style erasure is available at `/api/me/data`;
@@ -19,8 +26,8 @@ are informational signals for prioritisation and require clinician review.
 
 ## Deployment requirements
 
-Before real data: HTTPS, secret management, encryption at rest, backups and
-retention policy, audit logs, rate limiting, OTP/RBAC, access reviews, vendor
+Before real data: HTTPS, secret management, encryption at rest, backups and a
+defined retention period for encounter snapshots, audit logs, rate limiting, OTP/RBAC, access reviews, vendor
 and data-processing agreements, threat modelling, clinical validation, and a
 documented incident/rollback process are required.
 

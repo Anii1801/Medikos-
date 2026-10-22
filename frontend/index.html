@@ -827,6 +827,8 @@ function listenVoice(q, allowRetry = true) {
 
 function docStatus(d) {
   const ent = d.entities || {};
+  if (d.processing_status === "failed") return { label: d.processing_error || "Processing failed", cls: "err" };
+  if (d.processing_status === "needs_review") return { label: d.processing_error || "Needs review", cls: "warn" };
   if (!d.text) return { label: "Unreadable — type the contents", cls: "err" };
   if ((ent.review_flags || []).length) return { label: "Needs review", cls: "warn" };
   return { label: "Completed", cls: "ok" };
@@ -842,10 +844,10 @@ async function docs() {
   </div>
   <div class="card">
     <label class="upload-zone" id="drop">
-      <input type="file" id="f" accept="image/*,application/pdf" capture="environment">
+      <input type="file" id="f" accept=".pdf,.png,.jpg,.jpeg,.txt" multiple>
       <div class="action-icon" style="margin:0 auto">${ICONS.upload}</div>
       <p style="font-weight:650;margin-top:10px">${t("addDoc")}</p>
-      <p class="mut">JPG, PNG or PDF · maximum 8 MB, matching server validation.</p>
+      <p class="mut">PDF, JPG, PNG or TXT · up to 10 files, 8 MiB each and 32 MiB per batch.</p>
     </label>
     <div class="row mt-sm">
       <div style="flex:1">
@@ -870,11 +872,12 @@ async function docs() {
         <div>
           <div style="font-weight:650;overflow-wrap:anywhere">${esc(d.filename)}</div>
           <div class="mut">${esc(d.date || "undated")} · ${esc(String(d.doc_type || "").replace("_"," "))} · ${esc(d.engine)}</div>
-          <div class="mut"><span class="status-dot ${st.cls}"></span>${st.label}</div>
+          <div class="mut"><span class="status-dot ${st.cls}"></span>${esc(st.label)}</div>
           ${(ent.medications || []).map(m => `<div class="timeline-body">${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
           ${(ent.labs || []).map(l => `<div class="timeline-body">${esc(l.test)}: ${l.value} ${l.unit} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${esc(l.flag)}</span></div>`).join("")}
         </div>
-        <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">Remove</button>
+        <div class="row">${d.has_original ? `<button class="btn btn-outline btn-sm" data-download-doc="${d.id}" data-filename="${esc(d.filename)}" type="button">Download original</button>` : ""}
+        <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">Remove</button></div>
       </article>`;
     }).join("")}
   </div>` : `<p class="empty-state mt">${t("nodocs")}</p>`}
@@ -888,27 +891,27 @@ async function docs() {
   const drop = document.getElementById("drop");
   const fileInput = document.getElementById("f");
   const upst = document.getElementById("upst");
-  fileInput.onchange = e => { upst.textContent = e.target.files[0]?.name || ""; };
+  fileInput.onchange = e => { upst.textContent = Array.from(e.target.files || []).map(f => f.name).join(", "); };
   ["dragenter","dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("is-dragover"); }));
   ["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("is-dragover"); }));
   drop.addEventListener("drop", e => {
-    const f = e.dataTransfer.files[0];
-    if (!f) return;
-    const dt = new DataTransfer(); dt.items.add(f); fileInput.files = dt.files;
-    upst.textContent = f.name;
+    const files = Array.from(e.dataTransfer.files || []);
+    if (!files.length) return;
+    const dt = new DataTransfer(); files.forEach(f => dt.items.add(f)); fileInput.files = dt.files;
+    upst.textContent = files.map(f => f.name).join(", ");
   });
 
   document.getElementById("up").onclick = async () => {
-    const f = fileInput.files[0]; if (!f) { showToast("Please choose a file first."); return; }
-    if (f.size > 8 * 1024 * 1024) { upst.textContent = "File too large (max 8 MB)."; return; }
+    const files = Array.from(fileInput.files || []); if (!files.length) { showToast("Please choose at least one file."); return; }
     const btn = document.getElementById("up");
     btn.disabled = true;
-    upst.textContent = t("readMsg");
+    upst.textContent = `Processing ${files.length} document${files.length === 1 ? "" : "s"}…`;
     try {
-      const fd = new FormData(); fd.append("file", f); fd.append("date", document.getElementById("dd").value);
-      const r = await api("/documents", { body: fd });
-      if (r.needs_manual_note) showToast(t("manual"), 4000);
-      else showToast("Document processed.");
+      const fd = new FormData(); files.forEach(f => fd.append("files", f)); fd.append("date", document.getElementById("dd").value);
+      const result = await api("/documents/batch", { body: fd });
+      upst.textContent = `${result.succeeded} processed, ${result.failed} failed. Review each document status below.`;
+      if (result.failed) showToast("Some documents need attention. Review the per-file status.");
+      else showToast("Documents processed.");
       docs();
     } catch (e) { upst.textContent = e.message; btn.disabled = false; }
   };
@@ -920,6 +923,10 @@ async function docs() {
   document.querySelectorAll("[data-d]").forEach(b => b.onclick = async () => {
     if (!confirm("Remove this document?")) return;
     await api("/documents/" + b.dataset.d, { method: "DELETE" }); docs();
+  });
+  document.querySelectorAll("[data-download-doc]").forEach(b => b.onclick = async () => {
+    try { await downloadDocument("/documents/" + b.dataset.downloadDoc + "/file", b.dataset.filename); }
+    catch (e) { showToast(e.message, 4000); }
   });
   document.getElementById("bk").onclick = () => { const p = stack.pop(); persistInterview(); ask(); };
   document.getElementById("nx").onclick = summaryPage;

@@ -10,8 +10,9 @@ def _patient_ref(field: str) -> dict:
     return {"source_type": "patient_message", "source_id": field, "field": field}
 
 def _doc_refs(docs: list[dict]) -> list[dict]:
-    return [{"source_type": "document", "source_id": d.get("id"), "filename": d.get("filename"),
-             "date": d.get("date"), "engine": d.get("engine")} for d in docs]
+    return [{"source_type": "document", "source_id": d.get("id"), "document_id": d.get("id"),
+             "filename": d.get("filename"), "date": d.get("date"), "engine": d.get("engine"),
+             "processing_status": d.get("processing_status", "needs_review")} for d in docs]
 
 
 def _laboratory_findings(docs: list[dict]) -> list[dict]:
@@ -52,6 +53,7 @@ def _laboratory_findings(docs: list[dict]) -> list[dict]:
                 "status": status,
                 "report_date": document.get("date"),
                 "source_document": document.get("filename"),
+                "source_document_id": document.get("id"),
                 "source": source,
                 "explanation": explanation,
                 "uncertainty": uncertainty,
@@ -94,7 +96,10 @@ def build_sections(user: dict, a: dict, docs: list[dict]) -> list[dict]:
         review_flags = []
         for d in ds:
             e = d["entities"]
-            bits = [e["doc_type"].replace("_", " ")]
+            bits = [e.get("doc_type", "other").replace("_", " ")]
+            if d.get("processing_status", "needs_review") != "extracted":
+                bits.append("extraction status: " + d.get("processing_status", "needs_review"))
+                review_flags.append("document_extraction_requires_review")
             if e["diagnoses"]: bits.append("Dx: " + ", ".join(e["diagnoses"]))
             if e["medications"]: bits.append("Rx: " + ", ".join(f"{m['name']} {m['dose'] or ''} {m['frequency'] or ''}".strip() for m in e["medications"]))
             lines.append(f"{d.get('date') or 'undated'} — " + "; ".join(bits))

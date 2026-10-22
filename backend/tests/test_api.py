@@ -5,7 +5,7 @@ os.environ["MEDIKIOSK_DB"] = os.path.join(tempfile.mkdtemp(), "t.db")
 from fastapi.testclient import TestClient
 from PIL import Image, ImageDraw
 from app.main import app
-from app import ontology, ocr, summary
+from app import ontology, ocr, summary, db, main as main_module
 
 c = TestClient(app)
 H = lambda t: {"Authorization": f"Bearer {t}"}
@@ -44,6 +44,117 @@ def test_poor_quality_or_unsupported_upload_is_explicit():
     text, engine, pages = ocr.ocr_document(b"not an image", "poor.png")
     assert text == "" and engine.startswith("ocr-unavailable:")
     assert pages == []
+
+
+def test_batch_upload_isolates_failures_and_restricts_original_file_access():
+    token = c.post("/api/auth/guest?name=Batch").json()["token"]
+    text = b"Patient reports fever. Tab Metformin 500 mg OD."
+    response = c.post("/api/documents", files=[
+        ("files", ("history.txt", text, "text/plain")),
+        ("files", ("broken.pdf", b"not a PDF", "application/pdf")),
+        ("files", ("unsupported.exe", b"not supported", "application/octet-stream")),
+    ], headers=H(token))
+    assert response.status_code == 207, response.text
+    result = response.json()
+    assert result["total"] == 3 and result["succeeded"] == 1 and result["failed"] == 2
+    good, bad, unsupported = result["documents"]
+    assert good["processing_status"] == "extracted" and good["has_original"]
+    assert bad["processing_status"] == "failed" and "not a valid PDF" in bad["processing_error"]
+    assert unsupported["processing_status"] == "failed" and "Unsupported file type" in unsupported["processing_error"]
+    original = c.get(f"/api/documents/{good['id']}/file", headers=H(token))
+    assert original.status_code == 200 and original.content == text
+    other = c.post("/api/auth/guest?name=Other").json()["token"]
+    assert c.get(f"/api/documents/{good['id']}/file", headers=H(other)).status_code == 404
+
+
+def test_duplicate_upload_is_reported_without_duplicating_document():
+    token = c.post("/api/auth/guest?name=Duplicate").json()["token"]
+    content = b"Medical note: no fever."
+    response = c.post("/api/documents/batch", files=[
+        ("files", ("note.txt", content, "text/plain")),
+        ("files", ("copy.txt", content, "text/plain")),
+    ], headers=H(token))
+    assert response.status_code == 200, response.text
+    first, second = response.json()["documents"]
+    assert first["processing_status"] == "extracted"
+    assert second["status"] == "duplicate" and second["duplicate_of"] == first["id"]
+    assert len(c.get("/api/documents", headers=H(token)).json()) == 1
+
+
+def test_guest_submission_keeps_encounter_document_and_source_evidence_snapshot():
+    token = c.post("/api/auth/guest?name=Snapshot").json()["token"]
+    headers = H(token)
+    for purpose in ("history_capture", "abdm_share"):
+        assert c.post("/api/consent", json={"purpose": purpose}, headers=headers).status_code == 200
+    source = b"Lab report 2025-03-12\nHaemoglobin 9.1 g/dL\nPatient reports fever."
+    upload = c.post("/api/documents", files={"file": ("lab.txt", source, "text/plain")}, headers=headers)
+    assert upload.status_code == 200, upload.text
+    submitted = c.post("/api/submit", json={"answers": {"cc": "Fever"}}, headers=headers)
+    assert submitted.status_code == 200, submitted.text
+    record_id = submitted.json()["record_id"]
+    assert c.get("/api/documents", headers=headers).json() == []
+    patient_record = c.get(f"/api/records/{record_id}", headers=headers)
+    assert patient_record.status_code == 200 and patient_record.json()["documents"][0]["filename"] == "lab.txt"
+    patient_doc_id = patient_record.json()["documents"][0]["id"]
+    assert c.get(f"/api/records/{record_id}/documents/{patient_doc_id}/file", headers=headers).content == source
+    other = c.post("/api/auth/guest?name=NotOwner").json()["token"]
+    assert c.get(f"/api/records/{record_id}", headers=H(other)).status_code == 404
+
+    doctor_token = c.post("/api/auth/login", json={"username": "doctor", "password": "doctor123"}).json()["token"]
+    record = c.get(f"/api/doctor/records/{record_id}", headers=H(doctor_token)).json()
+    assert len(record["documents"]) == 1
+    snapshot = record["documents"][0]
+    assert snapshot["filename"] == "lab.txt" and snapshot["has_original"]
+    fact = snapshot["entities"]["facts"][0]
+    assert fact["source"]["source_type"] == "document" and fact["source"]["page"] == 1
+    assert fact["source"]["start"] < fact["source"]["end"]
+    downloaded = c.get(f"/api/doctor/records/{record_id}/documents/{snapshot['id']}/file", headers=H(doctor_token))
+    assert downloaded.status_code == 200 and downloaded.content == source
+    with db.tx() as conn:
+        count = conn.execute("SELECT COUNT(*) FROM clinical_evidence WHERE record_id=?", (record_id,)).fetchone()[0]
+    assert count > 0
+
+
+def test_batch_enforces_per_file_and_aggregate_size_limits(monkeypatch):
+    token = c.post("/api/auth/guest?name=Limits").json()["token"]
+    monkeypatch.setattr(main_module, "MAX_UPLOAD", 4)
+    monkeypatch.setattr(main_module, "MAX_BATCH_UPLOAD", 20)
+    response = c.post("/api/documents/batch", files=[
+        ("files", ("large.txt", b"12345", "text/plain")),
+        ("files", ("small.txt", b"ok\n", "text/plain")),
+    ], headers=H(token))
+    assert response.status_code == 207
+    large, small = response.json()["documents"]
+    assert large["processing_status"] == "failed" and "8 MiB" in large["processing_error"]
+    assert small["processing_status"] == "needs_review"
+
+    monkeypatch.setattr(main_module, "MAX_UPLOAD", 20)
+    monkeypatch.setattr(main_module, "MAX_BATCH_UPLOAD", 5)
+    response = c.post("/api/documents/batch", files=[
+        ("files", ("one.txt", b"abc", "text/plain")),
+        ("files", ("two.txt", b"def", "text/plain")),
+    ], headers=H(token))
+    assert response.status_code == 207
+    assert response.json()["failed"] == 2
+    assert all("Batch too large" in item["processing_error"] for item in response.json()["documents"])
+
+
+def test_valid_image_upload_retains_original_with_verified_content_type(monkeypatch):
+    token = c.post("/api/auth/guest?name=Image").json()["token"]
+    image = Image.new("RGB", (12, 12), "white")
+    data = io.BytesIO()
+    image.save(data, format="PNG")
+    payload = data.getvalue()
+    monkeypatch.setattr(main_module.ocr, "ocr_document", lambda content, filename: (
+        "Patient reports fever.", "test-ocr", [{"page": 1, "text": "Patient reports fever.", "blocks": []}]
+    ))
+    response = c.post("/api/documents", files={"file": ("report.png", payload, "image/png")}, headers=H(token))
+    assert response.status_code == 200, response.text
+    document = response.json()
+    assert document["processing_status"] == "extracted" and document["content_type"] == "image/png"
+    original = c.get(f"/api/documents/{document['id']}/file", headers=H(token))
+    assert original.content == payload
+
 
 def test_grounded_summary_marks_conflicting_medication_for_review():
     user = {"name": "A", "age": "40"}

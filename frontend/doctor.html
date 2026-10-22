@@ -359,6 +359,9 @@ async function openRecord(id) {
           const labs = e.labs || [];
           return `<div class="mt-sm" style="overflow-wrap:anywhere"><b>${esc(d.filename || "Document")}</b>
             <span class="caption mut"> ${esc(d.date || "undated")} · ${esc(d.engine || "unknown engine")} · ${esc(String(d.doc_type || "").replace("_"," "))}</span>
+            <span class="chip">${esc(d.processing_status || "needs_review")}</span>
+            ${d.processing_error ? `<p class="caption" role="status">${esc(d.processing_error)}</p>` : ""}
+            ${d.has_original ? `<button class="btn btn-outline btn-sm" type="button" data-record-doc-download="${d.id}" data-filename="${esc(d.filename)}">Download original</button>` : ""}
             ${flags.length ? `<div class="caption" style="color:var(--warning)">Review: ${esc(flags.join(", "))}</div>` : ""}
             ${labs.length ? `<ul class="caption">${labs.map(l => `<li>${esc(l.test)}: ${esc(l.value)} ${esc(l.unit || "")} ${esc(l.flag || "")}${l.ref ? ` · ref ${esc(l.ref)}` : ""}</li>`).join("")}</ul>` : ""}
             ${facts.length ? `<ul class="caption">${facts.map(f => `<li>${esc(f.field)}: ${esc(typeof f.value === "string" ? f.value : JSON.stringify(f.value))} · ${esc(f.status)} · ${Math.round((f.confidence || 0) * 100)}%${f.source?.page ? ` · page ${f.source.page}` : ""}</li>`).join("")}</ul>` : `<p class="caption mut">No structured facts extracted; review original document.</p>`}
@@ -384,6 +387,11 @@ async function openRecord(id) {
     queue();
   };
   document.getElementById("bk").onclick = queue;
+  document.querySelectorAll("[data-record-doc-download]").forEach(button => button.onclick = async () => {
+    try {
+      await downloadDocument(`/doctor/records/${id}/documents/${button.dataset.recordDocDownload}/file`, button.dataset.filename);
+    } catch (e) { alert(e.message); }
+  });
   const on = (i, f) => { const el = document.getElementById(i); if (el) el.onclick = async () => { el.disabled = true; try { await f(); } catch (e) { el.disabled = false; alert(e.message); } }; };
   on("cf", () => save("confirmed")); on("am", () => save("amended")); on("rj", () => save("rejected"));
   on("fhbtn", () => { document.getElementById("fx").hidden = !document.getElementById("fx").hidden; });

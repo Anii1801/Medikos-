@@ -14,6 +14,22 @@ async function api(path, opt = {}) {
   if (!r.ok) throw new Error(d.detail || r.statusText);
   return d;
 }
+async function downloadDocument(path, filename) {
+  const headers = TOKEN ? { Authorization: "Bearer " + TOKEN } : {};
+  const response = await fetch(API_BASE + "/api" + path, { headers });
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new Error(error.detail || response.statusText || "Document download failed.");
+  }
+  const url = URL.createObjectURL(await response.blob());
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename || "medical-document";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60_000);
+}
 function setToken(t) { TOKEN = t; sessionStorage.setItem("mk_token", t); }
 function a11y() {
   const R = document.documentElement;

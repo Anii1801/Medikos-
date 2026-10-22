@@ -1,6 +1,7 @@
-import os, json, time, secrets, uuid
+import os, json, time, secrets, uuid, hashlib, logging, io
+from urllib.parse import quote
 from typing import Optional
-from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form, Header
+from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form, Header, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse, FileResponse
@@ -26,7 +27,11 @@ app.add_middleware(security.RateLimitMiddleware,
                    enabled=os.environ.get("MEDIKIOSK_RATE_LIMIT", "on").lower() != "off")
 db.init()
 MAX_UPLOAD = 8 * 1024 * 1024
+MAX_BATCH_UPLOAD = 32 * 1024 * 1024
+MAX_BATCH_FILES = 10
+ALLOWED_UPLOADS = {".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".txt": "text/plain"}
 PURPOSES = ("history_capture", "abdm_share")
+logger = logging.getLogger(__name__)
 
 # ---------- auth ----------
 def user(authorization: Optional[str] = Header(None)):
@@ -89,7 +94,8 @@ def erase(u=Depends(user)):
     """DPDP Act right to erasure."""
     security.audit("erasure", actor_id=u["id"], role=u["role"])
     with db.tx() as c:
-        for t in ("documents", "records", "consents", "sessions", "history_sessions", "asr_transcripts"): c.execute(f"DELETE FROM {t} WHERE user_id=?", (u["id"],))
+        for t in ("clinical_evidence", "record_documents", "documents", "records", "consents", "sessions", "history_sessions", "asr_transcripts"):
+            c.execute(f"DELETE FROM {t} WHERE user_id=?", (u["id"],))
         c.execute("DELETE FROM users WHERE id=? AND role!='doctor'", (u["id"],))
     return {"erased": True}
 
@@ -291,33 +297,228 @@ def evaluate_red_flags(case: dict, u=Depends(user)):
 
 # ---------- documents ----------
 def doc_row(r):
+    keys = set(r.keys())
     return {"id": r["id"], "filename": r["filename"], "date": r["doc_date"], "doc_type": r["doc_type"], "engine": r["engine"],
-            "entities": json.loads(r["entities"]), "text": r["text"]}
+            "entities": json.loads(r["entities"] or "{}"), "text": r["text"] or "",
+            "processing_status": r["processing_status"] if "processing_status" in keys else "needs_review",
+            "processing_error": r["processing_error"] if "processing_error" in keys else None,
+            "byte_size": r["byte_size"] if "byte_size" in keys else 0,
+            "content_type": r["content_type"] if "content_type" in keys else None,
+            "has_original": bool(r["content"]) if "content" in keys else False,
+            "sha256": r["sha256"] if "sha256" in keys else None}
+
+def _safe_filename(filename: str | None) -> str:
+    name = (filename or "upload").replace("\\", "/").rsplit("/", 1)[-1].strip()
+    name = "".join(ch for ch in name if ch >= " " and ch not in "\x7f")
+    if not name or len(name) > 255:
+        raise ValueError("Filename must be non-empty and no longer than 255 characters")
+    return name
+
+
+def _validate_upload(data: bytes, filename: str) -> str:
+    ext = os.path.splitext(filename)[1].lower()
+    expected = ALLOWED_UPLOADS.get(ext)
+    if not expected:
+        raise ValueError("Unsupported file type. Upload a PDF, PNG, JPG, JPEG, or UTF-8 TXT file.")
+    if not data:
+        raise ValueError("The uploaded file is empty.")
+    if expected == "text/plain":
+        try:
+            data.decode("utf-8-sig")
+        except UnicodeDecodeError as exc:
+            raise ValueError("Text documents must use UTF-8 encoding.") from exc
+        return expected
+    if expected == "application/pdf":
+        if b"%PDF-" not in data[:1024]:
+            raise ValueError("The file extension is PDF but the content is not a valid PDF.")
+        from pypdf import PdfReader
+        from pypdf.errors import PdfReadError
+        try:
+            reader = PdfReader(io.BytesIO(data), strict=True)
+        except (PdfReadError, OSError, ValueError, EOFError) as exc:
+            raise ValueError("The uploaded PDF is invalid or unreadable.") from exc
+        if reader.is_encrypted:
+            raise ValueError("Encrypted PDFs are not supported.")
+        try:
+            page_count = len(reader.pages)
+        except (PdfReadError, OSError, ValueError, EOFError) as exc:
+            raise ValueError("The uploaded PDF is invalid or unreadable.") from exc
+        if not page_count:
+            raise ValueError("The PDF contains no pages.")
+        if page_count > ocr.MAX_PDF_PAGES:
+            raise ValueError(f"PDFs may contain at most {ocr.MAX_PDF_PAGES} pages.")
+    else:
+        from PIL import Image, UnidentifiedImageError
+        try:
+            with Image.open(io.BytesIO(data)) as image:
+                actual = {"JPEG": "image/jpeg", "PNG": "image/png"}.get(image.format)
+                if actual != expected:
+                    raise ValueError(f"File content does not match the .{ext.lstrip('.')} extension.")
+                if image.width * image.height > 20_000_000:
+                    raise ValueError("Image dimensions are too large to process safely.")
+                image.verify()
+        except (Image.DecompressionBombError, Image.DecompressionBombWarning) as exc:
+            raise ValueError("Image dimensions are too large to process safely.") from exc
+        except (UnidentifiedImageError, OSError, EOFError, SyntaxError) as exc:
+            raise ValueError("The uploaded image is invalid or unreadable.") from exc
+    return expected
+
+
+def _process_upload(data: bytes, filename: str, note: str, date: str, user_id: int) -> dict:
+    safe_name = _safe_filename(filename)
+    digest = hashlib.sha256(data).hexdigest()
+    try:
+        content_type = _validate_upload(data, safe_name)
+    except ValueError as exc:
+        # Validation failures are isolated to this file in a batch.
+        return _store_failed_upload(user_id, safe_name, len(data), digest, str(exc))
+    with db.tx() as c:
+        duplicate = c.execute("SELECT * FROM documents WHERE user_id=? AND sha256=? AND content IS NOT NULL AND processing_status!='failed' ORDER BY id LIMIT 1",
+                              (user_id, digest)).fetchone()
+    if duplicate:
+        result = doc_row(duplicate)
+        result.update(status="duplicate", duplicate_of=duplicate["id"], message="This file is already in your document list.")
+        return result
+    try:
+        if content_type == "text/plain":
+            raw_text = data.decode("utf-8-sig")
+            engine, pages = "plain-text", [{"page": 1, "text": raw_text, "blocks": []}]
+        else:
+            raw_text, engine, pages = ocr.ocr_document(data, safe_name)
+        try:
+            from .ml_pipeline import clean_ocr_text
+        except ImportError:
+            clean_ocr_text = None
+        text = clean_ocr_text(raw_text) if clean_ocr_text else raw_text
+        if note:
+            text = (text + "\n" + note).strip()
+        provenance = {"source_id": digest, "engine": engine, "pages": pages}
+        entities = ocr.extract(text, provenance)
+        entities["ocr_pages"] = pages
+        entities["document_provenance"] = {"filename": safe_name, "engine": engine, "byte_size": len(data),
+                                           "page_count": len(pages), "stored_bytes": True, "sha256": digest}
+        doc_date = date or entities["date"] or ""
+        if engine.startswith("ocr-unavailable:") or engine == "pdf-scanned-unsupported":
+            status = "failed"
+            error = "Text extraction was unavailable. Review the original file or add a typed note."
+        elif not text.strip():
+            status = "needs_review"
+            error = "No readable text was extracted. Review the original file or add a typed note."
+        elif entities.get("review_flags") or not entities.get("facts"):
+            status = "needs_review"
+            error = "Extraction requires review against the original document."
+        else:
+            status, error = "extracted", None
+    except Exception as exc:
+        logger.warning("Document processing failed (%s)", type(exc).__name__)
+        return _store_failed_upload(user_id, safe_name, len(data), digest,
+                                    f"Document processing failed ({type(exc).__name__}).")
+    created = time.time()
+    with db.tx() as c:
+        cur = c.execute("""INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,
+                          content,content_type,sha256,processing_status,processing_error,byte_size)
+                          VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (user_id, safe_name, doc_date, entities["doc_type"], text, db.j(entities), engine, created,
+                         data, content_type, digest, status, error, len(data)))
+        row = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
+    result = doc_row(row)
+    result.update(status=status, needs_manual_note=not text.strip())
+    return result
+
+
+def _store_failed_upload(user_id: int, filename: str, size: int, digest: str | None, error: str) -> dict:
+    now = time.time()
+    entities = {"schema_version": "clinical-facts-v1", "doc_type": "other", "medications": [], "labs": [],
+                "diagnoses": [], "symptoms": [], "allergies": [], "facts": [], "review_flags": []}
+    with db.tx() as c:
+        cur = c.execute("""INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created,
+                          sha256,processing_status,processing_error,byte_size)
+                          VALUES(?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (user_id, filename, "", "other", "", db.j(entities), "unavailable", now, digest, "failed", error, size))
+        row = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
+    result = doc_row(row)
+    result.update(status="failed", needs_manual_note=True)
+    return result
+
+
+async def _read_upload(file: UploadFile) -> bytes:
+    return await file.read(MAX_UPLOAD + 1)
+
+
+def _batch_response(items: list[dict]) -> dict:
+    failures = sum(item.get("processing_status") == "failed" for item in items)
+    return {"status": "partial" if failures else "completed", "total": len(items),
+            "succeeded": len(items) - failures, "failed": failures, "documents": items}
+
+
+@app.post("/api/documents/batch")
+async def upload_batch(files: list[UploadFile] = File(...), note: str = Form(""), date: str = Form(""), u=Depends(user)):
+    if not files:
+        raise HTTPException(422, "Choose at least one file.")
+    known_sizes = [file.size for file in files]
+    if all(isinstance(size, int) for size in known_sizes) and sum(known_sizes) > MAX_BATCH_UPLOAD:
+        failures = []
+        for index, file in enumerate(files):
+            try:
+                filename = _safe_filename(file.filename)
+            except ValueError as exc:
+                filename = "upload"
+                failures.append(_store_failed_upload(u["id"], filename, file.size or 0, None, str(exc)))
+                continue
+            if index >= MAX_BATCH_FILES:
+                error = f"A batch may contain at most {MAX_BATCH_FILES} files."
+            elif file.size > MAX_UPLOAD:
+                error = "File too large (maximum 8 MiB per file)."
+            else:
+                error = "Batch too large (maximum 32 MiB total)."
+            failures.append(_store_failed_upload(u["id"], filename, file.size, None, error))
+        result = _batch_response(failures)
+        return Response(content=db.j(result), status_code=207, media_type="application/json")
+    staged, items, total_bytes = [], [], 0
+    for index, file in enumerate(files):
+        total_bytes += file.size if isinstance(file.size, int) else 0
+        try:
+            filename = _safe_filename(file.filename)
+        except ValueError as exc:
+            filename = "upload"
+            items.append(_store_failed_upload(u["id"], filename, 0, None, str(exc)))
+            continue
+        if index >= MAX_BATCH_FILES:
+            items.append(_store_failed_upload(u["id"], filename, 0, None, f"A batch may contain at most {MAX_BATCH_FILES} files."))
+            continue
+        data = await _read_upload(file)
+        size = file.size if isinstance(file.size, int) else len(data)
+        if not isinstance(file.size, int):
+            total_bytes += size
+        staged.append((filename, data, size))
+    batch_too_large = total_bytes > MAX_BATCH_UPLOAD
+    for filename, data, size in staged:
+        if size > MAX_UPLOAD:
+            items.append(_store_failed_upload(u["id"], filename, size, None, "File too large (maximum 8 MiB per file)."))
+        elif batch_too_large:
+            items.append(_store_failed_upload(u["id"], filename, size, None, "Batch too large (maximum 32 MiB total)."))
+        else:
+            items.append(_process_upload(data, filename, note, date, u["id"]))
+    result = _batch_response(items)
+    return Response(content=db.j(result), status_code=207 if result["failed"] else 200, media_type="application/json")
+
 
 @app.post("/api/documents")
-async def upload(file: UploadFile = File(...), note: str = Form(""), date: str = Form(""), u=Depends(user)):
-    data = await file.read()
-    if len(data) > MAX_UPLOAD: raise HTTPException(413, "File too large (max 8 MB)")
-    raw_text, engine, pages = ocr.ocr_document(data, file.filename or "scan.png")   # image bytes never stored
-    # ── Data cleaning pipeline (MedNLP-SC + ADAM v3 abbreviation expansion) ──
-    try:
-        from .ml_pipeline import clean_ocr_text
-        text = clean_ocr_text(raw_text)
-    except Exception:
-        text = raw_text  # graceful fallback if ml_pipeline not available
-    if note: text = (text + "\n" + note).strip()
-    ent = ocr.extract(text, {"source_id": file.filename or "upload", "engine": engine, "pages": pages})
-    ent["ocr_pages"] = pages
-    ent["document_provenance"] = {"filename": file.filename, "engine": engine, "byte_size": len(data),
-                                  "page_count": len(pages), "stored_bytes": False}
-    d = date or ent["date"] or ""
-    with db.tx() as c:
-        cur = c.execute("INSERT INTO documents(user_id,filename,doc_date,doc_type,text,entities,engine,created) VALUES(?,?,?,?,?,?,?,?)",
-                        (u["id"], file.filename, d, ent["doc_type"], text, db.j(ent), engine, time.time()))
-        r = c.execute("SELECT * FROM documents WHERE id=?", (cur.lastrowid,)).fetchone()
-    out = doc_row(r)
-    out["needs_manual_note"] = not text.strip()
-    return out
+async def upload(file: UploadFile | None = File(None), files: list[UploadFile] | None = File(None),
+                 note: str = Form(""), date: str = Form(""), u=Depends(user)):
+    if files:
+        if file:
+            raise HTTPException(422, "Send either 'file' or repeated 'files' fields, not both.")
+        return await upload_batch(files, note, date, u)
+    if not file:
+        raise HTTPException(422, "Choose a file to upload.")
+    data = await _read_upload(file)
+    if len(data) > MAX_UPLOAD:
+        raise HTTPException(413, "File too large (max 8 MiB)")
+    result = _process_upload(data, file.filename, note, date, u["id"])
+    if result["processing_status"] == "failed":
+        return Response(content=db.j(result), status_code=422, media_type="application/json")
+    return result
 
 
 @app.post("/api/documents/text")
@@ -338,6 +539,19 @@ def docs(u=Depends(user)):
     with db.tx() as c:
         rows = c.execute("SELECT * FROM documents WHERE user_id=? ORDER BY COALESCE(NULLIF(doc_date,''),'9999'), id", (u["id"],)).fetchall()
     return [doc_row(r) for r in rows]
+
+@app.get("/api/documents/{did}/file")
+def document_file(did: int, u=Depends(user)):
+    with db.tx() as c:
+        row = c.execute("SELECT filename,content,content_type FROM documents WHERE id=? AND user_id=?", (did, u["id"])).fetchone()
+    if not row:
+        raise HTTPException(404, "Document not found")
+    if row["content"] is None:
+        raise HTTPException(404, "No original file is available for this document.")
+    filename = quote(row["filename"] or "document", safe="")
+    return Response(content=row["content"], media_type=row["content_type"] or "application/octet-stream",
+                    headers={"Content-Disposition": f"attachment; filename*=UTF-8''{filename}",
+                             "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "sandbox"})
 
 @app.delete("/api/documents/{did}")
 def del_doc(did: int, u=Depends(user)):
@@ -360,6 +574,33 @@ def _prepare(u, s: Submit):
     flags = rf.legacy_flags() if rf is not None else [{"code": "SCREENING_UNAVAILABLE", "level": "emergency",
         "msg": "Red-flag screening could not be completed. Treat this patient as UNSCREENED and obtain immediate clinician review."}]
     return a, dl, sections, flags, report
+
+
+def _snapshot_documents(c, record_id: int, user_id: int, documents: list[dict]):
+    for document in documents:
+        source_id = document.get("id")
+        row = c.execute("SELECT * FROM documents WHERE id=? AND user_id=?", (source_id, user_id)).fetchone()
+        if not row:
+            continue
+        cur = c.execute("""INSERT INTO record_documents(record_id,user_id,source_document_id,filename,doc_date,doc_type,
+                           text,entities,engine,created,content,content_type,sha256,processing_status,processing_error,byte_size)
+                           VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (record_id, user_id, row["id"], row["filename"], row["doc_date"], row["doc_type"], row["text"],
+                         row["entities"], row["engine"], row["created"], row["content"], row["content_type"], row["sha256"],
+                         row["processing_status"], row["processing_error"], row["byte_size"]))
+        snapshot_id = cur.lastrowid
+        facts = json.loads(row["entities"] or "{}").get("facts") or []
+        for index, fact in enumerate(facts):
+            try:
+                confidence = float(fact.get("confidence", 0))
+            except (TypeError, ValueError):
+                confidence = 0.0
+            c.execute("""INSERT INTO clinical_evidence(record_id,user_id,record_document_id,fact_index,field,value,status,
+                         confidence,source,created) VALUES(?,?,?,?,?,?,?,?,?,?)""",
+                      (record_id, user_id, snapshot_id, index, str(fact.get("field") or "unknown"),
+                       db.j(fact.get("value")), str(fact.get("status") or "uncertain"), confidence,
+                       db.j(fact.get("source") or {}), time.time()))
+
 
 @app.post("/api/summary")
 def make_summary(s: Submit, u=Depends(user)):
@@ -385,6 +626,7 @@ def submit(s: Submit, u=Depends(user)):
         cur = c.execute("INSERT INTO records(user_id,token_no,priority,status,answers,sections,flags,created,report) VALUES(?,?,?,?,?,?,?,?,?)",
                         (u["id"], n, prio, "submitted", db.j({k: v for k, v in a.items() if not k.startswith("_")}), db.j(sec), db.j(flags), time.time(), db.j(report)))
         rid = cur.lastrowid
+        _snapshot_documents(c, rid, u["id"], dl)
         bundle = fhir.build_bundle(u, sec, flags, dl, rid)
         push = fhir.abdm_push(bundle, u.get("abha"))
         c.execute("UPDATE records SET fhir=?, abdm_ref=? WHERE id=?", (db.j(bundle), push["ref"], rid))
@@ -398,6 +640,33 @@ def my_records(u=Depends(user)):
     with db.tx() as c:
         rows = c.execute("SELECT id,token_no,priority,status,flags,created,abdm_ref FROM records WHERE user_id=? ORDER BY id DESC", (u["id"],)).fetchall()
     return [{**dict(r), "flags": json.loads(r["flags"])} for r in rows]
+
+@app.get("/api/records/{rid}")
+def my_record(rid: int, u=Depends(user)):
+    with db.tx() as c:
+        row = c.execute("SELECT r.*, u.name, u.abha FROM records r JOIN users u ON u.id=r.user_id WHERE r.id=? AND r.user_id=?",
+                        (rid, u["id"])).fetchone()
+        document_rows = c.execute("SELECT * FROM record_documents WHERE record_id=? AND user_id=? ORDER BY id",
+                                  (rid, u["id"])).fetchall() if row else []
+    if not row:
+        raise HTTPException(404, "Record not found")
+    result = rec(row, True)
+    result["documents"] = [doc_row(document) for document in document_rows]
+    return result
+
+@app.get("/api/records/{rid}/documents/{did}/file")
+def my_record_document_file(rid: int, did: int, u=Depends(user)):
+    with db.tx() as c:
+        row = c.execute("""SELECT filename,content,content_type FROM record_documents
+                           WHERE id=? AND record_id=? AND user_id=?""", (did, rid, u["id"])).fetchone()
+    if not row:
+        raise HTTPException(404, "Encounter document not found")
+    if row["content"] is None:
+        raise HTTPException(404, "No original file is available for this document.")
+    filename = quote(row["filename"] or "document", safe="")
+    return Response(content=row["content"], media_type=row["content_type"] or "application/octet-stream",
+                    headers={"Content-Disposition": f"attachment; filename*=UTF-8''{filename}",
+                             "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "sandbox"})
 
 # ---------- doctor ----------
 def rec(r, full=False):
@@ -419,12 +688,27 @@ def d_list(d=Depends(doctor)):
 def d_get(rid: int, d=Depends(doctor)):
     with db.tx() as c:
         r = c.execute("SELECT r.*, u.name, u.abha FROM records r JOIN users u ON u.id=r.user_id WHERE r.id=?", (rid,)).fetchone()
-        document_rows = c.execute("SELECT * FROM documents WHERE user_id=? ORDER BY id", (r["user_id"],)).fetchall() if r else []
+        document_rows = c.execute("SELECT * FROM record_documents WHERE record_id=? ORDER BY id", (rid,)).fetchall() if r else []
     if not r: raise HTTPException(404, "Not found")
     security.audit("doctor_view_record", actor_id=d["id"], role="doctor", target=f"record:{rid}")
     result = rec(r, True)
     result["documents"] = [doc_row(row) for row in document_rows]
     return result
+
+@app.get("/api/doctor/records/{rid}/documents/{did}/file")
+def doctor_document_file(rid: int, did: int, d=Depends(doctor)):
+    with db.tx() as c:
+        row = c.execute("SELECT filename,content,content_type FROM record_documents WHERE id=? AND record_id=?",
+                        (did, rid)).fetchone()
+    if not row:
+        raise HTTPException(404, "Encounter document not found")
+    if row["content"] is None:
+        raise HTTPException(404, "No original file is available for this document.")
+    filename = quote(row["filename"] or "document", safe="")
+    security.audit("doctor_download_document", actor_id=d["id"], role="doctor", target=f"record:{rid}/document:{did}")
+    return Response(content=row["content"], media_type=row["content_type"] or "application/octet-stream",
+                    headers={"Content-Disposition": f"attachment; filename*=UTF-8''{filename}",
+                             "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "sandbox"})
 
 class Review(BaseModel):
     sections: list[dict]; status: str = "confirmed"
