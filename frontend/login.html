@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MediKiosk – Sign in</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><script>document.documentElement.lang=localStorage.getItem("mk_lang")==="hi"?"hi":"en";document.documentElement.dataset.languagePending="true";</script><title>MediKiosk – Sign in</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head>
 <body class="patient-app">
 <main class="auth-page">
   <a class="brand auth-brand" href="index.html" aria-label="MediKiosk home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M5 17h5.2l2.3-6.2 3.4 12.4L18.6 17H27" fill="none" stroke="#F4F7F5" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brand-copy"><span class="brand-name">MediKiosk</span><span class="brand-tagline">Your health, organized.</span></span></a>
   <section class="auth-panel card" aria-labelledby="auth-title">
+    <div class="auth-language"><label class="language-choice" for="login-language"><span id="login-language-label">Interface language</span><select id="login-language"><option value="en">English</option><option value="hi">हिंदी</option></select></label></div>
     <p class="eyebrow">SECURE PATIENT ACCESS</p><h1 id="auth-title">Sign in or register</h1><p class="subtitle">Access your health timeline, reports, and summaries.</p>
     <div class="auth-tabs"><button class="btn btn-text active" id="login-tab" type="button">Sign in</button><button class="btn btn-text" id="register-tab" type="button">Register</button></div>
     <form id="auth-form"><label class="input-label" for="username">Username</label><input id="username" type="text" required autocomplete="username"><label class="input-label" for="password">Password</label><div class="password-field"><input id="password" type="password" required autocomplete="current-password"><button id="toggle-password" type="button" aria-label="Show password">Show</button></div><div id="name-field" hidden><label class="input-label" for="name">Your name</label><input id="name" type="text" autocomplete="name"><label class="input-label" for="age">Age</label><input id="age" type="number" min="0" max="120" inputmode="numeric" autocomplete="off"></div><p class="field-error" id="auth-error" role="alert"></p><button class="btn btn-block" id="auth-submit" type="submit">Sign in</button></form>
@@ -13,9 +14,33 @@
 <script src="common.js"></script><script>
 let register = false;
 const form = document.getElementById("auth-form"), error = document.getElementById("auth-error");
-function setMode(value) { register = value; document.getElementById("name-field").hidden = !register; document.getElementById("password").autocomplete = register ? "new-password" : "current-password"; document.getElementById("auth-submit").textContent = register ? "Create account" : "Sign in"; document.getElementById("login-tab").classList.toggle("active", !register); document.getElementById("register-tab").classList.toggle("active", register); }
+const copy = PATIENT_I18N[getPatientLanguage()];
+function localizeLogin() {
+  document.documentElement.lang = getPatientLanguage();
+  document.querySelector(".brand-tagline").textContent = tr("Your health, organized.");
+  document.querySelector(".eyebrow").textContent = copy.loginEyebrow;
+  document.getElementById("auth-title").textContent = copy.signInOrRegister;
+  document.querySelector(".auth-panel .subtitle").textContent = copy.accessHelp;
+  document.getElementById("login-tab").textContent = copy.signIn;
+  document.getElementById("register-tab").textContent = copy.register;
+  document.querySelector('label[for="username"]').textContent = copy.user;
+  document.querySelector('label[for="password"]').textContent = copy.password;
+  document.querySelector('label[for="name"]').textContent = copy.name;
+  document.querySelector('label[for="age"]').textContent = copy.age;
+  document.getElementById("toggle-password").textContent = copy.show;
+  document.getElementById("toggle-password").setAttribute("aria-label", copy.show);
+  document.querySelector(".auth-panel .caption a").textContent = copy.homepage;
+  document.getElementById("login-language-label").textContent = copy.interfaceLanguage;
+  document.getElementById("login-language").setAttribute("aria-label", copy.interfaceLanguage);
+  document.getElementById("login-language").value = getPatientLanguage();
+  document.title = getPatientLanguage() === "hi" ? "MediKiosk – लॉग इन" : "MediKiosk – Sign in";
+  document.documentElement.removeAttribute("data-language-pending");
+}
+bindLanguageSelector("login-language", () => location.reload());
+localizeLogin();
+function setMode(value) { register = value; document.getElementById("name-field").hidden = !register; document.getElementById("password").autocomplete = register ? "new-password" : "current-password"; document.getElementById("auth-submit").textContent = register ? copy.createAccount : copy.signIn; document.getElementById("login-tab").classList.toggle("active", !register); document.getElementById("register-tab").classList.toggle("active", register); }
 document.getElementById("login-tab").onclick = () => setMode(false); document.getElementById("register-tab").onclick = () => setMode(true);
-document.getElementById("toggle-password").onclick = e => { const p=document.getElementById("password"); p.type=p.type==="password"?"text":"password"; e.currentTarget.textContent=p.type==="password"?"Show":"Hide"; };
+document.getElementById("toggle-password").onclick = e => { const p=document.getElementById("password"); p.type=p.type==="password"?"text":"password"; e.currentTarget.textContent=p.type==="password"?copy.show:copy.hide; };
 form.onsubmit = async e => {
   e.preventDefault();
   error.textContent = "";
@@ -39,7 +64,7 @@ form.onsubmit = async e => {
     const next = new URLSearchParams(location.search).get("next");
     location.href = next === "interview.html" ? "dashboard.html" : (next || "dashboard.html");
   } catch (err) {
-    error.textContent = err.message;
+    error.textContent = patientError(err);
   } finally {
     submit.disabled = false;
     submit.classList.remove("is-loading");

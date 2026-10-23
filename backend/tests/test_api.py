@@ -227,6 +227,44 @@ def test_guest_submission_keeps_encounter_document_and_source_evidence_snapshot(
     assert count > 0
 
 
+def test_failed_guest_document_survives_cleanup_for_authorized_doctor():
+    token = c.post("/api/auth/guest?name=FailedDocument").json()["token"]
+    headers = H(token)
+    c.post("/api/consent", json={"purpose": "history_capture", "granted": True}, headers=headers)
+    original = b"not a valid PDF, but retain this exact submitted file"
+    upload = c.post("/api/documents", files={
+        "file": ("unreadable.pdf", original, "application/pdf")
+    }, headers=headers)
+    assert upload.status_code == 422
+    failed = upload.json()
+    assert failed["processing_status"] == "failed" and failed["has_original"]
+
+    submitted = c.post("/api/submit", json={"answers": {}}, headers=headers)
+    assert submitted.status_code == 200
+    record_id = submitted.json()["record_id"]
+    assert c.get("/api/documents", headers=headers).json() == []
+
+    doctor_token = c.post("/api/auth/login", json={
+        "username": "doctor", "password": "doctor123"
+    }).json()["token"]
+    doctor_headers = H(doctor_token)
+    record = c.get(f"/api/doctor/records/{record_id}", headers=doctor_headers).json()
+    assert len(record["documents"]) == 1
+    document = record["documents"][0]
+    assert document["filename"] == "unreadable.pdf"
+    assert document["processing_status"] == "failed"
+    assert document["has_original"]
+    download = c.get(
+        f"/api/doctor/records/{record_id}/documents/{document['id']}/file",
+        headers=doctor_headers,
+    )
+    assert download.status_code == 200 and download.content == original
+    assert c.get(
+        f"/api/doctor/records/{record_id}/documents/{document['id']}/file",
+        headers=headers,
+    ).status_code == 403
+
+
 def test_synthetic_pdf_evidence_reaches_persisted_doctor_report_after_guest_cleanup():
     expected = {
         "history": {

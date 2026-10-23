@@ -27,6 +27,30 @@ If no ASR provider is configured, audio transcription returns a structured
 failure and the UI must fall back to typing or browser speech. No empty
 transcript is treated as a clinical negative. Original audio is not stored.
 
+The patient interface offers Click/Tap Mode and Hands-Free Voice Mode. The
+hands-free flow requests microphone permission only after consent and an
+explicit start action. It speaks each question when a suitable browser voice
+is available, then listens using the selected `en-IN` or `hi-IN` recognition
+locale. It does not switch locale automatically. Browser recognition API
+presence does not guarantee that the browser's speech service, microphone
+permission, network, or selected locale will work; runtime errors are shown
+and the patient can switch to Click/Tap Mode. Browser support cannot be
+reliably inferred in advance.
+
+Recognized option answers are accepted only on an exact match to a displayed
+option. The interface reads the interpreted answer back, requires explicit
+confirmation, and lets the patient repeat or correct it. Unmatched speech
+requires clarification; it is not silently converted into a clinical answer.
+Text answers remain editable. Transcript persistence and interview-answer
+persistence are separate operations; if either fails, the patient is told to
+retry before proceeding. Raw microphone audio is not retained.
+
+Any browser automation that stubs `SpeechRecognition` validates UI state
+transitions only. It does not test real microphone capture, browser speech
+services, language availability, recognition accuracy, or text-to-speech
+quality. Those require manual checks on each supported browser/device and
+language, with permissioned test speech.
+
 ## Provider status and integration requirements
 
 The configurable providers are:

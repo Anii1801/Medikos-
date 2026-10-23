@@ -120,7 +120,7 @@ def test_patient_document_management_flow(browser, server):
 
     page = browser.new_page()
     page.set_default_timeout(5000)
-    page.add_init_script(f"sessionStorage.setItem('mk_token', '{token}')")
+    page.add_init_script(f"sessionStorage.setItem('mk_token', '{token}'); localStorage.setItem('mk_lang', 'en')")
     page.goto(base + "/reports.html")
     page.get_by_text("broken.pdf", exact=True).wait_for()
     page.locator("details.document-row > summary").click()
@@ -142,8 +142,88 @@ def test_patient_document_management_flow(browser, server):
     page.locator(f'[data-document-delete="{document_id}"]').click()
     page.get_by_text("No documents uploaded yet.").wait_for()
     page.goto(base + "/dashboard.html")
-    page.get_by_role("button", name="Delete my data").wait_for()
+    page.get_by_role("button", name="Delete all my data").wait_for()
     assert page.locator('a[href="settings.html"]').count() == 0
+    page.close()
+
+
+def test_patient_language_and_interview_mode_persist(browser, server):
+    base, _ = server
+    token = httpx.post(base + "/api/auth/guest?name=PatientUI").json()["token"]
+    page = browser.new_page()
+    page.set_default_timeout(5000)
+    page.add_init_script(f"sessionStorage.setItem('mk_token', '{token}')")
+    page.goto(base + "/dashboard.html")
+    page.locator("#patient-language").select_option("hi")
+    page.get_by_role("heading", name="स्वागत है").wait_for()
+    assert page.locator("#patient-language").input_value() == "hi"
+
+    page.goto(base + "/interview.html")
+    assert page.locator("#patient-language").input_value() == "hi"
+    assert page.get_by_label("साक्षात्कार का तरीका").count() == 1
+    page.select_option("#input-mode", "voice")
+    assert page.locator("#mode-help").inner_text().startswith("प्रश्न आवाज़ में सुनाए जाएँगे")
+    assert page.evaluate("localStorage.getItem('mk_input_mode')") == "voice"
+    page.reload()
+    assert page.locator("#input-mode").input_value() == "voice"
+    assert page.locator("#mic-status").inner_text().startswith("माइक्रोफ़ोन की अनुमति और उपलब्धता")
+    page.close()
+
+
+def test_hands_free_answer_waits_for_mocked_confirmation(browser, server):
+    base, _ = server
+    token = httpx.post(base + "/api/auth/guest?name=VoiceUI").json()["token"]
+    page = browser.new_page()
+    page.set_default_timeout(5000)
+    page.add_init_script(f"""
+        sessionStorage.setItem('mk_token', '{token}');
+        sessionStorage.setItem('mk_start_interview', '1');
+        localStorage.setItem('mk_input_mode', 'voice');
+        window.__recognitions = [];
+        window.SpeechRecognition = class {{
+          constructor() {{ window.__recognitions.push(this); }}
+          start() {{}}
+          abort() {{}}
+        }};
+        window.SpeechSynthesisUtterance = class {{ constructor(text) {{ this.text = text; }} }};
+        Object.defineProperty(window, 'speechSynthesis', {{ configurable: true, value: {{
+          getVoices: () => [{{ lang: 'en-IN' }}],
+          cancel: () => {{}},
+          speak: utterance => setTimeout(() => utterance.onend?.(), 0)
+        }} }});
+        Object.defineProperty(navigator, 'mediaDevices', {{ configurable: true, value: {{
+          getUserMedia: async () => ({{ getTracks: () => [{{ stop: () => {{}} }}] }})
+        }} }});
+        window.__emitSpeech = (index, transcript) => {{
+          const result = [{{ transcript }}];
+          result.isFinal = true;
+          const recognition = window.__recognitions[index];
+          recognition.onresult({{ resultIndex: 0, results: [result] }});
+          recognition.onend();
+        }};
+    """)
+    answer_posts = []
+    page.on("request", lambda request: answer_posts.append(request.post_data_json)
+            if request.url.endswith("/answers") and request.method == "POST"
+            and request.post_data_json and "field" in request.post_data_json else None)
+    page.goto(base + "/")
+    page.locator("#c1").check()
+    page.locator("#go").click()
+    page.wait_for_function("window.__recognitions.length === 1")
+    option = page.locator(".opt").first
+    spoken_answer = option.inner_text()
+    expected_value = option.get_attribute("data-v")
+    page.evaluate("(answer) => window.__emitSpeech(0, answer)", spoken_answer)
+    page.wait_for_function("window.__recognitions.length === 2")
+    assert page.locator("#nx").inner_text() == "Confirm answer"
+    assert answer_posts == []
+
+    page.evaluate("() => window.__emitSpeech(1, 'confirm')")
+    page.wait_for_function("window.__recognitions.length >= 3")
+    assert answer_posts
+    assert answer_posts[0]["value"] == expected_value
+    assert answer_posts[0]["transcript_id"]
+    assert answer_posts[0]["verification_status"] == "patient_confirmed"
     page.close()
 
 
@@ -203,9 +283,14 @@ def test_patient_view_renderer_uses_same_order(browser, server):
     base, _ = server
     t = httpx.post(base + "/api/auth/guest?name=P").json()["token"]
     rep = httpx.post(base + "/api/clinical-summary", json={"answers": EMERGENCY}, headers={"Authorization": f"Bearer {t}"}).json()
-    page = browser.new_page(); page.goto(base + "/index.html")
+    page = browser.new_page()
+    page.add_init_script("localStorage.setItem('mk_lang', 'en')")
+    page.goto(base + "/index.html")
     page.evaluate("rep => { document.body.insertAdjacentHTML('beforeend', '<div id=\"t\">' + renderClinicalReport(rep, {mode: 'patient'}) + '</div>'); }", rep)
     assert page.eval_on_selector_all("#t [data-block]", "els => els.map(e => e.dataset.block)") == ["clinical_summary", "red_flag_suggestions"]
     assert page.inner_text("#t #red-flag-suggestions h2") == LABEL
-    assert page.locator("#t #clinician-review").count() == 0       # patients do not get approve controls
+    assert page.locator("#t #clinician-review").count() == 0
+    page.evaluate("rep => { setPatientLanguage('hi'); document.getElementById('t').innerHTML = renderClinicalReport(rep, {mode: 'patient'}); }", rep)
+    assert page.inner_text("#t #red-flag-suggestions h2") == "AI द्वारा तैयार चेतावनी सुझाव"
+    assert rep["red_flag_suggestions"]["items"][0]["title"] in page.inner_text("#t #red-flag-suggestions")       # patients do not get approve controls
     page.close()

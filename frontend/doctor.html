@@ -352,19 +352,26 @@ async function openRecord(id) {
       </div>
       ${rep ? renderClinicalReport(rep, { mode: "clinician", sections: r.sections }) : legacyReportHtml(r)}
       <div class="card mt">
-        <h2>Extracted medical reports and laboratory findings</h2>
+        <h2>Uploaded Documents</h2>
         ${docs.length ? docs.map(d => {
           const e = d.entities || {}, flags = e.review_flags || [];
           const facts = (e.facts || []).slice(0, 12);
           const labs = e.labs || [];
-          return `<div class="mt-sm" style="overflow-wrap:anywhere"><b>${esc(d.filename || "Document")}</b>
-            <span class="caption mut"> ${esc(d.date || "undated")} · ${esc(d.engine || "unknown engine")} · ${esc(String(d.doc_type || "").replace("_"," "))}</span>
-            <span class="chip">${esc(d.processing_status || "needs_review")}</span>
-            ${d.processing_error ? `<p class="caption" role="status">${esc(d.processing_error)}</p>` : ""}
-            ${d.has_original ? `<button class="btn btn-outline btn-sm" type="button" data-record-doc-download="${d.id}" data-filename="${esc(d.filename)}">Download original</button>` : ""}
-            ${flags.length ? `<div class="caption" style="color:var(--warning)">Review: ${esc(flags.join(", "))}</div>` : ""}
-            ${labs.length ? `<ul class="caption">${labs.map(l => `<li>${esc(l.test)}: ${esc(l.value)} ${esc(l.unit || "")} ${esc(l.flag || "")}${l.ref ? ` · ref ${esc(l.ref)}` : ""}</li>`).join("")}</ul>` : ""}
-            ${facts.length ? `<ul class="caption">${facts.map(f => `<li>${esc(f.field)}: ${esc(typeof f.value === "string" ? f.value : JSON.stringify(f.value))} · ${esc(f.status)} · ${Math.round((f.confidence || 0) * 100)}%${f.source?.page ? ` · page ${f.source.page}` : ""}</li>`).join("")}</ul>` : `<p class="caption mut">No structured facts extracted; review original document.</p>`}
+          const docType = d.doc_type ? String(d.doc_type).replace(/_/g, " ") : "Unclassified";
+          const uploaded = d.created ? new Date(d.created * 1000).toLocaleString("en-IN") : "Not recorded";
+          const source = ref => ref?.page
+            ? ` · page ${esc(ref.page)}${ref.start != null && ref.end != null ? ` · text ${esc(ref.start)}-${esc(ref.end)}` : ""}`
+            : "";
+          return `<div class="mt-sm" style="overflow-wrap:anywhere">
+            <h3>${esc(d.filename || "Document")}</h3>
+            <p class="caption mut">${esc(docType)} · Uploaded: ${esc(uploaded)} · Extraction engine: ${esc(d.engine || "not reported")}</p>
+            <p class="caption">Extraction status: <span class="chip">${esc(d.processing_status || "needs_review")}</span></p>
+            <p class="caption">Clinician verification: Not yet verified in this encounter.</p>
+            ${d.processing_error ? `<p class="alert alert-urgent" role="status">${esc(d.processing_status === "failed" ? "Automatic extraction failed. Review the original document manually." : d.processing_error)}${d.processing_status === "failed" ? `<br><span>${esc(d.processing_error)}</span>` : ""}</p>` : ""}
+            ${d.has_original ? `<button class="btn btn-outline btn-sm" type="button" data-record-doc-download="${d.id}" data-filename="${esc(d.filename)}">View / Download original document</button>` : `<p class="caption alert alert-urgent">Original file is unavailable for this document.</p>`}
+            ${flags.length ? `<div class="caption" style="color:var(--warning)">Extraction warnings / review flags: ${esc(flags.join(", "))}</div>` : ""}
+            ${labs.length ? `<ul class="caption">${labs.map(l => `<li>${esc(l.test)}: ${esc(l.value)} ${esc(l.unit || "")} ${esc(l.flag || "")}${l.ref ? ` · ref ${esc(l.ref)}` : ""}${source(l.source)}</li>`).join("")}</ul>` : ""}
+            ${facts.length ? `<ul class="caption">${facts.map(f => `<li>${esc(f.field)}: ${esc(typeof f.value === "string" ? f.value : JSON.stringify(f.value))} · ${esc(f.status)} · ${Math.round((f.confidence || 0) * 100)}%${source(f.source)}</li>`).join("")}</ul>` : `<p class="caption mut">${d.processing_status === "failed" ? "No findings were extracted; open the original and review it manually." : "No structured facts extracted; review original document."}</p>`}
           </div>`;
         }).join("") : `<p class="caption mut">No uploaded documents.</p>`}
       </div>

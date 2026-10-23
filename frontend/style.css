@@ -78,6 +78,7 @@
 *, *::before, *::after { box-sizing: border-box; min-width: 0; }
 html, body { margin: 0; padding: 0; }
 html { background: var(--bg); }
+html[data-language-pending] body { visibility: hidden; }
 body {
   min-height: 100vh;
   background: var(--bg);
@@ -157,6 +158,23 @@ a { color: var(--teal); }
 .appbar-brand { display: flex; align-items: center; gap: 10px; }
 .appbar-logo { font-size: 1.05rem; font-weight: 650; color: var(--primary); letter-spacing: -.02em; }
 .appbar-actions { display: flex; align-items: center; gap: 6px; }
+.language-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-mid);
+  font-size: .82rem;
+  font-weight: 600;
+}
+.language-choice select {
+  min-height: 38px;
+  max-width: 128px;
+  padding: 6px 28px 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink);
+}
 
 .site-nav {
   display: flex;

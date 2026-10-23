@@ -1,6 +1,6 @@
 import os, json, time, secrets, uuid, hashlib, logging, io
 from urllib.parse import quote
-from typing import Optional
+from typing import Literal, Optional
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form, Header, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -130,6 +130,9 @@ class InterviewSessionCreate(BaseModel):
 class InterviewAnswer(BaseModel):
     field: str
     value: object
+    transcript_id: str | None = None
+    language: Literal["en", "hi"] = "en"
+    verification_status: Literal["patient_confirmed", "patient_submitted", "uncertain"] = "patient_submitted"
 
 def _save_interview(agent: AdaptiveHistoryTakingAgent, uid: int):
     now = time.time()
@@ -160,7 +163,29 @@ def create_interview_session(req: InterviewSessionCreate, u=Depends(user)):
 @app.post("/api/interview/sessions/{session_id}/answers", response_model=QuestionResponse)
 def answer_interview(session_id: str, answer: InterviewAnswer, u=Depends(user)):
     agent = _load_interview(session_id, u["id"])
+    transcript = None
+    if answer.transcript_id:
+        with db.tx() as c:
+            transcript = c.execute(
+                "SELECT id,original_transcript,corrected_transcript,language FROM asr_transcripts WHERE id=? AND user_id=?",
+                (answer.transcript_id, u["id"]),
+            ).fetchone()
+        if not transcript:
+            raise HTTPException(404, "Transcript not found")
+        if transcript["language"] != answer.language:
+            raise HTTPException(422, "Transcript language does not match the interview language")
     response = agent.answer(answer.field, answer.value)
+    if transcript:
+        history = agent.state.get("answer_history", [])
+        if history and history[-1].get("field") == answer.field:
+            history[-1]["speech_verification"] = {
+                "transcript_id": transcript["id"],
+                "language": transcript["language"],
+                "raw_transcript": transcript["original_transcript"],
+                "corrected_transcript": transcript["corrected_transcript"],
+                "normalized_interpretation": answer.value,
+                "verification_status": answer.verification_status,
+            }
     _save_interview(agent, u["id"])
     return response
 

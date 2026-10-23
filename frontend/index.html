@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script>document.documentElement.lang=localStorage.getItem("mk_lang")==="hi"?"hi":"en";document.documentElement.dataset.languagePending="true";</script>
   <title>MediKiosk – Patient</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="patient-app">
-<a class="skip-link" href="#app">Skip to content</a>
+<a class="skip-link" href="#app" id="skip-link">Skip to content</a>
 <div id="toast" class="toast" aria-live="polite"></div>
 
 <header class="appbar">
@@ -37,7 +38,9 @@
     <button class="icon-btn" id="text-size" type="button" aria-label="Adjust text size" title="Adjust text size">A</button>
     <button class="icon-btn mk-header-icon" id="theme" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button>
     <button class="icon-btn" id="spk" type="button" aria-label="Audio prompts" title="Audio">Audio</button>
-    <button class="icon-btn" id="lang" type="button" title="Switch language">हि</button>
+    <label class="language-choice" for="lang"><span id="lang-label">Interface language</span>
+      <select id="lang" aria-labelledby="lang-label"><option value="en">English</option><option value="hi">हिंदी</option></select>
+    </label>
     <button class="btn btn-outline btn-sm" id="hdr-auth" type="button">Sign in</button>
   </div>
 </header>
@@ -46,53 +49,11 @@
 
 <script src="common.js"></script>
 <script>
-const T = {
-  en: {
-    welcome: "Your health, in one place.", sub: "Complete your medical history and organize your reports before your consultation.",
-    quick: "Continue as guest", login: "Log in", reg: "Register",
-    user: "Username", pw: "Password", name: "Your name", age: "Age", abha: "ABHA ID (optional)",
-    ayush: "Ayurveda OPD — extended Dashavidha Pariksha history",
-    consentH: "Privacy and consent", c1: "I consent to my health information being recorded for my doctor.",
-    start: "Start Interview", cont: "Continue Interview", next: "Continue", back: "Back", speak: "Speak", listen: "Listening…",
-    type: "Type or speak your answer",
-    docsH: "Upload medical reports", docsS: "Upload prescriptions, laboratory reports, and other medical documents.",
-    addDoc: "Browse files", or: "or type the report text manually", add: "Add text",
-    date: "Report date (YYYY-MM-DD)", sumH: "My health summary",
-    sumS: "Review your recorded history and the latest generated draft. Your clinician will also review it.",
-    send: "Send to doctor",
-    done: "Submitted", dash: "Health timeline", out: "Log out",
-    erase: "Delete all my data", nodocs: "No documents uploaded yet.",
-    flag: "Urgent finding — staff should be alerted", tokenL: "Your token number", wait: "Wait for your turn. Emergency cases are seen first.",
-    readMsg: "Uploading and extracting text…", manual: "Could not read this file. Type the content below, or try another document.",
-    healthSummary: "Recorded encounters", recentVisits: "Recent encounters", noRecords: "No encounters recorded yet.",
-    quickActions: "Prepare for your visit",
-    newH: "Start Interview",
-    notSure: "Not sure", preferNot: "Prefer not to answer"
-  },
-  hi: {
-    welcome: "आपका स्वास्थ्य, एक जगह।", sub: "परामर्श से पहले अपना स्वास्थ्य इतिहास पूरा करें और रिपोर्ट व्यवस्थित करें।",
-    quick: "अतिथि के रूप में जारी रखें", login: "लॉग इन", reg: "खाता बनाएँ",
-    user: "यूज़रनेम", pw: "पासवर्ड", name: "आपका नाम", age: "उम्र", abha: "आभा आईडी (वैकल्पिक)",
-    ayush: "आयुर्वेद ओपीडी — दशविध परीक्षा",
-    consentH: "गोपनीयता और सहमति", c1: "मैं स्वास्थ्य जानकारी डॉक्टर के लिए दर्ज करने की सहमति देता/देती हूँ।",
-    start: "साक्षात्कार शुरू करें", cont: "साक्षात्कार जारी रखें", next: "आगे", back: "पीछे", speak: "बोलिए", listen: "सुन रहा है…",
-    newH: "साक्षात्कार शुरू करें",
-    type: "लिखिए या बोलिए",
-    docsH: "मेडिकल रिपोर्ट जोड़ें", docsS: "पर्चे, जांच रिपोर्ट या अन्य दस्तावेज़ अपलोड करें।",
-    addDoc: "फ़ाइल चुनें", or: "या रिपोर्ट का पाठ टाइप करें", add: "जोड़ें",
-    date: "तारीख (YYYY-MM-DD)", sumH: "स्वास्थ्य सारांश",
-    sumS: "भेजने से पहले जाँच लें।", send: "डॉक्टर को भेजें",
-    done: "भेज दिया गया", dash: "स्वास्थ्य समयरेखा", out: "लॉग आउट",
-    erase: "मेरा डेटा मिटाएँ", nodocs: "कोई दस्तावेज़ नहीं",
-    flag: "आपातकाल — स्टाफ को सूचित किया", tokenL: "आपका टोकन नंबर", wait: "अपनी बारी का इंतज़ार करें।",
-    readMsg: "अपलोड हो रहा है, पाठ निकाला जा रहा है…", manual: "फ़ाइल नहीं पढ़ सकी। कृपया नीचे टाइप करें।",
-    healthSummary: "दर्ज मुलाकातें", recentVisits: "हालिया मुलाकातें", noRecords: "कोई रिकॉर्ड नहीं",
-    quickActions: "मुलाकात की तैयारी",
-    notSure: "निश्चित नहीं", preferNot: "उत्तर नहीं देना चाहते"
-  }
-};
-
-let lang = "en", voice = true, ans = {}, stack = [], ayush = false, me = null, _rec = null, cur = null, voiceTranscriptId = null, voiceTranscriptPromise = Promise.resolve(), interviewSessionId = null, speechVoices = [], spokenQuestionKey = null;
+const T = PATIENT_I18N;
+let lang = getPatientLanguage(), voice = true, ans = {}, stack = [], ayush = false, me = null, _rec = null, cur = null, voiceTranscriptId = null, voiceTranscriptPromise = Promise.resolve(), interviewSessionId = null, speechVoices = [], spokenQuestionKey = null;
+let inputMode = localStorage.getItem("mk_input_mode") === "voice" ? "voice" : "click";
+let voiceState = "READY", voiceNeedsConfirmation = false, voiceRetryCount = 0, voiceRunId = 0, answerSaving = false;
+let transcriptPersistenceFailed = false, pendingVoiceTranscript = "", voiceTranscriptOriginal = "", pendingAnswerTranscriptId = null;
 const t = k => T[lang][k] || k;
 
 function showToast(msg, ms = 3500) {
@@ -103,9 +64,21 @@ function showToast(msg, ms = 3500) {
   el._t = setTimeout(() => el.classList.remove("show"), ms);
 }
 
+async function saveVoiceTranscript(transcript) {
+  const language = lang === "hi" ? "hi" : "en";
+  if (voiceTranscriptId && voiceTranscriptOriginal) {
+    return api("/asr/transcripts/" + encodeURIComponent(voiceTranscriptId), {
+      method: "PUT", json: { corrected_transcript: transcript }
+    });
+  }
+  return api("/asr/transcripts", {
+    json: { transcript, language, language_detected: null }
+  });
+}
+
 function persistInterview() {
   try {
-    sessionStorage.setItem("mk_iv", JSON.stringify({ interviewSessionId, ans, stack, ayush }));
+    sessionStorage.setItem("mk_iv", JSON.stringify({ interviewSessionId, ans, stack, ayush, inputMode }));
   } catch (_) {}
 }
 function restoreInterview() {
@@ -116,11 +89,16 @@ function restoreInterview() {
     ans = saved.ans || {};
     stack = saved.stack || [];
     ayush = !!saved.ayush;
+    inputMode = saved.inputMode === "voice" || saved.inputMode === "click"
+      ? saved.inputMode : (localStorage.getItem("mk_input_mode") === "voice" ? "voice" : "click");
+    localStorage.setItem("mk_input_mode", inputMode);
     return !!interviewSessionId;
   } catch (_) { return false; }
 }
 function clearInterview() {
   interviewSessionId = null; ans = {}; stack = [];
+  voiceState = "READY"; voiceNeedsConfirmation = false; voiceRetryCount = 0; answerSaving = false;
+  transcriptPersistenceFailed = false; pendingVoiceTranscript = ""; voiceTranscriptOriginal = ""; pendingAnswerTranscriptId = null;
   sessionStorage.removeItem("mk_iv");
 }
 function hasInterviewProgress() {
@@ -131,29 +109,68 @@ function hasInterviewProgress() {
 function refreshSpeechVoices() {
   if (window.speechSynthesis) speechVoices = speechSynthesis.getVoices();
 }
-function say(x, retrying = false) {
-  if (!voice || !window.speechSynthesis) return;
+function setVoiceState(state, detail = "") {
+  voiceState = state;
+  const indicator = document.getElementById("voice-state");
+  if (indicator) {
+    indicator.textContent = `${t(state === "READY" || state === "ASKING_QUESTION" ? "voiceStateReady" :
+      state === "SPEAKING_QUESTION" ? "voiceStateSpeaking" :
+      state === "LISTENING" || state === "WAITING_FOR_SPEECH" ? "voiceStateListening" :
+      state === "VERIFYING_ANSWER" || state === "SAVING_ANSWER" || state === "TRANSCRIBING" ? "voiceStateProcessing" :
+      state === "CLARIFICATION_REQUIRED" ? "voiceStateClarification" :
+      state === "PAUSED" ? "voiceStatePaused" : state === "MICROPHONE_ERROR" || state === "TRANSCRIPTION_ERROR" ? "voiceStateError" :
+      "voiceStateConfirm")}${detail ? ` — ${detail}` : ""}`;
+    indicator.dataset.state = state;
+  }
+  const pauseButton = document.getElementById("voice-pause");
+  if (pauseButton) pauseButton.textContent = t(state === "PAUSED" ? "resumeInterview" : "pauseInterview");
+}
+async function requestMicrophonePermission() {
+  if (!navigator.mediaDevices?.getUserMedia) throw new Error(t("micUnavailable"));
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  stream.getTracks().forEach(track => track.stop());
+}
+function say(x, onEnd = null, retrying = false) {
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    if (typeof onEnd === "function") onEnd();
+  };
+  if (!voice || !window.speechSynthesis) {
+    if (inputMode === "voice") showToast(lang === "hi"
+      ? "इस ब्राउज़र में आवाज़ उपलब्ध नहीं है। प्रश्न पढ़ें; इसके बाद सुनना शुरू होगा।"
+      : "Audio is unavailable in this browser. Read the question; listening will start afterward.");
+    setTimeout(finish, 0);
+    return false;
+  }
   try {
     refreshSpeechVoices();
     if (!speechVoices.length && !retrying) {
-      setTimeout(() => say(x, true), 150);
-      return;
+      setTimeout(() => say(x, onEnd, true), 150);
+      return true;
     }
     const requested = lang === "hi" ? "hi-IN" : "en-IN";
     const prefix = lang === "hi" ? "hi" : "en";
     const selected = speechVoices.find(v => v.lang.toLowerCase() === requested.toLowerCase())
       || speechVoices.find(v => v.lang.toLowerCase().startsWith(prefix));
     if (lang === "hi" && !selected) {
-      showToast("Hindi audio is not installed in this browser. You can continue by reading or typing.");
-      return;
+      showToast(t("ttsUnavailable"));
+      setTimeout(finish, 0);
+      return false;
     }
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(x);
     u.lang = selected ? selected.lang : requested;
     if (selected) u.voice = selected;
+    u.onend = finish;
+    u.onerror = finish;
     speechSynthesis.speak(u);
+    return true;
   } catch (e) {
-    showToast("Audio is unavailable. You can continue by reading or typing.");
+    showToast(lang === "hi" ? "आवाज़ उपलब्ध नहीं है। प्रश्न पढ़ें और लिखकर उत्तर दें।" : "Audio is unavailable. Read the question and type your answer.");
+    setTimeout(finish, 0);
+    return false;
   }
 }
 if (window.speechSynthesis) {
@@ -161,7 +178,33 @@ if (window.speechSynthesis) {
   speechSynthesis.onvoiceschanged = refreshSpeechVoices;
 }
 
-const R = h => { document.getElementById("app").innerHTML = h; };
+const R = h => {
+  document.getElementById("app").innerHTML = h;
+  document.documentElement.removeAttribute("data-language-pending");
+};
+function applyStaticShellLanguage() {
+  const langSelect = document.getElementById("lang");
+  langSelect.value = lang;
+  document.getElementById("lang-label").textContent = t("interfaceLanguage");
+  langSelect.setAttribute("aria-label", t("interfaceLanguage"));
+  document.getElementById("brand-home").setAttribute("aria-label", `${t("home")} — MediKiosk`);
+  document.querySelector(".brand-tagline").textContent = tr("Your health, organized.");
+  [["bn-home", "Home"], ["bn-hist", "Medical History"], ["bn-docs", "Medical Reports"], ["bn-info", "About"]]
+    .forEach(([id, copy]) => { document.getElementById(id).textContent = tr(copy); });
+  document.getElementById("site-nav").setAttribute("aria-label", t("patient"));
+  document.getElementById("skip-link").textContent = tr("Skip to content");
+  document.getElementById("text-size").setAttribute("aria-label", tr("Adjust text size"));
+  document.getElementById("text-size").title = tr("Adjust text size");
+  document.getElementById("theme").setAttribute("aria-label", tr("Switch theme"));
+  document.getElementById("theme").title = tr("Switch theme");
+  document.getElementById("spk").setAttribute("aria-label", tr("Audio prompts"));
+  document.getElementById("spk").title = tr("Audio prompts");
+  document.getElementById("menu-toggle").textContent = t("menu");
+  document.getElementById("menu-toggle").setAttribute("aria-label", t("openMenu"));
+  document.getElementById("spk").textContent = voice ? tr("Audio") : tr("Muted");
+  document.getElementById("hdr-auth").textContent = tr("Sign in");
+}
+applyStaticShellLanguage();
 
 const textSizeButton = document.getElementById("text-size");
 const textSizes = ["smallest", "medium", "large"];
@@ -172,8 +215,8 @@ function applyTextSize() {
   document.documentElement.dataset.textSize = size;
   const labels = { smallest: "A−", medium: "A", large: "A+" };
   textSizeButton.textContent = labels[size];
-  textSizeButton.setAttribute("aria-label", `Text size: ${size}`);
-  textSizeButton.title = `Text size: ${size}`;
+  textSizeButton.setAttribute("aria-label", lang === "hi" ? `अक्षर आकार: ${size}` : `Text size: ${size}`);
+  textSizeButton.title = lang === "hi" ? `अक्षर आकार: ${size}` : `Text size: ${size}`;
 }
 textSizeButton.onclick = () => {
   textSizeIndex = (textSizeIndex + 1) % textSizes.length;
@@ -187,8 +230,8 @@ function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   const dark = theme === "dark";
   themeButton.textContent = dark ? "☼" : "◐";
-  themeButton.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-  themeButton.title = dark ? "Light theme" : "Dark theme";
+  themeButton.setAttribute("aria-label", dark ? (lang === "hi" ? "हल्की थीम चुनें" : "Switch to light theme") : (lang === "hi" ? "गहरी थीम चुनें" : "Switch to dark theme"));
+  themeButton.title = dark ? (lang === "hi" ? "हल्की थीम" : "Light theme") : (lang === "hi" ? "गहरी थीम" : "Dark theme");
 }
 applyTheme(localStorage.getItem("mk_theme") || "light");
 themeButton.onclick = () => {
@@ -198,16 +241,15 @@ themeButton.onclick = () => {
 };
 document.getElementById("spk").onclick = () => {
   voice = !voice;
-  document.getElementById("spk").textContent = voice ? "Audio" : "Muted";
+  document.getElementById("spk").textContent = voice ? tr("Audio") : tr("Muted");
   if (!voice) speechSynthesis?.cancel();
-  showToast(voice ? "Audio on" : "Audio off");
+  showToast(voice ? (lang === "hi" ? "ऑडियो चालू" : "Audio on") : (lang === "hi" ? "ऑडियो बंद" : "Audio off"));
 };
-document.getElementById("lang").onclick = () => {
-  lang = lang === "en" ? "hi" : "en";
-  document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
-  document.documentElement.lang = lang;
+bindLanguageSelector("lang", () => {
+  lang = getPatientLanguage();
+  applyStaticShellLanguage();
   route();
-};
+});
 
 const siteNav = document.getElementById("site-nav");
 const menuToggle = document.getElementById("menu-toggle");
@@ -215,7 +257,8 @@ menuToggle.onclick = () => {
   const open = !siteNav.classList.contains("open");
   siteNav.classList.toggle("open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuToggle.textContent = t("menu");
+  menuToggle.setAttribute("aria-label", open ? (lang === "hi" ? "मेनू बंद करें" : "Close menu") : t("openMenu"));
 };
 
 function setActive(id) {
@@ -232,7 +275,7 @@ function bnav(tab) {
   closeMenu();
   if (tab === "home") route();
   else if (tab === "hist") dashHistory();
-  else if (tab === "docs") { if (TOKEN) docs(); else auth("Please sign in to upload reports."); }
+  else if (tab === "docs") { if (TOKEN) docs(); else auth(tr("Please sign in to upload reports.")); }
   else if (tab === "info") aboutPage();
 }
 
@@ -240,16 +283,16 @@ function updateHeaderAuth() {
   const btn = document.getElementById("hdr-auth");
   if (!btn) return;
   if (TOKEN && me && me.role !== "guest") {
-    btn.setAttribute("aria-label", `Profile for ${me.name || me.username || "user"}`);
-    btn.textContent = "Dashboard";
+    btn.setAttribute("aria-label", `${lang === "hi" ? "प्रोफ़ाइल" : "Profile"}: ${me.name || me.username || "user"}`);
+    btn.textContent = t("dashboard");
     btn.onclick = () => location.href = "dashboard.html";
   } else if (TOKEN) {
-    btn.setAttribute("aria-label", "Guest profile");
-    btn.textContent = "Continue";
+    btn.setAttribute("aria-label", lang === "hi" ? "अतिथि प्रोफ़ाइल" : "Guest profile");
+    btn.textContent = t("cont");
     btn.onclick = () => location.href = "dashboard.html";
   } else {
-    btn.setAttribute("aria-label", "Sign in");
-    btn.textContent = "Sign in";
+    btn.setAttribute("aria-label", t("signIn"));
+    btn.textContent = t("signIn");
     btn.onclick = () => location.href = "login.html";
   }
 }
@@ -279,50 +322,51 @@ function interviewCta() {
 function landingPage() {
   R(`
   <section class="mk-home" aria-labelledby="hero-title">
-    <p class="eyebrow">YOUR HEALTH, ORGANIZED</p>
+    <p class="eyebrow">${tr("YOUR HEALTH, ORGANIZED")}</p>
     <h1 id="hero-title">${t("welcome")}</h1>
     <p class="mk-intro">${t("sub")}</p>
     <div class="hero-actions mk-landing-actions">
-      <button class="btn btn-lg" id="st">Start Interview</button>
-      <button class="btn btn-outline btn-lg" id="upq">Upload Medical Reports</button>
+      <button class="btn btn-lg" id="st">${t("start")}</button>
+      <button class="btn btn-outline btn-lg" id="upq">${tr("Upload Medical Reports")}</button>
     </div>
     <article class="mk-feature-card">
       <div class="mk-feature-icon">${ICONS.history}</div>
       <div class="mk-feature-copy">
-        <h2>Medical History</h2>
-        <p>Answer a few questions about your symptoms, health history, and medications.</p>
+        <h2>${tr("Medical History")}</h2>
+        <p>${tr("Answer a few questions about your symptoms, health history, and medications.")}</p>
       </div>
       <div class="mk-progress" aria-live="polite">
-        <span class="mk-progress-label">Not started</span>
+        <span class="mk-progress-label">${tr("Not started")}</span>
       </div>
-      <button class="btn mk-feature-action" id="card-hist">Start Interview <span aria-hidden="true">→</span></button>
+      <button class="btn mk-feature-action" id="card-hist">${t("start")} <span aria-hidden="true">→</span></button>
     </article>
     <div class="mk-support-grid">
       <article class="mk-support-card" id="card-docs" role="button" tabindex="0">
         <div class="mk-support-icon">${ICONS.reports}</div>
-        <h2>Medical Reports</h2>
-        <p>Upload prescriptions, laboratory reports, and other documents.</p>
+        <h2>${tr("Medical Reports")}</h2>
+        <p>${tr("Upload prescriptions, laboratory reports, and other documents.")}</p>
       </article>
       <article class="mk-support-card" id="card-time" role="button" tabindex="0">
         <div class="mk-support-icon">${ICONS.timeline}</div>
-        <h2>Health Timeline</h2>
-        <p>Review your recorded history.</p>
+        <h2>${tr("Health Timeline")}</h2>
+        <p>${tr("Review your recorded history.")}</p>
       </article>
     </div>
     <section class="mk-summary-preview" aria-labelledby="summary-preview-title">
       <div>
-        <p class="eyebrow">MY HEALTH SUMMARY</p>
-        <h2 id="summary-preview-title">Your recorded history, organized.</h2>
-        <p>Sign in or start an interview to create and review your health summary.</p>
+        <p class="eyebrow">${tr("MY HEALTH SUMMARY")}</p>
+        <h2 id="summary-preview-title">${tr("Your recorded history, organized.")}</h2>
+        <p>${tr("Sign in or start an interview to create and review your health summary.")}</p>
       </div>
-      <button class="btn btn-outline" id="card-sum">View Summary</button>
+      <button class="btn btn-outline" id="card-sum">${tr("View Summary")}</button>
     </section>
   </section>
   <footer class="mk-footer">
-    <span>MediKiosk · Your health, organized.</span>
-    <span><button class="text-btn" id="footer-signin">Sign in</button><button class="text-btn" id="footer-help">Help &amp; privacy</button></span>
+    <span>MediKiosk · ${tr("Your health, organized.")}</span>
+    <span><button class="text-btn" id="footer-signin">${t("signIn")}</button><button class="text-btn" id="footer-help">${tr("Help & privacy")}</button></span>
   </footer>
   `);
+  document.documentElement.removeAttribute("data-language-pending");
 
   const start = () => location.href = "interview.html";
   document.getElementById("st").onclick = start;
@@ -347,47 +391,41 @@ async function homeDash() {
 
   R(`
   <section class="mk-home" aria-labelledby="hero-title">
-    <p class="mk-greeting">Good morning${greetingName} <span aria-hidden="true">👋</span></p>
+    <p class="mk-greeting">${tr("Good morning")}${greetingName} <span aria-hidden="true">👋</span></p>
     <h1 id="hero-title">${t("welcome")}</h1>
     <p class="mk-intro">${t("sub")}</p>
     <div class="hero-actions mk-landing-actions">
-      <button class="btn btn-lg" id="hero-start">Start Interview</button>
-      <button class="btn btn-outline btn-lg" id="upq">Upload Medical Reports</button>
+      <button class="btn btn-lg" id="hero-start">${t("start")}</button>
+      <button class="btn btn-outline btn-lg" id="upq">${tr("Upload Medical Reports")}</button>
     </div>
     <article class="mk-feature-card">
       <div class="mk-feature-icon">${ICONS.history}</div>
       <div class="mk-feature-copy">
-        <h2>Medical history</h2>
-        <p>Answer a few questions about your health.</p>
+        <h2>${tr("Medical history")}</h2>
+        <p>${tr("Answer a few questions about your health.")}</p>
       </div>
       <div class="mk-progress" aria-live="polite">
-        <span class="mk-progress-label">${hasInterviewProgress() ? "In progress" : "Not started"}</span>
+        <span class="mk-progress-label">${hasInterviewProgress() ? tr("In progress") : tr("Not started")}</span>
       </div>
       <button class="btn mk-feature-action" id="st">${cta}<span aria-hidden="true">→</span></button>
     </article>
     <div class="mk-support-grid">
       <article class="mk-support-card" id="card-docs" role="button" tabindex="0">
         <div class="mk-support-icon">${ICONS.reports}</div>
-        <h2>Medical reports</h2>
-        <p>Upload and organize documents.</p>
+        <h2>${tr("Medical reports")}</h2>
+        <p>${tr("Upload and organize documents.")}</p>
       </article>
       <article class="mk-support-card" id="card-time" role="button" tabindex="0">
         <div class="mk-support-icon">${ICONS.timeline}</div>
-        <h2>Health timeline</h2>
-        <p>Review your recorded history.</p>
+        <h2>${tr("Health timeline")}</h2>
+        <p>${tr("Review your recorded history.")}</p>
       </article>
     </div>
     <div class="mk-home-secondary">
-      <button class="text-btn" id="card-sum">View health summary</button>
-      <button class="text-btn" id="lp">${lang === "en" ? "हिंदी में देखें" : "View in English"}</button>
+      <button class="text-btn" id="card-sum">${tr("View health summary")}</button>
     </div>
   `);
 
-  document.getElementById("lp")?.addEventListener("click", () => {
-    lang = lang === "en" ? "hi" : "en";
-    document.getElementById("lang").textContent = lang === "en" ? "हि" : "EN";
-    route();
-  });
   const startIv = () => hasInterviewProgress() ? ask() : setup();
   document.getElementById("st").onclick = startIv;
   document.getElementById("hero-start").onclick = startIv;
@@ -399,7 +437,7 @@ async function homeDash() {
   });
   document.getElementById("card-sum").onclick = () => {
     if (canSummary) summaryPage();
-    else showToast("A draft summary is available after you complete a history interview in this session.");
+    else showToast(tr("A draft summary is available after you complete a history interview in this session."));
   };
 }
 
@@ -408,24 +446,24 @@ async function dashHistory() {
   try { me = await api("/me"); } catch (e) { auth(); return; }
   let rs = [];
   try { rs = await api("/records"); } catch (e) {}
-  const PL = ["", "Emergency", "Urgent", "Routine"];
+  const PL = ["", "Emergency", "Urgent", "Routine"].map(value => value ? tr(value) : "");
   setActive("bn-hist");
   R(`
   <div class="mt">
-    <p class="eyebrow">Records</p>
+    <p class="eyebrow">${tr("Records")}</p>
     <h1>${t("dash")}</h1>
     <p class="subtitle">${esc(me.name || me.username)}</p>
   </div>
   <div class="card mt">
     ${rs.length ? `
     <div class="table-wrap"><table class="stack-table">
-      <thead><tr><th>Token</th><th>Date</th><th>Priority</th><th>Status</th><th>ABDM</th></tr></thead>
+      <thead><tr><th>${tr("Token")}</th><th>${tr("Date")}</th><th>${tr("Priority")}</th><th>${tr("Status")}</th><th>${tr("ABDM")}</th></tr></thead>
       <tbody>${rs.map(r => `<tr>
-        <td data-label="Token"><b>${r.token_no}</b></td>
-        <td data-label="Date">${new Date(r.created*1000).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"2-digit"})}</td>
-        <td data-label="Priority"><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></td>
-        <td data-label="Status">${esc(r.status)}</td>
-        <td data-label="ABDM" class="mut">${esc(r.abdm_ref || "—")}</td>
+        <td data-label="${tr("Token")}"><b>${r.token_no}</b></td>
+        <td data-label="${tr("Date")}">${new Date(r.created*1000).toLocaleDateString(lang === "hi" ? "hi-IN" : "en-IN",{day:"numeric",month:"short",year:"2-digit"})}</td>
+        <td data-label="${tr("Priority")}"><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></td>
+        <td data-label="${tr("Status")}">${esc(tr(r.status))}</td>
+        <td data-label="${tr("ABDM")}" class="mut">${esc(r.abdm_ref || "—")}</td>
       </tr>`).join("")}</tbody>
     </table></div>` : `<p class="mut center" style="padding:24px">${t("noRecords")}</p>`}
   </div>
@@ -439,36 +477,36 @@ function aboutPage() {
   R(`
   <div class="mt">
     <p class="eyebrow">MediKiosk</p>
-    <h1>About and help</h1>
-    <p class="subtitle">Your health, organized. Smart India Hackathon · Problem Statement 4 · Ministry of Ayush / AIIA</p>
+    <h1>${tr("About and help")}</h1>
+    <p class="subtitle">${tr("Your health, organized.")} Smart India Hackathon · Problem Statement 4 · Ministry of Ayush / AIIA</p>
   </div>
   <div class="card mt">
-    <h2>How this kiosk helps</h2>
-    <p class="mt-sm">Patients complete a guided history and can upload reports before seeing a clinician. The clinician receives a structured draft for review. This software does not diagnose or replace clinical judgement.</p>
+    <h2>${tr("How this kiosk helps")}</h2>
+    <p class="mt-sm">${tr("Patients complete a guided history and can upload reports before seeing a clinician. The clinician receives a structured draft for review. This software does not diagnose or replace clinical judgement.")}</p>
   </div>
   <div class="card">
-    <h2>Privacy</h2>
-    <p class="mt-sm">Before an interview starts, you are asked for explicit consent to record health information for your doctor. Guest working documents are removed after submission while source-linked encounter evidence remains available for doctor review. Data deletion is available from your account. ABDM sharing is not an operational integration in this application.</p>
+    <h2>${tr("Privacy")}</h2>
+    <p class="mt-sm">${tr("Before an interview starts, you are asked for explicit consent to record health information for your doctor. Guest working documents are removed after submission while source-linked encounter evidence remains available for doctor review. Data deletion is available from your account. ABDM sharing is not an operational integration in this application.")}</p>
   </div>
   <div class="card">
-    <h2>Clinical support components</h2>
+    <h2>${tr("Clinical support components")}</h2>
     <div class="timeline mt-sm">
       <div class="timeline-item"><div class="timeline-dot"></div>
-        <div class="timeline-title">Adaptive medical history</div>
-        <div class="timeline-body">Ontology-constrained, stateful question selection. MediTOD (EMNLP 2024) is a relevant published benchmark candidate; the current policy is not a trained model.</div>
+        <div class="timeline-title">${tr("Adaptive medical history")}</div>
+        <div class="timeline-body">${tr("Ontology-constrained, stateful question selection. MediTOD (EMNLP 2024) is a relevant published benchmark candidate; the current policy is not a trained model.")}</div>
       </div>
       <div class="timeline-item"><div class="timeline-dot"></div>
-        <div class="timeline-title">Clinical documentation</div>
-        <div class="timeline-body">Structured, source-aware summaries with a separate validation step.</div>
+        <div class="timeline-title">${tr("Clinical documentation")}</div>
+        <div class="timeline-body">${tr("Structured, source-aware summaries with a separate validation step.")}</div>
       </div>
       <div class="timeline-item"><div class="timeline-dot warn"></div>
-        <div class="timeline-title">Safety and limitations</div>
-        <div class="timeline-body">Red-flag rules are a provisional decision-support layer requiring clinical validation. Synthetic datasets are for software testing, not evidence of clinical performance.</div>
+        <div class="timeline-title">${tr("Safety and limitations")}</div>
+        <div class="timeline-body">${tr("Red-flag rules are a provisional decision-support layer requiring clinical validation. Synthetic datasets are for software testing, not evidence of clinical performance.")}</div>
       </div>
     </div>
     <p class="mut caption mt-sm">Research: <a href="https://aclanthology.org/2024.emnlp-main.936/" target="_blank" rel="noopener">MediTOD (2024)</a> · <a href="https://aclanthology.org/2025.nlpai4health-main.10/" target="_blank" rel="noopener">NLP4Health (2025)</a> · <a href="https://tech.abridge.com/blog/real-time-error-detection-and-correction" target="_blank" rel="noopener">Abridge Editors (2026)</a></p>
   </div>
-  <p class="mut caption center mt">Not clinically validated. For evaluation and software testing.</p>
+  <p class="mut caption center mt">${tr("Not clinically validated. For evaluation and software testing.")}</p>
   `);
 }
 
@@ -477,7 +515,7 @@ function auth(msg = "") {
   updateHeaderAuth();
   R(`
   <section class="hero" aria-labelledby="hero-title">
-    <p class="eyebrow">Your health, organized</p>
+    <p class="eyebrow">${tr("Your health, organized")}</p>
     <h1 id="hero-title">${t("welcome")}</h1>
     <p>${t("sub")}</p>
     <div class="hero-actions">
@@ -486,14 +524,14 @@ function auth(msg = "") {
     </div>
   </section>
   <div class="card auth-panel">
-    <h2>Sign in or register</h2>
-    <p class="subtitle">An account keeps your timeline and documents. You can also start as a guest.</p>
+    <h2>${tr("Sign in or register")}</h2>
+    <p class="subtitle">${tr("An account keeps your timeline and documents. You can also start as a guest.")}</p>
     <div class="col mt">
       <label class="input-label" for="u">${t("user")}</label>
       <input type="text" id="u" autocomplete="username">
       <label class="input-label" for="p">${t("pw")}</label>
       <input type="password" id="p" autocomplete="current-password">
-      <label class="input-label" for="n">${t("name")} (for ${t("reg")})</label>
+      <label class="input-label" for="n">${t("name")} (${tr("for")} ${t("reg")})</label>
       <input type="text" id="n">
     </div>
     <div class="row mt-sm">
@@ -507,7 +545,7 @@ function auth(msg = "") {
     try { const r = await api("/auth/guest", { method: "POST" }); setToken(r.token); route(); }
     catch (e) { auth(e.message); }
   };
-  document.getElementById("upq").onclick = () => auth("Please sign in or start as a guest before uploading reports.");
+  document.getElementById("upq").onclick = () => auth(tr("Please sign in or start as a guest before uploading reports."));
   const go = async (path, body) => {
     try { const r = await api(path, { json: body }); setToken(r.token); route(); }
     catch (e) { auth(e.message); }
@@ -517,15 +555,26 @@ function auth(msg = "") {
   ["u","p"].forEach(id => document.getElementById(id)?.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("li").click(); }));
 }
 
-function setup() {
+function setup(message = "") {
   const g = me?.role === "guest";
   setActive("bn-home");
   R(`
   <div class="step-hdr mt">
     <div class="step-number">1</div>
-    <div><h1>${t("consentH")}</h1><p class="subtitle">Required before the interview begins</p></div>
+    <div><h1>${t("consentH")}</h1><p class="subtitle">${t("consentRequired")}</p></div>
   </div>
   <div class="card">
+    ${message ? `<p class="alert alert-urgent" role="alert">${esc(message)}</p>` : ""}
+    <label class="input-label" for="input-mode">${t("inputMode")}</label>
+    <select id="input-mode">
+      <option value="click" ${inputMode === "click" ? "selected" : ""}>${t("clickMode")}</option>
+      <option value="voice" ${inputMode === "voice" ? "selected" : ""}>${t("voiceMode")}</option>
+    </select>
+    <p id="mode-help" class="caption">${inputMode === "voice" ? t("voiceModeHelp") : t("clickModeHelp")}</p>
+    <p id="mic-status" class="caption" role="status">${t("micPermission")}: ${
+      inputMode !== "voice" ? t("micNotRequested") :
+      (window.SpeechRecognition || window.webkitSpeechRecognition) ? t("micNotRequested") : t("micUnavailable")
+    }</p>
     ${g ? `
     <div class="col mb">
       <label class="input-label" for="nm">${t("name")}</label>
@@ -548,16 +597,48 @@ function setup() {
     <label class="consent-item"><input type="checkbox" id="ay"><span>${t("ayush")}</span></label>
     <label class="consent-item"><input type="checkbox" id="c1"><span>${t("c1")}</span></label>
     <p id="cerr" class="field-error"></p>
+    ${inputMode === "voice" ? `<p class="caption">${t("voiceExplainer")}</p>` : ""}
     <div class="sticky-actions"><button class="btn btn-lg btn-block mt" id="go">${t("start")}</button></div>
   </div>
   `);
+  const modeSelect = document.getElementById("input-mode");
+  modeSelect.onchange = () => {
+    inputMode = modeSelect.value === "voice" ? "voice" : "click";
+    localStorage.setItem("mk_input_mode", inputMode);
+    document.getElementById("mode-help").textContent = inputMode === "voice" ? t("voiceModeHelp") : t("clickModeHelp");
+    document.getElementById("mic-status").textContent = `${t("micPermission")}: ${
+      inputMode !== "voice" ? t("micNotRequested") :
+      (window.SpeechRecognition || window.webkitSpeechRecognition) ? t("micNotRequested") : t("micUnavailable")
+    }`;
+  };
   document.getElementById("go").onclick = async () => {
     if (!document.getElementById("c1").checked) {
-      document.getElementById("cerr").textContent = "Please consent to recording health information for your doctor before continuing."; return;
+      document.getElementById("cerr").textContent = t("consentError"); return;
     }
     const btn = document.getElementById("go");
     btn.disabled = true;
     try {
+      if (inputMode === "voice") {
+        if (!(window.SpeechRecognition || window.webkitSpeechRecognition)) {
+          document.getElementById("mic-status").textContent = t("micUnavailable");
+          document.getElementById("cerr").textContent = t("voiceFallback");
+          btn.disabled = false;
+          return;
+        }
+        try {
+          await requestMicrophonePermission();
+          document.getElementById("mic-status").textContent = t("micSupported");
+        } catch (error) {
+          inputMode = "click";
+          localStorage.setItem("mk_input_mode", inputMode);
+          document.getElementById("input-mode").value = inputMode;
+          document.getElementById("mode-help").textContent = t("clickModeHelp");
+          document.getElementById("mic-status").textContent = t("voiceFallback");
+          document.getElementById("cerr").textContent = `${t("voiceFallback")} ${patientError(error)}`;
+          btn.disabled = false;
+          return;
+        }
+      }
       await api("/me", { method: "PUT", json: {
         name: g ? document.getElementById("nm").value : me.name,
         age: g ? document.getElementById("ag").value : me.age,
@@ -565,9 +646,11 @@ function setup() {
       }});
       await api("/consent", { json: { purpose: "history_capture", granted: true }});
       me = await api("/me"); ayush = document.getElementById("ay").checked; ans = {}; stack = []; interviewSessionId = null;
+      inputMode = document.getElementById("input-mode").value;
+      localStorage.setItem("mk_input_mode", inputMode);
       persistInterview();
       await startInterviewSession();
-    } catch (e) { document.getElementById("cerr").textContent = e.message; btn.disabled = false; }
+    } catch (e) { document.getElementById("cerr").textContent = patientError(e); btn.disabled = false; }
   };
 }
 
@@ -580,7 +663,7 @@ async function startInterviewSession() {
     if (n.complete) return docs();
     draw(n);
   } catch (e) {
-    showToast("Adaptive interview could not start: " + e.message);
+    showToast(lang === "hi" ? `अनुकूलित साक्षात्कार शुरू नहीं हो सका: ${patientError(e)}` : `Adaptive interview could not start: ${patientError(e)}`);
     interviewSessionId = null;
     const n = await api("/interview/next", { json: { answers: ans, ayush }});
     lastN = n; if (n.complete) return docs(); draw(n);
@@ -604,12 +687,16 @@ async function ask() {
   restoreInterview();
   if (!interviewSessionId) return startInterviewSession();
   try { const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId)); lastN = n; if (n.complete) return docs(); draw(n); }
-  catch (e) { showToast("Could not load interview: " + e.message); startInterviewSession(); }
+  catch (e) { showToast(lang === "hi" ? `साक्षात्कार लोड नहीं हो सका: ${patientError(e)}` : `Could not load interview: ${patientError(e)}`); startInterviewSession(); }
 }
 
 function draw(n) {
   cur = n.question;
   const q = cur, l = lang === "en" ? "en" : "hi";
+  answerSaving = false;
+  voiceNeedsConfirmation = false;
+  voiceRetryCount = 0;
+  const runId = ++voiceRunId;
   const showProgress = Number(n.total) > 0;
   const pct = showProgress ? Math.round(n.answered / n.total * 100) : 0;
   const flagsBanner = n.red_flags.length ? `
@@ -618,6 +705,7 @@ function draw(n) {
       <div><b>${t("flag")}</b><br>${n.red_flags.map(f => esc(f.msg)).join("<br>")}</div>
     </div>` : "";
 
+  const micControl = inputMode === "voice" ? "" : `<button class="mic-btn" id="mic" type="button">${t("speak")}</button>`;
   const body = q.type === "text"
     ? `<label class="input-label" for="tx">${t("type")}</label>
        <textarea id="tx">${esc(ans[q.id] || "")}</textarea>
@@ -625,20 +713,26 @@ function draw(n) {
          <button type="button" class="btn btn-text" data-skip="Not sure">${t("notSure")}</button>
          <button type="button" class="btn btn-text" data-skip="Prefer not to answer">${t("preferNot")}</button>
        </div>
-       <button class="mic-btn" id="mic" type="button">${t("speak")}</button>
+       ${micControl}
        <span class="mut" id="heard" style="display:block;margin-top:8px"></span>`
     : `<div class="opts" role="group" aria-label="${esc(q[l])}">${q.options.map(o => {
         const sel = q.type === "multi" ? (ans[q.id] || []).includes(o.v) : ans[q.id] === o.v;
         return `<button class="opt${sel ? " sel" : ""}" data-v="${esc(o.v)}" aria-pressed="${sel}" type="button">${esc(o[l])}</button>`;
       }).join("")}</div>
-      <button class="mic-btn" id="mic" type="button">${t("speak")}</button>
+      ${micControl}
       <span class="mut" id="heard" style="display:block;margin-top:8px"></span>`;
 
   R(`
   ${flagsBanner}
   <div class="card mt">
+    ${inputMode === "voice" ? `<div class="voice-toolbar" aria-label="${t("voiceStateReady")}">
+      <span class="voice-state-indicator" id="voice-state" role="status" aria-live="polite"></span>
+      <button class="btn btn-outline btn-sm" id="voice-pause" type="button">${t("pauseInterview")}</button>
+      <button class="btn btn-outline btn-sm" id="voice-fallback" type="button">${t("changeMode")}</button>
+      <button class="btn btn-outline btn-sm" id="voice-stop" type="button">${t("stopInterview")}</button>
+    </div>` : ""}
     <div class="row" style="justify-content:space-between;margin-bottom:6px">
-      <span class="caption">${esc(q.section)}</span>
+      <span class="caption">${esc(localizedSection(q.section))}</span>
       ${showProgress ? `<span class="caption">${n.answered}/${n.total}</span>` : ""}
     </div>
     ${showProgress ? `<div class="progress-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:${pct}%"></div></div>` : ""}
@@ -646,29 +740,64 @@ function draw(n) {
     ${body}
     <div class="row sticky-actions mt" style="justify-content:space-between">
       <button class="btn btn-outline" id="bk" type="button">${t("back")}</button>
-      <button class="btn" id="nx" type="button">${t("next")}</button>
+      <button class="btn btn-outline" id="repeat-question" type="button">${t("repeatQuestion")}</button>
+      <button class="btn" id="nx" type="button">${t(voiceNeedsConfirmation ? "confirmAnswer" : "next")}</button>
     </div>
   </div>`);
   const questionKey = q.id + ":" + lang;
-  if (spokenQuestionKey !== questionKey) {
+  if (inputMode === "voice") {
+    setVoiceState("ASKING_QUESTION");
+    speakQuestion(q[l], runId);
+  } else if (spokenQuestionKey !== questionKey) {
     spokenQuestionKey = questionKey;
     say(q[l]);
   }
 
   document.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    if (inputMode === "voice") {
+      voiceRunId += 1;
+      if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
+    }
     const v = b.dataset.v;
     if (q.type === "multi") {
       let a = (ans[q.id] || []).filter(x => x !== "None");
       if (v === "None") a = ["None"];
       else a = a.includes(v) ? a.filter(x => x !== v) : [...a, v];
-      ans[q.id] = a; persistInterview(); draw(lastN);
-    } else { ans[q.id] = v; persistInterview(); adv(); }
+      ans[q.id] = a; persistInterview();
+      if (inputMode === "voice") {
+        document.querySelectorAll(".opt").forEach(optionButton => {
+          const selected = a.includes(optionButton.dataset.v);
+          optionButton.classList.toggle("sel", selected);
+          optionButton.setAttribute("aria-pressed", String(selected));
+        });
+        voiceNeedsConfirmation = true;
+        setVoiceState("VERIFYING_ANSWER");
+        document.getElementById("nx").textContent = t("confirmAnswer");
+      } else draw(lastN);
+    } else {
+      ans[q.id] = v; persistInterview();
+      if (inputMode === "voice") {
+        voiceNeedsConfirmation = true;
+        setVoiceState("VERIFYING_ANSWER");
+        document.getElementById("nx").textContent = t("confirmAnswer");
+      } else adv();
+    }
   });
   document.querySelectorAll("[data-skip]").forEach(b => b.onclick = () => {
     const tx = document.getElementById("tx");
     if (tx) tx.value = b.dataset.skip;
   });
-  document.getElementById("mic").onclick = () => listenVoice(q);
+  document.getElementById("mic")?.addEventListener("click", () => listenVoice(q));
+  document.getElementById("repeat-question").onclick = () => {
+    if (inputMode === "voice") repeatVoiceQuestion(q, l);
+    else say(q[l]);
+  };
+  document.getElementById("voice-pause")?.addEventListener("click", () => {
+    if (voiceState === "PAUSED") resumeVoiceQuestion(q, l);
+    else pauseVoiceInterview();
+  });
+  document.getElementById("voice-stop")?.addEventListener("click", stopVoiceInterview);
+  document.getElementById("voice-fallback")?.addEventListener("click", switchToClickMode);
   document.getElementById("bk").onclick = async () => {
     const p = stack.pop();
     if (p) {
@@ -682,59 +811,234 @@ function draw(n) {
         if (lastN) draw(lastN);
       } catch (e) {
         if (kept !== undefined) ans[p] = kept;
-        showToast("Could not return to previous question: " + e.message);
+        showToast(lang === "hi" ? `पिछले प्रश्न पर नहीं लौट सके: ${patientError(e)}` : `Could not return to previous question: ${patientError(e)}`);
       }
     } else { interviewSessionId = null; persistInterview(); setup(); }
   };
-  document.getElementById("nx").onclick = () => {
+  document.getElementById("nx").onclick = async () => {
+    if (answerSaving) return;
     if (q.type === "text") ans[q.id] = document.getElementById("tx").value.trim();
     else if (q.type === "multi" && !(ans[q.id] || []).length) ans[q.id] = ["None"];
-    else if (!ans[q.id]) { showToast("Please select or answer before continuing."); return; }
+    else if (!ans[q.id]) { showToast(t("enterAnswer")); return; }
+    if (inputMode === "voice" && voiceNeedsConfirmation && q.type !== "text" && !ans[q.id]) {
+      showToast(t("enterAnswer")); return;
+    }
     persistInterview();
-    const corrected = q.type === "text" ? ans[q.id] : null;
-    const transcriptId = voiceTranscriptId;
-    voiceTranscriptId = null;
-    (async () => {
-      if (transcriptId && corrected) {
-        try { await api("/asr/transcripts/" + transcriptId, { method: "PUT", json: { corrected_transcript: corrected }}); }
-        catch (e) { showToast("Transcript could not be saved; your answer remains on this screen."); }
+    answerSaving = true;
+    setVoiceState("SAVING_ANSWER");
+    if (inputMode === "voice" && pendingVoiceTranscript) await voiceTranscriptPromise;
+    if (transcriptPersistenceFailed && pendingVoiceTranscript) {
+      try {
+        const saved = await saveVoiceTranscript(pendingVoiceTranscript);
+        voiceTranscriptId = saved.transcript_id;
+        voiceTranscriptOriginal = saved.original_transcript;
+        voiceTranscriptPromise = Promise.resolve(saved);
+        transcriptPersistenceFailed = false;
+      } catch (e) {
+        showToast(lang === "hi"
+          ? "बोला गया उत्तर सुरक्षित नहीं हो सका। फिर कोशिश करें या क्लिक/टैप तरीके पर जाएँ।"
+          : "The spoken answer could not be saved. Retry or switch to Click/Tap Mode.");
+        setVoiceState("TRANSCRIPTION_ERROR");
+        answerSaving = false;
+        return;
       }
-      adv();
+    }
+    const corrected = selectedAnswerText(q);
+    const transcriptId = voiceTranscriptId;
+    if (transcriptId) pendingAnswerTranscriptId = transcriptId;
+    voiceNeedsConfirmation = false;
+    answerSaving = true;
+    setVoiceState("SAVING_ANSWER");
+    (async () => {
+      if (transcriptId && corrected && voiceTranscriptOriginal && corrected !== voiceTranscriptOriginal) {
+        try { await api("/asr/transcripts/" + transcriptId, { method: "PUT", json: { corrected_transcript: corrected }}); }
+        catch (e) {
+          showToast(lang === "hi"
+            ? "सुधारा हुआ उत्तर सुरक्षित नहीं हो सका। साक्षात्कार का उत्तर अभी इस स्क्रीन पर बना हुआ है।"
+            : "The corrected transcript could not be saved. Your interview answer remains on this screen.");
+          answerSaving = false;
+          return;
+        }
+      }
+      adv(true);
     })();
   };
 }
 
-async function adv() {
+async function adv(verified = false) {
+  if (answerSaving && !verified) return;
   if (!cur) return;
+  answerSaving = true;
+  setVoiceState("SAVING_ANSWER");
   stack.push(cur.id);
   persistInterview();
-  if (!interviewSessionId) return ask();
+  if (!interviewSessionId) { answerSaving = false; return ask(); }
   const value = ans[cur.id];
   try {
     await voiceTranscriptPromise;
-    const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId) + "/answers", { method: "POST", json: { field: cur.id, value: value === undefined ? "" : value }});
+    const n = await api("/interview/sessions/" + encodeURIComponent(interviewSessionId) + "/answers", {
+      method: "POST",
+      json: {
+        field: cur.id,
+        value: value === undefined ? "" : value,
+        transcript_id: pendingAnswerTranscriptId,
+        language: lang,
+        verification_status: pendingAnswerTranscriptId ? "patient_confirmed" : "patient_submitted"
+      }
+    });
     lastN = n;
+    voiceTranscriptId = null;
+    voiceTranscriptOriginal = "";
+    pendingVoiceTranscript = "";
+    pendingAnswerTranscriptId = null;
     persistInterview();
-    if (n.complete) return docs();
+    answerSaving = false;
+    if (n.complete) { setVoiceState("INTERVIEW_COMPLETE"); return docs(); }
+    setVoiceState("NEXT_QUESTION");
     draw(n);
   } catch (e) {
-    stack.pop(); persistInterview(); showToast("Could not save this answer: " + e.message);
+    stack.pop(); answerSaving = false; persistInterview();
+    showToast(lang === "hi" ? `उत्तर सुरक्षित नहीं हो सका: ${patientError(e)}` : `Could not save this answer: ${patientError(e)}`);
   }
 }
 
-function listenVoice(q, allowRetry = true) {
+function localizedSection(section) {
+  const translations = {
+    "Chief complaint": "sectionChief", "HPI": "sectionHpi", "HPI (fever)": "sectionHpi",
+    "HPI (respiratory)": "sectionHpi", "HPI (abdomen)": "sectionHpi",
+    "HPI (headache)": "sectionHpi", "HPI (musculoskeletal)": "sectionHpi",
+    "SOCRATES": "sectionSoc", "Associated symptoms": "sectionAssociated",
+    "Past medical / surgical": "sectionHistory", "Medications / allergies": "sectionMedication",
+    "AYUSH": "sectionAyush"
+  };
+  return translations[section] ? t(translations[section]) : section;
+}
+function selectedAnswerText(q) {
+  const value = ans[q.id];
+  if (q.type === "text") return String(value || "").trim();
+  const values = Array.isArray(value) ? value : value == null ? [] : [value];
+  return values.map(item => {
+    const option = (q.options || []).find(candidate => candidate.v === item);
+    return option ? option[lang === "hi" ? "hi" : "en"] || option.v : item;
+  }).join(", ");
+}
+function speakQuestion(text, runId, repeating = false) {
+  if (runId !== voiceRunId || inputMode !== "voice") return;
+  if (repeating) setVoiceState("REPEATING_QUESTION");
+  setVoiceState("SPEAKING_QUESTION");
+  say(text, () => {
+    if (runId !== voiceRunId || inputMode !== "voice" || voiceState === "PAUSED") return;
+    setVoiceState("WAITING_FOR_SPEECH");
+    listenVoice(cur, true, "answer", runId);
+  });
+}
+function repeatVoiceQuestion(q, language) {
+  voiceRunId += 1;
+  if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  speakQuestion(q[language], voiceRunId, true);
+}
+function pauseVoiceInterview() {
+  voiceRunId += 1;
+  if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  setVoiceState("PAUSED");
+}
+function resumeVoiceQuestion(q, language) {
+  setVoiceState("READY");
+  speakQuestion(q[language], ++voiceRunId, true);
+}
+function switchToClickMode() {
+  voiceRunId += 1;
+  if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  inputMode = "click";
+  localStorage.setItem("mk_input_mode", inputMode);
+  persistInterview();
+  if (lastN) draw(lastN);
+}
+function stopVoiceInterview() {
+  voiceRunId += 1;
+  if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  inputMode = "click";
+  localStorage.setItem("mk_input_mode", inputMode);
+  persistInterview();
+  showToast(lang === "hi"
+    ? "साक्षात्कार रोक दिया गया है। आपकी प्रगति सुरक्षित है।"
+    : "The interview has stopped. Your progress is saved.");
+  homeDash();
+}
+function handleVoiceCommand(command, q, language) {
+  const normalized = command.trim().toLocaleLowerCase().replace(/[.,!?।]/g, "");
+  const groups = lang === "hi" ? {
+    confirm: ["पुष्टि", "पुष्टि करें", "स्वीकार", "ठीक है"],
+    correct: ["सुधार", "सुधारें", "बदलें", "गलत"],
+    repeat: ["दोहराएँ", "दोहराओ", "फिर से", "प्रश्न दोहराएँ"],
+    pause: ["रोकें", "रुकें", "विराम"],
+    resume: ["जारी रखें", "फिर शुरू करें", "शुरू करें"],
+    stop: ["बंद करें", "समाप्त", "रोक दें"]
+  } : {
+    confirm: ["confirm", "confirm answer", "accept"],
+    correct: ["correct", "change", "edit"],
+    repeat: ["repeat", "repeat question", "again"],
+    pause: ["pause", "pause interview"],
+    resume: ["resume", "resume interview"],
+    stop: ["stop", "stop interview"]
+  };
+  const action = Object.entries(groups).find(([, words]) => words.includes(normalized))?.[0];
+  if (action === "confirm") {
+    if (q.type !== "text" && !ans[q.id]) {
+      setVoiceState("VERIFYING_ANSWER");
+      showToast(t("enterAnswer"));
+      return;
+    }
+    document.getElementById("nx")?.click();
+  } else if (action === "correct") {
+    if (q.type === "text") {
+      const field = document.getElementById("tx");
+      if (field) { field.focus(); field.select(); }
+    }
+    setVoiceState("VERIFYING_ANSWER");
+    if (inputMode === "voice") listenVoice(q, true, "answer", voiceRunId);
+  } else if (action === "repeat") {
+    speakQuestion(q[language], ++voiceRunId);
+  } else if (action === "pause") {
+    pauseVoiceInterview();
+  } else if (action === "resume" && voiceState === "PAUSED") {
+    resumeVoiceQuestion(q, language);
+  } else if (action === "stop") {
+    stopVoiceInterview();
+  } else {
+    setVoiceState("VERIFYING_ANSWER");
+    const heard = document.getElementById("heard");
+    if (heard) heard.textContent = lang === "hi"
+      ? "आदेश स्पष्ट नहीं था। पुष्टि, सुधार, दोहराएँ, रोकें या बंद करें कहें।"
+      : "Command not recognized. Say confirm, correct, repeat, pause, or stop.";
+  }
+}
+function listenVoice(q, allowRetry = true, purpose = "answer", runId = voiceRunId) {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { showToast("Speech recognition is not available in this browser. Please type or tap an answer."); return; }
+  if (!SR) {
+    setVoiceState("MICROPHONE_ERROR");
+    showToast(t("unsupportedLanguage"));
+    return;
+  }
+  if (runId !== voiceRunId || (inputMode === "voice" && voiceState === "PAUSED")) return;
   if (_rec) { try { _rec.abort(); } catch (_) {} _rec = null; }
   const r = new SR(); _rec = r;
   r.lang = lang === "hi" ? "hi-IN" : "en-IN";
   r.continuous = false; r.interimResults = true; r.maxAlternatives = 3;
   const btn = document.getElementById("mic");
   const heard = document.getElementById("heard");
-  if (btn) { btn.classList.add("listening"); btn.disabled = true; btn.textContent = "Listening…"; }
-  if (heard) heard.textContent = "Listening… please speak clearly.";
+  if (btn) { btn.classList.add("listening"); btn.disabled = true; btn.textContent = t("listen"); }
+  if (purpose === "answer") setVoiceState("LISTENING");
+  if (heard) heard.textContent = t("listen");
   let finalTranscript = "";
   let recognitionError = false;
+  let recognitionErrorCode = "";
+  let handled = false;
+  let interpretationMatched = false;
   const finish = () => {
     if (btn) { btn.classList.remove("listening"); btn.disabled = false; btn.textContent = t("speak"); }
     if (_rec === r) _rec = null;
@@ -747,54 +1051,123 @@ function listenVoice(q, allowRetry = true) {
       else interim += (interim ? " " : "") + text;
     }
     const spoken = (finalTranscript || interim).trim();
-    if (heard && spoken) heard.textContent = "Heard: “" + spoken + "” — check it before continuing.";
-    if (q.type === "text" && spoken) { const tx = document.getElementById("tx"); if (tx) tx.value = spoken; }
+    if (heard && spoken) heard.textContent = `${t("transcriptLabel")}: “${spoken}”`;
   };
   r.onerror = e => {
     recognitionError = true;
+    recognitionErrorCode = e.error;
     finish();
     if (e.error === "network" && allowRetry) {
-      if (heard) heard.textContent = "Speech service temporarily unavailable. Retrying…";
-      setTimeout(() => listenVoice(q, false), 350);
+      handled = true;
+      if (heard) heard.textContent = lang === "hi" ? "वाक् सेवा उपलब्ध नहीं है। एक बार फिर कोशिश हो रही है…" : "Speech service is unavailable. Retrying once…";
+      setTimeout(() => listenVoice(q, false, purpose, runId), 350);
       return;
     }
-    const messages = { "not-allowed": "Microphone permission was denied. Allow microphone access in browser settings.", "service-not-allowed": "The browser speech service is blocked. Try HTTPS/localhost or type your answer.", "no-speech": "No speech was detected. Try again closer to the microphone.", "audio-capture": "No microphone was found or it is busy.", "network": "The browser speech service is unavailable. Please type your answer or try again in Chrome/Edge on localhost or HTTPS." };
-    if (heard) heard.textContent = messages[e.error] || ("Speech recognition failed: " + (e.error || "unknown error") + ". Please retry or type.");
+    const messages = lang === "hi" ? {
+      "not-allowed": "माइक्रोफ़ोन की अनुमति नहीं मिली। ब्राउज़र सेटिंग में अनुमति दें।",
+      "service-not-allowed": "ब्राउज़र की वाक् सेवा बंद है। क्लिक/टैप तरीके पर जाएँ।",
+      "no-speech": t("noSpeech"), "audio-capture": "माइक्रोफ़ोन नहीं मिला या व्यस्त है।",
+      "language-not-supported": t("unsupportedLanguage"), "network": "वाक् सेवा उपलब्ध नहीं है। क्लिक/टैप तरीके पर जाएँ।"
+    } : {
+      "not-allowed": "Microphone permission was denied. Allow it in browser settings.",
+      "service-not-allowed": "The browser speech service is blocked. Switch to Click/Tap Mode.",
+      "no-speech": t("noSpeech"), "audio-capture": "No microphone was found or it is busy.",
+      "language-not-supported": t("unsupportedLanguage"), "network": "The browser speech service is unavailable. Switch to Click/Tap Mode."
+    };
+    if (heard) heard.textContent = messages[e.error] || (lang === "hi" ? "वाक् पहचान विफल हुई। फिर कोशिश करें या क्लिक/टैप तरीका चुनें।" : "Speech recognition failed. Retry or switch to Click/Tap Mode.");
+    setVoiceState(e.error === "no-speech" ? "TRANSCRIPTION_ERROR" : "MICROPHONE_ERROR");
   };
   r.onend = async () => {
     finish();
+    if (handled || runId !== voiceRunId) return;
+    handled = true;
     const transcript = finalTranscript.trim();
-    if (!transcript) { if (heard && !recognitionError) heard.textContent = "No transcript captured. Try again or type your answer."; return; }
-    if (q.type === "text") {
-      const tx = document.getElementById("tx"); if (tx) tx.value = transcript;
-    } else {
-      const norm = transcript.toLocaleLowerCase();
-      const opts = q.options || [];
-      const exact = opts.find(o => [o.en, o.hi, o.v].some(x => x && norm === String(x).toLocaleLowerCase()));
-      const partial = exact || opts.find(o => [o.en, o.hi, o.v].some(x => x && norm.includes(String(x).toLocaleLowerCase())));
-      if (partial) {
-        if (q.type === "multi") ans[q.id] = [...new Set([...(ans[q.id] || []).filter(x => x !== "None"), partial.v])];
-        else ans[q.id] = partial.v;
-        persistInterview();
-        draw(lastN);
-        const h = document.getElementById("heard"); if (h) h.textContent = `Heard: “${transcript}”. Selected “${partial[lang === "hi" ? "hi" : "en"] || partial.v}”. Please verify, then press Continue.`;
-      } else if (heard) heard.textContent = `Heard: “${transcript}”. I could not confidently match an option. Please tap the correct option or try again.`;
+    if (purpose === "command") {
+      if (transcript) handleVoiceCommand(transcript, q, lang === "hi" ? "hi" : "en");
+      else setVoiceState("VERIFYING_ANSWER");
+      return;
     }
-    voiceTranscriptPromise = api("/asr/transcripts", { json: { transcript, language: lang === "hi" ? "hi" : "en", language_detected: lang === "hi" ? "hi" : "en" }})
-      .then(saved => { voiceTranscriptId = saved.transcript_id; return saved; })
-      .catch(() => { voiceTranscriptId = null; return null; });
+    if (!transcript) {
+      if (heard && !recognitionError) heard.textContent = t("noSpeech");
+      if (inputMode === "voice" && (!recognitionError || recognitionErrorCode === "no-speech") && voiceRetryCount === 0) {
+        voiceRetryCount += 1;
+        speakQuestion(q[lang === "hi" ? "hi" : "en"], ++voiceRunId);
+      } else if (inputMode === "voice") {
+        setVoiceState("TRANSCRIPTION_ERROR");
+        if (heard) heard.textContent = lang === "hi"
+          ? "आवाज़ नहीं मिली। प्रश्न दोहराएँ, फिर कोशिश करें या क्लिक/टैप तरीका चुनें।"
+          : "No speech was detected. Repeat the question, try again, or switch to Click/Tap Mode.";
+      }
+      return;
+    }
+
+    if (q.type === "text") {
+      const tx = document.getElementById("tx");
+      if (tx) tx.value = transcript;
+      ans[q.id] = transcript;
+    } else {
+      const normalize = value => String(value).trim().toLocaleLowerCase().replace(/[.,!?।]/g, "");
+      const normalized = normalize(transcript);
+      const exact = (q.options || []).find(option =>
+        [option.en, option.hi, option.v].some(value => value && normalize(value) === normalized)
+      );
+      if (exact) {
+        interpretationMatched = true;
+        if (q.type === "multi") ans[q.id] = [exact.v];
+        else ans[q.id] = exact.v;
+        document.querySelectorAll(".opt").forEach(optionButton => {
+          const selected = q.type === "multi" ? ans[q.id].includes(optionButton.dataset.v) : ans[q.id] === optionButton.dataset.v;
+          optionButton.classList.toggle("sel", selected);
+          optionButton.setAttribute("aria-pressed", String(selected));
+        });
+      } else {
+        delete ans[q.id];
+        if (heard) heard.textContent = t("clarificationPrompt");
+      }
+    }
+    voiceNeedsConfirmation = true;
+    setVoiceState("TRANSCRIBING");
+    persistInterview();
+    if (heard) heard.textContent = `${t("transcriptLabel")}: “${transcript}”`;
+    pendingVoiceTranscript = transcript;
+    transcriptPersistenceFailed = false;
+    voiceTranscriptPromise = saveVoiceTranscript(transcript).then(saved => {
+      voiceTranscriptId = saved.transcript_id;
+      voiceTranscriptOriginal = saved.original_transcript;
+      return saved;
+    }).catch(error => {
+      transcriptPersistenceFailed = true;
+      if (heard) heard.textContent = `${t("transcriptLabel")}: “${transcript}” — ${lang === "hi" ? "सुरक्षित नहीं हुआ; पुष्टि से पहले फिर कोशिश करें।" : "not saved; retry before confirming."}`;
+      setVoiceState("TRANSCRIPTION_ERROR");
+      console.error("Could not persist browser transcript", error);
+      return null;
+    });
     await voiceTranscriptPromise;
+    setVoiceState(interpretationMatched || q.type === "text" ? "VERIFYING_ANSWER" : "CLARIFICATION_REQUIRED");
+    const nextButton = document.getElementById("nx");
+    if (nextButton) nextButton.textContent = t("confirmAnswer");
+    if (inputMode === "voice" && !transcriptPersistenceFailed && runId === voiceRunId) {
+      const heardValue = selectedAnswerText(q);
+      const prompt = heardValue
+        ? `${t("answerReadback")}: ${heardValue}. ${t("voiceCommandPrompt")}`
+        : `${t("clarificationPrompt")} ${t("voiceCommandPrompt")}`;
+      say(prompt, () => listenVoice(q, false, "command", runId));
+    }
   };
-  try { r.start(); } catch (e) { finish(); if (heard) heard.textContent = "Could not start microphone: " + e.message; }
+  try { r.start(); } catch (e) {
+    finish();
+    if (heard) heard.textContent = lang === "hi" ? `माइक्रोफ़ोन शुरू नहीं हो सका: ${e.message}` : `Could not start microphone: ${e.message}`;
+    setVoiceState("MICROPHONE_ERROR");
+  }
 }
 
 function docStatus(d) {
   const ent = d.entities || {};
-  if (d.processing_status === "failed") return { label: d.processing_error || "Processing failed", cls: "err" };
-  if (d.processing_status === "needs_review") return { label: d.processing_error || "Needs review", cls: "warn" };
-  if (!d.text) return { label: "Unreadable — type the contents", cls: "err" };
-  if ((ent.review_flags || []).length) return { label: "Needs review", cls: "warn" };
-  return { label: "Completed", cls: "ok" };
+  if (d.processing_status === "failed") return { label: d.processing_error ? patientError(d.processing_error) : tr("Processing failed"), cls: "err" };
+  if (d.processing_status === "needs_review") return { label: d.processing_error ? patientError(d.processing_error) : tr("Needs review"), cls: "warn" };
+  if (!d.text) return { label: tr("Unreadable — type the contents"), cls: "err" };
+  if ((ent.review_flags || []).length) return { label: tr("Needs review"), cls: "warn" };
+  return { label: tr("Completed"), cls: "ok" };
 }
 
 async function docs() {
@@ -810,7 +1183,7 @@ async function docs() {
       <input type="file" id="f" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt" multiple>
       <div class="action-icon" style="margin:0 auto">${ICONS.upload}</div>
       <p style="font-weight:650;margin-top:10px">${t("addDoc")}</p>
-      <p class="mut">PDF, JPG, PNG, WEBP, TIFF or TXT · up to 10 files, 8 MiB each and 32 MiB per batch.</p>
+      <p class="mut">${t("uploadFileLimits")}</p>
     </label>
     <div class="row mt-sm">
       <div style="flex:1">
@@ -822,7 +1195,7 @@ async function docs() {
     <p id="upst" class="mut" aria-live="polite"></p>
     <div class="auth-divider">${t("or")}</div>
     <label class="input-label" for="tt">${t("or")}</label>
-    <textarea id="tt" placeholder="Tab Metformin 500 mg BD · Hb 9.1 g/dL …"></textarea>
+    <textarea id="tt" placeholder="${t("typeReportText")}"></textarea>
     <button class="btn btn-outline btn-block" id="ta" type="button">${t("add")}</button>
   </div>
   ${ds.length ? `
@@ -834,13 +1207,13 @@ async function docs() {
       return `<article class="doc-item">
         <div>
           <div style="font-weight:650;overflow-wrap:anywhere">${esc(d.filename)}</div>
-          <div class="mut">${esc(d.date || "undated")} · ${esc(String(d.doc_type || "").replace("_"," "))} · ${esc(d.engine)}</div>
+          <div class="mut">${esc(d.date || t("undated"))} · ${esc(tr(String(d.doc_type || "Unclassified").replaceAll("_"," ")))} · ${esc(d.engine)}</div>
           <div class="mut"><span class="status-dot ${st.cls}"></span>${esc(st.label)}</div>
           ${(ent.medications || []).map(m => `<div class="timeline-body">${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
           ${(ent.labs || []).map(l => `<div class="timeline-body">${esc(l.test)}: ${esc(l.value)}${l.unit ? ` ${esc(l.unit)}` : ""} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${esc(l.flag)}</span></div>`).join("")}
         </div>
-        <div class="row">${d.has_original ? `<button class="btn btn-outline btn-sm" data-download-doc="${d.id}" data-filename="${esc(d.filename)}" type="button">Download original</button>` : ""}
-        <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">Remove</button></div>
+        <div class="row">${d.has_original ? `<button class="btn btn-outline btn-sm" data-download-doc="${d.id}" data-filename="${esc(d.filename)}" type="button">${t("viewDownloadOriginal")}</button>` : ""}
+        <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">${t("removeDocument")}</button></div>
       </article>`;
     }).join("")}
   </div>` : `<p class="empty-state mt">${t("nodocs")}</p>`}
@@ -865,31 +1238,31 @@ async function docs() {
   });
 
   document.getElementById("up").onclick = async () => {
-    const files = Array.from(fileInput.files || []); if (!files.length) { showToast("Please choose at least one file."); return; }
+    const files = Array.from(fileInput.files || []); if (!files.length) { showToast(t("chooseAtLeastOne")); return; }
     const btn = document.getElementById("up");
     btn.disabled = true;
-    upst.textContent = `Processing ${files.length} document${files.length === 1 ? "" : "s"}…`;
+    upst.textContent = `${t("processingDocuments")} (${files.length})`;
     try {
       const fd = new FormData(); files.forEach(f => fd.append("files", f)); fd.append("date", document.getElementById("dd").value);
       const result = await api("/documents/batch", { body: fd });
       upst.textContent = `${result.succeeded} processed, ${result.failed} failed. Review each document status below.`;
-      if (result.failed) showToast("Some documents need attention. Review the per-file status.");
-      else showToast("Documents processed.");
+      if (result.failed) showToast(t("someDocumentsAttention"));
+      else showToast(t("documentsProcessed"));
       docs();
     } catch (e) { upst.textContent = e.message; btn.disabled = false; }
   };
   document.getElementById("ta").onclick = async () => {
     const x = document.getElementById("tt").value.trim(); if (!x) return;
     await api("/documents/text", { json: { text: x, date: document.getElementById("dd").value }});
-    showToast("Added"); docs();
+    showToast(t("added")); docs();
   };
   document.querySelectorAll("[data-d]").forEach(b => b.onclick = async () => {
-    if (!confirm("Remove this document?")) return;
+    if (!confirm(t("removeDocumentConfirm"))) return;
     await api("/documents/" + b.dataset.d, { method: "DELETE" }); docs();
   });
   document.querySelectorAll("[data-download-doc]").forEach(b => b.onclick = async () => {
     try { await downloadDocument("/documents/" + b.dataset.downloadDoc + "/file", b.dataset.filename); }
-    catch (e) { showToast(e.message, 4000); }
+    catch (e) { showToast(patientError(e), 4000); }
   });
   document.getElementById("bk").onclick = () => { const p = stack.pop(); persistInterview(); ask(); };
   document.getElementById("nx").onclick = summaryPage;
@@ -924,7 +1297,7 @@ async function summaryPage() {
 }
 
 function finish(r) {
-  const PL = ["", "Emergency", "Urgent", "Routine"];
+  const PL = ["", "Emergency", "Urgent", "Routine"].map(value => value ? tr(value) : "");
   R(`
   <div class="card token-card mt">
     <h1>${t("done")}</h1>
@@ -932,9 +1305,9 @@ function finish(r) {
     <span class="token-num">${r.token_no}</span>
     <p><span class="chip chip-${["","emergency","urgent","routine"][r.priority]}">${PL[r.priority]}</span></p>
     <p class="subtitle mt">${esc(r.patient_message)}</p>
-    <p class="mut caption mt">ABDM: ${esc(r.abdm.ref)} (${r.abdm.mode})</p>
+    <p class="mut caption mt">ABDM: ${esc(r.abdm.ref)} (${esc(r.abdm.mode)})</p>
     <p class="mut caption">${t("wait")}</p>
-    <button class="btn btn-lg btn-block mt" id="nw">Return home</button>
+    <button class="btn btn-lg btn-block mt" id="nw">${t("returnHome")}</button>
   </div>
   `);
   say(r.patient_message);
