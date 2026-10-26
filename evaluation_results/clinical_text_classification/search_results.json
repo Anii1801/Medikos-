@@ -1,0 +1,70 @@
+{
+  "trials": [
+    {
+      "classifier__C": 0.01,
+      "classifier__class_weight": null,
+      "validation_log_loss": 3.135376,
+      "validation_accuracy": 0.643478
+    },
+    {
+      "classifier__C": 0.01,
+      "classifier__class_weight": "balanced",
+      "validation_log_loss": 3.136102,
+      "validation_accuracy": 0.947826
+    },
+    {
+      "classifier__C": 0.1,
+      "classifier__class_weight": null,
+      "validation_log_loss": 2.785991,
+      "validation_accuracy": 0.956522
+    },
+    {
+      "classifier__C": 0.1,
+      "classifier__class_weight": "balanced",
+      "validation_log_loss": 2.780553,
+      "validation_accuracy": 0.947826
+    },
+    {
+      "classifier__C": 1.0,
+      "classifier__class_weight": null,
+      "validation_log_loss": 1.283098,
+      "validation_accuracy": 0.973913
+    },
+    {
+      "classifier__C": 1.0,
+      "classifier__class_weight": "balanced",
+      "validation_log_loss": 1.287844,
+      "validation_accuracy": 0.973913
+    },
+    {
+      "classifier__C": 10.0,
+      "classifier__class_weight": null,
+      "validation_log_loss": 0.403714,
+      "validation_accuracy": 0.973913
+    },
+    {
+      "classifier__C": 10.0,
+      "classifier__class_weight": "balanced",
+      "validation_log_loss": 0.408959,
+      "validation_accuracy": 0.973913
+    },
+    {
+      "classifier__C": 100.0,
+      "classifier__class_weight": null,
+      "validation_log_loss": 0.168967,
+      "validation_accuracy": 0.973913
+    },
+    {
+      "classifier__C": 100.0,
+      "classifier__class_weight": "balanced",
+      "validation_log_loss": 0.177555,
+      "validation_accuracy": 0.973913
+    }
+  ],
+  "selected": {
+    "classifier__C": 100.0,
+    "classifier__class_weight": null,
+    "validation_log_loss": 0.168967,
+    "validation_accuracy": 0.973913
+  }
+}

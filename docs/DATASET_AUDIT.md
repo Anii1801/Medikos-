@@ -141,3 +141,20 @@ installed into the local project environment for browser tests. See
 [`EVALUATION_RESULTS.md`](./EVALUATION_RESULTS.md) for the executed OCR and
 test results. No permissions were assumed for the external-origin ACI-Bench
 or MTSamples files.
+
+## Aggregate EDA run (2026-10-26)
+
+The reusable EDA module profiled **36 CSV/JSONL files containing 34,410 total rows across files** (this sum is not a unique-example count; related tables and manifests may describe the same records). It found no source image/PDF or audio assets. It writes only aggregate schemas, missingness, exact duplicate counts, selected categorical frequencies, text-length histograms/statistics, task-schema invalid-row counts, and annotation coverage checks; no record-level text or patient identifiers are included in notebook outputs.
+
+- Reproduce from the repository root: `python -m training.eda` with `PYTHONPATH=backend`, or from `backend`: `PYTHONPATH=. python -m training.eda`.
+- Notebook: [`01_dataset_eda.ipynb`](../notebooks/01_dataset_eda.ipynb).
+- Machine-readable aggregates and plots: [`evaluation_results/eda/`](../evaluation_results/eda/).
+- Task-required-field validation found zero invalid records across the 11 task-critical tables checked; the entity tables still have 0% token-span coverage.
+- Entity-field audit: the lab and prescription tables have no source text plus character-offset annotation, so they are not token-classification training data. The paired synthetic OCR text can support text-level parser evaluation only, not visual OCR.
+- Task decisions remain unchanged: the ranker uses the existing patient-grouped synthetic interview data; neural NER and summarization fine-tuning are not supported by independently grounded labels/licensing; ASR has no audio data.
+
+## Optional classification data and experiment
+
+`05_triage_redflag/symptom2disease_text.csv` contains 1,153 non-empty `text`/`label` rows and 24 labels, with 922/115/116 dataset-provided train/validation/test rows. The file contains no patient or source-document group key. A normalized full-text fingerprint audit found 1,153 distinct texts and no exact duplicate crossing the existing splits; this does not rule out near-duplicate templating or establish annotation quality. The data are Kaggle-derived and upstream terms are unresolved.
+
+A separate TF-IDF + LogisticRegression experiment was run as a local, non-clinical benchmark only. Metrics, per-class support, confusion matrix, validation search and limitations are in [`evaluation_results/clinical_text_classification/evaluation.json`](../evaluation_results/clinical_text_classification/evaluation.json). Do not interpret the labels as clinician-adjudicated ground truth, integrate this classifier into care workflows, or redistribute its checkpoint until the upstream license is reviewed.

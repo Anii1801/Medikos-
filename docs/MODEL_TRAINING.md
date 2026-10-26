@@ -1,8 +1,8 @@
 # Model Training Guide
 
-One end-to-end, reproducible experiment exists: the **adaptive next-question-slot ranker**. Everything else in the repository is rule-based
-(red flags, lab parsing, Hindi/Hinglish rules, summary builder) and is evaluated, not trained. No neural model was trained: the data (300
-synthetic, templated interviews; 14 complaints) does not justify one, and the label audit shows why (see below).
+The repository includes the **adaptive next-question-slot ranker** and a separate, isolated **TF-IDF text-classification benchmark**. Red flags,
+lab parsing, Hindi/Hinglish rules, and the summary builder remain rule-based. No neural model was trained: available interview data are synthetic
+and templated, entity rows lack token spans, and paired-summary data have provenance/grounding limitations.
 
 ## Commands (from a clean checkout)
 
@@ -12,7 +12,9 @@ pip install -r requirements.txt scikit-learn numpy scipy          # sklearn/scip
 export PYTHONPATH=.
 
 python -m training.audit_datasets          # profile every file on disk -> evaluation_results/dataset_profile.json
-python -m training.adaptive.train          # fit on TRAIN split, choose C on VALID, write models/adaptive_ranker/v1/ (test split never read)
+python -m training.eda                     # aggregate EDA tables and plots -> evaluation_results/eda/
+python -m training.adaptive.train --version v2  # GridSearchCV on TRAIN/VALID; evaluate held-out TEST once; save v2
+python -m training.clinical_text_classification # isolated TF-IDF/LR benchmark, not app-integrated
 python -m training.adaptive.evaluate       # label audit + four-way next-slot comparison + policy replays + LOCO
 python -m training.lab_extraction_eval --label current
 python -m training.prescription_extraction_eval
@@ -141,3 +143,24 @@ The proposed review record is defined in [`clinical_annotation.schema.json`](../
 ## Research-paper experimental setup
 
 For a reproducible report of the existing experiment, identify the task as next-question-slot imitation, the algorithm as multinomial logistic regression, seed 42, feature schema as chief-complaint character 2–4-grams plus language script and the set of already asked canonical slots, and data as the synthetic 300-interview corpus. Report patient-level 240/30/30 splits, validation-only selection of `C`, the held-out 30-interview/371-example results above, and the template-lookup baseline. State explicitly that no clinical validation, prospective workflow study, neural fine-tuning, OCR image evaluation, acoustic ASR evaluation, or report-generation model comparison was performed. Do not present the test top-1 score as clinical accuracy.
+
+## Versioned v2 experiment (2026-10-26)
+
+The existing [`v1` checkpoint](../backend/models/adaptive_ranker/v1/MODEL_CARD.md) was preserved. A new **CPU-only v2** checkpoint was trained and reloaded at [`backend/models/adaptive_ranker/v2/`](../backend/models/adaptive_ranker/v2/); it remains experimental and is not the app default.
+
+- Command: `cd backend; $env:PYTHONPATH='.'; python -m training.adaptive.train --version v2`.
+- Search: `GridSearchCV` with a fixed patient-grouped training/validation fold and 12 combinations, `C ∈ {0.01, 0.1, 1, 10, 100, 1000}` × `class_weight ∈ {None, balanced}`; validation log-loss selected `C=1000, class_weight=None`. Other feature settings remain `min_df=2`, character n-grams 2–4, seed 42.
+- Data: the existing patient-grouped 240/30/30 split; 6,056 train examples, 746 validation examples, and 371 held-out test states (with recorded/app-label views).
+- Training took 6.76 seconds on Windows 11, Python 3.13.5, scikit-learn 1.9.1, NumPy 2.4.2, CPU; final train/validation log-loss was 0.00415/0.00463. No GPU or transformer dependencies were used.
+- Files: `weights.json`, `config.json`, `manifest.json`, `split_manifest.json` (hashed group identifiers), `train_report.json`, `evaluation.json`, and `MODEL_CARD.md`.
+- Test results are in [`evaluation.json`](../backend/models/adaptive_ranker/v2/evaluation.json). V1 and v2 had identical held-out agreement: 1.000 recorded-wording top-1 and 0.9973 app-label top-1; a training-only complaint/state template lookup scored 1.000 on both views. These repeated-template scores do not establish a clinical benefit.
+
+The integrated default remains `adaptive_ranker/v1`; v2 is not activated by this experiment. To reproduce the dataset profile and plots, use `python -m training.eda`. See [`DATASET_AUDIT.md`](./DATASET_AUDIT.md) for task-suitability decisions and [`EVALUATION_RESULTS.md`](./EVALUATION_RESULTS.md) for complete held-out metrics.
+
+## Optional supervised text-classification benchmark
+
+`training.clinical_text_classification` uses the bundled Symptom2Disease-derived CSV as a text-to-dataset-label benchmark, separate from the ranker and red-flag rules. The source has 1,153 rows, 24 labels, and dataset-provided 922/115/116 train/validation/test splits; normalized full-text group hashes show no cross-split exact duplicate. A TF-IDF unigram/bigram + LogisticRegression pipeline is tuned with a 10-trial validation-only `GridSearchCV`; the selected `C=100`, `class_weight=None` pipeline is saved and reloaded before test scoring.
+
+On the 116-row held-out test set, accuracy was 0.9655, macro-F1 0.9653, weighted-F1 0.9641, top-3 0.9914, and MRR 0.9791 (training-only majority accuracy 0.0431). Train/validation log-loss was 0.0198/0.1690. Exact per-class scores, confusion matrix, split manifest, and search results are in [`evaluation_results/clinical_text_classification/`](../evaluation_results/clinical_text_classification/); the 2 MB checkpoint and model card are in [`backend/models/clinical_text_classifier/v1/`](../backend/models/clinical_text_classifier/v1/).
+
+This is not a diagnostic or clinical model. The Kaggle-derived source terms are unresolved, labels are not clinician-adjudicated ground truth, and no patient/source ID is provided. The artifact is local/experimental only, not suitable for redistribution until license review, and is not loaded by the application.

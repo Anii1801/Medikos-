@@ -560,3 +560,41 @@ setup had not entered the username field despite requiring username/password;
 the test now enters both, and its “not a clear result” assertion is
 case-insensitive to match the rendered wording. No application behavior was
 changed for those test fixes.
+
+### Versioned ranker and EDA run (2026-10-26)
+
+The locally reproduced run used Windows 11, Python 3.13.5, scikit-learn 1.9.1 and NumPy 2.4.2 on CPU (16 logical CPUs, 15.65 GiB system RAM, 5.08 GiB available at audit time; 10.99 GiB disk free). The machine exposes Intel Iris Xe integrated graphics; no CUDA-capable GPU was detected. PyTorch and Transformers were not installed; the ranker does not require them. GridSearchCV training took 6.76 seconds; final train/validation log-loss was 0.00415/0.00463. The held-out test set remained separate from the 12-combination validation-only search.
+
+| Model / baseline | View | Test examples | Accuracy / top-1 | Macro-F1 | Weighted-F1 | Top-3 | MRR |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Original v1 | Recorded wording | 371 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| Tuned v2 | Recorded wording | 371 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 |
+| Training-only majority class | Recorded wording | 371 | 0.0809 | — | — | — | — |
+| Training-only complaint/state template lookup | Recorded wording | 371 | 1.0000 | — | — | — | — |
+| Original v1 | App ontology label | 371 | 0.9973 | 0.9954 | 0.9973 | 1.0000 | 0.9987 |
+| Tuned v2 | App ontology label | 371 | 0.9973 | 0.9954 | 0.9973 | 1.0000 | 0.9987 |
+| Training-only majority class | App ontology label | 371 | 0.0809 | — | — | — | — |
+| Training-only complaint/state template lookup | App ontology label | 371 | 1.0000 | — | — | — | — |
+
+The template baseline equals or exceeds the learned models, so the tuned v2 result is not evidence of useful adaptation. Detailed per-class scores and confusion matrices are in [`backend/models/adaptive_ranker/v2/evaluation.json`](../backend/models/adaptive_ranker/v2/evaluation.json). The new checkpoint was saved and reloaded successfully, but was **not integrated**; the app continues to default to v1 and preserves its deterministic ontology and mandatory safety-question behavior.
+
+The refreshed EDA run profiled 36 CSV/JSONL files (34,410 summed rows across files), with no image/PDF or audio assets. Aggregate-only output is in [`evaluation_results/eda/`](../evaluation_results/eda/), and the executable notebook is [`notebooks/01_dataset_eda.ipynb`](../notebooks/01_dataset_eda.ipynb). No Bio_ClinicalBERT or FLAN-T5 weights were downloaded or trained: local entity rows have no reliable token spans, summary sources have synthetic/noisy or licensing/evidence-alignment limitations, and the current environment lacks PyTorch/Transformers with limited free memory/disk. These are deliberate data-validity and resource blockers, not completed experiments.
+
+The baseline suite run before changes was **232 passed, 10 skipped**. Final post-change results are recorded in the task completion report; the earlier 242-test result above describes a separate environment/run and is not this machine's baseline.
+
+### Optional dataset-label classifier (2026-10-26)
+
+The existing Symptom2Disease-derived table supports a separate, narrowly scoped text-classification benchmark (1,153 rows, 24 dataset labels, data-provided 922/115/116 splits). A normalized text hash was used as the grouping key because no patient/source ID is supplied; no exact normalized-text duplicates crossed splits. `GridSearchCV` selected TF-IDF unigram/bigram + LogisticRegression with `C=100`, `class_weight=None`, on validation log-loss. The 116-example test set was held out through selection and the saved 2 MB checkpoint was reloaded before scoring.
+
+| Metric | Validation (115 rows) | Held-out test (116 rows) |
+|---|---:|---:|
+| Accuracy | 0.9739 | 0.9655 |
+| Macro-F1 | — | 0.9653 |
+| Weighted-F1 | — | 0.9641 |
+| Top-3 accuracy | — | 0.9914 |
+| MRR | — | 0.9791 |
+| Log-loss | 0.1690 | 0.2739 |
+
+Training log-loss was 0.0198; the training-only majority baseline had 0.0431 test accuracy. The final run took 5.17 seconds on CPU. Full per-class precision/recall/F1, support, confusion matrix and all search trials are in [`evaluation_results/clinical_text_classification/evaluation.json`](../evaluation_results/clinical_text_classification/evaluation.json); the saved experimental artifact is [`backend/models/clinical_text_classifier/v1/`](../backend/models/clinical_text_classifier/v1/).
+
+This benchmark uses unreviewed external dataset labels and upstream Kaggle terms are unresolved. Results are not clinical diagnostic performance. It remains isolated from the application and should not be redistributed or used clinically without license review, independent clinical adjudication, and prospective validation.
