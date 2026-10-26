@@ -30,6 +30,38 @@ def test_ocr_extraction():
     assert any("bleeding" in i for i in ocr.interactions([m["name"] for m in e["medications"]]))
 
 
+def test_ocr_health_reports_engine_metadata_without_document_data(monkeypatch):
+    import pytesseract
+
+    monkeypatch.setattr(pytesseract, "get_tesseract_version", lambda: "5.3.0")
+    monkeypatch.setattr(pytesseract, "get_languages", lambda config: ["hin", "eng"])
+    response = c.get("/api/health/ocr")
+    assert response.status_code == 200
+    assert response.json() == {
+        "available": True,
+        "version": "5.3.0",
+        "languages": ["eng", "hin"],
+        "error": None,
+    }
+
+
+def test_ocr_health_reports_missing_tesseract_without_exception_details(monkeypatch):
+    import pytesseract
+
+    def missing_binary():
+        raise pytesseract.TesseractNotFoundError()
+
+    monkeypatch.setattr(pytesseract, "get_tesseract_version", missing_binary)
+    response = c.get("/api/health/ocr")
+    assert response.status_code == 200
+    assert response.json() == {
+        "available": False,
+        "version": None,
+        "languages": [],
+        "error": "executable_not_found",
+    }
+
+
 def test_blood_pressure_is_not_guessed_from_bare_bp_number():
     bare = ocr.extract("Prescription\nTab Metformin 500 mg BD\nBP: 150")
     assert not any(item["test"] == "Systolic BP" for item in bare["labs"])
@@ -570,11 +602,78 @@ def test_full_journey():
     assert c.get("/api/documents", headers=H(g)).json() == []
 
 def test_register_login_erase():
-    t = c.post("/api/auth/register", json={"username": "asha", "password": "secret1", "name": "Asha"}).json()["token"]
-    assert c.post("/api/auth/register", json={"username": "asha", "password": "secret1"}).status_code == 409
+    registered = c.post("/api/auth/register", json={
+        "username": " asha ", "password": "secret1", "name": "Asha"
+    })
+    assert registered.status_code == 200
+    t = registered.json()["token"]
+    assert c.post("/api/auth/register", json={
+        "username": "ASHA", "password": "secret1"
+    }).status_code == 409
+    case_insensitive_login = c.post("/api/auth/login", json={
+        "username": " ASHA ", "password": "secret1"
+    })
+    assert case_insensitive_login.status_code == 200
+    assert c.get("/api/me", headers=H(case_insensitive_login.json()["token"])).json()["username"] == "asha"
     assert c.post("/api/auth/login", json={"username": "asha", "password": "bad"}).status_code == 401
     assert c.delete("/api/me/data", headers=H(t)).json()["erased"]
     assert c.get("/api/me", headers=H(t)).status_code == 401
+
+
+def test_logout_revokes_only_the_active_session():
+    registration = c.post("/api/auth/register", json={
+        "username": "logoutpatient", "password": "secret123"
+    })
+    assert registration.status_code == 200
+    first = registration.json()["token"]
+    second = c.post("/api/auth/login", json={
+        "username": "logoutpatient", "password": "secret123"
+    }).json()["token"]
+
+    assert c.post("/api/auth/logout").status_code == 401
+    logged_out = c.post("/api/auth/logout", headers=H(first))
+    assert logged_out.status_code == 200
+    assert logged_out.json() == {"ok": True}
+    assert c.get("/api/me", headers=H(first)).status_code == 401
+    assert c.get("/api/me", headers=H(second)).status_code == 200
+
+
+def test_doctor_can_reset_patient_password_and_revoke_sessions():
+    registration = c.post("/api/auth/register", json={
+        "username": "resetpatient", "password": "oldpass1", "name": "Reset Patient"
+    })
+    assert registration.status_code == 200
+    old_token = registration.json()["token"]
+    old_second_session = c.post("/api/auth/login", json={
+        "username": "resetpatient", "password": "oldpass1"
+    }).json()["token"]
+    patient_headers = H(old_token)
+    doctor_token = c.post("/api/auth/login", json={
+        "username": "doctor", "password": os.environ.get("DOCTOR_PASS", "doctor123")
+    }).json()["token"]
+    reset_path = "/api/auth/reset-password"
+    payload = {"username": " RESETPATIENT ", "new_password": "newpass123"}
+
+    assert c.post(reset_path, json=payload, headers=patient_headers).status_code == 403
+    assert c.post(reset_path, json={
+        "username": "resetpatient", "new_password": "short"
+    }, headers=H(doctor_token)).status_code == 422
+    reset = c.post(reset_path, json=payload, headers=H(doctor_token))
+    assert reset.status_code == 200, reset.text
+    assert reset.json() == {"ok": True, "sessions_invalidated": 2}
+    assert c.get("/api/me", headers=H(old_token)).status_code == 401
+    assert c.get("/api/me", headers=H(old_second_session)).status_code == 401
+    assert c.post("/api/auth/login", json={
+        "username": "resetpatient", "password": "oldpass1"
+    }).status_code == 401
+    new_login = c.post("/api/auth/login", json={
+        "username": "resetpatient", "password": "newpass123"
+    })
+    assert new_login.status_code == 200
+    assert c.get("/api/me", headers=H(new_login.json()["token"])).json()["name"] == "Reset Patient"
+    assert c.post(reset_path, json={
+        "username": "missingpatient", "new_password": "newpass123"
+    }, headers=H(doctor_token)).status_code == 404
 
 
 def test_stateful_adaptive_interview_api_persists_answers_and_ayush_branch():

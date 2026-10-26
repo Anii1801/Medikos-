@@ -30,7 +30,6 @@
   <nav class="site-nav" id="site-nav" aria-label="Patient">
     <a class="nav-link active" id="bn-home" href="index.html">Home</a>
     <a class="nav-link" id="bn-hist" href="interview.html">Medical History</a>
-    <a class="nav-link" id="bn-docs" href="reports.html">Medical Reports</a>
     <a class="nav-link" id="bn-info" href="index.html#about">About</a>
   </nav>
   <div class="appbar-actions">
@@ -38,8 +37,8 @@
     <button class="icon-btn" id="text-size" type="button" aria-label="Adjust text size" title="Adjust text size">A</button>
     <button class="icon-btn mk-header-icon" id="theme" type="button" aria-label="Switch to dark theme" title="Switch theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></button>
     <button class="icon-btn" id="spk" type="button" aria-label="Audio prompts" title="Audio">Audio</button>
-    <label class="language-choice" for="lang"><span id="lang-label">Interface language</span>
-      <select id="lang" aria-labelledby="lang-label"><option value="en">English</option><option value="hi">हिंदी</option></select>
+    <label class="language-choice" for="lang">
+      <select id="lang" aria-label="Interface language"><option value="en">English</option><option value="hi">हिंदी</option></select>
     </label>
     <button class="btn btn-outline btn-sm" id="hdr-auth" type="button">Sign in</button>
   </div>
@@ -185,11 +184,10 @@ const R = h => {
 function applyStaticShellLanguage() {
   const langSelect = document.getElementById("lang");
   langSelect.value = lang;
-  document.getElementById("lang-label").textContent = t("interfaceLanguage");
   langSelect.setAttribute("aria-label", t("interfaceLanguage"));
   document.getElementById("brand-home").setAttribute("aria-label", `${t("home")} — MediKiosk`);
   document.querySelector(".brand-tagline").textContent = tr("Your health, organized.");
-  [["bn-home", "Home"], ["bn-hist", "Medical History"], ["bn-docs", "Medical Reports"], ["bn-info", "About"]]
+  [["bn-home", "Home"], ["bn-hist", "Medical History"], ["bn-info", "About"]]
     .forEach(([id, copy]) => { document.getElementById(id).textContent = tr(copy); });
   document.getElementById("site-nav").setAttribute("aria-label", t("patient"));
   document.getElementById("skip-link").textContent = tr("Skip to content");
@@ -262,7 +260,7 @@ menuToggle.onclick = () => {
 };
 
 function setActive(id) {
-  ["bn-home","bn-hist","bn-docs","bn-info"].forEach(i => {
+  ["bn-home","bn-hist","bn-info"].forEach(i => {
     const el = document.getElementById(i);
     if (el) el.classList.toggle("active", i === id);
   });
@@ -275,7 +273,6 @@ function bnav(tab) {
   closeMenu();
   if (tab === "home") route();
   else if (tab === "hist") dashHistory();
-  else if (tab === "docs") { if (TOKEN) docs(); else auth(tr("Please sign in to upload reports.")); }
   else if (tab === "info") aboutPage();
 }
 
@@ -327,7 +324,6 @@ function landingPage() {
     <p class="mk-intro">${t("sub")}</p>
     <div class="hero-actions mk-landing-actions">
       <button class="btn btn-lg" id="st">${t("start")}</button>
-      <button class="btn btn-outline btn-lg" id="upq">${tr("Upload Medical Reports")}</button>
     </div>
     <article class="mk-feature-card">
       <div class="mk-feature-icon">${ICONS.history}</div>
@@ -341,11 +337,6 @@ function landingPage() {
       <button class="btn mk-feature-action" id="card-hist">${t("start")} <span aria-hidden="true">→</span></button>
     </article>
     <div class="mk-support-grid">
-      <article class="mk-support-card" id="card-docs" role="button" tabindex="0">
-        <div class="mk-support-icon">${ICONS.reports}</div>
-        <h2>${tr("Medical Reports")}</h2>
-        <p>${tr("Upload prescriptions, laboratory reports, and other documents.")}</p>
-      </article>
       <article class="mk-support-card" id="card-time" role="button" tabindex="0">
         <div class="mk-support-icon">${ICONS.timeline}</div>
         <h2>${tr("Health Timeline")}</h2>
@@ -371,20 +362,16 @@ function landingPage() {
   const start = () => location.href = "interview.html";
   document.getElementById("st").onclick = start;
   document.getElementById("card-hist").onclick = start;
-  document.getElementById("upq").onclick = () => location.href = "reports.html";
-  document.getElementById("card-docs").onclick = () => location.href = "reports.html";
   document.getElementById("card-time").onclick = () => location.href = "timeline.html";
   document.getElementById("card-sum").onclick = () => location.href = "summary.html";
   document.getElementById("footer-signin").onclick = () => location.href = "login.html";
   document.getElementById("footer-help").onclick = () => location.href = "index.html#about";
-  ["card-docs", "card-time"].forEach(id => document.getElementById(id).onkeydown = e => {
+  ["card-time"].forEach(id => document.getElementById(id).onkeydown = e => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); document.getElementById(id).click(); }
   });
 }
 
 async function homeDash() {
-  let rs = [];
-  try { rs = await api("/records"); } catch (e) {}
   const cta = interviewCta();
   const canSummary = Object.keys(ans).some(k => k !== "_ay");
   const greetingName = me.name ? `, ${esc(me.name.split(" ")[0])}` : "";
@@ -396,7 +383,6 @@ async function homeDash() {
     <p class="mk-intro">${t("sub")}</p>
     <div class="hero-actions mk-landing-actions">
       <button class="btn btn-lg" id="hero-start">${t("start")}</button>
-      <button class="btn btn-outline btn-lg" id="upq">${tr("Upload Medical Reports")}</button>
     </div>
     <article class="mk-feature-card">
       <div class="mk-feature-icon">${ICONS.history}</div>
@@ -410,11 +396,6 @@ async function homeDash() {
       <button class="btn mk-feature-action" id="st">${cta}<span aria-hidden="true">→</span></button>
     </article>
     <div class="mk-support-grid">
-      <article class="mk-support-card" id="card-docs" role="button" tabindex="0">
-        <div class="mk-support-icon">${ICONS.reports}</div>
-        <h2>${tr("Medical reports")}</h2>
-        <p>${tr("Upload and organize documents.")}</p>
-      </article>
       <article class="mk-support-card" id="card-time" role="button" tabindex="0">
         <div class="mk-support-icon">${ICONS.timeline}</div>
         <h2>${tr("Health timeline")}</h2>
@@ -429,10 +410,8 @@ async function homeDash() {
   const startIv = () => hasInterviewProgress() ? ask() : setup();
   document.getElementById("st").onclick = startIv;
   document.getElementById("hero-start").onclick = startIv;
-  document.getElementById("upq").onclick = () => docs();
-  document.getElementById("card-docs").onclick = () => docs();
   document.getElementById("card-time").onclick = dashHistory;
-  ["card-docs", "card-time"].forEach(id => document.getElementById(id).onkeydown = e => {
+  ["card-time"].forEach(id => document.getElementById(id).onkeydown = e => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); document.getElementById(id).click(); }
   });
   document.getElementById("card-sum").onclick = () => {
@@ -520,7 +499,6 @@ function auth(msg = "") {
     <p>${t("sub")}</p>
     <div class="hero-actions">
       <button class="btn btn-lg" id="q">${t("start")}</button>
-      <button class="btn btn-outline btn-lg" id="upq">${t("docsH")}</button>
     </div>
   </section>
   <div class="card auth-panel">
@@ -545,7 +523,6 @@ function auth(msg = "") {
     try { const r = await api("/auth/guest", { method: "POST" }); setToken(r.token); route(); }
     catch (e) { auth(e.message); }
   };
-  document.getElementById("upq").onclick = () => auth(tr("Please sign in or start as a guest before uploading reports."));
   const go = async (path, body) => {
     try { const r = await api(path, { json: body }); setToken(r.token); route(); }
     catch (e) { auth(e.message); }
@@ -1170,9 +1147,16 @@ function docStatus(d) {
   return { label: tr("Completed"), cls: "ok" };
 }
 
-async function docs() {
-  setActive("bn-docs");
-  const ds = await api("/documents");
+async function docs(notice = "") {
+  setActive("bn-home");
+  let ds;
+  try { ds = await api("/documents"); }
+  catch (e) {
+    R(`<div class="alert alert-urgent mt" role="alert">${tr("documentsLoadFailed")}: ${esc(patientError(e))}</div>
+      <button class="btn btn-outline mt" id="docs-back" type="button">${t("back")}</button>`);
+    document.getElementById("docs-back").onclick = ask;
+    return;
+  }
   R(`
   <div class="step-hdr mt">
     <div class="step-number">2</div>
@@ -1190,30 +1174,47 @@ async function docs() {
         <label class="input-label" for="dd">${t("date")}</label>
         <input type="text" id="dd" placeholder="YYYY-MM-DD">
       </div>
-      <button class="btn" id="up" type="button">${t("addDoc")}</button>
+      <button class="btn" id="up" type="button">${t("upload")}</button>
     </div>
-    <p id="upst" class="mut" aria-live="polite"></p>
+    <p id="upst" class="mut" aria-live="polite">${esc(notice)}</p>
     <div class="auth-divider">${t("or")}</div>
     <label class="input-label" for="tt">${t("or")}</label>
     <textarea id="tt" placeholder="${t("typeReportText")}"></textarea>
     <button class="btn btn-outline btn-block" id="ta" type="button">${t("add")}</button>
   </div>
   ${ds.length ? `
-  <p class="label mt">Uploaded reports</p>
+  <p class="label mt">${tr("uploadedDocuments")}</p>
   <div class="doc-list">
     ${ds.map(d => {
       const ent = d.entities || { labs: [], medications: [] };
       const st = docStatus(d);
       return `<article class="doc-item">
-        <div>
-          <div style="font-weight:650;overflow-wrap:anywhere">${esc(d.filename)}</div>
-          <div class="mut">${esc(d.date || t("undated"))} · ${esc(tr(String(d.doc_type || "Unclassified").replaceAll("_"," ")))} · ${esc(d.engine)}</div>
-          <div class="mut"><span class="status-dot ${st.cls}"></span>${esc(st.label)}</div>
-          ${(ent.medications || []).map(m => `<div class="timeline-body">${esc(m.name)} ${esc(m.dose||"")} ${esc(m.frequency||"")}</div>`).join("")}
-          ${(ent.labs || []).map(l => `<div class="timeline-body">${esc(l.test)}: ${esc(l.value)}${l.unit ? ` ${esc(l.unit)}` : ""} <span class="chip chip-${l.flag==="normal"?"routine":"emergency"}">${esc(l.flag)}</span></div>`).join("")}
-        </div>
-        <div class="row">${d.has_original ? `<button class="btn btn-outline btn-sm" data-download-doc="${d.id}" data-filename="${esc(d.filename)}" type="button">${t("viewDownloadOriginal")}</button>` : ""}
-        <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">${t("removeDocument")}</button></div>
+        <details>
+          <summary>
+            <strong style="overflow-wrap:anywhere">${esc(d.filename)}</strong>
+            <span class="mut">${esc(d.date || t("undated"))} · ${esc(tr(String(d.doc_type || "Unclassified").replaceAll("_"," ")))} · ${esc(d.engine)}</span>
+            <span class="mut"><span class="status-dot ${st.cls}"></span>${esc(st.label)}</span>
+          </summary>
+          ${d.processing_error ? `<p class="alert alert-urgent mt-sm" role="status">${esc(patientError(d.processing_error))}</p>` : ""}
+          ${(ent.review_flags || []).length ? `<p class="caption">${tr("Needs review")}: ${esc(ent.review_flags.map(flag => tr(flag)).join(", "))}</p>` : ""}
+          <label class="input-label" for="category-${d.id}">${tr("documentCategory")}</label>
+          <div class="row">
+            <select id="category-${d.id}" data-document-category="${d.id}">
+              ${[["lab_report", "Laboratory report"], ["prescription", "Prescription"], ["discharge_summary", "Discharge summary"], ["other", "Other"]].map(([value, label]) => `<option value="${value}" ${d.doc_type === value ? "selected" : ""}>${tr(label)}</option>`).join("")}
+            </select>
+            <button class="btn btn-outline btn-sm" data-document-save-category="${d.id}" type="button">${tr("saveCategory")}</button>
+          </div>
+          <div class="row mt-sm">
+            ${d.has_original ? `<button class="btn btn-outline btn-sm" data-download-doc="${d.id}" data-filename="${esc(d.filename)}" type="button">${t("viewDownloadOriginal")}</button>` : ""}
+            ${d.processing_status === "failed" ? `<label class="btn btn-outline btn-sm">${tr("chooseDocument")}<input type="file" data-document-replacement="${d.id}" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt" hidden></label><button class="btn btn-outline btn-sm" data-document-retry="${d.id}" type="button">${tr("retryExtraction")}</button>` : ""}
+            <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">${t("removeDocument")}</button>
+          </div>
+          ${d.text ? `<details class="mt-sm"><summary>${tr("extractedText")}</summary><pre class="document-preview">${esc(d.text)}</pre></details>` : `<p class="caption mt-sm">${tr("noExtractedText")}</p>`}
+          ${ent.diagnoses?.length ? `<p class="timeline-body">${tr("Diagnoses mentioned")}: ${ent.diagnoses.map(esc).join(", ")}</p>` : ""}
+          ${(ent.medications || []).length ? `<h3>${tr("Medication mentions")}</h3><ul>${ent.medications.map(m => `<li>${esc(m.name)} ${esc(m.dose || "")} ${esc(m.frequency || "")} · ${esc(tr(m.status || "reported"))}</li>`).join("")}</ul>` : ""}
+          ${(ent.allergies || []).length ? `<h3>${tr("Allergy mentions")}</h3><ul>${ent.allergies.map(item => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}
+          ${(ent.labs || []).length ? `<h3>${tr("Laboratory findings")}</h3><div class="table-wrap"><table class="stack-table"><thead><tr><th>${tr("Test")}</th><th>${tr("Value")}</th><th>${tr("Reference range")}</th><th>${tr("Uncertainty")}</th></tr></thead><tbody>${ent.labs.map(l => `<tr><td data-label="${tr("Test")}">${esc(l.test)}</td><td data-label="${tr("Value")}">${esc(l.value)} ${esc(l.unit || "")}</td><td data-label="${tr("Reference range")}">${esc(l.ref || tr("Not provided"))}</td><td data-label="${tr("Uncertainty")}">${esc(l.uncertainty || l.reference_source || tr("Not reported"))}</td></tr>`).join("")}</tbody></table></div>` : `<p class="caption">${tr("noFindings")}</p>`}
+        </details>
       </article>`;
     }).join("")}
   </div>` : `<p class="empty-state mt">${t("nodocs")}</p>`}
@@ -1248,21 +1249,44 @@ async function docs() {
       upst.textContent = `${result.succeeded} processed, ${result.failed} failed. Review each document status below.`;
       if (result.failed) showToast(t("someDocumentsAttention"));
       else showToast(t("documentsProcessed"));
-      docs();
+      docs(upst.textContent);
     } catch (e) { upst.textContent = e.message; btn.disabled = false; }
   };
   document.getElementById("ta").onclick = async () => {
     const x = document.getElementById("tt").value.trim(); if (!x) return;
     await api("/documents/text", { json: { text: x, date: document.getElementById("dd").value }});
-    showToast(t("added")); docs();
+    showToast(t("added")); docs(t("added"));
   };
   document.querySelectorAll("[data-d]").forEach(b => b.onclick = async () => {
     if (!confirm(t("removeDocumentConfirm"))) return;
-    await api("/documents/" + b.dataset.d, { method: "DELETE" }); docs();
+    b.disabled = true;
+    try { await api("/documents/" + b.dataset.d, { method: "DELETE" }); showToast(tr("documentRemoved")); await docs(tr("documentRemoved")); }
+    catch (e) { upst.textContent = `${tr("removalFailed")}: ${patientError(e)}`; b.disabled = false; }
   });
   document.querySelectorAll("[data-download-doc]").forEach(b => b.onclick = async () => {
     try { await downloadDocument("/documents/" + b.dataset.downloadDoc + "/file", b.dataset.filename); }
     catch (e) { showToast(patientError(e), 4000); }
+  });
+  document.querySelectorAll("[data-document-save-category]").forEach(b => b.onclick = async () => {
+    const select = document.querySelector(`[data-document-category="${b.dataset.documentSaveCategory}"]`);
+    b.disabled = true;
+    try {
+      await api("/documents/" + b.dataset.documentSaveCategory, { method: "PUT", json: { doc_type: select.value } });
+      await docs(tr("categoryUpdated"));
+    } catch (e) { upst.textContent = `${tr("categoryFailed")}: ${patientError(e)}`; b.disabled = false; }
+  });
+  document.querySelectorAll("[data-document-retry]").forEach(b => b.onclick = async () => {
+    b.disabled = true;
+    try {
+      const replacement = document.querySelector(`[data-document-replacement="${b.dataset.documentRetry}"]`)?.files?.[0];
+      const body = new FormData();
+      if (replacement) body.append("file", replacement);
+      const result = await api("/documents/" + b.dataset.documentRetry + "/retry", { method: "POST", body });
+      const notice = result.processing_status === "failed"
+        ? `${tr("retryFailed")}: ${patientError(result.processing_error)}`
+        : tr("Document extraction retried.");
+      await docs(notice);
+    } catch (e) { upst.textContent = `${tr("retryFailed")}: ${patientError(e)}`; b.disabled = false; }
   });
   document.getElementById("bk").onclick = () => { const p = stack.pop(); persistInterview(); ask(); };
   document.getElementById("nx").onclick = summaryPage;

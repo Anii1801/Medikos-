@@ -10,7 +10,7 @@ const PATIENT_I18N = {
     start: "Start Interview", cont: "Continue Interview", next: "Continue", back: "Back", speak: "Speak", listen: "Listening…",
     type: "Type or speak your answer", docsH: "Upload medical reports",
     docsS: "Upload prescriptions, laboratory reports, and other medical documents.",
-    addDoc: "Browse files", or: "or type the report text manually", add: "Add text",
+    addDoc: "Browse files", upload: "Upload", or: "or type the report text manually", add: "Add text",
     date: "Report date (YYYY-MM-DD)", sumH: "My health summary",
     sumS: "Review your recorded history and the latest generated draft. Your clinician will also review it.",
     send: "Send to doctor", done: "Submitted", dash: "Health timeline", out: "Log out",
@@ -115,7 +115,7 @@ const PATIENT_I18N = {
     speak: "बोलें", listen: "सुन रहा है…", type: "अपना उत्तर लिखें या बोलें",
     docsH: "मेडिकल रिपोर्ट अपलोड करें",
     docsS: "पर्चे, प्रयोगशाला रिपोर्ट और अन्य मेडिकल दस्तावेज़ अपलोड करें।",
-    addDoc: "फ़ाइलें चुनें", or: "या रिपोर्ट का पाठ लिखें", add: "पाठ जोड़ें",
+    addDoc: "फ़ाइलें चुनें", upload: "अपलोड करें", or: "या रिपोर्ट का पाठ लिखें", add: "पाठ जोड़ें",
     date: "रिपोर्ट की तारीख (YYYY-MM-DD)", sumH: "मेरे स्वास्थ्य का सारांश",
     sumS: "दर्ज इतिहास और नया मसौदा देखें। आपका चिकित्सक भी इसकी समीक्षा करेगा।",
     send: "डॉक्टर को भेजें", done: "जमा हो गया", dash: "स्वास्थ्य समयरेखा", out: "लॉग आउट",
@@ -410,7 +410,7 @@ function patientError(error) {
 }
 function languageSelector(id = "patient-language") {
   const language = getPatientLanguage();
-  return `<label class="language-choice" for="${id}">${PATIENT_I18N[language].interfaceLanguage}
+  return `<label class="language-choice" for="${id}">
     <select id="${id}" aria-label="${PATIENT_I18N[language].interfaceLanguage}">
       <option value="en" ${language === "en" ? "selected" : ""}>${PATIENT_I18N[language].english}</option>
       <option value="hi" ${language === "hi" ? "selected" : ""}>${PATIENT_I18N[language].hindi}</option>

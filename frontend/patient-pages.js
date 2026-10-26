@@ -14,7 +14,6 @@ function pageShell(title, active, content) {
         ${[
           ["dashboard.html", tr("dashboard"), "dashboard"],
           ["interview.html", tr("medicalHistory"), "interview"],
-          ["reports.html", tr("medicalReports"), "reports"],
           ["timeline.html", tr("timeline"), "timeline"],
           ["summary.html", tr("mySummary"), "summary"]
         ].map(x => `<a class="${active === x[2] ? "active" : ""}" href="${x[0]}">${x[1]}</a>`).join("")}
@@ -63,27 +62,23 @@ function pageError(message) {
 
 async function renderDashboard() {
   const me = await requireUser(); if (!me) return;
-  let records = [], docs = [];
-  let recordsError = "", docsError = "";
+  let records = [];
+  let recordsError = "";
   try { records = await api("/records"); } catch (e) { recordsError = e.message; }
-  try { docs = await api("/documents"); } catch (e) { docsError = e.message; }
   pageShell("Dashboard", "dashboard", `
     <p class="eyebrow">${tr("dashboardEyebrow")}</p>
     <h1>${tr("welcomeName")}${me.name ? ", " + esc(me.name.split(" ")[0]) : ""}</h1>
     <p class="subtitle">${tr("prepareConsultation")}</p>
     <div class="dashboard-actions">
       <a class="btn" href="interview.html">${sessionStorage.getItem("mk_iv") ? tr("continueInterview") : tr("startInterview")}</a>
-      <a class="btn btn-outline" href="reports.html">${tr("medicalReports")}</a>
     </div>
     <div class="patient-card-grid">
       <a class="patient-card" href="interview.html"><span class="action-icon">${ICONS.history}</span><h2>${tr("medicalHistory")}</h2><p>${tr("medicalHistoryHelp")}</p></a>
-      <a class="patient-card" href="reports.html"><span class="action-icon">${ICONS.reports}</span><h2>${tr("medicalReports")}</h2><p>${docs.length} ${tr("documentsCount")} · ${tr("uploadOrganize")}</p></a>
       <a class="patient-card" href="timeline.html"><span class="action-icon">${ICONS.timeline}</span><h2>${tr("timeline")}</h2><p>${records.length ? `${records.length} ${tr("encountersCount")}` : tr("noEncounters")}</p></a>
       <a class="patient-card" href="summary.html"><span class="action-icon">${ICONS.summary}</span><h2>${tr("mySummary")}</h2><p>${tr("summaryReviewHelp")}</p></a>
     </div>
     ${recordsError ? `<div class="alert alert-urgent mt" role="alert">${tr("recentActivity")}: ${esc(patientError(recordsError))}</div>` :
       records.length ? `<section class="card mt" aria-labelledby="recent-heading"><h2 id="recent-heading">${tr("recentActivity")}</h2><div class="document-list">${records.slice(0, 3).map(r => `<div class="document-row"><span>${tr("encounter")} ${esc(r.token_no)}</span><span class="chip">${esc(tr(r.status))}</span></div>`).join("")}</div></section>` : ""}
-    ${docsError ? `<div class="alert alert-urgent mt" role="alert">${tr("documentsLoadFailed")}: ${esc(patientError(docsError))}</div>` : ""}
     <section class="card mt" aria-labelledby="data-controls-heading">
       <h2 id="data-controls-heading">${tr("accountData")}</h2>
       <p class="caption">${tr("eraseWarning")}</p>
@@ -147,94 +142,6 @@ async function renderInterview() {
   });
 }
 
-async function renderReports() {
-  const me = await requireUser(); if (!me) return;
-  let docs = [];
-  let docsError = "";
-  try { docs = await api("/documents"); } catch (e) { docsError = e.message; }
-  pageShell("Medical Reports", "reports", `
-    <p class="eyebrow">${tr("medicalReports")}</p><h1>${tr("Uploaded Documents")}</h1>
-    <p class="subtitle">${PATIENT_I18N[getPatientLanguage()].docsS}</p>
-    <div class="card">
-      <label class="input-label" for="report-file">${tr("Choose a document")}</label>
-      <input id="report-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt" multiple>
-      <p class="caption">${PATIENT_I18N[getPatientLanguage()].maxUpload}</p>
-      <button class="btn" id="upload-report" type="button">${PATIENT_I18N[getPatientLanguage()].uploadReports}</button>
-      <p id="report-status" class="caption" aria-live="polite"></p>
-    </div>
-    ${docsError ? `<div class="alert alert-urgent" role="alert">${tr("documentsLoadFailed")}: ${esc(docsError)}</div>` : `<div class="card"><h2>${tr("uploadedDocuments")}</h2>
-      ${docs.length ? `<div class="document-list">${docs.map(d => `<details class="document-row"><summary><b>${esc(d.filename || d.name || tr("document"))}</b><span class="chip">${esc(tr(d.processing_status || d.doc_type || "uploaded"))}</span></summary>
-        <p class="caption">${tr("documentDate")}: ${esc(d.date || tr("Not extracted"))} · ${tr("extractionEngine")}: ${esc(d.engine || tr("Not reported"))} · ${tr("uploadDate")}: ${esc(d.created ? new Date(d.created * 1000).toLocaleString(getPatientLanguage() === "hi" ? "hi-IN" : "en-IN") : tr("Not recorded"))}</p>
-        <p class="caption">${tr("documentCategory")}: ${esc(tr(d.doc_type || "Unclassified"))}</p>
-        <p class="caption">${tr("extractionStatus")}: ${esc(tr(d.processing_status || "needs_review"))}</p>
-        ${d.processing_error ? `<p class="alert alert-urgent" role="status">${d.processing_status === "failed" ? tr("extractionFailed") : tr("extractionPartial")}<br>${esc(patientError(d.processing_error))}</p>` : ""}
-        ${d.has_original ? `<button class="btn btn-outline btn-sm" type="button" data-report-download="${d.id}" data-filename="${esc(d.filename)}">${tr("viewDownloadOriginal")}</button>` : ""}
-        <label class="input-label" for="category-${d.id}">${tr("documentCategory")}</label>
-        <select id="category-${d.id}" data-document-category="${d.id}">
-          ${[["lab_report", "Laboratory report"], ["prescription", "Prescription"], ["discharge_summary", "Discharge summary"], ["other", "Other"]].map(([value, label]) => `<option value="${value}" ${d.doc_type === value ? "selected" : ""}>${tr(label)}</option>`).join("")}
-        </select>
-        <button class="btn btn-outline btn-sm" type="button" data-document-save-category="${d.id}">${tr("saveCategory")}</button>
-        ${d.processing_status === "failed" ? `<label class="input-label" for="replacement-${d.id}">${tr("Optional: choose an unlocked or corrected replacement file")}</label><input id="replacement-${d.id}" type="file" data-document-replacement="${d.id}" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt"><button class="btn btn-outline btn-sm" type="button" data-document-retry="${d.id}">${tr("retryExtraction")}</button>` : ""}
-        <button class="btn btn-outline btn-sm" type="button" data-document-delete="${d.id}">${tr("removeDocument")}</button>
-        ${d.text ? `<details><summary>${tr("extractedText")}</summary><pre class="document-preview">${esc(d.text)}</pre></details>` : `<p class="caption">${tr("noExtractedText")}</p>`}
-        ${d.entities?.diagnoses?.length ? `<h3>${tr("Diagnoses mentioned")}</h3><p>${d.entities.diagnoses.map(esc).join(", ")}</p>` : ""}
-        ${d.entities?.medications?.length ? `<h3>${tr("Medication mentions")}</h3><ul>${d.entities.medications.map(m => `<li>${esc(m.name)} ${esc(m.dose || "")} ${esc(m.frequency || "")} · ${esc(tr(m.status || "reported"))}</li>`).join("")}</ul>` : ""}
-        ${d.entities?.allergies?.length ? `<h3>${tr("Allergy mentions")}</h3><ul>${d.entities.allergies.map(esc).map(x => `<li>${x}</li>`).join("")}</ul>` : ""}
-        ${d.entities?.labs?.length ? `<h3>${tr("Laboratory findings")}</h3><div class="table-wrap"><table class="stack-table"><thead><tr><th>${tr("Test")}</th><th>${tr("Value")}</th><th>${tr("Reference range")}</th><th>${tr("Uncertainty")}</th></tr></thead><tbody>${d.entities.labs.map(l => `<tr><td data-label="${tr("Test")}">${esc(l.test)}</td><td data-label="${tr("Value")}">${esc(l.value)} ${esc(l.unit)}</td><td data-label="${tr("Reference range")}">${esc(l.ref || tr("Not provided"))}</td><td data-label="${tr("Uncertainty")}">${esc(l.uncertainty || l.reference_source || tr("Not reported"))}</td></tr>`).join("")}</tbody></table></div>` : `<p class="caption">${tr("noFindings")}</p>`}
-      </details>`).join("")}</div>` : `<p class="empty-state">${tr("No documents uploaded yet.")}</p>`}</div>`}
-    </div>
-  `);
-  document.querySelectorAll("[data-report-download]").forEach(button => button.onclick = async () => {
-    try { await downloadDocument("/documents/" + button.dataset.reportDownload + "/file", button.dataset.filename); }
-    catch (e) { document.getElementById("report-status").textContent = tr("documentDownloadFailed") + ": " + patientError(e); }
-  });
-  document.querySelectorAll("[data-document-save-category]").forEach(button => button.onclick = async () => {
-    const select = document.querySelector(`[data-document-category="${button.dataset.documentSaveCategory}"]`);
-    const status = document.getElementById("report-status");
-    button.disabled = true;
-    try {
-      await api("/documents/" + button.dataset.documentSaveCategory, {
-        method: "PUT", json: { doc_type: select.value }
-      });
-      status.textContent = PATIENT_I18N[getPatientLanguage()].categoryUpdated;
-    } catch (e) { status.textContent = PATIENT_I18N[getPatientLanguage()].categoryFailed + ": " + patientError(e); }
-    finally { button.disabled = false; }
-  });
-  document.querySelectorAll("[data-document-retry]").forEach(button => button.onclick = async () => {
-    const status = document.getElementById("report-status");
-    button.disabled = true;
-    try {
-      const replacement = document.querySelector(`[data-document-replacement="${button.dataset.documentRetry}"]`)?.files?.[0];
-      const body = new FormData();
-      if (replacement) body.append("file", replacement);
-      const result = await api("/documents/" + button.dataset.documentRetry + "/retry", { method: "POST", body });
-      status.textContent = result.processing_status === "failed" ? `${tr("retryFailed")}: ${patientError(result.processing_error)}` : tr("Document extraction retried.");
-      await renderReports();
-    } catch (e) { status.textContent = `${tr("retryFailed")}: ${patientError(e)}`; button.disabled = false; }
-  });
-  document.querySelectorAll("[data-document-delete]").forEach(button => button.onclick = async () => {
-    const status = document.getElementById("report-status");
-    if (!window.confirm(PATIENT_I18N[getPatientLanguage()].removeConfirm)) return;
-    button.disabled = true;
-    try {
-      await api("/documents/" + button.dataset.documentDelete, { method: "DELETE" });
-      status.textContent = PATIENT_I18N[getPatientLanguage()].documentRemoved;
-      await renderReports();
-    } catch (e) { status.textContent = `${PATIENT_I18N[getPatientLanguage()].removalFailed}: ${patientError(e)}`; button.disabled = false; }
-  });
-  document.getElementById("upload-report").onclick = async () => {
-    const files = Array.from(document.getElementById("report-file").files || []), status = document.getElementById("report-status");
-    if (!files.length) { status.textContent = PATIENT_I18N[getPatientLanguage()].chooseAtLeastOne; return; }
-    const data = new FormData(); files.forEach(file => data.append("files", file)); status.textContent = `${PATIENT_I18N[getPatientLanguage()].processingDocuments} (${files.length})`;
-    try {
-      const result = await api("/documents/batch", { body: data });
-      status.textContent = `${result.succeeded} ${tr("processed")}, ${result.failed} ${tr("failed")}. ${tr("Each document shows its extraction status below.")}`;
-      await renderReports();
-    }
-    catch (e) { status.textContent = `${PATIENT_I18N[getPatientLanguage()].uploadFailed}: ${patientError(e)}`; }
-  };
-}
-
 async function renderTimeline() {
   const me = await requireUser(); if (!me) return;
   let records = [], docs = [];
@@ -268,7 +175,6 @@ async function bootPatientPage() {
   try {
     if (pageName === "dashboard") await renderDashboard();
     else if (pageName === "interview") await renderInterview();
-    else if (pageName === "reports") await renderReports();
     else if (pageName === "timeline") await renderTimeline();
     else if (pageName === "summary") await renderSummary();
     else await renderDashboard();

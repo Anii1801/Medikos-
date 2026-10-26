@@ -100,3 +100,43 @@ def test_production_refuses_demo_credentials_and_open_cors(monkeypatch):
 def test_development_mode_does_not_block_startup(monkeypatch):
     monkeypatch.delenv("MEDIKIOSK_ENV", raising=False)
     security.enforce_production_config()
+
+
+def test_database_initialization_synchronizes_configured_doctor_credentials(tmp_path, monkeypatch):
+    original_path = db.DB_PATH
+    monkeypatch.setattr(db, "DB_PATH", str(tmp_path / "doctor-config.db"))
+    monkeypatch.setenv("DOCTOR_USER", "clinic-admin")
+    monkeypatch.setenv("DOCTOR_PASS", "initial-password")
+    try:
+        db.init()
+        with db.tx() as connection:
+            first_login = db.check_login(connection, " CLINIC-ADMIN ", "initial-password")
+            assert first_login and first_login["role"] == "doctor"
+
+        monkeypatch.setenv("DOCTOR_USER", "updated-admin")
+        monkeypatch.setenv("DOCTOR_PASS", "rotated-password")
+        db.init()
+        with db.tx() as connection:
+            assert db.check_login(connection, "clinic-admin", "initial-password") is None
+            updated_login = db.check_login(connection, " UPDATED-ADMIN ", "rotated-password")
+            assert updated_login and updated_login["role"] == "doctor"
+            assert connection.execute(
+                "SELECT COUNT(*) FROM users WHERE role='doctor'"
+            ).fetchone()[0] == 1
+    finally:
+        monkeypatch.setattr(db, "DB_PATH", original_path)
+
+
+def test_database_initialization_rejects_doctor_username_conflict(tmp_path, monkeypatch):
+    original_path = db.DB_PATH
+    monkeypatch.setattr(db, "DB_PATH", str(tmp_path / "doctor-conflict.db"))
+    monkeypatch.setenv("DOCTOR_USER", "existing-patient")
+    monkeypatch.setenv("DOCTOR_PASS", "long-enough-password")
+    try:
+        with db.tx() as connection:
+            connection.executescript(db.SCHEMA)
+            db.add_user(connection, "existing-patient", "patient-password", "patient")
+        with pytest.raises(RuntimeError, match="conflicts with an existing non-doctor"):
+            db.init()
+    finally:
+        monkeypatch.setattr(db, "DB_PATH", original_path)

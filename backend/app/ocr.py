@@ -101,6 +101,23 @@ def _reference_interactions() -> list[tuple[set[str], str]]:
 MAX_PDF_PAGES = 20          # cap on PDF pages and multi-frame raster images (bounds OCR work per upload)
 
 
+def tesseract_status() -> dict[str, Any]:
+    """Report OCR engine availability without inspecting any document data."""
+    import pytesseract
+
+    try:
+        version = str(pytesseract.get_tesseract_version())
+    except pytesseract.TesseractNotFoundError:
+        return {"available": False, "version": None, "languages": [], "error": "executable_not_found"}
+
+    try:
+        languages = sorted(pytesseract.get_languages(config=""))
+    except pytesseract.TesseractError:
+        return {"available": False, "version": version, "languages": [], "error": "language_data_unavailable"}
+
+    return {"available": True, "version": version, "languages": languages, "error": None}
+
+
 def _ocr_pil_image(image) -> tuple[str, str, list[dict[str, Any]]]:
     """Tesseract on one Pillow image -> (text, engine, word blocks with bbox and confidence)."""
     from PIL import ImageOps

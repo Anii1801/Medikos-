@@ -1,4 +1,4 @@
-import os, json, time, secrets, uuid, hashlib, logging, io
+import os, json, time, secrets, uuid, hashlib, logging, io, sqlite3
 from urllib.parse import quote
 from typing import Literal, Optional
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File, Form, Header, Response
@@ -56,10 +56,18 @@ class Login(BaseModel):
 
 @app.post("/api/auth/register")
 def register(r: Reg):
-    if len(r.password) < 6 or len(r.username) < 3: raise HTTPException(422, "Username ≥3 and password ≥6 chars")
+    username = db.normalize_username(r.username)
+    if len(username) < 3 or len(username) > 64 or len(r.password) < 6 or len(r.password) > 1024:
+        raise HTTPException(422, "Username must be 3–64 characters and password 6–1024 characters")
     with db.tx() as c:
-        try: uid = db.add_user(c, r.username, r.password, "patient", r.name, r.age, r.abha)
-        except Exception: raise HTTPException(409, "Username already taken")
+        if c.execute(
+            "SELECT 1 FROM users WHERE username=? COLLATE NOCASE", (username,)
+        ).fetchone():
+            raise HTTPException(409, "Username already taken")
+        try:
+            uid = db.add_user(c, username, r.password, "patient", r.name, r.age, r.abha)
+        except sqlite3.IntegrityError as exc:
+            raise HTTPException(409, "Username already taken") from exc
         return {"token": db.new_session(c, uid), "role": "patient"}
 
 @app.post("/api/auth/login")
@@ -71,6 +79,40 @@ def login(r: Login, request: Request):
             raise HTTPException(401, "Wrong username or password")
         security.audit("login", actor_id=u["id"], role=u["role"], ip=request.client.host if request.client else None)
         return {"token": db.new_session(c, u["id"]), "role": u["role"]}
+
+@app.post("/api/auth/logout")
+def logout(request: Request, u=Depends(user)):
+    authorization = request.headers.get("authorization", "")
+    token = authorization.removeprefix("Bearer ").strip()
+    with db.tx() as c:
+        c.execute("DELETE FROM sessions WHERE token=? AND user_id=?", (token, u["id"]))
+    return {"ok": True}
+
+class PasswordReset(BaseModel):
+    username: str
+    new_password: str
+
+@app.post("/api/auth/reset-password")
+def reset_patient_password(r: PasswordReset, d=Depends(doctor)):
+    username = db.normalize_username(r.username)
+    if len(r.new_password) < 6 or len(r.new_password) > 1024:
+        raise HTTPException(422, "Password must be 6–1024 characters")
+    with db.tx() as c:
+        patient = c.execute(
+            "SELECT id FROM users WHERE username=? COLLATE NOCASE AND role='patient'",
+            (username,),
+        ).fetchone()
+        if not patient:
+            raise HTTPException(404, "Patient account not found")
+        sessions_invalidated = db.set_password(c, patient["id"], r.new_password)
+    security.audit(
+        "patient_password_reset",
+        actor_id=d["id"],
+        role=d["role"],
+        target=f"user:{patient['id']}",
+        detail={"sessions_invalidated": sessions_invalidated},
+    )
+    return {"ok": True, "sessions_invalidated": sessions_invalidated}
 
 @app.post("/api/auth/guest")
 def guest(name: str = "", age: str = "", abha: str = ""):
@@ -862,6 +904,11 @@ def audit_log(limit: int = 200, d=Depends(doctor)):
 def health():
     return {"ok": True, "llm": llm.enabled(), "abdm_mode": os.environ.get("ABDM_MODE", "mock"),
             "datasets": datasets.status()}
+
+@app.get("/api/health/ocr")
+def ocr_health():
+    """Expose OCR runtime metadata only; never reads uploaded documents."""
+    return ocr.tesseract_status()
 
 FRONT = os.path.join(os.path.dirname(__file__), "..", "..", "frontend")
 if os.path.isdir(FRONT):

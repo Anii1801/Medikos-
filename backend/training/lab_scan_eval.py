@@ -25,6 +25,8 @@ FONT = next(
         Path("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"),
         Path("/System/Library/Fonts/Menlo.ttc"),
         Path("/System/Library/Fonts/Supplemental/Courier New.ttf"),
+        Path("C:/Windows/Fonts/consola.ttf"),
+        Path("C:/Windows/Fonts/cour.ttf"),
     ) if path.is_file()),
     None,
 )

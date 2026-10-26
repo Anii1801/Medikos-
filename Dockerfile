@@ -1,5 +1,10 @@
 FROM python:3.12-slim
-RUN apt-get update && apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-hin tesseract-ocr-eng && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-eng tesseract-ocr-hin \
+    && tesseract --version \
+    && tesseract --list-langs | grep -qx eng \
+    && tesseract --list-langs | grep -qx hin \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /srv
 COPY backend/requirements.txt backend/requirements.txt
 RUN pip install --no-cache-dir -r backend/requirements.txt

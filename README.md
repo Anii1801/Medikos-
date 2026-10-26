@@ -13,7 +13,7 @@ cd backend && ../.venv/bin/python -m pytest -q -rs
 ```
 Before first run, copy `.env.example` to `.env` and set a strong `DOCTOR_PASS` and your desired `DOCTOR_USER`. The example password is intentionally a placeholder; do not use a demo credential for real patient data.
 When `DOCTOR_USER` or `DOCTOR_PASS` is set for an existing SQLite database, the doctor account is updated on startup. Existing patient accounts and their data are preserved. Usernames are matched case-insensitively and surrounding whitespace is ignored.
-A doctor can reset a patient password with `POST /api/auth/reset-password` using the doctor bearer token and `{ "username": "...", "new_password": "..." }`. This invalidates the patient’s existing sessions without deleting patient data. Doctor passwords remain controlled by `DOCTOR_USER` and `DOCTOR_PASS`.
+A user can end the current session with `POST /api/auth/logout`; the bearer token is revoked server-side. A doctor can reset a patient password with `POST /api/auth/reset-password` using the doctor bearer token and `{ "username": "...", "new_password": "..." }`. This invalidates the patient’s existing sessions without deleting patient data. Doctor passwords remain controlled by `DOCTOR_USER` and `DOCTOR_PASS` and are synchronized on startup.
 A local image-OCR run needs the native Tesseract executable in addition to the
 Python `pytesseract` wrapper. On macOS install it with `brew install
 tesseract` (English and orientation data); add `brew install tesseract-lang`
@@ -21,6 +21,29 @@ for Hindi. On Debian/Ubuntu use `sudo apt-get install tesseract-ocr
 tesseract-ocr-eng tesseract-ocr-hin`. The Docker image installs English and
 Hindi Tesseract data. Verify the local binary with `tesseract --version` and
 `tesseract --list-langs`.
+
+## Render deployment (OCR)
+
+This repository has a root-level `Dockerfile` and no `render.yaml`; the checked-in
+files therefore do not reveal which runtime the existing Render service currently
+uses. The reproducible production option is the Docker runtime: the image installs
+the Tesseract executable and verifies both `eng` and `hin` language data during
+build. Python dependencies for this path are in `backend/requirements.txt`
+(`pytesseract`, `Pillow`, and `pypdf`).
+
+To configure a Render Web Service for this image, select **Docker** as the runtime,
+use the repository root as the service root/build context, set **Dockerfile Path**
+to `./Dockerfile`, and leave **Docker Command** unset so the existing `CMD` starts
+Uvicorn. Set the health-check path to `/api/health`. The image stores SQLite at
+`/data/medikiosk.db`; attach a Render persistent disk mounted at `/data` before
+handling patient data, and preserve/transfer any existing database before changing
+the current service runtime or disk. Set credentials and other secrets in Render's
+environment settings, not in the image or repository.
+
+After deployment, `GET /api/health/ocr` reports only Tesseract availability,
+version, installed language names, and a generic error code. It does not access
+uploaded files or include patient data or exception details. The actual runtime of
+an existing service must be confirmed in its Render Dashboard before changing it.
 
 For the optional browser E2E tests on macOS, install Playwright into the
 project environment and its Chromium browser:

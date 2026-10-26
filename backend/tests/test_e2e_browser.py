@@ -108,7 +108,7 @@ def test_dom_order_label_notice_and_emergency_item(browser, server, records):
     page.close()
 
 
-def test_patient_document_management_flow(browser, server):
+def test_interview_document_upload_and_management_flow(browser, server):
     base, _ = server
     token = httpx.post(base + "/api/auth/guest?name=PatientUI").json()["token"]
     headers = {"Authorization": f"Bearer {token}"}
@@ -121,13 +121,22 @@ def test_patient_document_management_flow(browser, server):
     page = browser.new_page()
     page.set_default_timeout(5000)
     page.add_init_script(f"sessionStorage.setItem('mk_token', '{token}'); localStorage.setItem('mk_lang', 'en')")
+    page.goto(base + "/dashboard.html")
+    assert page.locator('a[href="reports.html"]').count() == 0
+    assert page.get_by_role("link", name="Medical Reports").count() == 0
     page.goto(base + "/reports.html")
+    assert page.url.endswith("/interview.html")
+    page.goto(base + "/index.html")
+    page.evaluate("docs()")
+    page.get_by_role("heading", name="Upload medical reports").wait_for()
+    assert page.locator("#up").inner_text() == "Upload"
     page.get_by_text("broken.pdf", exact=True).wait_for()
-    page.locator("details.document-row > summary").click()
+    page.locator("article.doc-item summary").first.click()
     page.select_option(f"#category-{document_id}", "prescription")
     page.locator(f'[data-document-save-category="{document_id}"]').click()
     page.get_by_text("Document category updated.").wait_for()
 
+    page.locator("article.doc-item summary").first.click()
     page.locator(f'[data-document-replacement="{document_id}"]').set_input_files({
         "name": "replacement.txt",
         "mimeType": "text/plain",
@@ -135,15 +144,22 @@ def test_patient_document_management_flow(browser, server):
     })
     page.locator(f'[data-document-retry="{document_id}"]').click()
     page.get_by_text("replacement.txt", exact=True).wait_for()
-    page.locator("details.document-row > summary").click()
-    assert page.locator("details.document-row .chip").inner_text() == "extracted"
+    assert page.locator("article.doc-item .status-dot.ok").count() >= 1
 
-    page.once("dialog", lambda dialog: dialog.accept())
+    page.locator("#f").set_input_files({
+        "name": "interview-upload.txt",
+        "mimeType": "text/plain",
+        "buffer": b"Laboratory Report\nHemoglobin 12.4 g/dL",
+    })
+    page.locator("#up").click()
+    page.get_by_text("interview-upload.txt", exact=True).wait_for()
+
+    page.on("dialog", lambda dialog: dialog.accept())
+    page.locator("article.doc-item summary").first.click()
     page.locator(f'[data-document-delete="{document_id}"]').click()
+    page.locator("article.doc-item summary").first.click()
+    page.locator('[data-d]').click()
     page.get_by_text("No documents uploaded yet.").wait_for()
-    page.goto(base + "/dashboard.html")
-    page.get_by_role("button", name="Delete all my data").wait_for()
-    assert page.locator('a[href="settings.html"]').count() == 0
     page.close()
 
 

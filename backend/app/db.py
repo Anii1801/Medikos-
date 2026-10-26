@@ -71,21 +71,63 @@ def init():
         # additive migration: store the AI clinical report (summary + red-flag block + review state)
         if "report" not in [r[1] for r in c.execute("PRAGMA table_info(records)")]:
             c.execute("ALTER TABLE records ADD COLUMN report TEXT")
-        if not c.execute("SELECT 1 FROM users WHERE role='doctor'").fetchone():
-            add_user(c, os.environ.get("DOCTOR_USER", "doctor"), os.environ.get("DOCTOR_PASS", "doctor123"), "doctor", "Dr. Demo")
+        ensure_doctor_user(c)
+
+
+def normalize_username(username):
+    return username.strip()
+
+
+def ensure_doctor_user(c):
+    """Create the configured doctor on first run and synchronize credentials thereafter."""
+    username = normalize_username(os.environ.get("DOCTOR_USER", "doctor"))
+    password = os.environ.get("DOCTOR_PASS", "doctor123")
+    existing = c.execute(
+        "SELECT id FROM users WHERE username=? COLLATE NOCASE", (username,)
+    ).fetchone()
+    if existing and c.execute(
+        "SELECT role FROM users WHERE id=?", (existing["id"],)
+    ).fetchone()["role"] != "doctor":
+        raise RuntimeError("DOCTOR_USER conflicts with an existing non-doctor account.")
+
+    doctor = existing or c.execute(
+        "SELECT id FROM users WHERE role='doctor' ORDER BY id LIMIT 1"
+    ).fetchone()
+    if not doctor:
+        add_user(c, username, password, "doctor", "Dr. Demo")
+        return
+
+    salt = secrets.token_hex(16)
+    c.execute(
+        "UPDATE users SET username=?,pw_hash=?,salt=?,role='doctor' WHERE id=?",
+        (username, _hash(password, salt), salt, doctor["id"]),
+    )
 
 def _hash(pw, salt):
     return hashlib.pbkdf2_hmac("sha256", pw.encode(), bytes.fromhex(salt), 120_000).hex()
 
 def add_user(c, username, pw, role="patient", name="", age="", abha=""):
+    username = normalize_username(username)
     salt = secrets.token_hex(16)
     cur = c.execute("INSERT INTO users(username,pw_hash,salt,role,name,age,abha,created) VALUES(?,?,?,?,?,?,?,?)",
                     (username, _hash(pw, salt), salt, role, name, age, abha, time.time()))
     return cur.lastrowid
 
 def check_login(c, username, pw):
-    r = c.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
+    r = c.execute(
+        "SELECT * FROM users WHERE username=? COLLATE NOCASE",
+        (normalize_username(username),),
+    ).fetchone()
     return r if r and secrets.compare_digest(r["pw_hash"], _hash(pw, r["salt"])) else None
+
+
+def set_password(c, user_id, password):
+    salt = secrets.token_hex(16)
+    c.execute(
+        "UPDATE users SET pw_hash=?,salt=? WHERE id=?",
+        (_hash(password, salt), salt, user_id),
+    )
+    return c.execute("DELETE FROM sessions WHERE user_id=?", (user_id,)).rowcount
 
 def new_session(c, uid, ttl=8 * 3600):
     t = secrets.token_urlsafe(32)
