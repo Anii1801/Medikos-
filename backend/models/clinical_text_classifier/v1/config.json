@@ -1,0 +1,48 @@
+{
+  "model_id": "tfidf_logistic_regression_symptom_label_benchmark",
+  "task": "non-clinical text classification against dataset-provided disease labels",
+  "labels": [
+    "Acne",
+    "Arthritis",
+    "Bronchial Asthma",
+    "Cervical spondylosis",
+    "Chicken pox",
+    "Common Cold",
+    "Dengue",
+    "Dimorphic Hemorrhoids",
+    "Fungal infection",
+    "Hypertension",
+    "Impetigo",
+    "Jaundice",
+    "Malaria",
+    "Migraine",
+    "Pneumonia",
+    "Psoriasis",
+    "Typhoid",
+    "Varicose Veins",
+    "allergy",
+    "diabetes",
+    "drug reaction",
+    "gastroesophageal reflux disease",
+    "peptic ulcer disease",
+    "urinary tract infection"
+  ],
+  "features": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 1,
+    "sublinear_tf": true
+  },
+  "selected_hyperparameters": {
+    "classifier__C": 100.0,
+    "classifier__class_weight": null,
+    "validation_log_loss": 0.168967,
+    "validation_accuracy": 0.973913
+  },
+  "seed": 42,
+  "dataset_sha256": "9f561dd36423c11aebbfc1110053511790908e2198284fe38a4bda63773a7317",
+  "license_status": "upstream Kaggle terms unresolved; local experiment only, do not redistribute pending review",
+  "clinical_use": false
+}

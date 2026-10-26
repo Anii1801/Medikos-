@@ -1,0 +1,1258 @@
+{
+  "experiment_id": "adaptive_ranker_v2",
+  "seed": 42,
+  "test_split": {
+    "interviews": 30,
+    "patients": 30
+  },
+  "test_used_for_selection": false,
+  "synthetic_data_warning": "Recorded next-question labels reproduce templated synthetic interviews; no clinical utility is established.",
+  "models": {
+    "original_v1": {
+      "recorded": {
+        "examples": 371,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "weighted_f1": 1.0,
+        "macro_precision": 1.0,
+        "macro_recall": 1.0,
+        "mrr": 1.0,
+        "top3_accuracy": 1.0,
+        "per_class": {
+          "STOP": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "agg": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "allergy": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "assoc": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "char": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "drug": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dur": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "fam": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pers": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pmh": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "rad": {
+            "support": 11,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "rel": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "sev": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "STOP",
+            "agg",
+            "allergy",
+            "assoc",
+            "char",
+            "drug",
+            "dur",
+            "fam",
+            "pers",
+            "pmh",
+            "rad",
+            "rel",
+            "sev"
+          ],
+          "counts": [
+            [
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30
+            ]
+          ]
+        }
+      },
+      "app_label": {
+        "examples": 371,
+        "accuracy": 0.9973045822102425,
+        "macro_f1": 0.995351737429851,
+        "weighted_f1": 0.9973403357255085,
+        "macro_precision": 0.9935897435897435,
+        "macro_recall": 0.9974358974358974,
+        "mrr": 0.9986522911051213,
+        "top3_accuracy": 1.0,
+        "per_class": {
+          "STOP": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "agg": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 0.9666666666666667,
+            "f1": 0.9830508474576272
+          },
+          "allergy": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "assoc": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "char": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "drug": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dur": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "fam": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pers": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pmh": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "rad": {
+            "support": 11,
+            "precision": 0.9166666666666666,
+            "recall": 1.0,
+            "f1": 0.9565217391304348
+          },
+          "rel": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "sev": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "STOP",
+            "agg",
+            "allergy",
+            "assoc",
+            "char",
+            "drug",
+            "dur",
+            "fam",
+            "pers",
+            "pmh",
+            "rad",
+            "rel",
+            "sev"
+          ],
+          "counts": [
+            [
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              29,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30
+            ]
+          ]
+        }
+      }
+    },
+    "tuned_v2": {
+      "recorded": {
+        "examples": 371,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "weighted_f1": 1.0,
+        "macro_precision": 1.0,
+        "macro_recall": 1.0,
+        "mrr": 1.0,
+        "top3_accuracy": 1.0,
+        "per_class": {
+          "STOP": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "agg": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "allergy": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "assoc": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "char": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "drug": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dur": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "fam": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pers": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pmh": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "rad": {
+            "support": 11,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "rel": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "sev": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "STOP",
+            "agg",
+            "allergy",
+            "assoc",
+            "char",
+            "drug",
+            "dur",
+            "fam",
+            "pers",
+            "pmh",
+            "rad",
+            "rel",
+            "sev"
+          ],
+          "counts": [
+            [
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30
+            ]
+          ]
+        }
+      },
+      "app_label": {
+        "examples": 371,
+        "accuracy": 0.9973045822102425,
+        "macro_f1": 0.995351737429851,
+        "weighted_f1": 0.9973403357255085,
+        "macro_precision": 0.9935897435897435,
+        "macro_recall": 0.9974358974358974,
+        "mrr": 0.9986522911051213,
+        "top3_accuracy": 1.0,
+        "per_class": {
+          "STOP": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "agg": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 0.9666666666666667,
+            "f1": 0.9830508474576272
+          },
+          "allergy": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "assoc": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "char": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "drug": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dur": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "fam": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pers": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "pmh": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "rad": {
+            "support": 11,
+            "precision": 0.9166666666666666,
+            "recall": 1.0,
+            "f1": 0.9565217391304348
+          },
+          "rel": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "sev": {
+            "support": 30,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "STOP",
+            "agg",
+            "allergy",
+            "assoc",
+            "char",
+            "drug",
+            "dur",
+            "fam",
+            "pers",
+            "pmh",
+            "rad",
+            "rel",
+            "sev"
+          ],
+          "counts": [
+            [
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              29,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              11,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "simple_baselines": {
+    "recorded": {
+      "majority_class": {
+        "examples": 371,
+        "accuracy": 0.08086253369272237,
+        "note": "Synthetic template-imitation baseline; not a clinical utility measure."
+      },
+      "template_lookup_with_complaint": {
+        "examples": 371,
+        "accuracy": 1.0,
+        "note": "Synthetic template-imitation baseline; not a clinical utility measure."
+      }
+    },
+    "app_label": {
+      "majority_class": {
+        "examples": 371,
+        "accuracy": 0.08086253369272237,
+        "note": "Synthetic template-imitation baseline; not a clinical utility measure."
+      },
+      "template_lookup_with_complaint": {
+        "examples": 371,
+        "accuracy": 1.0,
+        "note": "Synthetic template-imitation baseline; not a clinical utility measure."
+      }
+    }
+  }
+}

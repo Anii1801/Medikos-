@@ -1,0 +1,41 @@
+{
+  "version": "adaptive_ranker/v2",
+  "model_type": "multinomial_logistic_regression (sklearn fit, numpy/JSON inference)",
+  "task": "next question slot given the pre-answer interview state; ranks eligible slots only",
+  "target_classes": [
+    "STOP",
+    "agg",
+    "allergy",
+    "assoc",
+    "char",
+    "drug",
+    "dur",
+    "fam",
+    "pers",
+    "pmh",
+    "rad",
+    "rel",
+    "sev"
+  ],
+  "fallback_thresholds": {
+    "min_confidence": 0.5,
+    "max_oov_ratio": 0.5
+  },
+  "hyperparameters": {
+    "C": 1000.0,
+    "class_weight": null,
+    "min_df": 2,
+    "ngram_range": [
+      2,
+      4
+    ],
+    "seed": 42
+  },
+  "state_features": [
+    "char 2-4 grams of the chief-complaint wording",
+    "script (devanagari/latin)",
+    "set of canonical slots already asked (order-invariant)"
+  ],
+  "review_status": "provisional_pending_local_clinician_signoff",
+  "data_status": "SYNTHETIC, templated interviews (14 complaints); not clinical evidence"
+}

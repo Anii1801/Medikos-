@@ -33,7 +33,7 @@ def profile(path: Path) -> dict:
 res = {}
 for p in sorted(DATASET_ROOT.rglob("*")):
     if p.is_file() and p.suffix in (".csv", ".jsonl") and "fhir_bundles" not in str(p):
-        res[str(p.relative_to(DATASET_ROOT))] = profile(p)
+        res[p.relative_to(DATASET_ROOT).as_posix()] = profile(p)
 res["_image_files_present"] = sum(1 for p in DATASET_ROOT.rglob("*") if p.suffix.lower() in (".png", ".jpg", ".jpeg", ".tif", ".tiff", ".pdf"))
 res["_audio_files_present"] = sum(1 for p in DATASET_ROOT.rglob("*") if p.suffix.lower() in (".wav", ".mp3", ".flac", ".m4a", ".ogg"))
 OUT.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")

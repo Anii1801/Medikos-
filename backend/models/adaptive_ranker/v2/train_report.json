@@ -1,0 +1,100 @@
+{
+  "hyperparameter_search_on_valid": [
+    {
+      "C": 0.01,
+      "class_weight": null,
+      "valid_log_loss": 0.74929,
+      "valid_top1": 0.9665,
+      "features": 1185
+    },
+    {
+      "C": 0.01,
+      "class_weight": "balanced",
+      "valid_log_loss": 0.761,
+      "valid_top1": 0.9584,
+      "features": 1185
+    },
+    {
+      "C": 0.1,
+      "class_weight": null,
+      "valid_log_loss": 0.15554,
+      "valid_top1": 0.9973,
+      "features": 1185
+    },
+    {
+      "C": 0.1,
+      "class_weight": "balanced",
+      "valid_log_loss": 0.1574,
+      "valid_top1": 0.996,
+      "features": 1185
+    },
+    {
+      "C": 1.0,
+      "class_weight": null,
+      "valid_log_loss": 0.03021,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "valid_log_loss": 0.03033,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 10.0,
+      "class_weight": null,
+      "valid_log_loss": 0.00795,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 10.0,
+      "class_weight": "balanced",
+      "valid_log_loss": 0.00853,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 100.0,
+      "class_weight": null,
+      "valid_log_loss": 0.0056,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 100.0,
+      "class_weight": "balanced",
+      "valid_log_loss": 0.00521,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 1000.0,
+      "class_weight": null,
+      "valid_log_loss": 0.00463,
+      "valid_top1": 0.9987,
+      "features": 1185
+    },
+    {
+      "C": 1000.0,
+      "class_weight": "balanced",
+      "valid_log_loss": 0.00481,
+      "valid_top1": 0.9987,
+      "features": 1185
+    }
+  ],
+  "selected": {
+    "C": 1000.0,
+    "class_weight": null,
+    "valid_log_loss": 0.00463,
+    "valid_top1": 0.9987,
+    "features": 1185
+  },
+  "final_fit_losses": {
+    "train_log_loss": 0.004151062076043626,
+    "validation_log_loss": 0.004627917020270812
+  },
+  "test_split_used_for_selection": false
+}

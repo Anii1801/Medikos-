@@ -21,7 +21,15 @@ from .data import Example
 DEFAULT_THRESHOLDS = {"min_confidence": 0.5, "max_oov_ratio": 0.5}   # fixed a priori, validated on LOCO (see evaluate.py)
 
 
-def _matrix(examples: Sequence[Example], vocab: dict[str, int]):
+def feature_vocabulary(examples: Sequence[Example], min_df: int = 2) -> dict[str, int]:
+    df: collections.Counter = collections.Counter()
+    for example in examples:
+        df.update(featurize(example.state)[0].keys())
+    keep = sorted(key for key, count in df.items() if count >= min_df or not key.startswith("t:"))
+    return {key: index for index, key in enumerate(keep)}
+
+
+def feature_matrix(examples: Sequence[Example], vocab: dict[str, int]):
     rows, cols, vals = [], [], []
     for r, e in enumerate(examples):
         for k, v in featurize(e.state)[0].items():
@@ -31,15 +39,17 @@ def _matrix(examples: Sequence[Example], vocab: dict[str, int]):
     return sparse.csr_matrix((vals, (rows, cols)), shape=(len(examples), len(vocab)))
 
 
-def fit_weights(examples: Sequence[Example], C: float, seed: int, min_df: int = 2) -> dict[str, Any]:
-    df: collections.Counter = collections.Counter()
-    for e in examples:
-        df.update(featurize(e.state)[0].keys())
-    keep = sorted(k for k, c in df.items() if c >= min_df or not k.startswith("t:"))
-    vocab = {k: i for i, k in enumerate(keep)}
-    X = _matrix(examples, vocab)
+def fit_weights(
+    examples: Sequence[Example],
+    C: float,
+    seed: int,
+    min_df: int = 2,
+    class_weight: str | None = None,
+) -> dict[str, Any]:
+    vocab = feature_vocabulary(examples, min_df)
+    X = feature_matrix(examples, vocab)
     y = np.array([e.target for e in examples])
-    clf = LogisticRegression(C=C, max_iter=5000, random_state=seed)
+    clf = LogisticRegression(C=C, class_weight=class_weight, max_iter=5000, random_state=seed)
     clf.fit(X, y)
     classes = [str(c) for c in clf.classes_]
     coef = []
