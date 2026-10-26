@@ -1,0 +1,165 @@
+{
+  "next_slot_errors_official_test": {
+    "recorded": [],
+    "app_label": [
+      {
+        "interview_id": "I0113",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      }
+    ]
+  },
+  "next_slot_errors_grouped_cv": {
+    "recorded": [],
+    "app_label": [
+      {
+        "interview_id": "I0075",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0209",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0004",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0113",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0013",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0143",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0027",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0183",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0055",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      },
+      {
+        "interview_id": "I0197",
+        "complaint": "joint pain and morning stiffness",
+        "view": "app_label",
+        "asked": [
+          "cc",
+          "dur",
+          "char"
+        ],
+        "target": "agg",
+        "predicted": "rad",
+        "cc_text": "Joint / back pain"
+      }
+    ]
+  },
+  "next_slot_error_counts": {
+    "official_test": {
+      "recorded": 0,
+      "app_label": 1
+    },
+    "grouped_cv": {
+      "recorded": 0,
+      "app_label": 10
+    }
+  }
+}

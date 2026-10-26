@@ -1,0 +1,901 @@
+protocol,interview_id,complaint,script,policy,budget,n_questions,required_coverage,safety_critical_omitted,missing_required,missing_safety_critical,duplicate_questions,non_schema_questions,questions
+official_test_30,I0012,constipation,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0012,constipation,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0012,constipation,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0012,constipation,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0012,constipation,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0012,constipation,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0012,constipation,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0012,constipation,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0012,constipation,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0012,constipation,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0012,constipation,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0012,constipation,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0012,constipation,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0012,constipation,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0012,constipation,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0012,constipation,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0012,constipation,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0012,constipation,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0012,constipation,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0012,constipation,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0012,constipation,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0012,constipation,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0012,constipation,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0012,constipation,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0012,constipation,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0012,constipation,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0012,constipation,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0012,constipation,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0012,constipation,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0012,constipation,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0036,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0057,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0060,cough and breathlessness,latin,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0060,cough and breathlessness,latin,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0060,cough and breathlessness,latin,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0060,cough and breathlessness,latin,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0060,cough and breathlessness,latin,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0060,cough and breathlessness,latin,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0060,cough and breathlessness,latin,ontology_v0_frozen,8,8,0.5,True,agg;allergy;drug;fam;pers;rel,allergy;drug,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh
+official_test_30,I0060,cough and breathlessness,latin,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;fam;pers;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy
+official_test_30,I0060,cough and breathlessness,latin,ontology_v0_frozen,12,12,0.8333333333333334,False,agg;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0060,cough and breathlessness,latin,ontology_v0_frozen,none,14,0.8333333333333334,False,agg;rel,,1,3,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0060,cough and breathlessness,latin,ontology_v1_current,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0060,cough and breathlessness,latin,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc
+official_test_30,I0060,cough and breathlessness,latin,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds
+official_test_30,I0060,cough and breathlessness,latin,ontology_v1_current,12,12,0.9166666666666666,False,pers,,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0060,cough and breathlessness,latin,ontology_v1_current,none,15,1.0,False,,,1,3,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0060,cough and breathlessness,latin,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy
+official_test_30,I0060,cough and breathlessness,latin,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur
+official_test_30,I0060,cough and breathlessness,latin,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers
+official_test_30,I0060,cough and breathlessness,latin,safety_layer_uniform,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev
+official_test_30,I0060,cough and breathlessness,latin,safety_layer_uniform,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker_recorded,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker_recorded,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0060,cough and breathlessness,latin,learned_ranker_recorded,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;char;drug;fam;pers;rel,allergy;char;drug,0,1,cc;dur;sev;progression;assoc;pmh
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,8,8,0.5833333333333334,True,agg;char;fam;pers;rel,char,0,1,cc;dur;sev;progression;assoc;pmh;meds;allergy
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,10,10,0.75,True,agg;char;rel,char,0,1,cc;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,12,12,0.75,True,agg;char;rel,char,0,3,cc;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,none,12,0.75,True,agg;char;rel,char,0,3,cc;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,1,cc;dur;sev;progression;hpi_char;hpi_mod
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,1,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,10,10,0.8333333333333334,False,fam;pers,,0,1,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,12,12,1.0,False,,,0,1,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,none,14,1.0,False,,,0,3,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,6,6,0.5833333333333334,True,dur;fam;pers;pmh;sev,pmh;sev,0,0,cc;assoc;hpi_mod;allergy;hpi_char;meds
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,8,8,0.75,True,pers;pmh;sev,pmh;sev,0,0,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,10,10,0.9166666666666666,True,sev,sev,0,0,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam;pers;pmh
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,1,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam;pers;pmh;sev;progression
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,none,14,1.0,False,,,0,3,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker,8,8,0.75,True,allergy;fam;pers,allergy,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker,10,10,0.9166666666666666,False,pers,,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker,12,12,1.0,False,,,0,1,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker,none,14,1.0,False,,,0,3,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,8,8,0.75,True,allergy;fam;pers,allergy,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,10,10,0.9166666666666666,False,pers,,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,1,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0062,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,none,14,1.0,False,,,0,3,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0069,itching with skin rash,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0069,itching with skin rash,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0069,itching with skin rash,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0069,itching with skin rash,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0069,itching with skin rash,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v0_frozen,6,6,0.3076923076923077,True,agg;allergy;char;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;char;fam;pers;rad;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;char;pers;rad;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v0_frozen,12,12,0.6923076923076923,False,agg;char;rad;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v0_frozen,none,13,0.6923076923076923,False,agg;char;rad;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v1_current,6,6,0.3076923076923077,True,agg;allergy;assoc;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0069,itching with skin rash,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0069,itching with skin rash,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0069,itching with skin rash,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0069,itching with skin rash,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0069,itching with skin rash,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0069,itching with skin rash,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker_recorded,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0069,itching with skin rash,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0082,headache with dizziness,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0082,headache with dizziness,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0082,headache with dizziness,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0082,headache with dizziness,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0082,headache with dizziness,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v0_frozen,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;drug;fam;pers;rad;rel,allergy;drug,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;fam;pers;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v0_frozen,12,12,0.7692307692307693,False,agg;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v0_frozen,none,14,0.7692307692307693,False,agg;rad;rel,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v1_current,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0082,headache with dizziness,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0082,headache with dizziness,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc
+official_test_30,I0082,headache with dizziness,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur
+official_test_30,I0082,headache with dizziness,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers
+official_test_30,I0082,headache with dizziness,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev
+official_test_30,I0082,headache with dizziness,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0082,headache with dizziness,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0089,constipation,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0089,constipation,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0089,constipation,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0089,constipation,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0089,constipation,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0089,constipation,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0089,constipation,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0089,constipation,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0089,constipation,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0089,constipation,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0089,constipation,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0089,constipation,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0089,constipation,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0089,constipation,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0089,constipation,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0089,constipation,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0089,constipation,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0089,constipation,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0089,constipation,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0089,constipation,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0089,constipation,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0089,constipation,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0089,constipation,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0089,constipation,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0089,constipation,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0089,constipation,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0089,constipation,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0089,constipation,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0089,constipation,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0089,constipation,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0091,headache with dizziness,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0091,headache with dizziness,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0091,headache with dizziness,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0091,headache with dizziness,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0091,headache with dizziness,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v0_frozen,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;drug;fam;pers;rad;rel,allergy;drug,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;fam;pers;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v0_frozen,12,12,0.7692307692307693,False,agg;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v0_frozen,none,14,0.7692307692307693,False,agg;rad;rel,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v1_current,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0091,headache with dizziness,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0091,headache with dizziness,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc
+official_test_30,I0091,headache with dizziness,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur
+official_test_30,I0091,headache with dizziness,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers
+official_test_30,I0091,headache with dizziness,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev
+official_test_30,I0091,headache with dizziness,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0091,headache with dizziness,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0113,joint pain and morning stiffness,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0113,joint pain and morning stiffness,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0113,joint pain and morning stiffness,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0113,joint pain and morning stiffness,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0113,joint pain and morning stiffness,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v0_frozen,6,6,0.25,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v0_frozen,8,8,0.4166666666666667,True,agg;allergy;char;drug;fam;pers;rel,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v0_frozen,10,10,0.5833333333333334,False,agg;char;fam;pers;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v0_frozen,none,14,0.75,False,agg;char;rel,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v1_current,6,6,0.25,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v1_current,8,8,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v1_current,10,10,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v1_current,12,12,0.8333333333333334,False,fam;pers,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy
+official_test_30,I0113,joint pain and morning stiffness,devanagari,ontology_v1_current,none,16,1.0,False,,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0113,joint pain and morning stiffness,devanagari,safety_layer_uniform,6,6,0.5833333333333334,True,dur;fam;pers;pmh;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds
+official_test_30,I0113,joint pain and morning stiffness,devanagari,safety_layer_uniform,8,8,0.75,True,pers;pmh;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam
+official_test_30,I0113,joint pain and morning stiffness,devanagari,safety_layer_uniform,10,10,0.9166666666666666,True,sev,sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh
+official_test_30,I0113,joint pain and morning stiffness,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,1,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression
+official_test_30,I0113,joint pain and morning stiffness,devanagari,safety_layer_uniform,none,16,1.0,False,,,0,5,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker,8,8,0.75,True,allergy;fam;pers,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker,10,10,0.9166666666666666,False,pers,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker,12,12,1.0,False,,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker,none,16,1.0,False,,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker_recorded,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker_recorded,8,8,0.75,True,allergy;fam;pers,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker_recorded,10,10,0.9166666666666666,False,pers,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0113,joint pain and morning stiffness,devanagari,learned_ranker_recorded,none,16,1.0,False,,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0117,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0125,cough and breathlessness,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0125,cough and breathlessness,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0125,cough and breathlessness,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0125,cough and breathlessness,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0125,cough and breathlessness,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;drug;fam;pers;rel,allergy;drug,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;fam;pers;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v0_frozen,12,12,0.8333333333333334,False,agg;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v0_frozen,none,14,0.8333333333333334,False,agg;rel,,1,3,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v1_current,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0125,cough and breathlessness,devanagari,ontology_v1_current,none,15,1.0,False,,,1,3,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0125,cough and breathlessness,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy
+official_test_30,I0125,cough and breathlessness,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur
+official_test_30,I0125,cough and breathlessness,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers
+official_test_30,I0125,cough and breathlessness,devanagari,safety_layer_uniform,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev
+official_test_30,I0125,cough and breathlessness,devanagari,safety_layer_uniform,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker_recorded,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0125,cough and breathlessness,devanagari,learned_ranker_recorded,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0141,headache with dizziness,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0141,headache with dizziness,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0141,headache with dizziness,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0141,headache with dizziness,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0141,headache with dizziness,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v0_frozen,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;drug;fam;pers;rad;rel,allergy;drug,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;fam;pers;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v0_frozen,12,12,0.7692307692307693,False,agg;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v0_frozen,none,14,0.7692307692307693,False,agg;rad;rel,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v1_current,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0141,headache with dizziness,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0141,headache with dizziness,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc
+official_test_30,I0141,headache with dizziness,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur
+official_test_30,I0141,headache with dizziness,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers
+official_test_30,I0141,headache with dizziness,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev
+official_test_30,I0141,headache with dizziness,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0141,headache with dizziness,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0150,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0151,headache with dizziness,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0151,headache with dizziness,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0151,headache with dizziness,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0151,headache with dizziness,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0151,headache with dizziness,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v0_frozen,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;drug;fam;pers;rad;rel,allergy;drug,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;fam;pers;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v0_frozen,12,12,0.7692307692307693,False,agg;rad;rel,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v0_frozen,none,14,0.7692307692307693,False,agg;rad;rel,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v1_current,6,6,0.38461538461538464,True,agg;allergy;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;ha_type;ha_assoc
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,1,1,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0151,headache with dizziness,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,1,3,cc;dur;sev;progression;ha_type;ha_assoc;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0151,headache with dizziness,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc
+official_test_30,I0151,headache with dizziness,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur
+official_test_30,I0151,headache with dizziness,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers
+official_test_30,I0151,headache with dizziness,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev
+official_test_30,I0151,headache with dizziness,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;hpi_mod;allergy;assoc;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,1,0,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0151,headache with dizziness,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,1,3,cc;ha_type;ha_assoc;dur;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0156,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0166,cough and breathlessness,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0166,cough and breathlessness,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0166,cough and breathlessness,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0166,cough and breathlessness,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0166,cough and breathlessness,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;drug;fam;pers;rel,allergy;drug,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;fam;pers;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v0_frozen,12,12,0.8333333333333334,False,agg;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v0_frozen,none,14,0.8333333333333334,False,agg;rel,,1,3,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v1_current,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0166,cough and breathlessness,devanagari,ontology_v1_current,none,15,1.0,False,,,1,3,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0166,cough and breathlessness,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy
+official_test_30,I0166,cough and breathlessness,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur
+official_test_30,I0166,cough and breathlessness,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers
+official_test_30,I0166,cough and breathlessness,devanagari,safety_layer_uniform,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev
+official_test_30,I0166,cough and breathlessness,devanagari,safety_layer_uniform,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker_recorded,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0166,cough and breathlessness,devanagari,learned_ranker_recorded,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0170,itching with skin rash,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0170,itching with skin rash,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0170,itching with skin rash,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0170,itching with skin rash,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0170,itching with skin rash,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v0_frozen,6,6,0.3076923076923077,True,agg;allergy;char;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;char;fam;pers;rad;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;char;pers;rad;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v0_frozen,12,12,0.6923076923076923,False,agg;char;rad;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v0_frozen,none,13,0.6923076923076923,False,agg;char;rad;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v1_current,6,6,0.3076923076923077,True,agg;allergy;assoc;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0170,itching with skin rash,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0170,itching with skin rash,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0170,itching with skin rash,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0170,itching with skin rash,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0170,itching with skin rash,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0170,itching with skin rash,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker_recorded,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0170,itching with skin rash,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0171,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0195,fever,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0195,fever,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0195,fever,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0195,fever,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0195,fever,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0195,fever,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;fv_pat;fv_exp
+official_test_30,I0195,fever,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;drug;fam;pers;rel,allergy;drug,1,1,cc;dur;sev;progression;fv_pat;fv_exp;assoc;pmh
+official_test_30,I0195,fever,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;fam;pers;rel,,1,1,cc;dur;sev;progression;fv_pat;fv_exp;assoc;pmh;meds;allergy
+official_test_30,I0195,fever,devanagari,ontology_v0_frozen,12,12,0.8333333333333334,False,agg;rel,,1,1,cc;dur;sev;progression;fv_pat;fv_exp;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0195,fever,devanagari,ontology_v0_frozen,none,14,0.8333333333333334,False,agg;rel,,1,3,cc;dur;sev;progression;fv_pat;fv_exp;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0195,fever,devanagari,ontology_v1_current,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;fv_pat;fv_exp
+official_test_30,I0195,fever,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,1,1,cc;dur;sev;progression;fv_pat;fv_exp;hpi_mod;assoc
+official_test_30,I0195,fever,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,1,1,cc;dur;sev;progression;fv_pat;fv_exp;hpi_mod;assoc;pmh;meds
+official_test_30,I0195,fever,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,1,1,cc;dur;sev;progression;fv_pat;fv_exp;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0195,fever,devanagari,ontology_v1_current,none,15,1.0,False,,,1,3,cc;dur;sev;progression;fv_pat;fv_exp;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0195,fever,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,1,0,cc;fv_exp;hpi_mod;allergy;assoc;fv_pat
+official_test_30,I0195,fever,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,1,0,cc;fv_exp;hpi_mod;allergy;assoc;fv_pat;meds;dur
+official_test_30,I0195,fever,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,1,0,cc;fv_exp;hpi_mod;allergy;assoc;fv_pat;meds;dur;fam;pers
+official_test_30,I0195,fever,devanagari,safety_layer_uniform,12,12,1.0,False,,,1,0,cc;fv_exp;hpi_mod;allergy;assoc;fv_pat;meds;dur;fam;pers;pmh;sev
+official_test_30,I0195,fever,devanagari,safety_layer_uniform,none,15,1.0,False,,,1,3,cc;fv_exp;hpi_mod;allergy;assoc;fv_pat;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0195,fever,devanagari,learned_ranker,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev
+official_test_30,I0195,fever,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh
+official_test_30,I0195,fever,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0195,fever,devanagari,learned_ranker,12,12,1.0,False,,,1,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0195,fever,devanagari,learned_ranker,none,15,1.0,False,,,1,3,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0195,fever,devanagari,learned_ranker_recorded,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev
+official_test_30,I0195,fever,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh
+official_test_30,I0195,fever,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0195,fever,devanagari,learned_ranker_recorded,12,12,1.0,False,,,1,0,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0195,fever,devanagari,learned_ranker_recorded,none,15,1.0,False,,,1,3,cc;fv_exp;dur;fv_pat;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0207,knee pain,latin,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0207,knee pain,latin,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0207,knee pain,latin,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0207,knee pain,latin,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0207,knee pain,latin,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0207,knee pain,latin,ontology_v0_frozen,6,6,0.23076923076923078,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0207,knee pain,latin,ontology_v0_frozen,8,8,0.38461538461538464,True,agg;allergy;char;drug;fam;pers;rad;rel,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh
+official_test_30,I0207,knee pain,latin,ontology_v0_frozen,10,10,0.5384615384615384,False,agg;char;fam;pers;rad;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy
+official_test_30,I0207,knee pain,latin,ontology_v0_frozen,12,12,0.6923076923076923,False,agg;char;rad;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0207,knee pain,latin,ontology_v0_frozen,none,14,0.6923076923076923,False,agg;char;rad;rel,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0207,knee pain,latin,ontology_v1_current,6,6,0.23076923076923078,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0207,knee pain,latin,ontology_v1_current,8,8,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod
+official_test_30,I0207,knee pain,latin,ontology_v1_current,10,10,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh
+official_test_30,I0207,knee pain,latin,ontology_v1_current,12,12,0.7692307692307693,False,fam;pers;rad,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy
+official_test_30,I0207,knee pain,latin,ontology_v1_current,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0207,knee pain,latin,safety_layer_uniform,6,6,0.5384615384615384,True,dur;fam;pers;pmh;rad;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds
+official_test_30,I0207,knee pain,latin,safety_layer_uniform,8,8,0.6923076923076923,True,pers;pmh;rad;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam
+official_test_30,I0207,knee pain,latin,safety_layer_uniform,10,10,0.8461538461538461,True,rad;sev,sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh
+official_test_30,I0207,knee pain,latin,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,0,1,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression
+official_test_30,I0207,knee pain,latin,safety_layer_uniform,none,16,0.9230769230769231,False,rad,,0,5,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0207,knee pain,latin,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0207,knee pain,latin,learned_ranker,8,8,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0207,knee pain,latin,learned_ranker,10,10,0.8461538461538461,False,pers;rad,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0207,knee pain,latin,learned_ranker,12,12,0.9230769230769231,False,rad,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0207,knee pain,latin,learned_ranker,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0207,knee pain,latin,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0207,knee pain,latin,learned_ranker_recorded,8,8,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0207,knee pain,latin,learned_ranker_recorded,10,10,0.8461538461538461,False,pers;rad,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0207,knee pain,latin,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0207,knee pain,latin,learned_ranker_recorded,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0213,low back pain,latin,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0213,low back pain,latin,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0213,low back pain,latin,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0213,low back pain,latin,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0213,low back pain,latin,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0213,low back pain,latin,ontology_v0_frozen,6,6,0.23076923076923078,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0213,low back pain,latin,ontology_v0_frozen,8,8,0.38461538461538464,True,agg;allergy;char;drug;fam;pers;rad;rel,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh
+official_test_30,I0213,low back pain,latin,ontology_v0_frozen,10,10,0.5384615384615384,False,agg;char;fam;pers;rad;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy
+official_test_30,I0213,low back pain,latin,ontology_v0_frozen,12,12,0.6923076923076923,False,agg;char;rad;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0213,low back pain,latin,ontology_v0_frozen,none,14,0.6923076923076923,False,agg;char;rad;rel,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0213,low back pain,latin,ontology_v1_current,6,6,0.23076923076923078,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0213,low back pain,latin,ontology_v1_current,8,8,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod
+official_test_30,I0213,low back pain,latin,ontology_v1_current,10,10,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh
+official_test_30,I0213,low back pain,latin,ontology_v1_current,12,12,0.7692307692307693,False,fam;pers;rad,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy
+official_test_30,I0213,low back pain,latin,ontology_v1_current,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0213,low back pain,latin,safety_layer_uniform,6,6,0.5384615384615384,True,dur;fam;pers;pmh;rad;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds
+official_test_30,I0213,low back pain,latin,safety_layer_uniform,8,8,0.6923076923076923,True,pers;pmh;rad;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam
+official_test_30,I0213,low back pain,latin,safety_layer_uniform,10,10,0.8461538461538461,True,rad;sev,sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh
+official_test_30,I0213,low back pain,latin,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,0,1,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression
+official_test_30,I0213,low back pain,latin,safety_layer_uniform,none,16,0.9230769230769231,False,rad,,0,5,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0213,low back pain,latin,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0213,low back pain,latin,learned_ranker,8,8,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0213,low back pain,latin,learned_ranker,10,10,0.8461538461538461,False,pers;rad,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0213,low back pain,latin,learned_ranker,12,12,0.9230769230769231,False,rad,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0213,low back pain,latin,learned_ranker,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0213,low back pain,latin,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0213,low back pain,latin,learned_ranker_recorded,8,8,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0213,low back pain,latin,learned_ranker_recorded,10,10,0.8461538461538461,False,pers;rad,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0213,low back pain,latin,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0213,low back pain,latin,learned_ranker_recorded,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0227,cough and breathlessness,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0227,cough and breathlessness,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0227,cough and breathlessness,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0227,cough and breathlessness,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0227,cough and breathlessness,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;drug;fam;pers;rel,allergy;drug,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;fam;pers;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v0_frozen,12,12,0.8333333333333334,False,agg;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v0_frozen,none,14,0.8333333333333334,False,agg;rel,,1,3,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v1_current,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0227,cough and breathlessness,devanagari,ontology_v1_current,none,15,1.0,False,,,1,3,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0227,cough and breathlessness,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy
+official_test_30,I0227,cough and breathlessness,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur
+official_test_30,I0227,cough and breathlessness,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers
+official_test_30,I0227,cough and breathlessness,devanagari,safety_layer_uniform,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev
+official_test_30,I0227,cough and breathlessness,devanagari,safety_layer_uniform,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker_recorded,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0227,cough and breathlessness,devanagari,learned_ranker_recorded,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0258,excessive thirst and frequent urination,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0264,constipation,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0264,constipation,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0264,constipation,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0264,constipation,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0264,constipation,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0264,constipation,devanagari,ontology_v0_frozen,6,6,0.3333333333333333,True,agg;allergy;char;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0264,constipation,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;char;fam;pers;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0264,constipation,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;char;pers;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0264,constipation,devanagari,ontology_v0_frozen,12,12,0.75,False,agg;char;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0264,constipation,devanagari,ontology_v0_frozen,none,13,0.75,False,agg;char;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0264,constipation,devanagari,ontology_v1_current,6,6,0.3333333333333333,True,agg;allergy;assoc;drug;fam;pers;pmh;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0264,constipation,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0264,constipation,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0264,constipation,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0264,constipation,devanagari,ontology_v1_current,none,15,1.0,False,,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0264,constipation,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0264,constipation,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0264,constipation,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0264,constipation,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0264,constipation,devanagari,safety_layer_uniform,none,15,1.0,False,,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0264,constipation,devanagari,learned_ranker,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0264,constipation,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0264,constipation,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0264,constipation,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0264,constipation,devanagari,learned_ranker,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0264,constipation,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0264,constipation,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0264,constipation,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0264,constipation,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0264,constipation,devanagari,learned_ranker_recorded,none,15,1.0,False,,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0271,itching with skin rash,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0271,itching with skin rash,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0271,itching with skin rash,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0271,itching with skin rash,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0271,itching with skin rash,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v0_frozen,6,6,0.3076923076923077,True,agg;allergy;char;drug;fam;pers;pmh;rad;rel,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;assoc
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v0_frozen,8,8,0.46153846153846156,True,agg;allergy;char;fam;pers;rad;rel,allergy,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v0_frozen,10,10,0.6153846153846154,False,agg;char;pers;rad;rel,,0,1,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v0_frozen,12,12,0.6923076923076923,False,agg;char;rad;rel,,0,2,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v0_frozen,none,13,0.6923076923076923,False,agg;char;rad;rel,,0,3,cc;cc_text;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v1_current,6,6,0.3076923076923077,True,agg;allergy;assoc;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,pers;rad,,0,1,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0271,itching with skin rash,devanagari,ontology_v1_current,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0271,itching with skin rash,devanagari,safety_layer_uniform,6,6,0.46153846153846156,True,drug;dur;fam;pers;pmh;rad;sev,drug;pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char
+official_test_30,I0271,itching with skin rash,devanagari,safety_layer_uniform,8,8,0.6153846153846154,True,fam;pers;pmh;rad;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur
+official_test_30,I0271,itching with skin rash,devanagari,safety_layer_uniform,10,10,0.7692307692307693,True,pmh;rad;sev,pmh;sev,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers
+official_test_30,I0271,itching with skin rash,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev
+official_test_30,I0271,itching with skin rash,devanagari,safety_layer_uniform,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker,10,10,0.7692307692307693,False,fam;pers;rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker_recorded,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker_recorded,8,8,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker_recorded,10,10,0.7692307692307693,False,fam;pers;rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,0,0,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0271,itching with skin rash,devanagari,learned_ranker_recorded,none,15,0.9230769230769231,False,rad,,0,3,cc;cc_text;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0277,cough and breathlessness,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0277,cough and breathlessness,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0277,cough and breathlessness,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0277,cough and breathlessness,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0277,cough and breathlessness,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v0_frozen,8,8,0.5,True,agg;allergy;drug;fam;pers;rel,allergy;drug,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v0_frozen,10,10,0.6666666666666666,False,agg;fam;pers;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v0_frozen,12,12,0.8333333333333334,False,agg;rel,,1,1,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v0_frozen,none,14,0.8333333333333334,False,agg;rel,,1,3,cc;dur;sev;progression;co_type;co_night;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v1_current,6,6,0.4166666666666667,True,agg;allergy;drug;fam;pers;pmh;rel,allergy;drug;pmh,0,1,cc;dur;sev;progression;co_type;co_night
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v1_current,8,8,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v1_current,10,10,0.75,True,allergy;fam;pers,allergy,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v1_current,12,12,0.9166666666666666,False,pers,,1,1,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam
+official_test_30,I0277,cough and breathlessness,devanagari,ontology_v1_current,none,15,1.0,False,,,1,3,cc;dur;sev;progression;co_type;co_night;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0277,cough and breathlessness,devanagari,safety_layer_uniform,6,6,0.5,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy
+official_test_30,I0277,cough and breathlessness,devanagari,safety_layer_uniform,8,8,0.6666666666666666,True,fam;pers;pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur
+official_test_30,I0277,cough and breathlessness,devanagari,safety_layer_uniform,10,10,0.8333333333333334,True,pmh;sev,pmh;sev,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers
+official_test_30,I0277,cough and breathlessness,devanagari,safety_layer_uniform,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev
+official_test_30,I0277,cough and breathlessness,devanagari,safety_layer_uniform,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;hpi_mod;allergy;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker_recorded,6,6,0.5,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,1,0,cc;co_type;co_night;assoc;dur;hpi_mod
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker_recorded,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker_recorded,10,10,0.8333333333333334,False,fam;pers,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker_recorded,12,12,1.0,False,,,1,0,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0277,cough and breathlessness,devanagari,learned_ranker_recorded,none,15,1.0,False,,,1,3,cc;co_type;co_night;assoc;dur;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0287,chest pain,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0287,chest pain,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0287,chest pain,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0287,chest pain,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0287,chest pain,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0287,chest pain,devanagari,ontology_v0_frozen,6,6,0.3076923076923077,True,agg;allergy;assoc;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh;rad,0,2,cc;dur;sev;progression;cp_site;cp_char
+official_test_30,I0287,chest pain,devanagari,ontology_v0_frozen,8,8,0.5384615384615384,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,2,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg
+official_test_30,I0287,chest pain,devanagari,ontology_v0_frozen,10,10,0.6923076923076923,True,allergy;drug;fam;pers,allergy;drug,0,2,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg;assoc;pmh
+official_test_30,I0287,chest pain,devanagari,ontology_v0_frozen,12,12,0.8461538461538461,False,fam;pers,,0,2,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg;assoc;pmh;meds;allergy
+official_test_30,I0287,chest pain,devanagari,ontology_v0_frozen,none,16,1.0,False,,,0,4,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0287,chest pain,devanagari,ontology_v1_current,6,6,0.3076923076923077,True,agg;allergy;assoc;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh;rad,0,2,cc;dur;sev;progression;cp_site;cp_char
+official_test_30,I0287,chest pain,devanagari,ontology_v1_current,8,8,0.5384615384615384,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,2,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg
+official_test_30,I0287,chest pain,devanagari,ontology_v1_current,10,10,0.6923076923076923,True,allergy;drug;fam;pers,allergy;drug,0,2,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg;assoc;pmh
+official_test_30,I0287,chest pain,devanagari,ontology_v1_current,12,12,0.8461538461538461,False,fam;pers,,0,2,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg;assoc;pmh;meds;allergy
+official_test_30,I0287,chest pain,devanagari,ontology_v1_current,none,16,1.0,False,,,0,4,cc;dur;sev;progression;cp_site;cp_char;cp_rad;cp_agg;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0287,chest pain,devanagari,safety_layer_uniform,6,6,0.5384615384615384,True,drug;dur;fam;pers;pmh;sev,drug;pmh;sev,0,0,cc;cp_rad;cp_char;assoc;cp_agg;allergy
+official_test_30,I0287,chest pain,devanagari,safety_layer_uniform,8,8,0.6923076923076923,True,fam;pers;pmh;sev,pmh;sev,0,0,cc;cp_rad;cp_char;assoc;cp_agg;allergy;meds;dur
+official_test_30,I0287,chest pain,devanagari,safety_layer_uniform,10,10,0.8461538461538461,True,pmh;sev,pmh;sev,0,0,cc;cp_rad;cp_char;assoc;cp_agg;allergy;meds;dur;fam;pers
+official_test_30,I0287,chest pain,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,0,cc;cp_rad;cp_char;assoc;cp_agg;allergy;meds;dur;fam;pers;pmh;sev
+official_test_30,I0287,chest pain,devanagari,safety_layer_uniform,none,16,1.0,False,,,0,4,cc;cp_rad;cp_char;assoc;cp_agg;allergy;meds;dur;fam;pers;pmh;sev;progression;cp_site;ros;free
+official_test_30,I0287,chest pain,devanagari,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg
+official_test_30,I0287,chest pain,devanagari,learned_ranker,8,8,0.6923076923076923,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh
+official_test_30,I0287,chest pain,devanagari,learned_ranker,10,10,0.8461538461538461,False,fam;pers,,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh;meds;allergy
+official_test_30,I0287,chest pain,devanagari,learned_ranker,12,12,1.0,False,,,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0287,chest pain,devanagari,learned_ranker,none,16,1.0,False,,,0,4,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh;meds;allergy;fam;pers;progression;cp_site;ros;free
+official_test_30,I0287,chest pain,devanagari,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;sev,allergy;drug;pmh;sev,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg
+official_test_30,I0287,chest pain,devanagari,learned_ranker_recorded,8,8,0.6923076923076923,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh
+official_test_30,I0287,chest pain,devanagari,learned_ranker_recorded,10,10,0.8461538461538461,False,fam;pers,,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh;meds;allergy
+official_test_30,I0287,chest pain,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,0,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh;meds;allergy;fam;pers
+official_test_30,I0287,chest pain,devanagari,learned_ranker_recorded,none,16,1.0,False,,,0,4,cc;cp_rad;cp_char;assoc;dur;cp_agg;sev;pmh;meds;allergy;fam;pers;progression;cp_site;ros;free
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,fixed_template,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,0,cc;dur;char;agg;rel;sev
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,fixed_template,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,0,cc;dur;char;agg;rel;sev;assoc;pmh
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,fixed_template,10,10,0.8333333333333334,False,fam;pers,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,fixed_template,12,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,fixed_template,none,12,1.0,False,,,0,0,cc;dur;char;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,6,6,0.4166666666666667,True,agg;allergy;char;drug;fam;pers;rel,allergy;char;drug,0,1,cc;dur;sev;progression;assoc;pmh
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,8,8,0.5833333333333334,True,agg;char;fam;pers;rel,char,0,1,cc;dur;sev;progression;assoc;pmh;meds;allergy
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,10,10,0.75,True,agg;char;rel,char,0,1,cc;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,12,12,0.75,True,agg;char;rel,char,0,3,cc;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v0_frozen,none,12,0.75,True,agg;char;rel,char,0,3,cc;dur;sev;progression;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,6,6,0.5,True,allergy;assoc;drug;fam;pers;pmh,allergy;assoc;drug;pmh,0,1,cc;dur;sev;progression;hpi_char;hpi_mod
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,8,8,0.6666666666666666,True,allergy;drug;fam;pers,allergy;drug,0,1,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,10,10,0.8333333333333334,False,fam;pers,,0,1,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,12,12,1.0,False,,,0,1,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,ontology_v1_current,none,14,1.0,False,,,0,3,cc;dur;sev;progression;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,6,6,0.5833333333333334,True,dur;fam;pers;pmh;sev,pmh;sev,0,0,cc;assoc;hpi_mod;allergy;hpi_char;meds
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,8,8,0.75,True,pers;pmh;sev,pmh;sev,0,0,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,10,10,0.9166666666666666,True,sev,sev,0,0,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam;pers;pmh
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,12,12,1.0,False,,,0,1,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam;pers;pmh;sev;progression
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,safety_layer_uniform,none,14,1.0,False,,,0,3,cc;assoc;hpi_mod;allergy;hpi_char;meds;dur;fam;pers;pmh;sev;progression;ros;free
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker,8,8,0.75,True,allergy;fam;pers,allergy,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker,10,10,0.9166666666666666,False,pers,,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker,12,12,1.0,False,,,0,1,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker,none,14,1.0,False,,,0,3,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,6,6,0.5833333333333334,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,8,8,0.75,True,allergy;fam;pers,allergy,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,10,10,0.9166666666666666,False,pers,,0,0,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,12,12,1.0,False,,,0,1,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0289,sudden weakness on one side and slurred speech,devanagari,learned_ranker_recorded,none,14,1.0,False,,,0,3,cc;assoc;dur;hpi_char;hpi_mod;sev;pmh;meds;allergy;fam;pers;progression;ros;free
+official_test_30,I0293,knee pain,devanagari,fixed_template,6,6,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;sev,allergy;assoc;drug;pmh;sev,0,0,cc;dur;char;rad;agg;rel
+official_test_30,I0293,knee pain,devanagari,fixed_template,8,8,0.6153846153846154,True,allergy;drug;fam;pers;pmh,allergy;drug;pmh,0,0,cc;dur;char;rad;agg;rel;sev;assoc
+official_test_30,I0293,knee pain,devanagari,fixed_template,10,10,0.7692307692307693,True,allergy;fam;pers,allergy,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug
+official_test_30,I0293,knee pain,devanagari,fixed_template,12,12,0.9230769230769231,False,pers,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam
+official_test_30,I0293,knee pain,devanagari,fixed_template,none,13,1.0,False,,,0,0,cc;dur;char;rad;agg;rel;sev;assoc;pmh;drug;allergy;fam;pers
+official_test_30,I0293,knee pain,devanagari,ontology_v0_frozen,6,6,0.23076923076923078,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0293,knee pain,devanagari,ontology_v0_frozen,8,8,0.38461538461538464,True,agg;allergy;char;drug;fam;pers;rad;rel,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh
+official_test_30,I0293,knee pain,devanagari,ontology_v0_frozen,10,10,0.5384615384615384,False,agg;char;fam;pers;rad;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy
+official_test_30,I0293,knee pain,devanagari,ontology_v0_frozen,12,12,0.6923076923076923,False,agg;char;rad;rel,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers
+official_test_30,I0293,knee pain,devanagari,ontology_v0_frozen,none,14,0.6923076923076923,False,agg;char;rad;rel,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0293,knee pain,devanagari,ontology_v1_current,6,6,0.23076923076923078,True,agg;allergy;assoc;char;drug;fam;pers;pmh;rad;rel,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff
+official_test_30,I0293,knee pain,devanagari,ontology_v1_current,8,8,0.46153846153846156,True,allergy;assoc;drug;fam;pers;pmh;rad,allergy;assoc;drug;pmh,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod
+official_test_30,I0293,knee pain,devanagari,ontology_v1_current,10,10,0.6153846153846154,True,allergy;drug;fam;pers;rad,allergy;drug,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh
+official_test_30,I0293,knee pain,devanagari,ontology_v1_current,12,12,0.7692307692307693,False,fam;pers;rad,,0,3,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy
+official_test_30,I0293,knee pain,devanagari,ontology_v1_current,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;sev;progression;jt_site;jt_stiff;hpi_char;hpi_mod;assoc;pmh;meds;allergy;fam;pers;ros;free
+official_test_30,I0293,knee pain,devanagari,safety_layer_uniform,6,6,0.5384615384615384,True,dur;fam;pers;pmh;rad;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds
+official_test_30,I0293,knee pain,devanagari,safety_layer_uniform,8,8,0.6923076923076923,True,pers;pmh;rad;sev,pmh;sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam
+official_test_30,I0293,knee pain,devanagari,safety_layer_uniform,10,10,0.8461538461538461,True,rad;sev,sev,0,0,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh
+official_test_30,I0293,knee pain,devanagari,safety_layer_uniform,12,12,0.9230769230769231,False,rad,,0,1,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression
+official_test_30,I0293,knee pain,devanagari,safety_layer_uniform,none,16,0.9230769230769231,False,rad,,0,5,cc;hpi_mod;allergy;assoc;hpi_char;meds;dur;fam;pers;pmh;sev;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0293,knee pain,devanagari,learned_ranker,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0293,knee pain,devanagari,learned_ranker,8,8,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0293,knee pain,devanagari,learned_ranker,10,10,0.8461538461538461,False,pers;rad,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0293,knee pain,devanagari,learned_ranker,12,12,0.9230769230769231,False,rad,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0293,knee pain,devanagari,learned_ranker,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
+official_test_30,I0293,knee pain,devanagari,learned_ranker_recorded,6,6,0.5384615384615384,True,allergy;drug;fam;pers;pmh;rad,allergy;drug;pmh,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc
+official_test_30,I0293,knee pain,devanagari,learned_ranker_recorded,8,8,0.6923076923076923,True,allergy;fam;pers;rad,allergy,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds
+official_test_30,I0293,knee pain,devanagari,learned_ranker_recorded,10,10,0.8461538461538461,False,pers;rad,,0,0,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam
+official_test_30,I0293,knee pain,devanagari,learned_ranker_recorded,12,12,0.9230769230769231,False,rad,,0,1,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression
+official_test_30,I0293,knee pain,devanagari,learned_ranker_recorded,none,16,0.9230769230769231,False,rad,,0,5,cc;dur;hpi_char;hpi_mod;sev;assoc;pmh;meds;allergy;fam;pers;progression;jt_site;jt_stiff;ros;free
