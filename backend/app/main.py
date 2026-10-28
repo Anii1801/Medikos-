@@ -670,7 +670,7 @@ class DocumentCorrection(BaseModel):
 
 @app.put("/api/documents/{did}")
 def correct_document(did: int, correction: DocumentCorrection, u=Depends(user)):
-    if correction.doc_type not in {"lab_report", "prescription", "discharge_summary", "other"}:
+    if correction.doc_type not in {"lab_report", "prescription", "discharge_summary", "radiology_report", "other"}:
         raise HTTPException(422, "Unsupported document category.")
     with db.tx() as c:
         row = c.execute("SELECT entities FROM documents WHERE id=? AND user_id=?", (did, u["id"])).fetchone()

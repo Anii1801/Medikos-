@@ -1,12 +1,13 @@
-"""Real-browser end-to-end test (Chromium via Playwright) of the clinician view.
+"""Real-browser end-to-end tests (Chromium via Playwright) for clinician and patient views.
 
 Starts the actual server on a temp DB, submits synthetic records (software testing only),
 then asserts on the *rendered DOM*: order of blocks, the exact label, failed/empty states,
 approval flow, and HTML escaping. Skipped if Playwright/Chromium is unavailable.
 """
-import os, socket, sqlite3, subprocess, sys, tempfile, time
+import io, os, socket, sqlite3, subprocess, sys, tempfile, time
 import httpx
 import pytest
+from reportlab.pdfgen import canvas
 
 pw = pytest.importorskip("playwright.sync_api")
 
@@ -87,6 +88,84 @@ def open_record(browser, base, rid):
     return page
 
 
+def _pdf(lines):
+    stream = io.BytesIO()
+    pdf = canvas.Canvas(stream)
+    for index, line in enumerate(lines):
+        pdf.drawString(48, 780 - index * 24, line)
+    pdf.save()
+    return stream.getvalue()
+
+
+def test_interview_renders_extracted_fields_and_section_specific_empty_labs(browser, server):
+    base, _ = server
+    token = httpx.post(base + "/api/auth/guest?name=DocumentRendering").json()["token"]
+    documents = [
+        ("Prescription.pdf", [
+            "PRESCRIPTION", "Date: 2025-03-13", "Tab Metformin 500 mg BD",
+            "Diagnosis: Diabetes", "Allergy: Penicillin", "No fever",
+            "Discharge plan: continue current medications.",
+        ]),
+        ("Discharge.pdf", [
+            "DISCHARGE SUMMARY", "Discharge date: 2025-03-14",
+            "Diagnosis: Pneumonia", "Tab Amoxicillin 500 mg TDS",
+        ]),
+        ("Radiology.pdf", [
+            "RADIOLOGY REPORT", "Date: 2025-03-15", "MRI Brain",
+            "Impression: No acute infarct. Headache reported.",
+        ]),
+        ("Laboratory.pdf", [
+            "LABORATORY REPORT", "Date: 2025-03-16",
+            "Haemoglobin 9.1 g/dL",
+        ]),
+    ]
+    page = browser.new_page()
+    page.set_default_timeout(5000)
+    page.set_default_navigation_timeout(15000)
+    page.add_init_script(
+        f"sessionStorage.setItem('mk_token', '{token}'); localStorage.setItem('mk_lang', 'en')"
+    )
+    page.goto(base + "/index.html", wait_until="domcontentloaded")
+    page.evaluate("docs()")
+    page.get_by_role("heading", name="Upload medical reports").wait_for()
+    page.locator("#f").set_input_files([
+        {"name": filename, "mimeType": "application/pdf", "buffer": _pdf(lines)}
+        for filename, lines in documents
+    ])
+    page.locator("#up").click()
+    page.locator("article.doc-item").nth(3).wait_for()
+    assert page.locator("article.doc-item").count() == len(documents)
+
+    expected_types = {
+        "Prescription.pdf": ("prescription", ("Metformin", "Diabetes", "Penicillin", "fever")),
+        "Discharge.pdf": ("discharge_summary", ("Pneumonia", "Amoxicillin")),
+        "Radiology.pdf": ("radiology_report", ("Headache",)),
+        "Laboratory.pdf": ("lab_report", ("Haemoglobin", "2025-03-16")),
+    }
+    for filename, (doc_type, expected_values) in expected_types.items():
+        article = page.locator("article.doc-item").filter(has_text=filename)
+        article.locator(":scope > details > summary").click()
+        assert article.locator("select[data-document-category]").input_value() == doc_type
+        structured = article.locator('[data-testid="structured-extraction"]')
+        rendered = structured.inner_text()
+        for value in expected_values:
+            assert value.lower() in rendered.lower()
+        assert article.locator("details > .document-extraction").count() == 1
+        preview = article.locator("pre.document-preview")
+        assert preview.is_hidden()
+        article.locator("details").nth(1).locator("summary").click()
+        assert preview.is_visible()
+        if filename == "Prescription.pdf":
+            empty_labs = article.locator('[data-testid="no-lab-findings"]')
+            assert empty_labs.count() == 1
+            assert empty_labs.locator("xpath=ancestor::section[1]").locator("h3").inner_text() == "Laboratory findings"
+            assert "Metformin" in rendered
+            assert "Review required" in structured.locator('[data-testid="document-review-status"]').inner_text()
+        if filename == "Laboratory.pdf":
+            assert "Review required" in structured.locator('[data-testid="document-review-status"]').inner_text()
+    page.close()
+
+
 def test_dom_order_label_notice_and_emergency_item(browser, server, records):
     base, _ = server
     page = open_record(browser, base, records["emergency"])
@@ -120,6 +199,7 @@ def test_interview_document_upload_and_management_flow(browser, server):
 
     page = browser.new_page()
     page.set_default_timeout(5000)
+    page.set_default_navigation_timeout(15000)
     page.add_init_script(f"sessionStorage.setItem('mk_token', '{token}'); localStorage.setItem('mk_lang', 'en')")
     page.goto(base + "/dashboard.html")
     assert page.locator('a[href="reports.html"]').count() == 0
@@ -156,7 +236,7 @@ def test_interview_document_upload_and_management_flow(browser, server):
 
     page.on("dialog", lambda dialog: dialog.accept())
     page.locator("article.doc-item summary").first.click()
-    page.locator(f'[data-document-delete="{document_id}"]').click()
+    page.locator(f'[data-d="{document_id}"]').click()
     page.locator("article.doc-item summary").first.click()
     page.locator('[data-d]').click()
     page.get_by_text("No documents uploaded yet.").wait_for()
@@ -300,8 +380,9 @@ def test_patient_view_renderer_uses_same_order(browser, server):
     t = httpx.post(base + "/api/auth/guest?name=P").json()["token"]
     rep = httpx.post(base + "/api/clinical-summary", json={"answers": EMERGENCY}, headers={"Authorization": f"Bearer {t}"}).json()
     page = browser.new_page()
+    page.set_default_navigation_timeout(15000)
     page.add_init_script("localStorage.setItem('mk_lang', 'en')")
-    page.goto(base + "/index.html")
+    page.goto(base + "/index.html", wait_until="domcontentloaded")
     page.evaluate("rep => { document.body.insertAdjacentHTML('beforeend', '<div id=\"t\">' + renderClinicalReport(rep, {mode: 'patient'}) + '</div>'); }", rep)
     assert page.eval_on_selector_all("#t [data-block]", "els => els.map(e => e.dataset.block)") == ["clinical_summary", "red_flag_suggestions"]
     assert page.inner_text("#t #red-flag-suggestions h2") == LABEL

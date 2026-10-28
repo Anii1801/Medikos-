@@ -11,6 +11,72 @@ from app import ontology, ocr, summary, db, main as main_module
 c = TestClient(app)
 H = lambda t: {"Authorization": f"Bearer {t}"}
 
+def _pdf(lines):
+    stream = io.BytesIO()
+    page = canvas.Canvas(stream)
+    for index, line in enumerate(lines):
+        page.drawString(48, 780 - index * 24, line)
+    page.save()
+    return stream.getvalue()
+
+
+@pytest.mark.parametrize(("filename", "lines", "doc_type", "expected"), [
+    ("Prescription.pdf", [
+        "PRESCRIPTION", "Date: 2025-03-13", "Tab Metformin 500 mg BD",
+        "Diagnosis: Diabetes", "Allergy: Penicillin", "No fever",
+        "Discharge plan: continue current medications.",
+    ], "prescription", {"medications": "Metformin", "diagnoses": "diabetes", "allergies": "Penicillin"}),
+    ("Discharge.pdf", [
+        "DISCHARGE SUMMARY", "Discharge date: 2025-03-14",
+        "Diagnosis: Pneumonia", "Tab Amoxicillin 500 mg TDS",
+    ], "discharge_summary", {"medications": "Amoxicillin", "diagnoses": "pneumonia"}),
+    ("Radiology.pdf", [
+        "RADIOLOGY REPORT", "Date: 2025-03-15", "MRI Brain",
+        "Impression: No acute infarct. Headache reported.",
+    ], "radiology_report", {"symptoms": "headache"}),
+    ("Laboratory.pdf", [
+        "LABORATORY REPORT", "Date: 2025-03-16",
+        "Haemoglobin 9.1 g/dL (13-17)",
+    ], "lab_report", {"labs": "Haemoglobin"}),
+])
+def test_pdf_document_types_and_structured_data_are_returned_and_persisted(
+        filename, lines, doc_type, expected):
+    token = c.post("/api/auth/guest?name=DocumentExtraction").json()["token"]
+    headers = H(token)
+    content = _pdf(lines)
+    uploaded_response = c.post(
+        "/api/documents", files={"file": (filename, content, "application/pdf")}, headers=headers
+    )
+    assert uploaded_response.status_code == 200, uploaded_response.text
+    uploaded = uploaded_response.json()
+
+    assert uploaded["doc_type"] == doc_type
+    assert uploaded["entities"]["doc_type"] == doc_type
+    assert uploaded["engine"] == "pdf-text"
+    assert uploaded["processing_status"] in {"extracted", "needs_review"}
+    assert uploaded["has_original"] is True
+    assert uploaded["text"] and " ".join(lines[0].lower().split()) in uploaded["text"].lower()
+    assert uploaded["date"] == uploaded["entities"]["date"]
+
+    for field, value in expected.items():
+        assert any(value.lower() in str(item).lower() for item in uploaded["entities"][field])
+
+    local_entities = ocr.extract(uploaded["text"], uploaded["entities"]["provenance"])
+    for key, value in local_entities.items():
+        assert uploaded["entities"][key] == value
+    persisted = c.get("/api/documents", headers=headers).json()
+    assert len(persisted) == 1
+    stored = persisted[0]
+    assert stored["id"] == uploaded["id"]
+    assert stored["text"] == uploaded["text"]
+    assert stored["entities"] == uploaded["entities"]
+    assert stored["doc_type"] == uploaded["doc_type"]
+    assert c.get(f"/api/documents/{stored['id']}/file", headers=headers).content == content
+
+    other_token = c.post("/api/auth/guest?name=OtherDocumentOwner").json()["token"]
+    assert c.get(f"/api/documents/{stored['id']}/file", headers=H(other_token)).status_code == 404
+
+
 def test_adaptive_flow_and_redflag():
     a = {"cc": "Chest pain", "dur": "Today", "sev": "Severe"}
     n = ontology.next_question({**a})

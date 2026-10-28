@@ -221,10 +221,28 @@ def find_date(text: str) -> str | None:
     return None
 
 def classify(text: str) -> str:
-    t = text.lower()
-    if re.search(r"discharge|admission|admitted|hospital course", t): return "discharge_summary"
-    if re.search(r"\brx\b|\btab\b|\bcap\b|\bsyp\b|\bbd\b|\btds\b|\bod\b|prescription", t) and not re.search(r"reference range|ref\.? range", t): return "prescription"
-    if re.search(r"reference|g/dl|mg/dl|report|pathology|lab", t): return "lab_report"
+    t = (text or "").lower()
+    lines = [re.sub(r"[\s:：|_-]+", " ", line).strip() for line in t.splitlines() if line.strip()]
+    heading = "\n".join(lines[:12])
+    if re.search(r"(?im)^\s*(?:discharge summary|discharge report|discharge note|hospital discharge|"
+                 r"admission summary|hospital course)\b", heading):
+        return "discharge_summary"
+    if re.search(r"\b(?:radiology|radiograph|x ray|xray|mri|ct scan|ultrasound|sonography)\b", heading) and (
+        re.search(r"\b(?:report|findings|impression)\b", heading)
+        or re.search(r"(?im)^\s*(?:radiology|radiograph|x ray|xray|mri|ct scan|ultrasound|sonography)\b", heading)
+    ):
+        return "radiology_report"
+    if re.search(r"(?im)^\s*(?:prescription|rx\b|medication order)\b", heading):
+        return "prescription"
+    if re.search(r"\b(?:tab(?:let)?\.?|cap(?:sule)?\.?|syp\.?|inj\.?)\s+", t) and any(
+        re.search(rf"\b{re.escape(drug)}\b", t) for drug in DRUGS
+    ):
+        return "prescription"
+    if re.search(r"(?im)^\s*(?:laboratory|lab|pathology|blood test) (?:report|results?)\b", heading):
+        return "lab_report"
+    if re.search(r"\b(?:reference range|ref\.? range|g/dl|mg/dl|haemoglobin|hemoglobin|"
+                 r"creatinine|hba1c|platelets?|wbc|tsh)\b", t):
+        return "lab_report"
     return "other"
 
 def _fact_source(text: str, start: int, end: int, source: dict[str, Any] | None, confidence: float = 0.8) -> SourceSpan:

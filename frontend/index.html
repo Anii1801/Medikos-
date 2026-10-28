@@ -1143,8 +1143,97 @@ function docStatus(d) {
   if (d.processing_status === "failed") return { label: d.processing_error ? patientError(d.processing_error) : tr("Processing failed"), cls: "err" };
   if (d.processing_status === "needs_review") return { label: d.processing_error ? patientError(d.processing_error) : tr("Needs review"), cls: "warn" };
   if (!d.text) return { label: tr("Unreadable — type the contents"), cls: "err" };
-  if ((ent.review_flags || []).length) return { label: tr("Needs review"), cls: "warn" };
+  if ((ent.review_flags || []).length || (ent.facts || []).some(fact => fact.review_required)
+      || (ent.labs || []).some(lab => (lab.ambiguity || []).length)) {
+    return { label: tr("Needs review"), cls: "warn" };
+  }
   return { label: tr("Completed"), cls: "ok" };
+}
+
+function renderDocumentExtraction(d) {
+  const ent = d.entities || {};
+  const medications = ent.medications || [];
+  const diagnoses = ent.diagnoses || [];
+  const labs = ent.labs || [];
+  const symptoms = ent.symptoms || [];
+  const allergies = ent.allergies || [];
+  const facts = ent.facts || [];
+  const reviewFlags = ent.review_flags || [];
+  const uncertain = d.processing_status === "needs_review" || d.processing_status === "failed"
+    || reviewFlags.length > 0 || facts.some(fact => fact.review_required)
+    || labs.some(lab => (lab.ambiguity || []).length > 0);
+  const section = (title, contents) => contents
+    ? `<section class="document-extraction-section"><h3>${tr(title)}</h3>${contents}</section>` : "";
+  const sourceLabel = source => {
+    const location = [];
+    if (source?.page) location.push(`${tr("Page")} ${esc(source.page)}`);
+    if (source?.start != null && source?.end != null) {
+      location.push(`${tr("sourceText")} ${esc(source.start)}-${esc(source.end)}`);
+    }
+    return location.length ? ` · ${location.join(" · ")}` : "";
+  };
+  const factFor = (field, value) => facts.find(fact => fact.field === field && (
+    typeof fact.value === "object" ? fact.value?.name === value : fact.value === value
+  ));
+  const factDetails = fact => fact ? [
+    fact.status ? tr(fact.status) : "",
+    Number.isFinite(fact.confidence) ? `${Math.round(fact.confidence * 100)}% ${tr("confidence")}` : "",
+    fact.review_required ? tr("Needs review") : "",
+    sourceLabel(fact.source).trim().replace(/^·\s*/, "")
+  ].filter(Boolean).join(" · ") : "";
+  const genericFacts = facts.filter(fact => !["medication", "lab", "symptom", "allergy"].includes(fact.field));
+  const hasExtractedStructuredFields = Boolean(ent.date || diagnoses.length || medications.length
+    || labs.length || symptoms.length || allergies.length || facts.length);
+  const structured = [
+    d.date ? `<p><b>${tr("documentDate")}:</b> ${esc(d.date)}</p>` : "",
+    ent.date ? `<p><b>${tr("dateExtracted")}:</b> ${esc(ent.date)}${sourceLabel(ent.date_source)}</p>` : "",
+    section("Diagnoses mentioned", diagnoses.length
+      ? `<ul>${diagnoses.map(value => `<li>${esc(value)}</li>`).join("")}</ul>` : ""),
+    section("Medication mentions", medications.length
+      ? `<ul>${medications.map(medication => `<li data-field="medication"><b>${esc(medication.name)}</b>`
+        + `${medication.dose ? ` · ${esc(medication.dose)}` : ""}${medication.frequency ? ` · ${esc(medication.frequency)}` : ""}`
+        + `${medication.status ? ` · ${esc(tr(medication.status))}` : ""}`
+        + `${Number.isFinite(medication.confidence) ? ` · ${Math.round(medication.confidence * 100)}% ${tr("confidence")}` : ""}`
+        + `${factFor("medication", medication.name)?.review_required ? ` · ${tr("Needs review")}` : ""}`
+        + `${sourceLabel(medication.source)}</li>`).join("")}</ul>` : ""),
+    section("Symptoms mentioned", symptoms.length
+      ? `<ul>${symptoms.map(symptom => {
+        const details = factDetails(factFor("symptom", symptom));
+        return `<li>${esc(symptom)}${details ? ` · ${esc(details)}` : ""}</li>`;
+      }).join("")}</ul>` : ""),
+    section("Allergy mentions", allergies.length
+      ? `<ul>${allergies.map(allergy => {
+        const details = factDetails(factFor("allergy", allergy));
+        return `<li>${esc(allergy)}${details ? ` · ${esc(details)}` : ""}</li>`;
+      }).join("")}</ul>` : ""),
+    section("Laboratory findings", labs.length
+      ? `<div class="table-wrap"><table class="stack-table"><thead><tr><th>${tr("Test")}</th><th>${tr("Value")}</th><th>${tr("Reference range")}</th><th>${tr("Date")}</th><th>${tr("Uncertainty")}</th></tr></thead><tbody>${labs.map(lab => {
+        const uncertainty = (lab.ambiguity || []).join("; ");
+        const details = [lab.flag, lab.status, uncertainty,
+          Number.isFinite(lab.confidence) ? `${Math.round(lab.confidence * 100)}% ${tr("confidence")}` : "",
+          sourceLabel(lab.source).trim().replace(/^·\s*/, "")].filter(Boolean).join(" · ");
+        return `<tr data-field="lab"><td data-label="${tr("Test")}">${esc(lab.test)}</td>`
+          + `<td data-label="${tr("Value")}">${esc(lab.value)}${lab.unit ? ` ${esc(lab.unit)}` : ""}</td>`
+          + `<td data-label="${tr("Reference range")}">${esc(lab.ref || tr("Not provided"))}</td>`
+          + `<td data-label="${tr("Date")}">${esc(lab.measurement_date || tr("Not reported"))}</td>`
+          + `<td data-label="${tr("Uncertainty")}">${esc(details || tr("Not reported"))}</td></tr>`;
+      }).join("")}</tbody></table></div>`
+      : `<p class="caption" data-testid="no-lab-findings">${tr("noFindings")}</p>`),
+    section("Other extracted findings", genericFacts.length
+      ? `<ul>${genericFacts.map(fact => `<li data-field="${esc(fact.field)}"><b>${esc(fact.field)}:</b> ${esc(typeof fact.value === "string" ? fact.value : JSON.stringify(fact.value))}`
+        + `${fact.status ? ` · ${esc(tr(fact.status))}` : ""}`
+        + `${Number.isFinite(fact.confidence) ? ` · ${Math.round(fact.confidence * 100)}% ${tr("confidence")}` : ""}`
+        + `${fact.review_required ? ` · ${tr("Needs review")}` : ""}${sourceLabel(fact.source)}</li>`).join("")}</ul>` : "")
+  ].filter(Boolean).join("");
+  return `<section class="document-extraction" data-testid="structured-extraction">
+    <h3>${tr("Structured extracted information")}</h3>
+    <p class="caption ${uncertain ? "alert" : ""}" data-testid="document-review-status">${uncertain
+      ? tr("Review required: verify extracted details against the original document.")
+      : tr("Extraction complete; verify details against the original document.")}</p>
+    ${reviewFlags.length ? `<p class="caption">${tr("Review flags")}: ${reviewFlags.map(flag => esc(tr(flag))).join(", ")}</p>` : ""}
+    ${structured}
+    ${hasExtractedStructuredFields ? "" : `<p class="caption">${tr("No structured information was extracted from this document.")}</p>`}
+  </section>`;
 }
 
 async function docs(notice = "") {
@@ -1200,7 +1289,7 @@ async function docs(notice = "") {
           <label class="input-label" for="category-${d.id}">${tr("documentCategory")}</label>
           <div class="row">
             <select id="category-${d.id}" data-document-category="${d.id}">
-              ${[["lab_report", "Laboratory report"], ["prescription", "Prescription"], ["discharge_summary", "Discharge summary"], ["other", "Other"]].map(([value, label]) => `<option value="${value}" ${d.doc_type === value ? "selected" : ""}>${tr(label)}</option>`).join("")}
+              ${[["lab_report", "Laboratory report"], ["prescription", "Prescription"], ["discharge_summary", "Discharge summary"], ["radiology_report", "Radiology report"], ["other", "Other"]].map(([value, label]) => `<option value="${value}" ${d.doc_type === value ? "selected" : ""}>${tr(label)}</option>`).join("")}
             </select>
             <button class="btn btn-outline btn-sm" data-document-save-category="${d.id}" type="button">${tr("saveCategory")}</button>
           </div>
@@ -1209,11 +1298,8 @@ async function docs(notice = "") {
             ${d.processing_status === "failed" ? `<label class="btn btn-outline btn-sm">${tr("chooseDocument")}<input type="file" data-document-replacement="${d.id}" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.txt" hidden></label><button class="btn btn-outline btn-sm" data-document-retry="${d.id}" type="button">${tr("retryExtraction")}</button>` : ""}
             <button class="btn btn-outline btn-sm btn-danger" data-d="${d.id}" type="button">${t("removeDocument")}</button>
           </div>
+          ${renderDocumentExtraction(d)}
           ${d.text ? `<details class="mt-sm"><summary>${tr("extractedText")}</summary><pre class="document-preview">${esc(d.text)}</pre></details>` : `<p class="caption mt-sm">${tr("noExtractedText")}</p>`}
-          ${ent.diagnoses?.length ? `<p class="timeline-body">${tr("Diagnoses mentioned")}: ${ent.diagnoses.map(esc).join(", ")}</p>` : ""}
-          ${(ent.medications || []).length ? `<h3>${tr("Medication mentions")}</h3><ul>${ent.medications.map(m => `<li>${esc(m.name)} ${esc(m.dose || "")} ${esc(m.frequency || "")} · ${esc(tr(m.status || "reported"))}</li>`).join("")}</ul>` : ""}
-          ${(ent.allergies || []).length ? `<h3>${tr("Allergy mentions")}</h3><ul>${ent.allergies.map(item => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}
-          ${(ent.labs || []).length ? `<h3>${tr("Laboratory findings")}</h3><div class="table-wrap"><table class="stack-table"><thead><tr><th>${tr("Test")}</th><th>${tr("Value")}</th><th>${tr("Reference range")}</th><th>${tr("Uncertainty")}</th></tr></thead><tbody>${ent.labs.map(l => `<tr><td data-label="${tr("Test")}">${esc(l.test)}</td><td data-label="${tr("Value")}">${esc(l.value)} ${esc(l.unit || "")}</td><td data-label="${tr("Reference range")}">${esc(l.ref || tr("Not provided"))}</td><td data-label="${tr("Uncertainty")}">${esc(l.uncertainty || l.reference_source || tr("Not reported"))}</td></tr>`).join("")}</tbody></table></div>` : `<p class="caption">${tr("noFindings")}</p>`}
         </details>
       </article>`;
     }).join("")}
