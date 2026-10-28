@@ -445,7 +445,7 @@ window.MK_PATIENT_I18N = {
 };
 const API_BASE = (window.MEDIKIOSK_API_BASE != null
   ? String(window.MEDIKIOSK_API_BASE)
-  : (["localhost", "127.0.0.1"].includes(location.hostname) ? "" : "https://medikos.onrender.com")
+  : (["localhost", "127.0.0.1"].includes(location.hostname) ? "" : "https://medikos-backend.onrender.com")
 ).replace(/\/+$/, "");
 let TOKEN = sessionStorage.getItem("mk_token") || "";
 async function api(path, opt = {}) {
